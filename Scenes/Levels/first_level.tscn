@@ -1,0 +1,255 @@
+[gd_scene load_steps=24 format=3 uid="uid://df2a48ft85jww"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
+[ext_resource type="PackedScene" uid="uid://oclkolfhemxg" path="res://Scenes/Bullets/Defalt_ball.tscn" id="2_wqabs"]
+[ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
+[ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/punktire_line.png" id="5_7ui2n"]
+[ext_resource type="Texture2D" uid="uid://ehfrga1mi7t1" path="res://Texture/UI/i.png" id="5_ho1at"]
+[ext_resource type="Shader" path="res://Shaders/repeat_texture.gdshader" id="5_ix1q1"]
+[ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Level_environment/3).png" id="6_3rmiv"]
+[ext_resource type="Texture2D" uid="uid://bnub4rxgaa20e" path="res://Texture/UI/strelka.png" id="8_wf17s"]
+[ext_resource type="PackedScene" uid="uid://i7udjd2in6et" path="res://Scenes/UI/ball_rotate_ui.tscn" id="9_2r8vu"]
+[ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
+[ext_resource type="PackedScene" uid="uid://dth3oomadgqmv" path="res://Scenes/Enemy/Defalt_enemy.tscn" id="11_6a7mw"]
+[ext_resource type="PackedScene" uid="uid://d00wg716j3s2p" path="res://Scenes/Levels/bonus_ball.tscn" id="11_6r2mf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sh1d"]
+shader = ExtResource("5_ix1q1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_skssn"]
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0xly"]
+size = Vector2(701, 233)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wdayk"]
+font_size = 70
+outline_size = 10
+outline_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ockje"]
+font_size = 70
+outline_size = 10
+outline_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkoco"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny5mh"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8hou"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjevs"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="Theme" id="Theme_6um41"]
+Button/styles/disabled = SubResource("StyleBoxFlat_al670")
+Button/styles/focus = SubResource("StyleBoxFlat_jkoco")
+Button/styles/hover = SubResource("StyleBoxFlat_ny5mh")
+Button/styles/normal = SubResource("StyleBoxFlat_x8hou")
+Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
+
+[node name="First_level" type="Node2D"]
+script = ExtResource("1_wuo18")
+bullet = ExtResource("2_wqabs")
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2(-405, -68)
+
+[node name="Wall" parent="Walls" instance=ExtResource("3_0wlbe")]
+position = Vector2(-364, -13)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("3_0wlbe")]
+position = Vector2(666, -60)
+rotation = 1.5708
+
+[node name="Wall3" parent="Walls" instance=ExtResource("3_0wlbe")]
+position = Vector2(1377, -81)
+rotation = 1.5708
+
+[node name="Start_bullet_position" type="Node2D" parent="."]
+
+[node name="Detection_walls" type="RayCast2D" parent="Start_bullet_position"]
+position = Vector2(358, 1053)
+target_position = Vector2(720, 197)
+
+[node name="Line2D" type="Line2D" parent="Start_bullet_position"]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7sh1d")
+points = PackedVector2Array(358, 1053, 358, 1053)
+width = 5.0
+texture = ExtResource("5_7ui2n")
+texture_mode = 1
+
+[node name="Count_bullet_label" type="Label" parent="Start_bullet_position"]
+z_index = 1
+offset_left = 331.0
+offset_top = 990.0
+offset_right = 382.0
+offset_bottom = 1032.0
+text = "x10"
+label_settings = SubResource("LabelSettings_skssn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start_bullet_position" type="Sprite2D" parent="Start_bullet_position"]
+z_index = 1
+position = Vector2(358, 1053)
+texture = ExtResource("6_3rmiv")
+
+[node name="Ball_rotate_UI" parent="Start_bullet_position" instance=ExtResource("9_2r8vu")]
+visible = false
+position = Vector2(358, 1053)
+
+[node name="Strelka" type="Line2D" parent="Start_bullet_position"]
+points = PackedVector2Array(354, 1091, 354, 1091)
+width = 30.0
+texture = ExtResource("8_wf17s")
+texture_mode = 2
+
+[node name="Dicariations" type="Node2D" parent="."]
+position = Vector2(-405, -68)
+
+[node name="Detection_last_ball" type="Area2D" parent="Dicariations"]
+position = Vector2(409, 30)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dicariations/Detection_last_ball"]
+position = Vector2(350.5, 1208)
+shape = SubResource("RectangleShape2D_b0xly")
+
+[node name="Bonus_ball" parent="Dicariations" instance=ExtResource("11_6r2mf")]
+position = Vector2(707, 448)
+
+[node name="Bonus_ball2" parent="Dicariations" instance=ExtResource("11_6r2mf")]
+position = Vector2(710, 350)
+
+[node name="Concept2" type="Sprite2D" parent="Dicariations"]
+z_index = -1
+position = Vector2(764.5, 707.5)
+texture = ExtResource("10_t5r1o")
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(51, 48)
+
+[node name="Defalt_enemy" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(49, 236)
+
+[node name="Defalt_enemy2" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(150, 235)
+
+[node name="Defalt_enemy3" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(355, 234)
+
+[node name="Defalt_enemy4" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(456, 234)
+
+[node name="Defalt_enemy5" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(558, 234)
+
+[node name="Defalt_enemy7" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(150, 336)
+
+[node name="Defalt_enemy8" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(355, 337)
+
+[node name="Defalt_enemy9" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(458, 335)
+
+[node name="Defalt_enemy11" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(252, 435)
+
+[node name="Defalt_enemy12" parent="Enemy" instance=ExtResource("11_6a7mw")]
+position = Vector2(150, 436)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
+[node name="UI" type="Control" parent="."]
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+
+[node name="End_game" type="Control" parent="UI"]
+visible = false
+z_index = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -379.0
+offset_top = -120.0
+offset_right = -339.0
+offset_bottom = -80.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/End_game"]
+z_index = 1
+layout_mode = 0
+offset_left = -1170.0
+offset_top = -431.0
+offset_right = 2834.0
+offset_bottom = 1771.0
+mouse_filter = 2
+color = Color(0.0745098, 0.0745098, 0.0745098, 0.854902)
+
+[node name="Lose" type="Label" parent="UI/End_game"]
+z_index = 1
+layout_mode = 0
+offset_left = 341.0
+offset_top = 615.0
+offset_right = 1139.0
+offset_bottom = 711.0
+text = "ПОРАЖЕНИЕ"
+label_settings = SubResource("LabelSettings_wdayk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Win" type="Label" parent="UI/End_game"]
+z_index = 1
+layout_mode = 0
+offset_left = 341.0
+offset_top = 615.0
+offset_right = 1139.0
+offset_bottom = 711.0
+text = "ПОБЕДА"
+label_settings = SubResource("LabelSettings_ockje")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start_again" type="Button" parent="UI/End_game"]
+z_index = 2
+layout_mode = 0
+offset_left = 514.0
+offset_top = 780.0
+offset_right = 980.0
+offset_bottom = 862.0
+theme = SubResource("Theme_6um41")
+theme_override_font_sizes/font_size = 40
+text = "Попробовать ещё раз"
+
+[node name="Start_again" type="Sprite2D" parent="UI"]
+z_index = 1
+position = Vector2(643, 76)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_ho1at")
+
+[node name="Start_again_button" type="Button" parent="UI/Start_again"]
+z_index = -2
+offset_left = -163.0
+offset_top = -153.0
+offset_right = 160.0
+offset_bottom = 157.0
+
+[connection signal="body_entered" from="Dicariations/Detection_last_ball" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="UI/End_game/Start_again" to="." method="_on_start_again_pressed"]
+[connection signal="pressed" from="UI/Start_again/Start_again_button" to="." method="_on_start_again_pressed"]

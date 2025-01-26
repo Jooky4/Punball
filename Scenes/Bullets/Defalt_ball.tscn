@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://oclkolfhemxg"]
+
+[ext_resource type="Script" path="res://Scenes/Bullets/Defalt_ball.gd" id="1_mt050"]
+[ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Level_environment/3).png" id="2_7lh50"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56aeq"]
+radius = 320.624
+
+[node name="Defalt_ball" type="CharacterBody2D"]
+top_level = true
+collision_layer = 4
+collision_mask = 3
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+script = ExtResource("1_mt050")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.05, 0.05)
+shape = SubResource("CircleShape2D_56aeq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7lh50")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2.02656e-06, 1.5)
+scale = Vector2(2.1, 2.15)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

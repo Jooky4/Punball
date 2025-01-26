@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://i7udjd2in6et"]
+
+[ext_resource type="Shader" path="res://Shaders/rotate_texture.gdshader" id="1_b84s7"]
+[ext_resource type="Script" path="res://Scenes/UI/ball_rotate_ui.gd" id="1_g6i58"]
+[ext_resource type="Texture2D" uid="uid://pyrcsjlpcjxr" path="res://Texture/Level_environment/ball_ui.png" id="2_j20yf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1twi"]
+radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m2dsu"]
+shader = ExtResource("1_b84s7")
+shader_parameter/speed = 2.0
+
+[node name="Ball_rotate_UI" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_g6i58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_q1twi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_m2dsu")
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("2_j20yf")

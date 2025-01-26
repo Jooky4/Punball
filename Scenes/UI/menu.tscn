@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvj7tl2h5804k"]
+
+[ext_resource type="Script" path="res://Scenes/UI/menu.gd" id="1_duxj8"]
+[ext_resource type="Texture2D" uid="uid://1522rup05x52" path="res://Texture/Bacgrounds/main_menu.png" id="2_hk50k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2vgo"]
+font_size = 70
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lpl"]
+bg_color = Color(0.762009, 0.53941, 0.460928, 1)
+
+[sub_resource type="Theme" id="Theme_kmt4p"]
+Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_duxj8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hk50k")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ГЛАВНОЕ МЕНЮ"
+label_settings = SubResource("LabelSettings_k2vgo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_kmt4p")
+theme_override_font_sizes/font_size = 60
+text = "START"
+
+[node name="Button2" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_kmt4p")
+theme_override_font_sizes/font_size = 60
+text = "AD_SMALL"
+
+[node name="Button3" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_kmt4p")
+theme_override_font_sizes/font_size = 60
+text = "AD_BIG"
+
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
