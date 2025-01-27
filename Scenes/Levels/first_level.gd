@@ -40,21 +40,20 @@ var first_level = [
 	[0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0]
 ]
+var first_level_links = [
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0]
+]
 
 func _ready() -> void:
+	spawn_objects_on_matrix(1)
 	count_bullet_label.text = "x" + str(cout_bullet)
-	var count = 0
-	for i in first_level:
-		for j in i:
-			count += 1
-			if first_level[count/8][count%6] == 1:
-				var enemy = DEFALT_ENEMY.instantiate()
-				enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/8) * 103)
-				$Game_objects.add_child(enemy)
-			if first_level[count/8][count%6] == 2:
-				var bonus_ball = BONUS_BALL.instantiate()
-				bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/8) * 103)
-				$Game_objects.add_child(bonus_ball)
 	#YandexSDK.gameplay_started()
 
 func _process(delta):
@@ -99,6 +98,7 @@ func chec_game_end():
 		if "CharacterBody2D" in child.name or "Bullet" in child.name:
 			chec_lose_game = false
 			break
+
 	if chec_lose_game and boss_alive and count_bullet_label.text == "x0" and !balls_can_go:
 		balls_can_go = true
 		cout_bullet = LevelManager.count_ball
@@ -106,7 +106,14 @@ func chec_game_end():
 		count_bullet_label.position.x += new_position_balls
 		raycast_detection_walls.position.x += new_position_balls
 		start_balls_position.position.x += new_position_balls
-		#game_state = LOSE
+		
+		for i in $Game_objects.get_children():
+			i.position.y += 103
+		first_level = first_level.slice(0, 7)
+		first_level_links = first_level_links.slice(0, 7)
+		first_level_links.insert(0, [1, 2, 1, 2, 1, 2])
+		first_level.insert(0, [1, 2, 1, 2, 1, 2])
+		spawn_objects_on_matrix()
 
 func win():
 	end_game_UI.visible = true
@@ -135,7 +142,7 @@ func draw_trajectory() -> void:
 	while !bullet_rotate_UI.stop:
 		bullet_rotate_UI.ball_go()
 
-	if "enemy" in bullet_rotate_UI.collider_name:
+	if "enemy" in bullet_rotate_UI.collider_name or "StaticBody" in bullet_rotate_UI.collider_name:
 		var colider_walls = raycast_detection_walls.get_collider()
 		var colider_walls_point = raycast_detection_walls.get_collision_point()
 		line.points[1] = colider_walls_point
@@ -168,3 +175,28 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			new_position_balls = -(start_balls_position.position.x - new_position_balls)
 		body.queue_free()
+
+func spawn_objects_on_matrix(inex: int = 100) -> void:
+	var count = 0
+	if inex == 1:
+		for i in first_level:
+			for j in i:
+				count += 1
+				spawn_objects_by_index(count)
+	else:
+		for i in first_level[0]:
+			count += 1
+			spawn_objects_by_index(count)
+	print(first_level_links)
+
+func spawn_objects_by_index(count) -> void:
+	if first_level[count/8][count%6] == 1:
+		var enemy = DEFALT_ENEMY.instantiate()
+		enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/8) * 103)
+		first_level_links[count/8][count%6] = enemy
+		$Game_objects.add_child(enemy)
+	elif first_level[count/8][count%6] == 2:
+		var bonus_ball = BONUS_BALL.instantiate()
+		bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/8) * 103)
+		first_level_links[count/8][count%6] = bonus_ball
+		$Game_objects.add_child(bonus_ball)
