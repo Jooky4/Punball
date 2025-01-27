@@ -8,24 +8,53 @@ enum {
 }
 
 var game_state = PLAY
+
+var DEFALT_ENEMY = preload("res://Scenes/Enemy/Defalt_enemy.tscn")
+var BONUS_BALL = preload("res://Scenes/Levels/bonus_ball.tscn")
+
 @export var bullet : PackedScene
-@onready var count_bullet_label = $Start_bullet_position/Count_bullet_label
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
 @onready var end_game_UI_lose = $UI/End_game/Lose
-@onready var raycast_detection_walls = $Start_bullet_position/Detection_walls
-@onready var line = $Start_bullet_position/Line2D
-@onready var start_balls_position = $Start_bullet_position/Start_bullet_position
-@onready var strelka = $Start_bullet_position/Strelka
-@onready var bullet_rotate_UI = $Start_bullet_position/Ball_rotate_UI
+
+@onready var count_bullet_label = $Dicariations/Start_bullet_position/Count_bullet_label
+@onready var raycast_detection_walls = $Dicariations/Start_bullet_position/Detection_walls
+@onready var line = $Dicariations/Start_bullet_position/Line2D
+@onready var start_balls_position = $Dicariations/Start_bullet_position/Start_bullet_position
+@onready var strelka = $Dicariations/Start_bullet_position/Strelka
+@onready var bullet_rotate_UI = $Dicariations/Start_bullet_position/Ball_rotate_UI
+
 var old_coord_mouse : Vector2 = Vector2.ZERO
 var cout_bullet = LevelManager.count_ball
 var direction = Vector2.ZERO
 var balls_can_go = true
 var new_position_balls = Vector2.ZERO
 
+var first_level = [
+	[1, 1, 2, 1, 1, 2],
+	[1, 1, 1, 1, 1, 1],
+	[2, 1, 1, 2, 1, 2],
+	[0, 1, 2, 0, 1, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0]
+]
+
 func _ready() -> void:
 	count_bullet_label.text = "x" + str(cout_bullet)
+	var count = 0
+	for i in first_level:
+		for j in i:
+			count += 1
+			if first_level[count/8][count%6] == 1:
+				var enemy = DEFALT_ENEMY.instantiate()
+				enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/8) * 103)
+				$Game_objects.add_child(enemy)
+			if first_level[count/8][count%6] == 2:
+				var bonus_ball = BONUS_BALL.instantiate()
+				bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/8) * 103)
+				$Game_objects.add_child(bonus_ball)
 	#YandexSDK.gameplay_started()
 
 func _process(delta):
@@ -59,8 +88,8 @@ func play_game():
 func chec_game_end():
 	var chec_lose_game = true
 	var boss_alive = false
-	for child in $Enemy.get_children():
-		if "enemy" in child.name:
+	for child in $Game_objects.get_children():
+		if child.has_method("enemy"):
 			boss_alive = true
 			break
 	if boss_alive == false:
@@ -132,7 +161,7 @@ func balls_go() -> void:
 		await get_tree().create_timer(0.1).timeout
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if ("CharacterBody2D" in body.name or "Bullet" in body.name) and count_bullet_label.text == "x0":
+	if ("CharacterBody2D" in body.name or "ball" in body.name):
 		new_position_balls = body.position.x
 		if new_position_balls > start_balls_position.position.x:
 			new_position_balls = new_position_balls - start_balls_position.position.x

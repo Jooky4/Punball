@@ -1,17 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=22 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://oclkolfhemxg" path="res://Scenes/Bullets/Defalt_ball.tscn" id="2_wqabs"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
 [ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/punktire_line.png" id="5_7ui2n"]
 [ext_resource type="Texture2D" uid="uid://ehfrga1mi7t1" path="res://Texture/UI/i.png" id="5_ho1at"]
-[ext_resource type="Shader" path="res://Shaders/repeat_texture.gdshader" id="5_ix1q1"]
+[ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
 [ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Level_environment/3).png" id="6_3rmiv"]
 [ext_resource type="Texture2D" uid="uid://bnub4rxgaa20e" path="res://Texture/UI/strelka.png" id="8_wf17s"]
 [ext_resource type="PackedScene" uid="uid://i7udjd2in6et" path="res://Scenes/UI/ball_rotate_ui.tscn" id="9_2r8vu"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
-[ext_resource type="PackedScene" uid="uid://dth3oomadgqmv" path="res://Scenes/Enemy/Defalt_enemy.tscn" id="11_6a7mw"]
-[ext_resource type="PackedScene" uid="uid://d00wg716j3s2p" path="res://Scenes/Levels/bonus_ball.tscn" id="11_6r2mf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0xly"]
+size = Vector2(701, 214.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7sh1d"]
 shader = ExtResource("5_ix1q1")
@@ -21,9 +22,6 @@ font_size = 30
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 10
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0xly"]
-size = Vector2(701, 233)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdayk"]
 font_size = 70
@@ -61,27 +59,43 @@ Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
 script = ExtResource("1_wuo18")
 bullet = ExtResource("2_wqabs")
 
-[node name="Walls" type="Node2D" parent="."]
-position = Vector2(-405, -68)
+[node name="Dicariations" type="Node2D" parent="."]
 
-[node name="Wall" parent="Walls" instance=ExtResource("3_0wlbe")]
-position = Vector2(-364, -13)
+[node name="Detection_last_ball" type="Area2D" parent="Dicariations"]
+position = Vector2(7.5, -37)
+collision_layer = 0
+collision_mask = 7
 
-[node name="Wall2" parent="Walls" instance=ExtResource("3_0wlbe")]
-position = Vector2(666, -60)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dicariations/Detection_last_ball"]
+position = Vector2(351, 1216)
+shape = SubResource("RectangleShape2D_b0xly")
+
+[node name="Fon" type="Sprite2D" parent="Dicariations"]
+z_index = -1
+position = Vector2(363, 640.5)
+texture = ExtResource("10_t5r1o")
+
+[node name="Walls" type="Node2D" parent="Dicariations"]
+position = Vector2(-401.5, -67)
+
+[node name="Wall" parent="Dicariations/Walls" instance=ExtResource("3_0wlbe")]
+position = Vector2(-343, -11)
+
+[node name="Wall2" parent="Dicariations/Walls" instance=ExtResource("3_0wlbe")]
+position = Vector2(660, -57)
 rotation = 1.5708
 
-[node name="Wall3" parent="Walls" instance=ExtResource("3_0wlbe")]
-position = Vector2(1377, -81)
+[node name="Wall3" parent="Dicariations/Walls" instance=ExtResource("3_0wlbe")]
+position = Vector2(1378, -81)
 rotation = 1.5708
 
-[node name="Start_bullet_position" type="Node2D" parent="."]
+[node name="Start_bullet_position" type="Node2D" parent="Dicariations"]
 
-[node name="Detection_walls" type="RayCast2D" parent="Start_bullet_position"]
+[node name="Detection_walls" type="RayCast2D" parent="Dicariations/Start_bullet_position"]
 position = Vector2(358, 1053)
 target_position = Vector2(720, 197)
 
-[node name="Line2D" type="Line2D" parent="Start_bullet_position"]
+[node name="Line2D" type="Line2D" parent="Dicariations/Start_bullet_position"]
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7sh1d")
@@ -90,7 +104,7 @@ width = 5.0
 texture = ExtResource("5_7ui2n")
 texture_mode = 1
 
-[node name="Count_bullet_label" type="Label" parent="Start_bullet_position"]
+[node name="Count_bullet_label" type="Label" parent="Dicariations/Start_bullet_position"]
 z_index = 1
 offset_left = 331.0
 offset_top = 990.0
@@ -101,76 +115,26 @@ label_settings = SubResource("LabelSettings_skssn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Start_bullet_position" type="Sprite2D" parent="Start_bullet_position"]
+[node name="Start_bullet_position" type="Sprite2D" parent="Dicariations/Start_bullet_position"]
 z_index = 1
 position = Vector2(358, 1053)
 texture = ExtResource("6_3rmiv")
 
-[node name="Ball_rotate_UI" parent="Start_bullet_position" instance=ExtResource("9_2r8vu")]
+[node name="Ball_rotate_UI" parent="Dicariations/Start_bullet_position" instance=ExtResource("9_2r8vu")]
 visible = false
 position = Vector2(358, 1053)
 
-[node name="Strelka" type="Line2D" parent="Start_bullet_position"]
+[node name="Strelka" type="Line2D" parent="Dicariations/Start_bullet_position"]
 points = PackedVector2Array(354, 1091, 354, 1091)
 width = 30.0
 texture = ExtResource("8_wf17s")
 texture_mode = 2
 
-[node name="Dicariations" type="Node2D" parent="."]
-position = Vector2(-405, -68)
+[node name="Setka" type="Node2D" parent="Dicariations"]
+position = Vector2(50, 232)
 
-[node name="Detection_last_ball" type="Area2D" parent="Dicariations"]
-position = Vector2(409, 30)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dicariations/Detection_last_ball"]
-position = Vector2(350.5, 1208)
-shape = SubResource("RectangleShape2D_b0xly")
-
-[node name="Bonus_ball" parent="Dicariations" instance=ExtResource("11_6r2mf")]
-position = Vector2(707, 448)
-
-[node name="Bonus_ball2" parent="Dicariations" instance=ExtResource("11_6r2mf")]
-position = Vector2(710, 350)
-
-[node name="Concept2" type="Sprite2D" parent="Dicariations"]
-z_index = -1
-position = Vector2(764.5, 707.5)
-texture = ExtResource("10_t5r1o")
-
-[node name="Enemy" type="Node2D" parent="."]
+[node name="Game_objects" type="Node2D" parent="."]
 position = Vector2(51, 48)
-
-[node name="Defalt_enemy" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(49, 236)
-
-[node name="Defalt_enemy2" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(150, 235)
-
-[node name="Defalt_enemy3" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(355, 234)
-
-[node name="Defalt_enemy4" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(456, 234)
-
-[node name="Defalt_enemy5" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(558, 234)
-
-[node name="Defalt_enemy7" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(150, 336)
-
-[node name="Defalt_enemy8" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(355, 337)
-
-[node name="Defalt_enemy9" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(458, 335)
-
-[node name="Defalt_enemy11" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(252, 435)
-
-[node name="Defalt_enemy12" parent="Enemy" instance=ExtResource("11_6a7mw")]
-position = Vector2(150, 436)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 640)

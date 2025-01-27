@@ -36,8 +36,9 @@ enabled=PackedStringArray("res://addons/godot-yandex-games-sdk/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://Resources/": "pink",
+"res://Resources/Shaders/": "blue",
 "res://Scenes/": "red",
-"res://Shaders/": "blue",
 "res://Texture/": "green"
 }
 
