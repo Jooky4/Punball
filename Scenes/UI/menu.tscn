@@ -62,19 +62,19 @@ vertical_alignment = 1
 layout_mode = 2
 theme = SubResource("Theme_kmt4p")
 theme_override_font_sizes/font_size = 60
-text = "START"
+text = "СТАРТ"
 
 [node name="Button2" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_kmt4p")
 theme_override_font_sizes/font_size = 60
-text = "AD_SMALL"
+text = "РЕКЛАМА МАЛ."
 
 [node name="Button3" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_kmt4p")
 theme_override_font_sizes/font_size = 60
-text = "AD_BIG"
+text = "РЕКЛАМА БОЛЬШ."
 
 [connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
