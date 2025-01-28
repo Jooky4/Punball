@@ -1,13 +1,21 @@
 extends CharacterBody2D
 
-var speed : int = 1200
+@onready var sprite = $Sprite2D
+@onready var line_trail : Line2D = $Line2D
+
+var speed : int = 1000
 var direction_bullet : Vector2
 var damage_ball = 100
-@onready var sprite = $Sprite2D
+var max_lenght_line = 12
 
 func _ready():
 	velocity = Vector2(speed, speed)
 	sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(direction_bullet * 1000))
+
+func _process(delta: float) -> void:
+	line_trail.add_point(self.global_position)
+	if line_trail.points.size() > max_lenght_line:
+		line_trail.remove_point(0)
 
 func _physics_process(delta) -> void:
 	var collision: KinematicCollision2D = move_and_collide(direction_bullet * velocity * delta)
