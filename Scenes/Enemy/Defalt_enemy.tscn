@@ -13,7 +13,7 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6f1y"]
-size = Vector2(88, 90)
+size = Vector2(90, 87)
 
 [node name="Defalt_enemy" type="StaticBody2D"]
 collision_layer = 2
@@ -21,16 +21,16 @@ collision_mask = 0
 script = ExtResource("1_k13r8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, 3)
-scale = Vector2(0.0752565, 0.0752752)
+position = Vector2(4, 10)
+scale = Vector2(0.0820981, 0.080171)
 texture = ExtResource("2_oa5ia")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 texture_filter = 3
 offset_left = -48.0
-offset_top = 30.0
-offset_right = 49.0
-offset_bottom = 45.0
+offset_top = 36.0
+offset_right = 50.0
+offset_bottom = 51.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_yqtgb")
@@ -38,9 +38,9 @@ texture_progress = ExtResource("4_bojpk")
 
 [node name="Hp_boss_label" type="Label" parent="."]
 offset_left = -48.0
-offset_top = 15.0
-offset_right = 194.0
-offset_bottom = 112.0
+offset_top = 21.0
+offset_right = 197.0
+offset_bottom = 118.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_r53h3")
@@ -48,5 +48,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -2)
+position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_e6f1y")

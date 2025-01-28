@@ -3,44 +3,42 @@
 [ext_resource type="Script" path="res://Scenes/Bullets/Defalt_ball.gd" id="1_mt050"]
 [ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Level_environment/3).png" id="2_7lh50"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
+radius = 14.0
+
 [sub_resource type="Curve" id="Curve_dionf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_56aeq"]
-radius = 350.321
-
 [node name="Defalt_ball" type="CharacterBody2D"]
 z_index = -1
-position = Vector2(339, 1231)
+position = Vector2(342, 1165)
 collision_layer = 4
 collision_mask = 3
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_mt050")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l7c6x")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+z_index = 2
+position = Vector2(0, 8)
+scale = Vector2(1, 1.5)
+texture = ExtResource("2_7lh50")
+offset = Vector2(1, 0)
+flip_v = true
+
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-position = Vector2(1, 0)
-width = 15.0
+width = 18.0
 width_curve = SubResource("Curve_dionf")
-default_color = Color(1, 1, 0.333333, 0.733333)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(1, 1)
-scale = Vector2(1, 1.5)
-texture = ExtResource("2_7lh50")
-flip_v = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-scale = Vector2(0.05, 0.05)
-shape = SubResource("CircleShape2D_56aeq")
+default_color = Color(1, 1, 0.333333, 0.498039)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(1.13083, -3.4883)
-scale = Vector2(2.06308, 2.52617)
+position = Vector2(1.13083, 9.50001)
+scale = Vector2(2.06308, 2.75)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

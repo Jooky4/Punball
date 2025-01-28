@@ -29,7 +29,7 @@ var direction = Vector2.ZERO
 var balls_can_go = true
 var new_position_balls = Vector2.ZERO
 
-var first_level =  [[1, 1, 2, 1, 1, 2],[2, 1, 1, 1, 1, 1],[1, 1, 1, 2, 1, 2],[2, 1, 2, 0, 1, 0],[1, 0, 0, 0, 0, 0],[2, 0, 1, 0, 0, 1],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
+var first_level =  [[1, 1, 2, 1, 1, 2],[2, 1, 1, 1, 1, 1],[1, 1, 1, 2, 1, 2],[2, 1, 2, 0, 1, 0],[1, 0, 0, 0, 0, 0],[2, 0, 1, 0, 0, 1],[0, 1, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
 var first_level_links = [[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
 
 func _ready() -> void:
@@ -74,7 +74,7 @@ func chec_game_end():
 		game_state = WIN
 
 	for child in get_children():
-		if "CharacterBody2D" in child.name or "Bullet" in child.name:
+		if "CharacterBody2D" in child.name or "ball" in child.name:
 			chec_lose_game = false
 			break
 
@@ -105,7 +105,7 @@ func win():
 	end_game_UI_win.visible = true
 
 func _on_start_again_pressed() -> void:
-	LevelManager.count_ball = 10
+	LevelManager.count_ball = LevelManager.count_ball
 	get_tree().reload_current_scene()
 
 func draw_trajectory() -> void:
@@ -121,14 +121,15 @@ func draw_trajectory() -> void:
 	while !bullet_rotate_UI.stop:
 		bullet_rotate_UI.ball_go()
 
+	if (start_balls_position.position.distance_to(strelka.points[1])) > (start_balls_position.position.distance_to(bullet_rotate_UI.position)):
+		strelka.points[1] = bullet_rotate_UI.position
+		line.points[0] = bullet_rotate_UI.position
+
 	if "enemy" in bullet_rotate_UI.collider_name or "StaticBody" in bullet_rotate_UI.collider_name:
 		line.points[1] = raycast_detection_walls.get_collision_point()
 	else:
 		line.points[1] = bullet_rotate_UI.position
 
-	if (start_balls_position.position.distance_to(strelka.points[1])) > (start_balls_position.position.distance_to(bullet_rotate_UI.position)):
-		strelka.points[1] = bullet_rotate_UI.position
-		line.visible = false
 
 func balls_go() -> void:
 	line.visible = false
@@ -136,13 +137,13 @@ func balls_go() -> void:
 	bullet_rotate_UI.visible = false
 	balls_can_go = false
 
-	for i in range(cout_bullet + 1):
+	for i in range(cout_bullet):
 		var b = bullet.instantiate()
 		b.position = start_balls_position.position
 		b.direction_bullet = direction
 		get_tree().current_scene.add_child(b)
-		count_bullet_label.text = "x" + str(cout_bullet - (i))
-		await get_tree().create_timer(0.1).timeout
+		count_bullet_label.text = "x" + str(cout_bullet - (i+1))
+		await get_tree().create_timer(0.07).timeout
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if ("CharacterBody2D" in body.name or "ball" in body.name):
