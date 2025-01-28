@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var line_trail : Line2D = $Line2D
 
-var speed : int = 1000
+var speed : int = 1200
 var direction_bullet : Vector2
 var damage_ball = 100
 var max_lenght_line = 12
@@ -31,10 +31,10 @@ func _physics_process(delta) -> void:
 			velocity.x = speed if velocity.x > 0 else -speed
 			velocity.y = speed if velocity.y > 0 else -speed
 
-			if collider.has_method("enemy"):
-				collider.deal_damage(damage_ball)
 			sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(reflect * 1000))
 			move_and_collide(reflect)
+			if collider.has_method("enemy"):
+				collider.deal_damage(damage_ball)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()

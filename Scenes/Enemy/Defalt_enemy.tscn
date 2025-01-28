@@ -6,23 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://526tixf85g56" path="res://Texture/Enemys/Полоска здоровья/healthbarProgress.png" id="4_bojpk"]
 [ext_resource type="FontFile" uid="uid://dlkc6eepgvil3" path="res://Resources/Fonts/Constance-7BLXE.otf" id="6_x0n8d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p01dc"]
-size = Vector2(85, 89)
-
 [sub_resource type="LabelSettings" id="LabelSettings_r53h3"]
 font = ExtResource("6_x0n8d")
 font_size = 40
 font_color = Color(1, 0, 0, 1)
 outline_size = 20
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6f1y"]
+size = Vector2(88, 90)
+
 [node name="Defalt_enemy" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_k13r8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -3.5)
-shape = SubResource("RectangleShape2D_p01dc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4, 3)
@@ -50,3 +46,7 @@ text = "100"
 label_settings = SubResource("LabelSettings_r53h3")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_e6f1y")
