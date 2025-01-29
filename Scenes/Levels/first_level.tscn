@@ -248,12 +248,13 @@ vertical_alignment = 1
 [node name="Start_again" type="Button" parent="UI/End_game"]
 z_index = 2
 layout_mode = 0
-offset_left = 514.0
-offset_top = 780.0
-offset_right = 980.0
-offset_bottom = 862.0
+offset_left = 430.0
+offset_top = 777.0
+offset_right = 1044.0
+offset_bottom = 859.0
 theme = SubResource("Theme_6um41")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("10_fo6nb")
+theme_override_font_sizes/font_size = 60
 text = "Попробовать ещё раз"
 
 [node name="Start_again" type="Sprite2D" parent="UI"]
@@ -293,21 +294,24 @@ color = Color(0.548963, 0.548963, 0.548963, 0.85098)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Chose_ball"]
 layout_mode = 0
-offset_left = 1049.0
-offset_top = 655.0
-offset_right = 1657.0
-offset_bottom = 940.0
+offset_left = 1043.0
+offset_top = 621.0
+offset_right = 1658.0
+offset_bottom = 867.0
+theme_override_constants/separation = 25
 
 [node name="Button" type="Button" parent="UI/Chose_ball/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+theme = SubResource("Theme_6um41")
 theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 text = "ОБЫЧНЫЙ"
 
 [node name="Button2" type="Button" parent="UI/Chose_ball/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+theme = SubResource("Theme_6um41")
 theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 60
 text = "РАССЫПАЮЩИЙСЯ"
@@ -315,8 +319,9 @@ text = "РАССЫПАЮЩИЙСЯ"
 [node name="Button3" type="Button" parent="UI/Chose_ball/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+theme = SubResource("Theme_6um41")
 theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 text = "БОМБА"
 
 [node name="Count_level_label" type="Label" parent="UI"]
