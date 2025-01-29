@@ -27,7 +27,7 @@ var old_coord_mouse : Vector2 = Vector2.ZERO
 var cout_bullet = LevelManager.count_ball
 var direction = Vector2.ZERO
 var balls_can_go = true
-var new_position_balls = Vector2.ZERO
+var new_position_balls = 0
 
 var first_level =  [[1, 1, 2, 1, 1, 2],[2, 1, 1, 1, 1, 1],[1, 1, 1, 2, 1, 2],[2, 1, 2, 0, 1, 0],[1, 0, 0, 0, 0, 0],[2, 0, 1, 0, 0, 1],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
 var first_level_links = [[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
@@ -125,7 +125,7 @@ func draw_trajectory() -> void:
 		strelka.points[1] = bullet_rotate_UI.position
 		line.points[0] = bullet_rotate_UI.position
 
-	if "enemy" in bullet_rotate_UI.collider_name or "StaticBody" in bullet_rotate_UI.collider_name:
+	if "Wall" not in bullet_rotate_UI.collider_name:
 		line.points[1] = raycast_detection_walls.get_collision_point()
 	else:
 		line.points[1] = bullet_rotate_UI.position
@@ -135,6 +135,7 @@ func balls_go() -> void:
 	strelka.visible = false
 	bullet_rotate_UI.visible = false
 	balls_can_go = false
+	new_position_balls = 0
 
 	for i in range(cout_bullet):
 		var b = bullet.instantiate()
@@ -142,16 +143,18 @@ func balls_go() -> void:
 		b.direction_bullet = direction
 		get_tree().current_scene.add_child(b)
 		count_bullet_label.text = "x" + str(cout_bullet - (i+1))
-		await get_tree().create_timer(0.07).timeout
+		await get_tree().create_timer(0.05).timeout
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if ("CharacterBody2D" in body.name or "ball" in body.name):
-		new_position_balls = body.position.x
-		if new_position_balls > start_balls_position.position.x:
-			new_position_balls = new_position_balls - start_balls_position.position.x
-		else:
-			new_position_balls = -(start_balls_position.position.x - new_position_balls)
-		body.queue_free()
+		if body.direction_bullet.y > 0:
+			if new_position_balls == 0:
+				new_position_balls = body.position.x
+				if new_position_balls > start_balls_position.position.x:
+					new_position_balls = new_position_balls - start_balls_position.position.x
+				else:
+					new_position_balls = -(start_balls_position.position.x - new_position_balls)
+			body.queue_free()
 
 func spawn_objects_on_matrix(inex: int = 100) -> void:
 	var count = -1

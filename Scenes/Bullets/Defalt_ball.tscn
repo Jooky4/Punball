@@ -32,7 +32,7 @@ flip_v = true
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 15.0
+width = 18.0
 width_curve = SubResource("Curve_dionf")
 default_color = Color(1, 1, 0.333333, 0.25098)
 
