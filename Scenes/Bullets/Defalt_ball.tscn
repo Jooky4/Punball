@@ -12,7 +12,6 @@ point_count = 2
 
 [node name="Defalt_ball" type="CharacterBody2D"]
 z_index = -1
-position = Vector2(342, 1165)
 collision_layer = 4
 collision_mask = 3
 platform_on_leave = 2
@@ -33,9 +32,9 @@ flip_v = true
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 18.0
+width = 15.0
 width_curve = SubResource("Curve_dionf")
-default_color = Color(1, 1, 0.333333, 0.498039)
+default_color = Color(1, 1, 0.333333, 0.25098)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.13083, 9.50001)

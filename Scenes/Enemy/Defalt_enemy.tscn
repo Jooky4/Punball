@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dth3oomadgqmv"]
+[gd_scene load_steps=7 format=3 uid="uid://dth3oomadgqmv"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/Defalt_enemy.gd" id="1_k13r8"]
 [ext_resource type="Texture2D" uid="uid://q51w35f3p46q" path="res://Texture/Enemys/02.png" id="2_oa5ia"]
@@ -11,9 +11,6 @@ font = ExtResource("6_x0n8d")
 font_size = 40
 font_color = Color(1, 0, 0, 1)
 outline_size = 20
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6f1y"]
-size = Vector2(90, 87)
 
 [node name="Defalt_enemy" type="StaticBody2D"]
 collision_layer = 2
@@ -47,6 +44,5 @@ label_settings = SubResource("LabelSettings_r53h3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0.5)
-shape = SubResource("RectangleShape2D_e6f1y")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(46, 36, 37, 47, -33, 47, -43, 36, -43, -31, -31, -45, 34, -45, 46, -33)

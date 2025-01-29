@@ -3,10 +3,10 @@ extends CharacterBody2D
 @onready var sprite = $CollisionShape2D
 @onready var line_trail : Line2D = $Line2D
 
-var speed : int = 1200
+var speed : int = 1500
 var direction_bullet : Vector2  =Vector2.UP
 var damage_ball = 100
-var max_lenght_line = 13
+var max_lenght_line = 15
 
 func _ready():
 	velocity = Vector2(speed, speed)

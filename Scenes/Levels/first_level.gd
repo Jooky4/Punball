@@ -29,7 +29,7 @@ var direction = Vector2.ZERO
 var balls_can_go = true
 var new_position_balls = Vector2.ZERO
 
-var first_level =  [[1, 1, 2, 1, 1, 2],[2, 1, 1, 1, 1, 1],[1, 1, 1, 2, 1, 2],[2, 1, 2, 0, 1, 0],[1, 0, 0, 0, 0, 0],[2, 0, 1, 0, 0, 1],[0, 1, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
+var first_level =  [[1, 1, 2, 1, 1, 2],[2, 1, 1, 1, 1, 1],[1, 1, 1, 2, 1, 2],[2, 1, 2, 0, 1, 0],[1, 0, 0, 0, 0, 0],[2, 0, 1, 0, 0, 1],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
 var first_level_links = [[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
 
 func _ready() -> void:
@@ -105,7 +105,7 @@ func win():
 	end_game_UI_win.visible = true
 
 func _on_start_again_pressed() -> void:
-	LevelManager.count_ball = LevelManager.count_ball
+	LevelManager.count_ball = 10
 	get_tree().reload_current_scene()
 
 func draw_trajectory() -> void:
@@ -129,7 +129,6 @@ func draw_trajectory() -> void:
 		line.points[1] = raycast_detection_walls.get_collision_point()
 	else:
 		line.points[1] = bullet_rotate_UI.position
-
 
 func balls_go() -> void:
 	line.visible = false
