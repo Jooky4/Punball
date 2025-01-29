@@ -85,7 +85,7 @@ func chec_game_end():
 		count_bullet_label.position.x += new_position_balls
 		raycast_detection_walls.position.x += new_position_balls
 		start_balls_position.position.x += new_position_balls
-		
+
 		for i in game_objects.get_children():
 			i.position.y += 103
 
@@ -115,7 +115,7 @@ func draw_trajectory() -> void:
 	bullet_rotate_UI.position = start_balls_position.position
 	bullet_rotate_UI.direction_bullet = direction
 	bullet_rotate_UI.stop = false
-	raycast_detection_walls.target_position = direction * 1000
+	raycast_detection_walls.target_position = direction * 2000
 	raycast_detection_walls.force_raycast_update()
 
 	while !bullet_rotate_UI.stop:
