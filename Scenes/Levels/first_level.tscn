@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=27 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ehfrga1mi7t1" path="res://Texture/UI/i.png" id="5_ho1at"]
 [ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
 [ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Balls/3).png" id="6_3rmiv"]
+[ext_resource type="Texture2D" uid="uid://hoveciabwg5j" path="res://Texture/Enemys/Полоска здоровья/healthbarUnder.png" id="7_2kijc"]
 [ext_resource type="Texture2D" uid="uid://bnub4rxgaa20e" path="res://Texture/UI/strelka.png" id="8_wf17s"]
 [ext_resource type="PackedScene" uid="uid://i7udjd2in6et" path="res://Scenes/UI/ball_rotate_ui.tscn" id="9_2r8vu"]
+[ext_resource type="Texture2D" uid="uid://b281v7p3hsju0" path="res://Texture/UI/healthbarProgress_Player.png" id="9_m32s6"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="10_fo6nb"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
 
@@ -17,16 +19,32 @@ size = Vector2(721, 118)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7sh1d"]
 shader = ExtResource("5_ix1q1")
 
+[sub_resource type="LabelSettings" id="LabelSettings_5dhya"]
+font = ExtResource("10_fo6nb")
+font_size = 60
+font_color = Color(1.03481e-06, 0.720339, 1.54018e-06, 1)
+outline_size = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_skssn"]
-font_size = 30
-outline_size = 10
+font = ExtResource("10_fo6nb")
+font_size = 60
+outline_size = 20
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-4, 6)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ockje"]
-font_size = 70
-outline_size = 10
+font = ExtResource("10_fo6nb")
+font_size = 90
+outline_size = 20
 outline_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_repox"]
+font = ExtResource("10_fo6nb")
+font_size = 90
+outline_size = 20
+outline_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
 bg_color = Color(0.478007, 0.618938, 0.736741, 1)
@@ -104,10 +122,6 @@ rotation = 1.5708
 
 [node name="Start_bullet_position" type="Node2D" parent="Dicariations"]
 
-[node name="Detection_walls" type="RayCast2D" parent="Dicariations/Start_bullet_position"]
-position = Vector2(358, 1203)
-target_position = Vector2(720, 197)
-
 [node name="Line2D" type="Line2D" parent="Dicariations/Start_bullet_position"]
 z_index = 1
 texture_repeat = 2
@@ -117,30 +131,57 @@ width = 5.0
 texture = ExtResource("5_7ui2n")
 texture_mode = 1
 
-[node name="Count_bullet_label" type="Label" parent="Dicariations/Start_bullet_position"]
-z_index = 1
-offset_left = 331.0
-offset_top = 1140.0
-offset_right = 382.0
-offset_bottom = 1182.0
-text = "x10"
-label_settings = SubResource("LabelSettings_skssn")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Strelka" type="Line2D" parent="Dicariations/Start_bullet_position"]
+points = PackedVector2Array(359, 1207, 359, 1208)
+width = 30.0
+texture = ExtResource("8_wf17s")
+texture_mode = 2
 
 [node name="Start_bullet_position" type="Sprite2D" parent="Dicariations/Start_bullet_position"]
 z_index = 1
 position = Vector2(359.5, 1205.5)
 texture = ExtResource("6_3rmiv")
 
+[node name="Player_hp_bar" type="TextureProgressBar" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
+offset_left = -63.0
+offset_top = 17.0
+offset_right = 68.0
+offset_bottom = 43.0
+max_value = 1000.0
+value = 1000.0
+nine_patch_stretch = true
+texture_under = ExtResource("7_2kijc")
+texture_progress = ExtResource("9_m32s6")
+
+[node name="Player_hp_label" type="Label" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
+offset_left = -63.0
+offset_top = 15.0
+offset_right = 267.0
+offset_bottom = 91.0
+scale = Vector2(0.4, 0.4)
+text = "1000"
+label_settings = SubResource("LabelSettings_5dhya")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Count_bullet_label" type="Label" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
+z_index = 1
+offset_left = -24.5
+offset_top = -51.5
+offset_right = 71.5
+offset_bottom = 18.5
+scale = Vector2(0.5, 0.5)
+text = "x10"
+label_settings = SubResource("LabelSettings_skssn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Detection_walls" type="RayCast2D" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
+position = Vector2(-1.5, -2.5)
+target_position = Vector2(720, 197)
+
 [node name="Ball_rotate_UI" parent="Dicariations/Start_bullet_position" instance=ExtResource("9_2r8vu")]
 position = Vector2(359, 1205)
-
-[node name="Strelka" type="Line2D" parent="Dicariations/Start_bullet_position"]
-points = PackedVector2Array(359, 1207, 359, 1208)
-width = 30.0
-texture = ExtResource("8_wf17s")
-texture_mode = 2
 
 [node name="Setka" type="Node2D" parent="Dicariations"]
 position = Vector2(50, 232)
@@ -179,6 +220,7 @@ mouse_filter = 2
 color = Color(0.0745098, 0.0745098, 0.0745098, 0.854902)
 
 [node name="Win" type="Label" parent="UI/End_game"]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 341.0
@@ -187,6 +229,19 @@ offset_right = 1139.0
 offset_bottom = 711.0
 text = "ПОБЕДА"
 label_settings = SubResource("LabelSettings_ockje")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lose" type="Label" parent="UI/End_game"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 341.0
+offset_top = 615.0
+offset_right = 1139.0
+offset_bottom = 711.0
+text = "ПОРАЖЕНИЕ"
+label_settings = SubResource("LabelSettings_repox")
 horizontal_alignment = 1
 vertical_alignment = 1
 

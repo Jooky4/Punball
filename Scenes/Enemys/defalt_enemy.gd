@@ -1,6 +1,7 @@
 extends StaticBody2D
 
-var hp_enemy = 500 #randi() % 4 * 100 + 200
+var hp_enemy = randi() % 4 * 100 + 200
+var player_damage = 100
 
 @onready var hp_enemy_label = $Hp_boss_label
 @onready var hp_enemy_bar = $TextureProgressBar

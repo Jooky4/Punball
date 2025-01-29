@@ -8,7 +8,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_r53h3"]
 font = ExtResource("5_qh7tt")
-font_size = 50
+font_size = 60
 font_color = Color(1, 0, 0, 1)
 outline_size = 30
 
@@ -27,20 +27,20 @@ texture = ExtResource("2_xcr0s")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 texture_filter = 3
-offset_left = -48.0
-offset_top = 36.0
-offset_right = 50.0
-offset_bottom = 51.0
+offset_left = -49.0
+offset_top = 35.0
+offset_right = 52.0
+offset_bottom = 52.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_gka40")
 texture_progress = ExtResource("4_rptbq")
 
 [node name="Hp_boss_label" type="Label" parent="."]
-offset_left = -48.0
-offset_top = 21.0
-offset_right = 197.0
-offset_bottom = 118.0
+offset_left = -49.0
+offset_top = 25.0
+offset_right = 204.0
+offset_bottom = 120.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_r53h3")

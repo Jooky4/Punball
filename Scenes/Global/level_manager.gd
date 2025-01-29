@@ -1,5 +1,6 @@
 extends Node
 
+var hp_player = 1000
 var player_balls = [1]
 var player_balls_after_wave = []
 var count_level = 0
@@ -41,6 +42,7 @@ var first_level_links_on_objects = [[0, 0, 0, 0, 0, 0],
 									[0, 0, 0, 0, 0, 0]]
 
 func restert() -> void:
+	hp_player = 1000
 	count_level = 0
 	first_level =  [[1, 0, 1, 1, 0, 1],
 					[1, 1, 1, 1, 1, 1],
@@ -50,12 +52,24 @@ func restert() -> void:
 					[0, 0, 0, 0, 0, 0],
 					[0, 0, 0, 0, 0, 0],
 					[0, 0, 0, 0, 0, 0]]
-	first_level_spawn = [[0, 1, 0, 1, 0, 1],
-						 [1, 0, 0, 0, 1, 0],
+	first_level_spawn = [[0, 1, 0, 1, 0, 1], # 20 уровней
+						 [1, 0, 1, 0, 1, 0],
 						 [0, 1, 0, 1, 0, 1],
-						 [1, 0, 0, 0, 1, 0],
+						 [1, 0, 1, 0, 1, 0],
 						 [0, 1, 0, 1, 0, 1],
-						 [1, 0, 0, 0, 1, 0],
+						 [1, 0, 1, 0, 1, 0],
+						 [0, 1, 0, 1, 0, 1],
+						 [1, 0, 1, 0, 1, 0],
+						 [0, 1, 0, 1, 0, 1],
+						 [1, 0, 1, 0, 1, 0],
+						 [0, 1, 0, 1, 0, 1],
+						 [1, 0, 1, 0, 1, 0],
+						 [0, 1, 0, 1, 0, 1],
+						 [1, 0, 1, 0, 1, 0],
+						 [0, 1, 0, 1, 0, 1],
+						 [1, 0, 1, 0, 1, 0],
+						 [0, 1, 0, 1, 0, 1],
+						 [1, 0, 1, 0, 1, 0],
 						 [0, 1, 0, 1, 0, 1],
 						 [1, 0, 0, 0, 1, 0]]
 	first_level_links_on_objects = [[0, 0, 0, 0, 0, 0],
@@ -75,7 +89,17 @@ func apeend_new_balls() -> void:
 	player_balls_after_wave.clear()
 
 func updete_last_line() -> void:
+	for i in first_level_links_on_objects.slice(7, 8):
+			for j in i:
+				if j != null and typeof(j) != 2:
+					j.queue_free()
+
 	first_level = first_level.slice(0, 7)
+	for i in first_level_links_on_objects[7]:
+		if i != null and typeof(i) != 2:
+			if i.has_method("enemy"):
+				hp_player -= i.player_damage
+
 	first_level_links_on_objects = first_level_links_on_objects.slice(0, 7)
 	if count_level >= 19:
 		first_level_links_on_objects.insert(0, [0, 0, 0, 0, 0, 0])
