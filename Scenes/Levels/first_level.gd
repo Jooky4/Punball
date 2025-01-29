@@ -2,8 +2,8 @@ extends Node2D
 
 enum {
 	PLAY,
-	BALLS_GO,
-	WIN
+	WIN,
+	PAUSE
 }
 
 var game_state = PLAY
@@ -17,6 +17,8 @@ var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
 @onready var game_objects = $Game_objects
+
+@onready var count_level_label = $UI/Count_level_label
 
 @onready var count_bullet_label = $Dicariations/Start_bullet_position/Count_bullet_label
 @onready var raycast_detection_walls = $Dicariations/Start_bullet_position/Detection_walls
@@ -35,6 +37,7 @@ var left_extreme_point
 func _ready() -> void:
 	spawn_objects_on_matrix(1)
 	count_bullet_label.text = "x" + str(LevelManager.player_balls.size())
+	count_level_label.text = str(LevelManager.count_level + 1)
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 	#YandexSDK.gameplay_started()
@@ -45,8 +48,10 @@ func _process(delta):
 			play_game()
 		WIN:
 			win()
+		PAUSE:
+			pause()
 
-func play_game():
+func play_game() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:
 		if get_global_mouse_position() != old_coord_mouse:
 			line.visible = true
@@ -66,7 +71,7 @@ func play_game():
 
 	chec_game_end()
 
-func chec_game_end():
+func chec_game_end() -> void:
 	var chec_lose_game = true
 	var boss_alive = false
 	for child in game_objects.get_children():
@@ -83,7 +88,6 @@ func chec_game_end():
 
 	if chec_lose_game and boss_alive and count_bullet_label.text == "x0" and !balls_can_go:
 		balls_can_go = true
-		LevelManager.apeend_new_balls()
 		count_bullet_label.text = "x" + str(LevelManager.player_balls.size())
 		count_bullet_label.position.x += new_position_balls
 		raycast_detection_walls.position.x += new_position_balls
@@ -98,16 +102,20 @@ func chec_game_end():
 			for j in i:
 				if j != null and typeof(j) != 2:
 					j.queue_free()
-
+		LevelManager.apeend_new_balls()
 		LevelManager.updete_last_line()
+		count_level_label.text = str(LevelManager.count_level + 1)
 		spawn_objects_on_matrix()
 
-func win():
+func win() -> void:
 	end_game_UI.visible = true
 	end_game_UI_win.visible = true
 
+func pause() -> void:
+	pass
+
 func _on_start_again_pressed() -> void:
-	LevelManager.player_balls = [2]
+	LevelManager.restert()
 	get_tree().reload_current_scene()
 
 func draw_trajectory() -> void:
@@ -187,3 +195,21 @@ func spawn_objects_by_index(count) -> void:
 		bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = bonus_ball
 		game_objects.add_child(bonus_ball)
+
+
+# ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
+func _on_button_pressed() -> void:
+	LevelManager.player_balls = [1]
+	_on_start_again_pressed()
+
+func _on_button_2_pressed() -> void:
+	LevelManager.player_balls = [2]
+	_on_start_again_pressed()
+
+func _on_button_3_pressed() -> void:
+	LevelManager.player_balls = [3, 1, 1, 1, 1]
+	_on_start_again_pressed()
+
+func _chose_ball_button_pressed() -> void:
+	game_state = PAUSE
+	$UI/Chose_ball.visible = true

@@ -4,9 +4,9 @@ var SMALL_CRUMBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/small_cru
 @onready var sprite = $CollisionShape2D
 @onready var line_trail : Line2D = $Line2D
 
+@export var damage_ball = 100
 var speed : int = 1500
 var direction_bullet : Vector2
-var damage_ball = 100
 var max_lenght_line = 8
 var angle_rotation_small_ball : float = 0.2
 

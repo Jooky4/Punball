@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3qvf7cuito03" path="res://Texture/Balls/рассыпающийся.png" id="2_kkhvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
-radius = 16.0312
+radius = 13.0384
 
 [sub_resource type="Curve" id="Curve_dionf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
