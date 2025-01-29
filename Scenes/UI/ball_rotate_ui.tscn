@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="1_b84s7"]
 [ext_resource type="Script" path="res://Scenes/UI/ball_rotate_ui.gd" id="1_g6i58"]
-[ext_resource type="Texture2D" uid="uid://pyrcsjlpcjxr" path="res://Texture/Level_environment/ball_ui.png" id="2_j20yf"]
+[ext_resource type="Texture2D" uid="uid://pyrcsjlpcjxr" path="res://Texture/UI/ball_ui.png" id="2_j20yf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1twi"]
 radius = 50.0

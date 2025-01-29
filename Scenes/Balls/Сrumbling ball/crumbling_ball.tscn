@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://gsrp2n3jcvbp"]
+
+[ext_resource type="Script" path="res://Scenes/Balls/Сrumbling ball/crumbling_ball.gd" id="1_xa5ww"]
+[ext_resource type="Texture2D" uid="uid://d3qvf7cuito03" path="res://Texture/Balls/рассыпающийся.png" id="2_xwhhy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
+radius = 16.0312
+
+[sub_resource type="Curve" id="Curve_dionf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="crumbling_ball" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 4
+collision_mask = 3
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+script = ExtResource("1_xa5ww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l7c6x")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+z_index = 2
+position = Vector2(0, 8)
+scale = Vector2(0.36049, 0.499143)
+texture = ExtResource("2_xwhhy")
+offset = Vector2(1, 0)
+flip_v = true
+
+[node name="Line2D" type="Line2D" parent="."]
+show_behind_parent = true
+top_level = true
+width = 18.0
+width_curve = SubResource("Curve_dionf")
+default_color = Color(1, 1, 0.333333, 0.25098)

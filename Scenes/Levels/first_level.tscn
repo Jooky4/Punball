@@ -1,12 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=20 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
-[ext_resource type="PackedScene" uid="uid://oclkolfhemxg" path="res://Scenes/Bullets/Defalt_ball.tscn" id="2_wqabs"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
 [ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/punktire_line.png" id="5_7ui2n"]
 [ext_resource type="Texture2D" uid="uid://ehfrga1mi7t1" path="res://Texture/UI/i.png" id="5_ho1at"]
 [ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
-[ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Level_environment/3).png" id="6_3rmiv"]
+[ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Balls/3).png" id="6_3rmiv"]
 [ext_resource type="Texture2D" uid="uid://bnub4rxgaa20e" path="res://Texture/UI/strelka.png" id="8_wf17s"]
 [ext_resource type="PackedScene" uid="uid://i7udjd2in6et" path="res://Scenes/UI/ball_rotate_ui.tscn" id="9_2r8vu"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
@@ -52,7 +51,6 @@ Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
 
 [node name="First_level" type="Node2D"]
 script = ExtResource("1_wuo18")
-bullet = ExtResource("2_wqabs")
 
 [node name="Dicariations" type="Node2D" parent="."]
 
@@ -62,7 +60,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dicariations/Detection_last_ball"]
-position = Vector2(350.5, 1217)
+position = Vector2(357.5, 1143)
 shape = SubResource("RectangleShape2D_b0xly")
 
 [node name="Fon" type="Sprite2D" parent="Dicariations"]
@@ -87,24 +85,24 @@ rotation = 1.5708
 [node name="Start_bullet_position" type="Node2D" parent="Dicariations"]
 
 [node name="Detection_walls" type="RayCast2D" parent="Dicariations/Start_bullet_position"]
-position = Vector2(358.5, 1132.5)
+position = Vector2(358, 1203)
 target_position = Vector2(720, 197)
 
 [node name="Line2D" type="Line2D" parent="Dicariations/Start_bullet_position"]
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7sh1d")
-points = PackedVector2Array(358, 1053, 358, 1053)
+points = PackedVector2Array(0, 0, 0, 0)
 width = 5.0
 texture = ExtResource("5_7ui2n")
 texture_mode = 1
 
 [node name="Count_bullet_label" type="Label" parent="Dicariations/Start_bullet_position"]
 z_index = 1
-offset_left = 331.5
-offset_top = 1069.5
-offset_right = 382.5
-offset_bottom = 1111.5
+offset_left = 331.0
+offset_top = 1140.0
+offset_right = 382.0
+offset_bottom = 1182.0
 text = "x10"
 label_settings = SubResource("LabelSettings_skssn")
 horizontal_alignment = 1
@@ -112,15 +110,14 @@ vertical_alignment = 1
 
 [node name="Start_bullet_position" type="Sprite2D" parent="Dicariations/Start_bullet_position"]
 z_index = 1
-position = Vector2(358.5, 1132.5)
+position = Vector2(359.5, 1205.5)
 texture = ExtResource("6_3rmiv")
 
 [node name="Ball_rotate_UI" parent="Dicariations/Start_bullet_position" instance=ExtResource("9_2r8vu")]
-visible = false
-position = Vector2(358, 1053)
+position = Vector2(359, 1205)
 
 [node name="Strelka" type="Line2D" parent="Dicariations/Start_bullet_position"]
-points = PackedVector2Array(354, 1091, 354, 1091)
+points = PackedVector2Array(359, 1207, 359, 1208)
 width = 30.0
 texture = ExtResource("8_wf17s")
 texture_mode = 2

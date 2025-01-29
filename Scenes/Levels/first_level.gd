@@ -8,10 +8,12 @@ enum {
 
 var game_state = PLAY
 
-var DEFALT_ENEMY = preload("res://Scenes/Enemy/Defalt_enemy.tscn")
+var DEFALT_ENEMY = preload("res://Scenes/Enemys/defalt_enemy.tscn")
 var BONUS_BALL = preload("res://Scenes/Levels/bonus_ball.tscn")
+var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
+var CRUNBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/crumbling_ball.tscn")
+var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
 
-@export var bullet : PackedScene
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
 @onready var game_objects = $Game_objects
@@ -24,17 +26,17 @@ var BONUS_BALL = preload("res://Scenes/Levels/bonus_ball.tscn")
 @onready var bullet_rotate_UI = $Dicariations/Start_bullet_position/Ball_rotate_UI
 
 var old_coord_mouse : Vector2 = Vector2.ZERO
-var cout_bullet = LevelManager.count_ball
 var direction = Vector2.ZERO
 var balls_can_go = true
 var new_position_balls = 0
-
-var first_level =  [[1, 1, 2, 1, 1, 2],[2, 1, 1, 1, 1, 1],[1, 1, 1, 2, 1, 2],[2, 1, 2, 0, 1, 0],[1, 0, 0, 0, 0, 0],[2, 0, 1, 0, 0, 1],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
-var first_level_links = [[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]]
+var rignt_extreme_point
+var left_extreme_point
 
 func _ready() -> void:
 	spawn_objects_on_matrix(1)
-	count_bullet_label.text = "x" + str(cout_bullet)
+	count_bullet_label.text = "x" + str(LevelManager.player_balls.size())
+	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
+	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 	#YandexSDK.gameplay_started()
 
 func _process(delta):
@@ -51,10 +53,11 @@ func play_game():
 			bullet_rotate_UI.visible = true
 			strelka.visible = true
 			direction = (get_global_mouse_position() - start_balls_position.position).normalized()
-			if -2 <= rad_to_deg(direction.angle()) and rad_to_deg(direction.angle()) <= 90:
-				direction = Vector2.from_angle(deg_to_rad(-2))
-			elif 90 <= rad_to_deg(direction.angle()) and rad_to_deg(direction.angle()) >= -178:
-				direction = Vector2.from_angle(deg_to_rad(-178))
+			if !(rad_to_deg(rignt_extreme_point.angle()) >= rad_to_deg(direction.angle()) and rad_to_deg(left_extreme_point.angle()) <= rad_to_deg(direction.angle())):
+				if rad_to_deg(left_extreme_point.angle()) >= rad_to_deg(direction.angle()) or rad_to_deg(direction.angle()) >= 90:
+					direction = Vector2.from_angle(left_extreme_point.angle())
+				elif rad_to_deg(rignt_extreme_point.angle()) <= rad_to_deg(direction.angle()) or 90 >= rad_to_deg(direction.angle()):
+					direction = Vector2.from_angle(rignt_extreme_point.angle())
 			old_coord_mouse = get_global_mouse_position()
 			draw_trajectory()
 
@@ -80,24 +83,23 @@ func chec_game_end():
 
 	if chec_lose_game and boss_alive and count_bullet_label.text == "x0" and !balls_can_go:
 		balls_can_go = true
-		cout_bullet = LevelManager.count_ball
-		count_bullet_label.text = "x" + str(cout_bullet)
+		LevelManager.apeend_new_balls()
+		count_bullet_label.text = "x" + str(LevelManager.player_balls.size())
 		count_bullet_label.position.x += new_position_balls
 		raycast_detection_walls.position.x += new_position_balls
 		start_balls_position.position.x += new_position_balls
+		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
+		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 
 		for i in game_objects.get_children():
 			i.position.y += 103
 
-		for i in first_level_links.slice(7, 8):
+		for i in LevelManager.first_level_links_on_objects.slice(7, 8):
 			for j in i:
 				if j != null and typeof(j) != 2:
 					j.queue_free()
 
-		first_level = first_level.slice(0, 7)
-		first_level_links = first_level_links.slice(0, 7)
-		first_level_links.insert(0, [1, 2, 1, 2, 1, 2])
-		first_level.insert(0, [1, 2, 1, 2, 1, 2])
+		LevelManager.updete_last_line()
 		spawn_objects_on_matrix()
 
 func win():
@@ -105,7 +107,7 @@ func win():
 	end_game_UI_win.visible = true
 
 func _on_start_again_pressed() -> void:
-	LevelManager.count_ball = 10
+	LevelManager.player_balls = [2]
 	get_tree().reload_current_scene()
 
 func draw_trajectory() -> void:
@@ -137,12 +139,18 @@ func balls_go() -> void:
 	balls_can_go = false
 	new_position_balls = 0
 
-	for i in range(cout_bullet):
-		var b = bullet.instantiate()
-		b.position = start_balls_position.position
-		b.direction_bullet = direction
-		get_tree().current_scene.add_child(b)
-		count_bullet_label.text = "x" + str(cout_bullet - (i+1))
+	for i in range(LevelManager.player_balls.size()):
+		var ball
+		if LevelManager.player_balls[i] == 1:
+			ball = DEFALT_BALL.instantiate()
+		elif LevelManager.player_balls[i] == 2:
+			ball = CRUNBLING_BALL.instantiate()
+		elif LevelManager.player_balls[i] == 3:
+			ball = BOMB_BALL.instantiate()
+		ball.position = start_balls_position.position
+		ball.direction_bullet = direction
+		get_tree().current_scene.add_child(ball)
+		count_bullet_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
 		await get_tree().create_timer(0.05).timeout
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -159,23 +167,23 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func spawn_objects_on_matrix(inex: int = 100) -> void:
 	var count = -1
 	if inex == 1:
-		for i in first_level:
+		for i in LevelManager.first_level:
 			for j in i:
 				count += 1
 				spawn_objects_by_index(count)
 	else:
-		for i in first_level[0]:
+		for i in LevelManager.first_level[0]:
 			count += 1
 			spawn_objects_by_index(count)
 
 func spawn_objects_by_index(count) -> void:
-	if first_level[count/6][count%6] == 1:
+	if LevelManager.first_level[count/6][count%6] == 1:
 		var enemy = DEFALT_ENEMY.instantiate()
 		enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-		first_level_links[count/6][count%6] = enemy
+		LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
 		game_objects.add_child(enemy)
-	elif first_level[count/6][count%6] == 2:
+	elif LevelManager.first_level[count/6][count%6] == -1:
 		var bonus_ball = BONUS_BALL.instantiate()
 		bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-		first_level_links[count/6][count%6] = bonus_ball
+		LevelManager.first_level_links_on_objects[count/6][count%6] = bonus_ball
 		game_objects.add_child(bonus_ball)
