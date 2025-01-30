@@ -104,7 +104,7 @@ func chec_game_end() -> void:
 		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 		LevelManager.moving_object()
 		LevelManager.apeend_new_balls()
-		count_level_label.text = str(LevelManager.count_level + 1)
+		count_level_label.text = str(LevelManager.count_level + 2)
 		count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 		hp_player = LevelManager.hp_player
 		if hp_player <= 0:
@@ -132,6 +132,7 @@ func pause() -> void:
 
 func _on_start_again_pressed() -> void:
 	LevelManager.restert()
+	LevelManager.player_balls = [1, 1, 1, 1]
 	get_tree().reload_current_scene()
 
 func draw_trajectory() -> void:
@@ -225,15 +226,18 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	LevelManager.player_balls = [2]
-	_on_start_again_pressed()
+	LevelManager.restert()
+	get_tree().reload_current_scene()
 
 func _on_button_3_pressed() -> void:
 	LevelManager.player_balls = [3, 1, 1, 1, 1]
-	_on_start_again_pressed()
+	LevelManager.restert()
+	get_tree().reload_current_scene()
 
 func _on_button_4_pressed() -> void:
 	LevelManager.player_balls = [4]
-	_on_start_again_pressed()
+	LevelManager.restert()
+	get_tree().reload_current_scene()
 
 func _chose_ball_button_pressed() -> void:
 	game_state = PAUSE

@@ -1,7 +1,7 @@
 extends Node
 
 var hp_player = 1000
-var player_balls = [1]
+var player_balls = [1, 1, 1, 1]
 var player_balls_after_wave = []
 var count_level = 0
 var first_level_spawn = [[null, 1, null, 1, null, null], # 20 уровней
@@ -30,7 +30,7 @@ var first_level_links_on_objects = [[1, 1, -1, 1, 1, 1],
 									[1, null, 1, null, null, null],
 									[1, null, 1, null, null, null],
 									[1, null, 1, null, null, null],
-									[1, null, 1, null, null, null],
+									[1, -1, 1, null, null, null],
 									[null, null, null, null, null, null],]
 
 func restert() -> void:
@@ -42,7 +42,7 @@ func restert() -> void:
 									[1, null, 1, null, null, null],
 									[1, null, 1, null, null, null],
 									[1, null, 1, null, null, null],
-									[1, null, 1, null, null, null],
+									[1, -1, 1, null, null, null],
 									[null, null, null, null, null, null],]
 	first_level_spawn = [[null, 1, null, 1, null, null], # 20 уровней
 						 [1, 1, -1, null, null, null],

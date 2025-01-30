@@ -18,7 +18,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 [node name="freezing_ball" type="CharacterBody2D"]
 z_index = -1
 collision_layer = 4
-collision_mask = 3
+collision_mask = 11
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_vij2e")
