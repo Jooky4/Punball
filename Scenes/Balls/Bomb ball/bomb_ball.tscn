@@ -24,8 +24,9 @@ shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 2
+position = Vector2(0, -2)
 rotation = 3.14159
-scale = Vector2(0.55, 0.55)
+scale = Vector2(0.475, 0.475)
 texture = ExtResource("2_4bo35")
 offset = Vector2(1, 0)
 flip_v = true

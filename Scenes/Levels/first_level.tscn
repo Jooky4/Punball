@@ -324,6 +324,14 @@ theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 60
 text = "БОМБА"
 
+[node name="Button4" type="Button" parent="UI/Chose_ball/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("10_fo6nb")
+theme_override_font_sizes/font_size = 60
+text = "ЗАМОРАЖИВАЮЩИЙ"
+
 [node name="Count_level_label" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = -940.0
@@ -352,3 +360,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]

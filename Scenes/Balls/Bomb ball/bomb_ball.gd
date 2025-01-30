@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var line_trail : Line2D = $Line2D
 
 @export var damage_ball = 100
-var speed : int = 1500
+var speed : int = 1250
 var direction_bullet : Vector2
 var max_lenght_line = 8
 

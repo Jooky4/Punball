@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3qvf7cuito03" path="res://Texture/Balls/рассыпающийся.png" id="2_kkhvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
-radius = 13.0384
+radius = 12.0
 
 [sub_resource type="Curve" id="Curve_dionf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 2
-position = Vector2(0, 6)
+position = Vector2(-1, 7)
 scale = Vector2(0.321154, 0.431442)
 texture = ExtResource("2_kkhvg")
 offset = Vector2(1, 0)

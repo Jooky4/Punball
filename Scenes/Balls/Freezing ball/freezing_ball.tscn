@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://oclkolfhemxg"]
+[gd_scene load_steps=7 format=3 uid="uid://fxhnxjilcddt"]
 
-[ext_resource type="Script" path="res://Scenes/Balls/Defalt ball/defalt_ball.gd" id="1_ycsa2"]
-[ext_resource type="Texture2D" uid="uid://dl3oexxftwi03" path="res://Texture/Balls/usual.png" id="2_kdh35"]
-[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_72kjp"]
+[ext_resource type="Texture2D" uid="uid://c0bquutmq6or5" path="res://Texture/Balls/заморозка.png" id="1_75b3p"]
+[ext_resource type="Script" path="res://Scenes/Balls/Freezing ball/freezing_ball.gd" id="1_vij2e"]
+[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="2_2k8s3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -15,21 +15,22 @@ point_count = 2
 offsets = PackedFloat32Array(0.174528, 0.962264, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="defalt_ball" type="CharacterBody2D"]
+[node name="freezing_ball" type="CharacterBody2D"]
 z_index = -1
 collision_layer = 4
 collision_mask = 3
 platform_on_leave = 2
-script = ExtResource("1_ycsa2")
+platform_floor_layers = 4294967040
+script = ExtResource("1_vij2e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 2
-position = Vector2(0, 9)
+position = Vector2(0, 9.53674e-07)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_kdh35")
+texture = ExtResource("1_75b3p")
 offset = Vector2(1, 0)
 flip_v = true
 
@@ -39,5 +40,5 @@ top_level = true
 width = 43.0
 width_curve = SubResource("Curve_dionf")
 gradient = SubResource("Gradient_iwwbw")
-texture = ExtResource("3_72kjp")
+texture = ExtResource("2_2k8s3")
 texture_mode = 2

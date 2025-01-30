@@ -18,6 +18,7 @@ var BONUS_BALL = preload("res://Scenes/Levels/bonus_ball.tscn")
 var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
 var CRUNBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/crumbling_ball.tscn")
 var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
+var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn")
 
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
@@ -84,12 +85,12 @@ func play_game() -> void:
 
 func chec_game_end() -> void:
 	var balls_on_map = true
-	var boss_alive = false
+	var enemy_alive = false
 	for child in game_objects.get_children():
 		if child.has_method("enemy"):
-			boss_alive = true
+			enemy_alive = true
 			break
-	if boss_alive == false:
+	if enemy_alive == false:
 		game_state = WIN
 
 	for child in get_children():
@@ -97,17 +98,12 @@ func chec_game_end() -> void:
 			balls_on_map = false
 			break
 
-	if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
-		balls_can_go = true
+	if balls_on_map and enemy_alive and count_ball_label.text == "x0" and !balls_can_go:
 		start_balls_position.position.x += new_position_balls
 		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
-
-		for i in game_objects.get_children():
-			i.position.y += 103
-
+		LevelManager.moving_object()
 		LevelManager.apeend_new_balls()
-		LevelManager.updete_last_line()
 		count_level_label.text = str(LevelManager.count_level + 1)
 		count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 		hp_player = LevelManager.hp_player
@@ -118,7 +114,10 @@ func chec_game_end() -> void:
 		else:
 			hp_player_bar.value = hp_player
 			hp_player_label.text = str(hp_player)
+		await get_tree().create_timer(1).timeout
+		LevelManager.updete_last_line()
 		spawn_objects_on_matrix()
+		balls_can_go = true
 
 func win() -> void:
 	end_game_UI.visible = true
@@ -158,25 +157,29 @@ func draw_trajectory() -> void:
 		line.points[1] = ball_rotate_UI.position
 
 func balls_go() -> void:
-	line.visible = false
-	strelka.visible = false
-	ball_rotate_UI.visible = false
-	balls_can_go = false
-	new_position_balls = 0
+	if balls_can_go:
+		balls_can_go = false
+		LevelManager.delete_freezing_on_enemy()
+		line.visible = false
+		strelka.visible = false
+		ball_rotate_UI.visible = false
+		new_position_balls = 0
 
-	for i in range(LevelManager.player_balls.size()):
-		var ball
-		if LevelManager.player_balls[i] == 1:
-			ball = DEFALT_BALL.instantiate()
-		elif LevelManager.player_balls[i] == 2:
-			ball = CRUNBLING_BALL.instantiate()
-		elif LevelManager.player_balls[i] == 3:
-			ball = BOMB_BALL.instantiate()
-		ball.position = start_balls_position.position
-		ball.direction_bullet = direction
-		get_tree().current_scene.add_child(ball)
-		count_ball_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
-		await get_tree().create_timer(0.05).timeout
+		for i in range(LevelManager.player_balls.size()):
+			var ball
+			if LevelManager.player_balls[i] == 1:
+				ball = DEFALT_BALL.instantiate()
+			elif LevelManager.player_balls[i] == 2:
+				ball = CRUNBLING_BALL.instantiate()
+			elif LevelManager.player_balls[i] == 3:
+				ball = BOMB_BALL.instantiate()
+			elif LevelManager.player_balls[i] == 4:
+				ball = FREEZING_BALL.instantiate()
+			ball.position = start_balls_position.position
+			ball.direction_bullet = direction
+			get_tree().current_scene.add_child(ball)
+			count_ball_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
+			await get_tree().create_timer(0.05).timeout
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if ("CharacterBody2D" in body.name or "ball" in body.name):
@@ -192,26 +195,27 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func spawn_objects_on_matrix(inex: int = 100) -> void:
 	var count = -1
 	if inex == 1:
-		for i in LevelManager.first_level:
+		for i in LevelManager.first_level_links_on_objects:
 			for j in i:
 				count += 1
 				spawn_objects_by_index(count)
 	else:
-		for i in LevelManager.first_level[0]:
+		for i in LevelManager.first_level_links_on_objects[0]:
 			count += 1
 			spawn_objects_by_index(count)
 
 func spawn_objects_by_index(count) -> void:
-	if LevelManager.first_level[count/6][count%6] == 1:
-		var enemy = DEFALT_ENEMY.instantiate()
-		enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-		LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
-		game_objects.add_child(enemy)
-	elif LevelManager.first_level[count/6][count%6] == -1:
-		var bonus_ball = BONUS_BALL.instantiate()
-		bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-		LevelManager.first_level_links_on_objects[count/6][count%6] = bonus_ball
-		game_objects.add_child(bonus_ball)
+	if typeof(LevelManager.first_level_links_on_objects[count/6][count%6]) == 2:
+		if LevelManager.first_level_links_on_objects[count/6][count%6] == 1:
+			var enemy = DEFALT_ENEMY.instantiate()
+			enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
+			LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
+			game_objects.add_child(enemy)
+		elif LevelManager.first_level_links_on_objects[count/6][count%6] == -1:
+			var bonus_ball = BONUS_BALL.instantiate()
+			bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
+			LevelManager.first_level_links_on_objects[count/6][count%6] = bonus_ball
+			game_objects.add_child(bonus_ball)
 
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
@@ -225,6 +229,10 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	LevelManager.player_balls = [3, 1, 1, 1, 1]
+	_on_start_again_pressed()
+
+func _on_button_4_pressed() -> void:
+	LevelManager.player_balls = [4]
 	_on_start_again_pressed()
 
 func _chose_ball_button_pressed() -> void:
