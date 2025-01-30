@@ -21,9 +21,10 @@ func deal_damage(damage_ball) -> void:
 
 func deal_bomb_damage(damage_ball) -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property($Sprite2D, "modulate", Color.RED, 0.3)
-	await get_tree().create_timer(0.3)
-	tween.tween_property($Sprite2D, "modulate", Color.WHITE, 0.3)
+	tween.tween_property($Sprite2D, "modulate", Color.RED, 0.15)
+	await get_tree().create_timer(0.15)
+	tween.tween_property($Sprite2D, "modulate", Color.WHITE, 0.15)
+	await get_tree().create_timer(0.3).timeout
 	deal_damage(damage_ball)
 
 func enemy():
