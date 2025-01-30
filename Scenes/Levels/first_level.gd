@@ -99,7 +99,6 @@ func chec_game_end() -> void:
 
 	if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
 		balls_can_go = true
-		count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 		start_balls_position.position.x += new_position_balls
 		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
@@ -110,6 +109,7 @@ func chec_game_end() -> void:
 		LevelManager.apeend_new_balls()
 		LevelManager.updete_last_line()
 		count_level_label.text = str(LevelManager.count_level + 1)
+		count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 		hp_player = LevelManager.hp_player
 		if hp_player <= 0:
 			game_state = LOSE
