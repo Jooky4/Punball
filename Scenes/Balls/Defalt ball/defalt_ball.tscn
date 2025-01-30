@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://oclkolfhemxg"]
+[gd_scene load_steps=7 format=3 uid="uid://oclkolfhemxg"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Defalt ball/defalt_ball.gd" id="1_ycsa2"]
-[ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Balls/3).png" id="2_2a2hq"]
+[ext_resource type="Texture2D" uid="uid://dl3oexxftwi03" path="res://Texture/Balls/usual.png" id="2_kdh35"]
+[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_72kjp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
 
 [sub_resource type="Curve" id="Curve_dionf"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_iwwbw"]
+offsets = PackedFloat32Array(0.174528, 0.962264, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="defalt_ball" type="CharacterBody2D"]
 z_index = -1
@@ -23,15 +28,17 @@ shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 2
-position = Vector2(0, 10)
-scale = Vector2(1, 1.47028)
-texture = ExtResource("2_2a2hq")
+position = Vector2(0, 9)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_kdh35")
 offset = Vector2(1, 0)
 flip_v = true
 
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 18.0
+width = 43.0
 width_curve = SubResource("Curve_dionf")
-default_color = Color(1, 1, 0.333333, 0.25098)
+gradient = SubResource("Gradient_iwwbw")
+texture = ExtResource("3_72kjp")
+texture_mode = 2

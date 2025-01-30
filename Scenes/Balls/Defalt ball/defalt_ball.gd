@@ -4,16 +4,16 @@ extends CharacterBody2D
 @onready var line_trail : Line2D = $Line2D
 
 @export var damage_ball = 100
-var speed : int = 1500
+var speed : int = 1250
 var direction_bullet : Vector2
-var max_lenght_line = 8
+var max_lenght_line = 6
 
 func _ready():
 	velocity = Vector2(speed, speed)
 	sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(direction_bullet * 10000))
 
 func _physics_process(delta) -> void:
-	line_trail.add_point(self.global_position)
+	line_trail.add_point(self.global_position + (direction_bullet * 10))
 	if line_trail.points.size() > max_lenght_line:
 		line_trail.remove_point(0)
 
