@@ -1,7 +1,7 @@
 extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
 
 var SMALL_CRUMBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/small_crumbling_ball.tscn")
-var angle_rotation_small_ball : float = 0.2
+var angle_rotation_small_ball : float = 0.1
 
 func collide_with_enemy(collider) -> void:
 	for i in range(-2, 3):

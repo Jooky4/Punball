@@ -4,7 +4,8 @@ enum {
 	PLAY,
 	WIN,
 	LOSE,
-	PAUSE
+	PAUSE,
+	CHOOSE_SKILL
 }
 
 var game_state = PLAY
@@ -15,6 +16,7 @@ var hp_player = LevelManager.hp_player
 
 var DEFALT_ENEMY = preload("res://Scenes/Enemys/defalt_enemy.tscn")
 var BONUS_BALL = preload("res://Scenes/Levels/bonus_ball.tscn")
+var SKILL_BOX = preload("res://Scenes/Levels/skill_box.tscn")
 var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
 var CRUNBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/crumbling_ball.tscn")
 var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
@@ -23,6 +25,8 @@ var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
 @onready var end_game_UI_lose = $UI/End_game/Lose
+@onready var choose_skill_UI = $UI/Get_skill_UI
+
 @onready var game_objects = $Game_objects
 
 @onready var count_level_label = $UI/Count_level_label
@@ -36,10 +40,10 @@ var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn
 
 var old_coord_mouse : Vector2 = Vector2.ZERO
 var direction = Vector2.ZERO
-var balls_can_go = true
-var new_position_balls = 0
-var rignt_extreme_point
-var left_extreme_point
+var balls_can_go : bool = true
+var new_position_balls : int = 0
+var rignt_extreme_point : Vector2
+var left_extreme_point : Vector2
 
 func _ready() -> void:
 	spawn_objects_on_matrix(1)
@@ -62,6 +66,9 @@ func _process(delta):
 			lose()
 		PAUSE:
 			pause()
+		CHOOSE_SKILL:
+			if !choose_skill_UI.visible:
+				game_state = PLAY
 
 func play_game() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:
@@ -118,6 +125,10 @@ func chec_game_end() -> void:
 		LevelManager.updete_last_line()
 		spawn_objects_on_matrix()
 		balls_can_go = true
+		if LevelManager.spiin_skill:
+			LevelManager.spiin_skill = false
+			choose_skill_UI.visible = true
+			game_state = CHOOSE_SKILL
 
 func win() -> void:
 	end_game_UI.visible = true
@@ -180,7 +191,7 @@ func balls_go() -> void:
 			ball.direction_bullet = direction
 			get_tree().current_scene.add_child(ball)
 			count_ball_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
-			await get_tree().create_timer(0.05).timeout
+			await get_tree().create_timer(0.075).timeout
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if ("CharacterBody2D" in body.name or "ball" in body.name):
@@ -217,6 +228,11 @@ func spawn_objects_by_index(count) -> void:
 			bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 			LevelManager.first_level_links_on_objects[count/6][count%6] = bonus_ball
 			game_objects.add_child(bonus_ball)
+		elif LevelManager.first_level_links_on_objects[count/6][count%6] == -2:
+			var skill_box = SKILL_BOX.instantiate()
+			skill_box.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
+			LevelManager.first_level_links_on_objects[count/6][count%6] = skill_box
+			game_objects.add_child(skill_box)
 
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
@@ -239,6 +255,6 @@ func _on_button_4_pressed() -> void:
 	LevelManager.restert()
 	get_tree().reload_current_scene()
 
-func _chose_ball_button_pressed() -> void:
+func _chose_ball_button_pressed():
 	game_state = PAUSE
 	$UI/Chose_ball.visible = true

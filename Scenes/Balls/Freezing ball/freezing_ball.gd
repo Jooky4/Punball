@@ -1,6 +1,7 @@
 extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
 
-var chance_of_freezing = 0.5
+
+var chance_of_freezing : int = 0.5
 
 func collide_with_enemy(collider) -> void:
 	#if randf() < chance_of_freezing:

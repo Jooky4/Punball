@@ -1,10 +1,11 @@
 extends Node
 
-var hp_player = 1000
-var player_balls = [1, 1, 1, 1]
-var player_balls_after_wave = []
-var count_level = 0
-var first_level_spawn = [[null, 1, null, 1, null, null], # 20 уровней
+var hp_player : int = 1000
+var player_balls : Array = [1, 1, 1, 1]
+var player_balls_after_wave : Array = []
+var count_level : int = 0
+var spiin_skill : bool = false
+var first_level_spawn : Array = [[null, 1, null, 1, null, null], # 20 уровней
 						 [null, -1, 1, null, null, null],
 						 [null, 1, null, 1, null, null],
 						 [null, 1, null, 1, null, null], 
@@ -24,26 +25,26 @@ var first_level_spawn = [[null, 1, null, 1, null, null], # 20 уровней
 						 [null, 1, null, 1, null, null],
 						 [null, -1, 1, null, null, null],
 						 [null, 1, null, 1, null, null],]
-var first_level_links_on_objects = [[1, 1, -1, 1, 1, 1],
-									[1, 1, 1, 1, 1, 1],
-									[1, null, 1, null, null, null],
-									[1, null, 1, null, null, null],
-									[1, null, 1, null, null, null],
-									[1, null, 1, null, null, null],
-									[1, -1, 1, null, null, null],
-									[null, null, null, null, null, null],]
+var first_level_links_on_objects : Array = [[1, -1, 1, 1, 1, 1],
+									[1, 1, -1, -1, 1, 1],
+									[-2, 1, 1, 1, 1, null],
+									[1, 1, -1, 1, 1, -2],
+									[null, null, null, null, null, null],
+									[null, null, null, null, null, null],
+									[null, null, null, null, null, null],
+									[null, null, null, null, null, null]]
 
 func restert() -> void:
 	hp_player = 1000
 	count_level = 0
-	first_level_links_on_objects = [[1, 1, -1, 1, 1, 1],
-									[1, 1, 1, 1, 1, 1],
-									[1, null, 1, null, null, null],
-									[1, null, 1, null, null, null],
-									[1, null, 1, null, null, null],
-									[1, null, 1, null, null, null],
-									[1, -1, 1, null, null, null],
-									[null, null, null, null, null, null],]
+	first_level_links_on_objects = [[1, -1, 1, 1, 1, 1],
+									[1, 1, -1, -1, 1, 1],
+									[-2, 1, 1, 1, 1, null],
+									[1, 1, -1, 1, 1, -2],
+									[null, null, null, null, null, null],
+									[null, null, null, null, null, null],
+									[null, null, null, null, null, null],
+									[null, null, null, null, null, null]]
 	first_level_spawn = [[null, 1, null, 1, null, null], # 20 уровней
 						 [1, 1, -1, null, null, null],
 						 [null, 1, null, 1, null, 1],
@@ -90,20 +91,24 @@ func moving_object() -> void:
 				first_level_links_on_objects[7][i] = null
 
 	for i in range(first_level_links_on_objects.size() - 2, -1, -1):
+		for w in range(first_level_links_on_objects[i].size()): # СНАЧАЛА ПРОДВИГАЕМ ВПЁРЕД ТЕХ У КОГО СПЕРЕДИ ПУСТО
+			if first_level_links_on_objects[i][w] != null:
+				if first_level_links_on_objects[i+1][w] == null:
+					if first_level_links_on_objects[i][w].has_method("enemy"):
+						if !first_level_links_on_objects[i][w].freezen:
+							move_forward(i, w)
+					else:
+						move_forward(i, w)
 		for j in range(first_level_links_on_objects[i].size()):
-			if first_level_links_on_objects[i][j] != null:
+			if first_level_links_on_objects[i][j] != null:  # ПОТОМ ДВИГАЕМ ВПРАВО ВЛЕВО ТЕХ У КОГО ПРЕПЯТСВИЕ СПЕРЕДИ
 				if first_level_links_on_objects[i+1][j] != null:
 					if first_level_links_on_objects[i+1][j].has_method("enemy"):
 						if first_level_links_on_objects[i+1][j].freezen:
 							if first_level_links_on_objects[i][j].has_method("enemy"):
 								if !first_level_links_on_objects[i][j].freezen:
 									move_left_or_right(i, j)
-				else:
-					if first_level_links_on_objects[i][j].has_method("enemy"):
-						if !first_level_links_on_objects[i][j].freezen:
-							move_forward(i, j)
-					else:
-						move_forward(i, j)
+							else:
+								move_left_or_right(i, j)
 
 func move_forward(i, j) ->void:
 	first_level_links_on_objects[i][j].moving("forward")

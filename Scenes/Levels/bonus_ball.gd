@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+
 func moving(direction_object) -> void:
 	if direction_object != "":
 		var tween = get_tree().create_tween()

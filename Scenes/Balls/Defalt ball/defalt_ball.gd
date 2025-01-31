@@ -3,8 +3,8 @@ extends CharacterBody2D
 @onready var sprite = $CollisionShape2D
 @onready var line_trail : Line2D = $Line2D
 
-@export var damage_ball = 100
-@export var max_lenght_line = 6
+@export var damage_ball : int = 100
+@export var max_lenght_line : int = 6
 var speed : int = 1250
 var direction_bullet : Vector2
 
@@ -23,6 +23,9 @@ func _physics_process(delta) -> void:
 
 		if collider.has_method("bonus_ball"):
 			LevelManager.add_ball()
+			collider.queue_free()
+		elif collider.has_method("skill_box"):
+			LevelManager.spiin_skill = true
 			collider.queue_free()
 		else:
 			direction_bullet = direction_bullet.bounce(collision.get_normal()).normalized()

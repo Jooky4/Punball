@@ -1,8 +1,8 @@
 extends StaticBody2D
 
-var hp_enemy = randi() % 4 * 100 + 200
-@export var player_damage = 100
-var freezen = false
+var hp_enemy : int = randi() % 4 * 100 + 200
+@export var player_damage : int = 100
+var freezen : bool = false
 
 @onready var hp_enemy_label = $Hp_boss_label
 @onready var hp_enemy_bar = $TextureProgressBar
@@ -49,5 +49,5 @@ func moving(direction_object) -> void:
 		elif direction_object == "right":
 			tween.tween_property($".", "position", Vector2(103, 0) + self.position, 1)
 
-func enemy():
+func enemy() -> void:
 	pass
