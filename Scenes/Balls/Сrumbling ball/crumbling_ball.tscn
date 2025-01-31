@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://gsrp2n3jcvbp"]
+[gd_scene load_steps=7 format=3 uid="uid://gsrp2n3jcvbp"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Сrumbling ball/crumbling_ball.gd" id="1_xa5ww"]
-[ext_resource type="Texture2D" uid="uid://d3qvf7cuito03" path="res://Texture/Balls/рассыпающийся.png" id="2_xwhhy"]
+[ext_resource type="Texture2D" uid="uid://bu226xrpl8enh" path="res://Texture/Balls/рассыпающийся2.png" id="2_oig50"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_7n0an"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 15.0
 
-[sub_resource type="Curve" id="Curve_dionf"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_f50rg"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_t74m3"]
+offsets = PackedFloat32Array(0, 0.962264, 1)
+colors = PackedColorArray(0.996078, 0.686275, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="crumbling_ball" type="CharacterBody2D"]
 z_index = -1
@@ -23,15 +28,17 @@ shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 2
-position = Vector2(0, 8)
-scale = Vector2(0.36049, 0.499143)
-texture = ExtResource("2_xwhhy")
+position = Vector2(0, 2)
+scale = Vector2(0.4, 0.44)
+texture = ExtResource("2_oig50")
 offset = Vector2(1, 0)
 flip_v = true
 
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 18.0
-width_curve = SubResource("Curve_dionf")
-default_color = Color(1, 1, 0.333333, 0.25098)
+width = 39.0
+width_curve = SubResource("Curve_f50rg")
+gradient = SubResource("Gradient_t74m3")
+texture = ExtResource("3_7n0an")
+texture_mode = 2

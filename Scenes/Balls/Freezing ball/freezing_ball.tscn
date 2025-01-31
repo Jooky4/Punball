@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c0bquutmq6or5" path="res://Texture/Balls/заморозка.png" id="1_75b3p"]
 [ext_resource type="Script" path="res://Scenes/Balls/Freezing ball/freezing_ball.gd" id="1_vij2e"]
-[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="2_2k8s3"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_twuif"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -12,8 +12,8 @@ _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_iwwbw"]
-offsets = PackedFloat32Array(0.174528, 0.962264, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.167453, 0.962264, 1)
+colors = PackedColorArray(0.614405, 1, 0.999788, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="freezing_ball" type="CharacterBody2D"]
 z_index = -1
@@ -28,8 +28,8 @@ shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 2
-position = Vector2(0, 9.53674e-07)
-scale = Vector2(0.4, 0.4)
+position = Vector2(0, 9)
+scale = Vector2(0.53, 0.62)
 texture = ExtResource("1_75b3p")
 offset = Vector2(1, 0)
 flip_v = true
@@ -37,8 +37,8 @@ flip_v = true
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 43.0
+width = 47.0
 width_curve = SubResource("Curve_dionf")
 gradient = SubResource("Gradient_iwwbw")
-texture = ExtResource("2_2k8s3")
+texture = ExtResource("3_twuif")
 texture_mode = 2

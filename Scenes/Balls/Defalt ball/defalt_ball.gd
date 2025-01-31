@@ -13,7 +13,7 @@ func _ready():
 	sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(direction_bullet * 10000))
 
 func _physics_process(delta) -> void:
-	line_trail.add_point(self.global_position + (direction_bullet * 10))
+	line_trail.add_point(self.global_position + (direction_bullet * 14))
 	if line_trail.points.size() > max_lenght_line:
 		line_trail.remove_point(0)
 

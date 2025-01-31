@@ -1,14 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://dknt4ysvy1cq3"]
+[gd_scene load_steps=14 format=3 uid="uid://dknt4ysvy1cq3"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Bomb ball/bomb_ball.gd" id="1_0nept"]
 [ext_resource type="Texture2D" uid="uid://b7dyjob70k14n" path="res://Texture/Balls/бомба.png" id="2_4bo35"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_k4k2k"]
+[ext_resource type="Texture2D" uid="uid://dur8yescfijdi" path="res://Texture/Balls/smoke_cloud_x4.png" id="4_gftcs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
 
-[sub_resource type="Curve" id="Curve_dionf"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_0scci"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_f8hnv"]
+offsets = PackedFloat32Array(0.174528, 0.962264, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5utky"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_la4r1"]
+_data = [Vector2(0, 0), 0.0, 26.7641, 0, 0, Vector2(0.108491, 1), 0.616279, 0.616279, 0, 0, Vector2(1, 0), 0.0986047, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6op0a"]
+curve = SubResource("Curve_la4r1")
+
+[sub_resource type="Curve" id="Curve_e74yd"]
+_data = [Vector2(0, 1), 0.0, 0.404983, 0, 0, Vector2(1, 0.0174417), -0.69529, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7etgy"]
+curve = SubResource("Curve_e74yd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i6lwr"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.12
+scale_max = 0.18
+scale_curve = SubResource("CurveTexture_7etgy")
+color = Color(0.369731, 0.358242, 0.3753, 1)
+alpha_curve = SubResource("CurveTexture_6op0a")
 
 [node name="bomb_ball" type="CharacterBody2D"]
 z_index = -1
@@ -25,7 +64,7 @@ shape = SubResource("CircleShape2D_l7c6x")
 z_index = 2
 position = Vector2(0, -2)
 rotation = 3.14159
-scale = Vector2(0.475, 0.475)
+scale = Vector2(0.6, 0.66)
 texture = ExtResource("2_4bo35")
 offset = Vector2(1, 0)
 flip_v = true
@@ -33,6 +72,18 @@ flip_v = true
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 18.0
-width_curve = SubResource("Curve_dionf")
-default_color = Color(1, 1, 0.333333, 0.25098)
+width = 47.0
+width_curve = SubResource("Curve_0scci")
+gradient = SubResource("Gradient_f8hnv")
+texture = ExtResource("3_k4k2k")
+texture_mode = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_5utky")
+position = Vector2(1, 5)
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_i6lwr")
+texture = ExtResource("4_gftcs")
+lifetime = 0.2
+fixed_fps = 60
