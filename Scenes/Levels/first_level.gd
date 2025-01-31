@@ -125,9 +125,9 @@ func chec_game_end() -> void:
 		LevelManager.updete_last_line()
 		spawn_objects_on_matrix()
 		balls_can_go = true
-		if LevelManager.spiin_skill:
-			LevelManager.spiin_skill = false
+		if LevelManager.spin_skill != 0:
 			choose_skill_UI.visible = true
+			choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 			game_state = CHOOSE_SKILL
 
 func win() -> void:
@@ -191,7 +191,7 @@ func balls_go() -> void:
 			ball.direction_bullet = direction
 			get_tree().current_scene.add_child(ball)
 			count_ball_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
-			await get_tree().create_timer(0.075).timeout
+			await get_tree().create_timer(0.1).timeout
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if ("CharacterBody2D" in body.name or "ball" in body.name):

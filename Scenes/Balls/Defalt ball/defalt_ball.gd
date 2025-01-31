@@ -25,7 +25,7 @@ func _physics_process(delta) -> void:
 			LevelManager.add_ball()
 			collider.queue_free()
 		elif collider.has_method("skill_box"):
-			LevelManager.spiin_skill = true
+			LevelManager.spin_skill += 1
 			collider.queue_free()
 		else:
 			direction_bullet = direction_bullet.bounce(collision.get_normal()).normalized()
