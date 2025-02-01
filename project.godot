@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 YandexSDK="*res://addons/godot-yandex-games-sdk/yandex_sdk.gd"
 LevelManager="*res://Scenes/Global/level_manager.gd"
+WaveGeneration="*res://Scenes/Global/wave_generation.gd"
 
 [display]
 

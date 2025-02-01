@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var hp_enemy : int = randi() % 4 * 100 + 200
+@export var hp_enemy : int = 400#randi() % 4 * 100 + 200
 @export var player_damage : int = 100
 var freezen : bool = false
 

@@ -15,6 +15,8 @@ var hp_player = LevelManager.hp_player
 @onready var hp_player_label = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_label
 
 var DEFALT_ENEMY = preload("res://Scenes/Enemys/defalt_enemy.tscn")
+var DEFALT_ENEMY_2 = preload("res://Scenes/Enemys/defalt_enemy_2.tscn")
+var DEFALT_ENEMY_3 = preload("res://Scenes/Enemys/defalt_enemy_3.tscn")
 var BONUS_BALL = preload("res://Scenes/Levels/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Levels/skill_box.tscn")
 var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
@@ -220,6 +222,19 @@ func spawn_objects_by_index(count) -> void:
 	if typeof(LevelManager.first_level_links_on_objects[count/6][count%6]) == 2:
 		if LevelManager.first_level_links_on_objects[count/6][count%6] == 1:
 			var enemy = DEFALT_ENEMY.instantiate()
+			enemy.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
+			LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
+			game_objects.add_child(enemy)
+		elif LevelManager.first_level_links_on_objects[count/6][count%6] == 2:
+			var enemy = DEFALT_ENEMY_2.instantiate()
+			enemy.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
+			LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
+			game_objects.add_child(enemy)
+		elif LevelManager.first_level_links_on_objects[count/6][count%6] == 3:
+			var enemy = DEFALT_ENEMY_3.instantiate()
+			enemy.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 			enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 			LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
 			game_objects.add_child(enemy)

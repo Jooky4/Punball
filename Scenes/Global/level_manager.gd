@@ -136,7 +136,8 @@ func updete_last_line() -> void:
 	if count_level >= 19:
 		new_line_spawn = [null, null, null, null, null, null]
 	else:
-		new_line_spawn = first_level_spawn[count_level]
+		new_line_spawn = WaveGeneration.generetion_new_wave(count_level+1)
+		#new_line_spawn = first_level_spawn[count_level]
 		for i in range(new_line_spawn.size()):
 			if new_line_spawn[i] != null:
 				if first_level_links_on_objects[0][i] != null:
