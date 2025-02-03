@@ -2,6 +2,7 @@ extends Node2D
 
 enum {
 	PLAY,
+	BALLS_GO,
 	WIN,
 	LOSE,
 	PAUSE,
@@ -28,6 +29,8 @@ var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn
 @onready var end_game_UI_win = $UI/End_game/Win
 @onready var end_game_UI_lose = $UI/End_game/Lose
 @onready var choose_skill_UI = $UI/Get_skill_UI
+@onready var combo_count_label = $UI/Combo_count
+var combo_count : int = 0
 
 @onready var game_objects = $Game_objects
 
@@ -62,6 +65,8 @@ func _process(delta):
 	match game_state:
 		PLAY:
 			play_game()
+		BALLS_GO:
+			chec_game_end()
 		WIN:
 			win()
 		LOSE:
@@ -89,8 +94,6 @@ func play_game() -> void:
 
 	if Input.is_action_just_released("LBM") and balls_can_go:
 		balls_go()
-
-	chec_game_end()
 
 func chec_game_end() -> void:
 	var balls_on_map = true
@@ -127,10 +130,25 @@ func chec_game_end() -> void:
 		LevelManager.updete_last_line()
 		spawn_objects_on_matrix()
 		balls_can_go = true
+		combo_count_label.visible = false
+		combo_count = 0
+		LevelManager.combo_count = 0
+		combo_count_label.text = str(0)
 		if LevelManager.spin_skill != 0:
 			choose_skill_UI.visible = true
 			choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 			game_state = CHOOSE_SKILL
+			return
+		game_state = PLAY
+	
+	if LevelManager.combo_count > combo_count:
+		combo_count_label.visible = true
+		combo_count_label.text = str(LevelManager.combo_count)
+		combo_count_label.scale = Vector2(1.5, 1.5)
+		combo_count = LevelManager.combo_count
+	else:
+		if combo_count_label.scale > Vector2(1, 1):
+			combo_count_label.scale -= Vector2(0.05, 0.05)
 
 func win() -> void:
 	end_game_UI.visible = true
@@ -178,6 +196,7 @@ func balls_go() -> void:
 		strelka.visible = false
 		ball_rotate_UI.visible = false
 		new_position_balls = 0
+		game_state = BALLS_GO
 
 		for i in range(LevelManager.player_balls.size()):
 			var ball

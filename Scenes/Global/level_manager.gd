@@ -5,6 +5,7 @@ var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var spin_skill : int = 0
+var combo_count : int = 0
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								 [-1, 1, 1, 1, null, null],
 								 [1, 1, 1, null, -1, 1],
@@ -38,6 +39,8 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
 func restert() -> void:
 	hp_player = 1000
 	count_level = 0
+	spin_skill = 0
+	combo_count = 0
 	first_level_links_on_objects = [[null, null, null, null, null, null],
 									[null, 1, 1, 1, 1, 1],
 									[null, null, null, null, null, null],
@@ -170,6 +173,7 @@ func bomb_ball_explosion(enemy, damage_ball) -> void:
 				if first_level_links_on_objects[target_x][target_y] != null:
 					if first_level_links_on_objects[target_x][target_y].has_method("enemy"):
 						first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball)
+						combo_count += 1 # можно будет убрать
 
 func delete_freezing_on_enemy() -> void:
 	for i in first_level_links_on_objects:
@@ -177,3 +181,6 @@ func delete_freezing_on_enemy() -> void:
 			if j != null:
 				if j.has_method("enemy"):
 					j.delete_freezing()
+
+func update_combo_count():
+	combo_count += 1

@@ -23,15 +23,15 @@ func generetion_new_wave(number_wave):
 						if percent_cells_by_enemies[i][j] > randi() % 100 + 1:
 							coun_cell_with_enemy = j
 							break
-	print(coun_cell_with_enemy)
+	#print(coun_cell_with_enemy)
 	var enemy_who_can_spawn = []
 	var all_percent = 0
 	for i in range(percent_spawn_enemy.size()):
 		if percent_spawn_enemy[i][1] <= number_wave:
 			enemy_who_can_spawn.append([percent_spawn_enemy[i][0], percent_spawn_enemy[i][2]])
 			all_percent += percent_spawn_enemy[i][2]
-	print(enemy_who_can_spawn)
-	print(all_percent)
+	#print(enemy_who_can_spawn)
+	#print(all_percent)
 	var new_enemy_array = []
 	for i in range(coun_cell_with_enemy):
 		var new_enemy = null
@@ -41,7 +41,7 @@ func generetion_new_wave(number_wave):
 					new_enemy = j[0]
 					new_enemy_array.append(j[0])
 					break
-	print(new_enemy_array)
+	#print(new_enemy_array)
 	new_enemy_array.shuffle()
 	var finish_array = [null,null,null,null,null,null]
 	for i in range(new_enemy_array.size()):
@@ -51,8 +51,8 @@ func generetion_new_wave(number_wave):
 			if finish_array[random_index] == null:
 				finish_array[random_index] = new_enemy_array[i]
 				inserted = true
-	print(number_wave)
-	print(finish_array)
+	#print(number_wave)
+	#print(finish_array)
 	return finish_array
 
 func how_many_hp_plus_enemy(number_wave) -> int:
