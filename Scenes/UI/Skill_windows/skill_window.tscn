@@ -1,0 +1,198 @@
+[gd_scene load_steps=28 format=3 uid="uid://btt53uxq2a182"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
+[ext_resource type="Texture2D" uid="uid://bxgjf44vs55nu" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 1.png" id="2_gidl4"]
+[ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 3.png" id="3_8n6dk"]
+[ext_resource type="Texture2D" uid="uid://defyku3t56jyi" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 2.png" id="4_uo73p"]
+[ext_resource type="Texture2D" uid="uid://db6hskxypvv6v" path="res://Texture/UI/Skills_UI/Regular/текст (обычный).png" id="5_d6d1w"]
+[ext_resource type="Texture2D" uid="uid://bpqapqkxxbs35" path="res://Texture/UI/Skills_UI/Regular/окно описания скилл обычный.png" id="6_8xcjj"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_gbsxi"]
+[ext_resource type="Texture2D" uid="uid://c7rgmnk02u5so" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 3.png" id="8_q1tj2"]
+[ext_resource type="Texture2D" uid="uid://b2ph31ui45e8k" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 2.png" id="9_fb3gg"]
+[ext_resource type="Texture2D" uid="uid://dd0ey430wm6my" path="res://Texture/UI/Skills_UI/Rare/текст (редкий).png" id="10_4ma2s"]
+[ext_resource type="Texture2D" uid="uid://bxdk37w6n4sk1" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 1.png" id="11_m2a58"]
+[ext_resource type="Texture2D" uid="uid://cyu041yjo1m4u" path="res://Texture/UI/Skills_UI/Rare/окно описания скилл редкий.png" id="11_qe26v"]
+[ext_resource type="Texture2D" uid="uid://dc305exjgbnpd" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 3.png" id="12_owfot"]
+[ext_resource type="Texture2D" uid="uid://cah1rsombgb3r" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 2.png" id="13_0ux25"]
+[ext_resource type="Texture2D" uid="uid://nnlu5myf7rtw" path="res://Texture/UI/Skills_UI/Epic/текст (эпический).png" id="14_y3k8o"]
+[ext_resource type="Texture2D" uid="uid://da8rnv1e444v7" path="res://Texture/UI/Skills_UI/Epic/окно описания скилл эпический.png" id="15_c4ml1"]
+[ext_resource type="Texture2D" uid="uid://dib2wd0yfb0o0" path="res://Texture/UI/Skills_UI/Legendary/окно скилл легендарный 1.png" id="16_3gstv"]
+[ext_resource type="Texture2D" uid="uid://7ro0ll0n0n3g" path="res://Texture/UI/Skills_UI/Legendary/окно скилл легендарный 3.png" id="17_6abxv"]
+[ext_resource type="Texture2D" uid="uid://1kgp7cfrut0s" path="res://Texture/UI/Skills_UI/Legendary/окно скилл легендарный 2.png" id="18_tsnwy"]
+[ext_resource type="Texture2D" uid="uid://dho6bt7l2eeuh" path="res://Texture/UI/Skills_UI/Legendary/текст (легендарный).png" id="19_yrvc4"]
+[ext_resource type="Texture2D" uid="uid://dpy0iskpmsq8e" path="res://Texture/UI/Skills_UI/Legendary/окно описания скилл легендарный.png" id="20_u3v3r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yme44"]
+font = ExtResource("7_gbsxi")
+font_size = 40
+font_color = Color(0.27451, 0.278431, 0.25098, 1)
+
+[sub_resource type="Animation" id="Animation_gq3rs"]
+resource_name = "regular_window"
+
+[sub_resource type="Animation" id="Animation_psnp5"]
+resource_name = "rare_window"
+
+[sub_resource type="Animation" id="Animation_2fsx8"]
+resource_name = "epic_window"
+
+[sub_resource type="Animation" id="Animation_ewh3f"]
+resource_name = "legendary_window"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tm8fr"]
+_data = {
+"epic_window": SubResource("Animation_2fsx8"),
+"legendary_window": SubResource("Animation_ewh3f"),
+"rare_window": SubResource("Animation_psnp5"),
+"regular_window": SubResource("Animation_gq3rs")
+}
+
+[node name="Skill_window" type="Control"]
+custom_minimum_size = Vector2(208, 417)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -512.0
+offset_bottom = -863.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qu6ra")
+
+[node name="regular_window" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(208, 417)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backgroung" type="Sprite2D" parent="regular_window"]
+position = Vector2(103, 209)
+texture = ExtResource("2_gidl4")
+
+[node name="Texture_skill" type="Sprite2D" parent="regular_window"]
+position = Vector2(103.5, 151)
+texture = ExtResource("3_8n6dk")
+
+[node name="Rarity_texture" type="Sprite2D" parent="regular_window"]
+position = Vector2(102.5, 17)
+texture = ExtResource("4_uo73p")
+
+[node name="Rarity_text" type="Sprite2D" parent="regular_window"]
+position = Vector2(102.5, 18)
+texture = ExtResource("5_d6d1w")
+
+[node name="Discription" type="Sprite2D" parent="regular_window"]
+position = Vector2(102.5, 328)
+texture = ExtResource("6_8xcjj")
+
+[node name="rare_window" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(208, 417)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backgroung" type="Sprite2D" parent="rare_window"]
+position = Vector2(103, 209)
+texture = ExtResource("2_gidl4")
+
+[node name="Texture_skill" type="Sprite2D" parent="rare_window"]
+position = Vector2(103, 150)
+texture = ExtResource("8_q1tj2")
+
+[node name="Rarity_texture" type="Sprite2D" parent="rare_window"]
+position = Vector2(102.5, 17)
+texture = ExtResource("9_fb3gg")
+
+[node name="Rarity_text" type="Sprite2D" parent="rare_window"]
+position = Vector2(102.5, 18)
+texture = ExtResource("10_4ma2s")
+
+[node name="Discription" type="Sprite2D" parent="rare_window"]
+position = Vector2(102.5, 328)
+texture = ExtResource("11_qe26v")
+
+[node name="epic_window" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(208, 417)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backgroung" type="Sprite2D" parent="epic_window"]
+position = Vector2(103, 209)
+texture = ExtResource("11_m2a58")
+
+[node name="Texture_skill" type="Sprite2D" parent="epic_window"]
+position = Vector2(103, 117)
+texture = ExtResource("12_owfot")
+
+[node name="Rarity_texture" type="Sprite2D" parent="epic_window"]
+position = Vector2(102.5, -19)
+texture = ExtResource("13_0ux25")
+
+[node name="Rarity_text" type="Sprite2D" parent="epic_window"]
+position = Vector2(103, -32)
+texture = ExtResource("14_y3k8o")
+
+[node name="Discription" type="Sprite2D" parent="epic_window"]
+position = Vector2(103, 294)
+texture = ExtResource("15_c4ml1")
+
+[node name="legendary_window" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(208, 417)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backgroung" type="Sprite2D" parent="legendary_window"]
+position = Vector2(103, 177)
+texture = ExtResource("16_3gstv")
+
+[node name="Texture_skill" type="Sprite2D" parent="legendary_window"]
+position = Vector2(103, 149)
+texture = ExtResource("17_6abxv")
+
+[node name="Rarity_texture" type="Sprite2D" parent="legendary_window"]
+position = Vector2(102.5, -19)
+texture = ExtResource("18_tsnwy")
+
+[node name="Rarity_text" type="Sprite2D" parent="legendary_window"]
+position = Vector2(35, 8)
+texture = ExtResource("19_yrvc4")
+
+[node name="Discription" type="Sprite2D" parent="legendary_window"]
+position = Vector2(103, 328)
+texture = ExtResource("20_u3v3r")
+
+[node name="Discription_skill" type="Label" parent="."]
+visible = false
+offset_left = 28.5
+offset_top = 276.0
+offset_right = 329.5
+offset_bottom = 488.0
+scale = Vector2(0.5, 0.5)
+text = "Здесь описание скилла"
+label_settings = SubResource("LabelSettings_yme44")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tm8fr")
+}
