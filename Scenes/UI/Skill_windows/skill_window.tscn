@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://btt53uxq2a182"]
+[gd_scene load_steps=29 format=3 uid="uid://btt53uxq2a182"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
+[ext_resource type="Texture2D" uid="uid://b3j08fsgbxkxl" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 1.png" id="2_dvgyb"]
 [ext_resource type="Texture2D" uid="uid://bxgjf44vs55nu" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 1.png" id="2_gidl4"]
 [ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 3.png" id="3_8n6dk"]
 [ext_resource type="Texture2D" uid="uid://defyku3t56jyi" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 2.png" id="4_uo73p"]
@@ -27,17 +28,17 @@ font = ExtResource("7_gbsxi")
 font_size = 40
 font_color = Color(0.27451, 0.278431, 0.25098, 1)
 
-[sub_resource type="Animation" id="Animation_gq3rs"]
-resource_name = "regular_window"
-
-[sub_resource type="Animation" id="Animation_psnp5"]
-resource_name = "rare_window"
-
 [sub_resource type="Animation" id="Animation_2fsx8"]
 resource_name = "epic_window"
 
 [sub_resource type="Animation" id="Animation_ewh3f"]
 resource_name = "legendary_window"
+
+[sub_resource type="Animation" id="Animation_psnp5"]
+resource_name = "rare_window"
+
+[sub_resource type="Animation" id="Animation_gq3rs"]
+resource_name = "regular_window"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tm8fr"]
 _data = {
@@ -71,7 +72,7 @@ grow_vertical = 2
 
 [node name="Backgroung" type="Sprite2D" parent="regular_window"]
 position = Vector2(103, 209)
-texture = ExtResource("2_gidl4")
+texture = ExtResource("2_dvgyb")
 
 [node name="Texture_skill" type="Sprite2D" parent="regular_window"]
 position = Vector2(103.5, 151)
@@ -181,6 +182,7 @@ texture = ExtResource("20_u3v3r")
 
 [node name="Discription_skill" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 28.5
 offset_top = 276.0
 offset_right = 329.5
