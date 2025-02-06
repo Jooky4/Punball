@@ -25,13 +25,10 @@ func generetion_new_wave(number_wave):
 							break
 	#print(coun_cell_with_enemy)
 	var enemy_who_can_spawn = []
-	var all_percent = 0
 	for i in range(percent_spawn_enemy.size()):
 		if percent_spawn_enemy[i][1] <= number_wave:
 			enemy_who_can_spawn.append([percent_spawn_enemy[i][0], percent_spawn_enemy[i][2]])
-			all_percent += percent_spawn_enemy[i][2]
 	#print(enemy_who_can_spawn)
-	#print(all_percent)
 	var new_enemy_array = []
 	for i in range(coun_cell_with_enemy):
 		var new_enemy = null

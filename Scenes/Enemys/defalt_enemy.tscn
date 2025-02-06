@@ -1,19 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://dth3oomadgqmv"]
+[gd_scene load_steps=9 format=3 uid="uid://dth3oomadgqmv"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_oq22b"]
 [ext_resource type="Texture2D" uid="uid://q51w35f3p46q" path="res://Texture/Enemys/defalt_enemy.png" id="2_xcr0s"]
-[ext_resource type="Texture2D" uid="uid://hoveciabwg5j" path="res://Texture/Enemys/Полоска здоровья/healthbarUnder.png" id="3_gka40"]
-[ext_resource type="Texture2D" uid="uid://526tixf85g56" path="res://Texture/Enemys/Полоска здоровья/healthbarProgress.png" id="4_rptbq"]
+[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_5chwh"]
+[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_1gi6c"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="5_qh7tt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r53h3"]
 font = ExtResource("5_qh7tt")
 font_size = 50
 font_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
-outline_size = 30
+outline_size = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
 size = Vector2(91, 90)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iwev2"]
+font = ExtResource("5_qh7tt")
+font_size = 50
 
 [node name="defalt_enemy" type="StaticBody2D"]
 collision_layer = 2
@@ -26,19 +30,20 @@ scale = Vector2(0.0820981, 0.080171)
 texture = ExtResource("2_xcr0s")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = -47.0
-offset_top = 38.0
-offset_right = 51.0
+offset_left = -45.0
+offset_top = 36.0
+offset_right = 46.0
 offset_bottom = 50.0
-value = 30.0
-texture_under = ExtResource("3_gka40")
-texture_progress = ExtResource("4_rptbq")
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_5chwh")
+texture_progress = ExtResource("4_1gi6c")
 
 [node name="Hp_boss_label" type="Label" parent="."]
-offset_left = -47.0
-offset_top = 25.0
-offset_right = 196.0
-offset_bottom = 120.0
+offset_left = -45.0
+offset_top = 22.0
+offset_right = 185.0
+offset_bottom = 117.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_r53h3")
@@ -48,3 +53,17 @@ vertical_alignment = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_m8ci2")
+
+[node name="Label_enemy_damage" type="Label" parent="."]
+visible = false
+z_index = 1
+offset_left = -65.0
+offset_top = -30.0
+offset_right = 45.0
+offset_bottom = 28.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(65, 30)
+text = "-100"
+label_settings = SubResource("LabelSettings_iwev2")
+horizontal_alignment = 1
+vertical_alignment = 1

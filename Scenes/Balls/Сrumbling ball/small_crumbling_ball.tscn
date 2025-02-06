@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://beth4venemch3"]
 
-[ext_resource type="Script" path="res://Scenes/Balls/Defalt ball/defalt_ball.gd" id="1_ot8yf"]
+[ext_resource type="Script" path="res://Scenes/Balls/Сrumbling ball/small_crumbling_ball.gd" id="1_ars7c"]
 [ext_resource type="Texture2D" uid="uid://bu226xrpl8enh" path="res://Texture/Balls/рассыпающийся2.png" id="2_kpmef"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_xec7g"]
 
@@ -21,7 +21,7 @@ collision_layer = 4
 collision_mask = 11
 platform_on_leave = 2
 platform_floor_layers = 4294967040
-script = ExtResource("1_ot8yf")
+script = ExtResource("1_ars7c")
 damage_ball = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hoveciabwg5j"
-path="res://.godot/imported/healthbarUnder.png-337bd85dddf10690f4de9ea33e83a6b7.ctex"
+uid="uid://dd0ey430wm6my"
+path="res://.godot/imported/текст (редкий).png-5d3131e5afcfc6ffb8bc06cd182b8af8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/Полоска здоровья/healthbarUnder.png"
-dest_files=["res://.godot/imported/healthbarUnder.png-337bd85dddf10690f4de9ea33e83a6b7.ctex"]
+source_file="res://Texture/UI/Skills_UI/текст (редкий).png"
+dest_files=["res://.godot/imported/текст (редкий).png-5d3131e5afcfc6ffb8bc06cd182b8af8.ctex"]
 
 [params]
 

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3rdytwyukn6p"]
+
+[ext_resource type="Script" path="res://Scenes/Bonus/bank_with_experience.gd" id="1_hj12u"]
+[ext_resource type="Texture2D" uid="uid://g478p8fhtab0" path="res://Texture/Level_environment/банка.png" id="1_qt4ju"]
+
+[sub_resource type="Animation" id="Animation_7evu8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Банка:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_7khvl"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Банка:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 15), Vector2(0, 0), Vector2(0, 15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4p81f"]
+_data = {
+"RESET": SubResource("Animation_7evu8"),
+"idle": SubResource("Animation_7khvl")
+}
+
+[node name="bank_with_experience" type="Node2D"]
+script = ExtResource("1_hj12u")
+
+[node name="Банка" type="Sprite2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_qt4ju")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4p81f")
+}
+autoplay = "idle"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c26a3m2emt1kg"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/skill_box.gd" id="1_5hwwp"]
+[ext_resource type="Script" path="res://Scenes/Bonus/skill_box.gd" id="1_5hwwp"]
 [ext_resource type="Texture2D" uid="uid://b7dfponmp1s61" path="res://Texture/Level_environment/скилл.png" id="1_fb7cq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]

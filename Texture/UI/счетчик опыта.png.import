@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://526tixf85g56"
-path="res://.godot/imported/healthbarProgress.png-610ccd46c3e28d21c9d4580621135258.ctex"
+uid="uid://bjo207pgwvdxv"
+path="res://.godot/imported/счетчик опыта.png-10c5f0bc76443b8e57f9555367b6ad66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/Полоска здоровья/healthbarProgress.png"
-dest_files=["res://.godot/imported/healthbarProgress.png-610ccd46c3e28d21c9d4580621135258.ctex"]
+source_file="res://Texture/UI/счетчик опыта.png"
+dest_files=["res://.godot/imported/счетчик опыта.png-10c5f0bc76443b8e57f9555367b6ad66.ctex"]
 
 [params]
 

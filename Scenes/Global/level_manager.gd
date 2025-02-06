@@ -4,8 +4,9 @@ var hp_player : int = 1000
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
-var spin_skill : int = 0
+var count_experiance : int = 0
 var combo_count : int = 0
+var spin_skill : int = 0
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								 [-1, 1, 1, 1, null, null],
 								 [1, 1, 1, null, -1, 1],
@@ -41,6 +42,7 @@ func restert() -> void:
 	count_level = 0
 	spin_skill = 0
 	combo_count = 0
+	count_experiance = 0
 	first_level_links_on_objects = [[null, null, null, null, null, null],
 									[null, 1, 1, 1, 1, 1],
 									[null, null, null, null, null, null],
@@ -70,8 +72,8 @@ func restert() -> void:
 						 [null, null, 1, 1, null, null],
 						 [null, null, 1, 1, null, null]]
 
-func add_ball() -> void:
-	player_balls_after_wave.append(1)
+func add_ball(num_ball) -> void:
+	player_balls_after_wave.append(num_ball)
 
 func apeend_new_balls() -> void:
 	player_balls.append_array(player_balls_after_wave)
@@ -155,7 +157,7 @@ func updete_last_line() -> void:
 			first_level_links_on_objects[0][i] = new_line_spawn[i]
 	count_level += 1
 
-func bomb_ball_explosion(enemy, damage_ball) -> void:
+func bomb_ball_explosion(enemy, damage_ball, color_ball) -> void:
 	var x
 	var y
 	for i in range(first_level_links_on_objects.size()):
@@ -172,7 +174,7 @@ func bomb_ball_explosion(enemy, damage_ball) -> void:
 			if target_x >= 0 and target_x < 8 and target_y >= 0 and target_y < 6:
 				if first_level_links_on_objects[target_x][target_y] != null:
 					if first_level_links_on_objects[target_x][target_y].has_method("enemy"):
-						first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball)
+						first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
 						combo_count += 1 # можно будет убрать
 
 func delete_freezing_on_enemy() -> void:
