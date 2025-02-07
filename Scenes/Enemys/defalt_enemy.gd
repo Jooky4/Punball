@@ -76,3 +76,7 @@ func create_label_damage(damage_ball, color_label) -> void:
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	label.visible = true
 	get_tree().current_scene.add_child(label)
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Spawn":
+		animation_enemy.play("Idle")
