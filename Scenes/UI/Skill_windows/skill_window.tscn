@@ -1,51 +1,824 @@
-[gd_scene load_steps=29 format=3 uid="uid://btt53uxq2a182"]
+[gd_scene load_steps=36 format=3 uid="uid://btt53uxq2a182"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
-[ext_resource type="Texture2D" uid="uid://b3j08fsgbxkxl" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 1.png" id="2_dvgyb"]
-[ext_resource type="Texture2D" uid="uid://bxgjf44vs55nu" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 1.png" id="2_gidl4"]
+[ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/UI/ligting.png" id="2_ii2ha"]
+[ext_resource type="Texture2D" uid="uid://dc4bosyi510a1" path="res://Texture/UI/Skills_UI/Regular/обычныйВерх.png" id="2_tl1jo"]
 [ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 3.png" id="3_8n6dk"]
+[ext_resource type="Texture2D" uid="uid://dxluksimoc10k" path="res://Texture/UI/Skills_UI/Regular/обычныйНиз.png" id="3_f8gh8"]
 [ext_resource type="Texture2D" uid="uid://defyku3t56jyi" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 2.png" id="4_uo73p"]
 [ext_resource type="Texture2D" uid="uid://db6hskxypvv6v" path="res://Texture/UI/Skills_UI/Regular/текст (обычный).png" id="5_d6d1w"]
 [ext_resource type="Texture2D" uid="uid://bpqapqkxxbs35" path="res://Texture/UI/Skills_UI/Regular/окно описания скилл обычный.png" id="6_8xcjj"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_gbsxi"]
+[ext_resource type="Texture2D" uid="uid://bi4tqxqkq2sb4" path="res://Texture/UI/Skills_UI/Rare/WindowUp.png" id="8_iux2o"]
 [ext_resource type="Texture2D" uid="uid://c7rgmnk02u5so" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 3.png" id="8_q1tj2"]
+[ext_resource type="Texture2D" uid="uid://bo56obau42g" path="res://Texture/UI/Skills_UI/Rare/WindowDown.png" id="9_agc3n"]
 [ext_resource type="Texture2D" uid="uid://b2ph31ui45e8k" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 2.png" id="9_fb3gg"]
 [ext_resource type="Texture2D" uid="uid://dd0ey430wm6my" path="res://Texture/UI/Skills_UI/Rare/текст (редкий).png" id="10_4ma2s"]
 [ext_resource type="Texture2D" uid="uid://bxdk37w6n4sk1" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 1.png" id="11_m2a58"]
 [ext_resource type="Texture2D" uid="uid://cyu041yjo1m4u" path="res://Texture/UI/Skills_UI/Rare/окно описания скилл редкий.png" id="11_qe26v"]
 [ext_resource type="Texture2D" uid="uid://dc305exjgbnpd" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 3.png" id="12_owfot"]
 [ext_resource type="Texture2D" uid="uid://cah1rsombgb3r" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 2.png" id="13_0ux25"]
+[ext_resource type="Texture2D" uid="uid://dkd7onksnqokq" path="res://Texture/UI/Skills_UI/Epic/WindowUp.png" id="14_epayt"]
 [ext_resource type="Texture2D" uid="uid://nnlu5myf7rtw" path="res://Texture/UI/Skills_UI/Epic/текст (эпический).png" id="14_y3k8o"]
+[ext_resource type="Texture2D" uid="uid://de3ej5o1cgsjf" path="res://Texture/UI/Skills_UI/Epic/WindowDown.png" id="15_ba1aw"]
 [ext_resource type="Texture2D" uid="uid://da8rnv1e444v7" path="res://Texture/UI/Skills_UI/Epic/окно описания скилл эпический.png" id="15_c4ml1"]
-[ext_resource type="Texture2D" uid="uid://dib2wd0yfb0o0" path="res://Texture/UI/Skills_UI/Legendary/окно скилл легендарный 1.png" id="16_3gstv"]
 [ext_resource type="Texture2D" uid="uid://7ro0ll0n0n3g" path="res://Texture/UI/Skills_UI/Legendary/окно скилл легендарный 3.png" id="17_6abxv"]
 [ext_resource type="Texture2D" uid="uid://1kgp7cfrut0s" path="res://Texture/UI/Skills_UI/Legendary/окно скилл легендарный 2.png" id="18_tsnwy"]
 [ext_resource type="Texture2D" uid="uid://dho6bt7l2eeuh" path="res://Texture/UI/Skills_UI/Legendary/текст (легендарный).png" id="19_yrvc4"]
 [ext_resource type="Texture2D" uid="uid://dpy0iskpmsq8e" path="res://Texture/UI/Skills_UI/Legendary/окно описания скилл легендарный.png" id="20_u3v3r"]
+[ext_resource type="Texture2D" uid="uid://bddsbdwsqnnqh" path="res://Texture/UI/Skills_UI/Legendary/WindowUp.png" id="21_kd1mb"]
+[ext_resource type="Texture2D" uid="uid://c7nj0p05fcbp2" path="res://Texture/UI/Skills_UI/Legendary/WindowDown.png" id="22_ryi60"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yme44"]
 font = ExtResource("7_gbsxi")
 font_size = 40
 font_color = Color(0.27451, 0.278431, 0.25098, 1)
 
-[sub_resource type="Animation" id="Animation_2fsx8"]
-resource_name = "epic_window"
+[sub_resource type="Animation" id="Animation_xn3sy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("regular_window:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rare_window:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("epic_window:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("legendary_window:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("regular_window:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("rare_window:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("epic_window:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("legendary_window:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("legendary_window:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("epic_window:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("rare_window:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("regular_window:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("regular_window/WindowDown:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(103.5, 61)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("regular_window/Discription:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(102.5, 182)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("rare_window/WindowDown2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(103.5, 61)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("rare_window/Discription:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(102.5, 180)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("epic_window/WindowDown:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(103.5, 62)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("epic_window/Discription:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(103, 147)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("legendary_window/WindowDown:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(103.5, 61)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("legendary_window/Discription:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(103, 180)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath(".:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Ligting:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7, 0.35)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Ligting:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(103, 125)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Ligting:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="Animation" id="Animation_ewh3f"]
-resource_name = "legendary_window"
-
-[sub_resource type="Animation" id="Animation_psnp5"]
-resource_name = "rare_window"
-
-[sub_resource type="Animation" id="Animation_gq3rs"]
+[sub_resource type="Animation" id="Animation_vjmec"]
 resource_name = "regular_window"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -2000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("regular_window/WindowDown:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(103.5, 61), Vector2(103.5, 209)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("regular_window/Discription:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(102.5, 182), Vector2(102.5, 328)]
+}
+
+[sub_resource type="Animation" id="Animation_mrjpc"]
+resource_name = "legend_window"
+length = 4.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -2000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("regular_window:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("rare_window:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("epic_window:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.525, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("legendary_window:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("regular_window:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.65, 0.75, 0.9),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.1, 1.1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("rare_window:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.9, 1.025, 1.225, 1.4, 1.525),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.12, 1.12)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("epic_window:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.525, 1.675, 2, 2.25, 2.4),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1.12, 1.12), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.15, 1.15)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("legendary_window:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.4, 2.575),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1.15, 1.15), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("legendary_window/WindowDown:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3.8, 4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(103.5, 61), Vector2(103.5, 209)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("legendary_window/Discription:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(3.8, 4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(103, 180), Vector2(103, 328)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Ligting:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.525, 1.75, 2, 2.25, 2.575, 2.8, 3.8, 4),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(103, 125), Vector2(103, 125), Vector2(103, 109.56), Vector2(103, 109.56), Vector2(103, 109.56), Vector2(103, 125), Vector2(103, 115.73), Vector2(103, 115.73), Vector2(103, 170.32)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Ligting:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.75, 0.9, 1.325, 1.375, 1.525, 1.75, 2, 2.25, 2.4, 2.8, 3.8, 4),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.1, 1), Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.146, 1.25), Vector2(1, 0.65), Vector2(1, 0.65), Vector2(0.905, 0.57), Vector2(1.1, 1.5), Vector2(1.05, 0.61), Vector2(1.05, 0.61), Vector2(1.05, 0.95)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Ligting:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9, 1.1, 1.425, 1.525, 1.75, 2.3, 2.4, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.919912, 0.688134, 0.922175, 1), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(0.929156, 0.798169, 0.496497, 1), Color(0.964382, 0.878587, 0.685951, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pat2w"]
+resource_name = "rare_window"
+length = 1.7
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -2000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("regular_window:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("rare_window:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("regular_window:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.65, 0.75, 0.9),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.1, 1.1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("rare_window:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.9, 1.025),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ligting:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
+"update": 0,
+"values": [Vector2(103, 125)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Ligting:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.75, 0.9),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ligting:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("rare_window/WindowDown2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.5, 1.7),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(103.5, 61), Vector2(103.5, 209)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("rare_window/Discription:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.5, 1.7),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(102.5, 180), Vector2(102.5, 328)]
+}
+
+[sub_resource type="Animation" id="Animation_qmjxo"]
+resource_name = "epic_window"
+length = 2.6
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -2000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("regular_window:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("rare_window:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.525),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("epic_window:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.525),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("regular_window:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.65, 0.75, 0.9),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.1, 1.1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("rare_window:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.9, 1.025, 1.225, 1.4, 1.525),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.12, 1.12)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("epic_window:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.525, 1.675, 2.4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1.12, 1.12), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ligting:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.525, 1.75, 2.4, 2.6),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(103, 125), Vector2(103, 125), Vector2(103, 109.56), Vector2(103, 109.56), Vector2(103, 181)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Ligting:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.75, 0.9, 1.325, 1.375, 1.525, 1.75, 2.4, 2.6),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.1, 1), Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.146, 1.25), Vector2(1, 0.65), Vector2(1, 0.65), Vector2(1, 0.93)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Ligting:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9, 1.1, 1.425, 1.525, 1.75, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.919912, 0.688134, 0.922175, 1), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(0.952941, 0.811765, 0.952941, 0.713726)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("epic_window/WindowDown:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.4, 2.6),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(103.5, 62), Vector2(103.5, 209)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("epic_window/Discription:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(2.4, 2.6),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(103, 147), Vector2(103, 295)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tm8fr"]
 _data = {
-"epic_window": SubResource("Animation_2fsx8"),
-"legendary_window": SubResource("Animation_ewh3f"),
-"rare_window": SubResource("Animation_psnp5"),
-"regular_window": SubResource("Animation_gq3rs")
+"RESET": SubResource("Animation_xn3sy"),
+"epic_window": SubResource("Animation_qmjxo"),
+"legend_window": SubResource("Animation_mrjpc"),
+"rare_window": SubResource("Animation_pat2w"),
+"regular_window": SubResource("Animation_vjmec")
 }
 
 [node name="Skill_window" type="Control"]
@@ -60,8 +833,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qu6ra")
 
+[node name="Ligting" type="Sprite2D" parent="."]
+position = Vector2(103, 125)
+scale = Vector2(0.7, 0.35)
+texture = ExtResource("2_ii2ha")
+
 [node name="regular_window" type="Control" parent="."]
-visible = false
 custom_minimum_size = Vector2(208, 417)
 layout_mode = 1
 anchors_preset = 15
@@ -69,10 +846,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(100, 150)
 
-[node name="Backgroung" type="Sprite2D" parent="regular_window"]
-position = Vector2(103, 209)
-texture = ExtResource("2_dvgyb")
+[node name="WindowUp" type="Sprite2D" parent="regular_window"]
+position = Vector2(103.5, 209)
+texture = ExtResource("2_tl1jo")
+
+[node name="WindowDown" type="Sprite2D" parent="regular_window"]
+position = Vector2(103.5, 61)
+texture = ExtResource("3_f8gh8")
+
+[node name="Discription" type="Sprite2D" parent="regular_window"]
+position = Vector2(102.5, 182)
+texture = ExtResource("6_8xcjj")
 
 [node name="Texture_skill" type="Sprite2D" parent="regular_window"]
 position = Vector2(103.5, 151)
@@ -86,10 +872,6 @@ texture = ExtResource("4_uo73p")
 position = Vector2(102.5, 18)
 texture = ExtResource("5_d6d1w")
 
-[node name="Discription" type="Sprite2D" parent="regular_window"]
-position = Vector2(102.5, 328)
-texture = ExtResource("6_8xcjj")
-
 [node name="rare_window" type="Control" parent="."]
 visible = false
 custom_minimum_size = Vector2(208, 417)
@@ -99,26 +881,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(100, 150)
 
-[node name="Backgroung" type="Sprite2D" parent="rare_window"]
-position = Vector2(103, 209)
-texture = ExtResource("2_gidl4")
+[node name="WindowUp2" type="Sprite2D" parent="rare_window"]
+position = Vector2(103.5, 204)
+texture = ExtResource("8_iux2o")
+
+[node name="WindowDown2" type="Sprite2D" parent="rare_window"]
+position = Vector2(103.5, 61)
+texture = ExtResource("9_agc3n")
+
+[node name="Discription" type="Sprite2D" parent="rare_window"]
+position = Vector2(102.5, 180)
+texture = ExtResource("11_qe26v")
 
 [node name="Texture_skill" type="Sprite2D" parent="rare_window"]
-position = Vector2(103, 150)
+position = Vector2(103, 145)
 texture = ExtResource("8_q1tj2")
 
 [node name="Rarity_texture" type="Sprite2D" parent="rare_window"]
-position = Vector2(102.5, 17)
+position = Vector2(102.5, 12)
 texture = ExtResource("9_fb3gg")
 
 [node name="Rarity_text" type="Sprite2D" parent="rare_window"]
-position = Vector2(102.5, 18)
+position = Vector2(102.5, 13)
 texture = ExtResource("10_4ma2s")
-
-[node name="Discription" type="Sprite2D" parent="rare_window"]
-position = Vector2(102.5, 328)
-texture = ExtResource("11_qe26v")
 
 [node name="epic_window" type="Control" parent="."]
 visible = false
@@ -129,8 +916,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(100, 150)
+
+[node name="WindowUp" type="Sprite2D" parent="epic_window"]
+position = Vector2(103.5, 209)
+texture = ExtResource("14_epayt")
+
+[node name="WindowDown" type="Sprite2D" parent="epic_window"]
+position = Vector2(103.5, 62)
+texture = ExtResource("15_ba1aw")
+
+[node name="Discription" type="Sprite2D" parent="epic_window"]
+position = Vector2(103, 147)
+texture = ExtResource("15_c4ml1")
 
 [node name="Backgroung" type="Sprite2D" parent="epic_window"]
+visible = false
 position = Vector2(103, 209)
 texture = ExtResource("11_m2a58")
 
@@ -146,10 +947,6 @@ texture = ExtResource("13_0ux25")
 position = Vector2(103, -32)
 texture = ExtResource("14_y3k8o")
 
-[node name="Discription" type="Sprite2D" parent="epic_window"]
-position = Vector2(103, 294)
-texture = ExtResource("15_c4ml1")
-
 [node name="legendary_window" type="Control" parent="."]
 visible = false
 custom_minimum_size = Vector2(208, 417)
@@ -159,10 +956,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(100, 150)
 
-[node name="Backgroung" type="Sprite2D" parent="legendary_window"]
-position = Vector2(103, 177)
-texture = ExtResource("16_3gstv")
+[node name="WindowUp" type="Sprite2D" parent="legendary_window"]
+position = Vector2(103.5, 209)
+texture = ExtResource("21_kd1mb")
+
+[node name="WindowDown" type="Sprite2D" parent="legendary_window"]
+position = Vector2(103.5, 61)
+texture = ExtResource("22_ryi60")
+
+[node name="Discription" type="Sprite2D" parent="legendary_window"]
+position = Vector2(103, 180)
+texture = ExtResource("20_u3v3r")
 
 [node name="Texture_skill" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103, 149)
@@ -175,10 +981,6 @@ texture = ExtResource("18_tsnwy")
 [node name="Rarity_text" type="Sprite2D" parent="legendary_window"]
 position = Vector2(35, 8)
 texture = ExtResource("19_yrvc4")
-
-[node name="Discription" type="Sprite2D" parent="legendary_window"]
-position = Vector2(103, 328)
-texture = ExtResource("20_u3v3r")
 
 [node name="Discription_skill" type="Label" parent="."]
 visible = false
