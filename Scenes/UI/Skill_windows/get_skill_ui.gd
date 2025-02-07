@@ -3,7 +3,7 @@ extends Control
 var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 
 @onready var windows_skill = $Windows_skill
-
+@onready var animation = $AnimationPlayer
 var regular = ["Шар-заморозка", "Усиление обычного шара"]
 var rare = ["Рассыпающийся шар", "Шар-бомба", "Усиление особого шара", "Прибавка ОЗ"]
 var epic = []
@@ -14,34 +14,34 @@ func _ready() -> void:
 	visible = false
 
 func _on_continue_game_pressed() -> void:
+	
 	LevelManager.spin_skill -= 1
 	if LevelManager.spin_skill == 0:
-		visible = false
+		animation.play("windows_output")
 	else:
 		get_number_skill(LevelManager.spin_skill)
 
 func get_number_skill(number:int) -> void:
-	for child in windows_skill.get_children():
-		child.queue_free()
+	for i in windows_skill.get_children():
+		i.queue_free()
 	skills.clear()
+	animation.play("window_input")
 	create_skill()
 
 func create_skill():
 	for i in range(3):
+		var buff = SKILL_WINDOW.instantiate()
 		if randi() % 2 == 1:
-			var buff = SKILL_WINDOW.instantiate()
 			var new_skill = rare[randi() % rare.size()]
-			buff.show_rarity_window(2)
 			buff.update_discription(new_skill)
+			buff.show_rarity_window(3)
 			skills.append(new_skill)
-			windows_skill.add_child(buff)
 		else:
-			var buff = SKILL_WINDOW.instantiate()
 			var new_skill = regular[randi() % regular.size()]
-			buff.show_rarity_window(1)
 			buff.update_discription(new_skill)
+			buff.show_rarity_window(1)
 			skills.append(new_skill)
-			windows_skill.add_child(buff)
+		windows_skill.add_child(buff)
 
 func _on_skill_1_pressed() -> void:
 	add_skill(skills[0])

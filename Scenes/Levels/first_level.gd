@@ -75,7 +75,7 @@ func _process(delta):
 		PAUSE:
 			pause()
 		CHOOSE_SKILL:
-			if !choose_skill_UI.visible:
+			if LevelManager.spin_skill == 0:
 				hp_player_bar.max_value = LevelManager.max_hp_player
 				hp_player_bar.value = LevelManager.hp_player
 				hp_player_label.text = str(LevelManager.hp_player)
@@ -163,7 +163,7 @@ func chec_game_end() -> void:
 			return
 		balls_can_go = true
 		game_state = PLAY
-	
+
 	if LevelManager.combo_count > combo_count:
 		combo_count_label.visible = true
 		combo_count_label.text = str(LevelManager.combo_count)

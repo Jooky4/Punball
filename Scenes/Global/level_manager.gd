@@ -33,10 +33,10 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
 											[null, 1, 1, 1, 1, 1],
 											[null, -1, null, null, null, null],
 											[1, 1, 1, 1, 1, null],
+											[-2, -2, -2, null, -2, null],
 											[null, -2, null, null, null, null],
-											[null, -2, null, null, null, null],
-											[1, 1, null, null, 1, 1],
-											[1, -1, null, null, 1, 1]]
+											[null, null, null, null, null, null],
+											[null, null, null, null, null, null],]
 
 func restert() -> void:
 	hp_player = 1000
