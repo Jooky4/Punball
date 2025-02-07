@@ -67,7 +67,6 @@ func moving(direction_object) -> void:
 		elif direction_object == "right":
 			tween.tween_property($".", "position", Vector2(103, 0) + self.position, 1)
 
-
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = label_enemy_damage.duplicate()
 	label.text = "-" + str(damage_ball)

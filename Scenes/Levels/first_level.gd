@@ -81,6 +81,7 @@ func _process(delta):
 				hp_player_label.text = str(LevelManager.hp_player)
 				LevelManager.apeend_new_balls()
 				count_ball_label.text = "x" + str(LevelManager.player_balls.size())
+				balls_can_go = true
 				game_state = PLAY
 
 func play_game() -> void:
@@ -117,10 +118,6 @@ func chec_game_end() -> void:
 			break
 
 	if balls_on_map and enemy_alive and count_ball_label.text == "x0" and !balls_can_go:
-		start_balls_position.position.x += new_position_balls
-		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
-		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
-		LevelManager.moving_object()
 		LevelManager.apeend_new_balls()
 		count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 		count_level_label.text = str(LevelManager.count_level + 2)
@@ -128,14 +125,7 @@ func chec_game_end() -> void:
 		combo_count = 0
 		LevelManager.combo_count = 0
 		combo_count_label.text = str(0)
-		if LevelManager.hp_player <= 0:
-			game_state = LOSE
-			hp_player_bar.value = 0
-			hp_player_label.text = "0"
-		else:
-			hp_player_bar.value = LevelManager.hp_player
-			hp_player_label.text = str(LevelManager.hp_player)
-		
+
 		for i in self.get_children():
 			if i.has_method("bank_with_experience"):
 				var tween = get_tree().create_tween()
@@ -146,16 +136,30 @@ func chec_game_end() -> void:
 				LevelManager.count_experiance += i.experience
 				count_experience_label.text = str(LevelManager.count_experiance)
 				i.queue_free()
-		
+
+		start_balls_position.position.x += new_position_balls
+		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
+		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
+		LevelManager.enemy_shoot(start_balls_position.position)
+
 		await get_tree().create_timer(1).timeout
+
+		LevelManager.moving_object()
+		if LevelManager.hp_player <= 0:
+			game_state = LOSE
+			hp_player_bar.value = 0
+			hp_player_label.text = "0"
+		else:
+			hp_player_bar.value = LevelManager.hp_player
+			hp_player_label.text = str(LevelManager.hp_player)
 		LevelManager.updete_last_line()
 		spawn_objects_on_matrix()
-		balls_can_go = true
 		if LevelManager.spin_skill != 0:
 			choose_skill_UI.visible = true
 			choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 			game_state = CHOOSE_SKILL
 			return
+		balls_can_go = true
 		game_state = PLAY
 	
 	if LevelManager.combo_count > combo_count:

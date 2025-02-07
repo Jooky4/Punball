@@ -28,9 +28,9 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								 [null, null, 1, 1, null, null],
 								 [null, null, 1, 1, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
-											[null, 1, 1, 1, 1, 1],
+											[null, 2, 1, 1, 1, 2],
 											[null, null, null, null, null, null],
-											[1, 1, 1, 1, 1, null],
+											[2, 2, 2, 2, 1, null],
 											[null, -2, null, null, null, null],
 											[null, -2, null, null, null, null],
 											[null, null, null, null, null, null],
@@ -75,16 +75,26 @@ func restert() -> void:
 func add_ball(num_ball) -> void:
 	player_balls_after_wave.append(num_ball)
 
+func damage_player(damage) -> void:
+	hp_player -= damage
+
 func apeend_new_balls() -> void:
 	player_balls.append_array(player_balls_after_wave)
 	player_balls_after_wave.clear()
+
+func enemy_shoot(player_position) -> void:
+	for i in first_level_links_on_objects:
+		for j in i:
+			if j != null:
+				if j.has_method("shoot_at_player"):
+					j.shoot_at_player(player_position)
 
 func moving_object() -> void:
 	for i in first_level_links_on_objects[7]: # НАНЕСЕНИЕ УРОНА ИГРОКУ
 		if i != null:
 			if i.has_method("enemy"):
 				if !i.freezen:
-					hp_player -= i.player_damage
+					damage_player(i.player_damage)
 
 	for i in range(first_level_links_on_objects[7].size()): # УДАЛЕНИЕ ОБЪЕКТОВ С ПОСЛЕДНЕЙ СТРОЧКИ
 		if first_level_links_on_objects[7][i] != null:
