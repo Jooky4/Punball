@@ -1048,9 +1048,9 @@ texture = ExtResource("8_iab2r")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_left = -45.0
-offset_top = 36.0
+offset_top = -363.0
 offset_right = 46.0
-offset_bottom = 50.0
+offset_bottom = -349.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_5chwh")
@@ -1058,9 +1058,9 @@ texture_progress = ExtResource("4_1gi6c")
 
 [node name="Hp_boss_label" type="Label" parent="."]
 offset_left = -45.0
-offset_top = 22.0
+offset_top = -377.0
 offset_right = 185.0
-offset_bottom = 117.0
+offset_bottom = -282.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_r53h3")
