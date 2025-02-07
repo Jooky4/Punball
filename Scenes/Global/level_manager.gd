@@ -8,6 +8,7 @@ var count_level : int = 0
 var count_experiance : int = 0
 var combo_count : int = 0
 var spin_skill : int = 0
+var hit_player : bool = false
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								 [-1, 1, 1, 1, null, null],
 								 [1, 1, 1, null, -1, 1],
@@ -34,9 +35,8 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
 											[1, 1, 1, 1, 1, null],
 											[null, -2, null, null, null, null],
 											[null, -2, null, null, null, null],
-											[null, null, null, null, null, null],
-											[null, null, null, null, null, null]]
-
+											[1, 1, null, null, 1, 1],
+											[1, -1, null, null, 1, 1]]
 
 func restert() -> void:
 	hp_player = 1000
@@ -92,17 +92,21 @@ func enemy_shoot(player_position) -> void:
 					j.shoot_at_player(player_position)
 
 func moving_object() -> void:
+	hit_player = false
 	for i in first_level_links_on_objects[7]: # НАНЕСЕНИЕ УРОНА ИГРОКУ
 		if i != null:
 			if i.has_method("enemy"):
 				if !i.freezen:
+					i.play_animation_hit_player()
 					damage_player(i.player_damage)
+					hit_player = true
+	if hit_player:
+		await get_tree().create_timer(2).timeout
 
 	for i in range(first_level_links_on_objects[7].size()): # УДАЛЕНИЕ ОБЪЕКТОВ С ПОСЛЕДНЕЙ СТРОЧКИ
 		if first_level_links_on_objects[7][i] != null:
 			if first_level_links_on_objects[7][i].has_method("enemy"):
 				if !first_level_links_on_objects[7][i].freezen:
-					first_level_links_on_objects[7][i].queue_free()
 					first_level_links_on_objects[7][i] = null
 			else:
 				first_level_links_on_objects[7][i].queue_free()
@@ -127,6 +131,11 @@ func moving_object() -> void:
 									move_left_or_right(i, j)
 							else:
 								move_left_or_right(i, j)
+
+	for i in range(first_level_links_on_objects[7].size()): # ЗАПУСКАЕМ АНИМАЦИЮ У ИГРОКОВ НА ПОСЛЕДНЕЙ СТРОКЕ
+		if first_level_links_on_objects[7][i] != null:
+			if first_level_links_on_objects[7][i].has_method("enemy"):
+					first_level_links_on_objects[7][i].enemy_on_last_line()
 
 func move_forward(i, j) ->void:
 	first_level_links_on_objects[i][j].moving("forward")

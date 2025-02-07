@@ -142,7 +142,10 @@ func chec_game_end() -> void:
 		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 		LevelManager.enemy_shoot(start_balls_position.position)
 		LevelManager.moving_object()
-		await get_tree().create_timer(1).timeout
+		if LevelManager.hit_player:
+			await get_tree().create_timer(3).timeout
+		else:
+			await get_tree().create_timer(1).timeout
 		if LevelManager.hp_player <= 0:
 			hp_player_bar.value = 0
 			hp_player_label.text = "0"

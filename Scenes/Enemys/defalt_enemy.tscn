@@ -1078,9 +1078,7 @@ libraries = {
 }
 autoplay = "Spawn"
 playback_auto_capture = false
-next/Damage = &"Idle"
-next/Move = &"Idle"
 next/Spawn = &"Idle"
-blend_times = [&"Idle", &"Move", 0.35, &"Idle", &"Preparation", 0.2, &"Move", &"Idle", 0.35, &"Spawn", &"Idle", 0.6]
+blend_times = [&"Idle", &"Move", 0.35, &"Idle", &"Preparation", 0.2, &"Move", &"Idle", 0.35, &"Move", &"Preparation", 0.35, &"Preparation", &"Hit", 0.5, &"Spawn", &"Idle", 0.6]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
