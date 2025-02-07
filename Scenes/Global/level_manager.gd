@@ -29,9 +29,9 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								 [null, null, 1, 1, null, null],
 								 [null, null, 1, 1, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
-											[null, 2, 1, 1, 1, 2],
-											[null, null, null, null, null, null],
-											[2, 2, 2, 2, 1, null],
+											[null, 1, 1, 1, 1, 1],
+											[null, -1, null, null, null, null],
+											[1, 1, 1, 1, 1, null],
 											[null, -2, null, null, null, null],
 											[null, -2, null, null, null, null],
 											[null, null, null, null, null, null],
@@ -153,8 +153,8 @@ func updete_last_line() -> void:
 	if count_level >= 19:
 		new_line_spawn = [null, null, null, null, null, null]
 	else:
-		new_line_spawn = WaveGeneration.generetion_new_wave(count_level+1)
-		#new_line_spawn = first_level_spawn[count_level]
+		#new_line_spawn = WaveGeneration.generetion_new_wave(count_level+1)
+		new_line_spawn = first_level_spawn[count_level]
 		for i in range(new_line_spawn.size()):
 			if new_line_spawn[i] != null:
 				if first_level_links_on_objects[0][i] != null:

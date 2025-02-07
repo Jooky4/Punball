@@ -143,7 +143,6 @@ func chec_game_end() -> void:
 		LevelManager.enemy_shoot(start_balls_position.position)
 		LevelManager.moving_object()
 		await get_tree().create_timer(1).timeout
-		print(LevelManager.hp_player)
 		if LevelManager.hp_player <= 0:
 			hp_player_bar.value = 0
 			hp_player_label.text = "0"

@@ -94,3 +94,4 @@ texture = ExtResource("2_1ihbi")
 libraries = {
 "": SubResource("AnimationLibrary_im7rs")
 }
+autoplay = "Idle"

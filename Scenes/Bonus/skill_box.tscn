@@ -117,3 +117,4 @@ shape = SubResource("RectangleShape2D_m8ci2")
 libraries = {
 "": SubResource("AnimationLibrary_o762w")
 }
+autoplay = "Idle"
