@@ -1,6 +1,7 @@
 extends Node
 
-var hp_player : int = 1000
+var hp_player : float = 1000
+var max_hp_player : float = 1000
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
@@ -39,6 +40,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
 
 func restert() -> void:
 	hp_player = 1000
+	max_hp_player = 1000
 	count_level = 0
 	spin_skill = 0
 	combo_count = 0

@@ -57,7 +57,7 @@ func _ready() -> void:
 	count_experience_label.text = str(LevelManager.count_experiance)
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
-	hp_player_bar.max_value = LevelManager.hp_player
+	hp_player_bar.max_value = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
 	#YandexSDK.gameplay_started()
@@ -76,7 +76,7 @@ func _process(delta):
 			pause()
 		CHOOSE_SKILL:
 			if !choose_skill_UI.visible:
-				hp_player_bar.max_value = LevelManager.hp_player
+				hp_player_bar.max_value = LevelManager.max_hp_player
 				hp_player_bar.value = LevelManager.hp_player
 				hp_player_label.text = str(LevelManager.hp_player)
 				LevelManager.apeend_new_balls()
@@ -141,14 +141,14 @@ func chec_game_end() -> void:
 		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 		LevelManager.enemy_shoot(start_balls_position.position)
-
-		await get_tree().create_timer(1).timeout
-
 		LevelManager.moving_object()
+		await get_tree().create_timer(1).timeout
+		print(LevelManager.hp_player)
 		if LevelManager.hp_player <= 0:
-			game_state = LOSE
 			hp_player_bar.value = 0
 			hp_player_label.text = "0"
+			game_state = LOSE
+			return
 		else:
 			hp_player_bar.value = LevelManager.hp_player
 			hp_player_label.text = str(LevelManager.hp_player)
