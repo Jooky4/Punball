@@ -8,6 +8,7 @@ var LABEL_DAMAGE = preload("res://Scenes/Enemys/label_enemy_damage.tscn")
 @export var start_scale_damage_label : float = 0.2
 @export var end_scale_damage_label : float = 0.8
 var alive = true
+var on_last_line = false
 var freezen : bool = false
 
 @onready var hp_enemy_label = $Hp_boss_label
@@ -66,7 +67,10 @@ func moving(direction_object) -> void:
 		elif direction_object == "right":
 			tween.tween_property($".", "position", Vector2(103, 0) + self.position, 1)
 	await get_tree().create_timer(1).timeout
-	animation_enemy.play("Idle")
+	if on_last_line:
+		animation_enemy.play("Preparation")
+	else:
+		animation_enemy.play("Idle")
 
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
@@ -77,6 +81,19 @@ func create_label_damage(damage_ball, color_label) -> void:
 	label.visible = true
 	get_tree().current_scene.add_child(label)
 
+func enemy_on_last_line():
+	on_last_line = true
+
+func play_animation_hit_player():
+	animation_enemy.play("Hit")
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Spawn":
 		animation_enemy.play("Idle")
+	if anim_name == "Damage":
+		if on_last_line:
+			animation_enemy.play("Preparation")
+		else:
+			animation_enemy.play("Idle")
+	elif anim_name == "Hit":
+		queue_free()
