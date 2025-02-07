@@ -63,7 +63,8 @@ func add_skill(skill) -> void:
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":
-			LevelManager.hp_player += 100
+			LevelManager.hp_player = LevelManager.hp_player + (LevelManager.max_hp_player * 0.1)
+			LevelManager.max_hp_player = LevelManager.max_hp_player * 1.1
 		"Усиление особого шара":
 			ElementsManager.fire_modifier += 0.1
 			ElementsManager.frost_modifier += 0.1

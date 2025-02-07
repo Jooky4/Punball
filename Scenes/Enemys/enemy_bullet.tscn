@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6gmv5i6ig0wr"]
+
+[ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Balls/3).png" id="1_iyvun"]
+
+[node name="enemy_bullet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_iyvun")
