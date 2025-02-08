@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs7a08eol6pay"]
+[gd_scene load_steps=11 format=3 uid="uid://cs7a08eol6pay"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy_2.gd" id="1_5kesr"]
-[ext_resource type="Texture2D" uid="uid://ciyw8nf8lo1f2" path="res://Texture/Enemys/defalt_enemy_1.png" id="2_anevi"]
+[ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Enemy_2/тело.png" id="2_cuebk"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_52v56"]
+[ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Enemy_2/рот.png" id="3_72l8p"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_3ttw0"]
+[ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Enemy_2/листик.png" id="4_lrxah"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="5_vpurs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
@@ -24,10 +26,24 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_5kesr")
 
-[node name="Sprite_enemy" type="Sprite2D" parent="."]
-position = Vector2(3, 0)
-scale = Vector2(0.408, 0.413502)
-texture = ExtResource("2_anevi")
+[node name="Sprite_enemy" type="Node2D" parent="."]
+position = Vector2(2, 3)
+scale = Vector2(0.07, 0.07)
+
+[node name="Тело" type="Sprite2D" parent="Sprite_enemy"]
+position = Vector2(-29.4118, -89.4797)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("2_cuebk")
+
+[node name="Рот" type="Sprite2D" parent="Sprite_enemy"]
+position = Vector2(-24.5098, -89.4797)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("3_72l8p")
+
+[node name="Листик" type="Sprite2D" parent="Sprite_enemy"]
+position = Vector2(-17.1569, -87.0612)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("4_lrxah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)

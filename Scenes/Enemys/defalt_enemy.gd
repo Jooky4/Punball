@@ -16,7 +16,8 @@ var freezen : bool = false
 @onready var animation_enemy = $AnimationPlayer
 
 func _ready() -> void:
-	animation_enemy.play("Spawn")
+	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+		animation_enemy.play("Spawn")
 	hp_enemy_bar.max_value = hp_enemy
 	hp_enemy_bar.value = hp_enemy
 	hp_enemy_label.text = str(hp_enemy)
@@ -25,11 +26,12 @@ func enemy() -> void:
 	pass
 
 func deal_damage(damage_ball, color_label) -> void:
-	animation_enemy.stop()
-	animation_enemy.play("Damage")
+	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+		animation_enemy.stop()
+		animation_enemy.play("Damage")
 	hp_enemy -= damage_ball
 	create_label_damage(damage_ball, color_label)
-	hp_enemy_label.text = str(hp_enemy)
+	hp_enemy_label.text = str(round(hp_enemy))
 	hp_enemy_bar.value = hp_enemy
 	if hp_enemy <= 0 and alive:
 		var buff = bank_with_experience.instantiate()
@@ -57,7 +59,8 @@ func delete_freezing() -> void:
 	tween.tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.01)
 
 func moving(direction_object) -> void:
-	animation_enemy.play("Move")
+	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+		animation_enemy.play("Move")
 	if direction_object != "":
 		var tween = get_tree().create_tween()
 		if direction_object == "forward":
@@ -67,10 +70,11 @@ func moving(direction_object) -> void:
 		elif direction_object == "right":
 			tween.tween_property($".", "position", Vector2(103, 0) + self.position, 1)
 	await get_tree().create_timer(1).timeout
-	if on_last_line:
-		animation_enemy.play("Preparation")
-	else:
-		animation_enemy.play("Idle")
+	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+		if on_last_line:
+			animation_enemy.play("Preparation")
+		else:
+			animation_enemy.play("Idle")
 
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
@@ -85,15 +89,17 @@ func enemy_on_last_line():
 	on_last_line = true
 
 func play_animation_hit_player():
-	animation_enemy.play("Hit")
+	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+		animation_enemy.play("Hit")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "Spawn":
-		animation_enemy.play("Idle")
-	if anim_name == "Damage":
-		if on_last_line:
-			animation_enemy.play("Preparation")
-		else:
+	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+		if anim_name == "Spawn":
 			animation_enemy.play("Idle")
-	elif anim_name == "Hit":
-		queue_free()
+		if anim_name == "Damage":
+			if on_last_line:
+				animation_enemy.play("Preparation")
+			else:
+				animation_enemy.play("Idle")
+		elif anim_name == "Hit":
+			queue_free()

@@ -34,7 +34,7 @@ func create_skill():
 		if randi() % 2 == 1:
 			var new_skill = rare[randi() % rare.size()]
 			buff.update_discription(new_skill)
-			buff.show_rarity_window(3)
+			buff.show_rarity_window(2)
 			skills.append(new_skill)
 		else:
 			var new_skill = regular[randi() % regular.size()]
