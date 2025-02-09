@@ -4,7 +4,7 @@ var ENEMY_BULLET = preload("res://Scenes/Enemys/enemy_bullet.tscn")
 @export var bullet_damage = 20
 
 func shoot_at_player(player_position) -> void:
-	if alive:
+	if alive and !freezen:
 		var buff = ENEMY_BULLET.instantiate()
 		self.add_child(buff)
 		var tween = get_tree().create_tween()

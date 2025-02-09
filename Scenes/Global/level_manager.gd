@@ -29,8 +29,8 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								 [null, null, null, null, null, null],
 								 [null, null, 1, 1, null, null],
 								 [null, null, 1, 1, null, null]]
-var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
-											[null, 1, 2, 1, 2, 1],
+var first_level_links_on_objects : Array = [[null, null, null, null, null, 2],
+											[null, 1, 2, 1, 2, null],
 											[null, -1, null, null, null, null],
 											[1, 1, 2, 1, 2, null],
 											[-2, -2, -2, null, -2, null],
@@ -45,14 +45,14 @@ func restert() -> void:
 	spin_skill = 0
 	combo_count = 0
 	count_experiance = 0
-	first_level_links_on_objects = [[null, null, null, null, null, null],
-									[null, 1, 1, 1, 1, 1],
+	first_level_links_on_objects = [[null, null, null, null, null, 2],
+									[null, 1, 2, 1, 2, null],
+									[null, -1, null, null, null, null],
+									[1, 1, 2, 1, 2, null],
+									[-2, -2, -2, null, -2, null],
+									[null, -2, null, null, null, null],
 									[null, null, null, null, null, null],
-									[1, 1, 1, 1, 1, null],
-									[null, null, null, null, null, null],
-									[null, null, null, null, null, null],
-									[null, null, null, null, null, null],
-									[null, null, null, null, null, null]]
+									[null, null, null, null, null, null],]
 	first_level_spawn = [[null, null, 1, 1, -1, null],
 						 [-1, 1, 1, 1, null, null],
 						 [1, 1, 1, null, -1, 1],
