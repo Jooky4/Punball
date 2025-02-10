@@ -11,7 +11,7 @@ var dop_hp_defolt_enemy = [[2, 4, 200],
 						   [14, 20, 800]]
 var percent_spawn_enemy = [[1, 1, 40],
 						   [2, 6, 30],
-						   [3, 11, 30],]
+						   [3, 11, 30]]
 
 func generetion_new_wave(number_wave):
 	var coun_cell_with_enemy = 0

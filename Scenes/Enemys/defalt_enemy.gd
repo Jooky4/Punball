@@ -41,16 +41,17 @@ func deal_damage(damage_ball, color_label) -> void:
 
 func deal_bomb_damage(damage_ball, color_label) -> void:
 	deal_damage(damage_ball, color_label)
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property($Sprite_enemy, "modulate", Color.RED, 0.2)
-	await get_tree().create_timer(0.2).timeout
-	var tween1 = get_tree().create_tween()
-	tween1.tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.3)
+	if freezen:
+		tween.chain().tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.3)
+	else:
+		tween.chain().tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.3)
 
 func deal_freezing_damage(damage_ball, color_label) -> void:
 	deal_damage(damage_ball, color_label)
 	freezen = true
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.15)
 
 func delete_freezing() -> void:
@@ -62,7 +63,7 @@ func moving(direction_object) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Move")
 	if direction_object != "":
-		var tween = get_tree().create_tween()
+		var tween = create_tween()
 		if direction_object == "forward":
 			tween.tween_property($".", "position", Vector2(0, 103) + self.position, 1)
 		elif direction_object == "left":

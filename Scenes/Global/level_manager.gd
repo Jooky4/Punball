@@ -2,7 +2,7 @@ extends Node
 
 var hp_player : float = 1000
 var max_hp_player : float = 1000
-var player_balls : Array = [1, 1, 1, 1]
+var player_balls : Array = [5]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -29,12 +29,12 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								 [null, null, null, null, null, null],
 								 [null, null, 1, 1, null, null],
 								 [null, null, 1, 1, null, null]]
-var first_level_links_on_objects : Array = [[null, null, null, null, null, 2],
-											[null, 1, 2, 1, 2, null],
-											[null, -1, null, null, null, null],
-											[1, 1, 2, 1, 2, null],
-											[-2, -2, -2, null, -2, null],
+var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
+											[null, 1, 1, 1, 1, 1],
+											[null, null, null, null, null, null],
+											[1, 1, 1, 1, 1, null],
 											[null, -2, null, null, null, null],
+											[null, null, null, null, null, null],
 											[null, null, null, null, null, null],
 											[null, null, null, null, null, null],]
 
@@ -197,6 +197,25 @@ func bomb_ball_explosion(enemy, damage_ball, color_ball) -> void:
 					if first_level_links_on_objects[target_x][target_y].has_method("enemy"):
 						first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
 						combo_count += 1 # можно будет убрать
+
+func lighthing_ball_damage(enemy, damage_ball, color_ball):
+	var enemy_arr = []
+	for i in range(first_level_links_on_objects.size()):
+			for j in range(first_level_links_on_objects[i].size()):
+				if first_level_links_on_objects[i][j] != null:
+					if first_level_links_on_objects[i][j] == enemy:
+						break
+	for i in first_level_links_on_objects:
+		for j in i:
+			if j != null:
+				if j.has_method("enemy"):
+					enemy_arr.append(j)
+	for i in range(2):
+		if enemy_arr.size() > 1:
+			var num_enemy = randi() % enemy_arr.size()
+			if enemy_arr[num_enemy] != enemy and enemy_arr[num_enemy].alive:
+				enemy_arr[num_enemy].deal_damage(damage_ball, color_ball)
+				enemy_arr.remove_at(num_enemy)
 
 func delete_freezing_on_enemy() -> void:
 	for i in first_level_links_on_objects:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://xxprkydai7iy"]
+[gd_scene load_steps=15 format=3 uid="uid://xxprkydai7iy"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
@@ -9,28 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="7_mbj7w"]
 [ext_resource type="Texture2D" uid="uid://bs5vkbj2ijdcf" path="res://Texture/UI/Skills_UI/текстк кнопки обновить.png" id="8_j6pi7"]
 [ext_resource type="Texture2D" uid="uid://cxk3lp3iqgprs" path="res://Texture/UI/Skills_UI/стрелки кнопки обновить.png" id="9_wywd0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkoco"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny5mh"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8hou"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjevs"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="Theme" id="Theme_1c8o8"]
-Button/styles/disabled = SubResource("StyleBoxFlat_al670")
-Button/styles/focus = SubResource("StyleBoxFlat_jkoco")
-Button/styles/hover = SubResource("StyleBoxFlat_ny5mh")
-Button/styles/normal = SubResource("StyleBoxFlat_x8hou")
-Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
 
 [sub_resource type="LabelSettings" id="LabelSettings_fibwp"]
 font = ExtResource("1_42rjm")
@@ -97,8 +75,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 25.0
-offset_bottom = 25.0
+offset_top = -1700.0
+offset_bottom = -1700.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8r74x")
@@ -107,21 +85,6 @@ script = ExtResource("1_8r74x")
 position = Vector2(375, 595)
 scale = Vector2(2, 1.55)
 texture = ExtResource("2_guy50")
-
-[node name="Continue_game" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -146.0
-offset_bottom = -76.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_1c8o8")
-theme_override_fonts/font = ExtResource("1_42rjm")
-theme_override_font_sizes/font_size = 60
-text = "ПРОДОЛЖИТЬ"
 
 [node name="Windows_skill" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -176,6 +139,14 @@ label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="HBoxContainer2/Skill_1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -466.0
+offset_right = 188.0
+offset_bottom = -23.0
+
 [node name="Skill_2" type="TextureButton" parent="HBoxContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("5_b6die")
@@ -194,6 +165,14 @@ text = "0"
 label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer2/Skill_2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -466.0
+offset_right = 188.0
+offset_bottom = -16.0
 
 [node name="Skill_3" type="TextureButton" parent="HBoxContainer2"]
 layout_mode = 2
@@ -214,30 +193,53 @@ label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="КнопкаОбновить" type="Sprite2D" parent="."]
-position = Vector2(361, 902)
-texture = ExtResource("7_mbj7w")
+[node name="Button" type="Button" parent="HBoxContainer2/Skill_3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -466.0
+offset_right = 188.0
+offset_bottom = -21.0
 
-[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="КнопкаОбновить"]
-position = Vector2(98.5, -4)
+[node name="Update_skill_button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -377.0
+offset_right = 177.0
+offset_bottom = -288.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("7_mbj7w")
+texture_pressed = ExtResource("7_mbj7w")
+texture_focused = ExtResource("7_mbj7w")
+
+[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Update_skill_button"]
+position = Vector2(274, 42)
 texture = ExtResource("6_kc041")
 
-[node name="Label2" type="Label" parent="КнопкаОбновить"]
-offset_left = 42.0
-offset_top = -28.0
-offset_right = 208.0
-offset_bottom = 24.0
-text = "345"
+[node name="Label2" type="Label" parent="Update_skill_button"]
+layout_mode = 0
+offset_left = 217.5
+offset_top = 18.0
+offset_right = 383.5
+offset_bottom = 70.0
+text = "100
+"
 label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ТексткКнопкиОбновить2" type="Sprite2D" parent="КнопкаОбновить"]
-position = Vector2(5, -2)
+[node name="ТексткКнопкиОбновить2" type="Sprite2D" parent="Update_skill_button"]
+position = Vector2(180.5, 44)
 texture = ExtResource("8_j6pi7")
 
-[node name="ТексткКнопкиОбновить" type="Sprite2D" parent="КнопкаОбновить"]
-position = Vector2(-2, 3)
+[node name="ТексткКнопкиОбновить" type="Sprite2D" parent="Update_skill_button"]
+position = Vector2(173.5, 49)
 texture = ExtResource("9_wywd0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -245,7 +247,10 @@ libraries = {
 "": SubResource("AnimationLibrary_bsi4p")
 }
 
-[connection signal="pressed" from="Continue_game" to="." method="_on_continue_game_pressed"]
 [connection signal="pressed" from="HBoxContainer2/Skill_1" to="." method="_on_skill_1_pressed"]
+[connection signal="pressed" from="HBoxContainer2/Skill_1/Button" to="." method="_on_skill_1_pressed"]
 [connection signal="pressed" from="HBoxContainer2/Skill_2" to="." method="_on_skill_2_pressed"]
+[connection signal="pressed" from="HBoxContainer2/Skill_2/Button" to="." method="_on_skill_2_pressed"]
 [connection signal="pressed" from="HBoxContainer2/Skill_3" to="." method="_on_skill_3_pressed"]
+[connection signal="pressed" from="HBoxContainer2/Skill_3/Button" to="." method="_on_skill_3_pressed"]
+[connection signal="pressed" from="Update_skill_button" to="." method="_on_update_skill_button_pressed"]

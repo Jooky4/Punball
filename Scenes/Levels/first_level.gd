@@ -23,6 +23,7 @@ var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
 var CRUNBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/crumbling_ball.tscn")
 var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
 var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn")
+var LIGHTNING_BALL = preload("res://Scenes/Balls/Lightning ball/lightning_ball.tscn")
 
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
@@ -30,6 +31,9 @@ var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn
 @onready var choose_skill_UI = $UI/Get_skill_UI
 @onready var combo_count_label = $UI/Combo_count
 @onready var count_experience_label = $UI/Count_experience
+@onready var experience_texture = $UI/Count_experience/Count_experience_texture/Experience_texture
+@onready var get_count_experience_label = $UI/Count_experience/Get_cout_experience
+var count_get_experience_on_wave = 0
 var combo_count : int = 0
 
 @onready var game_objects = $Game_objects
@@ -45,7 +49,7 @@ var combo_count : int = 0
 
 var old_coord_mouse : Vector2 = Vector2.ZERO
 var direction = Vector2.ZERO
-var balls_can_go : bool = true
+var balls_can_go : bool = false
 var new_position_balls = 0
 var rignt_extreme_point : Vector2
 var left_extreme_point : Vector2
@@ -60,6 +64,8 @@ func _ready() -> void:
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
+	await get_tree().create_timer(1.1).timeout
+	balls_can_go = true
 	#YandexSDK.gameplay_started()
 
 func _process(delta):
@@ -105,10 +111,20 @@ func play_game() -> void:
 func chec_game_end() -> void:
 	var balls_on_map = true
 	var enemy_alive = false
+	if LevelManager.combo_count > combo_count:
+		combo_count_label.visible = true
+		combo_count_label.text = str(LevelManager.combo_count)
+		combo_count_label.scale = Vector2(1.5, 1.5)
+		combo_count = LevelManager.combo_count
+	else:
+		if combo_count_label.scale > Vector2(1, 1):
+			combo_count_label.scale -= Vector2(0.05, 0.05)
+
 	for child in game_objects.get_children():
 		if child.has_method("enemy"):
 			enemy_alive = true
 			break
+
 	if enemy_alive == false:
 		game_state = WIN
 
@@ -118,60 +134,21 @@ func chec_game_end() -> void:
 			break
 
 	if balls_on_map and enemy_alive and count_ball_label.text == "x0" and !balls_can_go:
-		LevelManager.apeend_new_balls()
-		count_ball_label.text = "x" + str(LevelManager.player_balls.size())
-		count_level_label.text = str(LevelManager.count_level + 2)
-		combo_count_label.visible = false
-		combo_count = 0
-		LevelManager.combo_count = 0
-		combo_count_label.text = str(0)
+		end_wave()
 
-		for i in self.get_children():
-			if i.has_method("bank_with_experience"):
-				var tween = get_tree().create_tween()
-				tween.tween_property(i, "position", Vector2(92, 80), 0.7)
-		await get_tree().create_timer(0.7).timeout
-		for i in self.get_children():
-			if i.has_method("bank_with_experience"):
-				LevelManager.count_experiance += i.experience
-				count_experience_label.text = str(LevelManager.count_experiance)
-				i.queue_free()
-
-		start_balls_position.position.x += new_position_balls
-		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
-		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
-		LevelManager.enemy_shoot(start_balls_position.position)
-		LevelManager.moving_object()
-		if LevelManager.hit_player:
-			await get_tree().create_timer(3).timeout
-		else:
-			await get_tree().create_timer(1).timeout
-		if LevelManager.hp_player <= 0:
-			hp_player_bar.value = 0
-			hp_player_label.text = "0"
-			game_state = LOSE
-			return
-		else:
-			hp_player_bar.value = LevelManager.hp_player
-			hp_player_label.text = str(LevelManager.hp_player)
-		LevelManager.updete_last_line()
-		spawn_objects_on_matrix()
-		if LevelManager.spin_skill != 0:
-			choose_skill_UI.visible = true
-			choose_skill_UI.get_number_skill(LevelManager.spin_skill)
-			game_state = CHOOSE_SKILL
-			return
-		balls_can_go = true
-		game_state = PLAY
-
-	if LevelManager.combo_count > combo_count:
-		combo_count_label.visible = true
-		combo_count_label.text = str(LevelManager.combo_count)
-		combo_count_label.scale = Vector2(1.5, 1.5)
-		combo_count = LevelManager.combo_count
-	else:
-		if combo_count_label.scale > Vector2(1, 1):
-			combo_count_label.scale -= Vector2(0.05, 0.05)
+func get_expirians_animation(experience) -> void:
+	experience_texture.scale = Vector2(1, 1)
+	get_count_experience_label.scale = Vector2(1, 1)
+	var tween = get_tree().create_tween()
+	tween.tween_property(experience_texture, "scale", Vector2(1.2, 1.2), 0.05)
+	tween.chain().tween_property(experience_texture, "scale", Vector2(1, 1), 0.05)
+	var tween1 = get_tree().create_tween()
+	tween1.tween_property(get_count_experience_label, "scale", Vector2(1.2, 1.2), 0.05)
+	tween1.chain().tween_property(get_count_experience_label, "scale", Vector2(1, 1), 0.05)
+	count_get_experience_on_wave += experience
+	get_count_experience_label.text = "+"+str(count_get_experience_on_wave)
+	LevelManager.count_experiance += experience
+	count_experience_label.text = str(LevelManager.count_experiance)
 
 func win() -> void:
 	end_game_UI.visible = true
@@ -223,14 +200,17 @@ func balls_go() -> void:
 
 		for i in range(LevelManager.player_balls.size()):
 			var ball
-			if LevelManager.player_balls[i] == 1:
-				ball = DEFALT_BALL.instantiate()
-			elif LevelManager.player_balls[i] == 2:
-				ball = CRUNBLING_BALL.instantiate()
-			elif LevelManager.player_balls[i] == 3:
-				ball = BOMB_BALL.instantiate()
-			elif LevelManager.player_balls[i] == 4:
-				ball = FREEZING_BALL.instantiate()
+			match LevelManager.player_balls[i]:
+				1:
+					ball = DEFALT_BALL.instantiate()
+				2:
+					ball = CRUNBLING_BALL.instantiate()
+				3:
+					ball = BOMB_BALL.instantiate()
+				4:
+					ball = FREEZING_BALL.instantiate()
+				5:
+					ball = LIGHTNING_BALL.instantiate()
 			ball.position = start_balls_position.position
 			ball.direction_bullet = direction
 			get_tree().current_scene.add_child(ball)
@@ -291,6 +271,50 @@ func spawn_objects_by_index(count) -> void:
 			LevelManager.first_level_links_on_objects[count/6][count%6] = skill_box
 			game_objects.add_child(skill_box)
 
+func end_wave() -> void:
+	LevelManager.apeend_new_balls()
+	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
+	count_level_label.text = str(LevelManager.count_level + 2)
+	combo_count_label.visible = false
+	combo_count = 0
+	LevelManager.combo_count = 0
+	combo_count_label.text = str(0)
+	get_count_experience_label.visible = true
+	get_count_experience_label.text = ""
+	count_get_experience_on_wave = 0
+	for i in self.get_children():         # БАНОЧКИ ЛЕТЯТ К СЧЁТЧИКУ
+		if i != null:
+			if i.has_method("bank_with_experience"):
+				i.go_to_count()
+				await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(1).timeout
+	get_count_experience_label.visible = false
+	start_balls_position.position.x += new_position_balls
+	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
+	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
+	LevelManager.enemy_shoot(start_balls_position.position)
+	LevelManager.moving_object()
+	if LevelManager.hit_player:
+		await get_tree().create_timer(3).timeout
+	else:
+		await get_tree().create_timer(1).timeout
+	if LevelManager.hp_player <= 0:
+		hp_player_bar.value = 0
+		hp_player_label.text = "0"
+		game_state = LOSE
+		return
+	else:
+		hp_player_bar.value = LevelManager.hp_player
+		hp_player_label.text = str(LevelManager.hp_player)
+	LevelManager.updete_last_line()
+	spawn_objects_on_matrix()
+	if LevelManager.spin_skill != 0:
+		choose_skill_UI.visible = true
+		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
+		game_state = CHOOSE_SKILL
+		return
+	balls_can_go = true
+	game_state = PLAY
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _on_button_pressed() -> void:

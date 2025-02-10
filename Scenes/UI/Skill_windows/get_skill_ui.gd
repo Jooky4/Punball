@@ -14,7 +14,6 @@ func _ready() -> void:
 	visible = false
 
 func _on_continue_game_pressed() -> void:
-	
 	LevelManager.spin_skill -= 1
 	if LevelManager.spin_skill == 0:
 		animation.play("windows_output")
@@ -72,3 +71,9 @@ func add_skill(skill) -> void:
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.darkness_modifier += 0.1
 	_on_continue_game_pressed()
+
+func _on_update_skill_button_pressed() -> void:
+	for i in windows_skill.get_children():
+		i.queue_free()
+	skills.clear()
+	create_skill()
