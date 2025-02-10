@@ -336,6 +336,11 @@ func _on_button_4_pressed() -> void:
 	LevelManager.restert()
 	get_tree().reload_current_scene()
 
+func _on_button_5_pressed() -> void:
+	LevelManager.player_balls = [5]
+	LevelManager.restert()
+	get_tree().reload_current_scene()
+
 func _chose_ball_button_pressed():
 	game_state = PAUSE
 	$UI/Chose_ball.visible = true

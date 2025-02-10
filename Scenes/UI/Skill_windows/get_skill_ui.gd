@@ -4,7 +4,7 @@ var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 
 @onready var windows_skill = $Windows_skill
 @onready var animation = $AnimationPlayer
-var regular = ["Шар-заморозка", "Усиление обычного шара"]
+var regular = ["Шар-заморозка", "Усиление обычного шара", "Шар молний"]
 var rare = ["Рассыпающийся шар", "Шар-бомба", "Усиление особого шара", "Прибавка ОЗ"]
 var epic = []
 var legendary = []
@@ -59,6 +59,8 @@ func add_skill(skill) -> void:
 			LevelManager.add_ball(3)
 		"Шар-заморозка":
 			LevelManager.add_ball(4)
+		"Шар молний":
+			LevelManager.add_ball(5)
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":

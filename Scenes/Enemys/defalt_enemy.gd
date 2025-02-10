@@ -26,18 +26,19 @@ func enemy() -> void:
 	pass
 
 func deal_damage(damage_ball, color_label) -> void:
-	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
-		animation_enemy.stop()
-		animation_enemy.play("Damage")
 	hp_enemy -= damage_ball
 	create_label_damage(damage_ball, color_label)
-	hp_enemy_label.text = str(round(hp_enemy))
-	hp_enemy_bar.value = hp_enemy
 	if hp_enemy <= 0 and alive:
+		alive = false
 		var buff = bank_with_experience.instantiate()
 		buff.position = self.global_position
 		get_tree().current_scene.add_child(buff)
 		queue_free()
+	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+		animation_enemy.stop()
+		animation_enemy.play("Damage")
+	hp_enemy_label.text = str(round(hp_enemy))
+	hp_enemy_bar.value = hp_enemy
 
 func deal_bomb_damage(damage_ball, color_label) -> void:
 	deal_damage(damage_ball, color_label)

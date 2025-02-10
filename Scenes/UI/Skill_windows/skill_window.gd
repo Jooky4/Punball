@@ -7,7 +7,8 @@ var texture_skill = {
 	"Рассыпающийся шар": preload("res://Texture/UI/Texture_skills/рассыпающийся шар.png"),
 	"Шар-бомба": preload("res://Texture/UI/Texture_skills/шар бомба.png"),
 	"Усиление особого шара": preload("res://Texture/UI/Texture_skills/усиление особенного шара.png"),
-	"Прибавка ОЗ": preload("res://Texture/UI/Texture_skills/прибавка 03.png")}
+	"Прибавка ОЗ": preload("res://Texture/UI/Texture_skills/прибавка 03.png"),
+	"Шар молний": preload("res://Texture/UI/Texture_skills/шар молния.png")}
 
 func update_discription(new_discription) -> void:
 	discription = new_discription

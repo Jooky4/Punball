@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsnvlmst4aglv"]
+
+[ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="1_t4f1n"]
+[ext_resource type="Texture2D" uid="uid://bxsrpkijyy1kh" path="res://Texture/Balls/spark_05.png" id="1_yno0i"]
+[ext_resource type="Script" path="res://Scenes/Balls/Lightning ball/line_lightning.gd" id="3_jjvyc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8013"]
+shader = ExtResource("1_t4f1n")
+
+[sub_resource type="Curve" id="Curve_whrh6"]
+_data = [Vector2(0, 0.492343), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Line_lightning" type="Line2D"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_v8013")
+points = PackedVector2Array(0, 0, 0, 0)
+width = 75.0
+width_curve = SubResource("Curve_whrh6")
+default_color = Color(0.709804, 0, 1, 1)
+texture = ExtResource("1_yno0i")
+texture_mode = 1
+script = ExtResource("3_jjvyc")
