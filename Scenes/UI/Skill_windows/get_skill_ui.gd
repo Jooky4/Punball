@@ -4,9 +4,9 @@ var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 
 @onready var windows_skill = $Windows_skill
 @onready var animation = $AnimationPlayer
-var regular = ["Шар-заморозка", "Усиление обычного шара", "Шар молний"]
-var rare = ["Рассыпающийся шар", "Шар-бомба", "Усиление особого шара", "Прибавка ОЗ"]
-var epic = []
+var regular = ["Шар-заморозка", "Усиление обычного шара", "Шар молний", "Огненный шар"]
+var rare = ["Рассыпающийся шар", "Шар-бомба", "Усиление особого шара", "Прибавка ОЗ", "Молния смерти", "Бомба-заморозка", "Холод смерти", "Бомба смерти"]
+var epic = ["Усиление атаки"]
 var legendary = []
 var skills = []
 
@@ -61,6 +61,10 @@ func add_skill(skill) -> void:
 			LevelManager.add_ball(4)
 		"Шар молний":
 			LevelManager.add_ball(5)
+		"Бомба-заморозка":
+			LevelManager.add_ball(6)
+		"Огненный шар":
+			LevelManager.add_ball(7)
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":
@@ -72,6 +76,19 @@ func add_skill(skill) -> void:
 			ElementsManager.laser_modifier += 0.1
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.darkness_modifier += 0.1
+		"Усиление атаки":
+			ElementsManager.normal_modifier += 0.1
+			ElementsManager.fire_modifier += 0.1
+			ElementsManager.frost_modifier += 0.1
+			ElementsManager.laser_modifier += 0.1
+			ElementsManager.lightning_modifier += 0.1
+			ElementsManager.darkness_modifier += 0.1
+		"Молния смерти":
+			LevelManager.player_skills.append("Молния смерти")
+		"Холод смерти":
+			LevelManager.player_skills.append("Холод смерти")
+		"Бомба смерти":
+			LevelManager.player_skills.append("Бомба смерти")
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:

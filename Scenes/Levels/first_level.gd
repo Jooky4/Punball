@@ -22,7 +22,9 @@ var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
 var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
 var CRUNBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/crumbling_ball.tscn")
 var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
+var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
 var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn")
+var FREEZING_BOMB_BALL = preload("res://Scenes/Balls/Freezing bomb ball/freezing_bomb_ball.tscn")
 var LIGHTNING_BALL = preload("res://Scenes/Balls/Lightning ball/lightning_ball.tscn")
 
 @onready var end_game_UI = $UI/End_game
@@ -191,7 +193,6 @@ func draw_trajectory() -> void:
 func balls_go() -> void:
 	if balls_can_go:
 		balls_can_go = false
-		LevelManager.delete_freezing_on_enemy()
 		line.visible = false
 		strelka.visible = false
 		ball_rotate_UI.visible = false
@@ -211,6 +212,10 @@ func balls_go() -> void:
 					ball = FREEZING_BALL.instantiate()
 				5:
 					ball = LIGHTNING_BALL.instantiate()
+				6:
+					ball = FREEZING_BOMB_BALL.instantiate()
+				7:
+					ball = FIRE_BALL.instantiate()
 			ball.position = start_balls_position.position
 			ball.direction_bullet = direction
 			get_tree().current_scene.add_child(ball)
@@ -308,6 +313,7 @@ func end_wave() -> void:
 		hp_player_label.text = str(LevelManager.hp_player)
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
+	LevelManager.delete_freezing_and_fire_on_enemy()
 	if LevelManager.spin_skill != 0:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
@@ -338,6 +344,16 @@ func _on_button_4_pressed() -> void:
 
 func _on_button_5_pressed() -> void:
 	LevelManager.player_balls = [5]
+	LevelManager.restert()
+	get_tree().reload_current_scene()
+
+func _on_button_6_pressed() -> void:
+	LevelManager.player_balls = [6]
+	LevelManager.restert()
+	get_tree().reload_current_scene()
+
+func _on_button_7_pressed() -> void:
+	LevelManager.player_balls = [7]
 	LevelManager.restert()
 	get_tree().reload_current_scene()
 

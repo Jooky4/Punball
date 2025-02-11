@@ -301,11 +301,18 @@ mouse_filter = 1
 color = Color(0.548963, 0.548963, 0.548963, 0.85098)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Chose_ball"]
-layout_mode = 0
-offset_left = 1040.0
-offset_top = 566.0
-offset_right = 1655.0
-offset_bottom = 1016.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.5
+offset_top = -280.5
+offset_right = 273.5
+offset_bottom = 264.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 25
 
 [node name="Button" type="Button" parent="UI/Chose_ball/VBoxContainer"]
@@ -331,6 +338,22 @@ theme = SubResource("Theme_6um41")
 theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 60
 text = "БОМБА"
+
+[node name="Button7" type="Button" parent="UI/Chose_ball/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("10_fo6nb")
+theme_override_font_sizes/font_size = 60
+text = "ОГНЕННЫЙ ШАР"
+
+[node name="Button6" type="Button" parent="UI/Chose_ball/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("10_fo6nb")
+theme_override_font_sizes/font_size = 60
+text = "БОМБА-ЗАМОРОЗКА"
 
 [node name="Button4" type="Button" parent="UI/Chose_ball/VBoxContainer"]
 custom_minimum_size = Vector2(200, 70)
@@ -436,5 +459,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]

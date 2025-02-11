@@ -10,10 +10,12 @@ var LABEL_DAMAGE = preload("res://Scenes/Enemys/label_enemy_damage.tscn")
 var alive = true
 var on_last_line = false
 var freezen : bool = false
+var on_fire : bool = false
 
 @onready var hp_enemy_label = $Hp_boss_label
 @onready var hp_enemy_bar = $TextureProgressBar
 @onready var animation_enemy = $AnimationPlayer
+@onready var fire_effect = $Fire_effect
 
 func _ready() -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
@@ -30,6 +32,7 @@ func deal_damage(damage_ball, color_label) -> void:
 	create_label_damage(damage_ball, color_label)
 	if hp_enemy <= 0 and alive:
 		alive = false
+		LevelManager.enemy_died(self)
 		var buff = bank_with_experience.instantiate()
 		buff.position = self.global_position
 		get_tree().current_scene.add_child(buff)
@@ -55,10 +58,19 @@ func deal_freezing_damage(damage_ball, color_label) -> void:
 	var tween = create_tween()
 	tween.tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.15)
 
-func delete_freezing() -> void:
-	freezen = false
-	var tween = get_tree().create_tween()
-	tween.tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.01)
+func deal_fire_damage(damage_ball, color_label) -> void:
+	deal_damage(damage_ball, color_label)
+	on_fire = true
+	fire_effect.emitting = true
+
+func delete_freezing_and_fire() -> void:
+	if on_fire:
+		deal_fire_damage(100 * ElementsManager.normal_modifier, ElementsManager.color_elements["FIRE"])
+		fire_effect.emitting = false
+		on_fire = false
+	if freezen:
+		freezen = false
+		create_tween().tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.01)
 
 func moving(direction_object) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ

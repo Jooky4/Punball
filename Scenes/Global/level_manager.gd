@@ -11,6 +11,7 @@ var count_experiance : int = 0
 var combo_count : int = 0
 var spin_skill : int = 0
 var hit_player : bool = false
+var player_skills : Array = []#["Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								 [-1, 1, 1, 1, null, null],
 								 [1, 1, 1, null, -1, 1],
@@ -180,7 +181,7 @@ func updete_last_line() -> void:
 			first_level_links_on_objects[0][i] = new_line_spawn[i]
 	count_level += 1
 
-func bomb_ball_explosion(enemy, damage_ball, color_ball) -> void:
+func ball_explosion(enemy, damage_ball, color_ball, chance_of_freezing : int = 1) -> void:
 	var x
 	var y
 	for i in range(first_level_links_on_objects.size()):
@@ -196,8 +197,12 @@ func bomb_ball_explosion(enemy, damage_ball, color_ball) -> void:
 			var target_y = y + dy
 			if target_x >= 0 and target_x < 8 and target_y >= 0 and target_y < 6:
 				if first_level_links_on_objects[target_x][target_y] != null:
-					if first_level_links_on_objects[target_x][target_y].has_method("enemy"):
-						first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
+					if first_level_links_on_objects[target_x][target_y].has_method("enemy") and first_level_links_on_objects[target_x][target_y] != enemy:
+						if chance_of_freezing == 1:
+							first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
+						else:
+							#if randf() < chance_of_freezing:
+							first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
 						combo_count += 1 # можно будет убрать
 
 func lighthing_ball_damage(enemy, damage_ball, color_ball):
@@ -224,12 +229,20 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball):
 			enemy_arr.remove_at(num_enemy)
 			get_tree().current_scene.add_child(effect)
 
-func delete_freezing_on_enemy() -> void:
+func delete_freezing_and_fire_on_enemy() -> void:
 	for i in first_level_links_on_objects:
 		for j in i:
 			if j != null:
 				if j.has_method("enemy"):
-					j.delete_freezing()
+					j.delete_freezing_and_fire()
 
-func update_combo_count():
+func update_combo_count() -> void:
 	combo_count += 1
+
+func enemy_died(enemy) -> void:
+	if "Молния смерти" in player_skills:
+		lighthing_ball_damage(enemy, 100 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
+	if "Холод смерти" in player_skills:
+		ball_explosion(enemy, 100 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], 0.1)
+	if "Бомба смерти":
+		ball_explosion(enemy, 100 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])
