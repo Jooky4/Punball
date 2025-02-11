@@ -9,15 +9,15 @@ var texture_skill = {
 	"Усиление особого шара": preload("res://Texture/UI/Texture_skills/усиление особенного шара.png"),
 	"Прибавка ОЗ": preload("res://Texture/UI/Texture_skills/прибавка 03.png"),
 	"Шар молний": preload("res://Texture/UI/Texture_skills/шар молния.png"),
-	"Бомба-заморозка": preload("res://Texture/UI/Texture_skills/шар заморозка.png"),
-	"Огненный шар": preload("res://Texture/UI/Texture_skills/рассыпающийся шар.png"),
-	"Усиление атаки": preload("res://Texture/UI/Texture_skills/усиление обычного шара.png"),
-	"Молния смерти": preload("res://Texture/UI/Texture_skills/шар бомба.png"),
-	"Холод смерти": preload("res://Texture/UI/Texture_skills/шар заморозка.png"),
-	"Бомба смерти": preload("res://Texture/UI/Texture_skills/рассыпающийся шар.png"),
-	"Повелитель молний": preload("res://Texture/UI/Texture_skills/шар бомба.png"),
-	"Повелитель льда":  preload("res://Texture/UI/Texture_skills/шар заморозка.png"),
-	"Повелитель огня": preload("res://Texture/UI/Texture_skills/рассыпающийся шар.png")}
+	"Бомба-заморозка": preload("res://Texture/UI/Texture_skills/бомба заморозки.png"),
+	"Огненный шар": preload("res://Texture/UI/Texture_skills/огненный шар.png"),
+	"Усиление атаки": preload("res://Texture/UI/Texture_skills/усиление атаки.png"),
+	"Молния смерти": preload("res://Texture/UI/Texture_skills/молния смерти.png"),
+	"Холод смерти": preload("res://Texture/UI/Texture_skills/холод смерти.png"),
+	"Бомба смерти": preload("res://Texture/UI/Texture_skills/бомба смерти.png"),
+	"Повелитель молний": preload("res://Texture/UI/Texture_skills/повелитель молний.png"),
+	"Повелитель льда":  preload("res://Texture/UI/Texture_skills/повелитель холода.png"),
+	"Повелитель огня": preload("res://Texture/UI/Texture_skills/повелитель огня.png")}
 
 func update_discription(new_discription) -> void:
 	discription = new_discription
