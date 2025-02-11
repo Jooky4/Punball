@@ -287,12 +287,7 @@ func end_wave() -> void:
 	get_count_experience_label.visible = true
 	get_count_experience_label.text = ""
 	count_get_experience_on_wave = 0
-	for i in self.get_children():         # БАНОЧКИ ЛЕТЯТ К СЧЁТЧИКУ
-		if i != null:
-			if i.has_method("bank_with_experience"):
-				i.go_to_count()
-				await get_tree().create_timer(0.1).timeout
-	await get_tree().create_timer(1).timeout
+	animation_bank_with_experience()
 	get_count_experience_label.visible = false
 	start_balls_position.position.x += new_position_balls
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
@@ -314,6 +309,7 @@ func end_wave() -> void:
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
 	LevelManager.delete_freezing_and_fire_on_enemy()
+	animation_bank_with_experience()
 	if LevelManager.spin_skill != 0:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
@@ -321,6 +317,13 @@ func end_wave() -> void:
 		return
 	balls_can_go = true
 	game_state = PLAY
+
+func animation_bank_with_experience() -> void:
+	for i in self.get_children():
+		if i != null:
+			if i.has_method("bank_with_experience"):
+				i.go_to_count()
+				await get_tree().create_timer(0.1).timeout
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _on_button_pressed() -> void:
