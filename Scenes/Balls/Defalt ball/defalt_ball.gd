@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var sprite = $CollisionShape2D
 @onready var line_trail : Line2D = $Line2D
 
-@export var damage_ball : float = 100
+@export var damage_ball : float = 200
 @export var max_lenght_line : int = 6
 var speed : int = 1250
 var direction_bullet : Vector2

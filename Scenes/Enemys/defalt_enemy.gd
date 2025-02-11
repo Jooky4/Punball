@@ -3,7 +3,7 @@ extends StaticBody2D
 var bank_with_experience = preload("res://Scenes/Bonus/bank_with_experience.tscn")
 var LABEL_DAMAGE = preload("res://Scenes/Enemys/label_enemy_damage.tscn")
 
-@export var hp_enemy : float = 400#randi() % 4 * 100 + 200
+@export var hp_enemy : float = 400
 @export var player_damage : int = 100
 @export var start_scale_damage_label : float = 0.2
 @export var end_scale_damage_label : float = 0.8
@@ -22,7 +22,10 @@ func _ready() -> void:
 		animation_enemy.play("Spawn")
 	hp_enemy_bar.max_value = hp_enemy
 	hp_enemy_bar.value = hp_enemy
-	hp_enemy_label.text = str(hp_enemy)
+	if hp_enemy>=1000:
+		hp_enemy_label.text = str(hp_enemy/1000) + "K"
+	else:
+		hp_enemy_label.text = str(hp_enemy)
 
 func enemy() -> void:
 	pass
@@ -40,7 +43,10 @@ func deal_damage(damage_ball, color_label) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.stop()
 		animation_enemy.play("Damage")
-	hp_enemy_label.text = str(round(hp_enemy))
+	if hp_enemy>=1000:
+		hp_enemy_label.text = str(hp_enemy/1000) + "K"
+	else:
+		hp_enemy_label.text = str(round(hp_enemy))
 	hp_enemy_bar.value = hp_enemy
 
 func deal_bomb_damage(damage_ball, color_label) -> void:
@@ -54,9 +60,10 @@ func deal_bomb_damage(damage_ball, color_label) -> void:
 
 func deal_freezing_damage(damage_ball, color_label) -> void:
 	deal_damage(damage_ball, color_label)
-	freezen = true
-	var tween = create_tween()
-	tween.tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.15)
+	if randf() < LevelManager.chance_of_freezing:
+		freezen = true
+		var tween = create_tween()
+		tween.tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.15)
 
 func deal_fire_damage(damage_ball, color_label) -> void:
 	deal_damage(damage_ball, color_label)
@@ -65,7 +72,9 @@ func deal_fire_damage(damage_ball, color_label) -> void:
 
 func delete_freezing_and_fire() -> void:
 	if on_fire:
-		deal_fire_damage(100 * ElementsManager.normal_modifier, ElementsManager.color_elements["FIRE"])
+		if "Повелитель огня" in LevelManager.player_skills:
+			LevelManager.ball_explosion(self, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])
+		deal_fire_damage(200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])
 		fire_effect.emitting = false
 		on_fire = false
 	if freezen:

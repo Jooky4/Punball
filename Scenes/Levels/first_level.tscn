@@ -389,6 +389,8 @@ texture = ExtResource("13_yxrlo")
 [node name="Get_skill_UI" parent="UI" instance=ExtResource("13_1g2hj")]
 visible = false
 layout_mode = 1
+offset_top = 25.0
+offset_bottom = 25.0
 
 [node name="Combo_count" type="Label" parent="UI"]
 visible = false

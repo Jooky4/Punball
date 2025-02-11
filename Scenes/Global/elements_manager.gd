@@ -1,11 +1,11 @@
 extends Node
 
 enum {
-	NORMAL,   #defalt_ball
-	FIRE,     # bomb_ball
-	FROST,    # freezing_ball
+	NORMAL,   # defalt_ball
+	FIRE,     # bomb_ball, fire_ball
+	FROST,    # freezing_ball, freezing_bomb_ball
 	LASER,    # crumbling_ball
-	LIGHTNING,
+	LIGHTNING,# lightning_ball
 	DARKNESS
 }
 

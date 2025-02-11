@@ -6,7 +6,7 @@ var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 @onready var animation = $AnimationPlayer
 var regular = ["Шар-заморозка", "Усиление обычного шара", "Шар молний", "Огненный шар"]
 var rare = ["Рассыпающийся шар", "Шар-бомба", "Усиление особого шара", "Прибавка ОЗ", "Молния смерти", "Бомба-заморозка", "Холод смерти", "Бомба смерти"]
-var epic = ["Усиление атаки"]
+var epic = ["Усиление атаки", "Повелитель молний", "Повелитель льда"]
 var legendary = []
 var skills = []
 
@@ -30,16 +30,21 @@ func get_number_skill(number:int) -> void:
 func create_skill():
 	for i in range(3):
 		var buff = SKILL_WINDOW.instantiate()
-		if randi() % 2 == 1:
-			var new_skill = rare[randi() % rare.size()]
-			buff.update_discription(new_skill)
-			buff.show_rarity_window(2)
-			skills.append(new_skill)
-		else:
+		if i == 0:
 			var new_skill = regular[randi() % regular.size()]
 			buff.update_discription(new_skill)
-			buff.show_rarity_window(1)
 			skills.append(new_skill)
+			buff.show_rarity_window(1)
+		elif i == 1:
+			var new_skill = rare[randi() % rare.size()]
+			buff.update_discription(new_skill)
+			skills.append(new_skill)
+			buff.show_rarity_window(2)
+		elif i == 2:
+			var new_skill = epic[randi() % epic.size()]
+			buff.update_discription(new_skill)
+			skills.append(new_skill)
+			buff.show_rarity_window(3)
 		windows_skill.add_child(buff)
 
 func _on_skill_1_pressed() -> void:
@@ -89,6 +94,15 @@ func add_skill(skill) -> void:
 			LevelManager.player_skills.append("Холод смерти")
 		"Бомба смерти":
 			LevelManager.player_skills.append("Бомба смерти")
+		"Повелитель молний":
+			LevelManager.count_damage_lightning_enemy = 5
+			ElementsManager.lightning_modifier += 0.4
+		"Повелитель льда":
+			ElementsManager.frost_modifier += 0.4
+			LevelManager.chance_of_freezing += 0.3
+		"Повелитель огня":
+			ElementsManager.fire_modifier += 0.4
+			LevelManager.player_skills.append("Повелитель огня")
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:
