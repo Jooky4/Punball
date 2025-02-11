@@ -189,6 +189,7 @@ position = Vector2(-1.5, -2.5)
 target_position = Vector2(720, 197)
 
 [node name="Ball_rotate_UI" parent="Dicariations/Start_bullet_position" instance=ExtResource("9_2r8vu")]
+visible = false
 position = Vector2(359, 1205)
 
 [node name="Setka" type="Node2D" parent="Dicariations"]
