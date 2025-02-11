@@ -139,6 +139,7 @@ func chec_game_end() -> void:
 		end_wave()
 
 func get_expirians_animation(experience) -> void:
+	get_count_experience_label.visible = true
 	experience_texture.scale = Vector2(1, 1)
 	get_count_experience_label.scale = Vector2(1, 1)
 	var tween = get_tree().create_tween()
@@ -151,6 +152,15 @@ func get_expirians_animation(experience) -> void:
 	get_count_experience_label.text = "+"+str(count_get_experience_on_wave)
 	LevelManager.count_experiance += experience
 	count_experience_label.text = str(LevelManager.count_experiance)
+	var count_bank = 0
+	for i in self.get_children():
+		if i != null:
+			if i.has_method("bank_with_experience"):
+				if i.bank_go:
+					count_bank += 1
+	if count_bank == 1:
+		await get_tree().create_timer(0.75).timeout
+		get_count_experience_label.visible = false
 
 func win() -> void:
 	end_game_UI.visible = true
@@ -284,11 +294,9 @@ func end_wave() -> void:
 	combo_count = 0
 	LevelManager.combo_count = 0
 	combo_count_label.text = str(0)
-	get_count_experience_label.visible = true
-	get_count_experience_label.text = ""
 	count_get_experience_on_wave = 0
+	get_count_experience_label.text = ""
 	animation_bank_with_experience()
-	get_count_experience_label.visible = false
 	start_balls_position.position.x += new_position_balls
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
@@ -322,8 +330,9 @@ func animation_bank_with_experience() -> void:
 	for i in self.get_children():
 		if i != null:
 			if i.has_method("bank_with_experience"):
-				i.go_to_count()
-				await get_tree().create_timer(0.1).timeout
+				if !i.bank_go:
+					i.go_to_count()
+					await get_tree().create_timer(0.1).timeout
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _on_button_pressed() -> void:

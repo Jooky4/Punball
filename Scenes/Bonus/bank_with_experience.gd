@@ -1,8 +1,10 @@
 extends Node2D
 
 @export var experience : int = 50
+var bank_go = false
 
 func go_to_count() -> void:
+	bank_go = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", Vector2(0, 88), 0.5).set_trans(Tween.TRANS_CIRC)
 	await get_tree().create_timer(0.5).timeout
