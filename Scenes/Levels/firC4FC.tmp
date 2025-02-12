@@ -378,10 +378,6 @@ theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 60
 text = "МОЛНИЯ"
 
-[node name="Уровень1Текст" type="Sprite2D" parent="UI"]
-position = Vector2(361, 80)
-texture = ExtResource("13_yxrlo")
-
 [node name="Count_level_label" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = -944.0
@@ -393,13 +389,16 @@ label_settings = SubResource("LabelSettings_afqc7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Уровень1Текст" type="Sprite2D" parent="UI/Count_level_label"]
+position = Vector2(1305, 26)
+texture = ExtResource("13_yxrlo")
+
 [node name="Boss_label" type="Label" parent="UI"]
 visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 30.0
-offset_bottom = 206.0
+offset_bottom = 176.0
 grow_horizontal = 2
 text = "БОСС"
 label_settings = SubResource("LabelSettings_8a56q")
@@ -409,8 +408,6 @@ vertical_alignment = 1
 [node name="Get_skill_UI" parent="UI" instance=ExtResource("13_1g2hj")]
 visible = false
 layout_mode = 1
-offset_top = 25.0
-offset_bottom = 25.0
 
 [node name="Combo_count" type="Label" parent="UI"]
 visible = false

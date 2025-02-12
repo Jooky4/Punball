@@ -105,8 +105,8 @@ func create_label_damage(damage_ball, color_label) -> void:
 	label.text = "-" + str(damage_ball)
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
-	label.visible = true
 	get_tree().current_scene.add_child(label)
+	label.show_label()
 
 func enemy_on_last_line():
 	on_last_line = true

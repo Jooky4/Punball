@@ -3,6 +3,7 @@ extends Node
 var line_lightning = preload("res://Scenes/Balls/Lightning ball/line_lightning.tscn")
 
 var hp_player : float = 1000
+var boss_on_map : bool = false
 var max_hp_player : float = 1000
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
@@ -15,25 +16,24 @@ var chance_of_freezing : float = 0.4
 var hit_player : bool = false
 var player_skills : Array = []#["Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
-								 [-1, 1, 1, 1, null, null],
-								 [1, 1, 1, null, -1, 1],
-								 [1, null, -1, 1, 1, null],
-								 [-1, 1, 1, null, 1, null],
-								 [1, null, -1, null, null, null],
-								 [1, 1, null, 1, 1, null],
-								 [1, 1, 1, 1, -1, 1],
-								 [-1, 1, null, 1, null, null],
-								 [null, 1, 1, 1, null, -1],
-								 [1, 1, null, null, null, -1],
-								 [null, 1, null, 1, 1, -1],
-								 [null, 1, 1, 1, 1, -1],
-								 [1, null, null, 1, null, -1],
-								 [1, 1, null, -1, null, null],
-								 [1, null, null, -1, 1, null],
-								 [null, -1, 1, null, 1, 1],
-								 [null, null, null, null, null, null],
-								 [null, null, 1, 1, null, null],
-								 [null, null, 1, 1, null, null]]
+								[-2, 1, 1, 1, null, null],
+								[1, 1, 1, null, -1, 1],
+								[1, null, -2, 1, 1, null],
+								[-1, 1, 1, null, 1, null],
+								[1, null, -2, null, null, null],
+								[1, 1, null, 1, 1, null],
+								[1, 2, 2, 1, -2, 1],
+								[-1, 1, null, 1, null, null],
+								[null, 1, 3, 3, null, -2],
+								[2, 1, null, null, null, -1] ,
+								[null, 1, null, 1, 3, -2],
+								[null, 1, 1, 2, 2, -1],
+								[2, null, null, 2, null, -2],
+								[2, 1, null, -1, null, null],
+								[3, null, null, -2, 2, null],
+								[null, -1, 1, null, 2, 1],
+								[null, null, null, null, null, null],
+								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
 											[null, 1, 1, 1, 1, 1],
 											[null, -1, null, null, null, null],
@@ -41,10 +41,12 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
 											[null, -2, null, null, null, null],
 											[null, null, null, null, null, null],
 											[null, null, null, null, null, null],
-											[null, null, null, null, null, null],]
+											[null, null, null, null, null, null]]
 
 func restert() -> void:
+	ElementsManager.restart()
 	hp_player = 1000
+	boss_on_map = false
 	max_hp_player = 1000
 	count_level = 0
 	spin_skill = 0
@@ -62,27 +64,7 @@ func restert() -> void:
 									[null, -2, null, null, null, null],
 									[null, null, null, null, null, null],
 									[null, null, null, null, null, null],
-									[null, null, null, null, null, null],]
-	first_level_spawn = [[null, null, 1, 1, -1, null],
-						 [-1, 1, 1, 1, null, null],
-						 [1, 1, 1, null, -1, 1],
-						 [1, null, -1, 1, 1, null],
-						 [-1, 1, 1, null, 1, null],
-						 [1, null, -1, null, null, null],
-						 [1, 1, null, 1, 1, null],
-						 [1, 1, 1, 1, -1, 1],
-						 [-1, 1, null, 1, null, null],
-						 [null, 1, 1, 1, null, -1],
-						 [1, 1, null, null, null, -1],
-						 [null, 1, null, 1, 1, -1],
-						 [null, 1, 1, 1, 1, -1],
-						 [1, null, null, 1, null, -1],
-						 [1, 1, null, -1, null, null],
-						 [1, null, null, -1, 1, null],
-						 [null, -1, 1, null, 1, 1],
-						 [null, null, null, null, null, null],
-						 [null, null, 1, 1, null, null],
-						 [null, null, 1, 1, null, null]]
+									[null, null, null, null, null, null]]
 
 func add_ball(num_ball) -> void:
 	player_balls_after_wave.append(num_ball)
@@ -98,14 +80,14 @@ func enemy_shoot(player_position) -> void:
 	for i in first_level_links_on_objects:
 		for j in i:
 			if j != null:
-				if j.has_method("shoot_at_player"):
+				if j.has_method("shoot_at_player") and !j.freezen:
 					j.shoot_at_player(player_position)
 
 func moving_object() -> void:
 	hit_player = false
 	for i in first_level_links_on_objects[7]: # НАНЕСЕНИЕ УРОНА ИГРОКУ
 		if i != null:
-			if i.has_method("enemy"):
+			if i.has_method("enemy") and !i.has_method("boss"):
 				if !i.freezen:
 					i.play_animation_hit_player()
 					damage_player(i.player_damage)
@@ -115,32 +97,37 @@ func moving_object() -> void:
 
 	for i in range(first_level_links_on_objects[7].size()): # УДАЛЕНИЕ ОБЪЕКТОВ С ПОСЛЕДНЕЙ СТРОЧКИ
 		if first_level_links_on_objects[7][i] != null:
-			if first_level_links_on_objects[7][i].has_method("enemy"):
+			if first_level_links_on_objects[7][i].has_method("enemy") and !first_level_links_on_objects[7][i].has_method("boss"):
 				if !first_level_links_on_objects[7][i].freezen:
 					first_level_links_on_objects[7][i] = null
 			else:
-				first_level_links_on_objects[7][i].queue_free()
-				first_level_links_on_objects[7][i] = null
-
+				if !first_level_links_on_objects[7][i].has_method("boss"):
+					first_level_links_on_objects[7][i].queue_free()
+					first_level_links_on_objects[7][i] = null
+	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
+		move_boss()
 	for i in range(first_level_links_on_objects.size() - 2, -1, -1):
-		for w in range(first_level_links_on_objects[i].size()): # СНАЧАЛА ПРОДВИГАЕМ ВПЁРЕД ТЕХ У КОГО СПЕРЕДИ ПУСТО
-			if first_level_links_on_objects[i][w] != null:
-				if first_level_links_on_objects[i+1][w] == null:
-					if first_level_links_on_objects[i][w].has_method("enemy"):
-						if !first_level_links_on_objects[i][w].freezen:
-							move_forward(i, w)
+		for j in range(first_level_links_on_objects[i].size()): # СНАЧАЛА ПРОДВИГАЕМ ВПЁРЕД ТЕХ У КОГО СПЕРЕДИ ПУСТО
+			if first_level_links_on_objects[i][j] != null:
+				if first_level_links_on_objects[i+1][j] == null:
+					if first_level_links_on_objects[i][j].has_method("enemy") and !first_level_links_on_objects[i][j].has_method("boss"):
+						if !first_level_links_on_objects[i][j].freezen:
+							move_forward(i, j)
 					else:
-						move_forward(i, w)
-		for j in range(first_level_links_on_objects[i].size()):
-			if first_level_links_on_objects[i][j] != null:  # ПОТОМ ДВИГАЕМ ВПРАВО, ВЛЕВО ТЕХ У КОГО ПРЕПЯТСВИЕ СПЕРЕДИ
-				if first_level_links_on_objects[i+1][j] != null:
-					if first_level_links_on_objects[i+1][j].has_method("enemy"):
-						if first_level_links_on_objects[i+1][j].freezen:
-							if first_level_links_on_objects[i][j].has_method("enemy"):
-								if !first_level_links_on_objects[i][j].freezen:
-									move_left_or_right(i, j)
+						if !first_level_links_on_objects[i][j].has_method("boss"):
+							move_forward(i, j)
+
+		for j1 in range(first_level_links_on_objects[i].size()):
+			if first_level_links_on_objects[i][j1] != null:  # ПОТОМ ДВИГАЕМ ВПРАВО, ВЛЕВО ТЕХ У КОГО ПРЕПЯТСВИЕ СПЕРЕДИ
+				if first_level_links_on_objects[i+1][j1] != null:
+					if first_level_links_on_objects[i+1][j1].has_method("enemy"):
+						if first_level_links_on_objects[i+1][j1].freezen:
+							if first_level_links_on_objects[i][j1].has_method("enemy") and !first_level_links_on_objects[i][j1].has_method("boss"):
+								if !first_level_links_on_objects[i][j1].freezen:
+									move_left_or_right(i, j1)
 							else:
-								move_left_or_right(i, j)
+								if !first_level_links_on_objects[i][j1].has_method("boss"):
+									move_left_or_right(i, j1)
 
 	for i in range(first_level_links_on_objects[7].size()): # ЗАПУСКАЕМ АНИМАЦИЮ У ИГРОКОВ НА ПОСЛЕДНЕЙ СТРОКЕ
 		if first_level_links_on_objects[7][i] != null:
@@ -167,10 +154,56 @@ func move_left_or_right(i, j) ->void:
 			else:
 				print(i+1," ", j+1, ": ВСЁ ЗАНЯТО Я ТУТ ОСТАНУСЬ")
 
+func move_boss() ->void:
+	var free_spots = []
+	for i in range(first_level_links_on_objects.size() - 1):
+		for j in range(first_level_links_on_objects[i].size() - 1):
+			var is_free = true
+			for x in range(2):
+				for y in range(2):
+					if first_level_links_on_objects[i + x][j + y] != null:
+						is_free = false
+						break
+				if not is_free:
+					break
+			if is_free:
+				free_spots.append(Vector2(i, j))
+	var new_spot = 0
+	var boss_pos
+	if free_spots.size() > 0:
+		new_spot = free_spots[randi() % free_spots.size()]
+	if new_spot:
+		for i in range(first_level_links_on_objects.size()):
+			for j in range(first_level_links_on_objects[i].size()):
+				if first_level_links_on_objects[i][j] != null:
+					if first_level_links_on_objects[i][j].has_method("boss"):
+						if !first_level_links_on_objects[i][j].freezen:
+							boss_pos = Vector2(i, j)
+							first_level_links_on_objects[boss_pos.x][boss_pos.y].moving(new_spot - boss_pos)
+							for i1 in range(2):
+								for j1 in range(2):
+									first_level_links_on_objects[new_spot.x + i1][new_spot.y + j1] = first_level_links_on_objects[boss_pos.x][boss_pos.y]
+							for i1 in range(2):
+								for j1 in range(2):
+									first_level_links_on_objects[boss_pos.x + i1][boss_pos.y + j1] = null
+							return
+
 func updete_last_line() -> void:
 	var new_line_spawn
+	var slot_for_new_enemy 
+	var free_slots = []
 	if count_level >= 19:
 		new_line_spawn = [null, null, null, null, null, null]
+		if count_level % 2 == 1:
+			for i in range(5):
+				for j in range(first_level_links_on_objects[i].size()):
+					if first_level_links_on_objects[i][j] == null:
+						free_slots.append(Vector2(i, j))
+			
+			for i in [1, 2, 2]:
+				slot_for_new_enemy = free_slots[randi() % free_slots.size()]
+				first_level_links_on_objects[slot_for_new_enemy.x][slot_for_new_enemy.y] = i
+				free_slots.erase(slot_for_new_enemy)
 	else:
 		#new_line_spawn = WaveGeneration.generetion_new_wave(count_level+1)
 		new_line_spawn = first_level_spawn[count_level]
@@ -239,7 +272,7 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball):
 func delete_freezing_and_fire_on_enemy() -> void:
 	for i in first_level_links_on_objects:
 		for j in i:
-			if j != null:
+			if j != null and typeof(j) != 2:
 				if j.has_method("enemy"):
 					j.delete_freezing_and_fire()
 

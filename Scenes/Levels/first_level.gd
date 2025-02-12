@@ -17,6 +17,7 @@ var game_state = PLAY
 var DEFALT_ENEMY = preload("res://Scenes/Enemys/defalt_enemy.tscn")
 var DEFALT_ENEMY_2 = preload("res://Scenes/Enemys/defalt_enemy_2.tscn")
 var DEFALT_ENEMY_3 = preload("res://Scenes/Enemys/defalt_enemy_3.tscn")
+var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
 var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
@@ -57,7 +58,7 @@ var rignt_extreme_point : Vector2
 var left_extreme_point : Vector2
 
 func _ready() -> void:
-	spawn_objects_on_matrix(1)
+	spawn_objects_on_matrix()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	count_level_label.text = str(LevelManager.count_level + 1)
 	count_experience_label.text = str(LevelManager.count_experiance)
@@ -112,7 +113,7 @@ func play_game() -> void:
 
 func chec_game_end() -> void:
 	var balls_on_map = true
-	var enemy_alive = false
+	var boss_alive = false
 	if LevelManager.combo_count > combo_count:
 		combo_count_label.visible = true
 		combo_count_label.text = str(LevelManager.combo_count)
@@ -123,19 +124,22 @@ func chec_game_end() -> void:
 			combo_count_label.scale -= Vector2(0.05, 0.05)
 
 	for child in game_objects.get_children():
-		if child.has_method("enemy"):
-			enemy_alive = true
+		if child.has_method("boss"):
+			boss_alive = true
 			break
 
-	if enemy_alive == false:
+	if boss_alive == false and LevelManager.count_level > 19:
 		game_state = WIN
+		return
+	else:
+		boss_alive = true
 
 	for child in get_children():
 		if "CharacterBody2D" in child.name or "ball" in child.name:
 			balls_on_map = false
 			break
 
-	if balls_on_map and enemy_alive and count_ball_label.text == "x0" and !balls_can_go:
+	if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
 		end_wave()
 
 func get_expirians_animation(experience) -> void:
@@ -243,53 +247,49 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 					new_position_balls = -(start_balls_position.position.x - new_position_balls)
 			body.queue_free()
 
-func spawn_objects_on_matrix(inex: int = 100) -> void:
+func spawn_objects_on_matrix() -> void:
 	var count = -1
-	if inex == 1:
-		for i in LevelManager.first_level_links_on_objects:
-			for j in i:
-				count += 1
-				spawn_objects_by_index(count)
-	else:
-		for i in LevelManager.first_level_links_on_objects[0]:
+	for i in LevelManager.first_level_links_on_objects:
+		for j in i:
 			count += 1
 			spawn_objects_by_index(count)
 
 func spawn_objects_by_index(count) -> void:
 	if typeof(LevelManager.first_level_links_on_objects[count/6][count%6]) == 2:
-		if LevelManager.first_level_links_on_objects[count/6][count%6] == 1:
-			var enemy = DEFALT_ENEMY.instantiate()
-			enemy.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
-			enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-			LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
-			game_objects.add_child(enemy)
-		elif LevelManager.first_level_links_on_objects[count/6][count%6] == 2:
-			var enemy = DEFALT_ENEMY_2.instantiate()
-			enemy.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
-			enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-			LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
-			game_objects.add_child(enemy)
-		elif LevelManager.first_level_links_on_objects[count/6][count%6] == 3:
-			var enemy = DEFALT_ENEMY_3.instantiate()
-			enemy.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
-			enemy.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-			LevelManager.first_level_links_on_objects[count/6][count%6] = enemy
-			game_objects.add_child(enemy)
-		elif LevelManager.first_level_links_on_objects[count/6][count%6] == -1:
-			var bonus_ball = BONUS_BALL.instantiate()
-			bonus_ball.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-			LevelManager.first_level_links_on_objects[count/6][count%6] = bonus_ball
-			game_objects.add_child(bonus_ball)
-		elif LevelManager.first_level_links_on_objects[count/6][count%6] == -2:
-			var skill_box = SKILL_BOX.instantiate()
-			skill_box.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
-			LevelManager.first_level_links_on_objects[count/6][count%6] = skill_box
-			game_objects.add_child(skill_box)
+		var buff
+		match LevelManager.first_level_links_on_objects[count/6][count%6]:
+			-2: buff = SKILL_BOX.instantiate()
+			-1: buff = BONUS_BALL.instantiate()
+			1: 
+				buff = DEFALT_ENEMY.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			2: 
+				buff = DEFALT_ENEMY_2.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			3: 
+				buff = DEFALT_ENEMY_3.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			4: 
+				buff = BOSS_FIRST_LOCATION.instantiate()
+				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
+				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
+				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
+				LevelManager.boss_on_map = true
+				$UI/Boss_label.visible = true
+				count_level_label.visible = false
+		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
+		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
+		game_objects.add_child(buff)
 
 func end_wave() -> void:
 	LevelManager.apeend_new_balls()
+	if LevelManager.boss_on_map:
+		$UI/Boss_label.visible = true
+		count_level_label.visible = false
+	else:
+		count_level_label.visible = true
+		count_level_label.text = str(LevelManager.count_level + 2)
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
-	count_level_label.text = str(LevelManager.count_level + 2)
 	combo_count_label.visible = false
 	combo_count = 0
 	LevelManager.combo_count = 0

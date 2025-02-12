@@ -1,15 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://cs7a08eol6pay"]
+[gd_scene load_steps=15 format=3 uid="uid://ux4skrwbxon4"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy_2.gd" id="1_5kesr"]
-[ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Enemy_2/тело.png" id="2_cuebk"]
-[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_52v56"]
-[ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Enemy_2/рот.png" id="3_72l8p"]
-[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_3ttw0"]
-[ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Enemy_2/листик.png" id="4_lrxah"]
-[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="5_vpurs"]
+[ext_resource type="Script" path="res://Scenes/Enemys/Bosses/First_location/boss_first_location.gd" id="1_pst5v"]
+[ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Enemy_2/тело.png" id="2_8e27a"]
+[ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Enemy_2/рот.png" id="3_dkm77"]
+[ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Enemy_2/листик.png" id="4_korh3"]
+[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="5_yfq8f"]
+[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="6_kbdnm"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_em5g7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
+size = Vector2(186, 174)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tqeh5"]
-font = ExtResource("5_vpurs")
+font = ExtResource("7_em5g7")
 font_size = 50
 font_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
 outline_size = 20
@@ -45,51 +48,53 @@ scale_max = 8.0
 scale_curve = SubResource("CurveTexture_xra43")
 color_ramp = SubResource("GradientTexture1D_w5ydg")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n58q7"]
-size = Vector2(91, 90)
-
-[node name="defalt_enemy_2" type="StaticBody2D"]
+[node name="Boss_first_location" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_5kesr")
-hp_enemy = 1440.0
+script = ExtResource("1_pst5v")
+bullet_damage = 40
+hp_enemy = 140000.0
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
-position = Vector2(2, 3)
-scale = Vector2(0.07, 0.07)
+position = Vector2(53, 63)
+scale = Vector2(0.15, 0.15)
 
 [node name="Тело" type="Sprite2D" parent="Sprite_enemy"]
 position = Vector2(-29.4118, -89.4797)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("2_cuebk")
+texture = ExtResource("2_8e27a")
 
 [node name="Рот" type="Sprite2D" parent="Sprite_enemy"]
 position = Vector2(-24.5098, -89.4797)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("3_72l8p")
+texture = ExtResource("3_dkm77")
 
 [node name="Листик" type="Sprite2D" parent="Sprite_enemy"]
 position = Vector2(-17.1569, -87.0612)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("4_lrxah")
+texture = ExtResource("4_korh3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, 55)
+shape = SubResource("RectangleShape2D_m8ci2")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
-offset_left = -45.0
-offset_top = 36.0
-offset_right = 46.0
-offset_bottom = 50.0
+offset_left = 3.00001
+offset_top = 131.0
+offset_right = 94.0
+offset_bottom = 145.0
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_52v56")
-texture_progress = ExtResource("4_3ttw0")
+texture_under = ExtResource("5_yfq8f")
+texture_progress = ExtResource("6_kbdnm")
 
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
-offset_left = -45.0
-offset_top = 22.0
-offset_right = 185.0
-offset_bottom = 117.0
+offset_left = 3.0
+offset_top = 117.0
+offset_right = 233.0
+offset_bottom = 212.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_tqeh5")
@@ -97,12 +102,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Fire_effect" type="GPUParticles2D" parent="."]
-position = Vector2(0, 38)
+position = Vector2(49, 135)
 emitting = false
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_uhf74")
 lifetime = 0.65
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_n58q7")

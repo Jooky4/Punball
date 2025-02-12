@@ -24,3 +24,11 @@ var frost_modifier : float = 1.0
 var laser_modifier : float = 1.0
 var lightning_modifier : float = 1.0
 var darkness_modifier : float = 1.0
+
+func restart():
+	normal_modifier = 1.0
+	fire_modifier = 1.0
+	frost_modifier = 1.0
+	laser_modifier = 1.0
+	lightning_modifier  = 1.0
+	darkness_modifier = 1.0
