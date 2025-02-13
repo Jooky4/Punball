@@ -1,16 +1,16 @@
 [gd_scene load_steps=24 format=3 uid="uid://cs7a08eol6pay"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy_2.gd" id="1_5kesr"]
-[ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Enemy_2/тело.png" id="2_cuebk"]
-[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_52v56"]
-[ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Enemy_2/рот.png" id="3_72l8p"]
-[ext_resource type="Texture2D" uid="uid://b1k64lxo1ayrh" path="res://Texture/Enemys/Enemy_2/Eye.png" id="3_mbent"]
-[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_3ttw0"]
-[ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Enemy_2/листик.png" id="4_lrxah"]
-[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="5_vpurs"]
+[ext_resource type="Script" path="res://Scenes/Enemys/blueberries_enemy.gd" id="1_4nflj"]
+[ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="2_kdbwk"]
+[ext_resource type="Texture2D" uid="uid://b1k64lxo1ayrh" path="res://Texture/Enemys/Blueberries_enemy/Eye.png" id="3_508eo"]
+[ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="4_ty01e"]
+[ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Blueberries_enemy/листик.png" id="5_f3cgh"]
+[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="6_xi2xi"]
+[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="7_wci5x"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="8_fewwm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tqeh5"]
-font = ExtResource("5_vpurs")
+font = ExtResource("8_fewwm")
 font_size = 50
 font_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
 outline_size = 20
@@ -825,10 +825,10 @@ _data = {
 "Spawn": SubResource("Animation_xhi3q")
 }
 
-[node name="defalt_enemy_2" type="StaticBody2D"]
+[node name="blueberries_enemy" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_5kesr")
+script = ExtResource("1_4nflj")
 hp_enemy = 1440.0
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
@@ -838,48 +838,48 @@ scale = Vector2(0.07, 0.07)
 [node name="Тело" type="Sprite2D" parent="Sprite_enemy"]
 position = Vector2(-29.4118, -89.4797)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("2_cuebk")
+texture = ExtResource("2_kdbwk")
 
 [node name="Eye" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
 position = Vector2(-110.4, 66.5358)
 scale = Vector2(2.34375, 2.34375)
-texture = ExtResource("3_mbent")
+texture = ExtResource("3_508eo")
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
 position = Vector2(116.914, 66.5358)
 scale = Vector2(2.34375, 2.34375)
-texture = ExtResource("3_mbent")
+texture = ExtResource("3_508eo")
 
 [node name="Рот" type="Sprite2D" parent="Sprite_enemy"]
 position = Vector2(-24.5098, -89.4797)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("3_72l8p")
+texture = ExtResource("4_ty01e")
 
 [node name="Листик" type="Sprite2D" parent="Sprite_enemy"]
 position = Vector2(-128.571, -357.143)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("4_lrxah")
+texture = ExtResource("5_f3cgh")
 offset = Vector2(45.4571, 117.586)
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 34.0
+offset_top = 36.0
 offset_right = 46.0
-offset_bottom = 48.0
+offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_52v56")
-texture_progress = ExtResource("4_3ttw0")
+texture_under = ExtResource("6_xi2xi")
+texture_progress = ExtResource("7_wci5x")
 
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 20.0
+offset_top = 22.0
 offset_right = 185.0
-offset_bottom = 115.0
+offset_bottom = 117.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_tqeh5")

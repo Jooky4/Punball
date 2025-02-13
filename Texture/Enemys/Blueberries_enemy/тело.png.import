@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6fo1sgikhlyy"
-path="res://.godot/imported/тело.png-9b273b6d5d2fb696ff4183a5d01f92fe.ctex"
+uid="uid://wg1jxid22jl3"
+path="res://.godot/imported/тело.png-7d7e208e39a4f9d3e14dbd48a87eb4fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/Enemy_1/тело.png"
-dest_files=["res://.godot/imported/тело.png-9b273b6d5d2fb696ff4183a5d01f92fe.ctex"]
+source_file="res://Texture/Enemys/Blueberries_enemy/тело.png"
+dest_files=["res://.godot/imported/тело.png-7d7e208e39a4f9d3e14dbd48a87eb4fa.ctex"]
 
 [params]
 

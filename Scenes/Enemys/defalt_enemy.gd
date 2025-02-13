@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var bank_with_experience = preload("res://Scenes/Bonus/bank_with_experience.tscn")
-var LABEL_DAMAGE = preload("res://Scenes/Enemys/label_enemy_damage.tscn")
+var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
 
 @export var hp_enemy : float = 400
 @export var player_damage : int = 100

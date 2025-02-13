@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6gmv5i6ig0wr"]
 
-[ext_resource type="Texture2D" uid="uid://bqogtnd7d18tc" path="res://Texture/Enemys/Enemy_2/снаряд чернички.png" id="1_07et4"]
+[ext_resource type="Texture2D" uid="uid://bqogtnd7d18tc" path="res://Texture/Enemys/Blueberries_enemy/снаряд чернички.png" id="1_j3x6q"]
 
 [node name="enemy_bullet" type="Node2D"]
 z_index = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_07et4")
+texture = ExtResource("1_j3x6q")

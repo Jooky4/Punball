@@ -75,8 +75,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1700.0
-offset_bottom = -1700.0
+offset_top = 25.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8r74x")
@@ -95,7 +95,7 @@ anchor_bottom = 0.5
 offset_top = -0.160034
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 55
 alignment = 1
 
 [node name="Skill_window" parent="Windows_skill" instance=ExtResource("3_yghhh")]
@@ -117,7 +117,7 @@ offset_top = 136.0
 offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 75
 alignment = 1
 
 [node name="Skill_1" type="TextureButton" parent="HBoxContainer2"]

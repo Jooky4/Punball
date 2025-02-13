@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxhxqplbwyp5r"
-path="res://.godot/imported/defalt_enemy_2.png-9317873c598c97ab71d6370bd90ea040.ctex"
+uid="uid://u2pxqe3jffmh"
+path="res://.godot/imported/листик.png-5d6d6f9283d16733a382324413b7043e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/defalt_enemy_2.png"
-dest_files=["res://.godot/imported/defalt_enemy_2.png-9317873c598c97ab71d6370bd90ea040.ctex"]
+source_file="res://Texture/Enemys/Blueberries_enemy/листик.png"
+dest_files=["res://.godot/imported/листик.png-5d6d6f9283d16733a382324413b7043e.ctex"]
 
 [params]
 

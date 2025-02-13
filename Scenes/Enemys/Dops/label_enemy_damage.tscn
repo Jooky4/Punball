@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsrgbqhir3rof"]
 
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_agaqe"]
-[ext_resource type="Script" path="res://Scenes/Enemys/label_enemy_damage.gd" id="2_ugsr2"]
+[ext_resource type="Script" path="res://Scenes/Enemys/Dops/label_enemy_damage.gd" id="2_ugsr2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iwev2"]
 font = ExtResource("1_agaqe")

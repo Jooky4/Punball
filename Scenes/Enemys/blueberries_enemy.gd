@@ -1,6 +1,6 @@
 extends "res://Scenes/Enemys/defalt_enemy.gd"
 
-var ENEMY_BULLET = preload("res://Scenes/Enemys/enemy_bullet.tscn")
+var ENEMY_BULLET = preload("res://Scenes/Enemys/Dops/enemy_bullet.tscn")
 @export var bullet_damage = 20
 
 func shoot_at_player(player_position) -> void:

@@ -34,11 +34,11 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[4, null, null, null, null, null],
-											[null, null, 1, 1, 1, 1],
+var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
+											[null, 1, 1, 1, 1, 1],
 											[null, -1, null, null, null, null],
-											[null, null, 2, 2, 2, null],
-											[null, null, null, null, null, null],
+											[1, 1, 1, 1, 1, null],
+											[null, -2, null, null, null, null],
 											[null, null, null, null, null, null],
 											[null, null, null, null, null, null],
 											[null, null, null, null, null, null]]
@@ -85,11 +85,16 @@ func moving_object(player_position) -> void:
 					i.play_animation_hit_player()
 					damage_player(i.player_damage)
 					hit_player = true
+	var boss_shoot = false
 	for i in first_level_links_on_objects:
 		for j in i:
 			if j != null:
 				if j.has_method("shoot_at_player") and !j.freezen:
-					j.shoot_at_player(player_position)
+					if j.has_method("boss") and !boss_shoot:
+						j.shoot_at_player(player_position)
+						boss_shoot = true
+					elif !j.has_method("boss"):
+						j.shoot_at_player(player_position)
 					hit_player = true
 	if hit_player:
 		await get_tree().create_timer(1.5).timeout

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u2pxqe3jffmh"
-path="res://.godot/imported/листик.png-6c768ee39457d3c0da17e448e5056af8.ctex"
+uid="uid://bo1vovlfglalb"
+path="res://.godot/imported/ноги.png-5f608f1bdf1a69bc4180e0107ba1034f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/Enemy_2/листик.png"
-dest_files=["res://.godot/imported/листик.png-6c768ee39457d3c0da17e448e5056af8.ctex"]
+source_file="res://Texture/Enemys/Bomb_enemy/ноги.png"
+dest_files=["res://.godot/imported/ноги.png-5f608f1bdf1a69bc4180e0107ba1034f.ctex"]
 
 [params]
 

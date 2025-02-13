@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cldip32qg0raq"
-path="res://.godot/imported/глаз2.png-38b72fc296cfb7c50417db4313199fcc.ctex"
+uid="uid://doiu3jp8f4ygl"
+path="res://.godot/imported/UI возвращения.png-e917c164c5a0952bacb1787a2c32fb02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/Enemy_1/глаз2.png"
-dest_files=["res://.godot/imported/глаз2.png-38b72fc296cfb7c50417db4313199fcc.ctex"]
+source_file="res://Texture/UI/UI возвращения.png"
+dest_files=["res://.godot/imported/UI возвращения.png-e917c164c5a0952bacb1787a2c32fb02.ctex"]
 
 [params]
 

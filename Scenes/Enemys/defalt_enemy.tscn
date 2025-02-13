@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_oq22b"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_5chwh"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_1gi6c"]
-[ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Enemy_1/глаз1.png" id="4_pkxlk"]
-[ext_resource type="Texture2D" uid="uid://cldip32qg0raq" path="res://Texture/Enemys/Enemy_1/глаз2.png" id="5_h5blp"]
+[ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="4_pkxlk"]
+[ext_resource type="Texture2D" uid="uid://cldip32qg0raq" path="res://Texture/Enemys/Defalt_enemy/глаз2.png" id="5_h5blp"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="5_qh7tt"]
-[ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Enemy_1/тело.png" id="6_1tsab"]
-[ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Enemy_1/голова.png" id="7_70tpc"]
-[ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Enemy_1/рука.png" id="8_iab2r"]
+[ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="6_1tsab"]
+[ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="7_70tpc"]
+[ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="8_iab2r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r53h3"]
 font = ExtResource("5_qh7tt")
@@ -1080,9 +1080,9 @@ texture = ExtResource("8_iab2r")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = -363.0
+offset_top = 36.0
 offset_right = 46.0
-offset_bottom = -349.0
+offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_5chwh")
@@ -1091,9 +1091,9 @@ texture_progress = ExtResource("4_1gi6c")
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = -377.0
+offset_top = 22.0
 offset_right = 183.0
-offset_bottom = -282.0
+offset_bottom = 117.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_r53h3")

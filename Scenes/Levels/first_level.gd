@@ -15,8 +15,8 @@ var game_state = PLAY
 @onready var hp_player_label = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_label
 
 var DEFALT_ENEMY = preload("res://Scenes/Enemys/defalt_enemy.tscn")
-var DEFALT_ENEMY_2 = preload("res://Scenes/Enemys/defalt_enemy_2.tscn")
-var DEFALT_ENEMY_3 = preload("res://Scenes/Enemys/defalt_enemy_3.tscn")
+var BLUEBERRIES_ENEMY = preload("res://Scenes/Enemys/blueberries_enemy.tscn")
+var BOMB_ENEMY = preload("res://Scenes/Enemys/bomb_enemy.tscn")
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
@@ -212,7 +212,7 @@ func balls_go() -> void:
 		strelka.visible = false
 		ball_rotate_UI.visible = false
 		new_position_balls = 0
-		balls_back_button.position = start_balls_position.position + Vector2(-45, -85)
+		balls_back_button.position = start_balls_position.position + Vector2(0, -100)
 		balls_back_button.visible = true
 		game_state = BALLS_GO
 
@@ -267,10 +267,10 @@ func spawn_objects_by_index(count) -> void:
 				buff = DEFALT_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 			2: 
-				buff = DEFALT_ENEMY_2.instantiate()
+				buff = BLUEBERRIES_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 			3: 
-				buff = DEFALT_ENEMY_3.instantiate()
+				buff = BOMB_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 			4: 
 				buff = BOSS_FIRST_LOCATION.instantiate()
@@ -338,6 +338,7 @@ func animation_bank_with_experience() -> void:
 					await get_tree().create_timer(0.1).timeout
 
 func _on_balls_back_pressed() -> void:
+	balls_back_button.visible = false
 	for child in self.get_children():
 		if child.has_method("ball"):
 			child.return_to_player(start_balls_position.position)

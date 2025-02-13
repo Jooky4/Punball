@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck0l065fg2u27"
-path="res://.godot/imported/голова.png-dc428b11113a439011e72dd5ac337db0.ctex"
+uid="uid://dmvheea3mad43"
+path="res://.godot/imported/огонь.png-cdcdb3c75320585e165f2f0f2c04f483.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/Enemy_1/голова.png"
-dest_files=["res://.godot/imported/голова.png-dc428b11113a439011e72dd5ac337db0.ctex"]
+source_file="res://Texture/Enemys/Bomb_enemy/огонь.png"
+dest_files=["res://.godot/imported/огонь.png-cdcdb3c75320585e165f2f0f2c04f483.ctex"]
 
 [params]
 

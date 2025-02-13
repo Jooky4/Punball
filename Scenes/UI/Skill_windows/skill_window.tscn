@@ -983,34 +983,38 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1000.0
-offset_bottom = -1000.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp" type="Sprite2D" parent="regular_window"]
 position = Vector2(103.5, 209)
+scale = Vector2(1.1, 1)
 texture = ExtResource("2_tl1jo")
 
 [node name="WindowDown" type="Sprite2D" parent="regular_window"]
 position = Vector2(103.5, 61)
+scale = Vector2(1.1, 1)
 texture = ExtResource("3_f8gh8")
 
 [node name="Discription" type="Sprite2D" parent="regular_window"]
 position = Vector2(102.5, 182)
+scale = Vector2(1.1, 1)
 texture = ExtResource("6_8xcjj")
 
 [node name="Texture_skill" type="Sprite2D" parent="regular_window"]
 position = Vector2(103.5, 151)
+scale = Vector2(1.1, 1)
 texture = ExtResource("3_8n6dk")
 
 [node name="Rarity_texture" type="Sprite2D" parent="regular_window"]
 position = Vector2(102.5, 17)
+scale = Vector2(1.1, 1)
 texture = ExtResource("4_uo73p")
 
 [node name="Rarity_text" type="Sprite2D" parent="regular_window"]
 position = Vector2(102.5, 18)
+scale = Vector2(1.1, 1)
 texture = ExtResource("5_d6d1w")
 
 [node name="rare_window" type="Control" parent="."]
@@ -1026,26 +1030,32 @@ pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp2" type="Sprite2D" parent="rare_window"]
 position = Vector2(103.5, 204)
+scale = Vector2(1.1, 1)
 texture = ExtResource("8_iux2o")
 
 [node name="WindowDown2" type="Sprite2D" parent="rare_window"]
 position = Vector2(103.5, 61)
+scale = Vector2(1.1, 1)
 texture = ExtResource("9_agc3n")
 
 [node name="Discription" type="Sprite2D" parent="rare_window"]
 position = Vector2(102.5, 180)
+scale = Vector2(1.1, 1)
 texture = ExtResource("11_qe26v")
 
 [node name="Texture_skill" type="Sprite2D" parent="rare_window"]
 position = Vector2(103, 145)
+scale = Vector2(1.1, 1)
 texture = ExtResource("8_q1tj2")
 
 [node name="Rarity_texture" type="Sprite2D" parent="rare_window"]
 position = Vector2(102.5, 12)
+scale = Vector2(1.1, 1)
 texture = ExtResource("9_fb3gg")
 
 [node name="Rarity_text" type="Sprite2D" parent="rare_window"]
 position = Vector2(102.5, 13)
+scale = Vector2(1.1, 1)
 texture = ExtResource("10_4ma2s")
 
 [node name="epic_window" type="Control" parent="."]
@@ -1061,31 +1071,38 @@ pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp" type="Sprite2D" parent="epic_window"]
 position = Vector2(103.5, 209)
+scale = Vector2(1.1, 1)
 texture = ExtResource("14_epayt")
 
 [node name="WindowDown" type="Sprite2D" parent="epic_window"]
 position = Vector2(103.5, 62)
+scale = Vector2(1.1, 1)
 texture = ExtResource("15_ba1aw")
 
 [node name="Discription" type="Sprite2D" parent="epic_window"]
 position = Vector2(103, 147)
+scale = Vector2(1.1, 1)
 texture = ExtResource("15_c4ml1")
 
 [node name="Backgroung" type="Sprite2D" parent="epic_window"]
 visible = false
 position = Vector2(103, 209)
+scale = Vector2(1.1, 1)
 texture = ExtResource("11_m2a58")
 
 [node name="Texture_skill" type="Sprite2D" parent="epic_window"]
 position = Vector2(103, 117)
+scale = Vector2(1.1, 1)
 texture = ExtResource("12_owfot")
 
 [node name="Rarity_texture" type="Sprite2D" parent="epic_window"]
-position = Vector2(102.5, -19)
+position = Vector2(102.55, -17)
+scale = Vector2(1.1, 1)
 texture = ExtResource("13_0ux25")
 
 [node name="Rarity_text" type="Sprite2D" parent="epic_window"]
-position = Vector2(103, -32)
+position = Vector2(103.05, -30)
+scale = Vector2(1.1, 1)
 texture = ExtResource("14_y3k8o")
 
 [node name="legendary_window" type="Control" parent="."]
@@ -1101,26 +1118,32 @@ pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103.5, 209)
+scale = Vector2(1.1, 1)
 texture = ExtResource("21_kd1mb")
 
 [node name="WindowDown" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103.5, 61)
+scale = Vector2(1.1, 1)
 texture = ExtResource("22_ryi60")
 
 [node name="Discription" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103, 180)
+scale = Vector2(1.1, 1)
 texture = ExtResource("20_u3v3r")
 
 [node name="Texture_skill" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103, 149)
+scale = Vector2(1.1, 1)
 texture = ExtResource("17_6abxv")
 
 [node name="Rarity_texture" type="Sprite2D" parent="legendary_window"]
 position = Vector2(102.5, -19)
+scale = Vector2(1.1, 1)
 texture = ExtResource("18_tsnwy")
 
 [node name="Rarity_text" type="Sprite2D" parent="legendary_window"]
 position = Vector2(35, 8)
+scale = Vector2(1.1, 1)
 texture = ExtResource("19_yrvc4")
 
 [node name="Discription_skill" type="Label" parent="."]
@@ -1145,9 +1168,9 @@ libraries = {
 [node name="VScrollBar" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_left = 34.0
-offset_top = -919.0
+offset_top = 83.0
 offset_right = 546.0
-offset_bottom = -407.0
+offset_bottom = 595.0
 scale = Vector2(0.27, 0.27)
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3

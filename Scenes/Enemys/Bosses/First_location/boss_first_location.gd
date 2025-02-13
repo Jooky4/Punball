@@ -1,4 +1,4 @@
-extends "res://Scenes/Enemys/defalt_enemy_2.gd"
+extends "res://Scenes/Enemys/blueberries_enemy.gd"
 
 
 func moving(direction_object) -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d00f8ph8rapmf"
-path="res://.godot/imported/рука.png-e20c246b5a541b13fa60a80bb1aad233.ctex"
+uid="uid://wpq5gmtq47po"
+path="res://.godot/imported/глаз1.png-85654d89e6694a1e3e54974460bf98d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/Enemy_1/рука.png"
-dest_files=["res://.godot/imported/рука.png-e20c246b5a541b13fa60a80bb1aad233.ctex"]
+source_file="res://Texture/Enemys/Defalt_enemy/глаз1.png"
+dest_files=["res://.godot/imported/глаз1.png-85654d89e6694a1e3e54974460bf98d2.ctex"]
 
 [params]
 
