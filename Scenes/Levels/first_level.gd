@@ -212,8 +212,6 @@ func balls_go() -> void:
 		strelka.visible = false
 		ball_rotate_UI.visible = false
 		new_position_balls = 0
-		balls_back_button.position = start_balls_position.position + Vector2(0, -100)
-		balls_back_button.visible = true
 		game_state = BALLS_GO
 
 		for i in range(LevelManager.player_balls.size()):
@@ -238,6 +236,8 @@ func balls_go() -> void:
 			get_tree().current_scene.add_child(ball)
 			count_ball_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
 			await get_tree().create_timer(0.1).timeout
+	balls_back_button.position = start_balls_position.position + Vector2(0, -100)
+	balls_back_button.visible = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if ("CharacterBody2D" in body.name or "ball" in body.name):
