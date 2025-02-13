@@ -129,3 +129,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				animation_enemy.play("Idle")
 		elif anim_name == "Hit" and on_last_line and !self.has_method("boss"):
 			queue_free()
+		else:
+			if on_last_line:
+				animation_enemy.play("Preparation")
+			else:
+				animation_enemy.play("Idle")
