@@ -19,6 +19,37 @@ outline_size = 20
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
 size = Vector2(91, 90)
 
+[sub_resource type="Gradient" id="Gradient_fnlkd"]
+offsets = PackedFloat32Array(0, 0.328358, 0.706468, 0.900497)
+colors = PackedColorArray(0.870588, 0.301961, 0, 1, 0.913725, 0.356863, 0.176471, 1, 0.960784, 0.0588235, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y1m8m"]
+gradient = SubResource("Gradient_fnlkd")
+
+[sub_resource type="Curve" id="Curve_4435q"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.454148, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d3mt5"]
+curve = SubResource("Curve_4435q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qqste"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(-39, -5, 1)
+angle_min = 1.07288e-05
+angle_max = 360.0
+inherit_velocity_ratio = 1.0
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 5.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, -200, 0)
+scale_min = 8.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_d3mt5")
+color_ramp = SubResource("GradientTexture1D_y1m8m")
+
 [sub_resource type="Animation" id="Animation_1gsrn"]
 resource_name = "Damage"
 length = 0.2
@@ -1012,37 +1043,6 @@ _data = {
 "Spawn": SubResource("Animation_dfyqr")
 }
 
-[sub_resource type="Gradient" id="Gradient_fnlkd"]
-offsets = PackedFloat32Array(0, 0.328358, 0.706468, 0.900497)
-colors = PackedColorArray(0.870588, 0.301961, 0, 1, 0.913725, 0.356863, 0.176471, 1, 0.960784, 0.0588235, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_y1m8m"]
-gradient = SubResource("Gradient_fnlkd")
-
-[sub_resource type="Curve" id="Curve_4435q"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.454148, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_d3mt5"]
-curve = SubResource("Curve_4435q")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qqste"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(-39, -5, 1)
-angle_min = 1.07288e-05
-angle_max = 360.0
-inherit_velocity_ratio = 1.0
-spread = 180.0
-flatness = 1.0
-initial_velocity_min = 5.0
-initial_velocity_max = 25.0
-gravity = Vector3(0, -200, 0)
-scale_min = 8.0
-scale_max = 8.0
-scale_curve = SubResource("CurveTexture_d3mt5")
-color_ramp = SubResource("GradientTexture1D_y1m8m")
-
 [node name="defalt_enemy" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
@@ -1080,9 +1080,9 @@ texture = ExtResource("8_iab2r")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 36.0
+offset_top = -363.0
 offset_right = 46.0
-offset_bottom = 50.0
+offset_bottom = -349.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_5chwh")
@@ -1091,9 +1091,9 @@ texture_progress = ExtResource("4_1gi6c")
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 22.0
+offset_top = -377.0
 offset_right = 183.0
-offset_bottom = 117.0
+offset_bottom = -282.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_r53h3")
@@ -1104,6 +1104,13 @@ vertical_alignment = 1
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_m8ci2")
 
+[node name="Fire_effect" type="GPUParticles2D" parent="."]
+position = Vector2(0, 34)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_qqste")
+lifetime = 0.65
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4grpw")
@@ -1112,12 +1119,5 @@ autoplay = "Spawn"
 playback_auto_capture = false
 next/Spawn = &"Idle"
 blend_times = [&"Idle", &"Move", 0.35, &"Idle", &"Preparation", 0.2, &"Move", &"Idle", 0.35, &"Move", &"Preparation", 0.35, &"Preparation", &"Hit", 0.5, &"Spawn", &"Idle", 0.6]
-
-[node name="Fire_effect" type="GPUParticles2D" parent="."]
-position = Vector2(0, 34)
-emitting = false
-amount = 200
-process_material = SubResource("ParticleProcessMaterial_qqste")
-lifetime = 0.65
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

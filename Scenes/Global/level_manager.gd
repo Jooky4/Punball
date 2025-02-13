@@ -34,11 +34,11 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
-											[null, 1, 1, 1, 1, 1],
+var first_level_links_on_objects : Array = [[4, null, null, null, null, null],
+											[null, null, 1, 1, 1, 1],
 											[null, -1, null, null, null, null],
-											[1, 1, 1, 1, 1, null],
-											[null, -2, null, null, null, null],
+											[null, null, 2, 2, 2, null],
+											[null, null, null, null, null, null],
 											[null, null, null, null, null, null],
 											[null, null, null, null, null, null],
 											[null, null, null, null, null, null]]
@@ -76,14 +76,7 @@ func apeend_new_balls() -> void:
 	player_balls.append_array(player_balls_after_wave)
 	player_balls_after_wave.clear()
 
-func enemy_shoot(player_position) -> void:
-	for i in first_level_links_on_objects:
-		for j in i:
-			if j != null:
-				if j.has_method("shoot_at_player") and !j.freezen:
-					j.shoot_at_player(player_position)
-
-func moving_object() -> void:
+func moving_object(player_position) -> void:
 	hit_player = false
 	for i in first_level_links_on_objects[7]: # НАНЕСЕНИЕ УРОНА ИГРОКУ
 		if i != null:
@@ -92,8 +85,14 @@ func moving_object() -> void:
 					i.play_animation_hit_player()
 					damage_player(i.player_damage)
 					hit_player = true
+	for i in first_level_links_on_objects:
+		for j in i:
+			if j != null:
+				if j.has_method("shoot_at_player") and !j.freezen:
+					j.shoot_at_player(player_position)
+					hit_player = true
 	if hit_player:
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1.5).timeout
 
 	for i in range(first_level_links_on_objects[7].size()): # УДАЛЕНИЕ ОБЪЕКТОВ С ПОСЛЕДНЕЙ СТРОЧКИ
 		if first_level_links_on_objects[7][i] != null:

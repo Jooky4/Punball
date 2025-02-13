@@ -304,8 +304,7 @@ func end_wave() -> void:
 	start_balls_position.position.x += new_position_balls
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
-	LevelManager.enemy_shoot(start_balls_position.position)
-	LevelManager.moving_object()
+	LevelManager.moving_object(start_balls_position.position)
 	if LevelManager.hit_player:
 		await get_tree().create_timer(3).timeout
 	else:

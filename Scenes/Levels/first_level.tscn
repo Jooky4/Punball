@@ -217,6 +217,7 @@ offset_bottom = 1280.0
 [node name="Balls_back_button" type="Button" parent="UI"]
 visible = false
 z_index = 1
+layout_mode = 0
 offset_left = 314.0
 offset_top = 1118.0
 offset_right = 405.0
@@ -418,6 +419,8 @@ vertical_alignment = 1
 [node name="Get_skill_UI" parent="UI" instance=ExtResource("13_1g2hj")]
 visible = false
 layout_mode = 1
+offset_top = 25.0
+offset_bottom = 25.0
 
 [node name="Combo_count" type="Label" parent="UI"]
 visible = false
