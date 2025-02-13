@@ -99,6 +99,7 @@ func moving_object() -> void:
 		if first_level_links_on_objects[7][i] != null:
 			if first_level_links_on_objects[7][i].has_method("enemy") and !first_level_links_on_objects[7][i].has_method("boss"):
 				if !first_level_links_on_objects[7][i].freezen:
+					first_level_links_on_objects[7][i].queue_free()
 					first_level_links_on_objects[7][i] = null
 			else:
 				if !first_level_links_on_objects[7][i].has_method("boss"):
@@ -284,5 +285,5 @@ func enemy_died(enemy) -> void:
 		lighthing_ball_damage(enemy, 200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
 	if "Холод смерти" in player_skills:
 		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], 1)
-	if "Бомба смерти" in player_skills:
+	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):
 		ball_explosion(enemy, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])

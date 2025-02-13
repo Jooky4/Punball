@@ -50,25 +50,28 @@ func deal_damage(damage_ball, color_label) -> void:
 	hp_enemy_bar.value = hp_enemy
 
 func deal_bomb_damage(damage_ball, color_label) -> void:
-	deal_damage(damage_ball, color_label)
-	var tween = create_tween()
-	tween.tween_property($Sprite_enemy, "modulate", Color.RED, 0.2)
-	if freezen:
-		tween.chain().tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.3)
-	else:
-		tween.chain().tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.3)
+	if alive:
+		deal_damage(damage_ball, color_label)
+		var tween = create_tween()
+		tween.tween_property($Sprite_enemy, "modulate", Color.RED, 0.2)
+		if freezen:
+			tween.chain().tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.3)
+		else:
+			tween.chain().tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.3)
 
 func deal_freezing_damage(damage_ball, color_label) -> void:
-	deal_damage(damage_ball, color_label)
-	if randf() < LevelManager.chance_of_freezing:
-		freezen = true
-		var tween = create_tween()
-		tween.tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.15)
+	if alive:
+		deal_damage(damage_ball, color_label)
+		if randf() < LevelManager.chance_of_freezing:
+			freezen = true
+			var tween = create_tween()
+			tween.tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.15)
 
 func deal_fire_damage(damage_ball, color_label) -> void:
-	deal_damage(damage_ball, color_label)
-	on_fire = true
-	fire_effect.emitting = true
+	if alive:
+		deal_damage(damage_ball, color_label)
+		on_fire = true
+		fire_effect.emitting = true
 
 func delete_freezing_and_fire() -> void:
 	if on_fire:
@@ -87,11 +90,11 @@ func moving(direction_object) -> void:
 	if direction_object != "":
 		var tween = create_tween()
 		if direction_object == "forward":
-			tween.tween_property($".", "position", Vector2(0, 103) + self.position, 1)
+			tween.tween_property(self, "position", Vector2(0, 103) + self.position, 1)
 		elif direction_object == "left":
-			tween.tween_property($".", "position", Vector2(-103, 0) + self.position, 1)
+			tween.tween_property(self, "position", Vector2(-103, 0) + self.position, 1)
 		elif direction_object == "right":
-			tween.tween_property($".", "position", Vector2(103, 0) + self.position, 1)
+			tween.tween_property(self, "position", Vector2(103, 0) + self.position, 1)
 	await get_tree().create_timer(1).timeout
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		if on_last_line:

@@ -36,6 +36,7 @@ var LIGHTNING_BALL = preload("res://Scenes/Balls/Lightning ball/lightning_ball.t
 @onready var count_experience_label = $UI/Count_experience
 @onready var experience_texture = $UI/Count_experience/Count_experience_texture/Experience_texture
 @onready var get_count_experience_label = $UI/Count_experience/Get_cout_experience
+@onready var balls_back_button = $UI/Balls_back_button
 var count_get_experience_on_wave = 0
 var combo_count : int = 0
 
@@ -134,8 +135,8 @@ func chec_game_end() -> void:
 	else:
 		boss_alive = true
 
-	for child in get_children():
-		if "CharacterBody2D" in child.name or "ball" in child.name:
+	for child in self.get_children():
+		if child.has_method("ball"):
 			balls_on_map = false
 			break
 
@@ -211,6 +212,8 @@ func balls_go() -> void:
 		strelka.visible = false
 		ball_rotate_UI.visible = false
 		new_position_balls = 0
+		balls_back_button.position = start_balls_position.position + Vector2(-45, -85)
+		balls_back_button.visible = true
 		game_state = BALLS_GO
 
 		for i in range(LevelManager.player_balls.size()):
@@ -283,6 +286,7 @@ func spawn_objects_by_index(count) -> void:
 
 func end_wave() -> void:
 	LevelManager.apeend_new_balls()
+	balls_back_button.visible = false
 	if LevelManager.boss_on_map:
 		$UI/Boss_label.visible = true
 		count_level_label.visible = false
@@ -333,6 +337,11 @@ func animation_bank_with_experience() -> void:
 				if !i.bank_go:
 					i.go_to_count()
 					await get_tree().create_timer(0.1).timeout
+
+func _on_balls_back_pressed() -> void:
+	for child in self.get_children():
+		if child.has_method("ball"):
+			child.return_to_player(start_balls_position.position)
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _on_button_pressed() -> void:
