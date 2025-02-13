@@ -146,7 +146,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.95625, 0.969144), Vector2(0.992529, 1.68491), Vector2(0.95625, 0.969144)]
+"values": [Vector2(0.95625, 0.969144), Vector2(1.05117, 1.45882), Vector2(0.95625, 0.969144)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -247,6 +247,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(-2, 1, 1, 1, 1, 1, -2),
 "update": 0,
 "values": [0.0, 0.174533, 0.0, -0.174533, 0.0, 0.0872665, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite_enemy/Тело/Eye:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite_enemy/Тело/Eye2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ppxyw"]
@@ -428,6 +452,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0, 0.0, 0.139626, 0.0174533, -0.0174533, -0.139626, 0.0, 0.0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite_enemy/Тело/Eye:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite_enemy/Тело/Eye2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ql6h3"]
 resource_name = "Preparation"
@@ -513,7 +561,7 @@ tracks/6/path = NodePath("Sprite_enemy/Тело/Eye:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.0791231),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -525,7 +573,7 @@ tracks/7/path = NodePath("Sprite_enemy/Тело/Eye2:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.18779),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -675,7 +723,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2.34375, 2.34375)]
+"values": [Vector2(0.964, 0.964)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -687,7 +735,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2.34375, 2.34375)]
+"values": [Vector2(0.964, 0.964)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -813,6 +861,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(-45, -357), Vector2(-45, 34)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite_enemy/Тело/Eye:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite_enemy/Тело/Eye2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
@@ -842,14 +914,15 @@ texture = ExtResource("2_cuebk")
 
 [node name="Eye" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
-position = Vector2(-110.4, 66.5358)
-scale = Vector2(2.34375, 2.34375)
+position = Vector2(-138.551, 42.2487)
+scale = Vector2(0.964, 0.964)
 texture = ExtResource("3_mbent")
+flip_h = true
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
-position = Vector2(116.914, 66.5358)
-scale = Vector2(2.34375, 2.34375)
+position = Vector2(141.221, 42.2487)
+scale = Vector2(0.964, 0.964)
 texture = ExtResource("3_mbent")
 
 [node name="Рот" type="Sprite2D" parent="Sprite_enemy"]
@@ -866,9 +939,9 @@ offset = Vector2(45.4571, 117.586)
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 34.0
+offset_top = 36.0
 offset_right = 46.0
-offset_bottom = 48.0
+offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_52v56")
@@ -877,9 +950,9 @@ texture_progress = ExtResource("4_3ttw0")
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 20.0
+offset_top = 22.0
 offset_right = 185.0
-offset_bottom = 115.0
+offset_bottom = 117.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_tqeh5")
