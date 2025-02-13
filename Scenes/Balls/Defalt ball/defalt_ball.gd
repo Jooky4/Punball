@@ -39,3 +39,12 @@ func _physics_process(delta) -> void:
 
 func collide_with_enemy(collider) -> void:
 	collider.deal_damage(damage_ball * ElementsManager.normal_modifier, ElementsManager.color_elements["NORMAL"])
+
+func return_to_player(pos_player) -> void:
+	collision_mask = 0
+	direction_bullet = Vector2.DOWN
+	speed = 0
+	create_tween().tween_property(self, "global_position", pos_player, 0.5)
+
+func ball() -> void:
+	pass
