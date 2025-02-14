@@ -56,7 +56,7 @@ script = ExtResource("1_ri3sy")
 hp_enemy = 4000.0
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
-position = Vector2(6, -1)
+position = Vector2(6, 1)
 scale = Vector2(0.135, 0.135)
 
 [node name="Тело" type="Sprite2D" parent="Sprite_enemy"]
@@ -86,9 +86,9 @@ shape = SubResource("RectangleShape2D_m8ci2")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 34.0
+offset_top = 36.0
 offset_right = 46.0
-offset_bottom = 48.0
+offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("6_moetr")
@@ -97,9 +97,9 @@ texture_progress = ExtResource("7_yj8pl")
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 20.0
+offset_top = 22.0
 offset_right = 185.0
-offset_bottom = 115.0
+offset_bottom = 117.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_2thh3")

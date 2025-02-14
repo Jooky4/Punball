@@ -86,6 +86,7 @@ func _process(delta):
 			pause()
 		CHOOSE_SKILL:
 			if LevelManager.spin_skill == 0:
+				count_experience_label.text = str(LevelManager.count_experiance)
 				hp_player_bar.max_value = LevelManager.max_hp_player
 				hp_player_bar.value = LevelManager.hp_player
 				hp_player_label.text = str(LevelManager.hp_player)
@@ -93,6 +94,8 @@ func _process(delta):
 				count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 				balls_can_go = true
 				game_state = PLAY
+			else:
+				count_experience_label.text = str(LevelManager.count_experiance)
 
 func play_game() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:

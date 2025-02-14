@@ -34,7 +34,7 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
+var first_level_links_on_objects : Array = [[1, 2, 3, null, null, null],
 											[null, 1, 1, 1, 1, 1],
 											[null, -1, null, null, null, null],
 											[1, 1, 1, 1, 1, null],
@@ -291,3 +291,6 @@ func enemy_died(enemy) -> void:
 		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], 1)
 	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):
 		ball_explosion(enemy, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])
+
+func buy_skill(skill_cost : int) -> void:
+	count_experiance -= skill_cost
