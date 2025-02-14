@@ -7,7 +7,6 @@ var percent_cells_by_enemies = [[[1, 6], 10, 20, 60, 10, null],
 var dop_hp_defolt_enemy = [[2, 4, 200],
 						   [5, 10, 400],
 						   [11, 14, 600],
-						   [11, 14, 200],
 						   [14, 20, 800]]
 var percent_spawn_enemy = [[1, 1, 40],
 						   [2, 6, 30],
