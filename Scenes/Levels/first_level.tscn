@@ -112,34 +112,6 @@ font_size = 50
 font = ExtResource("10_fo6nb")
 font_size = 30
 
-[sub_resource type="Animation" id="Animation_mko01"]
-resource_name = "spawn_boss"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect/Label:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 2.26667, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(11, 717), Vector2(2242, 717), Vector2(2242, 717), Vector2(4768, 717)]
-}
-
 [sub_resource type="Animation" id="Animation_o53b6"]
 length = 0.001
 tracks/0/type = "value"
@@ -205,6 +177,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(9, 753), Vector2(2238, 753), Vector2(2238, 753), Vector2(4679, 753)]
+}
+
+[sub_resource type="Animation" id="Animation_mko01"]
+resource_name = "spawn_boss"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 2.26667, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(11, 717), Vector2(2242, 717), Vector2(2242, 717), Vector2(4768, 717)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xcrrp"]
