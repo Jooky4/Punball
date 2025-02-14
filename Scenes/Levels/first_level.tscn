@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=45 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -17,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://bjo207pgwvdxv" path="res://Texture/UI/счетчик опыта.png" id="14_wmonb"]
 [ext_resource type="Texture2D" uid="uid://cq5bj185114sr" path="res://Texture/UI/иконка счетчика опыта.png" id="15_yu5pj"]
 [ext_resource type="Texture2D" uid="uid://doiu3jp8f4ygl" path="res://Texture/UI/UI возвращения.png" id="17_dobv8"]
+[ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/UI/ligting.png" id="18_gvlsg"]
+[ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="18_lqjow"]
+[ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="19_xefh1"]
+[ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Blueberries_enemy/листик.png" id="20_g1vbe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0xly"]
 size = Vector2(721, 118)
@@ -99,6 +103,116 @@ font_color = Color(1, 0, 0, 1)
 font = ExtResource("10_fo6nb")
 font_size = 60
 font_color = Color(0.27451, 0.278431, 0.25098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2dum8"]
+font = ExtResource("10_fo6nb")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_e60f6"]
+font = ExtResource("10_fo6nb")
+font_size = 30
+
+[sub_resource type="Animation" id="Animation_mko01"]
+resource_name = "spawn_boss"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 2.26667, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(11, 717), Vector2(2242, 717), Vector2(2242, 717), Vector2(4768, 717)]
+}
+
+[sub_resource type="Animation" id="Animation_o53b6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 717)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/Label2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 753)]
+}
+
+[sub_resource type="Animation" id="Animation_13ul0"]
+resource_name = "boss_close"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Label2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 2.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 753), Vector2(2238, 753), Vector2(2238, 753), Vector2(4679, 753)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcrrp"]
+_data = {
+"RESET": SubResource("Animation_o53b6"),
+"boss_close": SubResource("Animation_13ul0"),
+"spawn_boss": SubResource("Animation_mko01")
+}
 
 [node name="First_level" type="Node2D"]
 script = ExtResource("1_wuo18")
@@ -484,6 +598,106 @@ offset_left = -40.0
 offset_top = -42.0
 offset_right = 42.0
 offset_bottom = 39.0
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = -2046.0
+offset_top = -181.0
+offset_right = 2530.0
+offset_bottom = 1371.0
+color = Color(0, 0, 0, 0.694118)
+
+[node name="Label" type="Label" parent="UI/ColorRect"]
+z_index = 1
+layout_mode = 0
+offset_left = 11.0
+offset_top = 717.0
+offset_right = 475.0
+offset_bottom = 775.0
+text = "БОЛЬШАЯ ЧЕРНИКА"
+label_settings = SubResource("LabelSettings_2dum8")
+
+[node name="Ligting" type="Sprite2D" parent="UI/ColorRect/Label"]
+modulate = Color(1, 0, 0, 1)
+z_index = -1
+position = Vector2(145.28, 70.018)
+rotation = 1.5742
+scale = Vector2(1, 1.47337)
+texture = ExtResource("18_gvlsg")
+
+[node name="Label2" type="Label" parent="UI/ColorRect/Label"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 69.0
+offset_right = 498.0
+offset_bottom = 127.0
+text = "Она большая и ещё стреляет воооот"
+label_settings = SubResource("LabelSettings_e60f6")
+
+[node name="Boss_sprite" type="Node2D" parent="UI/ColorRect/Label"]
+position = Vector2(-87, 70.0001)
+scale = Vector2(0.12, 0.12)
+
+[node name="Тело" type="Sprite2D" parent="UI/ColorRect/Label/Boss_sprite"]
+position = Vector2(-29.4118, -89.4797)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("18_lqjow")
+
+[node name="Рот" type="Sprite2D" parent="UI/ColorRect/Label/Boss_sprite"]
+position = Vector2(-24.5098, -89.4797)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("19_xefh1")
+
+[node name="Листик" type="Sprite2D" parent="UI/ColorRect/Label/Boss_sprite"]
+position = Vector2(-128.571, -357.143)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("20_g1vbe")
+offset = Vector2(45.4571, 117.586)
+
+[node name="Label2" type="Label" parent="UI/ColorRect"]
+z_index = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 753.0
+offset_right = 520.0
+offset_bottom = 811.0
+text = "БОСС ПРИБЛИЖАЕТСЯ"
+label_settings = SubResource("LabelSettings_2dum8")
+
+[node name="Ligting" type="Sprite2D" parent="UI/ColorRect/Label2"]
+modulate = Color(1, 0, 0, 1)
+z_index = -1
+position = Vector2(148.172, 34.6492)
+rotation = 1.5742
+scale = Vector2(1, 1.47337)
+texture = ExtResource("18_gvlsg")
+
+[node name="Boss_sprite" type="Node2D" parent="UI/ColorRect/Label2"]
+position = Vector2(-84.1084, 34.6312)
+scale = Vector2(0.12, 0.12)
+
+[node name="Тело" type="Sprite2D" parent="UI/ColorRect/Label2/Boss_sprite"]
+position = Vector2(-29.4118, -89.4797)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("18_lqjow")
+
+[node name="Рот" type="Sprite2D" parent="UI/ColorRect/Label2/Boss_sprite"]
+position = Vector2(-24.5098, -89.4797)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("19_xefh1")
+
+[node name="Листик" type="Sprite2D" parent="UI/ColorRect/Label2/Boss_sprite"]
+position = Vector2(-128.571, -357.143)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("20_g1vbe")
+offset = Vector2(45.4571, 117.586)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+"": SubResource("AnimationLibrary_xcrrp")
+}
 
 [connection signal="body_entered" from="Dicariations/Detection_last_ball" to="." method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="UI/End_game/Start_again" to="." method="_on_start_again_pressed"]

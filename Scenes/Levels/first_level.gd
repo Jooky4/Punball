@@ -37,6 +37,7 @@ var LIGHTNING_BALL = preload("res://Scenes/Balls/Lightning ball/lightning_ball.t
 @onready var experience_texture = $UI/Count_experience/Count_experience_texture/Experience_texture
 @onready var get_count_experience_label = $UI/Count_experience/Get_cout_experience
 @onready var balls_back_button = $UI/Balls_back_button
+@onready var notification_about_boss_animation = $UI/AnimationPlayer
 var count_get_experience_on_wave = 0
 var combo_count : int = 0
 
@@ -283,6 +284,7 @@ func spawn_objects_by_index(count) -> void:
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
+				notification_about_boss_animation.play("spawn_boss")
 		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
 		game_objects.add_child(buff)
@@ -324,6 +326,9 @@ func end_wave() -> void:
 	spawn_objects_on_matrix()
 	LevelManager.delete_freezing_and_fire_on_enemy()
 	animation_bank_with_experience()
+	if count_level_label.text == "19":
+		notification_about_boss_animation.play("boss_close")
+		await notification_about_boss_animation.animation_finished
 	if LevelManager.spin_skill != 0:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
