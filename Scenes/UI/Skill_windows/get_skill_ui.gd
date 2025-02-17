@@ -5,15 +5,15 @@ var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 @onready var windows_skill = $Windows_skill
 @onready var animation = $AnimationPlayer
 @onready var bye_button = $Bye_button
-var regular = [["Шар-заморозка",  150],
-			   ["Усиление обычного шара",  0],
+var regular = [["Шар-заморозка", 150],
+			   ["Усиление обычного шара", 0],
 			   ["Огненный шар", 120],
 			   ["Усиление особого шара", 100],
 			   ["Последний рывок", 30],
 			   ["Суперначало", 30]]
 var rare = [["Шар молний",  350],
 			["Рассыпающийся шар", 280],
-			["Шар-бомба",  300],
+			["Шар-бомба", 300],
 			["Прибавка ОЗ", 200],
 			["Бомба-заморозка", 250],
 			["Молния: комбо", 380],
