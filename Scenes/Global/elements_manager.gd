@@ -4,7 +4,7 @@ enum {
 	NORMAL,   # defalt_ball
 	FIRE,     # bomb_ball, fire_ball
 	FROST,    # freezing_ball, freezing_bomb_ball
-	LASER,    # crumbling_ball
+	LASER,    # crumbling_ball, laser_ball
 	LIGHTNING,# lightning_ball
 	DARKNESS
 }

@@ -1,11 +1,13 @@
 extends Node
 
-var line_lightning = preload("res://Scenes/Balls/Lightning ball/line_lightning.tscn")
+var LINE_LIGHTNING = preload("res://Scenes/For skills/line_lightning.tscn")
+var ICE_CUBE = preload("res://Scenes/For skills/ice_cube.tscn")
+var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
 
 var hp_player : float = 1000
 var boss_on_map : bool = false
 var max_hp_player : float = 1000
-var player_balls : Array = [1, 1, 1, 1]
+var player_balls : Array = [8]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -14,7 +16,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.4
 var hit_player : bool = false
-var player_skills : Array = []#["Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
+var player_skills : Array = []#["Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
@@ -248,9 +250,10 @@ func ball_explosion(enemy, damage_ball, color_ball, chance_of_freezing : int = 0
 						else:
 							first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
 						combo_count += 1 # можно будет убрать
+						check_count_combo(first_level_links_on_objects[target_x][target_y])
 
-func lighthing_ball_damage(enemy, damage_ball, color_ball):
-	var enemy_arr = []
+func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
+	var enemy_arr = find_all_enemys()
 	var enemy_pos : Vector2
 	for i in range(first_level_links_on_objects.size()):
 			for j in range(first_level_links_on_objects[i].size()):
@@ -258,21 +261,48 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball):
 					if first_level_links_on_objects[i][j] == enemy:
 						enemy_pos = first_level_links_on_objects[i][j].global_position
 						break
-	for i in first_level_links_on_objects:
-		for j in i:
-			if j != null:
-				if j.has_method("enemy"):
-					enemy_arr.append(j)
 	for i in range(count_damage_lightning_enemy):
 		var num_enemy = randi() % enemy_arr.size()
 		if enemy_arr[num_enemy] != enemy and enemy_arr[num_enemy].alive:
-			var effect = line_lightning.instantiate()
+			var effect = LINE_LIGHTNING.instantiate()
 			effect.points[0] = enemy_pos
 			effect.points[1] = enemy_arr[num_enemy].global_position
 			enemy_arr[num_enemy].deal_damage(damage_ball, color_ball)
+			combo_count += 1
+			check_count_combo(enemy_arr[num_enemy])
 			enemy_arr.remove_at(num_enemy)
 			get_tree().current_scene.add_child(effect)
-			combo_count += 1
+
+func laser_ball_damage(enemy, damage_ball, color_ball, line_damage) -> void:
+	var horizontal
+	var vertical
+	for i in range(first_level_links_on_objects.size()):
+		for j in range(first_level_links_on_objects[i].size()):
+			if first_level_links_on_objects[i][j] != null:
+				if first_level_links_on_objects[i][j] == enemy:
+					horizontal = i
+					vertical = j
+					break
+	if "Повелитель лазера" in player_skills:
+		laser_ball_damage_horizontally(damage_ball, color_ball, horizontal)
+		laser_ball_damage_vertically(damage_ball, color_ball, vertical)
+	else:
+		if line_damage == 0:
+			laser_ball_damage_horizontally(damage_ball, color_ball, horizontal)
+		elif line_damage == 1:
+			laser_ball_damage_vertically(damage_ball, color_ball, vertical)
+
+func laser_ball_damage_horizontally(damage_ball, color_ball, line_damage) -> void:
+	for i in first_level_links_on_objects[line_damage]:
+		if i != null:
+			if i.has_method("enemy"):
+				i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
+
+func laser_ball_damage_vertically(damage_ball, color_ball, line_damage) -> void:
+	for i in first_level_links_on_objects.map(func(row): return row[line_damage]):
+		if i != null:
+			if i.has_method("enemy"):
+				i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
 
 func delete_freezing_and_fire_on_enemy() -> void:
 	for i in first_level_links_on_objects:
@@ -281,8 +311,9 @@ func delete_freezing_and_fire_on_enemy() -> void:
 				if j.has_method("enemy"):
 					j.delete_freezing_and_fire()
 
-func update_combo_count() -> void:
+func update_combo_count(enemy) -> void:
 	combo_count += 1
+	check_count_combo(enemy)
 
 func enemy_died(enemy) -> void:
 	if "Молния смерти" in player_skills:
@@ -291,6 +322,63 @@ func enemy_died(enemy) -> void:
 		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], 1)
 	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):
 		ball_explosion(enemy, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])
+	if "Лазер смерти" in player_skills:
+		laser_ball_damage(enemy, 200 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
 
 func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost
+
+func check_count_combo(enemy):
+	if combo_count % 2 == 0:
+		var enemy_arr : Array = find_all_enemys()
+		if enemy_arr != []:
+			if "Молния: комбо" in player_skills:
+				for i in range(count_damage_lightning_enemy):
+					var num_enemy = randi() % enemy_arr.size()
+					if enemy_arr[num_enemy].alive:
+						var effect = LINE_LIGHTNING.instantiate()
+						effect.points[0] = Vector2(enemy_arr[num_enemy].global_position.x, -700)
+						effect.points[1] = enemy_arr[num_enemy].global_position
+						enemy_arr[num_enemy].deal_damage(200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
+						enemy_arr.remove_at(num_enemy)
+						get_tree().current_scene.add_child(effect)
+						combo_count += 1
+		enemy_arr = find_all_enemys()
+		if enemy_arr != []:
+			if "Лед: комбо" in player_skills:
+				var ice_cube_spawn = false
+				while ice_cube_spawn == false:
+					var num_enemy = randi() % enemy_arr.size()
+					if enemy_arr[num_enemy].alive:
+						var effect = ICE_CUBE.instantiate()
+						get_tree().current_scene.add_child(effect)
+						effect.ice_cube_go(enemy_arr[num_enemy])
+						enemy_arr.remove_at(num_enemy)
+						combo_count += 1
+						ice_cube_spawn = true
+		enemy_arr = find_all_enemys()
+		if enemy_arr != []:
+			if "Огонь: комбо" in player_skills:
+				var fire_ball_spawn = false
+				while fire_ball_spawn == false:
+					var num_enemy = randi() % enemy_arr.size()
+					if enemy_arr[num_enemy].alive:
+						var effect = FIRE_BALL.instantiate()
+						get_tree().current_scene.add_child(effect)
+						effect.combo_go(enemy_arr[num_enemy])
+						enemy_arr.remove_at(num_enemy)
+						combo_count += 1
+						fire_ball_spawn = true
+		enemy_arr = find_all_enemys()
+		if enemy_arr != []:
+			if "Лазер: комбо" in player_skills:
+				laser_ball_damage(enemy, 200 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
+
+func find_all_enemys():
+	var enemy_arr = []
+	for i in first_level_links_on_objects:
+		for j in i:
+			if j != null:
+				if j.has_method("enemy"):
+					enemy_arr.append(j)
+	return enemy_arr

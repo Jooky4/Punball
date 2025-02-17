@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsnvlmst4aglv"]
 
-[ext_resource type="Texture2D" uid="uid://bhwc7o45grwew" path="res://Texture/Balls/молния.png" id="2_bbdhm"]
-[ext_resource type="Script" path="res://Scenes/Balls/Lightning ball/line_lightning.gd" id="3_jjvyc"]
+[ext_resource type="Texture2D" uid="uid://dlxvnpo3j3y70" path="res://Texture/Balls/молния.png" id="2_bbdhm"]
+[ext_resource type="Script" path="res://Scenes/For skills/line_lightning.gd" id="3_jjvyc"]
 
 [node name="Line_lightning" type="Line2D"]
 texture_repeat = 3

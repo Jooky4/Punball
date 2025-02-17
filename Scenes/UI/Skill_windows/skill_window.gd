@@ -16,8 +16,18 @@ var texture_skill = {
 	"Холод смерти": preload("res://Texture/UI/Texture_skills/холод смерти.png"),
 	"Бомба смерти": preload("res://Texture/UI/Texture_skills/бомба смерти.png"),
 	"Повелитель молний": preload("res://Texture/UI/Texture_skills/повелитель молний.png"),
-	"Повелитель льда":  preload("res://Texture/UI/Texture_skills/повелитель холода.png"),
-	"Повелитель огня": preload("res://Texture/UI/Texture_skills/повелитель огня.png")}
+	"Повелитель льда": preload("res://Texture/UI/Texture_skills/повелитель холода.png"),
+	"Повелитель огня": preload("res://Texture/UI/Texture_skills/повелитель огня.png"),
+	
+	"Молния: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Лед: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Огонь: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Вертикальный лазерный шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Горизонтальный лазерный шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Лазер смерти": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Повелитель лазера": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Лазер: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png") # ЗАМЕНИТЬ
+	}
 
 func update_discription(new_discription) -> void:
 	discription = new_discription

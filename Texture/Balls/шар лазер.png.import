@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlxvnpo3j3y70"
-path="res://.godot/imported/молния.png-96bfba2ed9e33421439e94d7c94d75a3.ctex"
+uid="uid://s02aorsfelvs"
+path="res://.godot/imported/шар лазер.png-32db315a2cc9b29230c1f34d2469ad88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Balls/молния.png"
-dest_files=["res://.godot/imported/молния.png-96bfba2ed9e33421439e94d7c94d75a3.ctex"]
+source_file="res://Texture/Balls/шар лазер.png"
+dest_files=["res://.godot/imported/шар лазер.png-32db315a2cc9b29230c1f34d2469ad88.ctex"]
 
 [params]
 
