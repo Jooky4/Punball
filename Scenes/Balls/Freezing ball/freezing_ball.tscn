@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://fxhnxjilcddt"]
+[gd_scene load_steps=12 format=3 uid="uid://fxhnxjilcddt"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Freezing ball/freezing_ball.gd" id="1_vij2e"]
 [ext_resource type="Texture2D" uid="uid://cag3y8pig6r5b" path="res://Texture/Balls/заморозка_1.png" id="2_827d3"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_twuif"]
 [ext_resource type="Texture2D" uid="uid://c711v0w13pme" path="res://Texture/Balls/Снежинка.png" id="4_2bcuk"]
 [ext_resource type="Texture2D" uid="uid://n8riaca1ap3d" path="res://Texture/Balls/Ледышка.png" id="5_dnmjv"]
 
@@ -20,6 +21,14 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1)
 _data = [Vector2(0, 0), 0.0, 42.5823, 0, 0, Vector2(0.0600522, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.24921, 1.4, 0, 0]
 point_count = 3
 
+[sub_resource type="Curve" id="Curve_3pfyh"]
+_data = [Vector2(0, 0.299438), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_doqc4"]
+offsets = PackedFloat32Array(0.0190736, 0.962264, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.670588, 1, 1, 1, 0)
+
 [node name="freezing_ball" type="CharacterBody2D"]
 z_index = -1
 collision_layer = 4
@@ -27,7 +36,7 @@ collision_mask = 11
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_vij2e")
-max_lenght_line = 10
+max_lenght_line = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
@@ -74,3 +83,12 @@ scale_amount_min = 0.45
 scale_amount_max = 0.65
 scale_amount_curve = SubResource("Curve_t36rg")
 color_ramp = SubResource("Gradient_g8abk")
+
+[node name="Line2D" type="Line2D" parent="."]
+show_behind_parent = true
+top_level = true
+width = 47.0
+width_curve = SubResource("Curve_3pfyh")
+gradient = SubResource("Gradient_doqc4")
+texture = ExtResource("3_twuif")
+texture_mode = 2
