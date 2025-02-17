@@ -18,7 +18,6 @@ var texture_skill = {
 	"Повелитель молний": preload("res://Texture/UI/Texture_skills/повелитель молний.png"),
 	"Повелитель льда": preload("res://Texture/UI/Texture_skills/повелитель холода.png"),
 	"Повелитель огня": preload("res://Texture/UI/Texture_skills/повелитель огня.png"),
-	
 	"Молния: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Лед: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Огонь: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
