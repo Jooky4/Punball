@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://oclkolfhemxg"]
+[gd_scene load_steps=9 format=3 uid="uid://oclkolfhemxg"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Defalt ball/defalt_ball.gd" id="1_ycsa2"]
 [ext_resource type="Texture2D" uid="uid://dl3oexxftwi03" path="res://Texture/Balls/usual.png" id="2_kdh35"]
 [ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_72kjp"]
+[ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_ef181"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -14,6 +15,10 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_iwwbw"]
 offsets = PackedFloat32Array(0.174528, 0.962264, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_wgpwx"]
+offsets = PackedFloat32Array(0, 0.0873239, 0.256338, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="defalt_ball" type="CharacterBody2D"]
 z_index = -1
@@ -41,3 +46,17 @@ width_curve = SubResource("Curve_dionf")
 gradient = SubResource("Gradient_iwwbw")
 texture = ExtResource("3_72kjp")
 texture_mode = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 3
+lifetime = 0.25
+fixed_fps = 60
+texture = ExtResource("4_ef181")
+emission_shape = 2
+emission_sphere_radius = 15.65
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 20.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_wgpwx")

@@ -1,19 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgg0ku4jygm4n"]
+[gd_scene load_steps=11 format=3 uid="uid://cgg0ku4jygm4n"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Fire_ball/fire_ball.gd" id="1_umgya"]
-[ext_resource type="Texture2D" uid="uid://bu226xrpl8enh" path="res://Texture/Balls/рассыпающийся2.png" id="2_ikao4"]
-[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_86x4u"]
+[ext_resource type="Texture2D" uid="uid://dlmywwhdoglhi" path="res://Texture/Balls/огненный.png" id="3_hhhcb"]
+[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="3_uv3io"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="4_o3vxk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
 
-[sub_resource type="Curve" id="Curve_dionf"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_mgro8"]
+_data = [Vector2(0, 0.869347), -3.04932, 0.985641, 0, 0, Vector2(1, 0.444724), -0.510614, 0.370897, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_iwwbw"]
-offsets = PackedFloat32Array(0.174528, 0.962264, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_scakt"]
+offsets = PackedFloat32Array(0.307042, 0.430986, 0.512676, 0.997183)
+colors = PackedColorArray(0.560784, 0.560784, 0.560784, 0, 0.492188, 0.492188, 0.492188, 1, 0.488281, 0.488281, 0.488281, 1, 0.476563, 0.476563, 0.476563, 0)
+
+[sub_resource type="Curve" id="Curve_nt1k5"]
+_data = [Vector2(0, 1), -3.04932, 1.17742, 0, 0, Vector2(1, 0.444724), -0.510614, 0.370897, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ffgf1"]
+offsets = PackedFloat32Array(0, 0.222535, 0.746479, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.933333, 0, 1, 1, 0.2, 0, 1, 0.803922, 0.156863, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ph8tx"]
+offsets = PackedFloat32Array(0, 0.373297, 0.749319, 0.910082, 1)
+colors = PackedColorArray(0.803922, 0.156863, 0, 0, 1, 0.2, 0, 0.545098, 1, 1, 0, 0.533333, 1, 1, 1, 0.745098, 1, 1, 1, 0)
 
 [node name="fire_ball" type="CharacterBody2D"]
 z_index = -1
@@ -21,24 +34,61 @@ collision_layer = 4
 collision_mask = 11
 platform_on_leave = 2
 script = ExtResource("1_umgya")
+max_lenght_line = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-modulate = Color(1, 0.337255, 0.2, 1)
 z_index = 2
-position = Vector2(0, 2)
-scale = Vector2(0.4, 0.44)
-texture = ExtResource("2_ikao4")
-offset = Vector2(1, 0)
+position = Vector2(0, -9)
+scale = Vector2(0.28, 0.331)
+texture = ExtResource("3_hhhcb")
 flip_v = true
 
+[node name="Particles2D" type="Node2D" parent="."]
+
+[node name="Smoke" type="CPUParticles2D" parent="Particles2D"]
+amount = 14
+lifetime = 0.25
+lifetime_randomness = 0.5
+fixed_fps = 60
+texture = ExtResource("3_uv3io")
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 180.0
+gravity = Vector2(0, 0)
+angular_velocity_max = 180.0
+angle_max = 180.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_mgro8")
+color_ramp = SubResource("Gradient_scakt")
+
+[node name="Fire" type="CPUParticles2D" parent="Particles2D"]
+amount = 15
+lifetime = 0.11
+lifetime_randomness = 0.1
+fixed_fps = 60
+draw_order = 1
+texture = ExtResource("3_hhhcb")
+emission_shape = 2
+emission_sphere_radius = 4.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+angle_max = 180.0
+scale_amount_min = 0.34
+scale_amount_max = 0.34
+scale_amount_curve = SubResource("Curve_nt1k5")
+color_ramp = SubResource("Gradient_ffgf1")
+
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 show_behind_parent = true
 top_level = true
-width = 43.0
-width_curve = SubResource("Curve_dionf")
-gradient = SubResource("Gradient_iwwbw")
-texture = ExtResource("3_86x4u")
+width = 37.0
+width_curve = SubResource("Curve_nt1k5")
+gradient = SubResource("Gradient_ph8tx")
+texture = ExtResource("4_o3vxk")
 texture_mode = 2
