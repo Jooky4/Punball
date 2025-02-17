@@ -338,7 +338,7 @@ func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost
 
 func check_count_combo(enemy):
-	if combo_count % 2 == 0:
+	if combo_count % 40 == 0:
 		var enemy_arr : Array = find_all_enemys()
 		if enemy_arr != []:
 			if "Молния: комбо" in player_skills:
