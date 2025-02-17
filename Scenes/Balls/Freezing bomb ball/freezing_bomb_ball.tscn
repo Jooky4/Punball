@@ -1,19 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://bah3meu24ldim"]
+[gd_scene load_steps=12 format=3 uid="uid://bah3meu24ldim"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Freezing bomb ball/freezing_bomb_ball.gd" id="1_3wlao"]
-[ext_resource type="Texture2D" uid="uid://cag3y8pig6r5b" path="res://Texture/Balls/заморозка_1.png" id="2_q15l2"]
+[ext_resource type="Texture2D" uid="uid://ca4qi8wbaqie0" path="res://Texture/Balls/бомба заморозка.png" id="2_dl23q"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_6iqgv"]
+[ext_resource type="Texture2D" uid="uid://c711v0w13pme" path="res://Texture/Balls/Снежинка.png" id="3_fq4pm"]
+[ext_resource type="Texture2D" uid="uid://n8riaca1ap3d" path="res://Texture/Balls/Ледышка.png" id="4_ssr5n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
 
-[sub_resource type="Curve" id="Curve_dionf"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_84lri"]
+_data = [Vector2(0, 0), 0.0, 24.4187, 0, 0, Vector2(0.122715, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.24921, 1.4, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_v5lae"]
+offsets = PackedFloat32Array(0, 0.183099, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_v6pqs"]
+_data = [Vector2(0, 0), 0.0, 42.5823, 0, 0, Vector2(0.0600522, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.24921, 1.4, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_upmpg"]
+_data = [Vector2(0, 0.299438), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_iwwbw"]
-offsets = PackedFloat32Array(0.167453, 0.962264, 1)
-colors = PackedColorArray(0.614405, 1, 0.999788, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_pf288"]
+offsets = PackedFloat32Array(0.0190736, 0.962264, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.670588, 1, 1, 1, 0)
 
 [node name="freezing bomb_ball" type="CharacterBody2D"]
 z_index = -1
@@ -22,23 +36,59 @@ collision_mask = 11
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_3wlao")
+max_lenght_line = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-z_index = 2
-position = Vector2(0, 9)
-scale = Vector2(0.53, 0.62)
-texture = ExtResource("2_q15l2")
+z_index = 5
+position = Vector2(-1.00012, 0)
+scale = Vector2(0.530122, 0.60353)
+texture = ExtResource("2_dl23q")
 offset = Vector2(1, 0)
 flip_v = true
+
+[node name="Снежинки" type="CPUParticles2D" parent="."]
+z_index = 4
+amount = 4
+lifetime = 0.25
+randomness = 0.5
+lifetime_randomness = 0.2
+texture = ExtResource("3_fq4pm")
+emission_shape = 2
+emission_sphere_radius = 14.0
+spread = 180.0
+gravity = Vector2(0, 0)
+angular_velocity_max = 360.0
+angle_max = 180.0
+scale_amount_min = 0.2
+scale_amount_max = 0.35
+scale_amount_curve = SubResource("Curve_84lri")
+color_ramp = SubResource("Gradient_v5lae")
+
+[node name="Ледышки" type="CPUParticles2D" parent="."]
+z_index = 4
+lifetime = 0.4
+randomness = 0.5
+lifetime_randomness = 0.2
+texture = ExtResource("4_ssr5n")
+emission_shape = 2
+emission_sphere_radius = 22.0
+spread = 180.0
+gravity = Vector2(0, 0)
+angular_velocity_max = 360.0
+angle_max = 180.0
+scale_amount_min = 0.45
+scale_amount_max = 0.65
+scale_amount_curve = SubResource("Curve_v6pqs")
+color_ramp = SubResource("Gradient_v5lae")
 
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
 width = 47.0
-width_curve = SubResource("Curve_dionf")
-gradient = SubResource("Gradient_iwwbw")
+width_curve = SubResource("Curve_upmpg")
+gradient = SubResource("Gradient_pf288")
 texture = ExtResource("3_6iqgv")
 texture_mode = 2

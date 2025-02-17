@@ -42,15 +42,15 @@ max_lenght_line = 8
 shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-z_index = 2
-position = Vector2(0, 9)
-scale = Vector2(0.5, 0.585)
+z_index = 5
+position = Vector2(0, 5)
+scale = Vector2(0.440559, 0.515455)
 texture = ExtResource("2_827d3")
 offset = Vector2(1, 0)
 flip_v = true
 
 [node name="Снежинки" type="CPUParticles2D" parent="."]
-z_index = 1
+z_index = 4
 amount = 4
 lifetime = 0.25
 randomness = 0.5
@@ -68,7 +68,7 @@ scale_amount_curve = SubResource("Curve_a4o2p")
 color_ramp = SubResource("Gradient_g8abk")
 
 [node name="Ледышки" type="CPUParticles2D" parent="."]
-z_index = 1
+z_index = 4
 lifetime = 0.4
 randomness = 0.5
 lifetime_randomness = 0.2
