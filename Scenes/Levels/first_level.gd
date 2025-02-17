@@ -242,6 +242,10 @@ func balls_go() -> void:
 				9:
 					ball = LASER_BALL.instantiate()
 					ball.line_damage = 1
+			if i == 0 and "Суперначало" in LevelManager.player_skills:
+				ball.damage_ball *= 3
+			if i == (LevelManager.player_balls.size() - 1) and "Последний рывок" in LevelManager.player_skills:
+				ball.damage_ball *= 3
 			ball.position = start_balls_position.position
 			ball.direction_bullet = direction
 			get_tree().current_scene.add_child(ball)
@@ -401,7 +405,7 @@ func _on_button_8_pressed() -> void:
 func _on_button_9_pressed() -> void:
 	LevelManager.player_balls = [9]
 	LevelManager.restert()
-	get_tree().reload_current_scene
+	get_tree().reload_current_scene()
 
 func _chose_ball_button_pressed():
 	game_state = PAUSE

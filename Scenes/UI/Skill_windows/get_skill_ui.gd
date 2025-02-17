@@ -8,7 +8,9 @@ var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 var regular = [["Шар-заморозка",  150],
 			   ["Усиление обычного шара",  0],
 			   ["Огненный шар", 120],
-			   ["Усиление особого шара", 100]]
+			   ["Усиление особого шара", 100],
+			   ["Последний рывок", 30],
+			   ["Суперначало", 30]]
 var rare = [["Шар молний",  350],
 			["Рассыпающийся шар", 280],
 			["Шар-бомба",  300],
@@ -130,6 +132,10 @@ func add_skill(skill) -> void:
 			ElementsManager.laser_modifier += 0.1
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.darkness_modifier += 0.1
+		"Суперначало":
+			LevelManager.player_skills.append("Суперначало")
+		"Последний рывок":
+			LevelManager.player_skills.append("Последний рывок")
 		"Молния смерти":
 			LevelManager.player_skills.append("Молния смерти")
 		"Холод смерти":
