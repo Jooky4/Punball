@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhwc7o45grwew"
-path="res://.godot/imported/молния.png-96bfba2ed9e33421439e94d7c94d75a3.ctex"
+uid="uid://dlxvnpo3j3y70"
+path="res://.godot/imported/молния (1).png-0c42b8fa925c085d3686cab511dcea37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Balls/молния.png"
-dest_files=["res://.godot/imported/молния.png-96bfba2ed9e33421439e94d7c94d75a3.ctex"]
+source_file="res://Texture/Balls/молния (1).png"
+dest_files=["res://.godot/imported/молния (1).png-0c42b8fa925c085d3686cab511dcea37.ctex"]
 
 [params]
 
