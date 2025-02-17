@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bah3meu24ldim"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Freezing bomb ball/freezing_bomb_ball.gd" id="1_3wlao"]
-[ext_resource type="Texture2D" uid="uid://c0bquutmq6or5" path="res://Texture/Balls/заморозка.png" id="2_qjraa"]
+[ext_resource type="Texture2D" uid="uid://cag3y8pig6r5b" path="res://Texture/Balls/заморозка_1.png" id="2_q15l2"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_6iqgv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
@@ -30,7 +30,7 @@ shape = SubResource("CircleShape2D_l7c6x")
 z_index = 2
 position = Vector2(0, 9)
 scale = Vector2(0.53, 0.62)
-texture = ExtResource("2_qjraa")
+texture = ExtResource("2_q15l2")
 offset = Vector2(1, 0)
 flip_v = true
 
