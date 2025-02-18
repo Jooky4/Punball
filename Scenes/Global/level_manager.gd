@@ -266,8 +266,8 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 		var num_enemy = randi() % enemy_arr.size()
 		if enemy_arr[num_enemy] != enemy and enemy_arr[num_enemy].alive:
 			var effect = LINE_LIGHTNING.instantiate()
-			effect.points[0] = enemy_pos
-			effect.points[1] = enemy_arr[num_enemy].global_position
+			for w in range(6):
+				effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * w)
 			enemy_arr[num_enemy].deal_damage(damage_ball, color_ball)
 			combo_count += 1
 			check_count_combo(enemy_arr[num_enemy])
@@ -346,8 +346,9 @@ func check_count_combo(enemy):
 					var num_enemy = randi() % enemy_arr.size()
 					if enemy_arr[num_enemy].alive:
 						var effect = LINE_LIGHTNING.instantiate()
-						effect.points[0] = Vector2(enemy_arr[num_enemy].global_position.x, -700)
-						effect.points[1] = enemy_arr[num_enemy].global_position
+						var enemy_pos = Vector2(enemy_arr[num_enemy].global_position.x, -700)
+						for w in range(6):
+							effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * w)
 						enemy_arr[num_enemy].deal_damage(200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
 						enemy_arr.remove_at(num_enemy)
 						get_tree().current_scene.add_child(effect)
