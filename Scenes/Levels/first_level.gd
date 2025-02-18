@@ -27,6 +27,7 @@ var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
 var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn")
 var FREEZING_BOMB_BALL = preload("res://Scenes/Balls/Freezing bomb ball/freezing_bomb_ball.tscn")
 var LIGHTNING_BALL = preload("res://Scenes/Balls/Lightning ball/lightning_ball.tscn")
+var LASER_BALL = preload("res://Scenes/Balls/Laser ball/laser_ball.tscn")
 
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
@@ -235,6 +236,16 @@ func balls_go() -> void:
 					ball = FREEZING_BOMB_BALL.instantiate()
 				7:
 					ball = FIRE_BALL.instantiate()
+				8:
+					ball = LASER_BALL.instantiate()
+					ball.line_damage = 0
+				9:
+					ball = LASER_BALL.instantiate()
+					ball.line_damage = 1
+			if i == 0 and "Суперначало" in LevelManager.player_skills:
+				ball.damage_ball *= 3
+			if i == (LevelManager.player_balls.size() - 1) and "Последний рывок" in LevelManager.player_skills:
+				ball.damage_ball *= 3
 			ball.position = start_balls_position.position
 			ball.direction_bullet = direction
 			get_tree().current_scene.add_child(ball)
@@ -383,6 +394,16 @@ func _on_button_6_pressed() -> void:
 
 func _on_button_7_pressed() -> void:
 	LevelManager.player_balls = [7]
+	LevelManager.restert()
+	get_tree().reload_current_scene()
+
+func _on_button_8_pressed() -> void:
+	LevelManager.player_balls = [8]
+	LevelManager.restert()
+	get_tree().reload_current_scene()
+
+func _on_button_9_pressed() -> void:
+	LevelManager.player_balls = [9]
 	LevelManager.restert()
 	get_tree().reload_current_scene()
 

@@ -5,22 +5,32 @@ var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 @onready var windows_skill = $Windows_skill
 @onready var animation = $AnimationPlayer
 @onready var bye_button = $Bye_button
-var regular = [["Шар-заморозка",  150],
-			   ["Усиление обычного шара",  0],
+var regular = [["Шар-заморозка", 150],
+			   ["Усиление обычного шара", 0],
 			   ["Огненный шар", 120],
-			   ["Усиление особого шара", 100]]
+			   ["Усиление особого шара", 100],
+			   ["Последний рывок", 30],
+			   ["Суперначало", 30]]
 var rare = [["Шар молний",  350],
 			["Рассыпающийся шар", 280],
-			["Шар-бомба",  300],
+			["Шар-бомба", 300],
 			["Прибавка ОЗ", 200],
-			["Бомба-заморозка", 250]]
-var epic = [["Усиление атаки",  550],
+			["Бомба-заморозка", 250],
+			["Молния: комбо", 380],
+			["Лед: комбо", 250],
+			["Огонь: комбо", 250],
+			["Вертикальный лазерный шар", 220],
+			["Горизонтальный лазерный шар", 220]]
+var epic = [["Усиление атаки", 550],
 			["Молния смерти", 500],
 			["Холод смерти", 450],
-			["Бомба смерти", 600]]
+			["Бомба смерти", 600],
+			["Лазер смерти", 430],
+			["Лазер: комбо", 650]]
 var legendary = [["Повелитель молний", 1200],
-				 ["Повелитель льда",  1350],
-				 ["Повелитель огня", 1000]]
+				 ["Повелитель льда", 1350],
+				 ["Повелитель огня", 1000],
+				 ["Повелитель лазера", 780]]
 var skills = []
 
 func _ready() -> void:
@@ -100,6 +110,10 @@ func add_skill(skill) -> void:
 			LevelManager.add_ball(6)
 		"Огненный шар":
 			LevelManager.add_ball(7)
+		"Горизонтальный лазерный шар":
+			LevelManager.add_ball(8)
+		"Вертикальный лазерный шар":
+			LevelManager.add_ball(9)
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":
@@ -118,12 +132,26 @@ func add_skill(skill) -> void:
 			ElementsManager.laser_modifier += 0.1
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.darkness_modifier += 0.1
+		"Суперначало":
+			LevelManager.player_skills.append("Суперначало")
+		"Последний рывок":
+			LevelManager.player_skills.append("Последний рывок")
 		"Молния смерти":
 			LevelManager.player_skills.append("Молния смерти")
 		"Холод смерти":
 			LevelManager.player_skills.append("Холод смерти")
 		"Бомба смерти":
 			LevelManager.player_skills.append("Бомба смерти")
+		"Лазер смерти":
+			LevelManager.player_skills.append("Лазер смерти")
+		"Лазер: комбо":
+			LevelManager.player_skills.append("Лазер: комбо")
+		"Молния: комбо":
+			LevelManager.player_skills.append("Молния: комбо")
+		"Лед: комбо":
+			LevelManager.player_skills.append("Лед: комбо")
+		"Огонь: комбо":
+			LevelManager.player_skills.append("Огонь: комбо")
 		"Повелитель молний":
 			LevelManager.count_damage_lightning_enemy = 5
 			ElementsManager.lightning_modifier += 0.4
@@ -133,6 +161,9 @@ func add_skill(skill) -> void:
 		"Повелитель огня":
 			ElementsManager.fire_modifier += 0.4
 			LevelManager.player_skills.append("Повелитель огня")
+		"Повелитель лазера":
+			ElementsManager.laser_modifier += 0.4
+			LevelManager.player_skills.append("Повелитель лазера")
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:

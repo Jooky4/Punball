@@ -32,7 +32,7 @@ func _physics_process(delta) -> void:
 			sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(direction_bullet * 10000))
 
 			if collider.has_method("enemy"):
-				LevelManager.update_combo_count()
+				LevelManager.update_combo_count(collider)
 				collide_with_enemy(collider)
 
 			move_and_collide(direction_bullet * velocity * delta)
