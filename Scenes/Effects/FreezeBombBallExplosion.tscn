@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="1_ugunh"]
 [ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="2_cuv1j"]
 [ext_resource type="Texture2D" uid="uid://cwq8iefe1tdf6" path="res://Texture/Effects/ледышка_2.png" id="3_tcsqa"]
-[ext_resource type="Texture2D" uid="uid://dkl32kgrxn3ht" path="res://Texture/Effects/взрыв_2.png" id="4_l2axa"]
-[ext_resource type="Texture2D" uid="uid://c1k0w41r0p71p" path="res://Texture/Effects/снежинка_2.png" id="5_3ghn4"]
+[ext_resource type="Texture2D" uid="uid://blb64t6x4mcpo" path="res://Texture/Effects/взрыв_4.png" id="5_ltyvg"]
+[ext_resource type="Texture2D" uid="uid://ct45n4b0dc1nx" path="res://Texture/Effects/снежинка_3.png" id="6_ku354"]
 
 [sub_resource type="Curve" id="Curve_wn0m6"]
 max_value = 2.0
@@ -30,7 +30,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0.537255, 1, 1,
 
 [sub_resource type="Curve" id="Curve_e0f8p"]
 max_value = 2.0
-_data = [Vector2(0.293561, 0), 0.0, 4.50909, 0, 0, Vector2(0.799242, 2), 0.0, 0.0, 0, 0, Vector2(1, 1.29945), -10.3579, 0.0, 0, 0]
+_data = [Vector2(0.293561, 0), 0.0, 4.50909, 0, 0, Vector2(0.477273, 1.62727), 5.53846, 5.53846, 0, 0, Vector2(1, 1.29945), -6.11789, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_46epo"]
@@ -42,8 +42,8 @@ _data = [Vector2(0.25, 0), 0.0, 21.12, 0, 0, Vector2(0.375, 1), 0.0, 0.0, 0, 0, 
 point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_dk1ua"]
-offsets = PackedFloat32Array(0.132, 0.416, 0.904, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.457031, 0.910919, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.132, 0.416, 0.906, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.949219, 0.991669, 1, 1, 1, 1, 1, 0)
 
 [node name="BombBallExplosion" type="Node2D"]
 script = ExtResource("1_rnscc")
@@ -53,8 +53,11 @@ emitting = false
 amount = 1
 lifetime = 0.7
 one_shot = true
+speed_scale = 1.5
 texture = ExtResource("1_ugunh")
 gravity = Vector2(0, 0)
+scale_amount_min = 0.4
+scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_wn0m6")
 color_ramp = SubResource("Gradient_p1y4n")
 
@@ -63,8 +66,11 @@ emitting = false
 amount = 1
 lifetime = 0.7
 one_shot = true
+speed_scale = 1.5
 texture = ExtResource("2_cuv1j")
 gravity = Vector2(0, 0)
+scale_amount_min = 0.4
+scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_wn0m6")
 color_ramp = SubResource("Gradient_453tt")
 
@@ -73,18 +79,19 @@ emitting = false
 amount = 14
 lifetime = 0.9
 one_shot = true
+speed_scale = 1.5
 explosiveness = 0.8
 texture = ExtResource("3_tcsqa")
 direction = Vector2(0, -1)
 spread = 140.0
-gravity = Vector2(0, 500)
-initial_velocity_min = 700.0
-initial_velocity_max = 1000.0
+gravity = Vector2(0, 150)
+initial_velocity_min = 240.0
+initial_velocity_max = 300.0
 angular_velocity_min = -180.0
 linear_accel_min = -100.0
 linear_accel_max = -100.0
-scale_amount_min = 0.7
-scale_amount_max = 0.9
+scale_amount_min = 0.27
+scale_amount_max = 0.32
 scale_amount_curve = SubResource("Curve_e1ywc")
 color_ramp = SubResource("Gradient_l22ub")
 
@@ -93,29 +100,32 @@ emitting = false
 amount = 1
 lifetime = 0.7
 one_shot = true
-texture = ExtResource("4_l2axa")
+speed_scale = 1.5
+texture = ExtResource("5_ltyvg")
 gravity = Vector2(0, 0)
-scale_amount_min = 0.7
-scale_amount_max = 0.7
+scale_amount_min = 0.24
+scale_amount_max = 0.24
 scale_amount_curve = SubResource("Curve_e0f8p")
+color = Color(0.815686, 1, 1, 1)
 color_ramp = SubResource("Gradient_46epo")
 
 [node name="Снежинки" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 18
+amount = 12
 lifetime = 1.2
 one_shot = true
+speed_scale = 1.5
 explosiveness = 0.78
-texture = ExtResource("5_3ghn4")
+texture = ExtResource("6_ku354")
 direction = Vector2(0, -1)
 spread = 140.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 240.58
-initial_velocity_max = 260.0
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
 angular_velocity_max = 80.0
 linear_accel_min = -92.7
 linear_accel_max = -3.65
-scale_amount_min = 0.7
-scale_amount_max = 1.25
+scale_amount_min = 0.25
+scale_amount_max = 0.43
 scale_amount_curve = SubResource("Curve_6jhqn")
 color_ramp = SubResource("Gradient_dk1ua")

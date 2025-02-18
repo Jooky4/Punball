@@ -1,59 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://p42pv0cprrkp"]
+[gd_scene load_steps=5 format=3 uid="uid://p42pv0cprrkp"]
 
-[ext_resource type="Texture2D" uid="uid://cwq8iefe1tdf6" path="res://Texture/Effects/ледышка_2.png" id="1_kuia4"]
 [ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_tc5h1"]
-[ext_resource type="Texture2D" uid="uid://btjnx1w7jxshe" path="res://Texture/Effects/взрыв_3.png" id="2_ftvqk"]
+[ext_resource type="Texture2D" uid="uid://borqu4lstqlg4" path="res://Texture/Effects/ледышка_3.png" id="2_44s78"]
 
 [sub_resource type="Curve" id="Curve_e1ywc"]
-_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.106061, 0.777273), 2.08, 2.08, 0, 0, Vector2(0.899621, 0.75), -2.016, -2.016, 0, 0, Vector2(1, 0), -0.816495, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.11553, 0.986364), 0.783673, 0.783673, 0, 0, Vector2(0.67803, 0.836364), -1.30909, -1.30909, 0, 0, Vector2(1, 0), -3.02608, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_7xu2g"]
 offsets = PackedFloat32Array(0.004, 0.052, 0.566, 0.858, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0.537255, 1, 1, 0, 0.403922, 1, 0)
-
-[sub_resource type="Curve" id="Curve_e0f8p"]
-max_value = 2.0
-_data = [Vector2(0, 0.386085), 0.0, 2.99656, 0, 0, Vector2(1, 2), 0.851297, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_ptbui"]
-offsets = PackedFloat32Array(0.004, 0.052, 0.376, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0.403922, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.0470588, 0.611765, 0.796078, 0)
 
 [node name="BombBallExplosion" type="Node2D"]
 script = ExtResource("1_tc5h1")
 
 [node name="Ледышки" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 5
+amount = 4
 lifetime = 0.5
 one_shot = true
+speed_scale = 1.5
 explosiveness = 1.0
-texture = ExtResource("1_kuia4")
+texture = ExtResource("2_44s78")
 direction = Vector2(0, -1)
 spread = 140.0
-gravity = Vector2(0, 500)
-initial_velocity_min = 700.0
-initial_velocity_max = 1000.0
+gravity = Vector2(0, 150)
+initial_velocity_min = 100.0
+initial_velocity_max = 170.0
 angular_velocity_min = -240.0
 linear_accel_min = -100.0
 linear_accel_max = -100.0
-scale_amount_min = 0.5
+angle_max = 180.0
+scale_amount_min = 0.19
+scale_amount_max = 0.27
 scale_amount_curve = SubResource("Curve_e1ywc")
 color_ramp = SubResource("Gradient_7xu2g")
-
-[node name="Взрыв" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 1
-lifetime = 0.4
-one_shot = true
-explosiveness = 0.5
-texture = ExtResource("2_ftvqk")
-gravity = Vector2(0, 0)
-angle_min = -180.0
-angle_max = 180.0
-scale_amount_min = 0.35
-scale_amount_max = 0.42
-scale_amount_curve = SubResource("Curve_e0f8p")
-color_ramp = SubResource("Gradient_ptbui")
