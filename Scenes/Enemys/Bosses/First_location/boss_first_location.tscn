@@ -970,6 +970,7 @@ _data = {
 }
 
 [node name="Boss_first_location" type="StaticBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_pst5v")

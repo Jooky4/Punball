@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://2myh1abx8x7e"]
+[gd_scene load_steps=16 format=3 uid="uid://2myh1abx8x7e"]
 
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_rnscc"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="1_ugunh"]
 [ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="2_cuv1j"]
 [ext_resource type="Texture2D" uid="uid://cwq8iefe1tdf6" path="res://Texture/Effects/ледышка_2.png" id="3_tcsqa"]
@@ -45,6 +46,7 @@ offsets = PackedFloat32Array(0.132, 0.416, 0.904, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.457031, 0.910919, 1, 1, 1, 1, 1, 0)
 
 [node name="BombBallExplosion" type="Node2D"]
+script = ExtResource("1_rnscc")
 
 [node name="Свечение" type="CPUParticles2D" parent="."]
 emitting = false
