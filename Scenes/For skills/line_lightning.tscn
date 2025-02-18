@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsnvlmst4aglv"]
+[gd_scene load_steps=4 format=3 uid="uid://bsnvlmst4aglv"]
 
-[ext_resource type="Texture2D" uid="uid://dlxvnpo3j3y70" path="res://Texture/Balls/молния.png" id="2_bbdhm"]
+[ext_resource type="Texture2D" uid="uid://cewpfhpvc8kf6" path="res://Texture/Balls/молния_2.png" id="1_xx5qt"]
 [ext_resource type="Script" path="res://Scenes/For skills/line_lightning.gd" id="3_jjvyc"]
+
+[sub_resource type="Curve" id="Curve_a8ykd"]
+max_value = 2.0
+_data = [Vector2(0, 0.25), 0.0, 2.6, 0, 0, Vector2(0.498, 1.55), 0.0, 0.0, 0, 0, Vector2(1, 0.25), -2.6, 0.0, 0, 0]
+point_count = 3
 
 [node name="Line_lightning" type="Line2D"]
 texture_repeat = 3
-points = PackedVector2Array(0, 0, 0, 0)
+points = PackedVector2Array(0, 0, 100, 0, 200, 0, 300, 0, 400, 0, 500, 0)
 width = 100.0
-texture = ExtResource("2_bbdhm")
+width_curve = SubResource("Curve_a8ykd")
+texture = ExtResource("1_xx5qt")
 texture_mode = 1
 script = ExtResource("3_jjvyc")
