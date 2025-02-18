@@ -373,7 +373,7 @@ func _on_button_2_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_button_3_pressed() -> void:
-	LevelManager.player_balls = [1, 1, 1, 1, 3]
+	LevelManager.player_balls = [3]
 	LevelManager.restert()
 	get_tree().reload_current_scene()
 

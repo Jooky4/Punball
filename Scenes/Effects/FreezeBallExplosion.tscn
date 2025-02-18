@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://p42pv0cprrkp"]
+[gd_scene load_steps=8 format=3 uid="uid://p42pv0cprrkp"]
 
 [ext_resource type="Texture2D" uid="uid://cwq8iefe1tdf6" path="res://Texture/Effects/ледышка_2.png" id="1_kuia4"]
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_tc5h1"]
 [ext_resource type="Texture2D" uid="uid://btjnx1w7jxshe" path="res://Texture/Effects/взрыв_3.png" id="2_ftvqk"]
 
 [sub_resource type="Curve" id="Curve_e1ywc"]
@@ -21,6 +22,7 @@ offsets = PackedFloat32Array(0.004, 0.052, 0.376, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0.403922, 1, 0)
 
 [node name="BombBallExplosion" type="Node2D"]
+script = ExtResource("1_tc5h1")
 
 [node name="Ледышки" type="CPUParticles2D" parent="."]
 emitting = false
