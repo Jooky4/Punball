@@ -20,13 +20,16 @@ var rare = [["Шар молний",  350],
 			["Лед: комбо", 250],
 			["Огонь: комбо", 250],
 			["Вертикальный лазерный шар", 220],
-			["Горизонтальный лазерный шар", 220]]
+			["Горизонтальный лазерный шар", 220],
+			["Шар ракета", 280],
+			["Кумулятивный шар", 320]]
 var epic = [["Усиление атаки", 550],
 			["Молния смерти", 500],
 			["Холод смерти", 450],
 			["Бомба смерти", 600],
 			["Лазер смерти", 430],
-			["Лазер: комбо", 650]]
+			["Лазер: комбо", 650],
+			["Ракета смерти", 700]]
 var legendary = [["Повелитель молний", 1200],
 				 ["Повелитель льда", 1350],
 				 ["Повелитель огня", 1000],
@@ -114,6 +117,10 @@ func add_skill(skill) -> void:
 			LevelManager.add_ball(8)
 		"Вертикальный лазерный шар":
 			LevelManager.add_ball(9)
+		"Шар ракета":
+			LevelManager.add_ball(10)
+		"Кумулятивный шар":
+			LevelManager.add_ball(11)
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":
@@ -124,14 +131,14 @@ func add_skill(skill) -> void:
 			ElementsManager.frost_modifier += 0.1
 			ElementsManager.laser_modifier += 0.1
 			ElementsManager.lightning_modifier += 0.1
-			ElementsManager.darkness_modifier += 0.1
+			ElementsManager.nuclear_modifier += 0.1
 		"Усиление атаки":
 			ElementsManager.normal_modifier += 0.1
 			ElementsManager.fire_modifier += 0.1
 			ElementsManager.frost_modifier += 0.1
 			ElementsManager.laser_modifier += 0.1
 			ElementsManager.lightning_modifier += 0.1
-			ElementsManager.darkness_modifier += 0.1
+			ElementsManager.nuclear_modifier += 0.1
 		"Суперначало":
 			LevelManager.player_skills.append("Суперначало")
 		"Последний рывок":

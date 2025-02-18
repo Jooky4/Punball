@@ -4,11 +4,12 @@ var LINE_LIGHTNING = preload("res://Scenes/For skills/line_lightning.tscn")
 var LASER_LINE = preload("res://Scenes/For skills/laser_line.tscn")
 var ICE_CUBE = preload("res://Scenes/For skills/ice_cube.tscn")
 var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
+var ROCKET = preload("res://Scenes/Balls/Rocket ball/rocket.tscn")
 
 var hp_player : float = 1000
 var boss_on_map : bool = false
 var max_hp_player : float = 1000
-var player_balls : Array = [1, 1, 1, 1]
+var player_balls : Array = [1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -17,7 +18,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.4
 var hit_player : bool = false
-var player_skills : Array = []#["Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
+var player_skills : Array = []#["Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
@@ -313,6 +314,22 @@ func laser_ball_damage_vertically(damage_ball, color_ball, line_damage) -> void:
 				effect.global_position = Vector2(i.global_position.x, 644)
 				i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
 
+func rocket_ball_damage(enemy, damage_ball, color_ball, start_pos, count_rocket) -> void:
+	var enemy_arr : Array = find_all_enemys()
+	var weak_enemy
+	var min_hp = 1000000
+	if enemy_arr != [] and enemy_arr.size() != 1:
+		for i in enemy_arr:
+			if i.hp_enemy < min_hp and i != enemy and i.alive:
+				weak_enemy = i
+				min_hp = i.hp_enemy
+		for i in range(count_rocket):
+			var rocket = ROCKET.instantiate()
+			rocket.global_position = start_pos
+			rocket.arc_height += -50 * i
+			get_tree().current_scene.add_child(rocket)
+			rocket.go(weak_enemy, start_pos)
+
 func delete_freezing_and_fire_on_enemy() -> void:
 	for i in first_level_links_on_objects:
 		for j in i:
@@ -337,8 +354,8 @@ func enemy_died(enemy) -> void:
 func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost
 
-func check_count_combo(enemy):
-	if combo_count % 40 == 0:
+func check_count_combo(enemy) -> void:
+	if combo_count % 2 == 0:
 		var enemy_arr : Array = find_all_enemys()
 		if enemy_arr != []:
 			if "Молния: комбо" in player_skills:
@@ -383,7 +400,10 @@ func check_count_combo(enemy):
 		if enemy_arr != []:
 			if "Лазер: комбо" in player_skills:
 				laser_ball_damage(enemy, 200 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
-
+		enemy_arr = find_all_enemys()
+		if enemy_arr != []:
+			if "Ракета смерти" in player_skills:
+				rocket_ball_damage(enemy, 300 * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"], enemy.global_position, 2)
 func find_all_enemys():
 	var enemy_arr = []
 	for i in first_level_links_on_objects:

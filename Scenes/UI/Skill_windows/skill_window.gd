@@ -27,7 +27,10 @@ var texture_skill = {
 	"Повелитель лазера": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Лазер: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Суперначало": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Последний рывок": preload("res://Texture/UI/Texture_skills/повелитель огня.png") # ЗАМЕНИТЬ
+	"Последний рывок": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Шар ракета": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Кумулятивный шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Ракета смерти": preload("res://Texture/UI/Texture_skills/повелитель огня.png") # ЗАМЕНИТЬ
 	}
 
 func update_discription(new_discription) -> void:

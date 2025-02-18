@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgpo1sv7dw4xc"]
+
+[ext_resource type="Script" path="res://Scenes/Balls/Rocket ball/rocket.gd" id="1_4jamx"]
+[ext_resource type="Texture2D" uid="uid://b74f0w5agfq17" path="res://Texture/Balls/шар ракета.png" id="1_4rsko"]
+
+[node name="rocket" type="Node2D"]
+script = ExtResource("1_4jamx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(2.13163e-14, 31)
+rotation = 3.14159
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4rsko")
+offset = Vector2(1, 0)
+flip_v = true
