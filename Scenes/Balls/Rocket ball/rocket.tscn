@@ -1,16 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgpo1sv7dw4xc"]
+[gd_scene load_steps=8 format=3 uid="uid://bgpo1sv7dw4xc"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Rocket ball/rocket.gd" id="1_4jamx"]
 [ext_resource type="Texture2D" uid="uid://b74f0w5agfq17" path="res://Texture/Balls/шар ракета.png" id="1_4rsko"]
-[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="2_bo1rm"]
+[ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_yqtnj"]
 
-[sub_resource type="Curve" id="Curve_7e4ej"]
-_data = [Vector2(0, 0), -3.04932, 6.85714, 0, 0, Vector2(1, 0), -1.12438, 0.370897, 0, 0]
+[sub_resource type="Curve" id="Curve_q7ck3"]
+_data = [Vector2(0, 0.486364), 0.0, -0.263636, 0, 1, Vector2(1, 0.222727), -0.263636, 0.0, 1, 0]
 point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_ni7f8"]
-offsets = PackedFloat32Array(0.076, 0.826)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Animation" id="Animation_ujp1f"]
 resource_name = "Spawn"
@@ -52,21 +48,6 @@ _data = {
 [node name="rocket" type="Node2D"]
 script = ExtResource("1_4jamx")
 
-[node name="Smoke" type="CPUParticles2D" parent="."]
-z_index = 5
-position = Vector2(0, 51)
-amount = 20
-lifetime = 0.15
-fixed_fps = 60
-draw_order = 1
-texture = ExtResource("2_bo1rm")
-gravity = Vector2(0, 0)
-angle_max = 180.0
-scale_amount_min = 0.22
-scale_amount_max = 0.22
-scale_amount_curve = SubResource("Curve_7e4ej")
-color_ramp = SubResource("Gradient_ni7f8")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 6
 position = Vector2(-0.488354, 31)
@@ -75,6 +56,20 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_4rsko")
 offset = Vector2(1, 0)
 flip_v = true
+
+[node name="Пламя" type="CPUParticles2D" parent="."]
+position = Vector2(0, 57)
+amount = 3
+lifetime = 0.4
+local_coords = true
+texture = ExtResource("4_yqtnj")
+gravity = Vector2(0, 0)
+angle_min = -5.0
+angle_max = 5.0
+split_scale = true
+scale_curve_x = SubResource("Curve_q7ck3")
+scale_curve_y = null
+color = Color(1, 1, 1, 0.623529)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

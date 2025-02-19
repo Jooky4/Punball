@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3safcv7b812o"]
+
+[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="1_4lu1l"]
+[ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="2_3p4uk"]
+
+[sub_resource type="Curve" id="Curve_78fle"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_husbh"]
+offsets = PackedFloat32Array(0.004, 0.052, 0.438, 0.712)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_av10r"]
+offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="CumulativeBallExplosion" type="Node2D"]
+
+[node name="Свечение" type="CPUParticles2D" parent="."]
+position = Vector2(0, -2)
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.7
+texture = ExtResource("1_4lu1l")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_78fle")
+color_ramp = SubResource("Gradient_husbh")
+
+[node name="Кольцо" type="CPUParticles2D" parent="."]
+position = Vector2(0, -2)
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.7
+texture = ExtResource("2_3p4uk")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_78fle")
+color_ramp = SubResource("Gradient_av10r")

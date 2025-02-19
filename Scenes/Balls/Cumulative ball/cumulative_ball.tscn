@@ -1,20 +1,20 @@
 [gd_scene load_steps=9 format=3 uid="uid://dx27ccsu6arir"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Cumulative ball/cumulative_ball.gd" id="1_c1c6f"]
-[ext_resource type="Texture2D" uid="uid://dl3oexxftwi03" path="res://Texture/Balls/usual.png" id="2_v57gt"]
-[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_203ai"]
-[ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_w1svs"]
+[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="2_gugnf"]
+[ext_resource type="Texture2D" uid="uid://dokxygjpekih6" path="res://Texture/Balls/кумулятивный.png" id="3_arfsy"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="4_pl4ke"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
 
 [sub_resource type="Curve" id="Curve_dionf"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0.0037037, 0.0112551), 0.0, 2.96133, 0, 0, Vector2(0.603704, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.59115, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_iwwbw"]
-offsets = PackedFloat32Array(0.174528, 0.962264, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_k6sf5"]
+offsets = PackedFloat32Array(0.22, 0.636, 0.962264, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.966659, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_wgpwx"]
 offsets = PackedFloat32Array(0, 0.0873239, 0.256338, 1)
@@ -27,38 +27,38 @@ collision_mask = 11
 platform_on_leave = 2
 script = ExtResource("1_c1c6f")
 damage_ball = 2000.0
+max_lenght_line = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 5
-position = Vector2(0, 9)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_v57gt")
-offset = Vector2(1, 0)
-flip_v = true
+position = Vector2(0, 12)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("3_arfsy")
 
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
 width = 43.0
 width_curve = SubResource("Curve_dionf")
-gradient = SubResource("Gradient_iwwbw")
-texture = ExtResource("3_203ai")
+gradient = SubResource("Gradient_k6sf5")
+texture = ExtResource("4_pl4ke")
 texture_mode = 2
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Дымок" type="CPUParticles2D" parent="."]
 z_index = 4
 amount = 3
 lifetime = 0.25
 fixed_fps = 60
-texture = ExtResource("4_w1svs")
+texture = ExtResource("2_gugnf")
 emission_shape = 2
 emission_sphere_radius = 15.65
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 20.0
-scale_amount_min = 0.1
-scale_amount_max = 0.2
+angular_velocity_max = 180.0
+scale_amount_min = 0.15
+scale_amount_max = 0.25
 color_ramp = SubResource("Gradient_wgpwx")
