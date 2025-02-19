@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxudlbcmlntl"]
+
+[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="1_6f7fk"]
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_lhq1d"]
+[ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="2_kqxuo"]
+[ext_resource type="Texture2D" uid="uid://diksekwq25x15" path="res://Texture/Effects/взрыв_6.png" id="3_senm7"]
+
+[sub_resource type="Curve" id="Curve_xa8om"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_g8377"]
+offsets = PackedFloat32Array(0.004, 0.052, 0.438, 0.712)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_y2afo"]
+offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_rykac"]
+_data = [Vector2(0, 0), 0.0, 4.54737, 0, 0, Vector2(0.770833, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -12.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_v6g4j"]
+offsets = PackedFloat32Array(0, 0.366, 0.798, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.905882, 0, 1, 1, 0.980515, 0.792969, 1, 1, 1, 1, 0)
+
+[node name="CrumblingBallExplosion" type="Node2D"]
+script = ExtResource("1_lhq1d")
+
+[node name="Свечение" type="CPUParticles2D" parent="."]
+position = Vector2(0, -2)
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.7
+texture = ExtResource("1_6f7fk")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.14
+scale_amount_max = 0.14
+scale_amount_curve = SubResource("Curve_xa8om")
+color_ramp = SubResource("Gradient_g8377")
+
+[node name="Кольцо" type="CPUParticles2D" parent="."]
+position = Vector2(0, -2)
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.7
+texture = ExtResource("2_kqxuo")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.14
+scale_amount_max = 0.14
+scale_amount_curve = SubResource("Curve_xa8om")
+color_ramp = SubResource("Gradient_y2afo")
+
+[node name="Взрыв" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 5
+lifetime = 0.6
+one_shot = true
+speed_scale = 2.7
+explosiveness = 0.75
+texture = ExtResource("3_senm7")
+spread = 180.0
+gravity = Vector2(0, 0)
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_rykac")
+color_ramp = SubResource("Gradient_v6g4j")
