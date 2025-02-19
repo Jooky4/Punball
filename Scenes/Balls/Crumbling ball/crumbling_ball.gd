@@ -1,6 +1,6 @@
 extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
 
-var SMALL_CRUMBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/small_crumbling_ball.tscn")
+var SMALL_CRUMBLING_BALL = preload("res://Scenes/Balls/Crumbling ball/small_crumbling_ball.tscn")
 var EFFECT_BALL = preload("res://Scenes/Effects/CrumblingBallExplosion.tscn")
 var angle_rotation_small_ball : int = 15
 

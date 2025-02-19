@@ -22,7 +22,7 @@ var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
 
 var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
-var CRUNBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/crumbling_ball.tscn")
+var CRUNBLING_BALL = preload("res://Scenes/Balls/Crumbling ball/crumbling_ball.tscn")
 var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
 var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
 var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn")
