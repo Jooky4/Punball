@@ -1,19 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://c401mjktfsre7"]
+[gd_scene load_steps=9 format=3 uid="uid://c401mjktfsre7"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Backstabbing ball/backstabbing_ball.gd" id="1_ksxna"]
 [ext_resource type="Texture2D" uid="uid://d07phnxw5hvv7" path="res://Texture/Balls/шар удар в спину.png" id="2_ef6rk"]
-[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_dsxj5"]
+[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_1it85"]
+[ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_knulk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
 
 [sub_resource type="Curve" id="Curve_dionf"]
-_data = [Vector2(0, 0), 0.0, 3.7098, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_iwwbw"]
-offsets = PackedFloat32Array(0.098, 0.962264, 1)
+offsets = PackedFloat32Array(0.174528, 0.962264, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_wgpwx"]
+offsets = PackedFloat32Array(0, 0.0873239, 0.256338, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="backstabbing_ball" type="CharacterBody2D"]
 z_index = -1
@@ -22,29 +27,14 @@ collision_mask = 11
 platform_on_leave = 2
 script = ExtResource("1_ksxna")
 damage_ball = 100.0
-max_lenght_line = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="CollisionShape2D"]
-z_index = 5
-amount = 1
-local_coords = true
-texture = ExtResource("2_ef6rk")
-gravity = Vector2(0, 0)
-angular_velocity_min = 360.0
-angular_velocity_max = 360.0
-angle_min = 47.0
-angle_max = 47.0
-scale_amount_min = 0.8
-scale_amount_max = 0.8
-
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-visible = false
 z_index = 5
-position = Vector2(-0.385977, 1)
-scale = Vector2(0.835976, 0.835976)
+position = Vector2(0, 1)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("2_ef6rk")
 offset = Vector2(1, 0)
 flip_v = true
@@ -52,9 +42,23 @@ flip_v = true
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 30.0
+width = 43.0
 width_curve = SubResource("Curve_dionf")
-default_color = Color(1, 1, 1, 0.666667)
 gradient = SubResource("Gradient_iwwbw")
-texture = ExtResource("3_dsxj5")
+texture = ExtResource("3_1it85")
 texture_mode = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 4
+amount = 3
+lifetime = 0.25
+fixed_fps = 60
+texture = ExtResource("4_knulk")
+emission_shape = 2
+emission_sphere_radius = 15.65
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 20.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_wgpwx")
