@@ -55,7 +55,7 @@ script = ExtResource("1_4jamx")
 [node name="Smoke" type="CPUParticles2D" parent="."]
 z_index = 5
 position = Vector2(0, 51)
-amount = 18
+amount = 20
 lifetime = 0.15
 fixed_fps = 60
 draw_order = 1
