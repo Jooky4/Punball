@@ -71,13 +71,21 @@ func restert() -> void:
 	player_skills = []
 	hit_player = false
 	first_level_links_on_objects = [[null, null, null, null, null, null],
-									[null, 1, 1, 1, 1, 1],
-									[null, -1, null, null, null, null],
-									[1, 1, 1, 1, 1, null],
-									[null, -2, null, null, null, null],
-									[null, null, null, null, null, null],
-									[null, null, null, null, null, null],
-									[null, null, null, null, null, null]]
+ 									[null, 1, 1, 1, 1, 1,],
+ 									[null, null, null, null, null, null],
+ 									[1, 1, 1, 1, 1, null],
+ 									[null, null, null, null, null, null],
+ 									[null, null, null, null, null, null],
+ 									[null, null, null, null, null, null],
+ 									[null, null, null, null, null, null]]
+	trap_on_map_links = [[null, null, null, null, null, null],
+						 [null, null, null, null, null, null],
+						 [null, null, null, null, null, null],
+						 [null, null, null, null, null, null],
+						 [null, null, null, null, null, null],
+						 [null, null, null, null, null, null],
+						 [null, null, null, null, null, null],
+						 [null, null, null, null, null, null]]
 
 func add_ball(num_ball) -> void:
 	player_balls_after_wave.append(num_ball)
