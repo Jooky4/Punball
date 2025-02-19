@@ -145,7 +145,7 @@ func moving_object(player_position) -> void:
 					else:
 						if !first_level_links_on_objects[i][j].has_method("boss"):
 							move_forward(i, j)
-
+	check_traps()
 	for i in range(first_level_links_on_objects.size() - 2, -1, -1): # ПОТОМ ДВИГАЕМ ВПРАВО, ВЛЕВО ТЕХ У КОГО ПРЕПЯТСВИЕ СПЕРЕДИ
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null: 
@@ -226,6 +226,7 @@ func check_traps(first_line : bool = false) -> void:
 						trap_on_map_links[0][i].delete_trap(first_level_links_on_objects[0][i])
 						trap_on_map_links[0][i] = null
 	else:
+		print(1)
 		for i in range(first_level_links_on_objects.size()):
 			for j in range(first_level_links_on_objects[i].size()):
 				if trap_on_map_links[i][j] != null:

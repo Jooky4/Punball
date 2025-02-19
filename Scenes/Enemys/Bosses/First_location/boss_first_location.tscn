@@ -1043,8 +1043,8 @@ offset = Vector2(45.4571, 117.586)
 
 [node name="freezen_sprite" type="Sprite2D" parent="Sprite_enemy"]
 visible = false
-position = Vector2(-40, -80)
-scale = Vector2(13, 13)
+position = Vector2(-53.3331, -86.6667)
+scale = Vector2(13.5156, 13.0542)
 texture = ExtResource("7_1qprv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
