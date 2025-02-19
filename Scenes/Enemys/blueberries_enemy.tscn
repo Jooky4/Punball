@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://cs7a08eol6pay"]
+[gd_scene load_steps=26 format=3 uid="uid://cs7a08eol6pay"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/blueberries_enemy.gd" id="1_4nflj"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_6irtg"]
 [ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="2_kdbwk"]
 [ext_resource type="Texture2D" uid="uid://b1k64lxo1ayrh" path="res://Texture/Enemys/Blueberries_enemy/Eye.png" id="3_508eo"]
 [ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="4_ty01e"]
@@ -8,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="6_xi2xi"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="7_wci5x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="8_fewwm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhugu"]
+resource_local_to_scene = true
+shader = ExtResource("2_6irtg")
+shader_parameter/lightness = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_tqeh5"]
 font = ExtResource("8_fewwm")
@@ -171,6 +177,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [0.0, -0.139626, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.9, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_e6v84"]
@@ -713,6 +731,18 @@ tracks/14/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_xhi3q"]
 resource_name = "Spawn"
@@ -832,16 +862,19 @@ script = ExtResource("1_4nflj")
 hp_enemy = 1440.0
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_uhugu")
 position = Vector2(2, 3)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("2_kdbwk")
 
 [node name="Eye" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
+use_parent_material = true
 position = Vector2(-133.714, 48.8143)
 scale = Vector2(1.019, 1.019)
 texture = ExtResource("3_508eo")
@@ -849,16 +882,19 @@ flip_h = true
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
+use_parent_material = true
 position = Vector2(140.229, 48.8143)
 scale = Vector2(1.019, 1.019)
 texture = ExtResource("3_508eo")
 
 [node name="Рот" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("4_ty01e")
 
 [node name="Листик" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(-128.571, -357.143)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("5_f3cgh")
@@ -867,9 +903,9 @@ offset = Vector2(45.4571, 117.586)
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 34.0
+offset_top = 36.0
 offset_right = 46.0
-offset_bottom = 48.0
+offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("6_xi2xi")
@@ -878,9 +914,9 @@ texture_progress = ExtResource("7_wci5x")
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 20.0
+offset_top = 22.0
 offset_right = 185.0
-offset_bottom = 115.0
+offset_bottom = 117.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_tqeh5")
