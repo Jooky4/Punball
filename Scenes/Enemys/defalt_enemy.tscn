@@ -11,7 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="7_70tpc"]
 [ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="8_iab2r"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vd80f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7jnx"]
+resource_local_to_scene = true
 shader = ExtResource("2_7tq2g")
 shader_parameter/lightness = 0.0
 
@@ -1054,9 +1055,10 @@ collision_mask = 0
 script = ExtResource("1_oq22b")
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
-material = SubResource("ShaderMaterial_vd80f")
+material = SubResource("ShaderMaterial_n7jnx")
 
 [node name="Body" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(0, 5)
 scale = Vector2(0.285, 0.285)
 texture = ExtResource("6_1tsab")
