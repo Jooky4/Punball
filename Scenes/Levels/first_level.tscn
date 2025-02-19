@@ -268,7 +268,7 @@ texture = ExtResource("8_wf17s")
 texture_mode = 2
 
 [node name="Start_bullet_position" type="Sprite2D" parent="Dicariations/Start_bullet_position"]
-z_index = 1
+z_index = 2
 position = Vector2(359.5, 1205.5)
 texture = ExtResource("6_3rmiv")
 
