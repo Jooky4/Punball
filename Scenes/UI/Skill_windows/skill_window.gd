@@ -33,6 +33,7 @@ var texture_skill = {
 	"Ракета смерти": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Повелитель атома": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Ядерная: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Шар удара в спину": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Шар убийца": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Бурящий шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png") # ЗАМЕНИТЬ
 	}
