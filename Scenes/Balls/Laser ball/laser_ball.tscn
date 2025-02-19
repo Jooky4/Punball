@@ -34,7 +34,7 @@ flip_v = true
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 51.0
+width = 53.0
 width_curve = SubResource("Curve_dionf")
 texture = ExtResource("3_f7erb")
 texture_mode = 2
