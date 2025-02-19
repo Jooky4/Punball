@@ -39,7 +39,8 @@ var legendary = [["Повелитель молний", 1200],
 				 ["Повелитель льда", 1350],
 				 ["Повелитель огня", 1000],
 				 ["Повелитель лазера", 780],
-				 ["Повелитель атома", 1300]]
+				 ["Повелитель атома", 1300],
+				 ["Повелитель технологий", 1100]]
 var skills = []
 
 func _ready() -> void:
@@ -186,6 +187,9 @@ func add_skill(skill) -> void:
 		"Повелитель атома":
 			ElementsManager.nuclear_modifier += 0.4
 			LevelManager.player_skills.append("Повелитель атома")
+		"Повелитель технологий":
+			ElementsManager.technologies_modifier += 0.4
+			LevelManager.player_skills.append("Повелитель технологий")
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:

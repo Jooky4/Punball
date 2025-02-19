@@ -124,6 +124,8 @@ func play_game() -> void:
 		balls_go()
 
 func chec_game_end() -> void:
+	hp_player_bar.value = LevelManager.hp_player
+	hp_player_label.text = str(LevelManager.hp_player)
 	var balls_on_map = true
 	var boss_alive = false
 	if LevelManager.combo_count > combo_count:
@@ -352,9 +354,9 @@ func end_wave() -> void:
 		hp_player_label.text = str(LevelManager.hp_player)
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
-	LevelManager.check_traps()
 	LevelManager.delete_freezing_and_fire_on_enemy()
 	animation_bank_with_experience()
+	LevelManager.check_traps(true)
 	if count_level_label.text == "19":
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished

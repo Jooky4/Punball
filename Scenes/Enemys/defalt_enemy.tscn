@@ -1195,7 +1195,6 @@ _data = {
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_oq22b")
-hp_enemy = 4000.0
 
 [node name="Death_effect" type="CPUParticles2D" parent="."]
 visible = false

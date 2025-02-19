@@ -11,3 +11,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	get_tree().current_scene.add_child(effect)
 	if body.has_method("enemy"):
 		body.deal_damage(damage_ball * ElementsManager.technologies_modifier, ElementsManager.color_elements["TECHNOLOGIES"])
+	LevelManager.heal_hp_plaer_from_technologies()
+
+func return_to_player(pos_player) -> void:
+	$CollisionShape2D/Area2D.collision_mask = 0
+	direction_bullet = Vector2.DOWN
+	speed = 0
+	sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(pos_player * 10000))
+	create_tween().tween_property(self, "global_position", pos_player, 0.5)

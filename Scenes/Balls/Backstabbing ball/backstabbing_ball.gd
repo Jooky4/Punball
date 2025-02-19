@@ -20,3 +20,4 @@ func collide_with_enemy(collider) -> void:
 			collider.deal_damage(1000 * ElementsManager.technologies_modifier, ElementsManager.color_elements["TECHNOLOGIES"])
 		else:
 			collider.deal_damage(damage_ball * ElementsManager.technologies_modifier, ElementsManager.color_elements["TECHNOLOGIES"])
+	LevelManager.heal_hp_plaer_from_technologies()

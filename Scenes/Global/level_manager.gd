@@ -19,7 +19,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
 var hit_player : bool = false
-var player_skills : Array = []#["Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
+var player_skills : Array = []#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
@@ -40,7 +40,7 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
- 											[null, 1, 1, 1, 1, 1],
+ 											[null, 1, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
  											[null, null, null, null, null, null],
@@ -209,14 +209,22 @@ func move_boss() -> void:
 									first_level_links_on_objects[boss_pos.x + i1][boss_pos.y + j1] = null
 							return
 
-func check_traps() -> void:
-	for i in range(first_level_links_on_objects.size()):
-		for j in range(first_level_links_on_objects[i].size()):
-			if first_level_links_on_objects[i][j] != null:
-				if first_level_links_on_objects[i][j].has_method("enemy"):
-					if trap_on_map_links[i][j] != null:
-						trap_on_map_links[i][j].delete_trap(first_level_links_on_objects[i][j])
-						trap_on_map_links[i][j] = null
+func check_traps(first_line : bool = false) -> void:
+	if first_line:
+		for i in range(first_level_links_on_objects[0].size()):
+			if trap_on_map_links[0][i] != null:
+				if first_level_links_on_objects[0][i] != null:
+					if first_level_links_on_objects[0][i].has_method("enemy"):
+						trap_on_map_links[0][i].delete_trap(first_level_links_on_objects[0][i])
+						trap_on_map_links[0][i] = null
+	else:
+		for i in range(first_level_links_on_objects.size()):
+			for j in range(first_level_links_on_objects[i].size()):
+				if trap_on_map_links[i][j] != null:
+					if first_level_links_on_objects[i][j] != null:
+						if first_level_links_on_objects[i][j].has_method("enemy"):
+							trap_on_map_links[i][j].delete_trap(first_level_links_on_objects[i][j])
+							trap_on_map_links[i][j] = null
 
 func updete_last_line() -> void:
 	var new_line_spawn
@@ -456,3 +464,9 @@ func find_all_enemys():
 				if j.has_method("enemy"):
 					enemy_arr.append(j)
 	return enemy_arr
+
+func heal_hp_plaer_from_technologies() -> void:
+	if "Повелитель технологий" in player_skills:
+		hp_player += round(max_hp_player*0.02)
+		if hp_player > max_hp_player:
+			hp_player += max_hp_player
