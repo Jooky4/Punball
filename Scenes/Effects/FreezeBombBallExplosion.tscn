@@ -9,11 +9,11 @@
 
 [sub_resource type="Curve" id="Curve_wn0m6"]
 max_value = 2.0
-_data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 5.85959, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_p1y4n"]
-offsets = PackedFloat32Array(0.004, 0.052, 0.438, 0.712)
+offsets = PackedFloat32Array(0.004, 0.052, 0.438, 0.93)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_453tt"]
@@ -21,12 +21,12 @@ offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0.596078, 1, 0)
 
 [sub_resource type="Curve" id="Curve_e1ywc"]
-_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.106061, 0.777273), 2.08, 2.08, 0, 0, Vector2(0.899621, 0.75), -2.016, -2.016, 0, 0, Vector2(1, 0), -0.816495, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 0), 0.0, 6.72, 0, 0, Vector2(0.498106, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.99999, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_l22ub"]
-offsets = PackedFloat32Array(0.004, 0.052, 0.566, 0.858, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0.537255, 1, 1, 0, 0.403922, 1, 0)
+offsets = PackedFloat32Array(0.004, 0.118, 0.484, 0.75, 0.888)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_e0f8p"]
 max_value = 2.0
@@ -54,11 +54,13 @@ emitting = false
 amount = 1
 lifetime = 0.7
 one_shot = true
-speed_scale = 1.5
+speed_scale = 2.4
 texture = ExtResource("1_ugunh")
 gravity = Vector2(0, 0)
-scale_amount_min = 0.4
-scale_amount_max = 0.4
+linear_accel_min = -170.0
+linear_accel_max = -150.0
+scale_amount_min = 0.52
+scale_amount_max = 0.52
 scale_amount_curve = SubResource("Curve_wn0m6")
 color_ramp = SubResource("Gradient_p1y4n")
 
@@ -67,41 +69,45 @@ emitting = false
 amount = 1
 lifetime = 0.7
 one_shot = true
-speed_scale = 1.5
+speed_scale = 2.4
 texture = ExtResource("2_cuv1j")
 gravity = Vector2(0, 0)
-scale_amount_min = 0.4
-scale_amount_max = 0.4
+linear_accel_min = -170.0
+linear_accel_max = -150.0
+scale_amount_min = 0.52
+scale_amount_max = 0.52
 scale_amount_curve = SubResource("Curve_wn0m6")
 color_ramp = SubResource("Gradient_453tt")
 
 [node name="Ледышки" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 14
-lifetime = 0.9
+lifetime = 0.92
 one_shot = true
-speed_scale = 1.5
+speed_scale = 2.4
 explosiveness = 0.8
 texture = ExtResource("3_tcsqa")
 direction = Vector2(0, -1)
-spread = 140.0
-gravity = Vector2(0, 150)
+spread = 150.0
+gravity = Vector2(0, 0)
 initial_velocity_min = 240.0
 initial_velocity_max = 300.0
 angular_velocity_min = -180.0
-linear_accel_min = -100.0
-linear_accel_max = -100.0
-scale_amount_min = 0.27
-scale_amount_max = 0.32
+linear_accel_min = -270.0
+linear_accel_max = -270.0
+angle_max = 180.0
+scale_amount_min = 0.45
+scale_amount_max = 0.6
 scale_amount_curve = SubResource("Curve_e1ywc")
 color_ramp = SubResource("Gradient_l22ub")
 
 [node name="Взрыв" type="CPUParticles2D" parent="."]
+visible = false
 emitting = false
 amount = 1
 lifetime = 0.7
 one_shot = true
-speed_scale = 1.5
+speed_scale = 1.7
 texture = ExtResource("5_ltyvg")
 gravity = Vector2(0, 0)
 scale_amount_min = 0.24
@@ -111,11 +117,12 @@ color = Color(0.815686, 1, 1, 1)
 color_ramp = SubResource("Gradient_46epo")
 
 [node name="Снежинки" type="CPUParticles2D" parent="."]
+visible = false
 emitting = false
 amount = 12
 lifetime = 1.2
 one_shot = true
-speed_scale = 1.5
+speed_scale = 1.7
 explosiveness = 0.78
 texture = ExtResource("6_ku354")
 direction = Vector2(0, -1)
