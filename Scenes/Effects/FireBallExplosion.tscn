@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="5_b8le6"]
 
 [sub_resource type="Curve" id="Curve_bsjg4"]
-_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.11553, 0.986364), 0.783673, 0.783673, 0, 0, Vector2(0.712121, 0.85), -1.30909, -1.30909, 0, 0, Vector2(1, 0), -3.02608, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(1, 0.00454545), -4.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_scpgs"]
 offsets = PackedFloat32Array(0, 0.144, 0.596, 0.826, 1)
@@ -26,7 +26,7 @@ script = ExtResource("1_csvfs")
 
 [node name="Дым" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 5
+amount = 3
 lifetime = 0.5
 one_shot = true
 speed_scale = 0.9
