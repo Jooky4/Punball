@@ -20,6 +20,7 @@ var BOMB_ENEMY = preload("res://Scenes/Enemys/bomb_enemy.tscn")
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
+
 var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
 var CRUNBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/crumbling_ball.tscn")
 var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
@@ -32,6 +33,7 @@ var ROCKET_BALL = preload("res://Scenes/Balls/Rocket ball/rocket_ball.tscn")
 var CUMULATIVE_BALL = preload("res://Scenes/Balls/Cumulative ball/cumulative_ball.tscn")
 var KILLER_BALL = preload("res://Scenes/Balls/Killer ball/killer_ball.tscn")
 var DRILLING_BALL = preload("res://Scenes/Balls/Drilling ball/drilling_ball.tscn")
+var BACKSTABBING_BALL = preload("res://Scenes/Balls/Backstabbing ball/backstabbing_ball.tscn")
 
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
@@ -254,6 +256,8 @@ func balls_go() -> void:
 					ball = KILLER_BALL.instantiate()
 				13:
 					ball = DRILLING_BALL.instantiate()
+				14:
+					ball =  BACKSTABBING_BALL.instantiate()
 			if i == 0 and "Суперначало" in LevelManager.player_skills:
 				ball.damage_ball *= 3
 			if i == (LevelManager.player_balls.size() - 1) and "Последний рывок" in LevelManager.player_skills:
@@ -436,6 +440,11 @@ func _on_button_12_pressed() -> void:
 
 func _on_button_13_pressed() -> void:
 	LevelManager.player_balls = [13]
+	LevelManager.restert()
+	get_tree().reload_current_scene()
+
+func _on_button_14_pressed() -> void:
+	LevelManager.player_balls = [14]
 	LevelManager.restert()
 	get_tree().reload_current_scene()
 

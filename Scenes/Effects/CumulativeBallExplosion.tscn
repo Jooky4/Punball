@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3safcv7b812o"]
+[gd_scene load_steps=7 format=3 uid="uid://d3safcv7b812o"]
 
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_2u5jj"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="1_4lu1l"]
 [ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="2_3p4uk"]
 
@@ -17,6 +18,7 @@ offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="CumulativeBallExplosion" type="Node2D"]
+script = ExtResource("1_2u5jj")
 
 [node name="Свечение" type="CPUParticles2D" parent="."]
 position = Vector2(0, -2)

@@ -108,7 +108,7 @@ func moving(direction_object) -> void:
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
-	if typeof(damage_ball) != 2:
+	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
 		label.text = str(damage_ball)
 	else:
 		label.text = "-" + str(damage_ball)

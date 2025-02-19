@@ -1,9 +1,13 @@
 extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
 
 var SMALL_CRUMBLING_BALL = preload("res://Scenes/Balls/Сrumbling ball/small_crumbling_ball.tscn")
+var EFFECT_BALL = preload("res://Scenes/Effects/CrumblingBallExplosion.tscn")
 var angle_rotation_small_ball : int = 15
 
 func collide_with_enemy(collider) -> void:
+	var effect = EFFECT_BALL.instantiate()
+	effect.global_position = self.global_position
+	get_tree().current_scene.add_child(effect)
 	for i in range(-2, 3):
 		if i != 0:
 			var slall_crunbling_ball = SMALL_CRUMBLING_BALL.instantiate()
