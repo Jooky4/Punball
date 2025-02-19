@@ -31,7 +31,7 @@ collision_mask = 11
 platform_on_leave = 2
 script = ExtResource("1_lsw0r")
 damage_ball = 300.0
-max_lenght_line = 8
+max_lenght_line = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
