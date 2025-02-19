@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxkkmslaoo4dl"]
+
+[ext_resource type="Texture2D" uid="uid://jf0twirv5n7s" path="res://Texture/For Skills/ловушка.png" id="1_sg8b0"]
+[ext_resource type="Script" path="res://Scenes/For skills/trap.gd" id="2_3r23j"]
+
+[node name="trap" type="Sprite2D"]
+z_index = -1
+position = Vector2(-5.96046e-08, 4.76837e-07)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_sg8b0")
+script = ExtResource("2_3r23j")

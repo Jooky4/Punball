@@ -351,6 +351,7 @@ func end_wave() -> void:
 		hp_player_label.text = str(LevelManager.hp_player)
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
+	LevelManager.check_traps()
 	LevelManager.delete_freezing_and_fire_on_enemy()
 	animation_bank_with_experience()
 	if count_level_label.text == "19":

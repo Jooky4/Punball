@@ -17,7 +17,7 @@ func create_label_damage(damage_ball, color_label) -> void:
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)
-	label.show_label(150)
+	label.show_label(125)
 
 func get_bullet_pos() -> Vector2:
 	return Vector2(47, 108)

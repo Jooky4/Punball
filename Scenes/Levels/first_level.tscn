@@ -252,7 +252,7 @@ rotation = 1.5708
 [node name="Start_bullet_position" type="Node2D" parent="Dicariations"]
 
 [node name="Line2D" type="Line2D" parent="Dicariations/Start_bullet_position"]
-z_index = 1
+z_index = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7sh1d")
 points = PackedVector2Array(0, 0, 0, 0)
@@ -261,6 +261,7 @@ texture = ExtResource("5_7ui2n")
 texture_mode = 1
 
 [node name="Strelka" type="Line2D" parent="Dicariations/Start_bullet_position"]
+z_index = 2
 points = PackedVector2Array(359, 1207, 359, 1208)
 width = 30.0
 texture = ExtResource("8_wf17s")
@@ -311,6 +312,7 @@ target_position = Vector2(720, 197)
 
 [node name="Ball_rotate_UI" parent="Dicariations/Start_bullet_position" instance=ExtResource("9_2r8vu")]
 visible = false
+z_index = 2
 position = Vector2(359, 1205)
 
 [node name="Setka" type="Node2D" parent="Dicariations"]
