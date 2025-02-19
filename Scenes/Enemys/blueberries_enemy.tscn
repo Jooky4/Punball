@@ -1,14 +1,23 @@
-[gd_scene load_steps=26 format=3 uid="uid://cs7a08eol6pay"]
+[gd_scene load_steps=29 format=3 uid="uid://cs7a08eol6pay"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/blueberries_enemy.gd" id="1_4nflj"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_6irtg"]
 [ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="2_kdbwk"]
+[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_oihnl"]
 [ext_resource type="Texture2D" uid="uid://b1k64lxo1ayrh" path="res://Texture/Enemys/Blueberries_enemy/Eye.png" id="3_508eo"]
 [ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="4_ty01e"]
 [ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Blueberries_enemy/листик.png" id="5_f3cgh"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="6_xi2xi"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="7_wci5x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="8_fewwm"]
+
+[sub_resource type="Curve" id="Curve_aadmt"]
+_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_lyxq8"]
+offsets = PackedFloat32Array(0, 0.286, 0.624, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uhugu"]
 resource_local_to_scene = true
@@ -190,6 +199,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [0.0, 0.9, 0.0]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Move_effect:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_e6v84"]
 resource_name = "Hit"
@@ -265,6 +286,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(-2, 1, 1, 1, 1, 1, -2),
 "update": 0,
 "values": [0.0, 0.174533, 0.0, -0.174533, 0.0, 0.0872665, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Move_effect:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ppxyw"]
@@ -368,6 +401,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Move_effect:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3slqe"]
 resource_name = "Move"
@@ -445,6 +490,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(-2, 0.5, 1, -2, -2, 1, 2, -2),
 "update": 0,
 "values": [0.0, 0.0, 0.139626, 0.0174533, -0.0174533, -0.139626, 0.0, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Move_effect:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.225),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ql6h3"]
@@ -544,6 +601,18 @@ tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0.18779),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Move_effect:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -743,6 +812,30 @@ tracks/15/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Spawn_effect:emitting")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Move_effect:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xhi3q"]
 resource_name = "Spawn"
@@ -843,6 +936,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(-45, -357), Vector2(-45, 36)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Spawn_effect:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
@@ -860,6 +965,79 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_4nflj")
 hp_enemy = 1440.0
+
+[node name="Death_effect" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, 19.895)
+emitting = false
+amount = 14
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.85
+lifetime_randomness = 0.3
+texture = ExtResource("2_oihnl")
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, -190)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_max = 90.0
+linear_accel_min = -200.0
+linear_accel_max = -200.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.4
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_aadmt")
+color = Color(0.96875, 0.96875, 0.96875, 1)
+color_ramp = SubResource("Gradient_lyxq8")
+
+[node name="Spawn_effect" type="CPUParticles2D" parent="."]
+position = Vector2(0, 19.895)
+emitting = false
+amount = 18
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.85
+lifetime_randomness = 0.3
+texture = ExtResource("2_oihnl")
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, -190)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_max = 90.0
+linear_accel_min = -200.0
+linear_accel_max = -200.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.4
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_aadmt")
+color = Color(0.96875, 0.96875, 0.96875, 1)
+color_ramp = SubResource("Gradient_lyxq8")
+
+[node name="Move_effect" type="CPUParticles2D" parent="."]
+position = Vector2(0, 8)
+emitting = false
+amount = 4
+lifetime = 1.1
+explosiveness = 0.3
+lifetime_randomness = 0.3
+texture = ExtResource("2_oihnl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 1)
+direction = Vector2(0, -1)
+spread = 50.0
+gravity = Vector2(0, 0)
+angular_velocity_max = 180.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.4
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_aadmt")
+color = Color(0.96875, 0.96875, 0.96875, 1)
+color_ramp = SubResource("Gradient_lyxq8")
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
 material = SubResource("ShaderMaterial_uhugu")
@@ -940,6 +1118,6 @@ libraries = {
 }
 autoplay = "Spawn"
 next/Spawn = &"Idle"
-blend_times = [&"Hit", &"Hit", 0.15, &"Hit", &"Idle", 0.3, &"Hit", &"Move", 0.3, &"Hit", &"Preparation", 0.3, &"Idle", &"Hit", 0.15, &"Idle", &"Idle", 0.3, &"Idle", &"Move", 0.3, &"Idle", &"Preparation", 0.3, &"Move", &"Hit", 0.2, &"Move", &"Idle", 0.3, &"Move", &"Move", 0.3, &"Move", &"Preparation", 0.3, &"Preparation", &"Hit", 0.2, &"Preparation", &"Idle", 0.3, &"Preparation", &"Move", 0.3, &"Preparation", &"Preparation", 0.3, &"Spawn", &"Idle", 0.6]
+blend_times = [&"Hit", &"Hit", 0.15, &"Hit", &"Idle", 0.3, &"Hit", &"Move", 0.3, &"Hit", &"Preparation", 0.3, &"Idle", &"Hit", 0.15, &"Idle", &"Idle", 0.3, &"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.3, &"Move", &"Hit", 0.2, &"Move", &"Idle", 0.3, &"Move", &"Move", 0.3, &"Move", &"Preparation", 0.3, &"Preparation", &"Hit", 0.2, &"Preparation", &"Idle", 0.3, &"Preparation", &"Move", 0.3, &"Preparation", &"Preparation", 0.3, &"Spawn", &"Idle", 0.6]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
