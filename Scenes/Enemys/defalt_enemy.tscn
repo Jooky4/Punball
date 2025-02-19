@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dth3oomadgqmv"]
+[gd_scene load_steps=31 format=3 uid="uid://dth3oomadgqmv"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_oq22b"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_2vwrg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="6_1tsab"]
 [ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="7_70tpc"]
 [ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="8_iab2r"]
+[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="9_p1wxr"]
 
 [sub_resource type="Curve" id="Curve_pp0bc"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -1278,6 +1279,11 @@ use_parent_material = true
 position = Vector2(0, 5)
 scale = Vector2(0.285, 0.285)
 texture = ExtResource("8_iab2r")
+
+[node name="freezen_sprite" type="Sprite2D" parent="Sprite_enemy"]
+visible = false
+position = Vector2(-1, 1)
+texture = ExtResource("9_p1wxr")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1

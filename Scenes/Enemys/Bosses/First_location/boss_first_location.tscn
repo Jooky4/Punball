@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ux4skrwbxon4"]
+[gd_scene load_steps=26 format=3 uid="uid://ux4skrwbxon4"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/Bosses/First_location/boss_first_location.gd" id="1_pst5v"]
 [ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="2_8e27a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Blueberries_enemy/листик.png" id="4_korh3"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="5_yfq8f"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="6_kbdnm"]
+[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="7_1qprv"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_em5g7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
@@ -1015,6 +1016,12 @@ position = Vector2(-128.571, -357.143)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("4_korh3")
 offset = Vector2(45.4571, 117.586)
+
+[node name="freezen_sprite" type="Sprite2D" parent="Sprite_enemy"]
+visible = false
+position = Vector2(-40, -80)
+scale = Vector2(13, 13)
+texture = ExtResource("7_1qprv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

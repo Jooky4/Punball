@@ -16,7 +16,7 @@ var count_experiance : int = 0
 var combo_count : int = 0
 var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
-var chance_of_freezing : float = 0.4
+var chance_of_freezing : float = 0.1
 var hit_player : bool = false
 var player_skills : Array = []#["Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
@@ -42,7 +42,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
 											[null, 1, 1, 1, 1, 1],
 											[null, -1, null, null, null, null],
 											[1, 1, 1, 1, 1, null],
-											[null, -2, null, null, null, null],
+											[null, -2, 1, 2, 3, null],
 											[null, null, null, null, null, null],
 											[null, null, null, null, null, null],
 											[null, null, null, null, null, null]]

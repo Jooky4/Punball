@@ -16,6 +16,7 @@ var on_fire : bool = false
 @onready var hp_enemy_bar = $TextureProgressBar
 @onready var animation_enemy = $AnimationPlayer
 @onready var fire_effect = $Fire_effect
+@onready var freezen_sprite = $Sprite_enemy/freezen_sprite
 
 func _ready() -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
@@ -67,8 +68,7 @@ func deal_freezing_damage(damage_ball, color_label) -> void:
 		deal_damage(damage_ball, color_label)
 		if randf() < LevelManager.chance_of_freezing:
 			freezen = true
-			var tween = create_tween()
-			tween.tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.15)
+			freezen_sprite.visible = true
 
 func deal_fire_damage(damage_ball, color_label) -> void:
 	if alive:
@@ -85,7 +85,7 @@ func delete_freezing_and_fire() -> void:
 		on_fire = false
 	if freezen:
 		freezen = false
-		create_tween().tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.01)
+		freezen_sprite.visible = false
 
 func moving(direction_object) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
