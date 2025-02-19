@@ -132,6 +132,8 @@ func add_skill(skill) -> void:
 			LevelManager.add_ball(12)
 		"Бурящий шар":
 			LevelManager.add_ball(13)
+		"Шар удара в спину":
+			LevelManager.add_ball(14)
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":
@@ -156,6 +158,8 @@ func add_skill(skill) -> void:
 			LevelManager.player_skills.append("Суперначало")
 		"Последний рывок":
 			LevelManager.player_skills.append("Последний рывок")
+		"Ловушка":
+			LevelManager.player_skills.append("Ловушка")
 		"Молния смерти":
 			LevelManager.player_skills.append("Молния смерти")
 		"Холод смерти":
@@ -164,6 +168,8 @@ func add_skill(skill) -> void:
 			LevelManager.player_skills.append("Бомба смерти")
 		"Лазер смерти":
 			LevelManager.player_skills.append("Лазер смерти")
+		"Ракета смерти":
+			LevelManager.player_skills.append("Ракета смерти")
 		"Лазер: комбо":
 			LevelManager.player_skills.append("Лазер: комбо")
 		"Молния: комбо":
@@ -172,6 +178,8 @@ func add_skill(skill) -> void:
 			LevelManager.player_skills.append("Лед: комбо")
 		"Огонь: комбо":
 			LevelManager.player_skills.append("Огонь: комбо")
+		"Ядерная: комбо":
+			LevelManager.player_skills.append("Ядерная: комбо")
 		"Повелитель молний":
 			LevelManager.count_damage_lightning_enemy = 5
 			ElementsManager.lightning_modifier += 0.4
