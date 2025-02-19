@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dth3oomadgqmv"]
+[gd_scene load_steps=27 format=3 uid="uid://dth3oomadgqmv"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_oq22b"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_7tq2g"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_5chwh"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_1gi6c"]
 [ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="4_pkxlk"]
@@ -9,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="6_1tsab"]
 [ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="7_70tpc"]
 [ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="8_iab2r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vd80f"]
+shader = ExtResource("2_7tq2g")
+shader_parameter/lightness = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_r53h3"]
 font = ExtResource("5_qh7tt")
@@ -1049,6 +1054,7 @@ collision_mask = 0
 script = ExtResource("1_oq22b")
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_vd80f")
 
 [node name="Body" type="Sprite2D" parent="Sprite_enemy"]
 position = Vector2(0, 5)
@@ -1056,23 +1062,27 @@ scale = Vector2(0.285, 0.285)
 texture = ExtResource("6_1tsab")
 
 [node name="Head" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(0, 5)
 scale = Vector2(0.285, 0.285)
 texture = ExtResource("7_70tpc")
 
 [node name="Eye1" type="Sprite2D" parent="Sprite_enemy/Head"]
 visible = false
+use_parent_material = true
 position = Vector2(56.1404, -17.5439)
 scale = Vector2(0.604, 0.604)
 texture = ExtResource("4_pkxlk")
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Head"]
 visible = false
+use_parent_material = true
 position = Vector2(-45.614, -17.5439)
 scale = Vector2(0.689, 0.689)
 texture = ExtResource("5_h5blp")
 
 [node name="Hand" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(0, 5)
 scale = Vector2(0.285, 0.285)
 texture = ExtResource("8_iab2r")
