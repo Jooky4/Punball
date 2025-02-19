@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://buyxmeafcjqfa"]
+[gd_scene load_steps=10 format=3 uid="uid://buyxmeafcjqfa"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Killer ball/killer_ball.gd" id="1_0bl4e"]
-[ext_resource type="Texture2D" uid="uid://p22lolls53ln" path="res://Texture/Balls/шар убийца.png" id="2_go7ux"]
+[ext_resource type="Texture2D" uid="uid://bvl15o1bph8jo" path="res://Texture/Balls/шар убийца_2.png" id="2_mvfgn"]
 [ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_1xk0m"]
-[ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_gsekc"]
+[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="4_3rxmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -16,9 +16,13 @@ point_count = 2
 offsets = PackedFloat32Array(0.174528, 0.962264, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="Gradient" id="Gradient_wgpwx"]
-offsets = PackedFloat32Array(0, 0.0873239, 0.256338, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Curve" id="Curve_4fd3i"]
+_data = [Vector2(0, 1), -3.04932, 1.13684, 0, 0, Vector2(1, 0), -1.12438, 0.370897, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_adl47"]
+offsets = PackedFloat32Array(0, 0.129577, 0.523944, 0.997183)
+colors = PackedColorArray(0.785156, 0.785156, 0.785156, 0, 0.482353, 0.52549, 0.627451, 1, 0.0431373, 0.14902, 0.301961, 1, 0.0431373, 0.14902, 0.301961, 0)
 
 [node name="killer_ball" type="CharacterBody2D"]
 z_index = -1
@@ -33,14 +37,15 @@ shape = SubResource("CircleShape2D_l7c6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 5
-position = Vector2(0, 9.53674e-07)
+position = Vector2(0.287958, 2.23647e-07)
 rotation = 3.14159
-scale = Vector2(0.47, 0.47)
-texture = ExtResource("2_go7ux")
+scale = Vector2(0.757958, 0.757958)
+texture = ExtResource("2_mvfgn")
 offset = Vector2(1, 0)
 flip_v = true
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 show_behind_parent = true
 top_level = true
 width = 43.0
@@ -49,17 +54,19 @@ gradient = SubResource("Gradient_iwwbw")
 texture = ExtResource("3_1xk0m")
 texture_mode = 2
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Smoke" type="CPUParticles2D" parent="."]
 z_index = 4
-amount = 3
-lifetime = 0.25
+lifetime = 0.14
+lifetime_randomness = 0.1
 fixed_fps = 60
-texture = ExtResource("4_gsekc")
-emission_shape = 2
-emission_sphere_radius = 15.65
+texture = ExtResource("4_3rxmx")
+emission_shape = 1
+emission_sphere_radius = 8.0
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_max = 20.0
-scale_amount_min = 0.1
-scale_amount_max = 0.2
-color_ramp = SubResource("Gradient_wgpwx")
+angular_velocity_max = 180.0
+angle_max = 180.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_4fd3i")
+color_ramp = SubResource("Gradient_adl47")
