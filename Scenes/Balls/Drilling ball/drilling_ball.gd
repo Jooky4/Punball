@@ -1,6 +1,6 @@
 extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
 
-var EFFECT_BALL = preload("res://Scenes/Effects/KillerBallExplosion.tscn")
+var EFFECT_BALL = preload("res://Scenes/Effects/DrillingBallExplosion.tscn")
 
 func collide_with_enemy(collider) -> void:
 	pass

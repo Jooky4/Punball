@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://db8csqu4f4jcu"]
+[gd_scene load_steps=17 format=3 uid="uid://db8csqu4f4jcu"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/bomb_enemy.gd" id="1_ri3sy"]
 [ext_resource type="Texture2D" uid="uid://d0ud3823gq70m" path="res://Texture/Enemys/Bomb_enemy/тело.png" id="2_khpjb"]
 [ext_resource type="Texture2D" uid="uid://bi8v3fdkihrfr" path="res://Texture/Enemys/Bomb_enemy/фитиль.png" id="3_ymfpt"]
 [ext_resource type="Texture2D" uid="uid://dmvheea3mad43" path="res://Texture/Enemys/Bomb_enemy/огонь.png" id="4_bwc73"]
-[ext_resource type="Texture2D" uid="uid://bo1vovlfglalb" path="res://Texture/Enemys/Bomb_enemy/ноги.png" id="5_5dmg7"]
+[ext_resource type="Texture2D" uid="uid://lf0yln3iddcv" path="res://Texture/Enemys/Bomb_enemy/нога_2.png" id="5_3lhb4"]
+[ext_resource type="Texture2D" uid="uid://bv5uicw6a4bso" path="res://Texture/Enemys/Bomb_enemy/нога_1.png" id="6_776bt"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="6_moetr"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="7_yj8pl"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="8_yh5ss"]
@@ -70,20 +71,30 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_ymfpt")
 
 [node name="Огонь" type="Sprite2D" parent="Sprite_enemy"]
+visible = false
 position = Vector2(-32.5, -32.5)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_bwc73")
 
-[node name="Ноги" type="Sprite2D" parent="Sprite_enemy"]
-position = Vector2(-32.5, -32.5)
+[node name="Нога1" type="Sprite2D" parent="Sprite_enemy"]
+position = Vector2(-155.556, 237.037)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("5_5dmg7")
+texture = ExtResource("5_3lhb4")
+offset = Vector2(98.4444, -215.63)
+
+[node name="Нога2" type="Sprite2D" parent="Sprite_enemy"]
+position = Vector2(74.0741, 237.037)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_776bt")
+offset = Vector2(-85.2593, -215.63)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_m8ci2")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
 z_index = 1
 offset_left = -45.0
 offset_top = 36.0
@@ -95,6 +106,7 @@ texture_under = ExtResource("6_moetr")
 texture_progress = ExtResource("7_yj8pl")
 
 [node name="Hp_boss_label" type="Label" parent="."]
+visible = false
 z_index = 1
 offset_left = -45.0
 offset_top = 22.0

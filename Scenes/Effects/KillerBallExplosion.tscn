@@ -1,51 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://r6tqk3m2305e"]
+[gd_scene load_steps=5 format=3 uid="uid://r6tqk3m2305e"]
 
 [ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_fg47w"]
-[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="1_spcmp"]
-[ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="2_vwp4w"]
+[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_f3thl"]
 
-[sub_resource type="Curve" id="Curve_78fle"]
-max_value = 2.0
-_data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_87t57"]
+_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(1, 0.00454545), -4.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_husbh"]
-offsets = PackedFloat32Array(0.004, 0.052, 0.438, 0.712)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_av10r"]
-offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_64dxd"]
+offsets = PackedFloat32Array(0, 0.164063, 0.596, 0.800781, 1)
+colors = PackedColorArray(0.709804, 0.745098, 0.823529, 0, 0.709804, 0.745098, 0.823529, 1, 0.0392157, 0.14902, 0.301961, 1, 0.0392157, 0.145098, 0.298039, 1, 0.0392157, 0.145098, 0.298039, 0)
 
 [node name="CumulativeBallExplosion" type="Node2D"]
 script = ExtResource("1_fg47w")
 
-[node name="Свечение" type="CPUParticles2D" parent="."]
-position = Vector2(0, -2)
+[node name="Дым" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 1
-lifetime = 0.7
+amount = 3
+lifetime = 0.5
 one_shot = true
-speed_scale = 2.7
-texture = ExtResource("1_spcmp")
+speed_scale = 0.9
+explosiveness = 0.85
+texture = ExtResource("2_f3thl")
+direction = Vector2(0, -1)
+spread = 180.0
 gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 70.0
+linear_accel_min = -92.7
+linear_accel_max = -3.65
+angle_max = 180.0
 scale_amount_min = 0.2
-scale_amount_max = 0.2
-scale_amount_curve = SubResource("Curve_78fle")
-color = Color(0.0431373, 0.14902, 0.301961, 1)
-color_ramp = SubResource("Gradient_husbh")
-
-[node name="Кольцо" type="CPUParticles2D" parent="."]
-position = Vector2(0, -2)
-emitting = false
-amount = 1
-lifetime = 0.7
-one_shot = true
-speed_scale = 2.7
-texture = ExtResource("2_vwp4w")
-gravity = Vector2(0, 0)
-scale_amount_min = 0.2
-scale_amount_max = 0.2
-scale_amount_curve = SubResource("Curve_78fle")
-color = Color(0.0431373, 0.14902, 0.301961, 1)
-color_ramp = SubResource("Gradient_av10r")
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_87t57")
+color_ramp = SubResource("Gradient_64dxd")

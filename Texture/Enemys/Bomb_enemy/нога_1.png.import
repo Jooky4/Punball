@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo1vovlfglalb"
-path="res://.godot/imported/ноги.png-5f608f1bdf1a69bc4180e0107ba1034f.ctex"
+uid="uid://bv5uicw6a4bso"
+path="res://.godot/imported/нога_1.png-1b6874279b40dfd729397cb26131670e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Enemys/Bomb_enemy/ноги.png"
-dest_files=["res://.godot/imported/ноги.png-5f608f1bdf1a69bc4180e0107ba1034f.ctex"]
+source_file="res://Texture/Enemys/Bomb_enemy/нога_1.png"
+dest_files=["res://.godot/imported/нога_1.png-1b6874279b40dfd729397cb26131670e.ctex"]
 
 [params]
 
