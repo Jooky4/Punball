@@ -1,20 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://duf3g3m8crsnm"]
+[gd_scene load_steps=12 format=3 uid="uid://duf3g3m8crsnm"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Rocket ball/rocket_ball.gd" id="1_lsw0r"]
 [ext_resource type="Texture2D" uid="uid://b74f0w5agfq17" path="res://Texture/Balls/шар ракета.png" id="2_7piid"]
-[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_5kuo0"]
+[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="2_a3v37"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_y82wu"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_r2j6x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
 
+[sub_resource type="Curve" id="Curve_rdt05"]
+_data = [Vector2(0, 0), -3.04932, 6.68571, 0, 0, Vector2(1, 0), -1.12438, 0.370897, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bc4f0"]
+offsets = PackedFloat32Array(0.076, 0.826)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="Curve" id="Curve_dionf"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 5.70739, 0, 0, Vector2(1, 0.0262983), -1.01055, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_iwwbw"]
-offsets = PackedFloat32Array(0.174528, 0.962264, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.564, 0.788, 0.962264, 1)
+colors = PackedColorArray(1, 1, 0.933333, 0, 1, 1, 0.933796, 0.832487, 1, 1, 0.933889, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_wgpwx"]
 offsets = PackedFloat32Array(0, 0.0873239, 0.256338, 1)
@@ -27,29 +36,50 @@ collision_mask = 11
 platform_on_leave = 2
 script = ExtResource("1_lsw0r")
 damage_ball = 300.0
+max_lenght_line = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
+
+[node name="Smoke" type="CPUParticles2D" parent="CollisionShape2D"]
+z_index = 4
+position = Vector2(0, 14)
+amount = 25
+lifetime = 0.18
+lifetime_randomness = 0.1
+fixed_fps = 60
+texture = ExtResource("2_a3v37")
+spread = 180.0
+gravity = Vector2(0, 0)
+angular_velocity_max = 180.0
+angle_max = 180.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_rdt05")
+color_ramp = SubResource("Gradient_bc4f0")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 5
 position = Vector2(-2.13163e-14, 17)
 rotation = 3.14159
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.65, 0.6)
 texture = ExtResource("2_7piid")
 offset = Vector2(1, 0)
 flip_v = true
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 show_behind_parent = true
 top_level = true
+points = PackedVector2Array(0, 200, 0, 150, 0, 100, 0, 50, 0, 0)
 width = 43.0
 width_curve = SubResource("Curve_dionf")
 gradient = SubResource("Gradient_iwwbw")
-texture = ExtResource("3_5kuo0")
+texture = ExtResource("3_y82wu")
 texture_mode = 2
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
 z_index = 4
 amount = 3
 lifetime = 0.25

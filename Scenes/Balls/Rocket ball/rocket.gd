@@ -1,9 +1,11 @@
 extends Node2D
 
-var speed : int = 800
+var speed : int = 250
 var start_position
 var end_position
-var arc_height = -200
+var arc_height = -150
+var min_duration : float = 1.4  # Минимальное время полета (в секундах) ДОБАВИЛ ДИМА
+var max_duration : float = 2.4  # Максимальное время полета (в секундах) ДОБАВИЛ ДИМА
 
 func go(enemy, start_pos) -> void:
 	if enemy != null:
@@ -11,9 +13,13 @@ func go(enemy, start_pos) -> void:
 		end_position = enemy.global_position
 		rotation_degrees = 90 + rad_to_deg(position.angle_to_point((end_position - start_position).normalized() * 10000))
 		var distance = start_pos.distance_to(enemy.global_position)
+		
+		var duration = distance / float(speed) # Рассчитываем время полета ДОБАВИЛ ДИМА
+		duration = clamp(duration, min_duration, max_duration)  # Устанавливаем минимальное и максимальное время ДОБАВИЛ ДИМА
+
 		var tween = create_tween()
-		tween.tween_method(_move_along_arc, 0.0, 1.0, distance/speed)
-		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_method(_move_along_arc, 0.0, 1.0, duration)
+		tween.set_trans(Tween.TRANS_EXPO)
 		await tween.finished
 		if enemy != null:
 			enemy.deal_damage(300 * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"])
