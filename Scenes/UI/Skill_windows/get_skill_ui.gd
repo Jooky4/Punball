@@ -23,7 +23,9 @@ var rare = [["Шар молний",  350],
 			["Горизонтальный лазерный шар", 220],
 			["Шар ракета", 280],
 			["Кумулятивный шар", 320],
-			["Ядерная: комбо", 300]]
+			["Ядерная: комбо", 300],
+			["Шар убийца", 200],
+			["Бурящий шар", 300]]
 var epic = [["Усиление атаки", 550],
 			["Молния смерти", 500],
 			["Холод смерти", 450],
@@ -123,6 +125,10 @@ func add_skill(skill) -> void:
 			LevelManager.add_ball(10)
 		"Кумулятивный шар":
 			LevelManager.add_ball(11)
+		"Шар убийца":
+			LevelManager.add_ball(12)
+		"Бурящий шар":
+			LevelManager.add_ball(13)
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":
@@ -134,6 +140,7 @@ func add_skill(skill) -> void:
 			ElementsManager.laser_modifier += 0.1
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.nuclear_modifier += 0.1
+			ElementsManager.technologies_modifier += 0.1
 		"Усиление атаки":
 			ElementsManager.normal_modifier += 0.1
 			ElementsManager.fire_modifier += 0.1
@@ -141,6 +148,7 @@ func add_skill(skill) -> void:
 			ElementsManager.laser_modifier += 0.1
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.nuclear_modifier += 0.1
+			ElementsManager.technologies_modifier += 0.1
 		"Суперначало":
 			LevelManager.player_skills.append("Суперначало")
 		"Последний рывок":

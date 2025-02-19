@@ -30,9 +30,12 @@ func _ready() -> void:
 func enemy() -> void:
 	pass
 
-func deal_damage(damage_ball, color_label) -> void:
+func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 	hp_enemy -= damage_ball
-	create_label_damage(damage_ball, color_label)
+	if killer_ball:
+		create_label_damage("УБИЙЦА", color_label)
+	else:
+		create_label_damage(damage_ball, color_label)
 	if hp_enemy <= 0 and alive:
 		alive = false
 		LevelManager.enemy_died(self)
@@ -105,7 +108,10 @@ func moving(direction_object) -> void:
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
-	label.text = "-" + str(damage_ball)
+	if typeof(damage_ball) != 2:
+		label.text = str(damage_ball)
+	else:
+		label.text = "-" + str(damage_ball)
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)

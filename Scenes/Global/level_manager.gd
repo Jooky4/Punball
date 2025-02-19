@@ -77,6 +77,9 @@ func damage_player(damage) -> void:
 	hp_player -= damage
 
 func apeend_new_balls() -> void:
+	if 11 in player_balls_after_wave:
+		player_balls.insert(0, 11)
+		player_balls_after_wave.erase(11)
 	player_balls.append_array(player_balls_after_wave)
 	player_balls_after_wave.clear()
 

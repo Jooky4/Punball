@@ -44,6 +44,7 @@ func return_to_player(pos_player) -> void:
 	collision_mask = 0
 	direction_bullet = Vector2.DOWN
 	speed = 0
+	sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(pos_player * 10000))
 	create_tween().tween_property(self, "global_position", pos_player, 0.5)
 
 func ball() -> void:
