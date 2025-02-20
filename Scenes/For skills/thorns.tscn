@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2crpl1t810xg"]
+[gd_scene load_steps=7 format=3 uid="uid://c2crpl1t810xg"]
 
 [ext_resource type="Script" path="res://Scenes/For skills/thorns.gd" id="1_pq4y1"]
 [ext_resource type="Texture2D" uid="uid://02we4yyd1vmf" path="res://Texture/For Skills/Шип_основа_1.png" id="2_rnxqk"]
-[ext_resource type="Texture2D" uid="uid://b6tfhf8bx8kcs" path="res://Texture/For Skills/шип (центр).png" id="3_mk0r3"]
-[ext_resource type="Texture2D" uid="uid://bw2jlbep06ej6" path="res://Texture/For Skills/шип.png" id="3_w5b5c"]
+[ext_resource type="Texture2D" uid="uid://bvoq602bgtr0e" path="res://Texture/For Skills/шип_нов.png" id="3_3otlw"]
 
 [sub_resource type="Animation" id="Animation_nb3jw"]
 resource_name = "RESET"
@@ -103,19 +102,19 @@ texture = ExtResource("2_rnxqk")
 [node name="Шип1" type="Sprite2D" parent="."]
 position = Vector2(-26, 36)
 scale = Vector2(0.289244, 0.289244)
-texture = ExtResource("3_mk0r3")
+texture = ExtResource("3_3otlw")
 offset = Vector2(-0.432175, -121.797)
 
 [node name="Шип2" type="Sprite2D" parent="."]
 position = Vector2(5, 38)
 scale = Vector2(0.289244, 0.289244)
-texture = ExtResource("3_w5b5c")
+texture = ExtResource("3_3otlw")
 offset = Vector2(-0.432175, -125.254)
 
 [node name="Шип3" type="Sprite2D" parent="."]
 position = Vector2(36, 37)
 scale = Vector2(0.289244, 0.289244)
-texture = ExtResource("3_w5b5c")
+texture = ExtResource("3_3otlw")
 offset = Vector2(-0.432175, -121.797)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
