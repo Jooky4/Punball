@@ -1,18 +1,18 @@
-[gd_scene load_steps=30 format=3 uid="uid://dth3oomadgqmv"]
+[gd_scene load_steps=30 format=3 uid="uid://cv6rl7if0i1yl"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_oq22b"]
-[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_2vwrg"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_7tq2g"]
-[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_5chwh"]
-[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_1gi6c"]
-[ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="4_pkxlk"]
-[ext_resource type="Texture2D" uid="uid://cldip32qg0raq" path="res://Texture/Enemys/Defalt_enemy/глаз2.png" id="5_h5blp"]
-[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="5_qh7tt"]
-[ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="6_1tsab"]
-[ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="7_70tpc"]
-[ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="8_iab2r"]
-[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="9_p1wxr"]
-[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="13_g55k0"]
+[ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_ajo1y"]
+[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_e67dy"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_joo56"]
+[ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="4_284we"]
+[ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="5_uo4c3"]
+[ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="6_urkec"]
+[ext_resource type="Texture2D" uid="uid://cldip32qg0raq" path="res://Texture/Enemys/Defalt_enemy/глаз2.png" id="7_4u33g"]
+[ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="8_kmfgd"]
+[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="9_s03de"]
+[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="10_ijamr"]
+[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="11_tusfv"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="12_5xy2u"]
+[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="13_cs1pn"]
 
 [sub_resource type="Curve" id="Curve_pp0bc"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -24,11 +24,11 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n7jnx"]
 resource_local_to_scene = true
-shader = ExtResource("2_7tq2g")
+shader = ExtResource("3_joo56")
 shader_parameter/lightness = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_r53h3"]
-font = ExtResource("5_qh7tt")
+font = ExtResource("12_5xy2u")
 font_size = 50
 font_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
 outline_size = 20
@@ -36,11 +36,11 @@ outline_size = 20
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
 size = Vector2(91, 90)
 
-[sub_resource type="Curve" id="Curve_2r5ej"]
+[sub_resource type="Curve" id="Curve_tv7jk"]
 _data = [Vector2(0, 0), 0.0, 2.61818, 0, 0, Vector2(0.342803, 0.636364), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.914285, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_bby7f"]
+[sub_resource type="Gradient" id="Gradient_rq4xv"]
 offsets = PackedFloat32Array(0, 0.17, 0.414, 0.632, 0.822, 0.872)
 colors = PackedColorArray(1, 1, 1, 0, 1, 0.952941, 0.301961, 1, 1, 0.611765, 0, 1, 0.929412, 0.207843, 0.0235294, 1, 0.929412, 0.207843, 0.0235294, 1, 0.929412, 0.207843, 0.0235294, 0)
 
@@ -1406,7 +1406,7 @@ _data = {
 [node name="defalt_enemy" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_oq22b")
+script = ExtResource("1_ajo1y")
 
 [node name="Effects" type="Node2D" parent="."]
 
@@ -1418,7 +1418,7 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.85
 lifetime_randomness = 0.3
-texture = ExtResource("2_2vwrg")
+texture = ExtResource("2_e67dy")
 direction = Vector2(0, 1)
 spread = 180.0
 gravity = Vector2(0, -150)
@@ -1443,7 +1443,7 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.85
 lifetime_randomness = 0.3
-texture = ExtResource("2_2vwrg")
+texture = ExtResource("2_e67dy")
 direction = Vector2(0, 1)
 spread = 180.0
 gravity = Vector2(0, -190)
@@ -1467,7 +1467,7 @@ amount = 4
 lifetime = 1.1
 explosiveness = 0.3
 lifetime_randomness = 0.3
-texture = ExtResource("2_2vwrg")
+texture = ExtResource("2_e67dy")
 emission_shape = 3
 emission_rect_extents = Vector2(20, 1)
 direction = Vector2(0, -1)
@@ -1489,38 +1489,38 @@ material = SubResource("ShaderMaterial_n7jnx")
 use_parent_material = true
 position = Vector2(0, 5)
 scale = Vector2(0.285, 0.285)
-texture = ExtResource("6_1tsab")
+texture = ExtResource("4_284we")
 
 [node name="Head" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(0, 5)
 scale = Vector2(0.285, 0.285)
-texture = ExtResource("7_70tpc")
+texture = ExtResource("5_uo4c3")
 
 [node name="Eye1" type="Sprite2D" parent="Sprite_enemy/Head"]
 visible = false
 use_parent_material = true
 position = Vector2(56.1404, -17.5439)
 scale = Vector2(0.604, 0.604)
-texture = ExtResource("4_pkxlk")
+texture = ExtResource("6_urkec")
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Head"]
 visible = false
 use_parent_material = true
 position = Vector2(-45.614, -17.5439)
 scale = Vector2(0.689, 0.689)
-texture = ExtResource("5_h5blp")
+texture = ExtResource("7_4u33g")
 
 [node name="Hand" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(0, 5)
 scale = Vector2(0.285, 0.285)
-texture = ExtResource("8_iab2r")
+texture = ExtResource("8_kmfgd")
 
 [node name="freezen_sprite" type="Sprite2D" parent="Sprite_enemy"]
 visible = false
 position = Vector2(-1, 1)
-texture = ExtResource("9_p1wxr")
+texture = ExtResource("9_s03de")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
@@ -1530,8 +1530,8 @@ offset_right = 46.0
 offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_5chwh")
-texture_progress = ExtResource("4_1gi6c")
+texture_under = ExtResource("10_ijamr")
+texture_progress = ExtResource("11_tusfv")
 
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
@@ -1555,7 +1555,7 @@ emitting = false
 amount = 100
 local_coords = true
 draw_order = 1
-texture = ExtResource("13_g55k0")
+texture = ExtResource("13_cs1pn")
 emission_shape = 3
 emission_rect_extents = Vector2(35, 1)
 gravity = Vector2(0, -100)
@@ -1564,8 +1564,8 @@ angle_min = -180.0
 angle_max = 180.0
 scale_amount_min = 0.08
 scale_amount_max = 0.1
-scale_amount_curve = SubResource("Curve_2r5ej")
-color_ramp = SubResource("Gradient_bby7f")
+scale_amount_curve = SubResource("Curve_tv7jk")
+color_ramp = SubResource("Gradient_rq4xv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
