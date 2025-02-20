@@ -1314,6 +1314,7 @@ vertical_alignment = 1
 [node name="Fire_effect" type="CPUParticles2D" parent="."]
 z_index = 1
 position = Vector2(48, 135)
+emitting = false
 amount = 140
 local_coords = true
 draw_order = 1
