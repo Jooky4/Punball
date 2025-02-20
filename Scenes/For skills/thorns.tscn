@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://7ux2oa3ei7co"]
+
+[ext_resource type="Texture2D" uid="uid://d04u0i6sbqlxm" path="res://Texture/For Skills/шип (край).png" id="1_ggme5"]
+[ext_resource type="Script" path="res://Scenes/For skills/thorns.gd" id="1_pq4y1"]
+[ext_resource type="Texture2D" uid="uid://b6tfhf8bx8kcs" path="res://Texture/For Skills/шип (центр).png" id="2_g5b7c"]
+
+[node name="thorns" type="Node2D"]
+z_index = 1
+script = ExtResource("1_pq4y1")
+
+[node name="Шип(центр)" type="Sprite2D" parent="."]
+position = Vector2(-1.2, 2.05)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_g5b7c")
+
+[node name="Шип(край)2" type="Sprite2D" parent="."]
+position = Vector2(38, 2)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_ggme5")
+flip_h = true
+
+[node name="Шип(центр)2" type="Sprite2D" parent="."]
+position = Vector2(21, 2)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_g5b7c")
+
+[node name="Шип(край)" type="Sprite2D" parent="."]
+position = Vector2(-29, 2)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_ggme5")

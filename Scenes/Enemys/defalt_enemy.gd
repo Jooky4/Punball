@@ -17,6 +17,7 @@ var on_fire : bool = false
 @onready var animation_enemy = $AnimationPlayer
 @onready var fire_effect = $Fire_effect
 @onready var freezen_sprite = $Sprite_enemy/freezen_sprite
+@onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
@@ -38,7 +39,14 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 	else:
 		create_label_damage(damage_ball, color_label)
 	if hp_enemy <= 0 and alive:
+		collision_shape.queue_free()
+		hp_enemy_label.text = "0"
+		hp_enemy_bar.value = 0
 		alive = false
+		if animation_enemy:
+			animation_enemy.stop()
+			animation_enemy.play("Death")
+			await animation_enemy.animation_finished
 		LevelManager.enemy_died(self)
 		var buff = bank_with_experience.instantiate()
 		buff.position = self.global_position
