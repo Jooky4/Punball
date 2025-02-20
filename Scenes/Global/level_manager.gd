@@ -420,7 +420,7 @@ func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost
 
 func check_count_combo(enemy) -> void:
-	var need_combo = 2
+	var need_combo = 40
 	if "Комбо: скидка" in player_skills:
 		need_combo = 40 * 0.9
 	if combo_count % int(need_combo) == 0:
