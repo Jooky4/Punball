@@ -6,5 +6,5 @@ func damage_enemy(enemy) -> void:
 		self.global_position += Vector2(40, 50)
 	enemy.deal_damage(600 * ElementsManager.technologies_modifier, ElementsManager.color_elements["TECHNOLOGIES"])
 	$AnimationPlayer.play("Spawn")
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(0.5).timeout
 	queue_free()

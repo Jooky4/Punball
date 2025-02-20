@@ -46,13 +46,12 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 		if animation_enemy:
 			animation_enemy.stop()
 			animation_enemy.play("Death")
-			await animation_enemy.animation_finished
 		LevelManager.enemy_died(self)
 		var buff = bank_with_experience.instantiate()
 		buff.position = self.global_position
 		get_tree().current_scene.add_child(buff)
 		queue_free()
-	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.stop()
 		animation_enemy.play("Damage")
 	if hp_enemy>=1000:
@@ -91,7 +90,7 @@ func delete_freezing_and_fire() -> void:
 		freezen_sprite.visible = false
 
 func moving(direction_object) -> void:
-	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Move")
 	if direction_object != "":
 		var tween = create_tween()
@@ -137,7 +136,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			else:
 				animation_enemy.play("Idle")
 		elif anim_name == "Hit" and on_last_line and !self.has_method("boss"):
-			queue_free()
+			self.queue_free()
+		elif anim_name == "Death":
+			self.queue_free()
 		else:
 			if on_last_line:
 				animation_enemy.play("Preparation")
