@@ -45,7 +45,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_5v1ob"]
 resource_name = "Spawn"
-length = 1.5
+length = 0.8
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -54,7 +54,7 @@ tracks/0/path = NodePath("Шип1:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.25, 0.35, 0.6, 0.7, 0.85),
+"times": PackedFloat32Array(3.72529e-08, 0.15, 0.25, 0.5, 0.6, 0.75),
 "transitions": PackedFloat32Array(0.5, -2, -2, -2, -2, 0.5),
 "update": 0,
 "values": [Vector2(0.289, 1e-05), Vector2(0.289, 0.34), Vector2(0.289244, 0.289244), Vector2(0.289244, 0.289244), Vector2(0.289, 0.34), Vector2(0.289, 1e-05)]
@@ -66,7 +66,7 @@ tracks/1/path = NodePath("Шип2:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.125, 0.275, 0.375, 0.625, 0.725, 0.875),
+"times": PackedFloat32Array(0.025, 0.175, 0.275, 0.525, 0.625, 0.775),
 "transitions": PackedFloat32Array(0.5, -2, -2, -2, -2, 0.5),
 "update": 0,
 "values": [Vector2(0.289, 1e-05), Vector2(0.289, 0.34), Vector2(0.289244, 0.289244), Vector2(0.289244, 0.289244), Vector2(0.289, 0.34), Vector2(0.289, 1e-05)]
@@ -78,7 +78,7 @@ tracks/2/path = NodePath("Шип3:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.15, 0.3, 0.4, 0.65, 0.75, 0.9),
+"times": PackedFloat32Array(0.05, 0.2, 0.3, 0.55, 0.65, 0.8),
 "transitions": PackedFloat32Array(0.5, -2, -2, -2, -2, 0.5),
 "update": 0,
 "values": [Vector2(0.289, 1e-05), Vector2(0.289, 0.34), Vector2(0.289244, 0.289244), Vector2(0.289244, 0.289244), Vector2(0.289, 0.34), Vector2(0.289, 1e-05)]
