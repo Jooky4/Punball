@@ -40,8 +40,8 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
- 											[null, 1, 1, 1, 1, 1,],
+var first_level_links_on_objects : Array = [[4, null, null, null, null, null],
+ 											[null, null, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
  											[null, 3, null, null, null, null],
@@ -320,9 +320,10 @@ func laser_ball_damage(enemy, damage_ball, color_ball, line_damage) -> void:
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null:
 				if first_level_links_on_objects[i][j] == enemy:
-					horizontal = i
-					vertical = j
-					break
+					if first_level_links_on_objects[i][j].alive:
+						horizontal = i
+						vertical = j
+						break
 	if "Повелитель лазера" in player_skills:
 		laser_ball_damage_horizontally(damage_ball, color_ball, horizontal)
 		laser_ball_damage_vertically(damage_ball, color_ball, vertical)
@@ -473,15 +474,17 @@ func check_count_combo(enemy) -> void:
 					for j in range(first_level_links_on_objects[i].size()):
 						if first_level_links_on_objects[i][j] != null:
 							if first_level_links_on_objects[i][j].has_method("enemy"):
-								line = i
+								if first_level_links_on_objects[i][j].alive:
+									line = i
 				if line != null:
 					for i in first_level_links_on_objects[line]:
 						if i != null:
 							if i .has_method("enemy"):
-								create_thorns(i)
-								count_enemy_damage += 1
-								if count_enemy_damage == 2:
-									break
+								if i.alive:
+									create_thorns(i)
+									count_enemy_damage += 1
+									if count_enemy_damage == 2:
+										break
 
 func find_all_enemys():
 	var enemy_arr = []
