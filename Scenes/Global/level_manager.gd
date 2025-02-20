@@ -20,7 +20,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
 var hit_player : bool = false
-var player_skills : Array = ["Технология: комбо с фронта"]#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
+var player_skills : Array = ["Ловушка"]#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
@@ -40,7 +40,7 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[4, null, null, null, null, null],
+var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
  											[null, null, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
@@ -71,14 +71,14 @@ func restert() -> void:
 	player_balls_after_wave = []
 	player_skills = []
 	hit_player = false
-	first_level_links_on_objects = [[null, null, null, null, null, null],
- 									[null, 1, 1, 1, 1, 1,],
- 									[null, null, null, null, null, null],
- 									[1, 1, 1, 1, 1, null],
- 									[null, null, null, null, null, null],
- 									[null, null, null, null, null, null],
- 									[null, null, null, null, null, null],
- 									[null, null, null, null, null, null]]
+	first_level_links_on_objects = [[4, null, null, null, null, null],
+ 											[null, null, 1, 1, 1, 1,],
+ 											[null, null, null, null, null, null],
+ 											[1, 1, 1, 1, 1, null],
+ 											[null, 3, null, null, null, null],
+ 											[null, null, null, null, null, null],
+ 											[null, null, null, null, null, null],
+ 											[null, null, null, null, null, null]]
 	trap_on_map_links = [[null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null],

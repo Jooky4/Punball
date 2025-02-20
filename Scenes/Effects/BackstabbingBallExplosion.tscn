@@ -12,7 +12,7 @@ offsets = PackedFloat32Array(0.004, 0.052, 0.796, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="BombBallExplosion" type="Node2D"]
-z_index = 1
+z_index = 2
 script = ExtResource("1_j7800")
 
 [node name="Искры" type="CPUParticles2D" parent="."]

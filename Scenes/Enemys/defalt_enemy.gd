@@ -65,11 +65,6 @@ func deal_bomb_damage(damage_ball, color_label) -> void:
 	if alive:
 		deal_damage(damage_ball, color_label)
 		var tween = create_tween()
-		tween.tween_property($Sprite_enemy, "modulate", Color.RED, 0.2)
-		if freezen:
-			tween.chain().tween_property($Sprite_enemy, "modulate", Color.DODGER_BLUE, 0.3)
-		else:
-			tween.chain().tween_property($Sprite_enemy, "modulate", Color.WHITE, 0.3)
 
 func deal_freezing_damage(damage_ball, color_label) -> void:
 	if alive:

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b6tfhf8bx8kcs" path="res://Texture/For Skills/шип (центр).png" id="2_g5b7c"]
 
 [node name="thorns" type="Node2D"]
-z_index = 1
+z_index = 2
 script = ExtResource("1_pq4y1")
 
 [node name="Шип(центр)" type="Sprite2D" parent="."]
