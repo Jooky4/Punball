@@ -8,12 +8,12 @@
 radius = 15.0
 
 [sub_resource type="Curve" id="Curve_g6ny1"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.225366), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_dhqt1"]
-offsets = PackedFloat32Array(0.174528, 0.962264, 1)
-colors = PackedColorArray(1, 0.905882, 0, 0, 1, 0.905882, 0, 1, 1, 0.905882, 0, 0)
+[sub_resource type="Gradient" id="Gradient_2q21l"]
+offsets = PackedFloat32Array(0.532, 0.96, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0)
 
 [node name="crumbling_ball" type="CharacterBody2D"]
 z_index = -1
@@ -39,8 +39,8 @@ flip_v = true
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 43.0
+width = 35.0
 width_curve = SubResource("Curve_g6ny1")
-gradient = SubResource("Gradient_dhqt1")
+gradient = SubResource("Gradient_2q21l")
 texture = ExtResource("3_7n0an")
 texture_mode = 2
