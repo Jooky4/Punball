@@ -6,6 +6,7 @@ var ICE_CUBE = preload("res://Scenes/For skills/ice_cube.tscn")
 var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
 var ROCKET = preload("res://Scenes/Balls/Rocket ball/rocket.tscn")
 var TRAP = preload("res://Scenes/For skills/trap.tscn")
+var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 
 var hp_player : float = 1000
 var boss_on_map : bool = false
@@ -19,7 +20,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
 var hit_player : bool = false
-var player_skills : Array = []#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
+var player_skills : Array = ["Технология: комбо с фронта"]#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
@@ -43,7 +44,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
  											[null, 1, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
- 											[null, null, null, null, null, null],
+ 											[null, 3, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
@@ -226,7 +227,6 @@ func check_traps(first_line : bool = false) -> void:
 						trap_on_map_links[0][i].delete_trap(first_level_links_on_objects[0][i])
 						trap_on_map_links[0][i] = null
 	else:
-		print(1)
 		for i in range(first_level_links_on_objects.size()):
 			for j in range(first_level_links_on_objects[i].size()):
 				if trap_on_map_links[i][j] != null:
@@ -415,7 +415,7 @@ func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost
 
 func check_count_combo(enemy) -> void:
-	if combo_count % 40 == 0:
+	if combo_count % 2 == 0:
 		var enemy_arr : Array = find_all_enemys()
 		if enemy_arr != []:
 			if "Молния: комбо" in player_skills:
@@ -464,6 +464,24 @@ func check_count_combo(enemy) -> void:
 		if enemy_arr != []:
 			if "Ядерная: комбо" in player_skills:
 				rocket_ball_damage(enemy, 300 * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"], enemy.global_position, 2, true)
+		enemy_arr = find_all_enemys()
+		if enemy_arr != []:
+			if "Технология: комбо с фронта" in player_skills:
+				var line = null
+				var count_enemy_damage = 0
+				for i in range(first_level_links_on_objects.size() - 2, -1, -1):
+					for j in range(first_level_links_on_objects[i].size()):
+						if first_level_links_on_objects[i][j] != null:
+							if first_level_links_on_objects[i][j].has_method("enemy"):
+								line = i
+				if line != null:
+					for i in first_level_links_on_objects[line]:
+						if i != null:
+							if i .has_method("enemy"):
+								create_thorns(i)
+								count_enemy_damage += 1
+								if count_enemy_damage == 2:
+									break
 
 func find_all_enemys():
 	var enemy_arr = []
@@ -473,6 +491,12 @@ func find_all_enemys():
 				if j.has_method("enemy"):
 					enemy_arr.append(j)
 	return enemy_arr
+
+func create_thorns(enemy) -> void:
+	var throns_cop = THORNS.instantiate()
+	throns_cop.global_position = enemy.global_position
+	get_tree().current_scene.add_child(throns_cop)
+	throns_cop.damage_enemy(enemy)
 
 func heal_hp_plaer_from_technologies() -> void:
 	if "Повелитель технологий" in player_skills:
