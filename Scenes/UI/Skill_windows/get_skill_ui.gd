@@ -36,7 +36,8 @@ var epic = [["Усиление атаки", 550],
 			["Лазер смерти", 430],
 			["Лазер: комбо", 650],
 			["Ракета смерти", 700],
-			["Ловушка", 1000]]
+			["Ловушка", 1000],
+			["Комбо: скидка", 450]]
 var legendary = [["Повелитель молний", 1200],
 				 ["Повелитель льда", 1350],
 				 ["Повелитель огня", 1000],
@@ -182,6 +183,12 @@ func add_skill(skill) -> void:
 			LevelManager.player_skills.append("Огонь: комбо")
 		"Ядерная: комбо":
 			LevelManager.player_skills.append("Ядерная: комбо")
+		"Технология: комбо с тыла":
+			LevelManager.player_skills.append("Технология: комбо с тыла")
+		"Технология: комбо с фронта":
+			LevelManager.player_skills.append("Технология: комбо с фронта")
+		"Комбо: скидка":
+			LevelManager.player_skills.append("Комбо: скидка")
 		"Повелитель молний":
 			LevelManager.count_damage_lightning_enemy = 5
 			ElementsManager.lightning_modifier += 0.4
