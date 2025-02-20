@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://ux4skrwbxon4"]
+[gd_scene load_steps=29 format=3 uid="uid://ux4skrwbxon4"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/Bosses/First_location/boss_first_location.gd" id="1_pst5v"]
 [ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="2_8e27a"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_f30xb"]
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="2_pjnjy"]
 [ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="3_dkm77"]
 [ext_resource type="Texture2D" uid="uid://b1k64lxo1ayrh" path="res://Texture/Enemys/Blueberries_enemy/Eye.png" id="3_qls4n"]
@@ -10,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="6_kbdnm"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="7_1qprv"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_em5g7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6b1n4"]
+resource_local_to_scene = true
+shader = ExtResource("2_f30xb")
+shader_parameter/lightness = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
 size = Vector2(186, 174)
@@ -197,6 +203,18 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(3, 133)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.9, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_u72mn"]
@@ -846,6 +864,18 @@ tracks/16/keys = {
 "update": 0,
 "values": [Vector2(9.0625, 9.0625)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_d8fqs"]
 resource_name = "Spawn"
@@ -983,9 +1013,170 @@ tracks/10/keys = {
 "values": [Vector2(0.01, 0.01), Vector2(9.063, 9.063)]
 }
 
+[sub_resource type="Animation" id="Animation_2kslo"]
+resource_name = "Death"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_enemy/Тело:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-29.4118, -89.4797), Vector2(-29.4118, 50.5258), Vector2(-29.4118, -89.4797)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite_enemy/Тело:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(2.45098, 2.41837), Vector2(2.73766, 1.87147), Vector2(2.45098, 2.41837)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite_enemy/Рот:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-29.4118, -89.4797), Vector2(-29.4118, 50.5258), Vector2(-29.4118, -89.4797)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite_enemy/Рот:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(2.45098, 2.41837), Vector2(2.73766, 1.87147), Vector2(2.45098, 2.41837)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite_enemy/Тело/Eye:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite_enemy/Тело/Eye2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite_enemy/Тело/Eye:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.95625, 0.969144), Vector2(1.05117, 1.45882), Vector2(0.95625, 0.969144)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite_enemy/Тело/Eye2:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.95625, 0.969144), Vector2(1.05117, 1.45882), Vector2(0.95625, 0.969144)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite_enemy/Листик:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-128.571, -357.143), Vector2(-142.857, -157.143), Vector2(-128.571, -357.143)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite_enemy/Листик:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0, -0.139626, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Hp_boss_label:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 119)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TextureProgressBar:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 133)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.9]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xssko"]
 _data = {
 "Damage": SubResource("Animation_nnd85"),
+"Death": SubResource("Animation_2kslo"),
 "Hit": SubResource("Animation_u72mn"),
 "Idle": SubResource("Animation_0olko"),
 "Move": SubResource("Animation_ysmyr"),
@@ -1003,6 +1194,7 @@ bullet_damage = 40
 hp_enemy = 140000.0
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_6b1n4")
 position = Vector2(53, 63)
 scale = Vector2(0.15, 0.15)
 
@@ -1013,12 +1205,14 @@ scale = Vector2(9.0625, 9.0625)
 texture = ExtResource("2_pjnjy")
 
 [node name="Тело" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("2_8e27a")
 
 [node name="Eye" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
+use_parent_material = true
 position = Vector2(-140.32, 42.5134)
 scale = Vector2(1.064, 1.064)
 texture = ExtResource("3_qls4n")
@@ -1026,16 +1220,19 @@ flip_h = true
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
+use_parent_material = true
 position = Vector2(139.84, 39.7567)
 scale = Vector2(1.064, 1.064)
 texture = ExtResource("3_qls4n")
 
 [node name="Рот" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("3_dkm77")
 
 [node name="Листик" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
 position = Vector2(-128.571, -357.143)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("4_korh3")
