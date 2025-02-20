@@ -37,7 +37,9 @@ var texture_skill = {
 	"Шар убийца": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Бурящий шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
 	"Ловушка": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Повелитель технологий": preload("res://Texture/UI/Texture_skills/повелитель огня.png") # ЗАМЕНИТЬ
+	"Повелитель технологий": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Технология: комбо с тыла": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
+	"Технология: комбо с фронта": preload("res://Texture/UI/Texture_skills/повелитель огня.png") # ЗАМЕНИТЬ
 	}
 
 func update_discription(new_discription) -> void:

@@ -20,7 +20,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
 var hit_player : bool = false
-var player_skills : Array = ["Технология: комбо с фронта"]#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
+var player_skills : Array = []#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
@@ -40,11 +40,11 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[4, null, null, null, null, null],
+var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
  											[null, null, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
- 											[null, 3, null, null, null, null],
+ 											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
@@ -72,7 +72,7 @@ func restert() -> void:
 	player_skills = []
 	hit_player = false
 	first_level_links_on_objects = [[null, null, null, null, null, null],
- 									[null, 1, 1, 1, 1, 1,],
+ 									[null, null, 1, 1, 1, 1,],
  									[null, null, null, null, null, null],
  									[1, 1, 1, 1, 1, null],
  									[null, null, null, null, null, null],
@@ -468,23 +468,11 @@ func check_count_combo(enemy) -> void:
 		enemy_arr = find_all_enemys()
 		if enemy_arr != []:
 			if "Технология: комбо с фронта" in player_skills:
-				var line = null
-				var count_enemy_damage = 0
-				for i in range(first_level_links_on_objects.size() - 2, -1, -1):
-					for j in range(first_level_links_on_objects[i].size()):
-						if first_level_links_on_objects[i][j] != null:
-							if first_level_links_on_objects[i][j].has_method("enemy"):
-								if first_level_links_on_objects[i][j].alive:
-									line = i
-				if line != null:
-					for i in first_level_links_on_objects[line]:
-						if i != null:
-							if i .has_method("enemy"):
-								if i.alive:
-									create_thorns(i)
-									count_enemy_damage += 1
-									if count_enemy_damage == 2:
-										break
+				combo_thorns()
+		enemy_arr = find_all_enemys()
+		if enemy_arr != []:
+			if "Технология: комбо с тыла" in player_skills:
+				combo_thorns(true)
 
 func find_all_enemys():
 	var enemy_arr = []
@@ -494,6 +482,29 @@ func find_all_enemys():
 				if j.has_method("enemy"):
 					enemy_arr.append(j)
 	return enemy_arr
+
+func combo_thorns(from_back : bool = false) -> void:
+	var line = null
+	var count_enemy_damage = 0
+	for i in range(first_level_links_on_objects.size() - 2, -1, -1):
+		for j in range(first_level_links_on_objects[i].size()):
+			if first_level_links_on_objects[i][j] != null:
+				if first_level_links_on_objects[i][j].has_method("enemy"):
+					if first_level_links_on_objects[i][j].alive:
+						line = i
+						if !from_back:
+							break
+		if line != null and !from_back:
+			break
+	if line != null:
+		for i in first_level_links_on_objects[line]:
+			if i != null:
+				if i .has_method("enemy"):
+					if i.alive:
+						create_thorns(i)
+						count_enemy_damage += 1
+						if count_enemy_damage == 2:
+							break
 
 func create_thorns(enemy) -> void:
 	var throns_cop = THORNS.instantiate()

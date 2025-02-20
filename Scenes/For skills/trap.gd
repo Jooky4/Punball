@@ -1,6 +1,7 @@
-extends Sprite2D
+extends Node2D
 
 var damage : float = 1500
+@onready var animation_trap = $AnimationPlayer
 
 func trap() -> void:
 	pass
