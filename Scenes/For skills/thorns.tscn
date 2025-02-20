@@ -1,30 +1,124 @@
-[gd_scene load_steps=4 format=3 uid="uid://7ux2oa3ei7co"]
+[gd_scene load_steps=7 format=3 uid="uid://c2crpl1t810xg"]
 
-[ext_resource type="Texture2D" uid="uid://d04u0i6sbqlxm" path="res://Texture/For Skills/шип (край).png" id="1_ggme5"]
 [ext_resource type="Script" path="res://Scenes/For skills/thorns.gd" id="1_pq4y1"]
-[ext_resource type="Texture2D" uid="uid://b6tfhf8bx8kcs" path="res://Texture/For Skills/шип (центр).png" id="2_g5b7c"]
+[ext_resource type="Texture2D" uid="uid://02we4yyd1vmf" path="res://Texture/For Skills/Шип_основа_1.png" id="2_rnxqk"]
+[ext_resource type="Texture2D" uid="uid://6pv56y6vbyky" path="res://Texture/For Skills/Шип_1.png" id="3_w5b5c"]
+
+[sub_resource type="Animation" id="Animation_nb3jw"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Шип1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.289244, 0.289244)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Шип2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.289244, 0.289244)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Шип3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.289244, 0.289244)]
+}
+
+[sub_resource type="Animation" id="Animation_5v1ob"]
+resource_name = "Spawn"
+length = 1.5
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Шип1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.25, 0.35, 0.6, 0.7, 0.85),
+"transitions": PackedFloat32Array(0.5, -2, -2, -2, -2, 0.5),
+"update": 0,
+"values": [Vector2(0.289, 1e-05), Vector2(0.289, 0.34), Vector2(0.289244, 0.289244), Vector2(0.289244, 0.289244), Vector2(0.289, 0.34), Vector2(0.289, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Шип2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.125, 0.275, 0.375, 0.625, 0.725, 0.875),
+"transitions": PackedFloat32Array(0.5, -2, -2, -2, -2, 0.5),
+"update": 0,
+"values": [Vector2(0.289, 1e-05), Vector2(0.289, 0.34), Vector2(0.289244, 0.289244), Vector2(0.289244, 0.289244), Vector2(0.289, 0.34), Vector2(0.289, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Шип3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15, 0.3, 0.4, 0.65, 0.75, 0.9),
+"transitions": PackedFloat32Array(0.5, -2, -2, -2, -2, 0.5),
+"update": 0,
+"values": [Vector2(0.289, 1e-05), Vector2(0.289, 0.34), Vector2(0.289244, 0.289244), Vector2(0.289244, 0.289244), Vector2(0.289, 0.34), Vector2(0.289, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bwbe1"]
+_data = {
+"RESET": SubResource("Animation_nb3jw"),
+"Spawn": SubResource("Animation_5v1ob")
+}
 
 [node name="thorns" type="Node2D"]
 z_index = 1
 script = ExtResource("1_pq4y1")
 
-[node name="Шип(центр)" type="Sprite2D" parent="."]
-position = Vector2(-1.2, 2.05)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_g5b7c")
+[node name="Основа" type="Sprite2D" parent="."]
+position = Vector2(5, 34)
+scale = Vector2(0.431997, 0.431997)
+texture = ExtResource("2_rnxqk")
 
-[node name="Шип(край)2" type="Sprite2D" parent="."]
-position = Vector2(38, 2)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("1_ggme5")
-flip_h = true
+[node name="Шип1" type="Sprite2D" parent="."]
+position = Vector2(-26, 36)
+scale = Vector2(0.289244, 0.289244)
+texture = ExtResource("3_w5b5c")
+offset = Vector2(-0.432175, -121.797)
 
-[node name="Шип(центр)2" type="Sprite2D" parent="."]
-position = Vector2(21, 2)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_g5b7c")
+[node name="Шип2" type="Sprite2D" parent="."]
+position = Vector2(5, 38)
+scale = Vector2(0.289244, 0.289244)
+texture = ExtResource("3_w5b5c")
+offset = Vector2(-0.432175, -125.254)
 
-[node name="Шип(край)" type="Sprite2D" parent="."]
-position = Vector2(-29, 2)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("1_ggme5")
+[node name="Шип3" type="Sprite2D" parent="."]
+position = Vector2(36, 37)
+scale = Vector2(0.289244, 0.289244)
+texture = ExtResource("3_w5b5c")
+offset = Vector2(-0.432175, -121.797)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bwbe1")
+}
+autoplay = "Spawn"
