@@ -20,7 +20,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
 var hit_player : bool = false
-var player_skills : Array = ["Технология: комбо с фронта", "Технология: комбо с тыла"]#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
+var player_skills : Array = []#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
@@ -41,9 +41,9 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
- 											[null, null, 1, 3, 1, 1,],
+ 											[null, 1, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
- 											[1, 3, 3, 3, 3, null],
+ 											[1, 1, 1, 1, 1, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
@@ -72,7 +72,7 @@ func restert() -> void:
 	player_skills = []
 	hit_player = false
 	first_level_links_on_objects = [[null, null, null, null, null, null],
- 									[null, null, 1, 1, 1, 1,],
+ 									[null, 1, 1, 1, 1, 1,],
  									[null, null, null, null, null, null],
  									[1, 1, 1, 1, 1, null],
  									[null, null, null, null, null, null],
@@ -93,6 +93,8 @@ func add_ball(num_ball) -> void:
 
 func damage_player(damage) -> void:
 	hp_player -= damage
+	if hp_player <= 0:
+		hp_player = 0
 
 func apeend_new_balls() -> void:
 	if 11 in player_balls_after_wave:
@@ -301,17 +303,19 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 					if first_level_links_on_objects[i][j] == enemy:
 						enemy_pos = first_level_links_on_objects[i][j].global_position
 						break
-	for i in range(count_damage_lightning_enemy):
-		var num_enemy = randi() % enemy_arr.size()
-		if enemy_arr[num_enemy] != enemy and enemy_arr[num_enemy].alive:
-			var effect = LINE_LIGHTNING.instantiate()
-			for w in range(6):
-				effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * w)
-			enemy_arr[num_enemy].deal_damage(damage_ball, color_ball)
-			combo_count += 1
-			check_count_combo(enemy_arr[num_enemy])
-			enemy_arr.remove_at(num_enemy)
-			get_tree().current_scene.add_child(effect)
+	if enemy_arr != [] and enemy_arr.size() != 0:
+		for i in range(count_damage_lightning_enemy):
+			if enemy_arr.size() != 0:
+				var num_enemy = randi() % enemy_arr.size()
+				if enemy_arr[num_enemy] != enemy and enemy_arr[num_enemy].alive:
+					var effect = LINE_LIGHTNING.instantiate()
+					for w in range(6):
+						effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * (w + 1))
+					enemy_arr[num_enemy].deal_damage(damage_ball, color_ball)
+					combo_count += 1
+					check_count_combo(enemy_arr[num_enemy])
+					enemy_arr.remove_at(num_enemy)
+					get_tree().current_scene.add_child(effect)
 
 func laser_ball_damage(enemy, damage_ball, color_ball, line_damage) -> void:
 	var horizontal
@@ -320,18 +324,18 @@ func laser_ball_damage(enemy, damage_ball, color_ball, line_damage) -> void:
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null:
 				if first_level_links_on_objects[i][j] == enemy:
-					if first_level_links_on_objects[i][j].alive:
-						horizontal = i
-						vertical = j
-						break
-	if "Повелитель лазера" in player_skills:
-		laser_ball_damage_horizontally(damage_ball, color_ball, horizontal)
-		laser_ball_damage_vertically(damage_ball, color_ball, vertical)
-	else:
-		if line_damage == 0:
+					horizontal = i
+					vertical = j
+					break
+	if horizontal != null and vertical != null:
+		if "Повелитель лазера" in player_skills:
 			laser_ball_damage_horizontally(damage_ball, color_ball, horizontal)
-		elif line_damage == 1:
 			laser_ball_damage_vertically(damage_ball, color_ball, vertical)
+		else:
+			if line_damage == 0:
+				laser_ball_damage_horizontally(damage_ball, color_ball, horizontal)
+			elif line_damage == 1:
+				laser_ball_damage_vertically(damage_ball, color_ball, vertical)
 
 func laser_ball_damage_horizontally(damage_ball, color_ball, line_damage) -> void:
 	var effect = LASER_LINE.instantiate()
@@ -421,21 +425,23 @@ func check_count_combo(enemy) -> void:
 		need_combo = 40 * 0.9
 	if combo_count % int(need_combo) == 0:
 		var enemy_arr : Array = find_all_enemys()
-		if enemy_arr != []:
+		if enemy_arr.size() != 0:
 			if "Молния: комбо" in player_skills:
 				for i in range(count_damage_lightning_enemy):
-					var num_enemy = randi() % enemy_arr.size()
-					if enemy_arr[num_enemy].alive:
-						var effect = LINE_LIGHTNING.instantiate()
-						var enemy_pos = Vector2(enemy_arr[num_enemy].global_position.x, -700)
-						for w in range(6):
-							effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * w)
-						enemy_arr[num_enemy].deal_damage(200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
-						enemy_arr.remove_at(num_enemy)
-						get_tree().current_scene.add_child(effect)
-						combo_count += 1
+					if enemy_arr.size() != 0:
+						var num_enemy = randi() % enemy_arr.size()
+						if enemy_arr[num_enemy].alive:
+							var effect = LINE_LIGHTNING.instantiate()
+							var enemy_pos = Vector2(enemy_arr[num_enemy].global_position.x, -200)
+							get_tree().current_scene.add_child(effect)
+							for w in range(6):
+								print(w)
+								effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * (w + 1))
+							enemy_arr[num_enemy].deal_damage(200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
+							enemy_arr.remove_at(num_enemy)
+							combo_count += 1
 		enemy_arr = find_all_enemys()
-		if enemy_arr != []:
+		if enemy_arr.size() != 0:
 			if "Лед: комбо" in player_skills:
 				var ice_cube_spawn = false
 				while ice_cube_spawn == false:
@@ -444,11 +450,10 @@ func check_count_combo(enemy) -> void:
 						var effect = ICE_CUBE.instantiate()
 						get_tree().current_scene.add_child(effect)
 						effect.ice_cube_go(enemy_arr[num_enemy])
-						enemy_arr.remove_at(num_enemy)
 						combo_count += 1
 						ice_cube_spawn = true
 		enemy_arr = find_all_enemys()
-		if enemy_arr != []:
+		if enemy_arr.size() != 0:
 			if "Огонь: комбо" in player_skills:
 				var fire_ball_spawn = false
 				while fire_ball_spawn == false:
@@ -457,23 +462,22 @@ func check_count_combo(enemy) -> void:
 						var effect = FIRE_BALL.instantiate()
 						get_tree().current_scene.add_child(effect)
 						effect.combo_go(enemy_arr[num_enemy])
-						enemy_arr.remove_at(num_enemy)
 						combo_count += 1
 						fire_ball_spawn = true
 		enemy_arr = find_all_enemys()
-		if enemy_arr != []:
+		if enemy_arr.size() != 0:
 			if "Лазер: комбо" in player_skills:
 				laser_ball_damage(enemy, 200 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
 		enemy_arr = find_all_enemys()
-		if enemy_arr != []:
+		if enemy_arr.size() != 0:
 			if "Ядерная: комбо" in player_skills:
 				rocket_ball_damage(enemy, 300 * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"], enemy.global_position, 2, true)
 		enemy_arr = find_all_enemys()
-		if enemy_arr != []:
+		if enemy_arr.size() != 0:
 			if "Технология: комбо с фронта" in player_skills:
 				combo_thorns()
 		enemy_arr = find_all_enemys()
-		if enemy_arr != []:
+		if enemy_arr.size() != 0:
 			if "Технология: комбо с тыла" in player_skills:
 				combo_thorns(true)
 
@@ -483,7 +487,8 @@ func find_all_enemys():
 		for j in i:
 			if j != null:
 				if j.has_method("enemy"):
-					enemy_arr.append(j)
+					if j.alive:
+						enemy_arr.append(j)
 	return enemy_arr
 
 func combo_thorns(from_back : bool = false) -> void:
@@ -517,6 +522,19 @@ func create_thorns(enemy) -> void:
 
 func heal_hp_plaer_from_technologies() -> void:
 	if "Повелитель технологий" in player_skills:
-		hp_player += round(max_hp_player*0.02)
+		var prosen_hp_plus = 0.02
+		if "Прибавка к восстановлению" in LevelManager.player_skills:
+				prosen_hp_plus *= 1.5
+		hp_player += round(max_hp_player*prosen_hp_plus)
 		if hp_player > max_hp_player:
 			hp_player += max_hp_player
+
+func revival():
+	hp_player = max_hp_player
+	for i in range(5, len(first_level_links_on_objects)):
+		for j in range(first_level_links_on_objects[i].size()):
+			if first_level_links_on_objects[i][j] != null:
+				if first_level_links_on_objects[i][j].has_method("enemy") and !first_level_links_on_objects[i][j].has_method("boss"):
+					first_level_links_on_objects[i][j].queue_free()
+					first_level_links_on_objects[i][j] = null
+	player_skills.erase("Оживление")

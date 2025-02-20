@@ -64,7 +64,7 @@ _data = {
 
 [node name="Line_lightning" type="Line2D"]
 texture_repeat = 3
-points = PackedVector2Array(0, 0, 100, 0, 200, 0, 300, 0, 400, 0, 500, 0)
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 100.0
 width_curve = SubResource("Curve_a8ykd")
 texture = SubResource("CompressedTexture2D_mwgc5")

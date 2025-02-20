@@ -344,10 +344,15 @@ func end_wave() -> void:
 	else:
 		await get_tree().create_timer(1).timeout
 	if LevelManager.hp_player <= 0:
-		hp_player_bar.value = 0
-		hp_player_label.text = "0"
-		game_state = LOSE
-		return
+		if "Оживление" in LevelManager.player_skills:
+			LevelManager.revival()
+			hp_player_bar.value = LevelManager.hp_player
+			hp_player_label.text = str(LevelManager.hp_player)
+		else:
+			hp_player_bar.value = 0
+			hp_player_label.text = "0"
+			game_state = LOSE
+			return
 	else:
 		hp_player_bar.value = LevelManager.hp_player
 		hp_player_label.text = str(LevelManager.hp_player)

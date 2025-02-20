@@ -28,7 +28,8 @@ var rare = [["Шар молний",  350],
 			["Шар убийца", 200],
 			["Бурящий шар", 300],
 			["Технология: комбо с тыла", 350],
-			["Технология: комбо с фронта", 350]]
+			["Технология: комбо с фронта", 350],
+			["Прибавка к восстановлению", 250]]
 var epic = [["Усиление атаки", 550],
 			["Молния смерти", 500],
 			["Холод смерти", 450],
@@ -43,7 +44,8 @@ var legendary = [["Повелитель молний", 1200],
 				 ["Повелитель огня", 1000],
 				 ["Повелитель лазера", 780],
 				 ["Повелитель атома", 1300],
-				 ["Повелитель технологий", 1100]]
+				 ["Повелитель технологий", 1100],
+				 ["Оживление", 1200]]
 var skills = []
 
 func _ready() -> void:
@@ -75,7 +77,7 @@ func create_skill():
 			skills.append(new_skill)
 			buff.show_rarity_window(1)
 		elif i == 1:
-			var new_skill = rare[randi() % rare.size()]
+			var new_skill = rare[randi() % epic.size()]
 			buff.update_discription(new_skill[0])
 			skills.append(new_skill)
 			buff.show_rarity_window(2)
@@ -140,8 +142,11 @@ func add_skill(skill) -> void:
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":
-			LevelManager.hp_player = LevelManager.hp_player + (LevelManager.max_hp_player * 0.1)
-			LevelManager.max_hp_player = LevelManager.max_hp_player * 1.1
+			var prosen_hp_plus = 0.1
+			if "Прибавка к восстановлению" in LevelManager.player_skills:
+				prosen_hp_plus *= 1.5
+			LevelManager.hp_player = LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus)
+			LevelManager.max_hp_player = LevelManager.max_hp_player * (1 + prosen_hp_plus)
 		"Усиление особого шара":
 			ElementsManager.fire_modifier += 0.1
 			ElementsManager.frost_modifier += 0.1
@@ -157,6 +162,10 @@ func add_skill(skill) -> void:
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.nuclear_modifier += 0.1
 			ElementsManager.technologies_modifier += 0.1
+		"Оживление":
+			LevelManager.player_skills.append("Оживление")
+		"Прибавка к восстановлению":
+			LevelManager.player_skills.append("Прибавка к восстановлению")
 		"Суперначало":
 			LevelManager.player_skills.append("Суперначало")
 		"Последний рывок":
