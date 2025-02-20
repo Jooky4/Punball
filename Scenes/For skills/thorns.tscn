@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/For skills/thorns.gd" id="1_pq4y1"]
 [ext_resource type="Texture2D" uid="uid://02we4yyd1vmf" path="res://Texture/For Skills/Шип_основа_1.png" id="2_rnxqk"]
-[ext_resource type="Texture2D" uid="uid://6pv56y6vbyky" path="res://Texture/For Skills/Шип_1.png" id="3_w5b5c"]
+[ext_resource type="Texture2D" path="res://Texture/For Skills/Шип_1.png" id="3_w5b5c"]
 
 [sub_resource type="Animation" id="Animation_nb3jw"]
 resource_name = "RESET"
@@ -91,7 +91,7 @@ _data = {
 }
 
 [node name="thorns" type="Node2D"]
-z_index = 2
+z_index = 1
 script = ExtResource("1_pq4y1")
 
 [node name="Основа" type="Sprite2D" parent="."]

@@ -102,10 +102,10 @@ tracks/1/path = NodePath("trap_sprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.25, 0.425),
-"transitions": PackedFloat32Array(0.5, 2, -2, -2),
+"times": PackedFloat32Array(0, 0.25, 0.425),
+"transitions": PackedFloat32Array(2, 2, -2),
 "update": 0,
-"values": [Vector2(-37.4202, -33.1857), Vector2(-5.96046e-08, -47), Vector2(-5.96046e-08, 4.76837e-07), Vector2(-5.96046e-08, 4.76837e-07)]
+"values": [Vector2(-37.4202, -33.1857), Vector2(-5.96046e-08, 4.76837e-07), Vector2(-5.96046e-08, 4.76837e-07)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ert4v"]
