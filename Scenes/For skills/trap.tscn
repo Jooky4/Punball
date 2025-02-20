@@ -1,11 +1,155 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxkkmslaoo4dl"]
+[gd_scene load_steps=10 format=3 uid="uid://cxkkmslaoo4dl"]
 
 [ext_resource type="Texture2D" uid="uid://jf0twirv5n7s" path="res://Texture/For Skills/ловушка.png" id="1_sg8b0"]
 [ext_resource type="Script" path="res://Scenes/For skills/trap.gd" id="2_3r23j"]
+[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="3_0dhuv"]
+
+[sub_resource type="Curve" id="Curve_q2rxr"]
+_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_cmqcu"]
+offsets = PackedFloat32Array(0, 0.286, 0.624, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_qyvl1"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5.96046e-08, 4.76837e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_h2211"]
+resource_name = "Spawn"
+length = 0.45
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.425),
+"transitions": PackedFloat32Array(0.5, 2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -35), Vector2(-5.96046e-08, -47), Vector2(-5.96046e-08, 4.76837e-07), Vector2(-5.96046e-08, 4.76837e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.25, 0.35, 0.425),
+"transitions": PackedFloat32Array(0.5, 0.5, 2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.8, 0.8), Vector2(0.8, 0.72), Vector2(0.8, 0.72), Vector2(0.8, 0.880477), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_ts745"]
+resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5.96046e-08, 4.76837e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.8, 0.981332), Vector2(0.8, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Death_effect:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ert4v"]
+_data = {
+"Hit": SubResource("Animation_ts745"),
+"RESET": SubResource("Animation_qyvl1"),
+"Spawn": SubResource("Animation_h2211")
+}
 
 [node name="trap" type="Sprite2D"]
 z_index = -1
 position = Vector2(-5.96046e-08, 4.76837e-07)
+rotation = 0.820305
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_sg8b0")
 script = ExtResource("2_3r23j")
+
+[node name="Death_effect" type="CPUParticles2D" parent="."]
+position = Vector2(-1.33878e-06, 19.895)
+scale = Vector2(1, 1)
+emitting = false
+amount = 4
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.3
+texture = ExtResource("3_0dhuv")
+direction = Vector2(-1, -1)
+spread = 75.0
+gravity = Vector2(0, -150)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_max = 90.0
+linear_accel_min = -200.0
+linear_accel_max = -200.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.4
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_q2rxr")
+color = Color(0.96875, 0.96875, 0.96875, 1)
+color_ramp = SubResource("Gradient_cmqcu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ert4v")
+}
