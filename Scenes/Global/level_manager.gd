@@ -20,7 +20,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
 var hit_player : bool = false
-var player_skills : Array = []#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
+var player_skills : Array = ["Технология: комбо с фронта", "Технология: комбо с тыла"]#["Повелитель технологий", "Ловушка", "Ядерная: комбо", "Повелитель атома", "Ракета смерти", "Суперначало", "Последний рывок", "Повелитель лазера", "Лазер: комбо", "Лазер смерти", "Огонь: комбо", "Лед: комбо", "Молния: комбо", "Повелитель огня", "Молния смерти", "Холод смерти", "Бомба смерти"]
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
@@ -41,9 +41,9 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
- 											[null, null, 1, 1, 1, 1,],
+ 											[null, null, 1, 3, 1, 1,],
  											[null, null, null, null, null, null],
- 											[1, 1, 1, 1, 1, null],
+ 											[1, 3, 3, 3, 3, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
@@ -416,7 +416,7 @@ func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost
 
 func check_count_combo(enemy) -> void:
-	var need_combo = 40
+	var need_combo = 2
 	if "Комбо: скидка" in player_skills:
 		need_combo = 40 * 0.9
 	if combo_count % int(need_combo) == 0:

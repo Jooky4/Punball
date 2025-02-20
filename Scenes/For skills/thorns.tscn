@@ -95,24 +95,24 @@ z_index = 2
 script = ExtResource("1_pq4y1")
 
 [node name="Основа" type="Sprite2D" parent="."]
-position = Vector2(5, 34)
+position = Vector2(4.79168, 38.3679)
 scale = Vector2(0.431997, 0.431997)
 texture = ExtResource("2_rnxqk")
 
 [node name="Шип1" type="Sprite2D" parent="."]
-position = Vector2(-26, 36)
+position = Vector2(-26.2083, 40.3679)
 scale = Vector2(0.289244, 0.289244)
 texture = ExtResource("3_3otlw")
 offset = Vector2(-0.432175, -121.797)
 
 [node name="Шип2" type="Sprite2D" parent="."]
-position = Vector2(5, 38)
+position = Vector2(4.79168, 42.3679)
 scale = Vector2(0.289244, 0.289244)
 texture = ExtResource("3_3otlw")
 offset = Vector2(-0.432175, -125.254)
 
 [node name="Шип3" type="Sprite2D" parent="."]
-position = Vector2(36, 37)
+position = Vector2(35.7917, 41.3679)
 scale = Vector2(0.289244, 0.289244)
 texture = ExtResource("3_3otlw")
 offset = Vector2(-0.432175, -121.797)
