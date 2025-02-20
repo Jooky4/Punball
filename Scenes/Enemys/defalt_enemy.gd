@@ -50,7 +50,6 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 		var buff = bank_with_experience.instantiate()
 		buff.position = self.global_position
 		get_tree().current_scene.add_child(buff)
-		queue_free()
 	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.stop()
 		animation_enemy.play("Damage")
