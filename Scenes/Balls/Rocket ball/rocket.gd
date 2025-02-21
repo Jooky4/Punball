@@ -1,11 +1,11 @@
 extends Node2D
 
-var speed : int = 250
+var speed : float = 250
 var start_position
 var end_position
 var arc_height = -150
-var min_duration : float = 1.4  # Минимальное время полета (в секундах) ДОБАВИЛ ДИМА
-var max_duration : float = 2.4  # Максимальное время полета (в секундах) ДОБАВИЛ ДИМА
+var min_duration : float = 0.4  # Минимальное время полета (в секундах) ДОБАВИЛ ДИМА
+var max_duration : float = 0.6  # Максимальное время полета (в секундах) ДОБАВИЛ ДИМА
 
 func go(enemy, start_pos) -> void:
 	if enemy != null:
@@ -14,7 +14,7 @@ func go(enemy, start_pos) -> void:
 		rotation_degrees = 90 + rad_to_deg(position.angle_to_point((end_position - start_position).normalized() * 10000))
 		var distance = start_pos.distance_to(enemy.global_position)
 		
-		var duration = distance / float(speed) # Рассчитываем время полета ДОБАВИЛ ДИМА
+		var duration = distance / speed # Рассчитываем время полета ДОБАВИЛ ДИМА
 		duration = clamp(duration, min_duration, max_duration)  # Устанавливаем минимальное и максимальное время ДОБАВИЛ ДИМА
 
 		var tween = create_tween()
