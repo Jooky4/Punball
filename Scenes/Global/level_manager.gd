@@ -108,7 +108,7 @@ func moving_object(player_position) -> void:
 	for i in first_level_links_on_objects[7]: # НАНЕСЕНИЕ УРОНА ИГРОКУ
 		if i != null:
 			if i.has_method("enemy") and !i.has_method("boss"):
-				if !i.freezen:
+				if !i.freezen and i.alive:
 					i.play_animation_hit_player()
 					damage_player(i.player_damage)
 					hit_player = true
@@ -116,7 +116,7 @@ func moving_object(player_position) -> void:
 	for i in first_level_links_on_objects:
 		for j in i:
 			if j != null:
-				if j.has_method("shoot_at_player") and !j.freezen:
+				if j.has_method("shoot_at_player") and !j.freezen and j.alive:
 					if j.has_method("boss") and !boss_shoot:
 						j.shoot_at_player(player_position)
 						boss_shoot = true
@@ -143,7 +143,7 @@ func moving_object(player_position) -> void:
 			if first_level_links_on_objects[i][j] != null:
 				if first_level_links_on_objects[i+1][j] == null:
 					if first_level_links_on_objects[i][j].has_method("enemy") and !first_level_links_on_objects[i][j].has_method("boss"):
-						if !first_level_links_on_objects[i][j].freezen:
+						if !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
 							move_forward(i, j)
 					else:
 						if !first_level_links_on_objects[i][j].has_method("boss"):
@@ -156,7 +156,7 @@ func moving_object(player_position) -> void:
 					if first_level_links_on_objects[i+1][j].has_method("enemy"):
 						if first_level_links_on_objects[i+1][j].freezen:
 							if first_level_links_on_objects[i][j].has_method("enemy"):
-								if !first_level_links_on_objects[i][j].freezen:
+								if !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
 									move_left_or_right(i, j)
 							else:
 								if !first_level_links_on_objects[i][j].has_method("boss"):
@@ -287,12 +287,13 @@ func ball_explosion(enemy, damage_ball, color_ball, chance_of_freezing : int = 0
 			if target_x >= 0 and target_x < 8 and target_y >= 0 and target_y < 6:
 				if first_level_links_on_objects[target_x][target_y] != null:
 					if first_level_links_on_objects[target_x][target_y].has_method("enemy"):
-						if chance_of_freezing == 0:
-							first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
-						else:
-							first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
-						combo_count += 1 # можно будет убрать
-						check_count_combo(first_level_links_on_objects[target_x][target_y])
+						if first_level_links_on_objects[target_x][target_y].alive:
+							if chance_of_freezing == 0:
+								first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
+							else:
+								first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
+							combo_count += 1 # можно будет убрать
+							check_count_combo(first_level_links_on_objects[target_x][target_y])
 
 func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 	var enemy_arr = find_all_enemys()
@@ -344,8 +345,9 @@ func laser_ball_damage_horizontally(damage_ball, color_ball, line_damage) -> voi
 	for i in first_level_links_on_objects[line_damage]:
 		if i != null:
 			if i.has_method("enemy"):
-				effect.global_position = Vector2(358, i.global_position.y)
-				i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
+				if i.alive:
+					effect.global_position = Vector2(358, i.global_position.y)
+					i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
 
 func laser_ball_damage_vertically(damage_ball, color_ball, line_damage) -> void:
 	var effect = LASER_LINE.instantiate()
@@ -354,8 +356,9 @@ func laser_ball_damage_vertically(damage_ball, color_ball, line_damage) -> void:
 	for i in first_level_links_on_objects.map(func(row): return row[line_damage]):
 		if i != null:
 			if i.has_method("enemy"):
-				effect.global_position = Vector2(i.global_position.x, 644)
-				i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
+				if i.alive:
+					effect.global_position = Vector2(i.global_position.x, 644)
+					i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
 
 func rocket_ball_damage(enemy, damage_ball, color_ball, start_pos, count_rocket, combo : bool = false) -> void:
 	var enemy_arr : Array = find_all_enemys()

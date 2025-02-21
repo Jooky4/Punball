@@ -117,7 +117,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/path = NodePath("Reminder_boss:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -129,7 +129,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect/Label:position")
+tracks/1/path = NodePath("Reminder_boss/Boss_here:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -141,7 +141,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect/Label2:position")
+tracks/2/path = NodePath("Reminder_boss/Boss_close:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -157,7 +157,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/path = NodePath("Reminder_boss:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -169,7 +169,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect/Label2:position")
+tracks/1/path = NodePath("Reminder_boss/Boss_close:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -185,7 +185,7 @@ length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/path = NodePath("Reminder_boss:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -197,7 +197,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect/Label:position")
+tracks/1/path = NodePath("Reminder_boss/Boss_here:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -252,7 +252,7 @@ rotation = 1.5708
 [node name="Start_bullet_position" type="Node2D" parent="Dicariations"]
 
 [node name="Line2D" type="Line2D" parent="Dicariations/Start_bullet_position"]
-z_index = 2
+z_index = 3
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7sh1d")
 points = PackedVector2Array(0, 0, 0, 0)
@@ -261,14 +261,14 @@ texture = ExtResource("5_7ui2n")
 texture_mode = 1
 
 [node name="Strelka" type="Line2D" parent="Dicariations/Start_bullet_position"]
-z_index = 2
+z_index = 3
 points = PackedVector2Array(359, 1207, 359, 1208)
 width = 30.0
 texture = ExtResource("8_wf17s")
 texture_mode = 2
 
 [node name="Start_bullet_position" type="Sprite2D" parent="Dicariations/Start_bullet_position"]
-z_index = 2
+z_index = 3
 position = Vector2(359.5, 1205.5)
 texture = ExtResource("6_3rmiv")
 
@@ -312,7 +312,7 @@ target_position = Vector2(720, 197)
 
 [node name="Ball_rotate_UI" parent="Dicariations/Start_bullet_position" instance=ExtResource("9_2r8vu")]
 visible = false
-z_index = 2
+z_index = 3
 position = Vector2(359, 1205)
 
 [node name="Setka" type="Node2D" parent="Dicariations"]
@@ -659,9 +659,9 @@ offset_top = -42.0
 offset_right = 42.0
 offset_bottom = 39.0
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
+[node name="Reminder_boss" type="ColorRect" parent="UI"]
 visible = false
-z_index = 2
+z_index = 5
 layout_mode = 0
 offset_left = -2046.0
 offset_top = -181.0
@@ -669,7 +669,7 @@ offset_right = 2530.0
 offset_bottom = 1371.0
 color = Color(0, 0, 0, 0.694118)
 
-[node name="Label" type="Label" parent="UI/ColorRect"]
+[node name="Boss_here" type="Label" parent="UI/Reminder_boss"]
 z_index = 1
 layout_mode = 0
 offset_left = 11.0
@@ -679,7 +679,7 @@ offset_bottom = 775.0
 text = "БОЛЬШАЯ ЧЕРНИКА"
 label_settings = SubResource("LabelSettings_2dum8")
 
-[node name="Ligting" type="Sprite2D" parent="UI/ColorRect/Label"]
+[node name="Ligting" type="Sprite2D" parent="UI/Reminder_boss/Boss_here"]
 modulate = Color(1, 0, 0, 1)
 z_index = -1
 position = Vector2(145.28, 70.018)
@@ -687,7 +687,7 @@ rotation = 1.5742
 scale = Vector2(1, 1.47337)
 texture = ExtResource("18_gvlsg")
 
-[node name="Label2" type="Label" parent="UI/ColorRect/Label"]
+[node name="Label2" type="Label" parent="UI/Reminder_boss/Boss_here"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 69.0
@@ -696,27 +696,27 @@ offset_bottom = 127.0
 text = "Она большая и ещё стреляет воооот"
 label_settings = SubResource("LabelSettings_e60f6")
 
-[node name="Boss_sprite" type="Node2D" parent="UI/ColorRect/Label"]
+[node name="Boss_sprite" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 position = Vector2(-87, 70.0001)
 scale = Vector2(0.12, 0.12)
 
-[node name="Тело" type="Sprite2D" parent="UI/ColorRect/Label/Boss_sprite"]
+[node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/Boss_sprite"]
 position = Vector2(-29.4118, -89.4797)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("18_lqjow")
 
-[node name="Рот" type="Sprite2D" parent="UI/ColorRect/Label/Boss_sprite"]
+[node name="Рот" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/Boss_sprite"]
 position = Vector2(-24.5098, -89.4797)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("19_xefh1")
 
-[node name="Листик" type="Sprite2D" parent="UI/ColorRect/Label/Boss_sprite"]
+[node name="Листик" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/Boss_sprite"]
 position = Vector2(-128.571, -357.143)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("20_g1vbe")
 offset = Vector2(45.4571, 117.586)
 
-[node name="Label2" type="Label" parent="UI/ColorRect"]
+[node name="Boss_close" type="Label" parent="UI/Reminder_boss"]
 z_index = 1
 layout_mode = 0
 offset_left = 9.0
@@ -726,7 +726,7 @@ offset_bottom = 811.0
 text = "БОСС ПРИБЛИЖАЕТСЯ"
 label_settings = SubResource("LabelSettings_2dum8")
 
-[node name="Ligting" type="Sprite2D" parent="UI/ColorRect/Label2"]
+[node name="Ligting" type="Sprite2D" parent="UI/Reminder_boss/Boss_close"]
 modulate = Color(1, 0, 0, 1)
 z_index = -1
 position = Vector2(148.172, 34.6492)
@@ -734,27 +734,28 @@ rotation = 1.5742
 scale = Vector2(1, 1.47337)
 texture = ExtResource("18_gvlsg")
 
-[node name="Boss_sprite" type="Node2D" parent="UI/ColorRect/Label2"]
+[node name="Boss_sprite" type="Node2D" parent="UI/Reminder_boss/Boss_close"]
 position = Vector2(-84.1084, 34.6312)
 scale = Vector2(0.12, 0.12)
 
-[node name="Тело" type="Sprite2D" parent="UI/ColorRect/Label2/Boss_sprite"]
+[node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_close/Boss_sprite"]
 position = Vector2(-29.4118, -89.4797)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("18_lqjow")
 
-[node name="Рот" type="Sprite2D" parent="UI/ColorRect/Label2/Boss_sprite"]
+[node name="Рот" type="Sprite2D" parent="UI/Reminder_boss/Boss_close/Boss_sprite"]
 position = Vector2(-24.5098, -89.4797)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("19_xefh1")
 
-[node name="Листик" type="Sprite2D" parent="UI/ColorRect/Label2/Boss_sprite"]
+[node name="Листик" type="Sprite2D" parent="UI/Reminder_boss/Boss_close/Boss_sprite"]
 position = Vector2(-128.571, -357.143)
 scale = Vector2(2.45098, 2.41837)
 texture = ExtResource("20_g1vbe")
 offset = Vector2(45.4571, 117.586)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Reminder_boss"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_xcrrp")
 }

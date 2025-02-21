@@ -40,9 +40,9 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 	else:
 		create_label_damage(damage_ball, color_label)
 	if hp_enemy <= 0 and alive:
+		alive = false 
 		hp_enemy_label.visible = false
 		hp_enemy_bar.visible = false
-		alive = false
 		collision_shape.queue_free()
 		hp_enemy_label.text = "0"
 		hp_enemy_bar.value = 0
@@ -96,22 +96,23 @@ func delete_freezing_and_fire() -> void:
 		freezen_sprite.visible = false
 
 func moving(direction_object) -> void:
-	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
-		animation_enemy.play("Move")
-	if direction_object != "":
-		var tween = create_tween()
-		if direction_object == "forward":
-			tween.tween_property(self, "position", Vector2(0, 103) + self.position, 1)
-		elif direction_object == "left":
-			tween.tween_property(self, "position", Vector2(-103, 0) + self.position, 1)
-		elif direction_object == "right":
-			tween.tween_property(self, "position", Vector2(103, 0) + self.position, 1)
-	await get_tree().create_timer(1).timeout
-	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
-		if on_last_line:
-			animation_enemy.play("Preparation")
-		else:
-			animation_enemy.play("Idle")
+	if alive:
+		if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
+			animation_enemy.play("Move")
+		if direction_object != "":
+			var tween = create_tween()
+			if direction_object == "forward":
+				tween.tween_property(self, "position", Vector2(0, 103) + self.position, 1)
+			elif direction_object == "left":
+				tween.tween_property(self, "position", Vector2(-103, 0) + self.position, 1)
+			elif direction_object == "right":
+				tween.tween_property(self, "position", Vector2(103, 0) + self.position, 1)
+		await get_tree().create_timer(1).timeout
+		if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+			if on_last_line:
+				animation_enemy.play("Preparation")
+			else:
+				animation_enemy.play("Idle")
 
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
@@ -129,7 +130,7 @@ func enemy_on_last_line():
 	on_last_line = true
 
 func play_animation_hit_player():
-	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
+	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Hit")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

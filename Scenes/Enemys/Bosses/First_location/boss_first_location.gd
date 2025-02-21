@@ -2,13 +2,14 @@ extends "res://Scenes/Enemys/blueberries_enemy.gd"
 
 
 func moving(direction_object) -> void:
-	animation_enemy.play("Move")
-	create_tween().tween_property(self, "position", Vector2(103, 103) * Vector2(direction_object.y, direction_object.x), 1).as_relative()
-	await get_tree().create_timer(1).timeout
-	if on_last_line:
-		animation_enemy.play("Preparation")
-	else:
-		animation_enemy.play("Idle")
+	if alive:
+		animation_enemy.play("Move")
+		create_tween().tween_property(self, "position", Vector2(103, 103) * Vector2(direction_object.y, direction_object.x), 1).as_relative()
+		await get_tree().create_timer(1).timeout
+		if on_last_line:
+			animation_enemy.play("Preparation")
+		else:
+			animation_enemy.play("Idle")
 
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
