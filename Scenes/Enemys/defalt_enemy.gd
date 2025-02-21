@@ -40,6 +40,8 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 	else:
 		create_label_damage(damage_ball, color_label)
 	if hp_enemy <= 0 and alive:
+		hp_enemy_label.visible = false
+		hp_enemy_bar.visible = false
 		alive = false
 		collision_shape.queue_free()
 		hp_enemy_label.text = "0"
@@ -68,7 +70,6 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 func deal_bomb_damage(damage_ball, color_label) -> void:
 	if alive:
 		deal_damage(damage_ball, color_label)
-		var tween = create_tween()
 
 func deal_freezing_damage(damage_ball, color_label) -> void:
 	if alive:
