@@ -29,43 +29,55 @@ func _ready() -> void:
 		hp_enemy_label.text = str(hp_enemy/1000) + "K"
 	else:
 		hp_enemy_label.text = str(hp_enemy)
+	if !self.has_method("boss"):
+		self.z_index = 2
 
 func enemy() -> void:
 	pass
 
 func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
-	hp_enemy -= damage_ball
-	if killer_ball:
-		create_label_damage("УБИЙЦА", color_label)
-	else:
-		create_label_damage(damage_ball, color_label)
-	if hp_enemy <= 0 and alive:
-		alive = false 
-		hp_enemy_label.visible = false
-		hp_enemy_bar.visible = false
-		collision_shape.queue_free()
-		hp_enemy_label.text = "0"
-		hp_enemy_bar.value = 0
-		if animation_enemy:
-			animation_enemy.stop()
-			animation_enemy.play("Death")
-		LevelManager.enemy_died(self)
-		if !self.has_method("boss"):
-			var buff_bank_experience = BANK_WITH_EXPERIENCE.instantiate()
-			buff_bank_experience.position = self.global_position + Vector2(randi() % 5 - 25, randi() % 5 - 25)
-			get_tree().current_scene.add_child(buff_bank_experience)
-			if randf() < 0.2:
-				var buff_health = RESTORE_HEALTH.instantiate()
-				buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
-				get_tree().current_scene.add_child(buff_health)
-	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
-		animation_enemy.stop()
-		animation_enemy.play("Damage")
-	if hp_enemy>=1000:
-		hp_enemy_label.text = str(hp_enemy/1000) + "K"
-	else:
-		hp_enemy_label.text = str(round(hp_enemy))
-	hp_enemy_bar.value = hp_enemy
+	if alive:
+		if animation_enemy.current_animation == "Move":
+			await animation_enemy.animation_changed
+		elif animation_enemy.current_animation == "Spawn":
+			await get_tree().create_timer(1.1).timeout
+
+		if killer_ball:
+			create_label_damage("УБИЙЦА", color_label)
+		else:
+			create_label_damage(damage_ball, color_label)
+		hp_enemy -= damage_ball
+
+		if hp_enemy <= 0 and alive:
+			alive = false 
+			hp_enemy_label.text = "0"
+			hp_enemy_bar.value = 0
+			hp_enemy_label.visible = false
+			hp_enemy_bar.visible = false
+			collision_shape.queue_free()
+			if !self.has_method("boss"):
+				var buff_bank_experience = BANK_WITH_EXPERIENCE.instantiate()
+				buff_bank_experience.position = self.global_position + Vector2(randi() % 5 - 25, randi() % 5 - 25)
+				get_tree().current_scene.add_child(buff_bank_experience)
+				if randf() < 0.2:
+					var buff_health = RESTORE_HEALTH.instantiate()
+					buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
+					get_tree().current_scene.add_child(buff_health)
+			if animation_enemy:
+				animation_enemy.play("Death")
+			return
+
+		if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
+			if animation_enemy.current_animation != "Move" and animation_enemy.current_animation != "Spawn":
+				animation_enemy.play("Damage")
+			else:
+				await animation_enemy.animation_changed
+				animation_enemy.play("Damage")
+		if hp_enemy>=1000:
+			hp_enemy_label.text = str(hp_enemy/1000) + "K"
+		else:
+			hp_enemy_label.text = str(round(hp_enemy))
+		hp_enemy_bar.value = hp_enemy
 
 func deal_bomb_damage(damage_ball, color_label) -> void:
 	if alive:
@@ -97,7 +109,7 @@ func delete_freezing_and_fire() -> void:
 
 func moving(direction_object) -> void:
 	if alive:
-		if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
+		if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 			animation_enemy.play("Move")
 		if direction_object != "":
 			var tween = create_tween()
@@ -113,6 +125,7 @@ func moving(direction_object) -> void:
 				animation_enemy.play("Preparation")
 			else:
 				animation_enemy.play("Idle")
+
 
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
@@ -137,14 +150,18 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		if anim_name == "Spawn":
 			animation_enemy.play("Idle")
-		if anim_name == "Damage":
-			if on_last_line:
-				animation_enemy.play("Preparation")
-			else:
-				animation_enemy.play("Idle")
+			if !self.has_method("boss"):
+				self.z_index = 0
+		elif anim_name == "Damage":
+			if alive:
+				if on_last_line:
+					animation_enemy.play("Preparation")
+				else:
+					animation_enemy.play("Idle")
 		elif anim_name == "Hit" and on_last_line and !self.has_method("boss"):
 			self.queue_free()
 		elif anim_name == "Death":
+			LevelManager.enemy_died(self)
 			self.queue_free()
 		else:
 			if on_last_line:

@@ -9,7 +9,7 @@ font_size = 50
 
 [node name="Label_enemy_damage" type="Label"]
 visible = false
-z_index = 1
+z_index = 2
 offset_right = 110.0
 offset_bottom = 58.0
 scale = Vector2(0.3, 0.3)

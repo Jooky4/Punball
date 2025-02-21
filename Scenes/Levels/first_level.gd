@@ -296,6 +296,8 @@ func spawn_objects_on_matrix() -> void:
 		for j in i:
 			count += 1
 			spawn_objects_by_index(count)
+	await get_tree().create_timer(1.1).timeout
+	LevelManager.check_traps()
 
 func spawn_objects_by_index(count) -> void:
 	if typeof(LevelManager.first_level_links_on_objects[count/6][count%6]) == 2:
@@ -369,7 +371,6 @@ func end_wave() -> void:
 	LevelManager.delete_freezing_and_fire_on_enemy()
 	animation_bank_with_experience()
 	animation_health()
-	LevelManager.check_traps(true)
 	if count_level_label.text == "19":
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished

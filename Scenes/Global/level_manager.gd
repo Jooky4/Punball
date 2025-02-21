@@ -148,7 +148,6 @@ func moving_object(player_position) -> void:
 					else:
 						if !first_level_links_on_objects[i][j].has_method("boss"):
 							move_forward(i, j)
-	check_traps()
 	for i in range(first_level_links_on_objects.size() - 2, -1, -1): # ПОТОМ ДВИГАЕМ ВПРАВО, ВЛЕВО ТЕХ У КОГО ПРЕПЯТСВИЕ СПЕРЕДИ
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null: 
@@ -165,6 +164,8 @@ func moving_object(player_position) -> void:
 		if first_level_links_on_objects[7][i] != null:
 			if first_level_links_on_objects[7][i].has_method("enemy"):
 					first_level_links_on_objects[7][i].enemy_on_last_line()
+	await get_tree().create_timer(1).timeout
+	check_traps()
 
 func move_forward(i, j) -> void:
 	first_level_links_on_objects[i][j].moving("forward")
@@ -220,22 +221,14 @@ func move_boss() -> void:
 									first_level_links_on_objects[boss_pos.x + i1][boss_pos.y + j1] = null
 							return
 
-func check_traps(first_line : bool = false) -> void:
-	if first_line:
-		for i in range(first_level_links_on_objects[0].size()):
-			if trap_on_map_links[0][i] != null:
-				if first_level_links_on_objects[0][i] != null:
-					if first_level_links_on_objects[0][i].has_method("enemy"):
-						trap_on_map_links[0][i].delete_trap(first_level_links_on_objects[0][i])
-						trap_on_map_links[0][i] = null
-	else:
-		for i in range(first_level_links_on_objects.size()):
-			for j in range(first_level_links_on_objects[i].size()):
-				if trap_on_map_links[i][j] != null:
-					if first_level_links_on_objects[i][j] != null:
-						if first_level_links_on_objects[i][j].has_method("enemy"):
-							trap_on_map_links[i][j].delete_trap(first_level_links_on_objects[i][j])
-							trap_on_map_links[i][j] = null
+func check_traps() -> void:
+	for i in range(first_level_links_on_objects.size()):
+		for j in range(first_level_links_on_objects[i].size()):
+			if trap_on_map_links[i][j] != null:
+				if first_level_links_on_objects[i][j] != null:
+					if first_level_links_on_objects[i][j].has_method("enemy"):
+						trap_on_map_links[i][j].delete_trap(first_level_links_on_objects[i][j])
+						trap_on_map_links[i][j] = null
 
 func updete_last_line() -> void:
 	var new_line_spawn
