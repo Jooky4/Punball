@@ -21,7 +21,7 @@ tracks/0/path = NodePath("Death_effect:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0.166667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -33,7 +33,7 @@ tracks/1/path = NodePath("trap_sprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(-0.0666667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-5.96046e-08, 4.76837e-07)]
@@ -45,7 +45,7 @@ tracks/2/path = NodePath("trap_sprite:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.0666667, 0.166667),
+"times": PackedFloat32Array(0.0333334, 0.133333, 0.233334),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(0.8, 0.8), Vector2(0.8, 0.981332), Vector2(0.8, 1e-05)]
@@ -119,7 +119,7 @@ _data = {
 z_index = -1
 position = Vector2(-5.96046e-08, 4.76837e-07)
 rotation = 0.820305
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.9, 0.9)
 script = ExtResource("2_3r23j")
 
 [node name="Death_effect" type="CPUParticles2D" parent="."]
