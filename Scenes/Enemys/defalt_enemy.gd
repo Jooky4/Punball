@@ -1,6 +1,7 @@
 extends StaticBody2D
 
-var bank_with_experience = preload("res://Scenes/Bonus/bank_with_experience.tscn")
+var BANK_WITH_EXPERIENCE = preload("res://Scenes/Bonus/bank_with_experience.tscn")
+var RESTORE_HEALTH = preload("res://Scenes/Bonus/restore_health.tscn")
 var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
 
 @export var hp_enemy : float = 400
@@ -39,17 +40,22 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 	else:
 		create_label_damage(damage_ball, color_label)
 	if hp_enemy <= 0 and alive:
+		alive = false
 		collision_shape.queue_free()
 		hp_enemy_label.text = "0"
 		hp_enemy_bar.value = 0
-		alive = false
 		if animation_enemy:
 			animation_enemy.stop()
 			animation_enemy.play("Death")
 		LevelManager.enemy_died(self)
-		var buff = bank_with_experience.instantiate()
-		buff.position = self.global_position
-		get_tree().current_scene.add_child(buff)
+		if !self.has_method("boss"):
+			var buff_bank_experience = BANK_WITH_EXPERIENCE.instantiate()
+			buff_bank_experience.position = self.global_position + Vector2(randi() % 5 - 25, randi() % 5 - 25)
+			get_tree().current_scene.add_child(buff_bank_experience)
+
+			var buff_health = RESTORE_HEALTH.instantiate()
+			buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
+			get_tree().current_scene.add_child(buff_health)
 	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.stop()
 		animation_enemy.play("Damage")

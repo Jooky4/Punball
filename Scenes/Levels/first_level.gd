@@ -180,6 +180,13 @@ func get_expirians_animation(experience) -> void:
 		await get_tree().create_timer(0.75).timeout
 		get_count_experience_label.visible = false
 
+func get_health(health_hp) -> void:
+	LevelManager.hp_player += health_hp
+	if LevelManager.hp_player > LevelManager.max_hp_player:
+		LevelManager.hp_player = LevelManager.max_hp_player
+	hp_player_bar.value = LevelManager.hp_player
+	hp_player_label.text = str(LevelManager.hp_player)
+
 func win() -> void:
 	end_game_UI.visible = true
 	end_game_UI_win.visible = true
@@ -334,10 +341,11 @@ func end_wave() -> void:
 	combo_count_label.text = str(0)
 	count_get_experience_on_wave = 0
 	get_count_experience_label.text = ""
-	animation_bank_with_experience()
 	start_balls_position.position.x += new_position_balls
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
+	animation_bank_with_experience()
+	animation_health()
 	LevelManager.moving_object(start_balls_position.position)
 	if LevelManager.hit_player:
 		await get_tree().create_timer(3).timeout
@@ -378,6 +386,14 @@ func animation_bank_with_experience() -> void:
 			if i.has_method("bank_with_experience"):
 				if !i.bank_go:
 					i.go_to_count()
+					await get_tree().create_timer(0.1).timeout
+
+func animation_health() -> void:
+	for i in self.get_children():
+		if i != null:
+			if i.has_method("health"):
+				if !i.health_go:
+					i.go_to_player(start_balls_position.position)
 					await get_tree().create_timer(0.1).timeout
 
 func _on_balls_back_pressed() -> void:

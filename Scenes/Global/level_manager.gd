@@ -9,8 +9,8 @@ var TRAP = preload("res://Scenes/For skills/trap.tscn")
 var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 
 var hp_player : float = 1000
-var boss_on_map : bool = false
 var max_hp_player : float = 1000
+var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
