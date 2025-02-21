@@ -54,10 +54,10 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 			var buff_bank_experience = BANK_WITH_EXPERIENCE.instantiate()
 			buff_bank_experience.position = self.global_position + Vector2(randi() % 5 - 25, randi() % 5 - 25)
 			get_tree().current_scene.add_child(buff_bank_experience)
-
-			var buff_health = RESTORE_HEALTH.instantiate()
-			buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
-			get_tree().current_scene.add_child(buff_health)
+			if randf() < 0.2:
+				var buff_health = RESTORE_HEALTH.instantiate()
+				buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
+				get_tree().current_scene.add_child(buff_health)
 	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.stop()
 		animation_enemy.play("Damage")
