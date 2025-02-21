@@ -1312,7 +1312,7 @@ vertical_alignment = 1
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_n58q7")
 
-[node name="Fire_effect2" type="CPUParticles2D" parent="."]
+[node name="Fire_effect" type="CPUParticles2D" parent="."]
 position = Vector2(0, 37.005)
 emitting = false
 amount = 100
