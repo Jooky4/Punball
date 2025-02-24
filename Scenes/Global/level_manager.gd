@@ -11,7 +11,7 @@ var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var hp_player : float = 1000
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
-var player_balls : Array = [1]
+var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -66,7 +66,7 @@ func restert() -> void:
 	spin_skill = 0
 	combo_count = 0
 	count_experiance = 0
-	chance_of_freezing = 0.1
+	chance_of_freezing = 0.9
 	count_damage_lightning_enemy = 3
 	player_balls_after_wave = []
 	player_skills = []
@@ -129,12 +129,17 @@ func moving_object(player_position) -> void:
 		for j in i:
 			if j != null:
 				if j.has_method("medic") and !j.freezen and j.alive:
-					j.heal_enemy()
-					hit_player = true
+					if j.heal_enemy():
+						hit_player = true
 
 	if hit_player:
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1.5).timeout
 
+	for i in first_level_links_on_objects:
+		for j in i:
+			if j != null:
+				if j.has_method("enemy"):
+					j.move_on_this_wave = false
 	for i in range(first_level_links_on_objects[7].size()): # УДАЛЕНИЕ ОБЪЕКТОВ С ПОСЛЕДНЕЙ СТРОЧКИ
 		if first_level_links_on_objects[7][i] != null:
 			if first_level_links_on_objects[7][i].has_method("enemy") and !first_level_links_on_objects[7][i].has_method("boss"):
@@ -177,24 +182,29 @@ func moving_object(player_position) -> void:
 	check_traps()
 
 func move_forward(i, j) -> void:
-	first_level_links_on_objects[i][j].moving("forward")
-	first_level_links_on_objects[i+1][j] = first_level_links_on_objects[i][j]
-	first_level_links_on_objects[i][j] = null
+	if !first_level_links_on_objects[i][j].move_on_this_wave:
+		first_level_links_on_objects[i][j].moving("forward")
+		first_level_links_on_objects[i][j].move_on_this_wave = true
+		first_level_links_on_objects[i+1][j] = first_level_links_on_objects[i][j]
+		first_level_links_on_objects[i][j] = null
 
 func move_left_or_right(i, j) -> void:
-	if j != 0:
-		if first_level_links_on_objects[i][j-1] == null:
-			first_level_links_on_objects[i][j].moving("left")
-			first_level_links_on_objects[i][j-1] = first_level_links_on_objects[i][j]
-			first_level_links_on_objects[i][j] = null
-		else:
-			if j != 5:
-				if first_level_links_on_objects[i][j+1] == null:
-					first_level_links_on_objects[i][j].moving("right")
-					first_level_links_on_objects[i][j+1] = first_level_links_on_objects[i][j]
-					first_level_links_on_objects[i][j] = null
+	if !first_level_links_on_objects[i][j].move_on_this_wave:
+		if j != 0:
+			if first_level_links_on_objects[i][j-1] == null:
+				first_level_links_on_objects[i][j].moving("left")
+				first_level_links_on_objects[i][j].move_on_this_wave = true
+				first_level_links_on_objects[i][j-1] = first_level_links_on_objects[i][j]
+				first_level_links_on_objects[i][j] = null
 			else:
-				print(i+1," ", j+1, ": ВСЁ ЗАНЯТО Я ТУТ ОСТАНУСЬ")
+				if j != 5:
+					if first_level_links_on_objects[i][j+1] == null:
+						first_level_links_on_objects[i][j].moving("right")
+						first_level_links_on_objects[i][j].move_on_this_wave = true
+						first_level_links_on_objects[i][j+1] = first_level_links_on_objects[i][j]
+						first_level_links_on_objects[i][j] = null
+				else:
+					print(i+1," ", j+1, ": ВСЁ ЗАНЯТО Я ТУТ ОСТАНУСЬ")
 
 func move_boss() -> void:
 	var free_spots = []

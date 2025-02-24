@@ -12,6 +12,7 @@ var alive = true
 var on_last_line = false
 var freezen : bool = false
 var on_fire : bool = false
+var move_on_this_wave : bool = false
 var max_hp_enemy : float
 
 @onready var hp_enemy_label = $Hp_boss_label
