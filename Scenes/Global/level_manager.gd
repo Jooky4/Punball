@@ -332,43 +332,45 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 func laser_ball_damage(enemy, damage_ball, color_ball, line_damage) -> void:
 	var horizontal
 	var vertical
+	var pos_enemy 
 	for i in range(first_level_links_on_objects.size()):
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null:
 				if first_level_links_on_objects[i][j] == enemy:
 					horizontal = i
 					vertical = j
+					pos_enemy = first_level_links_on_objects[i][j].global_position
 					break
 	if horizontal != null and vertical != null:
 		if "Повелитель лазера" in player_skills:
-			laser_ball_damage_horizontally(damage_ball, color_ball, horizontal)
-			laser_ball_damage_vertically(damage_ball, color_ball, vertical)
+			laser_ball_damage_horizontally(damage_ball, color_ball, horizontal, pos_enemy)
+			laser_ball_damage_vertically(damage_ball, color_ball, vertical, pos_enemy)
 		else:
 			if line_damage == 0:
-				laser_ball_damage_horizontally(damage_ball, color_ball, horizontal)
+				laser_ball_damage_horizontally(damage_ball, color_ball, horizontal, pos_enemy)
 			elif line_damage == 1:
-				laser_ball_damage_vertically(damage_ball, color_ball, vertical)
+				laser_ball_damage_vertically(damage_ball, color_ball, vertical, pos_enemy)
 
-func laser_ball_damage_horizontally(damage_ball, color_ball, line_damage) -> void:
+func laser_ball_damage_horizontally(damage_ball, color_ball, line_damage, pos_enemy) -> void:
 	var effect = LASER_LINE.instantiate()
 	get_tree().current_scene.add_child(effect)
+	effect.global_position = Vector2(358, pos_enemy.y)
 	effect.show_line(0)
 	for i in first_level_links_on_objects[line_damage]:
 		if i != null:
 			if i.has_method("enemy"):
 				if i.alive:
-					effect.global_position = Vector2(358, i.global_position.y)
 					i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
 
-func laser_ball_damage_vertically(damage_ball, color_ball, line_damage) -> void:
+func laser_ball_damage_vertically(damage_ball, color_ball, line_damage, pos_enemy) -> void:
 	var effect = LASER_LINE.instantiate()
 	get_tree().current_scene.add_child(effect)
+	effect.global_position = Vector2(pos_enemy.x, 644)
 	effect.show_line(1)
 	for i in first_level_links_on_objects.map(func(row): return row[line_damage]):
 		if i != null:
 			if i.has_method("enemy"):
 				if i.alive:
-					effect.global_position = Vector2(i.global_position.x, 644)
 					i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
 
 func rocket_ball_damage(enemy, damage_ball, color_ball, start_pos, count_rocket, combo : bool = false) -> void:
