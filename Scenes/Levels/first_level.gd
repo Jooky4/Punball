@@ -17,6 +17,7 @@ var game_state = PLAY
 var DEFALT_ENEMY = preload("res://Scenes/Enemys/defalt_enemy.tscn")
 var BLUEBERRIES_ENEMY = preload("res://Scenes/Enemys/blueberries_enemy.tscn")
 var BOMB_ENEMY = preload("res://Scenes/Enemys/bomb_enemy.tscn")
+var MEDIC_ENEMY = preload("res://Scenes/Enemys/medic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
@@ -324,6 +325,9 @@ func spawn_objects_by_index(count) -> void:
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
 				notification_about_boss_animation.play("spawn_boss")
+			5: 
+				buff = MEDIC_ENEMY.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
 		game_objects.add_child(buff)

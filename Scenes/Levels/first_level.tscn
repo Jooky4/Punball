@@ -334,7 +334,7 @@ offset_bottom = 1280.0
 
 [node name="End_game" type="Control" parent="UI"]
 visible = false
-z_index = 5
+z_index = 8
 layout_mode = 3
 anchors_preset = 0
 offset_left = -379.0
@@ -416,6 +416,7 @@ text = "СКИЛЛЫ
 
 [node name="Chose_ball" parent="UI" instance=ExtResource("13_31ajf")]
 visible = false
+z_index = 8
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -535,7 +536,7 @@ offset_bottom = 39.0
 
 [node name="Reminder_boss" type="ColorRect" parent="UI"]
 visible = false
-z_index = 5
+z_index = 8
 layout_mode = 0
 offset_left = -2046.0
 offset_top = -181.0

@@ -11,7 +11,7 @@ var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var hp_player : float = 1000
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
-var player_balls : Array = [1, 1, 1, 1]
+var player_balls : Array = [1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -40,7 +40,7 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
+var first_level_links_on_objects : Array = [[5, null, 5, null, null, 5],
  											[null, 1, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
@@ -105,15 +105,16 @@ func apeend_new_balls() -> void:
 
 func moving_object(player_position) -> void:
 	hit_player = false
-	for i in first_level_links_on_objects[7]: # НАНЕСЕНИЕ УРОНА ИГРОКУ
+	for i in first_level_links_on_objects[7]: # НАНЕСЕНИЕ УРОНА ИГРОКУ С ПОСЛЕДНЕГО РЯДА
 		if i != null:
 			if i.has_method("enemy") and !i.has_method("boss"):
 				if !i.freezen and i.alive:
 					i.play_animation_hit_player()
 					damage_player(i.player_damage)
 					hit_player = true
+
 	var boss_shoot = false
-	for i in first_level_links_on_objects:
+	for i in first_level_links_on_objects: # НАНЕСЕНИЕ УРОНА ИГРОКУ ВРАГАМИ ДАЛЬНЕГО БОЯ
 		for j in i:
 			if j != null:
 				if j.has_method("shoot_at_player") and !j.freezen and j.alive:
@@ -123,8 +124,16 @@ func moving_object(player_position) -> void:
 					elif !j.has_method("boss"):
 						j.shoot_at_player(player_position)
 					hit_player = true
+
+	for i in first_level_links_on_objects: # ВРАГИ МЕДИКИ ЛЕЧАТ
+		for j in i:
+			if j != null:
+				if j.has_method("medic") and !j.freezen and j.alive:
+					j.heal_enemy()
+					hit_player = true
+
 	if hit_player:
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(2).timeout
 
 	for i in range(first_level_links_on_objects[7].size()): # УДАЛЕНИЕ ОБЪЕКТОВ С ПОСЛЕДНЕЙ СТРОЧКИ
 		if first_level_links_on_objects[7][i] != null:

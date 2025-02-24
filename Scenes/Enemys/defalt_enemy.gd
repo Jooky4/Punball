@@ -12,6 +12,7 @@ var alive = true
 var on_last_line = false
 var freezen : bool = false
 var on_fire : bool = false
+var max_hp_enemy : float
 
 @onready var hp_enemy_label = $Hp_boss_label
 @onready var hp_enemy_bar = $TextureProgressBar
@@ -21,9 +22,10 @@ var on_fire : bool = false
 @onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
+	max_hp_enemy = hp_enemy
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Spawn")
-	hp_enemy_bar.max_value = hp_enemy
+	hp_enemy_bar.max_value = max_hp_enemy
 	hp_enemy_bar.value = hp_enemy
 	if hp_enemy>=1000:
 		hp_enemy_label.text = str(hp_enemy/1000) + "K"
@@ -126,12 +128,13 @@ func moving(direction_object) -> void:
 			else:
 				animation_enemy.play("Idle")
 
-
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
 	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
 		label.text = str(damage_ball)
+	elif color_label == Color.GREEN:
+		label.text = "+" + str(damage_ball)
 	else:
 		label.text = "-" + str(damage_ball)
 	label.modulate = color_label
@@ -168,3 +171,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				animation_enemy.play("Preparation")
 			else:
 				animation_enemy.play("Idle")
+
+func heal_hp(hp_heal) -> void:
+	hp_enemy += hp_heal
+	if hp_enemy > max_hp_enemy:
+		hp_enemy = max_hp_enemy
+	hp_enemy_bar.value = hp_enemy
+	if hp_enemy>=1000:
+		hp_enemy_label.text = str(hp_enemy/1000) + "K"
+	else:
+		hp_enemy_label.text = str(hp_enemy)
+	create_label_damage(hp_heal, Color.GREEN)

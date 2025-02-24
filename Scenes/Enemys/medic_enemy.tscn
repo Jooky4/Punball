@@ -1,5 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://cv6rl7if0i1yl"]
+[gd_scene load_steps=33 format=3 uid="uid://cv6rl7if0i1yl"]
 
+[ext_resource type="Script" path="res://Scenes/Enemys/medic_enemy.gd" id="1_o1fqo"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_e67dy"]
 [ext_resource type="Texture2D" uid="uid://cw7yyw0n7pa00" path="res://Texture/Effects/лечение.png" id="2_v67j1"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_joo56"]
@@ -1516,6 +1517,8 @@ _data = {
 [node name="medic_enemy" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("1_o1fqo")
+hp_enemy = 1440.0
 
 [node name="Effects" type="Node2D" parent="."]
 
