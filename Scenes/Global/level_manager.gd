@@ -66,7 +66,7 @@ func restert() -> void:
 	spin_skill = 0
 	combo_count = 0
 	count_experiance = 0
-	chance_of_freezing = 0.9
+	chance_of_freezing = 0.1
 	count_damage_lightning_enemy = 3
 	player_balls_after_wave = []
 	player_skills = []
