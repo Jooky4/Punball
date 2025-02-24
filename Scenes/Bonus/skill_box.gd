@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+var move_on_this_wave : bool = false
+
 func moving(direction_object) -> void:
 	if direction_object != "":
 		var tween = get_tree().create_tween()
