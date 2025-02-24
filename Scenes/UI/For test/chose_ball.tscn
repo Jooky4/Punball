@@ -1,0 +1,509 @@
+[gd_scene load_steps=9 format=3 uid="uid://03cucs0teyc1"]
+
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_bejib"]
+[ext_resource type="Script" path="res://Scenes/UI/For test/chose_ball.gd" id="1_q6e07"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkoco"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny5mh"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8hou"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjevs"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="Theme" id="Theme_6um41"]
+Button/styles/disabled = SubResource("StyleBoxFlat_al670")
+Button/styles/focus = SubResource("StyleBoxFlat_jkoco")
+Button/styles/hover = SubResource("StyleBoxFlat_ny5mh")
+Button/styles/normal = SubResource("StyleBoxFlat_x8hou")
+Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
+
+[node name="Chose_ball" type="ColorRect"]
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.548963, 0.548963, 0.548963, 0.85098)
+script = ExtResource("1_q6e07")
+
+[node name="Main_menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Skills_chose" type="Button" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = 109.0
+offset_right = 245.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 80
+text = "Скиллы"
+
+[node name="Balls_chose" type="Button" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -58.0
+offset_right = 242.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 80
+text = "Мячи"
+
+[node name="Close_menu" type="Button" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 218.0
+offset_top = -585.0
+offset_right = 331.0
+offset_bottom = -493.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 70
+text = "x"
+
+[node name="Balls" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -602.0
+offset_right = 377.0
+offset_bottom = 868.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Button" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "ОБЫЧНЫЙ"
+
+[node name="Button2" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "РАССЫПАЮЩИЙСЯ"
+
+[node name="Button3" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "БОМБА"
+
+[node name="Button7" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "ОГНЕННЫЙ ШАР"
+
+[node name="Button6" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "БОМБА-ЗАМОРОЗКА"
+
+[node name="Button4" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "ЗАМОРАЖИВАЮЩИЙ"
+
+[node name="Button5" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "МОЛНИЯ"
+
+[node name="Button8" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "ЛАЗЕРНЫЙ ГОР."
+
+[node name="Button9" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "ЛАЗЕРНЫЙ ВЕР."
+
+[node name="Button10" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "РАКЕТА"
+
+[node name="Button11" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "КУМУЛЯТИВНЫЙ	"
+
+[node name="Button12" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "УБИЙЦА"
+
+[node name="Button13" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "БУРЯЩИЙ"
+
+[node name="Button14" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "ШАР УДАРА В СПИНУ"
+
+[node name="Button15" type="Button" parent="Balls"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "<---    (НАЗАД)"
+
+[node name="Skills" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Close_skills_menu" type="Button" parent="Skills"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 212.0
+offset_top = -617.0
+offset_right = 325.0
+offset_bottom = -525.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 70
+text = "x"
+
+[node name="VScrollBar" type="ScrollContainer" parent="Skills"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.0
+offset_top = -513.0
+offset_right = 516.0
+offset_bottom = 869.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+
+[node name="Skills" type="VBoxContainer" parent="Skills/VScrollBar"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Button" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Прибавка ОЗ\""
+
+[node name="Button2" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Прибавка к восстановлению\""
+
+[node name="Button3" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Оживление\""
+
+[node name="Button6" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Суперначало\""
+
+[node name="Button4" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Последний рывок\""
+
+[node name="Button5" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Ловушка\""
+
+[node name="Button8" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Молния смерти\""
+
+[node name="Button9" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Холод смерти\""
+
+[node name="Button10" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Бомба смерти\""
+
+[node name="Button11" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Лазер смерти\""
+
+[node name="Button12" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Ракета смерти\""
+
+[node name="Button13" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Лазер: комбо\""
+
+[node name="Button14" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Молния: комбо\""
+
+[node name="Button15" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Лед: комбо\""
+
+[node name="Button16" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Огонь: комбо\""
+
+[node name="Button17" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Ядерная: комбо\""
+
+[node name="Button18" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Технология: комбо с тыла\""
+
+[node name="Button19" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Технология: комбо с фронта\""
+
+[node name="Button20" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Комбо: скидка\""
+
+[node name="Button21" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Повелитель огня\""
+
+[node name="Button22" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Повелитель лазера\""
+
+[node name="Button23" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Повелитель атома\""
+
+[node name="Button24" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Повелитель технологий\""
+
+[connection signal="pressed" from="Main_menu/Skills_chose" to="." method="_on_skills_chose_pressed"]
+[connection signal="pressed" from="Main_menu/Balls_chose" to="." method="_on_balls_chose_pressed"]
+[connection signal="pressed" from="Main_menu/Close_menu" to="." method="_on_close_menu_pressed"]
+[connection signal="pressed" from="Balls/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Balls/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Balls/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Balls/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Balls/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Balls/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Balls/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Balls/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Balls/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="Balls/Button10" to="." method="_on_button_10_pressed"]
+[connection signal="pressed" from="Balls/Button11" to="." method="_on_button_11_pressed"]
+[connection signal="pressed" from="Balls/Button12" to="." method="_on_button_12_pressed"]
+[connection signal="pressed" from="Balls/Button13" to="." method="_on_button_13_pressed"]
+[connection signal="pressed" from="Balls/Button14" to="." method="_on_button_14_pressed"]
+[connection signal="pressed" from="Balls/Button15" to="." method="_on_button_15_pressed"]
+[connection signal="pressed" from="Skills/Close_skills_menu" to="." method="_on_close_skills_menu_pressed"]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button" to="." method="_on_button_skill_pressed" binds= ["\"Прибавка ОЗ\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button2" to="." method="_on_button_skill_pressed" binds= ["\"Прибавка к восстановлению\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button3" to="." method="_on_button_skill_pressed" binds= ["\"Оживление\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button6" to="." method="_on_button_skill_pressed" binds= ["\"Суперначало\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button4" to="." method="_on_button_skill_pressed" binds= ["\"Последний рывок\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button5" to="." method="_on_button_skill_pressed" binds= ["\"Ловушка\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button8" to="." method="_on_button_skill_pressed" binds= ["\"Молния смерти\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button9" to="." method="_on_button_skill_pressed" binds= ["\"Холод смерти\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button10" to="." method="_on_button_skill_pressed" binds= ["\"Бомба смерти\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button11" to="." method="_on_button_skill_pressed" binds= ["\"Лазер смерти\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button12" to="." method="_on_button_skill_pressed" binds= ["\"Ракета смерти\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button13" to="." method="_on_button_skill_pressed" binds= ["\"Лазер: комбо\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button14" to="." method="_on_button_skill_pressed" binds= ["\"Молния: комбо\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button15" to="." method="_on_button_skill_pressed" binds= ["\"Лед: комбо\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button16" to="." method="_on_button_skill_pressed" binds= ["\"Огонь: комбо\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button17" to="." method="_on_button_skill_pressed" binds= ["\"Ядерная: комбо\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button18" to="." method="_on_button_skill_pressed" binds= ["\"Технология: комбо с тыла\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button19" to="." method="_on_button_skill_pressed" binds= ["\"Технология: комбо с фронта\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button20" to="." method="_on_button_skill_pressed" binds= ["\"Комбо: скидка\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button21" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель огня\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button22" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель лазера\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button23" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель атома\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button24" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель технологий\""]]

@@ -196,7 +196,8 @@ func lose() -> void:
 	end_game_UI_lose.visible = true
 
 func pause() -> void:
-	pass
+	if !$UI/Chose_ball.visible:
+		game_state = PLAY
 
 func _on_start_again_pressed() -> void:
 	LevelManager.restert()

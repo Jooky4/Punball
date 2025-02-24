@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=46 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="10_fo6nb"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
 [ext_resource type="PackedScene" uid="uid://xxprkydai7iy" path="res://Scenes/UI/Skill_windows/get_skill_ui.tscn" id="13_1g2hj"]
+[ext_resource type="PackedScene" uid="uid://03cucs0teyc1" path="res://Scenes/UI/For test/chose_ball.tscn" id="13_31ajf"]
 [ext_resource type="Texture2D" uid="uid://bby3mm6q8rrn0" path="res://Texture/UI/Уровень 1 текст.png" id="13_yxrlo"]
 [ext_resource type="Texture2D" uid="uid://bjo207pgwvdxv" path="res://Texture/UI/счетчик опыта.png" id="14_wmonb"]
 [ext_resource type="Texture2D" uid="uid://cq5bj185114sr" path="res://Texture/UI/иконка счетчика опыта.png" id="15_yu5pj"]
@@ -404,154 +405,27 @@ offset_bottom = 157.0
 
 [node name="Button" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 580.0
-offset_top = 12.0
-offset_right = 705.0
-offset_bottom = 102.0
+offset_left = 620.0
+offset_top = 4.0
+offset_right = 774.0
+offset_bottom = 94.0
 theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 35
-text = "ВЫБОР
- МЯЧА"
+text = "СКИЛЛЫ
+ МЯЧИ"
 
-[node name="Chose_ball" type="ColorRect" parent="UI"]
+[node name="Chose_ball" parent="UI" instance=ExtResource("13_31ajf")]
 visible = false
-z_index = 10
-layout_mode = 0
-offset_left = -991.0
-offset_top = -143.0
-offset_right = 1786.0
-offset_bottom = 1416.0
-mouse_filter = 2
-color = Color(0.548963, 0.548963, 0.548963, 0.85098)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Chose_ball"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -274.5
-offset_top = -584.5
-offset_right = 337.5
-offset_bottom = 785.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="Button" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "ОБЫЧНЫЙ"
-
-[node name="Button2" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "РАССЫПАЮЩИЙСЯ"
-
-[node name="Button3" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "БОМБА"
-
-[node name="Button7" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "ОГНЕННЫЙ ШАР"
-
-[node name="Button6" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "БОМБА-ЗАМОРОЗКА"
-
-[node name="Button4" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "ЗАМОРАЖИВАЮЩИЙ"
-
-[node name="Button5" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "МОЛНИЯ"
-
-[node name="Button8" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "ЛАЗЕРНЫЙ ГОР."
-
-[node name="Button9" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "ЛАЗЕРНЫЙ ВЕР."
-
-[node name="Button10" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "РАКЕТА"
-
-[node name="Button11" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "КУМУЛЯТИВНЫЙ	"
-
-[node name="Button12" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "УБИЙЦА"
-
-[node name="Button13" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "БУРЯЩИЙ"
-
-[node name="Button14" type="Button" parent="UI/Chose_ball/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "ШАР УДАРА В СПИНУ"
+offset_left = -1707.0
+offset_top = -779.5
+offset_right = 1707.0
+offset_bottom = 779.5
 
 [node name="Уровень1Текст" type="Sprite2D" parent="UI"]
 position = Vector2(361, 80)
@@ -764,18 +638,4 @@ libraries = {
 [connection signal="pressed" from="UI/End_game/Start_again" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Start_again/Start_again_button" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Button" to="." method="_chose_ball_button_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button7" to="." method="_on_button_7_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button6" to="." method="_on_button_6_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button8" to="." method="_on_button_8_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button9" to="." method="_on_button_9_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button10" to="." method="_on_button_10_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button11" to="." method="_on_button_11_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button12" to="." method="_on_button_12_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button13" to="." method="_on_button_13_pressed"]
-[connection signal="pressed" from="UI/Chose_ball/VBoxContainer/Button14" to="." method="_on_button_14_pressed"]
 [connection signal="pressed" from="UI/Balls_back_button/Balls_back_button" to="." method="_on_balls_back_pressed"]
