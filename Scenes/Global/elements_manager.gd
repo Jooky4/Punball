@@ -17,7 +17,8 @@ var color_elements = {
 	"LASER": Color.YELLOW, 
 	"LIGHTNING": Color.BLUE_VIOLET,
 	"NUCLEAR" : Color.NAVY_BLUE,
-	"TECHNOLOGIES": Color.DIM_GRAY
+	"TECHNOLOGIES": Color.DIM_GRAY,
+	"HEAL": Color.GREEN
 }
 
 var normal_modifier : float = 1.0

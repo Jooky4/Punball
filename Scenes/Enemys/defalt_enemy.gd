@@ -133,7 +133,7 @@ func create_label_damage(damage_ball, color_label) -> void:
 	label.global_position = self.global_position
 	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
 		label.text = str(damage_ball)
-	elif color_label == Color.GREEN:
+	elif color_label == ElementsManager.color_elements["HEAL"]:
 		label.text = "+" + str(damage_ball)
 	else:
 		label.text = "-" + str(damage_ball)
@@ -181,4 +181,4 @@ func heal_hp(hp_heal) -> void:
 		hp_enemy_label.text = str(hp_enemy/1000) + "K"
 	else:
 		hp_enemy_label.text = str(hp_enemy)
-	create_label_damage(hp_heal, Color.GREEN)
+	create_label_damage(hp_heal, ElementsManager.color_elements["HEAL"])
