@@ -465,6 +465,46 @@ theme_override_fonts/font = ExtResource("1_bejib")
 theme_override_font_sizes/font_size = 60
 text = "\"Повелитель технологий\""
 
+[node name="Button25" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Усиление обычного шара\""
+
+[node name="Button26" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Усиление особого шара\""
+
+[node name="Button27" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Усиление атаки\""
+
+[node name="Button28" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Повелитель молний\""
+
+[node name="Button29" type="Button" parent="Skills/VScrollBar/Skills"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("1_bejib")
+theme_override_font_sizes/font_size = 60
+text = "\"Повелитель льда\""
+
 [connection signal="pressed" from="Main_menu/Skills_chose" to="." method="_on_skills_chose_pressed"]
 [connection signal="pressed" from="Main_menu/Balls_chose" to="." method="_on_balls_chose_pressed"]
 [connection signal="pressed" from="Main_menu/Close_menu" to="." method="_on_close_menu_pressed"]
@@ -507,3 +547,8 @@ text = "\"Повелитель технологий\""
 [connection signal="pressed" from="Skills/VScrollBar/Skills/Button22" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель лазера\""]]
 [connection signal="pressed" from="Skills/VScrollBar/Skills/Button23" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель атома\""]]
 [connection signal="pressed" from="Skills/VScrollBar/Skills/Button24" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель технологий\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button25" to="." method="_on_button_skill_pressed" binds= ["\"Усиление обычного шара\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button26" to="." method="_on_button_skill_pressed" binds= ["\"Усиление особого шара\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button27" to="." method="_on_button_skill_pressed" binds= ["\"Усиление атаки\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button28" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель молний\""]]
+[connection signal="pressed" from="Skills/VScrollBar/Skills/Button29" to="." method="_on_button_skill_pressed" binds= ["\"Повелитель льда\""]]

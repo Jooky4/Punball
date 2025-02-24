@@ -91,12 +91,29 @@ func _on_close_skills_menu_pressed() -> void:
 func _on_button_skill_pressed(extra_arg_0: String) -> void:
 	extra_arg_0 = extra_arg_0.substr(1, extra_arg_0.length() - 2)
 	match extra_arg_0:
+		"Усиление обычного шара":
+			ElementsManager.normal_modifier += 0.1
 		"Прибавка ОЗ":
 			var prosen_hp_plus = 0.1
 			if "Прибавка к восстановлению" in LevelManager.player_skills:
 				prosen_hp_plus *= 1.5
 			LevelManager.hp_player = LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus)
 			LevelManager.max_hp_player = LevelManager.max_hp_player * (1 + prosen_hp_plus)
+		"Усиление особого шара":
+			ElementsManager.fire_modifier += 0.1
+			ElementsManager.frost_modifier += 0.1
+			ElementsManager.laser_modifier += 0.1
+			ElementsManager.lightning_modifier += 0.1
+			ElementsManager.nuclear_modifier += 0.1
+			ElementsManager.technologies_modifier += 0.1
+		"Усиление атаки":
+			ElementsManager.normal_modifier += 0.1
+			ElementsManager.fire_modifier += 0.1
+			ElementsManager.frost_modifier += 0.1
+			ElementsManager.laser_modifier += 0.1
+			ElementsManager.lightning_modifier += 0.1
+			ElementsManager.nuclear_modifier += 0.1
+			ElementsManager.technologies_modifier += 0.1
 		"Оживление":
 			LevelManager.player_skills.append("Оживление")
 		"Прибавка к восстановлению":
@@ -133,6 +150,12 @@ func _on_button_skill_pressed(extra_arg_0: String) -> void:
 			LevelManager.player_skills.append("Технология: комбо с фронта")
 		"Комбо: скидка":
 			LevelManager.player_skills.append("Комбо: скидка")
+		"Повелитель молний":
+			LevelManager.count_damage_lightning_enemy = 5
+			ElementsManager.lightning_modifier += 0.4
+		"Повелитель льда":
+			ElementsManager.frost_modifier += 0.4
+			LevelManager.chance_of_freezing += 0.3
 		"Повелитель огня":
 			ElementsManager.fire_modifier += 0.4
 			LevelManager.player_skills.append("Повелитель огня")
