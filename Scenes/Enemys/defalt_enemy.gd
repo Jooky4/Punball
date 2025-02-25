@@ -8,7 +8,7 @@ var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
 @export var player_damage : int = 100
 @export var start_scale_damage_label : float = 0.2
 @export var end_scale_damage_label : float = 0.8
-var alive = true
+var alive = false
 var on_last_line = false
 var freezen : bool = false
 var on_fire : bool = false
@@ -155,6 +155,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		if anim_name == "Spawn":
 			collision_shape.disabled = false
+			alive = true
 			animation_enemy.play("Idle")
 			if !self.has_method("boss"):
 				self.z_index = 0
