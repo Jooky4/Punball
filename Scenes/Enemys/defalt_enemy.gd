@@ -23,6 +23,7 @@ var max_hp_enemy : float
 @onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
+	collision_shape.disabled = true
 	max_hp_enemy = hp_enemy
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Spawn")
@@ -153,6 +154,7 @@ func play_animation_hit_player():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		if anim_name == "Spawn":
+			collision_shape.disabled = false
 			animation_enemy.play("Idle")
 			if !self.has_method("boss"):
 				self.z_index = 0
@@ -166,6 +168,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			self.queue_free()
 		elif anim_name == "Death":
 			LevelManager.enemy_died(self)
+			die()
 			self.queue_free()
 		else:
 			if on_last_line:
@@ -183,3 +186,6 @@ func heal_hp(hp_heal) -> void:
 	else:
 		hp_enemy_label.text = str(hp_enemy)
 	create_label_damage(hp_heal, ElementsManager.color_elements["HEAL"])
+
+func die() -> void:
+	pass

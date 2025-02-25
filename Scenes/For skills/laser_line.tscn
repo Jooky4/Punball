@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/For skills/laser_line.gd" id="2_wwel0"]
 
 [node name="laser_line" type="Sprite2D"]
-z_index = 1
+z_index = 3
 scale = Vector2(0.1, 0.7)
 texture = ExtResource("1_7u1of")
 script = ExtResource("2_wwel0")

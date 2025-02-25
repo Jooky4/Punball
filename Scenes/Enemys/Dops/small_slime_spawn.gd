@@ -1,0 +1,12 @@
+extends Node2D
+
+var arc_height = -150
+
+func go(end_pos, count_pos) -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", (self.global_position + end_pos), 0.6).set_trans(Tween.TRANS_CIRC)
+	await tween.finished
+	if get_tree().current_scene.has_method("spawn_objects_by_index"):
+		LevelManager.first_level_links_on_objects[count_pos/6][count_pos%6] = 7
+		get_tree().get_current_scene().call("spawn_objects_by_index", count_pos)
+	queue_free()

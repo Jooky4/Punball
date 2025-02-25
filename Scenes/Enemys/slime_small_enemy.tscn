@@ -1,16 +1,16 @@
 [gd_scene load_steps=28 format=3 uid="uid://va4gduueodxh"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/blueberries_enemy.gd" id="1_rkiws"]
-[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_x34am"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_1jfv5"]
-[ext_resource type="Texture2D" uid="uid://cwlbf2ntvjccb" path="res://Texture/Enemys/Slime_enemy/тело.png" id="4_phf30"]
-[ext_resource type="Texture2D" uid="uid://dfm7j5o3verl" path="res://Texture/Enemys/Slime_enemy/глаз.png" id="5_klyqy"]
-[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="6_wl0xd"]
-[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="7_5ai34"]
-[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="8_q355w"]
-[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="9_ox8xs"]
-[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="10_f4d46"]
-[ext_resource type="Texture2D" uid="uid://cc67oy8at6k3k" path="res://Texture/Enemys/Slime_enemy/глаз2.png" id="11_7ss7r"]
+[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="1_1fkas"]
+[ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_dhpwl"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_lhlmu"]
+[ext_resource type="Texture2D" uid="uid://cwlbf2ntvjccb" path="res://Texture/Enemys/Slime_enemy/тело.png" id="3_f7knh"]
+[ext_resource type="Texture2D" uid="uid://dfm7j5o3verl" path="res://Texture/Enemys/Slime_enemy/глаз.png" id="4_2s14a"]
+[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="5_4pe1o"]
+[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="6_rarqi"]
+[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="7_tkfkb"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="8_ql0ho"]
+[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="9_txxah"]
+[ext_resource type="Texture2D" uid="uid://cc67oy8at6k3k" path="res://Texture/Enemys/Slime_enemy/глаз2.png" id="10_eqeoi"]
 
 [sub_resource type="Curve" id="Curve_aadmt"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -22,11 +22,11 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uhugu"]
 resource_local_to_scene = true
-shader = ExtResource("3_1jfv5")
+shader = ExtResource("2_lhlmu")
 shader_parameter/lightness = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_tqeh5"]
-font = ExtResource("9_ox8xs")
+font = ExtResource("8_ql0ho")
 font_size = 50
 font_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
 outline_size = 20
@@ -151,7 +151,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_7ss7r")]
+"values": [ExtResource("10_eqeoi")]
 }
 
 [sub_resource type="Animation" id="Animation_txj20"]
@@ -275,7 +275,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_7ss7r")]
+"values": [ExtResource("10_eqeoi")]
 }
 
 [sub_resource type="Animation" id="Animation_q6cto"]
@@ -363,7 +363,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_klyqy")]
+"values": [ExtResource("4_2s14a")]
 }
 
 [sub_resource type="Animation" id="Animation_y5l1j"]
@@ -453,7 +453,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_klyqy")]
+"values": [ExtResource("4_2s14a")]
 }
 
 [sub_resource type="Animation" id="Animation_twvon"]
@@ -543,7 +543,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_klyqy")]
+"values": [ExtResource("4_2s14a")]
 }
 
 [sub_resource type="Animation" id="Animation_7iqtw"]
@@ -633,7 +633,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_klyqy")]
+"values": [ExtResource("4_2s14a")]
 }
 
 [sub_resource type="Animation" id="Animation_k2em8"]
@@ -792,7 +792,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_klyqy")]
+"values": [ExtResource("4_2s14a")]
 }
 
 [sub_resource type="Animation" id="Animation_qthio"]
@@ -849,62 +849,38 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hp_boss_label:position")
+tracks/4/path = NodePath("Effects/Spawn_effect:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(2, -2),
-"update": 0,
-"values": [Vector2(-45, -371), Vector2(-45, 22)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("TextureProgressBar:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(2, -2),
-"update": 0,
-"values": [Vector2(-45, -357), Vector2(-45, 36)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Effects/Spawn_effect:emitting")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite_enemy/Глаза:texture")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite_enemy/Глаза:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_klyqy")]
+"values": [ExtResource("4_2s14a")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
@@ -919,11 +895,12 @@ _data = {
 "Spawn": SubResource("Animation_qthio")
 }
 
-[node name="blueberries_enemy" type="StaticBody2D"]
+[node name="slime_small_enemy" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_rkiws")
-hp_enemy = 1440.0
+script = ExtResource("1_dhpwl")
+hp_enemy = 200.0
+player_damage = 50
 
 [node name="Effects" type="Node2D" parent="."]
 
@@ -935,7 +912,7 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.85
 lifetime_randomness = 0.3
-texture = ExtResource("2_x34am")
+texture = ExtResource("1_1fkas")
 direction = Vector2(0, 1)
 spread = 180.0
 gravity = Vector2(0, -150)
@@ -960,7 +937,7 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.85
 lifetime_randomness = 0.3
-texture = ExtResource("2_x34am")
+texture = ExtResource("1_1fkas")
 direction = Vector2(0, 1)
 spread = 180.0
 gravity = Vector2(0, -190)
@@ -984,7 +961,7 @@ amount = 4
 lifetime = 1.1
 explosiveness = 0.3
 lifetime_randomness = 0.3
-texture = ExtResource("2_x34am")
+texture = ExtResource("1_1fkas")
 emission_shape = 3
 emission_rect_extents = Vector2(20, 1)
 direction = Vector2(0, -1)
@@ -1008,22 +985,21 @@ scale = Vector2(0.073, 0.073)
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("4_phf30")
+texture = ExtResource("3_f7knh")
 
 [node name="Глаза" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("5_klyqy")
+texture = ExtResource("4_2s14a")
 
 [node name="freezen_sprite" type="Sprite2D" parent="Sprite_enemy"]
 visible = false
 position = Vector2(-42.8571, -14.2857)
 scale = Vector2(14.2857, 14.2857)
-texture = ExtResource("6_wl0xd")
+texture = ExtResource("5_4pe1o")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-visible = false
 z_index = 1
 offset_left = -45.0
 offset_top = 36.0
@@ -1031,11 +1007,10 @@ offset_right = 46.0
 offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("7_5ai34")
-texture_progress = ExtResource("8_q355w")
+texture_under = ExtResource("6_rarqi")
+texture_progress = ExtResource("7_tkfkb")
 
 [node name="Hp_boss_label" type="Label" parent="."]
-visible = false
 z_index = 1
 offset_left = -45.0
 offset_top = 22.0
@@ -1058,7 +1033,7 @@ emitting = false
 amount = 100
 local_coords = true
 draw_order = 1
-texture = ExtResource("10_f4d46")
+texture = ExtResource("9_txxah")
 emission_shape = 3
 emission_rect_extents = Vector2(35, 1)
 gravity = Vector2(0, -100)
