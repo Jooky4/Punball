@@ -78,7 +78,10 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 				await animation_enemy.animation_changed
 				animation_enemy.play("Damage")
 		if hp_enemy>=1000:
-			hp_enemy_label.text = str(hp_enemy/1000) + "K"
+			if hp_enemy / 1000 == int(hp_enemy / 1000):
+				hp_enemy_label.text = str(hp_enemy / 1000) + "K"
+			else:
+				hp_enemy_label.text = ("%.1f" % (hp_enemy / 1000)) + "K"
 		else:
 			hp_enemy_label.text = str(round(hp_enemy))
 		hp_enemy_bar.value = hp_enemy

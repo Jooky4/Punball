@@ -6,7 +6,7 @@ var count_pos
 func go(end_pos, count_pos_) -> void:
 	count_pos = count_pos_
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", (self.global_position + end_pos), 0.5).set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(self, "global_position", (self.global_position + end_pos), 1)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if get_tree().current_scene.has_method("spawn_objects_by_index"):
