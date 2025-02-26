@@ -10,7 +10,7 @@ var texture_skill = {
 	"Прибавка ОЗ": preload("res://Texture/UI/Texture_skills/прибавка 03.png"),
 	"Шар молний": preload("res://Texture/UI/Texture_skills/шар молния.png"),
 	"Бомба-заморозка": preload("res://Texture/UI/Texture_skills/бомба заморозки.png"),
-	"Огненный шар": preload("res://Texture/UI/Texture_skills/огненный шар.png"),
+	"Огненный шар": preload("res://Texture/UI/Texture_skills/огненный шар2.png"),
 	"Усиление атаки": preload("res://Texture/UI/Texture_skills/усиление атаки.png"),
 	"Молния смерти": preload("res://Texture/UI/Texture_skills/молния смерти.png"),
 	"Холод смерти": preload("res://Texture/UI/Texture_skills/холод смерти.png"),
@@ -18,31 +18,31 @@ var texture_skill = {
 	"Повелитель молний": preload("res://Texture/UI/Texture_skills/повелитель молний.png"),
 	"Повелитель льда": preload("res://Texture/UI/Texture_skills/повелитель холода.png"),
 	"Повелитель огня": preload("res://Texture/UI/Texture_skills/повелитель огня.png"),
-	"Молния: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Лед: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Огонь: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Вертикальный лазерный шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Горизонтальный лазерный шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Лазер смерти": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Повелитель лазера": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Лазер: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Суперначало": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Последний рывок": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Шар ракета": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Кумулятивный шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Ракета смерти": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Повелитель атома": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Ядерная: комбо": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Шар удара в спину": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Шар убийца": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Бурящий шар": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Ловушка": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Повелитель технологий": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Технология: комбо с тыла": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Технология: комбо с фронта": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Комбо: скидка": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Прибавка к восстановлению": preload("res://Texture/UI/Texture_skills/повелитель огня.png"), # ЗАМЕНИТЬ
-	"Оживление": preload("res://Texture/UI/Texture_skills/повелитель огня.png") # ЗАМЕНИТЬ
+	"Молния: комбо": preload("res://Texture/UI/Texture_skills/молния комбо.png"), 
+	"Лед: комбо": preload("res://Texture/UI/Texture_skills/комбо лёд.png"), 
+	"Огонь: комбо": preload("res://Texture/UI/Texture_skills/огонь комбо.png"), 
+	"Вертикальный лазерный шар": preload("res://Texture/UI/Texture_skills/шар верт. лазер.png"), 
+	"Горизонтальный лазерный шар": preload("res://Texture/UI/Texture_skills/шар горизонт. лазер.png"), 
+	"Лазер смерти": preload("res://Texture/UI/Texture_skills/лазер смерти.png"),
+	"Повелитель лазера": preload("res://Texture/UI/Texture_skills/повелитель лазера.png"), 
+	"Лазер: комбо": preload("res://Texture/UI/Texture_skills/лазер комбл.png"), 
+	"Суперначало": preload("res://Texture/UI/Texture_skills/суперначало.png"), 
+	"Последний рывок": preload("res://Texture/UI/Texture_skills/последний рывок.png"), 
+	"Шар ракета": preload("res://Texture/UI/Texture_skills/шар ракета (ядерная).png"), 
+	"Кумулятивный шар": preload("res://Texture/UI/Texture_skills/кумулятивный шар.png"), 
+	"Ракета смерти": preload("res://Texture/UI/Texture_skills/ракета смерти.png"), 
+	"Повелитель атома": preload("res://Texture/UI/Texture_skills/повелитель атома.png"), 
+	"Ядерная: комбо": preload("res://Texture/UI/Texture_skills/комбо ядерное.png"),
+	"Шар удара в спину": preload("res://Texture/UI/Texture_skills/шар удара в спину.png"), 
+	"Шар убийца": preload("res://Texture/UI/Texture_skills/шар убийца (технологии).png"), 
+	"Бурящий шар": preload("res://Texture/UI/Texture_skills/бурящий шар.png"), 
+	"Ловушка": preload("res://Texture/UI/Texture_skills/ловушка.png"), 
+	"Повелитель технологий": preload("res://Texture/UI/Texture_skills/повелитель технологий.png"), 
+	"Технология: комбо с тыла": preload("res://Texture/UI/Texture_skills/технология шипы тыл.png"), 
+	"Технология: комбо с фронта": preload("res://Texture/UI/Texture_skills/технология шипы фронт.png"), 
+	"Комбо: скидка": preload("res://Texture/UI/Texture_skills/скидка комбо.png"), 
+	"Прибавка к восстановлению": preload("res://Texture/UI/Texture_skills/прибавка к восстановлению.png"), 
+	"Оживление": preload("res://Texture/UI/Texture_skills/оживление.png") 
 	}
 
 func update_discription(new_discription) -> void:

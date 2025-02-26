@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccrx3g2tw037i"
-path="res://.godot/imported/огненный шар.png-2b3fae49ccd05866e159dd99b13f172c.ctex"
+uid="uid://cjd3lhhq4jq4v"
+path="res://.godot/imported/повелитель лазера.png-babd309d1ca416379499b982f3540bf5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Texture_skills/огненный шар.png"
-dest_files=["res://.godot/imported/огненный шар.png-2b3fae49ccd05866e159dd99b13f172c.ctex"]
+source_file="res://Texture/UI/Texture_skills/повелитель лазера.png"
+dest_files=["res://.godot/imported/повелитель лазера.png-babd309d1ca416379499b982f3540bf5.ctex"]
 
 [params]
 

@@ -45,7 +45,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, 6, null],
  											[null, null, null, null, null, null],
  											[5, 6, 6, 6, null, 6],
  											[8, 8, 8, 6, null, null],
- 											[6, null, null, null, null, null],
+ 											[6, -2, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
 var trap_on_map_links = [[null, null, null, null, null, null],
