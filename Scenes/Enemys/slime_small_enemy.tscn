@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://va4gduueodxh"]
 
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="1_1fkas"]
-[ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_dhpwl"]
+[ext_resource type="Script" path="res://Scenes/Enemys/slime_small_enemy.gd" id="1_rsahl"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_lhlmu"]
 [ext_resource type="Texture2D" uid="uid://cwlbf2ntvjccb" path="res://Texture/Enemys/Slime_enemy/тело.png" id="3_f7knh"]
 [ext_resource type="Texture2D" uid="uid://dfm7j5o3verl" path="res://Texture/Enemys/Slime_enemy/глаз.png" id="4_2s14a"]
@@ -794,10 +794,35 @@ tracks/12/keys = {
 "update": 1,
 "values": [ExtResource("4_2s14a")]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CollisionShape2D:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_qthio"]
 resource_name = "Spawn"
-length = 0.45
+length = 1.7
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -805,7 +830,7 @@ tracks/0/path = NodePath("Sprite_enemy/Тело:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333, 0.33333),
+"times": PackedFloat32Array(1.25, 1.35, 1.48333, 1.58333),
 "transitions": PackedFloat32Array(2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(-29.412, 0), Vector2(-29.4118, -89.4797), Vector2(-29.4118, -40.2339), Vector2(-29.4118, -89.4797)]
@@ -817,7 +842,7 @@ tracks/1/path = NodePath("Sprite_enemy/Тело:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333, 0.33333),
+"times": PackedFloat32Array(1.25, 1.35, 1.48333, 1.58333),
 "transitions": PackedFloat32Array(2, 2, -2, -2),
 "update": 0,
 "values": [Vector2(2.01221, 2.56585), Vector2(2.01221, 2.56585), Vector2(2.73766, 2.24239), Vector2(2.45098, 2.41837)]
@@ -829,7 +854,7 @@ tracks/2/path = NodePath("Sprite_enemy/Глаза:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.36667),
+"times": PackedFloat32Array(1.25, 1.38333, 1.51667, 1.61667),
 "transitions": PackedFloat32Array(2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(-29.412, 0), Vector2(-29.4118, -89.4797), Vector2(-29.4118, -40.2339), Vector2(-29.4118, -89.4797)]
@@ -841,7 +866,7 @@ tracks/3/path = NodePath("Sprite_enemy/Глаза:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.266667, 0.36667),
+"times": PackedFloat32Array(1.25, 1.35, 1.51667, 1.61667),
 "transitions": PackedFloat32Array(2, 2, -2, -2),
 "update": 0,
 "values": [Vector2(2.01221, 2.56585), Vector2(2.01221, 2.56585), Vector2(2.73766, 2.24239), Vector2(2.45098, 2.41837)]
@@ -853,7 +878,7 @@ tracks/4/path = NodePath("Effects/Spawn_effect:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(1.25, 1.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -865,7 +890,7 @@ tracks/5/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(1.25),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
@@ -877,10 +902,34 @@ tracks/6/path = NodePath("Sprite_enemy/Глаза:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(1.25),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("4_2s14a")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
@@ -896,9 +945,10 @@ _data = {
 }
 
 [node name="slime_small_enemy" type="StaticBody2D"]
+visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_dhpwl")
+script = ExtResource("1_rsahl")
 hp_enemy = 200.0
 player_damage = 50
 
@@ -1026,6 +1076,7 @@ vertical_alignment = 1
 visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_n58q7")
+disabled = true
 
 [node name="Fire_effect" type="CPUParticles2D" parent="."]
 position = Vector2(0, 37.005)

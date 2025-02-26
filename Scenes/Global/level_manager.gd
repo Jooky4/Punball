@@ -105,6 +105,13 @@ func apeend_new_balls() -> void:
 
 func moving_object(player_position) -> void:
 	hit_player = false
+	for i in first_level_links_on_objects: # ЖДЁМ ПОКА ЗАСПАВНЯТСЯ ВСЕ СЛИЗИ ТОЛЬКО ПОТОМ ДВИГАЕМ ВРАГОВ
+		for j in i:
+			if j != null:
+				if j.has_method("small_slime"):
+					if j.animation_enemy.current_animation == "Spawn":
+						hit_player = true
+
 	for i in first_level_links_on_objects[7]: # НАНЕСЕНИЕ УРОНА ИГРОКУ С ПОСЛЕДНЕГО РЯДА
 		if i != null:
 			if i.has_method("enemy") and !i.has_method("boss"):

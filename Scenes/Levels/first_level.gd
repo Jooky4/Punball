@@ -338,7 +338,6 @@ func spawn_objects_by_index(count) -> void:
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 			7: 
 				buff = SMALL_SLIME_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 			8:
 				buff =  SHIELD_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)

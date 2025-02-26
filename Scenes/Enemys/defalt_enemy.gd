@@ -48,6 +48,7 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 		hp_enemy -= damage_ball
 		if hp_enemy <= 0 and alive:
 			alive = false 
+			die()
 		if killer_ball:
 			create_label_damage("УБИЙЦА", color_label)
 		else:
@@ -190,7 +191,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			self.queue_free()
 		elif anim_name == "Death":
 			LevelManager.enemy_died(self)
-			die()
 			self.queue_free()
 		else:
 			if on_last_line:
@@ -203,10 +203,13 @@ func heal_hp(hp_heal) -> void:
 	if hp_enemy > max_hp_enemy:
 		hp_enemy = max_hp_enemy
 	hp_enemy_bar.value = hp_enemy
-	if hp_enemy>=1000:
-		hp_enemy_label.text = str(hp_enemy/1000) + "K"
+	if hp_enemy>=10000:
+		if int(hp_enemy) % 10000 == 0:
+			hp_enemy_label.text = str(hp_enemy / 1000) + "K"
+		if int(hp_enemy) % 10000 != 0:
+			hp_enemy_label.text = ("%.1f" % (hp_enemy / 1000)) + "K"
 	else:
-		hp_enemy_label.text = str(hp_enemy)
+		hp_enemy_label.text = str(round(hp_enemy))
 	create_label_damage(hp_heal, ElementsManager.color_elements["HEAL"])
 
 func die() -> void:
