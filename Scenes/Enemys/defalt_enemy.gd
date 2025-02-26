@@ -28,7 +28,7 @@ func _ready() -> void:
 		animation_enemy.play("Spawn")
 	hp_enemy_bar.max_value = max_hp_enemy
 	hp_enemy_bar.value = hp_enemy
-	if hp_enemy>=1000:
+	if hp_enemy>=10000:
 		hp_enemy_label.text = str(hp_enemy/1000) + "K"
 	else:
 		hp_enemy_label.text = str(hp_enemy)
@@ -82,10 +82,10 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 			else:
 				await animation_enemy.animation_changed
 				animation_enemy.play("Damage")
-		if hp_enemy>=1000:
-			if hp_enemy / 1000 == int(hp_enemy / 1000):
+		if hp_enemy>=10000:
+			if int(hp_enemy) % 10000 == 0:
 				hp_enemy_label.text = str(hp_enemy / 1000) + "K"
-			else:
+			if int(hp_enemy) % 10000 != 0:
 				hp_enemy_label.text = ("%.1f" % (hp_enemy / 1000)) + "K"
 		else:
 			hp_enemy_label.text = str(round(hp_enemy))
