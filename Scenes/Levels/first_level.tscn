@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=47 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="18_lqjow"]
 [ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="19_xefh1"]
 [ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Blueberries_enemy/листик.png" id="20_g1vbe"]
+[ext_resource type="Texture2D" uid="uid://cjxyryrovmn58" path="res://Texture/UI/пауза.png" id="23_t4wce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0xly"]
 size = Vector2(721, 118)
@@ -405,16 +406,17 @@ offset_bottom = 157.0
 
 [node name="Button" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 620.0
-offset_top = 4.0
-offset_right = 774.0
-offset_bottom = 94.0
+offset_left = 641.0
+offset_top = 1192.0
+offset_right = 795.0
+offset_bottom = 1282.0
 theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 35
 text = "СКИЛЛЫ
  МЯЧИ"
 
 [node name="Chose_ball" parent="UI" instance=ExtResource("13_31ajf")]
+process_mode = 3
 visible = false
 z_index = 8
 layout_mode = 1
@@ -635,8 +637,18 @@ libraries = {
 "": SubResource("AnimationLibrary_xcrrp")
 }
 
+[node name="Button_Pause" type="TextureButton" parent="UI"]
+process_mode = 3
+layout_mode = 0
+offset_left = 607.0
+offset_top = 41.0
+offset_right = 685.0
+offset_bottom = 119.0
+texture_normal = ExtResource("23_t4wce")
+
 [connection signal="body_entered" from="Dicariations/Detection_last_ball" to="." method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="UI/End_game/Start_again" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Start_again/Start_again_button" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Button" to="." method="_chose_ball_button_pressed"]
 [connection signal="pressed" from="UI/Balls_back_button/Balls_back_button" to="." method="_on_balls_back_pressed"]
+[connection signal="pressed" from="UI/Button_Pause" to="." method="_on_button_pause_pressed"]

@@ -8,7 +8,7 @@ var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
 @export var player_damage : int = 100
 @export var start_scale_damage_label : float = 0.2
 @export var end_scale_damage_label : float = 0.8
-var alive = false
+var alive = true
 var on_last_line = false
 var freezen : bool = false
 var on_fire : bool = false
@@ -23,7 +23,6 @@ var max_hp_enemy : float
 @onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
-	collision_shape.disabled = true
 	max_hp_enemy = hp_enemy
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Spawn")
@@ -41,19 +40,25 @@ func enemy() -> void:
 
 func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 	if alive:
-		if animation_enemy.current_animation == "Move":
-			await animation_enemy.animation_changed
-		elif animation_enemy.current_animation == "Spawn":
-			await get_tree().create_timer(1.1).timeout
+		if self.has_method("shiield_enemy"): # ЕСЛИ ЩИТОНОСЕЦ ПРОВЕРКА ЧТО МЯЧ НЕ СПЕРЕДИ
+			if !self.call("can_ball_deal_damage"):
+				create_label_damage("БЛОК", ElementsManager.color_elements["NORMAL"])
+				return
 
+		hp_enemy -= damage_ball
+		if hp_enemy <= 0 and alive:
+			alive = false 
 		if killer_ball:
 			create_label_damage("УБИЙЦА", color_label)
 		else:
 			create_label_damage(damage_ball, color_label)
-		hp_enemy -= damage_ball
 
-		if hp_enemy <= 0 and alive:
-			alive = false 
+		if animation_enemy.current_animation == "Move":
+			await animation_enemy.current_animation_changed
+		elif animation_enemy.current_animation == "Spawn":
+			await await animation_enemy.current_animation_changed
+
+		if hp_enemy <= 0 and alive == false:
 			hp_enemy_label.text = "0"
 			hp_enemy_bar.value = 0
 			hp_enemy_label.visible = false
@@ -88,10 +93,20 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 
 func deal_bomb_damage(damage_ball, color_label) -> void:
 	if alive:
+		if self.has_method("shiield_enemy"):  # ЕСЛИ ЩИТОНОСЕЦ ПРОВЕРКА ЧТО МЯЧ НЕ СПЕРЕДИ
+			if !self.call("can_ball_deal_damage"):
+				create_label_damage("БЛОК", ElementsManager.color_elements["NORMAL"])
+				return
+
 		deal_damage(damage_ball, color_label)
 
 func deal_freezing_damage(damage_ball, color_label) -> void:
 	if alive:
+		if self.has_method("shiield_enemy"):  # ЕСЛИ ЩИТОНОСЕЦ ПРОВЕРКА ЧТО МЯЧ НЕ СПЕРЕДИ
+			if !self.call("can_ball_deal_damage"):
+				create_label_damage("БЛОК", ElementsManager.color_elements["NORMAL"])
+				return
+
 		deal_damage(damage_ball, color_label)
 		if randf() < LevelManager.chance_of_freezing:
 			freezen = true
@@ -99,6 +114,11 @@ func deal_freezing_damage(damage_ball, color_label) -> void:
 
 func deal_fire_damage(damage_ball, color_label) -> void:
 	if alive:
+		if self.has_method("shiield_enemy"):  # ЕСЛИ ЩИТОНОСЕЦ ПРОВЕРКА ЧТО МЯЧ НЕ СПЕРЕДИ
+			if !self.call("can_ball_deal_damage"):
+				create_label_damage("БЛОК", ElementsManager.color_elements["NORMAL"])
+				return
+
 		deal_damage(damage_ball, color_label)
 		on_fire = true
 		fire_effect.emitting = true
@@ -115,7 +135,7 @@ func delete_freezing_and_fire() -> void:
 		freezen_sprite.visible = false
 
 func moving(direction_object) -> void:
-	if alive:
+	if alive and animation_enemy.current_animation != "Spawn":
 		if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 			animation_enemy.play("Move")
 		if direction_object != "":
@@ -157,8 +177,6 @@ func play_animation_hit_player():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		if anim_name == "Spawn":
-			collision_shape.disabled = false
-			alive = true
 			animation_enemy.play("Idle")
 			if !self.has_method("boss"):
 				self.z_index = 0

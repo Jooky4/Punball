@@ -4,6 +4,8 @@ var SMALL_SLIME_SPAWN = preload("res://Scenes/Enemys/Dops/small_slime_spawn.tscn
 var SMALL_SLIME = preload("res://Scenes/Enemys/slime_small_enemy.tscn")
 
 func die() -> void:
+	var die_slime = SMALL_SLIME.instantiate()
+	die_slime.alive = false
 	var free_spot : Array = []
 	var pos_enemy : Vector2 = Vector2(-1, -1)
 	var count_pos_self_enemy : int
@@ -23,8 +25,8 @@ func die() -> void:
 		if free_spot.size() == 1:
 			if get_tree().current_scene.has_method("spawn_objects_by_index"):
 				var count_pos = int((free_spot[0].x * 6) + (free_spot[0].y + 1)) - 1 
-				LevelManager.first_level_links_on_objects[count_pos/6][count_pos%6] = SMALL_SLIME.instantiate()
-				LevelManager.first_level_links_on_objects[count_pos_self_enemy/6][count_pos_self_enemy%6] = SMALL_SLIME.instantiate()
+				LevelManager.first_level_links_on_objects[count_pos/6][count_pos%6] = die_slime
+				LevelManager.first_level_links_on_objects[count_pos_self_enemy/6][count_pos_self_enemy%6] = die_slime
 				var end_pos = Vector2((free_spot[0] - pos_enemy) * Vector2(103, 103))
 				var buff = SMALL_SLIME_SPAWN.instantiate()
 				buff.global_position = self.global_position
@@ -41,7 +43,7 @@ func die() -> void:
 				if get_tree().current_scene.has_method("spawn_objects_by_index"):
 					var pos_small_slime = free_spot[randi() % free_spot.size()]
 					var count_pos = int((pos_small_slime.x * 6) + (pos_small_slime.y + 1)) - 1 
-					LevelManager.first_level_links_on_objects[count_pos/6][count_pos%6] = SMALL_SLIME.instantiate()
+					LevelManager.first_level_links_on_objects[count_pos/6][count_pos%6] = die_slime
 					var buff = SMALL_SLIME_SPAWN.instantiate()
 					var end_pos = Vector2((pos_small_slime - pos_enemy) * Vector2(103, 103))
 					buff.global_position = self.global_position
@@ -51,7 +53,7 @@ func die() -> void:
 
 	elif free_spot == []:
 		if get_tree().current_scene.has_method("spawn_objects_by_index"):
-			LevelManager.first_level_links_on_objects[count_pos_self_enemy/6][count_pos_self_enemy%6] = SMALL_SLIME.instantiate()
+			LevelManager.first_level_links_on_objects[count_pos_self_enemy/6][count_pos_self_enemy%6] = die_slime
 			var buff = SMALL_SLIME_SPAWN.instantiate()
 			buff.global_position = self.global_position
 			get_tree().current_scene.add_child(buff)

@@ -20,6 +20,7 @@ var BOMB_ENEMY = preload("res://Scenes/Enemys/bomb_enemy.tscn")
 var MEDIC_ENEMY = preload("res://Scenes/Enemys/medic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var SLIME_ENEMY = preload("res://Scenes/Enemys/slime_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var SMALL_SLIME_ENEMY = preload("res://Scenes/Enemys/slime_small_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var SHIELD_ENEMY = preload("res://Scenes/Enemys/shield_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
@@ -71,6 +72,7 @@ var rignt_extreme_point : Vector2
 var left_extreme_point : Vector2
 
 func _ready() -> void:
+	get_tree().paused = false
 	spawn_objects_on_matrix()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	count_level_label.text = str(LevelManager.count_level + 1)
@@ -337,6 +339,9 @@ func spawn_objects_by_index(count) -> void:
 			7: 
 				buff = SMALL_SLIME_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			8:
+				buff =  SHIELD_ENEMY.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
 		game_objects.add_child(buff)
@@ -419,6 +424,9 @@ func _on_balls_back_pressed() -> void:
 	for child in self.get_children():
 		if child.has_method("ball"):
 			child.return_to_player(start_balls_position.position)
+
+func _on_button_pause_pressed() -> void:
+	get_tree().paused = !get_tree().paused
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _on_button_pressed() -> void:

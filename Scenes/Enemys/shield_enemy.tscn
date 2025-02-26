@@ -1,17 +1,18 @@
-[gd_scene load_steps=29 format=3 uid="uid://cs7a08eol6pay"]
+[gd_scene load_steps=31 format=3 uid="uid://b46x7h3fuo6fj"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/blueberries_enemy.gd" id="1_4nflj"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_6irtg"]
-[ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="2_kdbwk"]
-[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_oihnl"]
-[ext_resource type="Texture2D" uid="uid://b1k64lxo1ayrh" path="res://Texture/Enemys/Blueberries_enemy/Eye.png" id="3_508eo"]
-[ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="4_ty01e"]
-[ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Blueberries_enemy/листик.png" id="5_f3cgh"]
-[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="6_xi2xi"]
-[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="7_wci5x"]
-[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="8_fewwm"]
-[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="8_myk06"]
-[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="12_nxerl"]
+[ext_resource type="Script" path="res://Scenes/Enemys/shield_enemy.gd" id="1_i7q2x"]
+[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_w2xr1"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_cvtn1"]
+[ext_resource type="Texture2D" uid="uid://d38i3rl1k53rm" path="res://Texture/Enemys/Shield_enemy/тело.png" id="4_41trh"]
+[ext_resource type="Texture2D" uid="uid://gkksgdntfek2" path="res://Texture/Enemys/Shield_enemy/голова.png" id="5_0aovv"]
+[ext_resource type="Texture2D" uid="uid://b1k64lxo1ayrh" path="res://Texture/Enemys/Blueberries_enemy/Eye.png" id="5_edsb4"]
+[ext_resource type="Texture2D" uid="uid://1o68231vqcix" path="res://Texture/Enemys/Shield_enemy/глаза.png" id="7_dg1ar"]
+[ext_resource type="Texture2D" uid="uid://bhgqxwp435s0r" path="res://Texture/Enemys/Shield_enemy/щит.png" id="7_tx47q"]
+[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="8_4qfjw"]
+[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="9_nflx0"]
+[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="10_5knt7"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="11_084jp"]
+[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="12_mtwh2"]
 
 [sub_resource type="Curve" id="Curve_aadmt"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -23,11 +24,11 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uhugu"]
 resource_local_to_scene = true
-shader = ExtResource("2_6irtg")
+shader = ExtResource("3_cvtn1")
 shader_parameter/lightness = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_tqeh5"]
-font = ExtResource("8_fewwm")
+font = ExtResource("11_084jp")
 font_size = 50
 font_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
 outline_size = 20
@@ -1244,10 +1245,13 @@ _data = {
 "Spawn": SubResource("Animation_xhi3q")
 }
 
-[node name="blueberries_enemy" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jrof"]
+size = Vector2(91, 21)
+
+[node name="shield_enemy" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_4nflj")
+script = ExtResource("1_i7q2x")
 hp_enemy = 1440.0
 
 [node name="Effects" type="Node2D" parent="."]
@@ -1260,7 +1264,7 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.85
 lifetime_randomness = 0.3
-texture = ExtResource("2_oihnl")
+texture = ExtResource("2_w2xr1")
 direction = Vector2(0, 1)
 spread = 180.0
 gravity = Vector2(0, -150)
@@ -1285,7 +1289,7 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.85
 lifetime_randomness = 0.3
-texture = ExtResource("2_oihnl")
+texture = ExtResource("2_w2xr1")
 direction = Vector2(0, 1)
 spread = 180.0
 gravity = Vector2(0, -190)
@@ -1309,7 +1313,7 @@ amount = 4
 lifetime = 1.1
 explosiveness = 0.3
 lifetime_randomness = 0.3
-texture = ExtResource("2_oihnl")
+texture = ExtResource("2_w2xr1")
 emission_shape = 3
 emission_rect_extents = Vector2(20, 1)
 direction = Vector2(0, -1)
@@ -1329,18 +1333,24 @@ material = SubResource("ShaderMaterial_uhugu")
 position = Vector2(2, 3)
 scale = Vector2(0.07, 0.07)
 
+[node name="Рот" type="Sprite2D" parent="Sprite_enemy"]
+use_parent_material = true
+position = Vector2(-24.5098, -89.4797)
+scale = Vector2(2.45098, 2.41837)
+texture = ExtResource("4_41trh")
+
 [node name="Тело" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("2_kdbwk")
+texture = ExtResource("5_0aovv")
 
 [node name="Eye" type="Sprite2D" parent="Sprite_enemy/Тело"]
 visible = false
 use_parent_material = true
 position = Vector2(-133.714, 48.8143)
 scale = Vector2(1.019, 1.019)
-texture = ExtResource("3_508eo")
+texture = ExtResource("5_edsb4")
 flip_h = true
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Тело"]
@@ -1348,44 +1358,43 @@ visible = false
 use_parent_material = true
 position = Vector2(140.229, 48.8143)
 scale = Vector2(1.019, 1.019)
-texture = ExtResource("3_508eo")
+texture = ExtResource("5_edsb4")
 
-[node name="Рот" type="Sprite2D" parent="Sprite_enemy"]
-use_parent_material = true
-position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("4_ty01e")
+[node name="Глаза" type="Sprite2D" parent="Sprite_enemy/Тело"]
+position = Vector2(0.342871, 1.557)
+scale = Vector2(1, 1.015)
+texture = ExtResource("7_dg1ar")
 
 [node name="Листик" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(-128.571, -357.143)
 scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("5_f3cgh")
+texture = ExtResource("7_tx47q")
 offset = Vector2(45.4571, 117.586)
 
 [node name="freezen_sprite" type="Sprite2D" parent="Sprite_enemy"]
 visible = false
 position = Vector2(-42.8571, -14.2857)
 scale = Vector2(14.2857, 14.2857)
-texture = ExtResource("8_myk06")
+texture = ExtResource("8_4qfjw")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = -357.0
+offset_top = 36.0
 offset_right = 46.0
-offset_bottom = -343.0
+offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("6_xi2xi")
-texture_progress = ExtResource("7_wci5x")
+texture_under = ExtResource("9_nflx0")
+texture_progress = ExtResource("10_5knt7")
 
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = -371.0
+offset_top = 22.0
 offset_right = 185.0
-offset_bottom = -276.0
+offset_bottom = 117.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_tqeh5")
@@ -1402,7 +1411,7 @@ emitting = false
 amount = 100
 local_coords = true
 draw_order = 1
-texture = ExtResource("12_nxerl")
+texture = ExtResource("12_mtwh2")
 emission_shape = 3
 emission_rect_extents = Vector2(35, 1)
 gravity = Vector2(0, -100)
@@ -1421,5 +1430,14 @@ libraries = {
 autoplay = "Spawn"
 next/Spawn = &"Idle"
 blend_times = [&"Hit", &"Hit", 0.15, &"Hit", &"Idle", 0.3, &"Hit", &"Move", 0.3, &"Hit", &"Preparation", 0.3, &"Idle", &"Hit", 0.15, &"Idle", &"Idle", 0.3, &"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.3, &"Move", &"Hit", 0.2, &"Move", &"Idle", 0.3, &"Move", &"Move", 0.3, &"Move", &"Preparation", 0.3, &"Preparation", &"Hit", 0.2, &"Preparation", &"Idle", 0.3, &"Preparation", &"Move", 0.3, &"Preparation", &"Preparation", 0.3, &"Spawn", &"Idle", 0.6]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 41.5)
+shape = SubResource("RectangleShape2D_0jrof")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
