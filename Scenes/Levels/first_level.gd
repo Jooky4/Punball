@@ -71,6 +71,7 @@ var balls_can_go : bool = false
 var new_position_balls = 0
 var rignt_extreme_point : Vector2
 var left_extreme_point : Vector2
+var mouse_in_pause_button_area = false
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -125,7 +126,7 @@ func play_game() -> void:
 			old_coord_mouse = get_global_mouse_position()
 			draw_trajectory()
 
-	if Input.is_action_just_released("LBM") and balls_can_go:
+	if Input.is_action_just_released("LBM") and balls_can_go and mouse_in_pause_button_area == false:
 		balls_go()
 
 func chec_game_end() -> void:
@@ -393,9 +394,6 @@ func end_wave() -> void:
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
 	if LevelManager.spin_skill != 0:
-		if get_tree().paused == true:
-			while get_tree().paused == true:
-				await get_tree().create_timer(0.1).timeout
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
@@ -428,6 +426,7 @@ func _on_balls_back_pressed() -> void:
 func _on_button_pause_pressed() -> void:
 	pause_menu_UI.visible = true
 	get_tree().paused = true
+	Engine.time_scale = 0
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _on_button_pressed() -> void:
