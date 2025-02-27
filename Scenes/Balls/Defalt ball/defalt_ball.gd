@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @export var damage_ball : float = 200
 @export var max_lenght_line : int = 6
-var speed : int = 1250
+var speed : int = 500
 var direction_bullet : Vector2
 
 func _ready():
