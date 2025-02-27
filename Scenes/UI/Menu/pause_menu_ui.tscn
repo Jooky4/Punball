@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://bb7y7v4mnb42k"]
+
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_4odon"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/pause_menu_ui.gd" id="1_ydatq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_meo1k"]
+font = ExtResource("1_4odon")
+font_size = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkoco"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny5mh"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8hou"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjevs"]
+bg_color = Color(0.478007, 0.618938, 0.736741, 1)
+
+[sub_resource type="Theme" id="Theme_5m7jc"]
+Button/styles/disabled = SubResource("StyleBoxFlat_al670")
+Button/styles/focus = SubResource("StyleBoxFlat_jkoco")
+Button/styles/hover = SubResource("StyleBoxFlat_ny5mh")
+Button/styles/normal = SubResource("StyleBoxFlat_x8hou")
+Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
+
+[node name="Pause_menu_UI" type="Control"]
+process_mode = 3
+visible = false
+z_index = 7
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ydatq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ПАУЗА"
+label_settings = SubResource("LabelSettings_meo1k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme = SubResource("Theme_5m7jc")
+theme_override_fonts/font = ExtResource("1_4odon")
+theme_override_font_sizes/font_size = 50
+text = "ПРОДОЛЖИТЬ"
+
+[node name="Home" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme = SubResource("Theme_5m7jc")
+theme_override_fonts/font = ExtResource("1_4odon")
+theme_override_font_sizes/font_size = 50
+text = "ДОМОЙ"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1508.0
+offset_top = -114.0
+offset_right = 1490.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.843137)
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]

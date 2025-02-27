@@ -5,7 +5,6 @@ enum {
 	BALLS_GO,
 	WIN,
 	LOSE,
-	PAUSE,
 	CHOOSE_SKILL
 }
 
@@ -44,6 +43,7 @@ var BACKSTABBING_BALL = preload("res://Scenes/Balls/Backstabbing ball/backstabbi
 @onready var end_game_UI = $UI/End_game
 @onready var end_game_UI_win = $UI/End_game/Win
 @onready var end_game_UI_lose = $UI/End_game/Lose
+@onready var pause_menu_UI = $UI/Pause_menu_UI
 @onready var choose_skill_UI = $UI/Get_skill_UI
 @onready var combo_count_label = $UI/Combo_count
 @onready var count_experience_label = $UI/Count_experience
@@ -97,8 +97,6 @@ func _process(delta):
 			win()
 		LOSE:
 			lose()
-		PAUSE:
-			pause()
 		CHOOSE_SKILL:
 			if LevelManager.spin_skill == 0:
 				count_experience_label.text = str(LevelManager.count_experiance)
@@ -201,10 +199,6 @@ func win() -> void:
 func lose() -> void:
 	end_game_UI.visible = true
 	end_game_UI_lose.visible = true
-
-func pause() -> void:
-	if !$UI/Chose_ball.visible:
-		game_state = PLAY
 
 func _on_start_again_pressed() -> void:
 	LevelManager.restert()
@@ -429,7 +423,8 @@ func _on_balls_back_pressed() -> void:
 			child.return_to_player(start_balls_position.position)
 
 func _on_button_pause_pressed() -> void:
-	get_tree().paused = !get_tree().paused
+	pause_menu_UI.visible = true
+	get_tree().paused = true
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _on_button_pressed() -> void:
@@ -502,5 +497,4 @@ func _on_button_14_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _chose_ball_button_pressed():
-	game_state = PAUSE
 	$UI/Chose_ball.visible = true

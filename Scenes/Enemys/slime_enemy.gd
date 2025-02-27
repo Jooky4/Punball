@@ -16,7 +16,6 @@ func die() -> void:
 
 	for i in range(LevelManager.first_level_links_on_objects.size() - 1):
 		if i != 0 and i != 1:
-			print(LevelManager.first_level_links_on_objects[i])
 			for j in range(LevelManager.first_level_links_on_objects[i].size()):
 				if LevelManager.first_level_links_on_objects[i][j] == null:
 					free_spot.append(Vector2(i, j))
