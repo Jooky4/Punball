@@ -40,10 +40,10 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
- 											[null, 1, 1, 1, 1, 1,],
+var first_level_links_on_objects : Array = [[1, 2, 3, 5, 6, 8],
+ 											[null, 9, null, null, null, null],
  											[null, null, null, null, null, null],
- 											[1, 1, 1, 1, 1, null],
+ 											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
@@ -157,9 +157,18 @@ func moving_object(player_position) -> void:
 				if !first_level_links_on_objects[7][i].has_method("boss"):
 					first_level_links_on_objects[7][i].queue_free()
 					first_level_links_on_objects[7][i] = null
+
 	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
 		move_boss()
-	for i in range(first_level_links_on_objects.size() - 2, -1, -1): # СНАЧАЛА ПРОДВИГАЕМ ВПЁРЕД ТЕХ У КОГО СПЕРЕДИ ПУСТО
+
+	for i in first_level_links_on_objects: # СНАЧАЛА ПРЫГАЮТ ВСЕ ПРЫГУНЫ
+		for j in i:
+			if j != null:
+				if j.has_method("jumper_enemy"):
+					if !j.freezen and j.alive and j.move_on_this_wave == false:
+						j.jump()
+
+	for i in range(first_level_links_on_objects.size() - 2, -1, -1): # ПОТОМ ПРОДВИГАЕМ ВПЁРЕД ТЕХ У КОГО СПЕРЕДИ ПУСТО
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null:
 				if first_level_links_on_objects[i+1][j] == null:
@@ -323,7 +332,6 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 					if first_level_links_on_objects[i][j] == enemy:
 						enemy_pos = first_level_links_on_objects[i][j].global_position
 						break
-	print(enemy_arr,"  ", enemy_arr.size())
 	for i in range(enemy_arr.size() - 1):
 		if enemy_arr[i] == enemy:
 			enemy_arr.remove_at(i)
@@ -463,7 +471,6 @@ func check_count_combo(enemy) -> void:
 							var enemy_pos = Vector2(enemy_arr[num_enemy].global_position.x, -200)
 							get_tree().current_scene.add_child(effect)
 							for w in range(6):
-								print(w)
 								effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * (w + 1))
 							enemy_arr[num_enemy].deal_damage(200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
 							enemy_arr.remove_at(num_enemy)
@@ -518,6 +525,15 @@ func find_all_enemys():
 					if j.alive:
 						enemy_arr.append(j)
 	return enemy_arr
+
+func find_all_free_spot():
+	var free_spots = []
+	for i in range(first_level_links_on_objects.size() - 1):
+		if i != 0 and i != 1:
+			for j in range(first_level_links_on_objects[i].size()):
+				if first_level_links_on_objects[i][j] == null:
+					free_spots.append(Vector2(i, j))
+	return free_spots
 
 func combo_thorns(from_back : bool = false) -> void:
 	var line = null

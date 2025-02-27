@@ -37,7 +37,6 @@ color = Color(0.548963, 0.548963, 0.548963, 0.85098)
 script = ExtResource("1_q6e07")
 
 [node name="Main_menu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,6 +236,7 @@ theme_override_font_sizes/font_size = 60
 text = "<---    (НАЗАД)"
 
 [node name="Skills" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

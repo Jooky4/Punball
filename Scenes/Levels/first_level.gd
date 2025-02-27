@@ -21,6 +21,7 @@ var MEDIC_ENEMY = preload("res://Scenes/Enemys/medic_enemy.tscn") # НА ПЕР�
 var SLIME_ENEMY = preload("res://Scenes/Enemys/slime_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var SMALL_SLIME_ENEMY = preload("res://Scenes/Enemys/slime_small_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var SHIELD_ENEMY = preload("res://Scenes/Enemys/shield_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var JUMPER_ENEMY = preload("res://Scenes/Enemys/jumper_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
@@ -339,7 +340,10 @@ func spawn_objects_by_index(count) -> void:
 			7: 
 				buff = SMALL_SLIME_ENEMY.instantiate()
 			8:
-				buff =  SHIELD_ENEMY.instantiate()
+				buff = SHIELD_ENEMY.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			9:
+				buff = JUMPER_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
