@@ -40,12 +40,12 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[null, null, null, null, 6, null],
- 											[6, 5, null, null, 6, 5],
+var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
+ 											[null, 1, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
- 											[5, 6, 6, 6, null, 6],
- 											[8, 8, 8, 6, null, null],
- 											[6, -2, null, null, null, null],
+ 											[1, 1, 1, 1, 1, null],
+ 											[null, null, null, null, null, null],
+ 											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
 var trap_on_map_links = [[null, null, null, null, null, null],
@@ -105,7 +105,7 @@ func apeend_new_balls() -> void:
 
 func moving_object(player_position) -> void:
 	hit_player = false
-	for i in first_level_links_on_objects: # ЖДЁМ ПОКА ЗАСПАВНЯТСЯ ВСЕ СЛИЗИ ТОЛЬКО ПОТОМ ДВИГАЕМ ВРАГОВ
+	for i in first_level_links_on_objects: # ЖДЁМ ПОКА ЗАСПАВНЯТСЯ ВСЕ СЛИЗИ
 		for j in i:
 			if j != null:
 				if j.has_method("small_slime"):
@@ -132,12 +132,13 @@ func moving_object(player_position) -> void:
 						j.shoot_at_player(player_position)
 					hit_player = true
 
-	for i in first_level_links_on_objects: # ВРАГИ МЕДИКИ ЛЕЧАТ
-		for j in i:
-			if j != null:
-				if j.has_method("medic") and !j.freezen and j.alive:
-					if j.heal_enemy():
-						hit_player = true
+	for i in (first_level_links_on_objects.size() - 1): # ВРАГИ МЕДИКИ ЛЕЧАТ
+		for j in (first_level_links_on_objects[i].size()):
+			if first_level_links_on_objects[i][j] != null:
+				if first_level_links_on_objects[i][j].has_method("medic"):
+					if !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
+						if first_level_links_on_objects[i][j].heal_enemy():
+							hit_player = true
 
 	if hit_player:
 		await get_tree().create_timer(1.5).timeout
@@ -322,6 +323,10 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 					if first_level_links_on_objects[i][j] == enemy:
 						enemy_pos = first_level_links_on_objects[i][j].global_position
 						break
+	print(enemy_arr,"  ", enemy_arr.size())
+	for i in range(enemy_arr.size() - 1):
+		if enemy_arr[i] == enemy:
+			enemy_arr.remove_at(i)
 	if enemy_arr != [] and enemy_arr.size() != 0:
 		for i in range(count_damage_lightning_enemy):
 			if enemy_arr.size() != 0:
