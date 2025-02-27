@@ -44,6 +44,7 @@ var BACKSTABBING_BALL = preload("res://Scenes/Balls/Backstabbing ball/backstabbi
 @onready var end_game_UI_win = $UI/End_game/Win
 @onready var end_game_UI_lose = $UI/End_game/Lose
 @onready var pause_menu_UI = $UI/Pause_menu_UI
+@onready var pause_button = $UI/Button_Pause
 @onready var choose_skill_UI = $UI/Get_skill_UI
 @onready var combo_count_label = $UI/Combo_count
 @onready var count_experience_label = $UI/Count_experience
@@ -107,8 +108,10 @@ func _process(delta):
 				LevelManager.apeend_new_balls()
 				count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 				balls_can_go = true
+				pause_button.disabled = false
 				game_state = PLAY
 			else:
+				pause_button.disabled = true
 				count_experience_label.text = str(LevelManager.count_experiance)
 
 func play_game() -> void:
