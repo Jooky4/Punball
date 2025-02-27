@@ -44,7 +44,7 @@ var first_level_links_on_objects : Array = [[1, 2, 3, 5, 6, 8],
  											[null, 9, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, 8, 8, null, null, null],
- 											[null, null, null, null, null, null],
+ 											[null, -2, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]

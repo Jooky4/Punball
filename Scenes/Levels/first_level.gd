@@ -393,6 +393,9 @@ func end_wave() -> void:
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
 	if LevelManager.spin_skill != 0:
+		if get_tree().paused == true:
+			while get_tree().paused == true:
+				await get_tree().create_timer(0.1).timeout
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
