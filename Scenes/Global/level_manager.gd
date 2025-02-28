@@ -40,11 +40,11 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, -1, 1, null, 2, 1],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
-var first_level_links_on_objects : Array = [[1, 2, 3, 5, 6, 8],
- 											[null, 9, null, null, null, null],
+var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
- 											[null, 8, 8, null, null, null],
- 											[null, -2, null, null, null, null],
+ 											[null, null, null, null, null, null],
+ 											[null, null, 10, null, null, null],
+ 											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
@@ -137,9 +137,16 @@ func moving_object(player_position) -> void:
 			if first_level_links_on_objects[i][j] != null:
 				if first_level_links_on_objects[i][j].has_method("medic"):
 					if !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
-						if first_level_links_on_objects[i][j].heal_enemy():
-							hit_player = true
+						first_level_links_on_objects[i][j].heal_enemy()
+						hit_player = true
 
+	for i in (first_level_links_on_objects.size() - 1): # КОЛДУНЫ СПАВНЯТ НОВЫХ ВРАГОВ
+		for j in (first_level_links_on_objects[i].size()):
+			if first_level_links_on_objects[i][j] != null:
+				if first_level_links_on_objects[i][j].has_method("magician_enemy"):
+					if !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
+						first_level_links_on_objects[i][j].spawn_new_enemy()
+						hit_player = true
 	if hit_player:
 		await get_tree().create_timer(1.5).timeout
 
@@ -193,7 +200,7 @@ func moving_object(player_position) -> void:
 	for i in range(first_level_links_on_objects[7].size()): # ЗАПУСКАЕМ АНИМАЦИЮ У ИГРОКОВ НА ПОСЛЕДНЕЙ СТРОКЕ
 		if first_level_links_on_objects[7][i] != null:
 			if first_level_links_on_objects[7][i].has_method("enemy"):
-					first_level_links_on_objects[7][i].enemy_on_last_line()
+				first_level_links_on_objects[7][i].enemy_on_last_line()
 	await get_tree().create_timer(1).timeout
 	check_traps()
 

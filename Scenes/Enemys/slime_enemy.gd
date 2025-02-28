@@ -14,11 +14,7 @@ func die() -> void:
 				count_pos_self_enemy = int((pos_enemy.x * 6) + (pos_enemy.y + 1)) - 1 
 				break
 
-	for i in range(LevelManager.first_level_links_on_objects.size() - 1):
-		if i != 0 and i != 1:
-			for j in range(LevelManager.first_level_links_on_objects[i].size()):
-				if LevelManager.first_level_links_on_objects[i][j] == null:
-					free_spot.append(Vector2(i, j))
+	free_spot = LevelManager.find_all_free_spot()
 
 	if free_spot == []:
 		for i in range(LevelManager.first_level_links_on_objects[0].size()):

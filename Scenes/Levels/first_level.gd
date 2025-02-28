@@ -21,6 +21,7 @@ var SLIME_ENEMY = preload("res://Scenes/Enemys/slime_enemy.tscn") # НА ПЕР�
 var SMALL_SLIME_ENEMY = preload("res://Scenes/Enemys/slime_small_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var SHIELD_ENEMY = preload("res://Scenes/Enemys/shield_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var JUMPER_ENEMY = preload("res://Scenes/Enemys/jumper_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var MAGICIAN_ENEMY = preload("res://Scenes/Enemys/magician_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
@@ -305,7 +306,7 @@ func spawn_objects_on_matrix() -> void:
 	await get_tree().create_timer(1.1).timeout
 	LevelManager.check_traps()
 
-func spawn_objects_by_index(count) -> void:
+func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 	if typeof(LevelManager.first_level_links_on_objects[count/6][count%6]) == 2:
 		var buff
 		match LevelManager.first_level_links_on_objects[count/6][count%6]:
@@ -343,6 +344,12 @@ func spawn_objects_by_index(count) -> void:
 			9:
 				buff = JUMPER_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			10:
+				buff = MAGICIAN_ENEMY.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+		if multiplier_stats != 1:
+			buff.hp_enemy *= multiplier_stats
+			buff.player_damage *= multiplier_stats
 		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
 		game_objects.add_child(buff)
