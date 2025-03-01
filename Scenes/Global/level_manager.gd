@@ -339,9 +339,9 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 					if first_level_links_on_objects[i][j] == enemy:
 						enemy_pos = first_level_links_on_objects[i][j].global_position
 						break
-	for i in range(enemy_arr.size() - 1):
-		if enemy_arr[i] == enemy:
-			enemy_arr.remove_at(i)
+	for i in enemy_arr:
+		if i == enemy:
+			enemy_arr.erase(i)
 	if enemy_arr != [] and enemy_arr.size() != 0:
 		for i in range(count_damage_lightning_enemy):
 			if enemy_arr.size() != 0:
