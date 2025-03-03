@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvo4uaiil7otj"]
+
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_ix8u7"]
+[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="2_6q4lq"]
+[ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="3_7l1dw"]
+[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="4_2hfsi"]
+
+[sub_resource type="Curve" id="Curve_wn0m6"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_p1y4n"]
+offsets = PackedFloat32Array(0.004, 0.052, 0.438, 0.712)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_453tt"]
+offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.74902, 0.996078, 0.215686, 1, 0.878431, 1, 0.619608, 0)
+
+[sub_resource type="Curve" id="Curve_6jhqn"]
+_data = [Vector2(0.25, 0), 0.0, 21.12, 0, 0, Vector2(0.375, 1), 0.0, 0.0, 0, 0, Vector2(0.878788, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -18.4, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_dk1ua"]
+offsets = PackedFloat32Array(0, 0.587891, 0.833984)
+colors = PackedColorArray(1, 1, 1, 0.658824, 0.74902, 0.996078, 0.215686, 0.784314, 0.87451, 1, 0.615686, 0)
+
+[node name="BombBallExplosion" type="Node2D"]
+z_index = 3
+script = ExtResource("1_ix8u7")
+
+[node name="Свечение" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.4
+texture = ExtResource("2_6q4lq")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.52
+scale_amount_max = 0.52
+scale_amount_curve = SubResource("Curve_wn0m6")
+color_ramp = SubResource("Gradient_p1y4n")
+
+[node name="Кольцо" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 2.4
+texture = ExtResource("3_7l1dw")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.52
+scale_amount_max = 0.52
+scale_amount_curve = SubResource("Curve_wn0m6")
+color_ramp = SubResource("Gradient_453tt")
+
+[node name="Дым" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 14
+one_shot = true
+speed_scale = 2.4
+explosiveness = 0.9
+texture = ExtResource("4_2hfsi")
+direction = Vector2(0, -1)
+spread = 140.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 211.39
+initial_velocity_max = 211.39
+linear_accel_min = -150.0
+linear_accel_max = -150.0
+scale_amount_min = 0.6
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_6jhqn")
+color_ramp = SubResource("Gradient_dk1ua")
