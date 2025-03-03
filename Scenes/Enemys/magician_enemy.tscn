@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dtgoww78o77t0"]
+[gd_scene load_steps=36 format=3 uid="uid://dtgoww78o77t0"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/magician_enemy.gd" id="1_7iw8w"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_5286c"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="12_tnoov"]
 [ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="14_a674y"]
 [ext_resource type="AudioStream" uid="uid://ckhfgs3asftef" path="res://Resources/Sounds/смерть.mp3" id="15_7jdoe"]
+[ext_resource type="AudioStream" uid="uid://cyhqj455ardn7" path="res://Resources/Sounds/колдун.mp3" id="16_e12ve"]
 
 [sub_resource type="Curve" id="Curve_aadmt"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -1557,4 +1558,8 @@ stream = ExtResource("14_a674y")
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_7jdoe")
 
+[node name="Spawn_enemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_e12ve")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]

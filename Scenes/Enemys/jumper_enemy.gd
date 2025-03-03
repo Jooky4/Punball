@@ -1,6 +1,7 @@
 extends "res://Scenes/Enemys/defalt_enemy.gd"
 
 var count_jump : int = 0
+@onready var move_sound = $Move_sound
 
 func jumper_enemy() -> void:
 	pass
@@ -28,6 +29,8 @@ func jump() -> void:
 		move_on_this_wave = true
 		count_jump += 1
 		animation_enemy.play("Move")
+		move_sound.pitch_scale = AudioManager.get_random_pitch()
+		move_sound.play()
 		var end_pos = Vector2((new_spot - self_spot) * Vector2(103, 103))
 		end_pos = Vector2(end_pos.y, end_pos.x)
 		create_tween().tween_property(self, "global_position", self.global_position + end_pos, 1)

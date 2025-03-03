@@ -452,6 +452,11 @@ func update_combo_count(enemy) -> void:
 	check_count_combo(enemy)
 
 func enemy_died(enemy) -> void:
+	for i in range(first_level_links_on_objects.size()):
+		for j in range(first_level_links_on_objects[i].size()):
+			if first_level_links_on_objects[i][j] == self:
+				first_level_links_on_objects[i][j] = null
+
 	if "Молния смерти" in player_skills:
 		lighthing_ball_damage(enemy, 200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
 	if "Холод смерти" in player_skills:

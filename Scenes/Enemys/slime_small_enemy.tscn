@@ -1113,3 +1113,4 @@ stream = ExtResource("12_u2gmk")
 stream = ExtResource("13_qdr27")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]

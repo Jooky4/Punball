@@ -4,6 +4,7 @@ extends "res://Scenes/Enemys/blueberries_enemy.gd"
 
 func moving(direction_object) -> void:
 	if alive:
+		boss_move.pitch_scale = AudioManager.get_random_pitch()
 		boss_move.play()
 		on_last_line = false
 		animation_enemy.play("Move")
