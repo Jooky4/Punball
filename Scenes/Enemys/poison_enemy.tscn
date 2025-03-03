@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://chhdkny5udqkv"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/blueberries_enemy.gd" id="1_8uoma"]
+[ext_resource type="Script" path="res://Scenes/Enemys/poison_enemy.gd" id="1_tkuax"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_wgyx6"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_ke80d"]
 [ext_resource type="Texture2D" uid="uid://b7sior6rmhe2o" path="res://Texture/Enemys/Poison_enemy/тело.png" id="4_dmdr6"]
@@ -974,6 +974,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite_enemy/Рукава:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.833333, 0.966667, 1.06667),
+"transitions": PackedFloat32Array(2, 1, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-29.412, -5714), Vector2(-29.4118, -257.143), Vector2(-29.4118, -89.4797), Vector2(-29.4118, -40.2339), Vector2(-29.4118, -89.4797)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
@@ -987,10 +999,11 @@ _data = {
 "Spawn": SubResource("Animation_xhi3q")
 }
 
-[node name="blueberries_enemy" type="StaticBody2D"]
+[node name="poison_enemy" type="StaticBody2D"]
+z_index = 3
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_8uoma")
+script = ExtResource("1_tkuax")
 hp_enemy = 1440.0
 
 [node name="Effects" type="Node2D" parent="."]

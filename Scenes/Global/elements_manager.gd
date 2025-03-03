@@ -18,7 +18,8 @@ var color_elements = {
 	"LIGHTNING": Color.BLUE_VIOLET,
 	"NUCLEAR" : Color.NAVY_BLUE,
 	"TECHNOLOGIES": Color.DIM_GRAY,
-	"HEAL": Color.GREEN
+	"HEAL": Color.GREEN,
+	"POISON": Color.WEB_GREEN
 }
 
 var normal_modifier : float = 1.0

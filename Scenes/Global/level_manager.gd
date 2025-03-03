@@ -11,7 +11,7 @@ var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var hp_player : float = 1000
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
-var player_balls : Array = [1, 1, 1, 1]
+var player_balls : Array = [1, 1, 1, 1, 1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -42,8 +42,8 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
- 											[null, null, null, null, null, null],
- 											[null, null, 10, 6, null, null],
+ 											[1, 1, 1, null, null, null],
+ 											[1, 12, 10, 6, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
@@ -323,12 +323,15 @@ func ball_explosion(enemy, damage_ball, color_ball, chance_of_freezing : int = 0
 				if first_level_links_on_objects[target_x][target_y] != null:
 					if first_level_links_on_objects[target_x][target_y].has_method("enemy"):
 						if first_level_links_on_objects[target_x][target_y].alive:
-							if chance_of_freezing == 0:
-								first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
+							if color_ball == ElementsManager.color_elements["POISON"]:
+								first_level_links_on_objects[target_x][target_y].poisoning()
 							else:
-								first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
-							combo_count += 1 # можно будет убрать
-							check_count_combo(first_level_links_on_objects[target_x][target_y])
+								if chance_of_freezing == 0:
+									first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
+								else:
+									first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
+								combo_count += 1 # можно будет убрать
+								check_count_combo(first_level_links_on_objects[target_x][target_y])
 
 func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 	var enemy_arr = find_all_enemys()
@@ -458,6 +461,8 @@ func enemy_died(enemy) -> void:
 						trap_on_map_links[i][j] = buff
 						get_tree().current_scene.add_child(buff)
 						break
+	if enemy.has_method("poison_enemy"):
+		ball_explosion(enemy, 0, ElementsManager.color_elements["POISON"])
 
 func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost

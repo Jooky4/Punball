@@ -12,6 +12,7 @@ var alive = true
 var on_last_line = false
 var freezen : bool = false
 var on_fire : bool = false
+var poisoned : bool = false
 var move_on_this_wave : bool = false
 var max_hp_enemy : float
 
@@ -134,6 +135,9 @@ func delete_freezing_and_fire() -> void:
 	if freezen:
 		freezen = false
 		freezen_sprite.visible = false
+	if poisoned:
+		deal_damage(200, ElementsManager.color_elements["POISON"])
+		poisoned = false
 
 func moving(direction_object) -> void:
 	if alive and animation_enemy.current_animation != "Spawn":
@@ -153,6 +157,9 @@ func moving(direction_object) -> void:
 				animation_enemy.play("Preparation")
 			else:
 				animation_enemy.play("Idle")
+
+func poisoning() -> void:
+	poisoned = true
 
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
@@ -211,6 +218,10 @@ func heal_hp(hp_heal) -> void:
 	else:
 		hp_enemy_label.text = str(round(hp_enemy))
 	create_label_damage(hp_heal, ElementsManager.color_elements["HEAL"])
+
+func play_magic_spawn_anim():
+	animation_enemy.stop()
+	animation_enemy.play("SpawnMagic")
 
 func die() -> void:
 	pass
