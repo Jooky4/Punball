@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cxkkmslaoo4dl"]
 
 [ext_resource type="Texture2D" uid="uid://jf0twirv5n7s" path="res://Texture/For Skills/ловушка.png" id="1_sg8b0"]
-[ext_resource type="Script" path="res://Scenes/For skills/trap.gd" id="2_3r23j"]
+[ext_resource type="Script" uid="uid://dla2yu5xgukqi" path="res://Scenes/For skills/trap.gd" id="2_3r23j"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="3_0dhuv"]
 
 [sub_resource type="Curve" id="Curve_q2rxr"]
@@ -110,9 +110,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ert4v"]
 _data = {
-"Hit": SubResource("Animation_ts745"),
-"RESET": SubResource("Animation_qyvl1"),
-"Spawn": SubResource("Animation_h2211")
+&"Hit": SubResource("Animation_ts745"),
+&"RESET": SubResource("Animation_qyvl1"),
+&"Spawn": SubResource("Animation_h2211")
 }
 
 [node name="trap" type="Node2D"]

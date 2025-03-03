@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://d3safcv7b812o"]
 
-[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_2u5jj"]
+[ext_resource type="Script" uid="uid://d3fkqdsihxlwe" path="res://Scenes/Effects/ball_effect.gd" id="1_2u5jj"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="1_4lu1l"]
 [ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="2_3p4uk"]
 
 [sub_resource type="Curve" id="Curve_78fle"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
 point_count = 2
 

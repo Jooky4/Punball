@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://btt53uxq2a182"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
+[ext_resource type="Script" uid="uid://bgcshp26n0yrm" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
 [ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/UI/ligting.png" id="2_ii2ha"]
 [ext_resource type="Texture2D" uid="uid://dc4bosyi510a1" path="res://Texture/UI/Skills_UI/Regular/обычныйВерх.png" id="2_tl1jo"]
 [ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 3.png" id="3_8n6dk"]
@@ -947,11 +947,11 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tm8fr"]
 _data = {
-"RESET": SubResource("Animation_xn3sy"),
-"epic_window": SubResource("Animation_qmjxo"),
-"legend_window": SubResource("Animation_mrjpc"),
-"rare_window": SubResource("Animation_pat2w"),
-"regular_window": SubResource("Animation_vjmec")
+&"RESET": SubResource("Animation_xn3sy"),
+&"epic_window": SubResource("Animation_qmjxo"),
+&"legend_window": SubResource("Animation_mrjpc"),
+&"rare_window": SubResource("Animation_pat2w"),
+&"regular_window": SubResource("Animation_vjmec")
 }
 
 [node name="Skill_window" type="Control"]

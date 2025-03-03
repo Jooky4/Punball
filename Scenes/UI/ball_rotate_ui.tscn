@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://i7udjd2in6et"]
 
-[ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="1_b84s7"]
-[ext_resource type="Script" path="res://Scenes/UI/ball_rotate_ui.gd" id="1_g6i58"]
+[ext_resource type="Shader" uid="uid://c2jd0jm5p5xay" path="res://Resources/Shaders/rotate_texture.gdshader" id="1_b84s7"]
+[ext_resource type="Script" uid="uid://colu1gea45smc" path="res://Scenes/UI/ball_rotate_ui.gd" id="1_g6i58"]
 [ext_resource type="Texture2D" uid="uid://pyrcsjlpcjxr" path="res://Texture/UI/ball_ui.png" id="2_j20yf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1twi"]

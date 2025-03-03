@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://d3rdytwyukn6p"]
 
-[ext_resource type="Script" path="res://Scenes/Bonus/bank_with_experience.gd" id="1_hj12u"]
+[ext_resource type="Script" uid="uid://bld4w02xs5vny" path="res://Scenes/Bonus/bank_with_experience.gd" id="1_hj12u"]
 [ext_resource type="Texture2D" uid="uid://g478p8fhtab0" path="res://Texture/Level_environment/банка.png" id="1_qt4ju"]
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="2_lbymt"]
 [ext_resource type="Texture2D" uid="uid://tdy2dyic0st1" path="res://Texture/Level_environment/particleStar.png" id="4_x6yxi"]
@@ -83,8 +83,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4p81f"]
 _data = {
-"RESET": SubResource("Animation_7evu8"),
-"idle": SubResource("Animation_7khvl")
+&"RESET": SubResource("Animation_7evu8"),
+&"idle": SubResource("Animation_7khvl")
 }
 
 [node name="bank_with_experience" type="Node2D"]

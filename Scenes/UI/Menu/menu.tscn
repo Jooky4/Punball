@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvj7tl2h5804k"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
+[ext_resource type="Script" uid="uid://uduti1x4rngv" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://1522rup05x52" path="res://Texture/Bacgrounds/main_menu.png" id="2_hk50k"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_cjc1q"]
 

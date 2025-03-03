@@ -1,10 +1,10 @@
 [gd_scene load_steps=48 format=3 uid="uid://df2a48ft85jww"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
+[ext_resource type="Script" uid="uid://damu18qep0rrh" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
 [ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/punktire_line.png" id="5_7ui2n"]
 [ext_resource type="Texture2D" uid="uid://ehfrga1mi7t1" path="res://Texture/UI/i.png" id="5_ho1at"]
-[ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
+[ext_resource type="Shader" uid="uid://d1utenx2hk8lw" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
 [ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Balls/3).png" id="6_3rmiv"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="8_s8suq"]
 [ext_resource type="Texture2D" uid="uid://bnub4rxgaa20e" path="res://Texture/UI/strelka.png" id="8_wf17s"]
@@ -212,9 +212,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xcrrp"]
 _data = {
-"RESET": SubResource("Animation_o53b6"),
-"boss_close": SubResource("Animation_13ul0"),
-"spawn_boss": SubResource("Animation_mko01")
+&"RESET": SubResource("Animation_o53b6"),
+&"boss_close": SubResource("Animation_13ul0"),
+&"spawn_boss": SubResource("Animation_mko01")
 }
 
 [node name="First_level" type="Node2D"]

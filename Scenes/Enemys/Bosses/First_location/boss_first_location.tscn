@@ -1,8 +1,8 @@
 [gd_scene load_steps=27 format=3 uid="uid://ux4skrwbxon4"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/Bosses/First_location/boss_first_location.gd" id="1_pst5v"]
+[ext_resource type="Script" uid="uid://yaw88e41emli" path="res://Scenes/Enemys/Bosses/First_location/boss_first_location.gd" id="1_pst5v"]
 [ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="2_8e27a"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_f30xb"]
+[ext_resource type="Shader" uid="uid://84e7i3qysapp" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_f30xb"]
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="2_pjnjy"]
 [ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="3_dkm77"]
 [ext_resource type="Texture2D" uid="uid://b1k64lxo1ayrh" path="res://Texture/Enemys/Blueberries_enemy/Eye.png" id="3_qls4n"]
@@ -1260,14 +1260,14 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xssko"]
 _data = {
-"Damage": SubResource("Animation_nnd85"),
-"Death": SubResource("Animation_2kslo"),
-"Hit": SubResource("Animation_u72mn"),
-"Idle": SubResource("Animation_0olko"),
-"Move": SubResource("Animation_ysmyr"),
-"Preparation": SubResource("Animation_41d0b"),
-"RESET": SubResource("Animation_65efc"),
-"Spawn": SubResource("Animation_d8fqs")
+&"Damage": SubResource("Animation_nnd85"),
+&"Death": SubResource("Animation_2kslo"),
+&"Hit": SubResource("Animation_u72mn"),
+&"Idle": SubResource("Animation_0olko"),
+&"Move": SubResource("Animation_ysmyr"),
+&"Preparation": SubResource("Animation_41d0b"),
+&"RESET": SubResource("Animation_65efc"),
+&"Spawn": SubResource("Animation_d8fqs")
 }
 
 [node name="Boss_first_location" type="StaticBody2D"]

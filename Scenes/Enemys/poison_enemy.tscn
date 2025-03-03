@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://chhdkny5udqkv"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/poison_enemy.gd" id="1_tkuax"]
+[ext_resource type="Script" uid="uid://ccasx7wu8qs4d" path="res://Scenes/Enemys/poison_enemy.gd" id="1_tkuax"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_wgyx6"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_ke80d"]
+[ext_resource type="Shader" uid="uid://84e7i3qysapp" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_ke80d"]
 [ext_resource type="Texture2D" uid="uid://b7sior6rmhe2o" path="res://Texture/Enemys/Poison_enemy/тело.png" id="4_dmdr6"]
 [ext_resource type="Texture2D" uid="uid://2pocpskr3vqo" path="res://Texture/Enemys/Poison_enemy/рукава.png" id="5_ywkxn"]
 [ext_resource type="Texture2D" uid="uid://ctgtcah6btaem" path="res://Texture/Enemys/Poison_enemy/котёл.png" id="7_2qxhw"]
@@ -989,14 +989,14 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-"Damage": SubResource("Animation_o5w71"),
-"Death": SubResource("Animation_hlsye"),
-"Hit": SubResource("Animation_e6v84"),
-"Idle": SubResource("Animation_ppxyw"),
-"Move": SubResource("Animation_3slqe"),
-"Preparation": SubResource("Animation_ql6h3"),
-"RESET": SubResource("Animation_g77v8"),
-"Spawn": SubResource("Animation_xhi3q")
+&"Damage": SubResource("Animation_o5w71"),
+&"Death": SubResource("Animation_hlsye"),
+&"Hit": SubResource("Animation_e6v84"),
+&"Idle": SubResource("Animation_ppxyw"),
+&"Move": SubResource("Animation_3slqe"),
+&"Preparation": SubResource("Animation_ql6h3"),
+&"RESET": SubResource("Animation_g77v8"),
+&"Spawn": SubResource("Animation_xhi3q")
 }
 
 [node name="poison_enemy" type="StaticBody2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://xxprkydai7iy"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
+[ext_resource type="Script" uid="uid://ch5riubif7sbv" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
 [ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/background.png" id="2_guy50"]
 [ext_resource type="PackedScene" uid="uid://btt53uxq2a182" path="res://Scenes/UI/Skill_windows/skill_window.tscn" id="3_yghhh"]
@@ -64,9 +64,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bsi4p"]
 _data = {
-"RESET": SubResource("Animation_g87ib"),
-"window_input": SubResource("Animation_very0"),
-"windows_output": SubResource("Animation_h0q0m")
+&"RESET": SubResource("Animation_g87ib"),
+&"window_input": SubResource("Animation_very0"),
+&"windows_output": SubResource("Animation_h0q0m")
 }
 
 [node name="Get_skill_UI" type="Control"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d00wg716j3s2p"]
 
-[ext_resource type="Script" path="res://Scenes/Bonus/bonus_ball.gd" id="1_6xkvw"]
+[ext_resource type="Script" uid="uid://dk5rivc5fevx1" path="res://Scenes/Bonus/bonus_ball.gd" id="1_6xkvw"]
 [ext_resource type="Texture2D" uid="uid://cvt4xwtsbs52u" path="res://Texture/Level_environment/+1_2.png" id="2_1ihbi"]
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="2_wd1ye"]
 
@@ -66,8 +66,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_im7rs"]
 _data = {
-"Idle": SubResource("Animation_qlt3s"),
-"RESET": SubResource("Animation_70pag")
+&"Idle": SubResource("Animation_qlt3s"),
+&"RESET": SubResource("Animation_70pag")
 }
 
 [node name="Bonus_ball" type="StaticBody2D"]

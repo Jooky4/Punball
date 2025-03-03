@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://dp04fr863uyhh"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/slime_enemy.gd" id="1_t6cn7"]
+[ext_resource type="Script" uid="uid://bkpj8we8u3bqi" path="res://Scenes/Enemys/slime_enemy.gd" id="1_t6cn7"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_bp0kk"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_cgslh"]
+[ext_resource type="Shader" uid="uid://84e7i3qysapp" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_cgslh"]
 [ext_resource type="Texture2D" uid="uid://cwlbf2ntvjccb" path="res://Texture/Enemys/Slime_enemy/тело.png" id="4_l8bln"]
 [ext_resource type="Texture2D" uid="uid://cbelqcdepvsxj" path="res://Texture/Enemys/Slime_enemy/глаза.png" id="5_s7syg"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="8_g6m8r"]
@@ -909,14 +909,14 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-"Damage": SubResource("Animation_6rjym"),
-"Death": SubResource("Animation_txj20"),
-"Hit": SubResource("Animation_q6cto"),
-"Idle": SubResource("Animation_y5l1j"),
-"Move": SubResource("Animation_twvon"),
-"Preparation": SubResource("Animation_7iqtw"),
-"RESET": SubResource("Animation_k2em8"),
-"Spawn": SubResource("Animation_qthio")
+&"Damage": SubResource("Animation_6rjym"),
+&"Death": SubResource("Animation_txj20"),
+&"Hit": SubResource("Animation_q6cto"),
+&"Idle": SubResource("Animation_y5l1j"),
+&"Move": SubResource("Animation_twvon"),
+&"Preparation": SubResource("Animation_7iqtw"),
+&"RESET": SubResource("Animation_k2em8"),
+&"Spawn": SubResource("Animation_qthio")
 }
 
 [node name="slime_enemy" type="StaticBody2D"]

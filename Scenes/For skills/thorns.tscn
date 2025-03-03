@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2crpl1t810xg"]
 
-[ext_resource type="Script" path="res://Scenes/For skills/thorns.gd" id="1_pq4y1"]
+[ext_resource type="Script" uid="uid://dk42578l6wbho" path="res://Scenes/For skills/thorns.gd" id="1_pq4y1"]
 [ext_resource type="Texture2D" uid="uid://02we4yyd1vmf" path="res://Texture/For Skills/Шип_основа_1.png" id="2_rnxqk"]
 [ext_resource type="Texture2D" uid="uid://bvoq602bgtr0e" path="res://Texture/For Skills/шип_нов.png" id="3_3otlw"]
 
@@ -86,8 +86,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bwbe1"]
 _data = {
-"RESET": SubResource("Animation_nb3jw"),
-"Spawn": SubResource("Animation_5v1ob")
+&"RESET": SubResource("Animation_nb3jw"),
+&"Spawn": SubResource("Animation_5v1ob")
 }
 
 [node name="thorns" type="Node2D"]

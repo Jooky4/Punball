@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dx27ccsu6arir"]
 
-[ext_resource type="Script" path="res://Scenes/Balls/Cumulative ball/cumulative_ball.gd" id="1_c1c6f"]
+[ext_resource type="Script" uid="uid://b33v8fym8oqpf" path="res://Scenes/Balls/Cumulative ball/cumulative_ball.gd" id="1_c1c6f"]
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="2_gugnf"]
 [ext_resource type="Texture2D" uid="uid://dokxygjpekih6" path="res://Texture/Balls/кумулятивный.png" id="3_arfsy"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="4_pl4ke"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgpo1sv7dw4xc"]
 
-[ext_resource type="Script" path="res://Scenes/Balls/Rocket ball/rocket.gd" id="1_4jamx"]
+[ext_resource type="Script" uid="uid://c3mfipt2yfy3j" path="res://Scenes/Balls/Rocket ball/rocket.gd" id="1_4jamx"]
 [ext_resource type="Texture2D" uid="uid://b74f0w5agfq17" path="res://Texture/Balls/шар ракета.png" id="1_4rsko"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_yqtnj"]
 
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kw05f"]
 _data = {
-"RESET": SubResource("Animation_js1y5"),
-"Spawn": SubResource("Animation_ujp1f")
+&"RESET": SubResource("Animation_js1y5"),
+&"Spawn": SubResource("Animation_ujp1f")
 }
 
 [node name="rocket" type="Node2D"]
