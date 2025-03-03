@@ -1,5 +1,6 @@
 extends Control
 
+@onready var sound_scroll = $Get_skill_scrolling
 var discription = ""
 var texture_skill = {
 	"Шар-заморозка": preload("res://Texture/UI/Texture_skills/шар заморозка.png"),
@@ -81,6 +82,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	$Discription_skill.text = discription
 
 func scroll_skill_animation(rarity):
+	sound_scroll.play()
 	var time_animation : float = 0
 	match rarity:
 		1:
@@ -95,3 +97,6 @@ func scroll_skill_animation(rarity):
 		i.texture = texture_skill[texture_skill.keys()[randi() % texture_skill.keys().size()]]
 	$VScrollBar/Texture_skills/TextureRect40.texture = texture_skill[discription]
 	create_tween().tween_property($VScrollBar, "scroll_vertical", 512*40, time_animation).set_trans(Tween.TRANS_QUAD)
+	create_tween().tween_property(sound_scroll, "pitch_scale", 0.9, time_animation)
+	await get_tree().create_timer(time_animation).timeout
+	sound_scroll.playing = false

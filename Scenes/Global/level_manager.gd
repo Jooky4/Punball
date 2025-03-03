@@ -11,7 +11,7 @@ var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var hp_player : float = 1000
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
-var player_balls : Array = [1, 1, 1, 1]
+var player_balls : Array = [1, 1, 1, 1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -44,7 +44,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
  											[null, null, null, null, null, null],
  											[1, 1, 1, null, null, null],
  											[1, 12, 10, 6, null, null],
- 											[null, null, 8, null, null, null],
+ 											[null, -2, 8, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
@@ -283,11 +283,13 @@ func updete_last_line() -> void:
 				for j in range(first_level_links_on_objects[i].size()):
 					if first_level_links_on_objects[i][j] == null:
 						free_slots.append(Vector2(i, j))
-			
+
 			for i in [1, 2, 2]:
 				slot_for_new_enemy = free_slots[randi() % free_slots.size()]
 				first_level_links_on_objects[slot_for_new_enemy.x][slot_for_new_enemy.y] = i
 				free_slots.erase(slot_for_new_enemy)
+			await get_tree().create_timer(0.8).timeout
+			AudioManager.enemy_spawn()
 	else:
 		#new_line_spawn = WaveGeneration.generetion_new_wave(count_level+1)
 		new_line_spawn = first_level_spawn[count_level]
@@ -304,6 +306,9 @@ func updete_last_line() -> void:
 		if new_line_spawn[i] != null:
 			first_level_links_on_objects[0][i] = new_line_spawn[i]
 	count_level += 1
+	if new_line_spawn != [null, null, null, null, null, null]:
+		await get_tree().create_timer(0.8).timeout
+		AudioManager.enemy_spawn()
 
 func ball_explosion(enemy, damage_ball, color_ball) -> void:
 	var x

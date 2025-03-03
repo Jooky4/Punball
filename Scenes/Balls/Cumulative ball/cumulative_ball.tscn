@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx27ccsu6arir"]
+[gd_scene load_steps=10 format=3 uid="uid://dx27ccsu6arir"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Cumulative ball/cumulative_ball.gd" id="1_c1c6f"]
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="2_gugnf"]
 [ext_resource type="Texture2D" uid="uid://dokxygjpekih6" path="res://Texture/Balls/кумулятивный.png" id="3_arfsy"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="4_pl4ke"]
+[ext_resource type="AudioStream" uid="uid://b81wwssvfphao" path="res://Resources/Sounds/рикошет.mp3" id="5_lqoae"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -62,3 +63,6 @@ angular_velocity_max = 180.0
 scale_amount_min = 0.15
 scale_amount_max = 0.25
 color_ramp = SubResource("Gradient_wgpwx")
+
+[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lqoae")

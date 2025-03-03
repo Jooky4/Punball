@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://buyxmeafcjqfa"]
+[gd_scene load_steps=11 format=3 uid="uid://buyxmeafcjqfa"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Killer ball/killer_ball.gd" id="1_0bl4e"]
 [ext_resource type="Texture2D" uid="uid://bvl15o1bph8jo" path="res://Texture/Balls/шар убийца_2.png" id="2_mvfgn"]
 [ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_1xk0m"]
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="4_3rxmx"]
+[ext_resource type="AudioStream" uid="uid://b81wwssvfphao" path="res://Resources/Sounds/рикошет.mp3" id="5_hp04i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -71,3 +72,6 @@ scale_amount_min = 0.3
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_4fd3i")
 color_ramp = SubResource("Gradient_adl47")
+
+[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hp04i")

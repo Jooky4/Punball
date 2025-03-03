@@ -88,7 +88,9 @@ func _ready() -> void:
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
-	await get_tree().create_timer(1.1).timeout
+	await get_tree().create_timer(0.8).timeout
+	AudioManager.enemy_spawn()
+	await get_tree().create_timer(0.3).timeout
 	balls_can_go = true
 	#YandexSDK.gameplay_started()
 
@@ -284,6 +286,7 @@ func balls_go() -> void:
 			ball.direction_bullet = direction
 			get_tree().current_scene.add_child(ball)
 			count_ball_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
+			AudioManager.ball_spawn()
 			await get_tree().create_timer(0.1).timeout
 	balls_back_button.position = start_balls_position.position + Vector2(0, -100)
 	balls_back_button.visible = true
@@ -445,6 +448,7 @@ func _on_balls_back_pressed() -> void:
 			child.return_to_player(start_balls_position.position)
 
 func _on_button_pause_pressed() -> void:
+	AudioManager.click()
 	pause_menu_UI.visible = true
 	get_tree().paused = true
 	Engine.time_scale = 0

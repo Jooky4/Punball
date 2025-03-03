@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $CollisionShape2D
 @onready var line_trail : Line2D = $Line2D
+@onready var ricochet_sound = $Ricochet_sound
 
 @export var damage_ball : float = 200
 @export var max_lenght_line : int = 6
@@ -34,6 +35,9 @@ func _physics_process(delta) -> void:
 			if collider.has_method("enemy"):
 				LevelManager.update_combo_count(collider)
 				collide_with_enemy(collider)
+			elif "Wall" in collider.name:
+				ricochet_sound.pitch_scale = AudioManager.get_random_pitch()
+				ricochet_sound.play()
 
 			move_and_collide(direction_bullet * velocity * delta)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://csdyirn2lmmyg"]
+[gd_scene load_steps=40 format=3 uid="uid://csdyirn2lmmyg"]
 
 [ext_resource type="Script" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
 [ext_resource type="AudioStream" uid="uid://c5icd0njj0hwd" path="res://Resources/Sounds/бурящий.mp3" id="2_g07ud"]
@@ -21,13 +21,11 @@
 [ext_resource type="AudioStream" uid="uid://5j4eihqkxro7" path="res://Resources/Sounds/огненный_шар.mp3" id="19_bvxve"]
 [ext_resource type="AudioStream" uid="uid://dkd2sntfiscvc" path="res://Resources/Sounds/опыт.mp3" id="20_5xuhv"]
 [ext_resource type="AudioStream" uid="uid://1dcpvt5py1sc" path="res://Resources/Sounds/преспешник.mp3" id="21_vh1e4"]
-[ext_resource type="AudioStream" uid="uid://biy8w38m71sov" path="res://Resources/Sounds/прокрутка.mp3" id="22_g4f7g"]
 [ext_resource type="AudioStream" uid="uid://cap706r5n8cva" path="res://Resources/Sounds/прыгун.mp3" id="23_5n5mj"]
 [ext_resource type="AudioStream" uid="uid://b2f8uwluae3cf" path="res://Resources/Sounds/прыжок_БОСС.mp3" id="24_ls0q3"]
 [ext_resource type="AudioStream" uid="uid://b62reiyqbdbqq" path="res://Resources/Sounds/ракета.mp3" id="25_vtta4"]
 [ext_resource type="AudioStream" uid="uid://ueldbbjdob14" path="res://Resources/Sounds/рассыпающийся_шар.mp3" id="26_h0th6"]
 [ext_resource type="AudioStream" uid="uid://bd8h8noysrwef" path="res://Resources/Sounds/редкий.mp3" id="27_dfgi4"]
-[ext_resource type="AudioStream" uid="uid://b81wwssvfphao" path="res://Resources/Sounds/рикошет.mp3" id="28_gj0j5"]
 [ext_resource type="AudioStream" uid="uid://ckhfgs3asftef" path="res://Resources/Sounds/смерть.mp3" id="29_yi5o1"]
 [ext_resource type="AudioStream" uid="uid://dsjcfjtcd6an7" path="res://Resources/Sounds/спавн врагов.mp3" id="30_ibed4"]
 [ext_resource type="AudioStream" uid="uid://cjxhlu7le18yd" path="res://Resources/Sounds/спавн_ракет.mp3" id="31_3qee0"]
@@ -64,7 +62,9 @@ stream = ExtResource("6_6glt2")
 stream = ExtResource("7_0x08u")
 
 [node name="Button_click" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("8_nb2ns")
+bus = &"SFX"
 
 [node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_2xsir")
@@ -105,9 +105,6 @@ stream = ExtResource("20_5xuhv")
 [node name="Servant_magic_enemy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_vh1e4")
 
-[node name="Get_skill_scrolling" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("22_g4f7g")
-
 [node name="Jumper_enemy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_5n5mj")
 
@@ -123,20 +120,19 @@ stream = ExtResource("26_h0th6")
 [node name="Rare_skill" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_dfgi4")
 
-[node name="Ricochet" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("28_gj0j5")
-
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_yi5o1")
 
 [node name="Enemy_spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_ibed4")
+bus = &"SFX"
 
 [node name="Rocket_spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("31_3qee0")
 
 [node name="Ball_spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_55cke")
+bus = &"SFX"
 
 [node name="Backstabbing_ball" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_ey0nq")

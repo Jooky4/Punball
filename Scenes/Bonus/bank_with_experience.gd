@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var experience_sound = $Experience_sound
 @export var experience : int = 50
 var bank_go = false
 
@@ -11,6 +12,10 @@ func go_to_count() -> void:
 	self.visible = false
 	if get_tree().current_scene.has_method("get_expirians_animation"):
 		get_tree().current_scene.get_expirians_animation(experience)
+	self.visible = false
+	experience_sound.pitch_scale = AudioManager.get_random_pitch()
+	experience_sound.play()
+	await get_tree().create_timer(0.6).timeout
 	queue_free()
 
 func bank_with_experience() -> void:

@@ -4,6 +4,7 @@ func _ready() -> void:
 	self.visible = false
 
 func _on_continue_pressed() -> void:
+	AudioManager.click()
 	Engine.time_scale = 1
 	await get_tree().create_timer(0.1).timeout
 	get_tree().paused = false

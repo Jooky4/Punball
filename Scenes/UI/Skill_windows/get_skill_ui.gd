@@ -71,6 +71,7 @@ func create_skill():
 	$Update_skill_button.visible = false
 	for i in range(3):
 		var buff = SKILL_WINDOW.instantiate()
+		windows_skill.add_child(buff)
 		if i == 0:
 			var new_skill = regular[randi() % regular.size()]
 			buff.update_discription(new_skill[0])
@@ -86,7 +87,6 @@ func create_skill():
 			buff.update_discription(new_skill[0])
 			skills.append(new_skill)
 			buff.show_rarity_window(3)
-		windows_skill.add_child(buff)
 
 	var count : int = 0
 	for i in bye_button.get_children():
@@ -100,14 +100,17 @@ func create_skill():
 	$Update_skill_button.visible = true
 
 func _on_skill_1_pressed() -> void:
+	AudioManager.click()
 	add_skill(skills[0][0])
 	LevelManager.buy_skill(skills[0][1])
 
 func _on_skill_2_pressed() -> void:
+	AudioManager.click()
 	add_skill(skills[1][0])
 	LevelManager.buy_skill(skills[1][1])
 
 func _on_skill_3_pressed() -> void:
+	AudioManager.click()
 	add_skill(skills[2][0])
 	LevelManager.buy_skill(skills[2][1])
 
@@ -219,6 +222,7 @@ func add_skill(skill) -> void:
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:
+	AudioManager.click()
 	for i in windows_skill.get_children():
 		i.queue_free()
 	skills.clear()
