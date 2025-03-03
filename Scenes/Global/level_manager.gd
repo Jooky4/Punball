@@ -44,7 +44,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
  											[null, null, null, null, null, null],
  											[1, 1, 1, null, null, null],
  											[1, 12, 10, 6, null, null],
- 											[null, null, null, null, null, null],
+ 											[null, null, 8, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
@@ -305,7 +305,7 @@ func updete_last_line() -> void:
 			first_level_links_on_objects[0][i] = new_line_spawn[i]
 	count_level += 1
 
-func ball_explosion(enemy, damage_ball, color_ball, chance_of_freezing : int = 0) -> void:
+func ball_explosion(enemy, damage_ball, color_ball) -> void:
 	var x
 	var y
 	for i in range(first_level_links_on_objects.size()):
@@ -325,13 +325,12 @@ func ball_explosion(enemy, damage_ball, color_ball, chance_of_freezing : int = 0
 						if first_level_links_on_objects[target_x][target_y].alive:
 							if color_ball == ElementsManager.color_elements["POISON"]:
 								first_level_links_on_objects[target_x][target_y].poisoning()
-							else:
-								if chance_of_freezing == 0:
-									first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
-								else:
-									first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
-								combo_count += 1 # можно будет убрать
-								check_count_combo(first_level_links_on_objects[target_x][target_y])
+							elif color_ball == ElementsManager.color_elements["FIRE"]:
+								first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
+							elif color_ball == ElementsManager.color_elements["FROST"]:
+								first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
+							combo_count += 1 
+							check_count_combo(first_level_links_on_objects[target_x][target_y])
 
 func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 	var enemy_arr = find_all_enemys()
@@ -444,7 +443,7 @@ func enemy_died(enemy) -> void:
 	if "Молния смерти" in player_skills:
 		lighthing_ball_damage(enemy, 200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
 	if "Холод смерти" in player_skills:
-		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], 1)
+		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"])
 	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):
 		ball_explosion(enemy, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])
 	if "Лазер смерти" in player_skills:

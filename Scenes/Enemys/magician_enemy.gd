@@ -25,6 +25,7 @@ func spawn_new_enemy() -> void:
 	if free_spot != [] and free_spot.size() != 0:
 		var spot_for_new_enemy = free_spot[randi() % free_spot.size()]
 		if get_tree().current_scene.has_method("spawn_objects_by_index"):
+			animation_enemy.play("Cast")
 			var count_pos = int((spot_for_new_enemy.x * 6) + (spot_for_new_enemy.y + 1)) - 1 
 			LevelManager.first_level_links_on_objects[count_pos/6][count_pos%6] = 11
 			get_tree().get_current_scene().call("spawn_objects_by_index", count_pos, 0.25)
