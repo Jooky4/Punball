@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://csdyirn2lmmyg"]
+[gd_scene load_steps=42 format=3 uid="uid://csdyirn2lmmyg"]
 
 [ext_resource type="Script" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
 [ext_resource type="AudioStream" uid="uid://c5icd0njj0hwd" path="res://Resources/Sounds/бурящий.mp3" id="2_g07ud"]
@@ -37,8 +37,13 @@
 [ext_resource type="AudioStream" uid="uid://c884aro00q4g2" path="res://Resources/Sounds/шипы.mp3" id="37_7tkvr"]
 [ext_resource type="AudioStream" uid="uid://wamndic44ny4" path="res://Resources/Sounds/эпик.mp3" id="38_tsaom"]
 [ext_resource type="AudioStream" uid="uid://6kx1ugdwma50" path="res://Resources/Music/Colorful-Flowers(chosic.com).mp3" id="39_onrjk"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="40_k3iuh"]
 [ext_resource type="AudioStream" uid="uid://nxue53rt25v" path="res://Resources/Music/Daydreams-chosic.com_.mp3" id="40_y0lhi"]
 [ext_resource type="AudioStream" uid="uid://dj12acab2rleb" path="res://Resources/Music/Late-at-Night(chosic.com).mp3" id="41_e0txj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_26kvy"]
+font = ExtResource("40_k3iuh")
+font_size = 30
 
 [node name="Audio_manager" type="Node2D"]
 script = ExtResource("1_xhnrq")
@@ -160,3 +165,27 @@ stream = ExtResource("40_y0lhi")
 
 [node name="Music_var_3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("41_e0txj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 718.0
+offset_bottom = 1282.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fps_label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 19.0
+offset_right = 69.0
+offset_bottom = 35.0
+grow_horizontal = 0
+text = "100"
+label_settings = SubResource("LabelSettings_26kvy")
+horizontal_alignment = 2

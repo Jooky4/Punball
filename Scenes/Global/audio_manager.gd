@@ -1,5 +1,10 @@
 extends Node2D
 
+@onready var fps_label = $Control/fps_label
+
+func _process(delta: float) -> void:
+	fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
+
 func get_random_pitch() -> float:
 	return randf_range(0.9, 1.1)
 

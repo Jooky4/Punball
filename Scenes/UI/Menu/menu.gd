@@ -1,6 +1,7 @@
 extends Control
 
 func _ready() -> void:
+	Engine.max_fps = 10000
 	YandexSDK.init_game()
 	YandexSDK.game_ready()
 
