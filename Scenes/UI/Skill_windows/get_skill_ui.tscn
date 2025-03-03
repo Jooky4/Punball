@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://xxprkydai7iy"]
+[gd_scene load_steps=20 format=3 uid="uid://xxprkydai7iy"]
 
-[ext_resource type="Script" uid="uid://ch5riubif7sbv" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
+[ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
 [ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/background.png" id="2_guy50"]
 [ext_resource type="PackedScene" uid="uid://btt53uxq2a182" path="res://Scenes/UI/Skill_windows/skill_window.tscn" id="3_yghhh"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="7_mbj7w"]
 [ext_resource type="Texture2D" uid="uid://bs5vkbj2ijdcf" path="res://Texture/UI/Skills_UI/текстк кнопки обновить.png" id="8_j6pi7"]
 [ext_resource type="Texture2D" uid="uid://cxk3lp3iqgprs" path="res://Texture/UI/Skills_UI/стрелки кнопки обновить.png" id="9_wywd0"]
+[ext_resource type="AudioStream" uid="uid://biy8w38m71sov" path="res://Resources/Sounds/прокрутка.mp3" id="10_hiegy"]
+[ext_resource type="AudioStream" uid="uid://bn5ns2plduu24" path="res://Resources/Sounds/легендарный.mp3" id="11_h7n1n"]
+[ext_resource type="AudioStream" uid="uid://dbkexw7e6y6lh" path="res://Resources/Sounds/обычный_скилл.mp3" id="12_b4ch7"]
+[ext_resource type="AudioStream" uid="uid://bd8h8noysrwef" path="res://Resources/Sounds/редкий.mp3" id="13_cmqrr"]
+[ext_resource type="AudioStream" uid="uid://wamndic44ny4" path="res://Resources/Sounds/эпик.mp3" id="14_ihb0p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fibwp"]
 font = ExtResource("1_42rjm")
@@ -64,9 +69,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bsi4p"]
 _data = {
-&"RESET": SubResource("Animation_g87ib"),
-&"window_input": SubResource("Animation_very0"),
-&"windows_output": SubResource("Animation_h0q0m")
+"RESET": SubResource("Animation_g87ib"),
+"window_input": SubResource("Animation_very0"),
+"windows_output": SubResource("Animation_h0q0m")
 }
 
 [node name="Get_skill_UI" type="Control"]
@@ -249,6 +254,23 @@ texture = ExtResource("9_wywd0")
 libraries = {
 "": SubResource("AnimationLibrary_bsi4p")
 }
+
+[node name="Get_skill_scrolling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hiegy")
+pitch_scale = 1.1
+bus = &"SFX"
+
+[node name="Legendari_skill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_h7n1n")
+
+[node name="Regular_skill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_b4ch7")
+
+[node name="Rare_skill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_cmqrr")
+
+[node name="Epic_skill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ihb0p")
 
 [connection signal="pressed" from="Bye_button/Skill_1" to="." method="_on_skill_1_pressed"]
 [connection signal="pressed" from="Bye_button/Skill_1/Button" to="." method="_on_skill_1_pressed"]

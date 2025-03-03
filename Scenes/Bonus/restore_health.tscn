@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfofwjifyogmv"]
 
-[ext_resource type="Script" uid="uid://dflmumv5t2llw" path="res://Scenes/Bonus/restore_health.gd" id="1_bf4ti"]
+[ext_resource type="Script" path="res://Scenes/Bonus/restore_health.gd" id="1_bf4ti"]
 [ext_resource type="Texture2D" uid="uid://c2mk4l8lfi27" path="res://Texture/Level_environment/здоровье на поле.png" id="2_dk5b4"]
 [ext_resource type="AudioStream" uid="uid://cs7mfkmjejd1d" path="res://Resources/Sounds/лечениеОЗ.mp3" id="3_c5nry"]
 

@@ -5,6 +5,7 @@ var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 @onready var windows_skill = $Windows_skill
 @onready var animation = $AnimationPlayer
 @onready var bye_button = $Bye_button
+@onready var sound_scroll = $Get_skill_scrolling
 var regular = [["Шар-заморозка", 150],
 			   ["Усиление обычного шара", 0],
 			   ["Огненный шар", 120],
@@ -66,6 +67,9 @@ func get_number_skill(number:int) -> void:
 	create_skill()
 
 func create_skill():
+	var rare_skills = []
+	sound_scroll.playing = true
+	sound_scroll.pitch_scale = 1.1
 	for i in bye_button.get_children():
 		i.disabled = true
 	$Update_skill_button.visible = false
@@ -76,16 +80,19 @@ func create_skill():
 			var new_skill = regular[randi() % regular.size()]
 			buff.update_discription(new_skill[0])
 			skills.append(new_skill)
+			rare_skills.append(1)
 			buff.show_rarity_window(1)
 		elif i == 1:
 			var new_skill = rare[randi() % epic.size()]
 			buff.update_discription(new_skill[0])
 			skills.append(new_skill)
+			rare_skills.append(2)
 			buff.show_rarity_window(2)
 		elif i == 2:
 			var new_skill = epic[randi() % epic.size()]
 			buff.update_discription(new_skill[0])
 			skills.append(new_skill)
+			rare_skills.append(3)
 			buff.show_rarity_window(3)
 
 	var count : int = 0
@@ -94,10 +101,49 @@ func create_skill():
 			if j.name == "Label":
 				j.text = str(skills[count][1])
 		count += 1
-	await get_tree().create_timer(2.6).timeout
+
+	var time_wait = 0 
+	if 4 in rare_skills:
+		time_wait = 4
+	elif 3 in rare_skills:
+		time_wait = 2.6
+	elif 2 in rare_skills:
+		time_wait = 1.7
+	elif 1 in rare_skills:
+		time_wait = 1.2
+
+	if 4 in rare_skills:
+		legendary_sound()
+	if 3 in rare_skills:
+		epic_sound()
+	if 2 in rare_skills:
+		rare_sound()
+	if 1 in rare_skills:
+		regular_sound()
+
+	create_tween().tween_property(sound_scroll, "pitch_scale", 0.9, time_wait - 0.25)
+	await get_tree().create_timer(time_wait - 0.25).timeout
+	sound_scroll.playing = false
+	await get_tree().create_timer(0.25).timeout
 	for i in bye_button.get_children():
 		i.disabled = false
 	$Update_skill_button.visible = true
+
+func legendary_sound() -> void:
+	await get_tree().create_timer(4).timeout
+	$Legendari_skill.play()
+
+func epic_sound() -> void:
+	await get_tree().create_timer(2.6).timeout
+	$Epic_skill.play()
+
+func rare_sound() -> void:
+	await get_tree().create_timer(1.7).timeout
+	$Rare_skill.play()
+
+func regular_sound() -> void:
+	await get_tree().create_timer(1.1).timeout
+	$Regular_skill.play()
 
 func _on_skill_1_pressed() -> void:
 	AudioManager.click()

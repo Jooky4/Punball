@@ -1,8 +1,8 @@
 [gd_scene load_steps=31 format=3 uid="uid://dth3oomadgqmv"]
 
-[ext_resource type="Script" uid="uid://c0gwqmhhwxv0d" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_oq22b"]
+[ext_resource type="Script" path="res://Scenes/Enemys/defalt_enemy.gd" id="1_oq22b"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_2vwrg"]
-[ext_resource type="Shader" uid="uid://84e7i3qysapp" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_7tq2g"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_7tq2g"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_5chwh"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_1gi6c"]
 [ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="4_pkxlk"]
@@ -1709,15 +1709,15 @@ tracks/19/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4grpw"]
 _data = {
-&"Damage": SubResource("Animation_1gsrn"),
-&"Death": SubResource("Animation_bs4u2"),
-&"Hit": SubResource("Animation_iudg3"),
-&"Idle": SubResource("Animation_fr0rw"),
-&"Move": SubResource("Animation_tuynj"),
-&"Preparation": SubResource("Animation_ierwm"),
-&"RESET": SubResource("Animation_4m4mk"),
-&"Spawn": SubResource("Animation_dfyqr"),
-&"SpawnMagic": SubResource("Animation_7mjgp")
+"Damage": SubResource("Animation_1gsrn"),
+"Death": SubResource("Animation_bs4u2"),
+"Hit": SubResource("Animation_iudg3"),
+"Idle": SubResource("Animation_fr0rw"),
+"Move": SubResource("Animation_tuynj"),
+"Preparation": SubResource("Animation_ierwm"),
+"RESET": SubResource("Animation_4m4mk"),
+"Spawn": SubResource("Animation_dfyqr"),
+"SpawnMagic": SubResource("Animation_7mjgp")
 }
 
 [node name="defalt_enemy" type="StaticBody2D"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ernanwq2sdnx"]
 
 [ext_resource type="Texture2D" uid="uid://wv8jmfcfp63o" path="res://Texture/For Skills/лазер_5.png" id="1_7u1of"]
-[ext_resource type="Script" uid="uid://dwrobyay6gn2m" path="res://Scenes/For skills/laser_line.gd" id="2_wwel0"]
+[ext_resource type="Script" path="res://Scenes/For skills/laser_line.gd" id="2_wwel0"]
 
 [node name="laser_line" type="Sprite2D"]
 z_index = 3

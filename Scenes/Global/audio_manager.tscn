@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://csdyirn2lmmyg"]
 
-[ext_resource type="Script" uid="uid://betdl38bjyprx" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
+[ext_resource type="Script" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
 [ext_resource type="AudioStream" uid="uid://c5icd0njj0hwd" path="res://Resources/Sounds/бурящий.mp3" id="2_g07ud"]
 [ext_resource type="AudioStream" uid="uid://cn6u3g3veh3hd" path="res://Resources/Sounds/взрыв_бомба.mp3" id="3_wj7ne"]
 [ext_resource type="AudioStream" uid="uid://cwif354lxc6d0" path="res://Resources/Sounds/взрыв_бомба_2.mp3" id="4_psfai"]
@@ -182,10 +182,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -68.0
-offset_top = 2.0
-offset_right = -18.0
-offset_bottom = 37.0
+offset_left = -62.0
+offset_right = -12.0
+offset_bottom = 35.0
 grow_horizontal = 0
 text = "100"
 label_settings = SubResource("LabelSettings_26kvy")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dubfxxm1tc41l"]
 
-[ext_resource type="Script" uid="uid://d3fkqdsihxlwe" path="res://Scenes/Effects/ball_effect.gd" id="1_j7800"]
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_j7800"]
 [ext_resource type="Texture2D" uid="uid://gf6en0ib8qlk" path="res://Texture/Effects/искра_2.png" id="3_5cdoe"]
 
 [sub_resource type="Curve" id="Curve_j1831"]

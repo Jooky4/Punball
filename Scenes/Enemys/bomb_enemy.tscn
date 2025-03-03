@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://db8csqu4f4jcu"]
 
-[ext_resource type="Script" uid="uid://dq8e5m3mxc1f" path="res://Scenes/Enemys/bomb_enemy.gd" id="1_ri3sy"]
+[ext_resource type="Script" path="res://Scenes/Enemys/bomb_enemy.gd" id="1_ri3sy"]
 [ext_resource type="Texture2D" uid="uid://d0ud3823gq70m" path="res://Texture/Enemys/Bomb_enemy/тело.png" id="2_khpjb"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="3_ih0o1"]
 [ext_resource type="Texture2D" uid="uid://bi8v3fdkihrfr" path="res://Texture/Enemys/Bomb_enemy/фитиль.png" id="3_ymfpt"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="7_yj8pl"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="8_wstlx"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="8_yh5ss"]
-[ext_resource type="Shader" uid="uid://84e7i3qysapp" path="res://Resources/Shaders/defalt_enemy.gdshader" id="9_dwhfn"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="9_dwhfn"]
 
 [sub_resource type="Curve" id="Curve_8nn1d"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -25,7 +25,7 @@ offsets = PackedFloat32Array(0, 0.286, 0.624, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_i88ju"]
-_limits = [0.0, 2.0, 0.0, 1.0]
+max_value = 2.0
 _data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -1354,14 +1354,14 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-&"Damage": SubResource("Animation_mfdch"),
-&"Death": SubResource("Animation_7v8jc"),
-&"Hit": SubResource("Animation_kc5bn"),
-&"Idle": SubResource("Animation_ldx32"),
-&"Move": SubResource("Animation_3mh6w"),
-&"Preparation": SubResource("Animation_jgid2"),
-&"RESET": SubResource("Animation_v41qd"),
-&"Spawn": SubResource("Animation_k234m")
+"Damage": SubResource("Animation_mfdch"),
+"Death": SubResource("Animation_7v8jc"),
+"Hit": SubResource("Animation_kc5bn"),
+"Idle": SubResource("Animation_ldx32"),
+"Move": SubResource("Animation_3mh6w"),
+"Preparation": SubResource("Animation_jgid2"),
+"RESET": SubResource("Animation_v41qd"),
+"Spawn": SubResource("Animation_k234m")
 }
 
 [node name="bomb_enemy" type="StaticBody2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://p42pv0cprrkp"]
 
-[ext_resource type="Script" uid="uid://d3fkqdsihxlwe" path="res://Scenes/Effects/ball_effect.gd" id="1_tc5h1"]
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_tc5h1"]
 [ext_resource type="Texture2D" uid="uid://borqu4lstqlg4" path="res://Texture/Effects/ледышка_3.png" id="2_44s78"]
 
 [sub_resource type="Curve" id="Curve_e1ywc"]

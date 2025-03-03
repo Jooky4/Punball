@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bsnvlmst4aglv"]
 
 [ext_resource type="Texture2D" uid="uid://ddkjieop81ajd" path="res://Texture/Effects/молния_1.png" id="3_5wkki"]
-[ext_resource type="Script" uid="uid://d2dt0fjttshlk" path="res://Scenes/For skills/line_lightning.gd" id="3_jjvyc"]
+[ext_resource type="Script" path="res://Scenes/For skills/line_lightning.gd" id="3_jjvyc"]
 [ext_resource type="Texture2D" uid="uid://dm5oqrjp4mamn" path="res://Texture/Effects/молния_2.png" id="4_5cxrc"]
 
 [sub_resource type="Curve" id="Curve_a8ykd"]
-_limits = [0.0, 2.0, 0.0, 1.0]
+max_value = 2.0
 _data = [Vector2(0, 0.25), 0.0, 2.6, 0, 0, Vector2(0.496, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0.25), -2.6, 0.0, 0, 0]
 point_count = 3
 
@@ -58,8 +58,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_242mi"]
 _data = {
-&"Hit": SubResource("Animation_y7boa"),
-&"RESET": SubResource("Animation_du3el")
+"Hit": SubResource("Animation_y7boa"),
+"RESET": SubResource("Animation_du3el")
 }
 
 [node name="Line_lightning" type="Line2D"]

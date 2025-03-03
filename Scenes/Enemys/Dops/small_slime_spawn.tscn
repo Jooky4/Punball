@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dy3w1r7kuic07"]
 
-[ext_resource type="Script" uid="uid://c58fftvr7fwij" path="res://Scenes/Enemys/Dops/small_slime_spawn.gd" id="1_ah3au"]
+[ext_resource type="Script" path="res://Scenes/Enemys/Dops/small_slime_spawn.gd" id="1_ah3au"]
 [ext_resource type="Texture2D" uid="uid://blku4igpac4i7" path="res://Texture/Enemys/Slime_enemy/шарик.png" id="1_y7t8n"]
 [ext_resource type="Texture2D" uid="uid://va70v64xoxrp" path="res://Texture/Enemys/Slime_enemy/лужа слизи.png" id="3_e0qxp"]
 
@@ -86,8 +86,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g0vst"]
 _data = {
-&"RESET": SubResource("Animation_e1bi4"),
-&"Spawn": SubResource("Animation_t6m61")
+"RESET": SubResource("Animation_e1bi4"),
+"Spawn": SubResource("Animation_t6m61")
 }
 
 [node name="small_slime_spawn" type="Node2D"]

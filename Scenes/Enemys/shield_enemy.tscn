@@ -1,8 +1,8 @@
 [gd_scene load_steps=32 format=3 uid="uid://b46x7h3fuo6fj"]
 
-[ext_resource type="Script" uid="uid://mcouxm7hjhoe" path="res://Scenes/Enemys/shield_enemy.gd" id="1_i7q2x"]
+[ext_resource type="Script" path="res://Scenes/Enemys/shield_enemy.gd" id="1_i7q2x"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_w2xr1"]
-[ext_resource type="Shader" uid="uid://84e7i3qysapp" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_cvtn1"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_cvtn1"]
 [ext_resource type="Texture2D" uid="uid://d38i3rl1k53rm" path="res://Texture/Enemys/Shield_enemy/тело.png" id="4_41trh"]
 [ext_resource type="Texture2D" uid="uid://gkksgdntfek2" path="res://Texture/Enemys/Shield_enemy/голова.png" id="5_0aovv"]
 [ext_resource type="Texture2D" uid="uid://1o68231vqcix" path="res://Texture/Enemys/Shield_enemy/глаза.png" id="7_dg1ar"]
@@ -1348,15 +1348,15 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-&"Block": SubResource("Animation_dx38e"),
-&"Damage": SubResource("Animation_o5w71"),
-&"Death": SubResource("Animation_hlsye"),
-&"Hit": SubResource("Animation_e6v84"),
-&"Idle": SubResource("Animation_ppxyw"),
-&"Move": SubResource("Animation_3slqe"),
-&"Preparation": SubResource("Animation_ql6h3"),
-&"RESET": SubResource("Animation_g77v8"),
-&"Spawn": SubResource("Animation_xhi3q")
+"Block": SubResource("Animation_dx38e"),
+"Damage": SubResource("Animation_o5w71"),
+"Death": SubResource("Animation_hlsye"),
+"Hit": SubResource("Animation_e6v84"),
+"Idle": SubResource("Animation_ppxyw"),
+"Move": SubResource("Animation_3slqe"),
+"Preparation": SubResource("Animation_ql6h3"),
+"RESET": SubResource("Animation_g77v8"),
+"Spawn": SubResource("Animation_xhi3q")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jrof"]

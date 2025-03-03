@@ -20,6 +20,7 @@ var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
 var hit_player : bool = false
+var somebody_move_on_this_wave : bool = false
 var player_skills : Array = []
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[-2, 1, 1, 1, null, null],

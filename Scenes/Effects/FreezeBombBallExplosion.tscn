@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://2myh1abx8x7e"]
 
-[ext_resource type="Script" uid="uid://d3fkqdsihxlwe" path="res://Scenes/Effects/ball_effect.gd" id="1_rnscc"]
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_rnscc"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="1_ugunh"]
 [ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="2_cuv1j"]
 [ext_resource type="Texture2D" uid="uid://cwq8iefe1tdf6" path="res://Texture/Effects/ледышка_2.png" id="3_tcsqa"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ct45n4b0dc1nx" path="res://Texture/Effects/снежинка_3.png" id="6_ku354"]
 
 [sub_resource type="Curve" id="Curve_wn0m6"]
-_limits = [0.0, 2.0, 0.0, 1.0]
+max_value = 2.0
 _data = [Vector2(0, 0), 0.0, 5.85959, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -29,7 +29,7 @@ offsets = PackedFloat32Array(0.004, 0.118, 0.484, 0.75, 0.888)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_e0f8p"]
-_limits = [0.0, 2.0, 0.0, 1.0]
+max_value = 2.0
 _data = [Vector2(0.293561, 0), 0.0, 4.50909, 0, 0, Vector2(0.477273, 1.62727), 5.53846, 5.53846, 0, 0, Vector2(1, 1.29945), -6.11789, 0.0, 0, 0]
 point_count = 3
 
