@@ -11,7 +11,7 @@ var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var hp_player : float = 1000
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
-var player_balls : Array = [1, 1, 1, 1, 1, 1, 1]
+var player_balls : Array = [1, 1, 1, 1, 1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -166,6 +166,7 @@ func moving_object(player_position) -> void:
 					first_level_links_on_objects[7][i].queue_free()
 					first_level_links_on_objects[7][i] = null
 
+	somebody_move_on_this_wave = false
 	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
 		move_boss()
 
@@ -202,6 +203,8 @@ func moving_object(player_position) -> void:
 		if first_level_links_on_objects[7][i] != null:
 			if first_level_links_on_objects[7][i].has_method("enemy"):
 				first_level_links_on_objects[7][i].enemy_on_last_line()
+	if somebody_move_on_this_wave == true:
+		AudioManager.enemy_move()
 	await get_tree().create_timer(1).timeout
 	check_traps()
 
@@ -211,6 +214,7 @@ func move_forward(i, j) -> void:
 		first_level_links_on_objects[i][j].move_on_this_wave = true
 		first_level_links_on_objects[i+1][j] = first_level_links_on_objects[i][j]
 		first_level_links_on_objects[i][j] = null
+		somebody_move_on_this_wave = true
 
 func move_left_or_right(i, j) -> void:
 	if !first_level_links_on_objects[i][j].move_on_this_wave:
@@ -220,6 +224,7 @@ func move_left_or_right(i, j) -> void:
 				first_level_links_on_objects[i][j].move_on_this_wave = true
 				first_level_links_on_objects[i][j-1] = first_level_links_on_objects[i][j]
 				first_level_links_on_objects[i][j] = null
+				somebody_move_on_this_wave = true
 			else:
 				if j != 5:
 					if first_level_links_on_objects[i][j+1] == null:
@@ -227,6 +232,7 @@ func move_left_or_right(i, j) -> void:
 						first_level_links_on_objects[i][j].move_on_this_wave = true
 						first_level_links_on_objects[i][j+1] = first_level_links_on_objects[i][j]
 						first_level_links_on_objects[i][j] = null
+						somebody_move_on_this_wave = true
 				else:
 					print(i+1," ", j+1, ": ВСЁ ЗАНЯТО Я ТУТ ОСТАНУСЬ")
 

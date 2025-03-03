@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cv6rl7if0i1yl"]
+[gd_scene load_steps=35 format=3 uid="uid://cv6rl7if0i1yl"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/medic_enemy.gd" id="1_o1fqo"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_e67dy"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="11_tusfv"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="12_5xy2u"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="13_cs1pn"]
+[ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="14_lcwc5"]
+[ext_resource type="AudioStream" uid="uid://ckhfgs3asftef" path="res://Resources/Sounds/смерть.mp3" id="15_vdg6u"]
 
 [sub_resource type="Curve" id="Curve_pp0bc"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -1707,5 +1709,11 @@ autoplay = "Spawn"
 playback_auto_capture = false
 next/Spawn = &"Idle"
 blend_times = [&"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.2, &"Move", &"Idle", 0.35, &"Move", &"Preparation", 0.35, &"Preparation", &"Hit", 0.5, &"Spawn", &"Idle", 0.6]
+
+[node name="Hit_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_lcwc5")
+
+[node name="Death_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_vdg6u")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

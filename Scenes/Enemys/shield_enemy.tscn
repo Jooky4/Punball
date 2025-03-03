@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b46x7h3fuo6fj"]
+[gd_scene load_steps=34 format=3 uid="uid://b46x7h3fuo6fj"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/shield_enemy.gd" id="1_i7q2x"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_w2xr1"]
@@ -13,6 +13,8 @@
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="11_084jp"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="12_mtwh2"]
 [ext_resource type="Texture2D" uid="uid://bs311mslnrrkm" path="res://Texture/Enemys/Shield_enemy/глаза_2.png" id="13_3xbc1"]
+[ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="14_oietv"]
+[ext_resource type="AudioStream" uid="uid://ckhfgs3asftef" path="res://Resources/Sounds/смерть.mp3" id="15_ary73"]
 
 [sub_resource type="Curve" id="Curve_aadmt"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -1514,5 +1516,11 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 53.5)
 shape = SubResource("RectangleShape2D_0jrof")
+
+[node name="Hit_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_oietv")
+
+[node name="Death_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ary73")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

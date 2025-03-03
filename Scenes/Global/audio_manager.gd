@@ -17,3 +17,8 @@ func enemy_spawn() -> void:
 func ball_spawn() -> void:
 	$Ball_spawn.pitch_scale = get_random_pitch()
 	$Ball_spawn.play()
+
+func enemy_move() -> void:
+	$Enemy_move.play()
+	await get_tree().create_timer(1).timeout
+	$Enemy_move.stop()

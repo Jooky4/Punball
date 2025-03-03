@@ -22,6 +22,8 @@ var max_hp_enemy : float
 @onready var fire_effect = $Fire_effect
 @onready var freezen_sprite = $Sprite_enemy/freezen_sprite
 @onready var collision_shape = $CollisionShape2D
+@onready var hit_sound = $Hit_sound
+@onready var death_sound = $Death_sound
 
 func _ready() -> void:
 	max_hp_enemy = hp_enemy
@@ -75,6 +77,7 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 					buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
 					get_tree().current_scene.add_child(buff_health)
 			if animation_enemy:
+				death_sound.play()
 				animation_enemy.play("Death")
 			return
 
@@ -181,6 +184,7 @@ func enemy_on_last_line():
 func play_animation_hit_player():
 	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Hit")
+		hit_sound.play()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ

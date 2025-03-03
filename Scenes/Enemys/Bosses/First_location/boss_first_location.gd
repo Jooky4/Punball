@@ -1,8 +1,10 @@
 extends "res://Scenes/Enemys/blueberries_enemy.gd"
 
+@onready var boss_move = $Boss_move
 
 func moving(direction_object) -> void:
 	if alive:
+		boss_move.play()
 		on_last_line = false
 		animation_enemy.play("Move")
 		create_tween().tween_property(self, "position", Vector2(103, 103) * Vector2(direction_object.y, direction_object.x), 1).as_relative()

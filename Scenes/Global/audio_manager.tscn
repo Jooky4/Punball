@@ -150,6 +150,7 @@ stream = ExtResource("35_4c11x")
 
 [node name="Enemy_move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("36_cp8ye")
+bus = &"SFX"
 
 [node name="Thorns" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_7tkvr")
