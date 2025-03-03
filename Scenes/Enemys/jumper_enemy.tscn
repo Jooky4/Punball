@@ -2496,6 +2496,6 @@ libraries = {
 }
 autoplay = "Spawn"
 next/Spawn = &"Idle"
-blend_times = [&"Hit", &"Hit", 0.15, &"Hit", &"Idle", 0.3, &"Hit", &"Move", 0.3, &"Hit", &"Preparation", 0.3, &"Idle", &"Hit", 0.15, &"Idle", &"Idle", 0.3, &"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.3, &"Move", &"Hit", 0.2, &"Move", &"Idle", 0.3, &"Move", &"Move", 0.3, &"Move", &"Preparation", 0.3, &"Preparation", &"Hit", 0.2, &"Preparation", &"Idle", 0.3, &"Preparation", &"Move", 0.3, &"Preparation", &"Preparation", 0.3, &"Spawn", &"Idle", 0.6]
+blend_times = [&"Hit", &"Hit", 0.15, &"Hit", &"Idle", 0.3, &"Hit", &"Move", 0.3, &"Hit", &"Preparation", 0.3, &"Idle", &"Hit", 0.15, &"Idle", &"Idle", 0.3, &"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.3, &"Move", &"Hit", 0.2, &"Move", &"Idle", 0.3, &"Move", &"Move", 0.3, &"Move", &"Preparation", 0.3, &"Preparation", &"Hit", 0.2, &"Preparation", &"Idle", 0.3, &"Preparation", &"Move", 0.3, &"Preparation", &"Preparation", 0.3, &"Spawn", &"Idle", 0.4]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
