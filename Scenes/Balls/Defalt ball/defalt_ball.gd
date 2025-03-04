@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var sprite = $CollisionShape2D
 @onready var line_trail : Line2D = $Line2D
 @onready var ricochet_sound = $Ricochet_sound
+@onready var hit_enemy_sound = $Hit_enemy_sound
 
 @export var damage_ball : float = 200
 @export var max_lenght_line : int = 6
@@ -42,6 +43,8 @@ func _physics_process(delta) -> void:
 			move_and_collide(direction_bullet * velocity * delta)
 
 func collide_with_enemy(collider) -> void:
+	hit_enemy_sound.pitch_scale = AudioManager.get_random_pitch()
+	hit_enemy_sound.play()
 	collider.deal_damage(damage_ball * ElementsManager.normal_modifier, ElementsManager.color_elements["NORMAL"])
 
 func return_to_player(pos_player) -> void:

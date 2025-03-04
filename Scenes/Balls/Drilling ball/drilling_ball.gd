@@ -10,6 +10,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	effect.global_position = self.global_position
 	get_tree().current_scene.add_child(effect)
 	if body.has_method("enemy"):
+		hit_enemy_sound.pitch_scale = AudioManager.get_random_pitch()
+		hit_enemy_sound.play()
 		body.deal_damage(damage_ball * ElementsManager.technologies_modifier, ElementsManager.color_elements["TECHNOLOGIES"])
 	LevelManager.heal_hp_plaer_from_technologies()
 

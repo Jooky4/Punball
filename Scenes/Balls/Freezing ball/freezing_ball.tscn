@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://fxhnxjilcddt"]
+[gd_scene load_steps=14 format=3 uid="uid://fxhnxjilcddt"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Freezing ball/freezing_ball.gd" id="1_vij2e"]
 [ext_resource type="Texture2D" uid="uid://cag3y8pig6r5b" path="res://Texture/Balls/заморозка_1.png" id="2_827d3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c711v0w13pme" path="res://Texture/Balls/Снежинка.png" id="4_2bcuk"]
 [ext_resource type="Texture2D" uid="uid://n8riaca1ap3d" path="res://Texture/Balls/Ледышка.png" id="5_dnmjv"]
 [ext_resource type="AudioStream" uid="uid://b81wwssvfphao" path="res://Resources/Sounds/рикошет.mp3" id="6_kw3lx"]
+[ext_resource type="AudioStream" uid="uid://bgddobi2vjm4p" path="res://Resources/Sounds/заморозка_шар.mp3" id="7_q3m5a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -96,3 +97,6 @@ texture_mode = 2
 
 [node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kw3lx")
+
+[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_q3m5a")

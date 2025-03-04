@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c401mjktfsre7"]
+[gd_scene load_steps=9 format=3 uid="uid://c401mjktfsre7"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Backstabbing ball/backstabbing_ball.gd" id="1_ksxna"]
 [ext_resource type="Texture2D" uid="uid://d07phnxw5hvv7" path="res://Texture/Balls/шар удар в спину.png" id="2_ef6rk"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_dsxj5"]
 [ext_resource type="AudioStream" uid="uid://b81wwssvfphao" path="res://Resources/Sounds/рикошет.mp3" id="4_dlpxk"]
+[ext_resource type="AudioStream" uid="uid://yfixd42wffrv" path="res://Resources/Sounds/сюрикен.mp3" id="5_m5fmt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -62,3 +63,6 @@ texture_mode = 2
 
 [node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_dlpxk")
+
+[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_m5fmt")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dknt4ysvy1cq3"]
+[gd_scene load_steps=12 format=3 uid="uid://dknt4ysvy1cq3"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Bomb ball/bomb_ball.gd" id="1_0nept"]
 [ext_resource type="Texture2D" uid="uid://b7dyjob70k14n" path="res://Texture/Balls/бомба.png" id="2_4bo35"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_k4k2k"]
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="4_8ua8y"]
 [ext_resource type="AudioStream" uid="uid://b81wwssvfphao" path="res://Resources/Sounds/рикошет.mp3" id="5_b2tue"]
+[ext_resource type="AudioStream" uid="uid://cn6u3g3veh3hd" path="res://Resources/Sounds/взрыв_бомба.mp3" id="6_3k376"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -75,3 +76,6 @@ color_ramp = SubResource("Gradient_dg4rd")
 
 [node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_b2tue")
+
+[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3k376")

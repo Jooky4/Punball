@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgpo1sv7dw4xc"]
+[gd_scene load_steps=9 format=3 uid="uid://bgpo1sv7dw4xc"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Rocket ball/rocket.gd" id="1_4jamx"]
 [ext_resource type="Texture2D" uid="uid://b74f0w5agfq17" path="res://Texture/Balls/шар ракета.png" id="1_4rsko"]
+[ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="4_ssb8j"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_yqtnj"]
 
 [sub_resource type="Curve" id="Curve_q7ck3"]
@@ -76,3 +77,6 @@ libraries = {
 "": SubResource("AnimationLibrary_kw05f")
 }
 autoplay = "Spawn"
+
+[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ssb8j")

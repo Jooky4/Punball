@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://oclkolfhemxg"]
+[gd_scene load_steps=11 format=3 uid="uid://oclkolfhemxg"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Defalt ball/defalt_ball.gd" id="1_ycsa2"]
 [ext_resource type="Texture2D" uid="uid://dl3oexxftwi03" path="res://Texture/Balls/usual.png" id="2_kdh35"]
 [ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_72kjp"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_ef181"]
 [ext_resource type="AudioStream" uid="uid://b81wwssvfphao" path="res://Resources/Sounds/рикошет.mp3" id="5_gr22b"]
+[ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="6_cem24"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -65,3 +66,6 @@ color_ramp = SubResource("Gradient_wgpwx")
 
 [node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_gr22b")
+
+[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cem24")
