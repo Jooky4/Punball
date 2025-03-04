@@ -1,6 +1,11 @@
 extends Node2D
 
 @onready var fps_label = $Control/fps_label
+var MUSIC_PULL = [preload("res://Resources/Music/Colorful-Flowers(chosic.com).mp3"), preload("res://Resources/Music/Daydreams-chosic.com_.mp3"), preload("res://Resources/Music/Late-at-Night(chosic.com).mp3")]
+
+func _ready() -> void:
+	$Music.stream = MUSIC_PULL[randi() % MUSIC_PULL.size()]
+	$Music.playing = true
 
 func _process(delta: float) -> void:
 	fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
@@ -50,3 +55,11 @@ func liser_sound() -> void:
 func thorns_combo_sound() -> void:
 	$Thorns.pitch_scale = get_random_pitch()
 	$Thorns.play()
+
+func health_sound() -> void:
+	$Health_sound.pitch_scale = get_random_pitch()
+	$Health_sound.play()
+
+func _on_music_finished() -> void:
+	$Music.stream = MUSIC_PULL[randi() % MUSIC_PULL.size()]
+	$Music.playing = true

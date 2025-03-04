@@ -196,6 +196,7 @@ func add_skill(skill) -> void:
 				prosen_hp_plus *= 1.5
 			LevelManager.hp_player = LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus)
 			LevelManager.max_hp_player = LevelManager.max_hp_player * (1 + prosen_hp_plus)
+			AudioManager.health_sound()
 		"Усиление особого шара":
 			ElementsManager.fire_modifier += 0.1
 			ElementsManager.frost_modifier += 0.1

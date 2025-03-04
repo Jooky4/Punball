@@ -621,4 +621,5 @@ func revival():
 				if first_level_links_on_objects[i][j].has_method("enemy") and !first_level_links_on_objects[i][j].has_method("boss"):
 					first_level_links_on_objects[i][j].queue_free()
 					first_level_links_on_objects[i][j] = null
+	AudioManager.health_sound()
 	player_skills.erase("Оживление")
