@@ -1,41 +1,21 @@
-[gd_scene load_steps=42 format=3 uid="uid://csdyirn2lmmyg"]
+[gd_scene load_steps=22 format=3 uid="uid://csdyirn2lmmyg"]
 
 [ext_resource type="Script" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
-[ext_resource type="AudioStream" uid="uid://c5icd0njj0hwd" path="res://Resources/Sounds/бурящий.mp3" id="2_g07ud"]
 [ext_resource type="AudioStream" uid="uid://cn6u3g3veh3hd" path="res://Resources/Sounds/взрыв_бомба.mp3" id="3_wj7ne"]
 [ext_resource type="AudioStream" uid="uid://cwif354lxc6d0" path="res://Resources/Sounds/взрыв_бомба_2.mp3" id="4_psfai"]
-[ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="5_8n1k0"]
 [ext_resource type="AudioStream" uid="uid://bgddobi2vjm4p" path="res://Resources/Sounds/заморозка_шар.mp3" id="6_6glt2"]
 [ext_resource type="AudioStream" uid="uid://bux3eyhwvvfns" path="res://Resources/Sounds/звукОЗ.mp3" id="7_0x08u"]
 [ext_resource type="AudioStream" uid="uid://bufx3g7145e25" path="res://Resources/Sounds/клик.mp3" id="8_nb2ns"]
-[ext_resource type="AudioStream" uid="uid://cyhqj455ardn7" path="res://Resources/Sounds/колдун.mp3" id="9_2xsir"]
-[ext_resource type="AudioStream" uid="uid://uk4t0tjqdi02" path="res://Resources/Sounds/кумулятивный.mp3" id="10_4jti6"]
 [ext_resource type="AudioStream" uid="uid://cvoeswerd3jjr" path="res://Resources/Sounds/лазер_шар.mp3" id="11_fe4mr"]
-[ext_resource type="AudioStream" uid="uid://bn5ns2plduu24" path="res://Resources/Sounds/легендарный.mp3" id="12_x5qkg"]
 [ext_resource type="AudioStream" uid="uid://cs7mfkmjejd1d" path="res://Resources/Sounds/лечениеОЗ.mp3" id="13_i4ljo"]
 [ext_resource type="AudioStream" uid="uid://i4xu4a8de8sd" path="res://Resources/Sounds/ловушка.mp3" id="14_eu57q"]
 [ext_resource type="AudioStream" uid="uid://csgt0m857e1iv" path="res://Resources/Sounds/молния.mp3" id="15_1nwku"]
-[ext_resource type="AudioStream" uid="uid://6j2denf3y06q" path="res://Resources/Sounds/молния_вар_2.mp3" id="16_js8ol"]
-[ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="17_wwlwi"]
-[ext_resource type="AudioStream" uid="uid://dbkexw7e6y6lh" path="res://Resources/Sounds/обычный_скилл.mp3" id="18_5ya4s"]
 [ext_resource type="AudioStream" uid="uid://5j4eihqkxro7" path="res://Resources/Sounds/огненный_шар.mp3" id="19_bvxve"]
-[ext_resource type="AudioStream" uid="uid://dkd2sntfiscvc" path="res://Resources/Sounds/опыт.mp3" id="20_5xuhv"]
-[ext_resource type="AudioStream" uid="uid://1dcpvt5py1sc" path="res://Resources/Sounds/преспешник.mp3" id="21_vh1e4"]
-[ext_resource type="AudioStream" uid="uid://cap706r5n8cva" path="res://Resources/Sounds/прыгун.mp3" id="23_5n5mj"]
-[ext_resource type="AudioStream" uid="uid://b2f8uwluae3cf" path="res://Resources/Sounds/прыжок_БОСС.mp3" id="24_ls0q3"]
 [ext_resource type="AudioStream" uid="uid://b62reiyqbdbqq" path="res://Resources/Sounds/ракета.mp3" id="25_vtta4"]
-[ext_resource type="AudioStream" uid="uid://ueldbbjdob14" path="res://Resources/Sounds/рассыпающийся_шар.mp3" id="26_h0th6"]
-[ext_resource type="AudioStream" uid="uid://bd8h8noysrwef" path="res://Resources/Sounds/редкий.mp3" id="27_dfgi4"]
-[ext_resource type="AudioStream" uid="uid://ckhfgs3asftef" path="res://Resources/Sounds/смерть.mp3" id="29_yi5o1"]
 [ext_resource type="AudioStream" uid="uid://dsjcfjtcd6an7" path="res://Resources/Sounds/спавн врагов.mp3" id="30_ibed4"]
-[ext_resource type="AudioStream" uid="uid://cjxhlu7le18yd" path="res://Resources/Sounds/спавн_ракет.mp3" id="31_3qee0"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="32_55cke"]
-[ext_resource type="AudioStream" uid="uid://yfixd42wffrv" path="res://Resources/Sounds/сюрикен.mp3" id="33_ey0nq"]
-[ext_resource type="AudioStream" uid="uid://dh7m2qnepcxr2" path="res://Resources/Sounds/убийца.mp3" id="34_1yblr"]
-[ext_resource type="AudioStream" uid="uid://bjwd3wgqgknkj" path="res://Resources/Sounds/удар_мечом.mp3" id="35_4c11x"]
 [ext_resource type="AudioStream" uid="uid://d3swgcs8aafe" path="res://Resources/Sounds/шаги.mp3" id="36_cp8ye"]
 [ext_resource type="AudioStream" uid="uid://c884aro00q4g2" path="res://Resources/Sounds/шипы.mp3" id="37_7tkvr"]
-[ext_resource type="AudioStream" uid="uid://wamndic44ny4" path="res://Resources/Sounds/эпик.mp3" id="38_tsaom"]
 [ext_resource type="AudioStream" uid="uid://6kx1ugdwma50" path="res://Resources/Music/Colorful-Flowers(chosic.com).mp3" id="39_onrjk"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="40_k3iuh"]
 [ext_resource type="AudioStream" uid="uid://nxue53rt25v" path="res://Resources/Music/Daydreams-chosic.com_.mp3" id="40_y0lhi"]
@@ -48,20 +28,11 @@ font_size = 30
 [node name="Audio_manager" type="Node2D"]
 script = ExtResource("1_xhnrq")
 
-[node name="Drilling ball" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_g07ud")
-
 [node name="Bomb_explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wj7ne")
 
 [node name="Bomb_explosion_var_2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_psfai")
-
-[node name="Blueberries_enemy_shoot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_8n1k0")
-
-[node name="Freezing_ball" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_6glt2")
 
 [node name="OZ_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0x08u")
@@ -71,82 +42,25 @@ process_mode = 3
 stream = ExtResource("8_nb2ns")
 bus = &"SFX"
 
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_2xsir")
-
-[node name="Cumulative_ball" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_4jti6")
-
-[node name="Laser_ball" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_fe4mr")
-
-[node name="Legendari_skill" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_x5qkg")
-
 [node name="Heal_OZ" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_i4ljo")
 
 [node name="Trap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_eu57q")
 
-[node name="Lightning_var_1" type="AudioStreamPlayer" parent="."]
+[node name="Lightning" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_1nwku")
-
-[node name="Lightning_var_2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_js8ol")
-
-[node name="Enemy_hit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_wwlwi")
-
-[node name="Regular_skill" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_5ya4s")
-
-[node name="Fire_ball" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_bvxve")
-
-[node name="Expirians" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_5xuhv")
-
-[node name="Servant_magic_enemy" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("21_vh1e4")
-
-[node name="Jumper_enemy" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_5n5mj")
-
-[node name="jumping_boss" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("24_ls0q3")
 
 [node name="Rocket" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_vtta4")
-
-[node name="Crumbling ball" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("26_h0th6")
-
-[node name="Rare_skill" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("27_dfgi4")
-
-[node name="Death" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("29_yi5o1")
 
 [node name="Enemy_spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_ibed4")
 bus = &"SFX"
 
-[node name="Rocket_spawn" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("31_3qee0")
-
 [node name="Ball_spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_55cke")
 bus = &"SFX"
-
-[node name="Backstabbing_ball" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("33_ey0nq")
-
-[node name="Killer_ball" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("34_1yblr")
-
-[node name="Hit_sword" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("35_4c11x")
 
 [node name="Enemy_move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("36_cp8ye")
@@ -155,8 +69,14 @@ bus = &"SFX"
 [node name="Thorns" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_7tkvr")
 
-[node name="Epic_skill" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("38_tsaom")
+[node name="Freezing_combo_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6glt2")
+
+[node name="Fire_combo_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_bvxve")
+
+[node name="Laser_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_fe4mr")
 
 [node name="Music_var_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("39_onrjk")

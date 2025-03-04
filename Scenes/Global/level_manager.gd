@@ -317,7 +317,7 @@ func updete_last_line() -> void:
 		await get_tree().create_timer(0.8).timeout
 		AudioManager.enemy_spawn()
 
-func ball_explosion(enemy, damage_ball, color_ball) -> void:
+func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
 	var x
 	var y
 	for i in range(first_level_links_on_objects.size()):
@@ -339,12 +339,16 @@ func ball_explosion(enemy, damage_ball, color_ball) -> void:
 								first_level_links_on_objects[target_x][target_y].poisoning()
 							elif color_ball == ElementsManager.color_elements["FIRE"]:
 								first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
+								if create_sound:
+									AudioManager.bomb_sound()
 							elif color_ball == ElementsManager.color_elements["FROST"]:
 								first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
+								if create_sound:
+									AudioManager.freezing_bomb_sound()
 							combo_count += 1 
 							check_count_combo(first_level_links_on_objects[target_x][target_y])
 
-func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
+func lighthing_ball_damage(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
 	var enemy_arr = find_all_enemys()
 	var enemy_pos : Vector2
 	for i in range(first_level_links_on_objects.size()):
@@ -357,6 +361,8 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball) -> void:
 		if i == enemy:
 			enemy_arr.erase(i)
 	if enemy_arr != [] and enemy_arr.size() != 0:
+		if enemy_arr.size() > 1 and create_sound:
+			AudioManager.lightning_sound()
 		for i in range(count_damage_lightning_enemy):
 			if enemy_arr.size() != 0:
 				var num_enemy = randi() % enemy_arr.size()
@@ -458,13 +464,14 @@ func enemy_died(enemy) -> void:
 				first_level_links_on_objects[i][j] = null
 
 	if "Молния смерти" in player_skills:
-		lighthing_ball_damage(enemy, 200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
+		lighthing_ball_damage(enemy, 200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"], true)
 	if "Холод смерти" in player_skills:
-		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"])
+		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], true)
 	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):
-		ball_explosion(enemy, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])
+		ball_explosion(enemy, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"], true)
 	if "Лазер смерти" in player_skills:
 		laser_ball_damage(enemy, 200 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
+		AudioManager.liser_sound()
 	if "Ракета смерти" in player_skills:
 		rocket_ball_damage(enemy, 300 * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"], enemy.global_position, 2)
 	if "Ловушка" in player_skills:
@@ -498,6 +505,7 @@ func check_count_combo(enemy) -> void:
 							var effect = LINE_LIGHTNING.instantiate()
 							var enemy_pos = Vector2(enemy_arr[num_enemy].global_position.x, -200)
 							get_tree().current_scene.add_child(effect)
+							AudioManager.lightning_sound()
 							for w in range(6):
 								effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * (w + 1))
 							enemy_arr[num_enemy].deal_damage(200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"])
@@ -513,6 +521,7 @@ func check_count_combo(enemy) -> void:
 						var effect = ICE_CUBE.instantiate()
 						get_tree().current_scene.add_child(effect)
 						effect.ice_cube_go(enemy_arr[num_enemy])
+						AudioManager.freezing_combo_sound()
 						combo_count += 1
 						ice_cube_spawn = true
 		enemy_arr = find_all_enemys()
@@ -525,12 +534,14 @@ func check_count_combo(enemy) -> void:
 						var effect = FIRE_BALL.instantiate()
 						get_tree().current_scene.add_child(effect)
 						effect.combo_go(enemy_arr[num_enemy])
+						AudioManager.fire_combo_sound()
 						combo_count += 1
 						fire_ball_spawn = true
 		enemy_arr = find_all_enemys()
 		if enemy_arr.size() != 0:
 			if "Лазер: комбо" in player_skills:
 				laser_ball_damage(enemy, 200 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
+				AudioManager.liser_sound()
 		enemy_arr = find_all_enemys()
 		if enemy_arr.size() != 0:
 			if "Ядерная: комбо" in player_skills:
@@ -581,6 +592,7 @@ func combo_thorns(from_back : bool = false) -> void:
 			if i != null:
 				if i .has_method("enemy"):
 					if i.alive:
+						AudioManager.thorns_combo_sound()
 						create_thorns(i)
 						count_enemy_damage += 1
 						if count_enemy_damage == 2:
