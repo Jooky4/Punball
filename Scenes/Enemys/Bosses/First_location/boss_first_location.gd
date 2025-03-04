@@ -1,4 +1,4 @@
-extends "res://Scenes/Enemys/blueberries_enemy.gd"
+extends "res://Scenes/Enemys/All_enemys/Blueberries_enemy/blueberries_enemy.gd"
 
 @onready var boss_move = $Boss_move
 

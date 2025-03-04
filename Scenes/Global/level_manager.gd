@@ -11,7 +11,7 @@ var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var hp_player : float = 1000
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
-var player_balls : Array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+var player_balls : Array = [3, 4, 6, 7]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
@@ -45,7 +45,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
  											[null, null, null, null, null, null],
  											[1, 1, 1, null, null, null],
  											[1, 12, 10, 6, null, null],
- 											[13, -2, 8, null, null, null],
+ 											[13, -2, 8, 14, 14, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]

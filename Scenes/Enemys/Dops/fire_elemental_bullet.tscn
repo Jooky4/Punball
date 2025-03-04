@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp0mjtyaydrm8"]
+
+[ext_resource type="Texture2D" uid="uid://bqogtnd7d18tc" path="res://Texture/Enemys/Blueberries_enemy/снаряд чернички.png" id="1_qiwpy"]
+
+[node name="fire_elemental_bullet" type="Node2D"]
+z_index = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.429688, 0.429687)
+texture = ExtResource("1_qiwpy")

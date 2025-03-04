@@ -13,18 +13,19 @@ var game_state = PLAY
 @onready var hp_player_bar = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_bar
 @onready var hp_player_label = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_label
 
-var DEFALT_ENEMY = preload("res://Scenes/Enemys/defalt_enemy.tscn")
-var BLUEBERRIES_ENEMY = preload("res://Scenes/Enemys/blueberries_enemy.tscn")
-var BOMB_ENEMY = preload("res://Scenes/Enemys/bomb_enemy.tscn")
-var MEDIC_ENEMY = preload("res://Scenes/Enemys/medic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var SLIME_ENEMY = preload("res://Scenes/Enemys/slime_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var SMALL_SLIME_ENEMY = preload("res://Scenes/Enemys/slime_small_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var SHIELD_ENEMY = preload("res://Scenes/Enemys/shield_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var JUMPER_ENEMY = preload("res://Scenes/Enemys/jumper_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var MAGICIAN_ENEMY = preload("res://Scenes/Enemys/magician_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var SERVANT_MAGICIAN_ENEMY = preload("res://Scenes/Enemys/servant_magic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var POISON_ENEMY = preload("res://Scenes/Enemys/poison_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var BERSERKER_ENEMY = preload("res://Scenes/Enemys/berserker_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var DEFALT_ENEMY = preload("res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.tscn")
+var BLUEBERRIES_ENEMY = preload("res://Scenes/Enemys/All_enemys/Blueberries_enemy/blueberries_enemy.tscn")
+var BOMB_ENEMY = preload("res://Scenes/Enemys/All_enemys/Bomb_enemy/bomb_enemy.tscn")
+var MEDIC_ENEMY = preload("res://Scenes/Enemys/All_enemys/Medic_enemy/medic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var SLIME_ENEMY = preload("res://Scenes/Enemys/All_enemys/Slime_enemy/slime_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var SMALL_SLIME_ENEMY = preload("res://Scenes/Enemys/All_enemys/Slime_small_enemy/slime_small_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var SHIELD_ENEMY = preload("res://Scenes/Enemys/All_enemys/Shield_enemy/shield_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var JUMPER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Jumper_enemy/jumper_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var MAGICIAN_ENEMY = preload("res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var SERVANT_MAGICIAN_ENEMY = preload("res://Scenes/Enemys/All_enemys/Servant_magic_enemy/servant_magic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var POISON_ENEMY = preload("res://Scenes/Enemys/All_enemys/Poison_enemy/poison_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var BERSERKER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var FIRE_ELEMENTAL_ENEMY = preload("res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
@@ -364,6 +365,9 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 			13:
 				buff = BERSERKER_ENEMY.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			14:
+				buff = FIRE_ELEMENTAL_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 		if multiplier_stats != 1:
 			buff.hp_enemy *= multiplier_stats
