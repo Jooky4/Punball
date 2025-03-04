@@ -24,6 +24,7 @@ var JUMPER_ENEMY = preload("res://Scenes/Enemys/jumper_enemy.tscn") # НА ПЕ�
 var MAGICIAN_ENEMY = preload("res://Scenes/Enemys/magician_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var SERVANT_MAGICIAN_ENEMY = preload("res://Scenes/Enemys/servant_magic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 var POISON_ENEMY = preload("res://Scenes/Enemys/poison_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var BERSERKER_ENEMY = preload("res://Scenes/Enemys/berserker_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
 
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
@@ -360,6 +361,9 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 			12:
 				buff = POISON_ENEMY.instantiate()
+				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+			13:
+				buff = BERSERKER_ENEMY.instantiate()
 				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
 		if multiplier_stats != 1:
 			buff.hp_enemy *= multiplier_stats

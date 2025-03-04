@@ -196,6 +196,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				self.z_index = 0
 		elif anim_name == "Damage":
 			if alive:
+				if self.has_method("berserker_enemy"): 
+					math_damage_player() # ПОСЛЕ УРОНА ЕСЛИ ЭТО БЕРСЕРК РАСЧИТЫВАЕИ УРОН ПО ИГРОКУ 
 				if on_last_line:
 					animation_enemy.play("Preparation")
 				else:
@@ -232,6 +234,9 @@ func play_magic_spawn_anim():
 	animation_enemy.play("SpawnMagic")
 
 func die() -> void:
+	pass
+
+func math_damage_player() -> void:
 	pass
 
 func _on_death_sound_finished() -> void:
