@@ -1393,7 +1393,7 @@ stream = ExtResource("13_ddal1")
 
 [node name="Boss_move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_0e1ip")
-pitch_scale = 2.0
+bus = &"SFX"
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_81u61")

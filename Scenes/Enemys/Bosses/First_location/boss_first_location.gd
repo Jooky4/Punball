@@ -4,10 +4,9 @@ extends "res://Scenes/Enemys/All_enemys/Blueberries_enemy/blueberries_enemy.gd"
 
 func moving(direction_object) -> void:
 	if alive:
-		boss_move.pitch_scale = AudioManager.get_random_pitch()
-		boss_move.play()
 		on_last_line = false
 		animation_enemy.play("Move")
+		boss_move.play()
 		create_tween().tween_property(self, "position", Vector2(103, 103) * Vector2(direction_object.y, direction_object.x), 1).as_relative()
 		await get_tree().create_timer(1).timeout
 		if on_last_line:
