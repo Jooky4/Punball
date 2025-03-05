@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b281v7p3hsju0" path="res://Texture/UI/healthbarProgress_Player.png" id="9_m32s6"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="10_fo6nb"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
+[ext_resource type="PackedScene" uid="uid://ciuhn6dg5mwdo" path="res://Scenes/UI/Death_screen/death_screen.tscn" id="12_tjpvy"]
 [ext_resource type="PackedScene" uid="uid://xxprkydai7iy" path="res://Scenes/UI/Skill_windows/get_skill_ui.tscn" id="13_1g2hj"]
 [ext_resource type="PackedScene" uid="uid://03cucs0teyc1" path="res://Scenes/UI/For test/chose_ball.tscn" id="13_31ajf"]
 [ext_resource type="Texture2D" uid="uid://bby3mm6q8rrn0" path="res://Texture/UI/Уровень 1 текст.png" id="13_yxrlo"]
@@ -46,18 +47,6 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-4, 6)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ockje"]
-font = ExtResource("10_fo6nb")
-font_size = 90
-outline_size = 20
-outline_color = Color(0, 1, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_repox"]
-font = ExtResource("10_fo6nb")
-font_size = 90
-outline_size = 20
-outline_color = Color(1, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
 bg_color = Color(0.478007, 0.618938, 0.736741, 1)
 
@@ -79,6 +68,12 @@ Button/styles/focus = SubResource("StyleBoxFlat_jkoco")
 Button/styles/hover = SubResource("StyleBoxFlat_ny5mh")
 Button/styles/normal = SubResource("StyleBoxFlat_x8hou")
 Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ockje"]
+font = ExtResource("10_fo6nb")
+font_size = 90
+outline_size = 20
+outline_color = Color(0, 1, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_afqc7"]
 font = ExtResource("10_fo6nb")
@@ -335,8 +330,58 @@ anchors_preset = 0
 offset_right = 720.0
 offset_bottom = 1280.0
 
-[node name="End_game" type="Control" parent="UI"]
+[node name="Lose" parent="UI" instance=ExtResource("12_tjpvy")]
 visible = false
+layout_mode = 1
+
+[node name="Start_again" type="Button" parent="UI/Lose"]
+z_index = 2
+layout_mode = 0
+offset_left = 55.0
+offset_top = 1040.0
+offset_right = 669.0
+offset_bottom = 1122.0
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("10_fo6nb")
+theme_override_font_sizes/font_size = 60
+text = "Попробовать ещё раз"
+
+[node name="Win" type="Label" parent="UI"]
+visible = false
+z_index = 7
+layout_mode = 0
+offset_left = -38.0
+offset_top = 491.0
+offset_right = 760.0
+offset_bottom = 594.0
+text = "ПОБЕДА"
+label_settings = SubResource("LabelSettings_ockje")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start_again" type="Button" parent="UI/Win"]
+z_index = 2
+layout_mode = 0
+offset_left = 89.0
+offset_top = 200.0
+offset_right = 703.0
+offset_bottom = 282.0
+theme = SubResource("Theme_6um41")
+theme_override_fonts/font = ExtResource("10_fo6nb")
+theme_override_font_sizes/font_size = 60
+text = "Попробовать ещё раз"
+
+[node name="ColorRect" type="ColorRect" parent="UI/Win"]
+z_index = -1
+layout_mode = 0
+offset_left = -1673.0
+offset_top = -849.0
+offset_right = 2331.0
+offset_bottom = 1353.0
+mouse_filter = 2
+color = Color(0.0745098, 0.0745098, 0.0745098, 0.854902)
+
+[node name="End_game" type="Control" parent="UI"]
 z_index = 8
 layout_mode = 3
 anchors_preset = 0
@@ -344,54 +389,6 @@ offset_left = -379.0
 offset_top = -120.0
 offset_right = -339.0
 offset_bottom = -80.0
-
-[node name="ColorRect" type="ColorRect" parent="UI/End_game"]
-z_index = 1
-layout_mode = 0
-offset_left = -1170.0
-offset_top = -431.0
-offset_right = 2834.0
-offset_bottom = 1771.0
-mouse_filter = 2
-color = Color(0.0745098, 0.0745098, 0.0745098, 0.854902)
-
-[node name="Win" type="Label" parent="UI/End_game"]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_left = 341.0
-offset_top = 615.0
-offset_right = 1139.0
-offset_bottom = 711.0
-text = "ПОБЕДА"
-label_settings = SubResource("LabelSettings_ockje")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Lose" type="Label" parent="UI/End_game"]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_left = 341.0
-offset_top = 615.0
-offset_right = 1139.0
-offset_bottom = 711.0
-text = "ПОРАЖЕНИЕ"
-label_settings = SubResource("LabelSettings_repox")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Start_again" type="Button" parent="UI/End_game"]
-z_index = 2
-layout_mode = 0
-offset_left = 430.0
-offset_top = 777.0
-offset_right = 1044.0
-offset_bottom = 859.0
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "Попробовать ещё раз"
 
 [node name="Start_again" type="Sprite2D" parent="UI"]
 z_index = 1
@@ -653,7 +650,8 @@ texture_normal = ExtResource("23_t4wce")
 layout_mode = 1
 
 [connection signal="body_entered" from="Dicariations/Detection_last_ball" to="." method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="UI/End_game/Start_again" to="." method="_on_start_again_pressed"]
+[connection signal="pressed" from="UI/Lose/Start_again" to="." method="_on_start_again_pressed"]
+[connection signal="pressed" from="UI/Win/Start_again" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Start_again/Start_again_button" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Button" to="." method="_chose_ball_button_pressed"]
 [connection signal="pressed" from="UI/Balls_back_button/Balls_back_button" to="." method="_on_balls_back_pressed"]

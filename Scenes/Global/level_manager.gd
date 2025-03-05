@@ -8,7 +8,7 @@ var ROCKET = preload("res://Scenes/Balls/Rocket ball/rocket.tscn")
 var TRAP = preload("res://Scenes/For skills/trap.tscn")
 var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 
-var hp_player : float = 1000
+var hp_player : float = 10
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
@@ -613,8 +613,11 @@ func heal_hp_plaer_from_technologies() -> void:
 		if hp_player > max_hp_player:
 			hp_player += max_hp_player
 
-func revival():
-	hp_player = max_hp_player
+func revival(hp_player_prozent : float = 1):
+	if hp_player_prozent == 1:
+		hp_player = max_hp_player
+	else:
+		hp_player = max_hp_player * hp_player_prozent
 	for i in range(5, len(first_level_links_on_objects)):
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null:
