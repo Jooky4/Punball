@@ -33,8 +33,10 @@ func jump() -> void:
 		move_sound.play()
 		var end_pos = Vector2((new_spot - self_spot) * Vector2(103, 103))
 		end_pos = Vector2(end_pos.y, end_pos.x)
-		create_tween().tween_property(self, "global_position", self.global_position + end_pos, 1)
+		self.z_index = 2
+		create_tween().tween_property(self, "global_position", self.global_position + end_pos, 1).set_trans(Tween.TRANS_QUAD)
 		await get_tree().create_timer(1).timeout
+		self.z_index = 0
 		if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 			if on_last_line:
 				animation_enemy.play("Preparation")
