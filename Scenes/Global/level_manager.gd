@@ -309,8 +309,8 @@ func updete_last_line() -> void:
 			for i in range(new_line_spawn.size()):
 				if new_line_spawn[i] != null:
 					first_level_links_on_objects[1][i] = new_line_spawn[i]
+			count_level += 1
 			if new_line_spawn != [null, null, null, null, null, null]:
-				count_level += 1
 				await get_tree().create_timer(0.8).timeout
 				AudioManager.enemy_spawn()
 
