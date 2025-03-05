@@ -28,12 +28,12 @@ func jump() -> void:
 		LevelManager.first_level_links_on_objects[self_spot.x][self_spot.y] = null
 		move_on_this_wave = true
 		count_jump += 1
+		self.z_index = 2
 		animation_enemy.play("Move")
 		move_sound.pitch_scale = AudioManager.get_random_pitch()
 		move_sound.play()
 		var end_pos = Vector2((new_spot - self_spot) * Vector2(103, 103))
 		end_pos = Vector2(end_pos.y, end_pos.x)
-		self.z_index = 2
 		create_tween().tween_property(self, "global_position", self.global_position + end_pos, 1).set_trans(Tween.TRANS_QUAD)
 		await get_tree().create_timer(1).timeout
 		self.z_index = 0
