@@ -150,11 +150,11 @@ func moving(direction_object) -> void:
 		if direction_object != "":
 			var tween = create_tween()
 			if direction_object == "forward":
-				tween.tween_property(self, "position", Vector2(0, 103) + self.position, 1)
+				tween.tween_property(self, "position", Vector2(0, 103) + self.position, 1).set_trans(Tween.TRANS_QUAD)
 			elif direction_object == "left":
-				tween.tween_property(self, "position", Vector2(-103, 0) + self.position, 1)
+				tween.tween_property(self, "position", Vector2(-103, 0) + self.position, 1).set_trans(Tween.TRANS_QUAD)
 			elif direction_object == "right":
-				tween.tween_property(self, "position", Vector2(103, 0) + self.position, 1)
+				tween.tween_property(self, "position", Vector2(103, 0) + self.position, 1).set_trans(Tween.TRANS_QUAD)
 		await get_tree().create_timer(1).timeout
 		if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 			if on_last_line:

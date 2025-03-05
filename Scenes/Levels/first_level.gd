@@ -217,9 +217,17 @@ func revavil_player():
 	hp_player_label.text = str(LevelManager.hp_player)
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
-	LevelManager.delete_freezing_and_fire_on_enemy()
 	animation_bank_with_experience()
 	animation_health()
+	if LevelManager.boss_on_map:
+		$UI/Boss_label.visible = true
+		count_level_label.visible = false
+	else:
+		print(LevelManager.count_level)
+		count_level_label.visible = true
+		count_level_label.text = str(LevelManager.count_level + 1)
+	LevelManager.delete_freezing_and_fire_on_enemy()
+
 	if count_level_label.text == "19":
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished
@@ -403,12 +411,6 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 func end_wave() -> void:
 	LevelManager.apeend_new_balls()
 	balls_back_button.visible = false
-	if LevelManager.boss_on_map:
-		$UI/Boss_label.visible = true
-		count_level_label.visible = false
-	else:
-		count_level_label.visible = true
-		count_level_label.text = str(LevelManager.count_level + 2)
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	combo_count_label.visible = false
 	combo_count = 0
@@ -441,9 +443,16 @@ func end_wave() -> void:
 		hp_player_label.text = str(LevelManager.hp_player)
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
-	LevelManager.delete_freezing_and_fire_on_enemy()
 	animation_bank_with_experience()
 	animation_health()
+	if LevelManager.boss_on_map:
+		$UI/Boss_label.visible = true
+		count_level_label.visible = false
+	else:
+		count_level_label.visible = true
+		count_level_label.text = str(LevelManager.count_level + 1)
+	LevelManager.delete_freezing_and_fire_on_enemy()
+
 	if count_level_label.text == "19":
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished

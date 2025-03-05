@@ -7,8 +7,9 @@ var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
 var ROCKET = preload("res://Scenes/Balls/Rocket ball/rocket.tscn")
 var TRAP = preload("res://Scenes/For skills/trap.tscn")
 var THORNS = preload("res://Scenes/For skills/thorns.tscn")
+var EFFECT_EXPLOSION = preload("res://Scenes/Effects/BombBallExplosion.tscn")
 
-var hp_player : float = 10
+var hp_player : float = 1000
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
@@ -284,7 +285,6 @@ func updete_last_line() -> void:
 	var slot_for_new_enemy 
 	var free_slots = []
 	if count_level >= 19:
-		new_line_spawn = [null, null, null, null, null, null]
 		if count_level % 2 == 1:
 			for i in range(5):
 				for j in range(first_level_links_on_objects[i].size()):
@@ -295,27 +295,24 @@ func updete_last_line() -> void:
 				slot_for_new_enemy = free_slots[randi() % free_slots.size()]
 				first_level_links_on_objects[slot_for_new_enemy.x][slot_for_new_enemy.y] = i
 				free_slots.erase(slot_for_new_enemy)
+			count_level += 1
 			await get_tree().create_timer(0.8).timeout
 			AudioManager.enemy_spawn()
 	else:
 		#new_line_spawn = WaveGeneration.generetion_new_wave(count_level+1)
 		new_line_spawn = first_level_spawn[count_level]
-		for i in range(new_line_spawn.size()):
-			if new_line_spawn[i] != null:
-				if first_level_links_on_objects[0][i] != null:
-					if new_line_spawn.find(null) != -1:
-						new_line_spawn[first_level_links_on_objects[0].find(null)] = new_line_spawn[i]
-						new_line_spawn[i] = null
-					else:
-						print("ОШИБКА: НЕТ СВОБОДНОГО МЕСТА ДЛЯ НОВОГО ВРАГА")
- 
-	for i in range(new_line_spawn.size()):
-		if new_line_spawn[i] != null:
-			first_level_links_on_objects[0][i] = new_line_spawn[i]
-	count_level += 1
-	if new_line_spawn != [null, null, null, null, null, null]:
-		await get_tree().create_timer(0.8).timeout
-		AudioManager.enemy_spawn()
+		var can_spawn = true
+		for i in first_level_links_on_objects[1]:
+			if i != null:
+				return
+		if can_spawn:
+			for i in range(new_line_spawn.size()):
+				if new_line_spawn[i] != null:
+					first_level_links_on_objects[1][i] = new_line_spawn[i]
+			if new_line_spawn != [null, null, null, null, null, null]:
+				count_level += 1
+				await get_tree().create_timer(0.8).timeout
+				AudioManager.enemy_spawn()
 
 func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
 	var x
@@ -469,6 +466,10 @@ func enemy_died(enemy) -> void:
 		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], true)
 	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):
 		ball_explosion(enemy, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"], true)
+		if "Бомба смерти" in player_skills and !enemy.has_method("bomb_enemy") and !enemy.has_method("poison_enemy"):
+			var effect = EFFECT_EXPLOSION.instantiate()
+			effect.global_position = enemy.global_position
+			get_tree().current_scene.add_child(effect)
 	if "Лазер смерти" in player_skills:
 		laser_ball_damage(enemy, 200 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
 		AudioManager.liser_sound()
