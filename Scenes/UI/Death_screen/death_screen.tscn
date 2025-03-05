@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciuhn6dg5mwdo"]
+[gd_scene load_steps=8 format=3 uid="uid://ciuhn6dg5mwdo"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Death_screen/death_screen.gd" id="1_c74sn"]
 [ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="1_do3n0"]
@@ -9,6 +9,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_y6afk"]
 font = ExtResource("4_yc3ln")
 font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_2glv1"]
+font = ExtResource("4_yc3ln")
+font_size = 50
 
 [node name="death_screen" type="Control"]
 z_index = 7
@@ -85,6 +89,21 @@ label_settings = SubResource("LabelSettings_y6afk")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.0
+offset_top = 45.0
+offset_right = 145.0
+offset_bottom = 103.0
+grow_horizontal = 2
+text = "КРИСТАЛЛЫ"
+label_settings = SubResource("LabelSettings_2glv1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/AD" to="." method="_on_ad_pressed"]
 [connection signal="pressed" from="VBoxContainer/CRYSTALS" to="." method="_on_crystals_pressed"]

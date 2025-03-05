@@ -207,6 +207,7 @@ func win() -> void:
 
 func lose() -> void:
 	end_game_UI_lose.visible = true
+	end_game_UI_lose.update_count_cristal()
 
 func revavil_player():
 	end_game_UI_lose.visible = false
