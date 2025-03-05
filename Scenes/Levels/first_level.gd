@@ -481,6 +481,7 @@ func _on_balls_back_pressed() -> void:
 
 func _on_button_pause_pressed() -> void:
 	AudioManager.click()
+	pause_menu_UI.update_texture_skill()
 	pause_menu_UI.visible = true
 	get_tree().paused = true
 	Engine.time_scale = 0

@@ -24,6 +24,7 @@ font = ExtResource("40_k3iuh")
 font_size = 30
 
 [node name="Audio_manager" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_xhnrq")
 
 [node name="Bomb_explosion" type="AudioStreamPlayer" parent="."]

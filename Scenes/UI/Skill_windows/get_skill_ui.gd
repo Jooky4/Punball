@@ -164,32 +164,46 @@ func add_skill(skill) -> void:
 	match skill:
 		"Рассыпающийся шар":
 			LevelManager.add_ball(2)
+			LevelManager.player_skills.append("Рассыпающийся шар")
 		"Шар-бомба":
 			LevelManager.add_ball(3)
+			LevelManager.player_skills.append("Шар-бомба")
 		"Шар-заморозка":
 			LevelManager.add_ball(4)
+			LevelManager.player_skills.append("Шар-заморозка")
 		"Шар молний":
 			LevelManager.add_ball(5)
+			LevelManager.player_skills.append("Шар молний")
 		"Бомба-заморозка":
 			LevelManager.add_ball(6)
+			LevelManager.player_skills.append("Бомба-заморозка")
 		"Огненный шар":
 			LevelManager.add_ball(7)
+			LevelManager.player_skills.append("Огненный шар")
 		"Горизонтальный лазерный шар":
 			LevelManager.add_ball(8)
+			LevelManager.player_skills.append("Горизонтальный лазерный шар")
 		"Вертикальный лазерный шар":
 			LevelManager.add_ball(9)
+			LevelManager.player_skills.append("Вертикальный лазерный шар")
 		"Шар ракета":
 			LevelManager.add_ball(10)
+			LevelManager.player_skills.append("Шар ракета")
 		"Кумулятивный шар":
 			LevelManager.add_ball(11)
+			LevelManager.player_skills.append("Кумулятивный шар")
 		"Шар убийца":
 			LevelManager.add_ball(12)
+			LevelManager.player_skills.append("Шар убийца")
 		"Бурящий шар":
 			LevelManager.add_ball(13)
+			LevelManager.player_skills.append("Бурящий шар")
 		"Шар удара в спину":
 			LevelManager.add_ball(14)
+			LevelManager.player_skills.append("Шар удара в спину")
 		"Усиление обычного шара":
 			ElementsManager.normal_modifier += 0.1
+			LevelManager.player_skills.append("Усиление обычного шара")
 		"Прибавка ОЗ":
 			var prosen_hp_plus = 0.1
 			if "Прибавка к восстановлению" in LevelManager.player_skills:
@@ -197,6 +211,7 @@ func add_skill(skill) -> void:
 			LevelManager.hp_player = LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus)
 			LevelManager.max_hp_player = LevelManager.max_hp_player * (1 + prosen_hp_plus)
 			AudioManager.health_sound()
+			LevelManager.player_skills.append("Прибавка ОЗ")
 		"Усиление особого шара":
 			ElementsManager.fire_modifier += 0.1
 			ElementsManager.frost_modifier += 0.1
@@ -204,6 +219,7 @@ func add_skill(skill) -> void:
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.nuclear_modifier += 0.1
 			ElementsManager.technologies_modifier += 0.1
+			LevelManager.player_skills.append("Усиление особого шара")
 		"Усиление атаки":
 			ElementsManager.normal_modifier += 0.1
 			ElementsManager.fire_modifier += 0.1
@@ -212,6 +228,7 @@ func add_skill(skill) -> void:
 			ElementsManager.lightning_modifier += 0.1
 			ElementsManager.nuclear_modifier += 0.1
 			ElementsManager.technologies_modifier += 0.1
+			LevelManager.player_skills.append("Усиление атаки")
 		"Оживление":
 			LevelManager.player_skills.append("Оживление")
 		"Прибавка к восстановлению":
@@ -251,9 +268,11 @@ func add_skill(skill) -> void:
 		"Повелитель молний":
 			LevelManager.count_damage_lightning_enemy = 5
 			ElementsManager.lightning_modifier += 0.4
+			LevelManager.player_skills.append("Повелитель молний")
 		"Повелитель льда":
 			ElementsManager.frost_modifier += 0.4
 			LevelManager.chance_of_freezing += 0.3
+			LevelManager.player_skills.append("Повелитель льда")
 		"Повелитель огня":
 			ElementsManager.fire_modifier += 0.4
 			LevelManager.player_skills.append("Повелитель огня")

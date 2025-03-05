@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb7y7v4mnb42k"]
+[gd_scene load_steps=15 format=3 uid="uid://bb7y7v4mnb42k"]
 
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_4odon"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/pause_menu_ui.gd" id="1_ydatq"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_meo1k"]
-font = ExtResource("1_4odon")
-font_size = 90
+[ext_resource type="Texture2D" uid="uid://kgfj4e3eobcc" path="res://Texture/UI/Pause_UI/кнопка плей.png" id="2_37hnf"]
+[ext_resource type="Texture2D" uid="uid://pccwegq6jk05" path="res://Texture/UI/Pause_UI/кнопка домой.png" id="3_25qqy"]
+[ext_resource type="Texture2D" uid="uid://chxx7cvr3jfhs" path="res://Texture/UI/Pause_UI/кнопка громкость.png" id="4_sf8p2"]
+[ext_resource type="Texture2D" uid="uid://b6bi1pn1lata6" path="res://Texture/UI/Pause_UI/легенда.png" id="6_cui5p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
 bg_color = Color(0.478007, 0.618938, 0.736741, 1)
@@ -29,6 +29,14 @@ Button/styles/hover = SubResource("StyleBoxFlat_ny5mh")
 Button/styles/normal = SubResource("StyleBoxFlat_x8hou")
 Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
 
+[sub_resource type="LabelSettings" id="LabelSettings_meo1k"]
+font = ExtResource("1_4odon")
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_frbsm"]
+font = ExtResource("1_4odon")
+font_size = 50
+
 [node name="Pause_menu_UI" type="Control"]
 process_mode = 3
 visible = false
@@ -41,44 +49,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ydatq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(400, 0)
+[node name="Continue" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -50.0
-offset_right = 200.0
-offset_bottom = 50.0
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -361.0
+offset_right = 130.0
+offset_bottom = -230.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 40
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "ПАУЗА"
-label_settings = SubResource("LabelSettings_meo1k")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Continue" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 2
+grow_vertical = 0
 theme = SubResource("Theme_5m7jc")
-theme_override_fonts/font = ExtResource("1_4odon")
-theme_override_font_sizes/font_size = 50
-text = "ПРОДОЛЖИТЬ"
+texture_normal = ExtResource("2_37hnf")
+texture_pressed = ExtResource("2_37hnf")
+texture_disabled = ExtResource("2_37hnf")
+texture_focused = ExtResource("2_37hnf")
 
-[node name="Home" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(400, 100)
+[node name="Home" type="TextureButton" parent="."]
 layout_mode = 2
+offset_left = 188.0
+offset_top = 1117.0
+offset_right = 343.0
+offset_bottom = 1217.0
 theme = SubResource("Theme_5m7jc")
-theme_override_fonts/font = ExtResource("1_4odon")
-theme_override_font_sizes/font_size = 50
-text = "ДОМОЙ"
+texture_normal = ExtResource("3_25qqy")
+texture_pressed = ExtResource("3_25qqy")
+texture_disabled = ExtResource("3_25qqy")
+texture_focused = ExtResource("3_25qqy")
+
+[node name="Home2" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 388.0
+offset_top = 1117.0
+offset_right = 543.0
+offset_bottom = 1207.0
+theme = SubResource("Theme_5m7jc")
+texture_normal = ExtResource("4_sf8p2")
+texture_pressed = ExtResource("4_sf8p2")
+texture_disabled = ExtResource("4_sf8p2")
+texture_focused = ExtResource("4_sf8p2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -95,4 +107,351 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.843137)
 
-[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -363.0
+offset_top = 100.0
+offset_right = 364.0
+offset_bottom = 203.0
+grow_horizontal = 2
+text = "ПАУЗА"
+label_settings = SubResource("LabelSettings_meo1k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 229.0
+offset_right = 367.0
+offset_bottom = 332.0
+grow_horizontal = 2
+text = "•••СПИСОК НАВЫКОВ•••"
+label_settings = SubResource("LabelSettings_frbsm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player_skills" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -281.0
+offset_right = 330.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 5
+
+[node name="Skill_box" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box2" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box2"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box3" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box3"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box4" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box4"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box5" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box5"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box6" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box6"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box7" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box7"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box8" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box8"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box9" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box9"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box10" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box10"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box11" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box11"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box12" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box12"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box13" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box13"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box14" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box14"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box15" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box15"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box16" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box16"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box17" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box17"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box18" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box18"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box19" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box19"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Skill_box20" type="TextureRect" parent="Player_skills"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_cui5p")
+
+[node name="Texture_skill" type="TextureRect" parent="Player_skills/Skill_box20"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 583.0
+offset_bottom = 549.0
+scale = Vector2(0.15, 0.15)
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
