@@ -80,8 +80,8 @@ func create_skill():
 		for j in i.get_children():
 				if "AD" in j.name:
 					j.visible = false
-	for i in range(skills.size()):
-		button_arr[i].texture_normal = BUTTON_CAN_PRESS_TEXTURE
+	for i in button_arr:
+		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
 	$Update_skill_button.visible = false
 	for i in range(3):
 		var buff = SKILL_WINDOW.instantiate()
@@ -318,7 +318,6 @@ func _on_update_skill_button_pressed() -> void:
 		LevelManager.buy_skill(100)
 
 func _on_skill_for_ad_pressed(extra_arg_0: int) -> void:
-	print(extra_arg_0)
 	AudioManager.click()
 	AudioServer.set_bus_mute(0, true)
 	skil_for_ad = extra_arg_0
@@ -326,7 +325,6 @@ func _on_skill_for_ad_pressed(extra_arg_0: int) -> void:
 	YandexSDK.connect("rewarded_ad", rew_ad_res)
 
 func rew_ad_res(result:String) -> void:
-	print(result)
 	if result == "closed" or result == "error":
 		AudioServer.set_bus_mute(0, false)
 	elif result == "rewarded":

@@ -191,7 +191,7 @@ func get_expirians_animation(experience) -> void:
 			if i.has_method("bank_with_experience"):
 				if i.bank_go:
 					count_bank += 1
-	if count_bank == 1:
+	if count_bank == 1 or count_bank == 0:
 		await get_tree().create_timer(0.75).timeout
 		get_count_experience_label.visible = false
 
@@ -210,7 +210,6 @@ func lose() -> void:
 	end_game_UI_lose.update_count_cristal()
 
 func revavil_player():
-
 	end_game_UI_lose.visible = false
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
