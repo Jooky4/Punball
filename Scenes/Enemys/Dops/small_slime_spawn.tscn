@@ -91,6 +91,7 @@ _data = {
 }
 
 [node name="small_slime_spawn" type="Node2D"]
+z_index = 2
 script = ExtResource("1_ah3au")
 
 [node name="ЛужаСлизи" type="Sprite2D" parent="."]

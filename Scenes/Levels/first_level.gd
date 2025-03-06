@@ -226,7 +226,7 @@ func revavil_player():
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
 
-	if count_level_label.text == "19":
+	if count_level_label.text == "19" and count_level_label.visible:
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
@@ -451,7 +451,7 @@ func end_wave() -> void:
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
 
-	if count_level_label.text == "19":
+	if count_level_label.text == "19" and count_level_label.visible:
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":

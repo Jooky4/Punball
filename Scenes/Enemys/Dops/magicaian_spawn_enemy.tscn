@@ -149,6 +149,7 @@ _data = {
 }
 
 [node name="magicaian_spawn_enemy" type="Node2D"]
+z_index = 2
 script = ExtResource("1_qdq2n")
 
 [node name="Шарик" type="Sprite2D" parent="."]
