@@ -1,11 +1,14 @@
 extends Control
 
 var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
+var BUTTON_NOT_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка покупки неактивная.png")
+var BUTTON_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка покупки активная (кнопка рекламы).png")
 
 @onready var windows_skill = $Windows_skill
 @onready var animation = $AnimationPlayer
 @onready var bye_button = $Bye_button
 @onready var sound_scroll = $Get_skill_scrolling
+var skil_for_ad = 0
 var regular = [["Шар-заморозка", 150],
 			   ["Усиление обычного шара", 0],
 			   ["Огненный шар", 120],
@@ -68,10 +71,17 @@ func get_number_skill(number:int) -> void:
 
 func create_skill():
 	var rare_skills = []
+	var button_arr = bye_button.get_children()
+	skil_for_ad = 0
 	sound_scroll.playing = true
 	sound_scroll.pitch_scale = 1.1
 	for i in bye_button.get_children():
 		i.disabled = true
+		for j in i.get_children():
+				if "AD" in j.name:
+					j.visible = false
+	for i in range(skills.size()):
+		button_arr[i].texture_normal = BUTTON_CAN_PRESS_TEXTURE
 	$Update_skill_button.visible = false
 	for i in range(3):
 		var buff = SKILL_WINDOW.instantiate()
@@ -94,9 +104,13 @@ func create_skill():
 			skills.append(new_skill)
 			rare_skills.append(3)
 			buff.show_rarity_window(3)
+	for i in range(skills.size()):
+		if skills[i][1] > LevelManager.count_experiance:
+			button_arr[i].texture_normal = BUTTON_NOT_CAN_PRESS_TEXTURE
+			button_arr[i].disabled = true
 
 	var count : int = 0
-	for i in bye_button.get_children():
+	for i in button_arr:
 		for j in i.get_children():
 			if j.name == "Label":
 				j.text = str(skills[count][1])
@@ -125,8 +139,15 @@ func create_skill():
 	await get_tree().create_timer(time_wait - 0.25).timeout
 	sound_scroll.playing = false
 	await get_tree().create_timer(0.25).timeout
-	for i in bye_button.get_children():
-		i.disabled = false
+	for i in range(skills.size()):
+		if skills[i][1] > LevelManager.count_experiance:
+			button_arr[i].texture_normal = BUTTON_NOT_CAN_PRESS_TEXTURE
+			button_arr[i].disabled = true
+			for j in button_arr[i].get_children():
+				if "AD" in j.name:
+					j.visible = true
+		else:
+			button_arr[i].disabled = false
 	$Update_skill_button.visible = true
 
 func legendary_sound() -> void:
@@ -288,9 +309,26 @@ func add_skill(skill) -> void:
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:
+	if 100 <= LevelManager.count_experiance:
+		AudioManager.click()
+		for i in windows_skill.get_children():
+			i.queue_free()
+		skills.clear()
+		create_skill()
+		LevelManager.buy_skill(100)
+
+func _on_skill_for_ad_pressed(extra_arg_0: int) -> void:
+	print(extra_arg_0)
 	AudioManager.click()
-	for i in windows_skill.get_children():
-		i.queue_free()
-	skills.clear()
-	create_skill()
-	LevelManager.buy_skill(100)
+	AudioServer.set_bus_mute(0, true)
+	skil_for_ad = extra_arg_0
+	YandexSDK.show_rewarded_ad()
+	YandexSDK.connect("rewarded_ad", rew_ad_res)
+
+func rew_ad_res(result:String) -> void:
+	print(result)
+	if result == "closed" or result == "error":
+		AudioServer.set_bus_mute(0, false)
+	elif result == "rewarded":
+		AudioServer.set_bus_mute(0, false)
+		add_skill(skills[skil_for_ad][0])

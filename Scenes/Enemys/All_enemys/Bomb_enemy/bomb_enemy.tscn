@@ -367,7 +367,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Effects/Death_effect:emitting")
+tracks/12/path = NodePath("Effects/Свечение:emitting")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -379,7 +379,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Effects/Свечение:emitting")
+tracks/13/path = NodePath("Effects/Кольцо:emitting")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -391,22 +391,10 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Effects/Кольцо:emitting")
+tracks/14/path = NodePath("Effects/Дым:emitting")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Effects/Дым:emitting")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1148,82 +1136,70 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Effects/Death_effect:emitting")
+tracks/15/path = NodePath("Sprite_enemy/Нога1:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(-242.858, 428.571)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Sprite_enemy/Нога1:position")
+tracks/16/path = NodePath("Sprite_enemy/Нога1:rotation")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-242.858, 428.571)]
+"values": [0.0]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Sprite_enemy/Нога1:rotation")
+tracks/17/path = NodePath("Sprite_enemy/Нога2:position")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(200, 428.571)]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Sprite_enemy/Нога2:position")
+tracks/18/path = NodePath("Sprite_enemy/Нога2:rotation")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(200, 428.571)]
+"values": [0.0]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Sprite_enemy/Нога2:rotation")
+tracks/19/path = NodePath("Sprite_enemy/Нога1:scale")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(2.41071, 2.41071)]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Sprite_enemy/Нога1:scale")
+tracks/20/path = NodePath("Sprite_enemy/Нога2:scale")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2.41071, 2.41071)]
-}
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("Sprite_enemy/Нога2:scale")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1373,31 +1349,6 @@ script = ExtResource("1_ri3sy")
 hp_enemy = 4000.0
 
 [node name="Effects" type="Node2D" parent="."]
-
-[node name="Death_effect" type="CPUParticles2D" parent="Effects"]
-position = Vector2(0, 19.895)
-emitting = false
-amount = 5
-lifetime = 0.6
-one_shot = true
-explosiveness = 0.85
-lifetime_randomness = 0.3
-texture = ExtResource("8_wstlx")
-direction = Vector2(0, 1)
-spread = 180.0
-gravity = Vector2(0, -150)
-initial_velocity_min = 150.0
-initial_velocity_max = 150.0
-angular_velocity_max = 90.0
-linear_accel_min = -200.0
-linear_accel_max = -200.0
-angle_min = -180.0
-angle_max = 180.0
-scale_amount_min = 0.4
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_8nn1d")
-color = Color(0.96875, 0.96875, 0.96875, 1)
-color_ramp = SubResource("Gradient_6r18g")
 
 [node name="Spawn_effect" type="CPUParticles2D" parent="Effects"]
 position = Vector2(0, 19.895)

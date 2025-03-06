@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://eyxdpjnw3qaw"]
+
+[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="1_7awtj"]
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_f3nar"]
+
+[sub_resource type="Curve" id="Curve_6pyj0"]
+_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ctt6q"]
+offsets = PackedFloat32Array(0, 0.286, 0.624, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Death_effect" type="Node2D"]
+position = Vector2(0, 19.895)
+script = ExtResource("1_f3nar")
+
+[node name="Death_effect" type="CPUParticles2D" parent="."]
+position = Vector2(0, 19.895)
+emitting = false
+amount = 5
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.85
+lifetime_randomness = 0.3
+texture = ExtResource("1_7awtj")
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, -150)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+angular_velocity_max = 90.0
+linear_accel_min = -200.0
+linear_accel_max = -200.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.4
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_6pyj0")
+color = Color(0.96875, 0.96875, 0.96875, 1)
+color_ramp = SubResource("Gradient_ctt6q")

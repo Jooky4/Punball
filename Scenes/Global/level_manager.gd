@@ -44,7 +44,7 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
- 											[1, 2, 3, null, null, null],
+ 											[1, 2, 3, 9, 9, 9],
  											[1, 12, 10, 6, 9, null],
  											[13, -2, 8, 14, 14, null],
  											[null, null, null, null, null, null],
@@ -298,6 +298,8 @@ func updete_last_line() -> void:
 			count_level += 1
 			await get_tree().create_timer(0.8).timeout
 			AudioManager.enemy_spawn()
+		else:
+			count_level += 1
 	else:
 		#new_line_spawn = WaveGeneration.generetion_new_wave(count_level+1)
 		new_line_spawn = first_level_spawn[count_level]

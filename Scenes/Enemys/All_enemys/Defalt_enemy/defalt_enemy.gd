@@ -3,6 +3,7 @@ extends StaticBody2D
 var BANK_WITH_EXPERIENCE = preload("res://Scenes/Bonus/bank_with_experience.tscn")
 var RESTORE_HEALTH = preload("res://Scenes/Bonus/restore_health.tscn")
 var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
+var DEATH_EFFECT= preload("res://Scenes/Enemys/Dops/death_effect.tscn")
 
 @export var hp_enemy : float = 400
 @export var player_damage : int = 100
@@ -80,6 +81,9 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 				death_sound.pitch_scale = AudioManager.get_random_pitch()
 				death_sound.play()
 				animation_enemy.play("Death")
+				var effect = DEATH_EFFECT.instantiate()
+				effect.global_position = self.global_position
+				get_tree().current_scene.add_child(effect)
 			return
 
 		if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ

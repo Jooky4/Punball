@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xxprkydai7iy"]
+[gd_scene load_steps=22 format=3 uid="uid://xxprkydai7iy"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://btt53uxq2a182" path="res://Scenes/UI/Skill_windows/skill_window.tscn" id="3_yghhh"]
 [ext_resource type="Texture2D" uid="uid://7cjj53ffct7k" path="res://Texture/UI/Skills_UI/кнопка покупки активная (кнопка рекламы).png" id="5_b6die"]
 [ext_resource type="Texture2D" uid="uid://di2ih4646tj0g" path="res://Texture/UI/Skills_UI/иконка кнопки покупки.png" id="6_kc041"]
+[ext_resource type="Texture2D" uid="uid://dnrlesu4tygyc" path="res://Texture/UI/Skills_UI/иконка кнопки ADS.png" id="7_lujy0"]
 [ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="7_mbj7w"]
 [ext_resource type="Texture2D" uid="uid://bs5vkbj2ijdcf" path="res://Texture/UI/Skills_UI/текстк кнопки обновить.png" id="8_j6pi7"]
+[ext_resource type="Texture2D" uid="uid://bc7u6hiofpjs6" path="res://Texture/UI/Skills_UI/текст кнопки ADS.png" id="8_ttmyg"]
 [ext_resource type="Texture2D" uid="uid://cxk3lp3iqgprs" path="res://Texture/UI/Skills_UI/стрелки кнопки обновить.png" id="9_wywd0"]
 [ext_resource type="AudioStream" uid="uid://biy8w38m71sov" path="res://Resources/Sounds/прокрутка.mp3" id="10_hiegy"]
 [ext_resource type="AudioStream" uid="uid://bn5ns2plduu24" path="res://Resources/Sounds/легендарный.mp3" id="11_h7n1n"]
@@ -153,6 +155,22 @@ offset_top = -466.0
 offset_right = 188.0
 offset_bottom = -23.0
 
+[node name="Skill_1_for_AD" type="TextureButton" parent="Bye_button/Skill_1"]
+visible = false
+layout_mode = 2
+offset_top = 90.0
+offset_right = 184.0
+offset_bottom = 166.0
+texture_normal = ExtResource("5_b6die")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bye_button/Skill_1/Skill_1_for_AD"]
+position = Vector2(162, 38)
+texture = ExtResource("7_lujy0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Bye_button/Skill_1/Skill_1_for_AD"]
+position = Vector2(29, 38)
+texture = ExtResource("8_ttmyg")
+
 [node name="Skill_2" type="TextureButton" parent="Bye_button"]
 layout_mode = 2
 disabled = true
@@ -180,6 +198,22 @@ offset_left = -15.0
 offset_top = -466.0
 offset_right = 188.0
 offset_bottom = -16.0
+
+[node name="Skill_2_for_AD2" type="TextureButton" parent="Bye_button/Skill_2"]
+visible = false
+layout_mode = 2
+offset_top = 89.0
+offset_right = 184.0
+offset_bottom = 165.0
+texture_normal = ExtResource("5_b6die")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bye_button/Skill_2/Skill_2_for_AD2"]
+position = Vector2(162, 38)
+texture = ExtResource("7_lujy0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Bye_button/Skill_2/Skill_2_for_AD2"]
+position = Vector2(29, 38)
+texture = ExtResource("8_ttmyg")
 
 [node name="Skill_3" type="TextureButton" parent="Bye_button"]
 layout_mode = 2
@@ -209,6 +243,22 @@ offset_top = -466.0
 offset_right = 188.0
 offset_bottom = -21.0
 
+[node name="Skill_3_for_AD" type="TextureButton" parent="Bye_button/Skill_3"]
+visible = false
+layout_mode = 2
+offset_top = 90.0
+offset_right = 184.0
+offset_bottom = 166.0
+texture_normal = ExtResource("5_b6die")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bye_button/Skill_3/Skill_3_for_AD"]
+position = Vector2(162, 38)
+texture = ExtResource("7_lujy0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Bye_button/Skill_3/Skill_3_for_AD"]
+position = Vector2(29, 38)
+texture = ExtResource("8_ttmyg")
+
 [node name="Update_skill_button" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -217,9 +267,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -176.0
-offset_top = -377.0
+offset_top = -347.0
 offset_right = 177.0
-offset_bottom = -288.0
+offset_bottom = -258.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("7_mbj7w")
@@ -274,8 +324,11 @@ stream = ExtResource("14_ihb0p")
 
 [connection signal="pressed" from="Bye_button/Skill_1" to="." method="_on_skill_1_pressed"]
 [connection signal="pressed" from="Bye_button/Skill_1/Button" to="." method="_on_skill_1_pressed"]
+[connection signal="pressed" from="Bye_button/Skill_1/Skill_1_for_AD" to="." method="_on_skill_for_ad_pressed" binds= [0]]
 [connection signal="pressed" from="Bye_button/Skill_2" to="." method="_on_skill_2_pressed"]
 [connection signal="pressed" from="Bye_button/Skill_2/Button" to="." method="_on_skill_2_pressed"]
+[connection signal="pressed" from="Bye_button/Skill_2/Skill_2_for_AD2" to="." method="_on_skill_for_ad_pressed" binds= [1]]
 [connection signal="pressed" from="Bye_button/Skill_3" to="." method="_on_skill_3_pressed"]
 [connection signal="pressed" from="Bye_button/Skill_3/Button" to="." method="_on_skill_3_pressed"]
+[connection signal="pressed" from="Bye_button/Skill_3/Skill_3_for_AD" to="." method="_on_skill_for_ad_pressed" binds= [2]]
 [connection signal="pressed" from="Update_skill_button" to="." method="_on_update_skill_button_pressed"]

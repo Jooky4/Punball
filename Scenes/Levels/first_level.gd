@@ -80,7 +80,6 @@ var mouse_in_pause_button_area = false
 
 func _ready() -> void:
 	get_tree().paused = false
-	AudioServer.set_bus_mute(0, false)
 	spawn_objects_on_matrix()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	count_level_label.text = str(LevelManager.count_level + 1)
@@ -211,7 +210,7 @@ func lose() -> void:
 	end_game_UI_lose.update_count_cristal()
 
 func revavil_player():
-	AudioServer.set_bus_mute(0, false)
+
 	end_game_UI_lose.visible = false
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
