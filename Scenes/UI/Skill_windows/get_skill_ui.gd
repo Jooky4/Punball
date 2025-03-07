@@ -93,7 +93,7 @@ func create_skill():
 			rare_skills.append(1)
 			buff.show_rarity_window(1)
 		elif i == 1:
-			var new_skill = rare[randi() % epic.size()]
+			var new_skill = rare[randi() % rare.size()]
 			buff.update_discription(new_skill[0])
 			skills.append(new_skill)
 			rare_skills.append(2)
@@ -229,8 +229,8 @@ func add_skill(skill) -> void:
 			var prosen_hp_plus = 0.1
 			if "Прибавка к восстановлению" in LevelManager.player_skills:
 				prosen_hp_plus *= 1.5
-			LevelManager.hp_player = LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus)
-			LevelManager.max_hp_player = LevelManager.max_hp_player * (1 + prosen_hp_plus)
+			LevelManager.hp_player = round(LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus))
+			LevelManager.max_hp_player = round(LevelManager.max_hp_player * (1 + prosen_hp_plus))
 			AudioManager.health_sound()
 			LevelManager.player_skills.append("Прибавка ОЗ")
 		"Усиление особого шара":

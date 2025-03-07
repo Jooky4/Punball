@@ -203,7 +203,7 @@ func get_health(health_hp) -> void:
 	hp_player_label.text = str(LevelManager.hp_player)
 
 func win() -> void:
-	AudioManager.click()
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_ui.tscn")
 
 func lose() -> void:
