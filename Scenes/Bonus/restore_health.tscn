@@ -1,15 +1,120 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfofwjifyogmv"]
+[gd_scene load_steps=8 format=3 uid="uid://cfofwjifyogmv"]
 
 [ext_resource type="Script" path="res://Scenes/Bonus/restore_health.gd" id="1_bf4ti"]
-[ext_resource type="Texture2D" uid="uid://c2mk4l8lfi27" path="res://Texture/Level_environment/здоровье на поле.png" id="2_dk5b4"]
+[ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="2_uyp80"]
+[ext_resource type="Texture2D" uid="uid://cp31wu0v2yf1d" path="res://Texture/Level_environment/здоровье на поле_2.png" id="3_6h3e5"]
 [ext_resource type="AudioStream" uid="uid://cs7mfkmjejd1d" path="res://Resources/Sounds/лечениеОЗ.mp3" id="3_c5nry"]
+
+[sub_resource type="Animation" id="Animation_xjev6"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.501226, 1, 1.50123, 2),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [0.0349066, -0.0349066, 0.0349066, -0.0349066, 0.0349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.38, 0.38), Vector2(0.33, 0.33), Vector2(0.38, 0.38)]
+}
+
+[sub_resource type="Animation" id="Animation_2ryok"]
+resource_name = "Spawn"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.38, 0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Health:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.85, 0.85)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3c8su"]
+_data = {
+"Idle": SubResource("Animation_xjev6"),
+"Spawn": SubResource("Animation_2ryok")
+}
 
 [node name="restore_health" type="Node2D"]
 script = ExtResource("1_bf4ti")
 
-[node name="health" type="Sprite2D" parent="."]
-position = Vector2(3, 0)
-texture = ExtResource("2_dk5b4")
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.156863)
+position = Vector2(0, 31)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("2_uyp80")
+
+[node name="Health" type="Sprite2D" parent="."]
+rotation = 0.00450161
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("3_6h3e5")
 
 [node name="Health_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_c5nry")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3c8su")
+}
+autoplay = "Spawn"
+next/Spawn = &"Idle"
+blend_times = [&"Spawn", &"Idle", 0.1]
