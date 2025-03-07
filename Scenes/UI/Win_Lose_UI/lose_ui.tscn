@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ciuhn6dg5mwdo"]
+[gd_scene load_steps=9 format=3 uid="uid://ciuhn6dg5mwdo"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Death_screen/death_screen.gd" id="1_c74sn"]
+[ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/lose_ui.gd" id="1_c74sn"]
 [ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="1_do3n0"]
 [ext_resource type="Texture2D" uid="uid://bc7u6hiofpjs6" path="res://Texture/UI/Skills_UI/текст кнопки ADS.png" id="2_vs4b1"]
 [ext_resource type="Texture2D" uid="uid://dnrlesu4tygyc" path="res://Texture/UI/Skills_UI/иконка кнопки ADS.png" id="3_wgfp8"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_yc3ln"]
+[ext_resource type="Texture2D" uid="uid://b0i1dp1embqqv" path="res://Texture/UI/Win_Lose_UI/кристалл.png" id="6_chnja"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y6afk"]
 font = ExtResource("4_yc3ln")
@@ -14,7 +15,7 @@ font_size = 28
 font = ExtResource("4_yc3ln")
 font_size = 50
 
-[node name="death_screen" type="Control"]
+[node name="lose_ui" type="Control"]
 z_index = 7
 layout_mode = 3
 anchors_preset = 15
@@ -48,6 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.4, 1.4)
 pivot_offset = Vector2(211.071, 93.5714)
+theme_override_constants/separation = 22
 
 [node name="AD" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
@@ -85,7 +87,8 @@ stretch_mode = 0
 layout_mode = 0
 offset_right = 403.0
 offset_bottom = 91.0
-text = "ВЕРНУТЬСЯ В ИГРУ 100 КРИСТАЛЛОВ"
+text = "ВЕРНУТЬСЯ В ИГРУ 
+100 КРИСТАЛЛОВ"
 label_settings = SubResource("LabelSettings_y6afk")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -96,15 +99,26 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -149.0
-offset_top = 45.0
-offset_right = 145.0
-offset_bottom = 103.0
+offset_left = -12.0
+offset_top = 30.0
+offset_right = 282.0
+offset_bottom = 88.0
 grow_horizontal = 2
-text = "КРИСТАЛЛЫ"
+text = "100"
 label_settings = SubResource("LabelSettings_2glv1")
-horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = 16.0
+offset_right = -31.0
+offset_bottom = 94.0
+grow_horizontal = 2
+texture = ExtResource("6_chnja")
 
 [connection signal="pressed" from="VBoxContainer/AD" to="." method="_on_ad_pressed"]
 [connection signal="pressed" from="VBoxContainer/CRYSTALS" to="." method="_on_crystals_pressed"]

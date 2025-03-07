@@ -203,7 +203,8 @@ func get_health(health_hp) -> void:
 	hp_player_label.text = str(LevelManager.hp_player)
 
 func win() -> void:
-	end_game_UI_win.visible = true
+	AudioManager.click()
+	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_ui.tscn")
 
 func lose() -> void:
 	end_game_UI_lose.visible = true

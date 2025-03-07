@@ -1,7 +1,7 @@
 extends Control
 
 func update_count_cristal() -> void:
-	$Label.text = "КРИСТАЛЛЫ " + str(PlayerIndicatorsManager.CRYSTALS_COUNT)
+	$Label.text = str(PlayerIndicatorsManager.CRYSTALS_COUNT)
 
 func _on_ad_pressed() -> void:
 	AudioManager.click()
