@@ -1192,6 +1192,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite_enemy/Head/Глаза:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_6xbej")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4grpw"]
 _data = {
@@ -1292,9 +1304,9 @@ texture = ExtResource("8_rvmdl")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 36.0
+offset_top = -363.0
 offset_right = 46.0
-offset_bottom = 50.0
+offset_bottom = -349.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("9_4abw6")
@@ -1303,9 +1315,9 @@ texture_progress = ExtResource("10_lwebr")
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
 offset_left = -45.0
-offset_top = 22.0
+offset_top = -377.0
 offset_right = 183.0
-offset_bottom = 117.0
+offset_bottom = -282.0
 scale = Vector2(0.4, 0.4)
 text = "100"
 label_settings = SubResource("LabelSettings_8vyve")
@@ -1350,3 +1362,4 @@ next/Spawn = &"Idle"
 blend_times = [&"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.2, &"Move", &"Idle", 0.35, &"Move", &"Preparation", 0.35, &"Preparation", &"Hit", 0.5, &"Spawn", &"Idle", 0.6]
 
 [connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
