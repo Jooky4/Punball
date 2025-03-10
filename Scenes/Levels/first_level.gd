@@ -80,6 +80,7 @@ var mouse_in_pause_button_area = false
 
 func _ready() -> void:
 	get_tree().paused = false
+	await get_tree().create_timer(0.1).timeout
 	ChangeScene.normal_screen()
 	spawn_objects_on_matrix()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())

@@ -23,7 +23,7 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	AudioManager.click()
 	ChangeScene.black_screen()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 
 func _on_shop_button_pressed() -> void:
