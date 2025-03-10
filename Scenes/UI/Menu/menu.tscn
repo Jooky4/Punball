@@ -1,23 +1,63 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=31 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
-[ext_resource type="Texture2D" uid="uid://1522rup05x52" path="res://Texture/Bacgrounds/main_menu.png" id="2_hk50k"]
+[ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_cjc1q"]
+[ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/уровень мира.png" id="3_cw7m0"]
+[ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/бар для кристалла 182-800.png" id="3_e5vte"]
+[ext_resource type="Texture2D" uid="uid://budqgveapxyg0" path="res://Texture/UI/Main_menu/кнопка Играть.png" id="3_qeymi"]
+[ext_resource type="Texture2D" uid="uid://doh6rbwv7nhx2" path="res://Texture/UI/Main_menu/ограничение поля UI.png" id="4_h3cqw"]
+[ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/бар прогресс мира.png" id="5_fbwen"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="5_h3ti1"]
+[ext_resource type="Texture2D" uid="uid://bw6xyapc0da5g" path="res://Texture/UI/Main_menu/прогресс мира шкала.png" id="6_ghyfi"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_uun7o"]
+[ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/настройки.png" id="12_aoauw"]
+[ext_resource type="Texture2D" uid="uid://bwghrgqkw6d8n" path="res://Texture/UI/Main_menu/линия для разделения.png" id="13_om7tk"]
+[ext_resource type="Texture2D" uid="uid://blaskxu1uj1hd" path="res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg" id="14_8iwlq"]
+[ext_resource type="Texture2D" uid="uid://c6ipwsl2ty1u2" path="res://Texture/UI/Main_menu/свинья.png" id="14_p10qp"]
+[ext_resource type="Texture2D" uid="uid://bpd4yjl1llu86" path="res://Texture/UI/Main_menu/кубок.png" id="15_4qcoo"]
+[ext_resource type="Texture2D" uid="uid://bexfyxdbuodbu" path="res://Texture/UI/Main_menu/плашка для кубка.png" id="16_06xp1"]
+[ext_resource type="Texture2D" uid="uid://bamqxwlu31sgo" path="res://Texture/UI/Main_menu/панель для иконок.png" id="17_y83uj"]
+[ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
+[ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/иконка мечи.png" id="19_q5oq5"]
+[ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/иконка книга.png" id="20_bdbvx"]
+[ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_k2vgo"]
+[sub_resource type="LabelSettings" id="LabelSettings_ugv6k"]
+line_spacing = -10.0
 font = ExtResource("3_cjc1q")
-font_size = 70
-outline_size = 30
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 15
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(-6, 6)
+font_size = 25
+font_color = Color(0.14902, 0.2, 0.403922, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
+font = ExtResource("3_cjc1q")
+font_size = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lpl"]
 bg_color = Color(0.762009, 0.53941, 0.460928, 1)
 
 [sub_resource type="Theme" id="Theme_kmt4p"]
 Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_njq23"]
+font = ExtResource("3_cjc1q")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_a3p3v"]
+font = ExtResource("3_cjc1q")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_tufoo"]
+line_spacing = -10.0
+font = ExtResource("3_cjc1q")
+font_size = 18
+font_color = Color(0.14902, 0.2, 0.403922, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pa4cp"]
+line_spacing = -10.0
+font = ExtResource("3_cjc1q")
+font_size = 20
+font_color = Color(0.14902, 0.2, 0.403922, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -35,55 +75,473 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_hk50k")
+texture = ExtResource("2_vxxsk")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -883.0
+offset_top = -708.0
+offset_right = 883.0
+offset_bottom = 620.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_h3cqw")
+
+[node name="Main_menu" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 20
+[node name="TextureRect8" type="TextureRect" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -623.0
+offset_right = 147.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e5vte")
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "ГЛАВНОЕ МЕНЮ"
-label_settings = SubResource("LabelSettings_k2vgo")
+[node name="Label" type="Label" parent="Main_menu/TextureRect8"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 120.0
+offset_bottom = 42.0
+text = "36904"
+label_settings = SubResource("LabelSettings_ugv6k")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_kmt4p")
-theme_override_fonts/font = ExtResource("3_cjc1q")
-theme_override_font_sizes/font_size = 60
-text = "START"
+[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect8"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 25.0
+offset_bottom = 48.0
+texture = ExtResource("5_h3ti1")
 
-[node name="Button2" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_kmt4p")
-theme_override_fonts/font = ExtResource("3_cjc1q")
-theme_override_font_sizes/font_size = 60
-text = "AD_SMALL"
+[node name="TextureRect9" type="TextureRect" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -623.0
+offset_right = -18.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e5vte")
 
-[node name="Button3" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_kmt4p")
-theme_override_fonts/font = ExtResource("3_cjc1q")
-theme_override_font_sizes/font_size = 60
-text = "AD_BIG"
+[node name="Label" type="Label" parent="Main_menu/TextureRect9"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 120.0
+offset_bottom = 42.0
+text = "36904"
+label_settings = SubResource("LabelSettings_ugv6k")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect9"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 48.0
+texture = ExtResource("6_uun7o")
+
+[node name="TextureRect3" type="TextureRect" parent="Main_menu"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -628.0
+offset_right = -295.0
+offset_bottom = -576.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cw7m0")
+
+[node name="Label2" type="Label" parent="Main_menu/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+label_settings = SubResource("LabelSettings_8rve7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Main_menu/TextureRect3"]
+z_index = -1
+layout_mode = 0
+offset_left = 31.0
+offset_top = 6.0
+offset_right = 329.0
+offset_bottom = 64.0
+value = 50.0
+texture_under = ExtResource("5_fbwen")
+texture_progress = ExtResource("6_ghyfi")
+
+[node name="Button" type="TextureButton" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -402.0
+offset_right = 186.0
+offset_bottom = -269.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_kmt4p")
+texture_normal = ExtResource("3_qeymi")
+
+[node name="Label" type="Label" parent="Main_menu/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ИГРАТЬ"
+label_settings = SubResource("LabelSettings_njq23")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 270.0
+offset_top = -623.0
+offset_right = 348.0
+offset_bottom = -545.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("12_aoauw")
+
+[node name="Label" type="Label" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 120.0
+offset_right = 362.0
+offset_bottom = 201.0
+grow_horizontal = 2
+text = "3. Лихолесье"
+label_settings = SubResource("LabelSettings_njq23")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Main_menu/Label"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -361.0
+offset_top = 97.0
+offset_right = 360.0
+offset_bottom = 132.0
+grow_horizontal = 2
+text = "максимальный уровень 23/80"
+label_settings = SubResource("LabelSettings_a3p3v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Main_menu/Label"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 78.0
+offset_right = 645.0
+offset_bottom = 97.0
+texture = ExtResource("13_om7tk")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = 312.5
+offset_right = 226.0
+offset_bottom = 553.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_8iwlq")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -326.0
+offset_right = -219.0
+offset_bottom = -235.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_p10qp")
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect4"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 109.0
+offset_bottom = 136.0
+texture = ExtResource("3_e5vte")
+
+[node name="Label" type="Label" parent="Main_menu/TextureRect4/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "184/800"
+label_settings = SubResource("LabelSettings_tufoo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Main_menu/TextureRect4"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 89.0
+offset_right = 27.0
+offset_bottom = 145.0
+texture = ExtResource("5_h3ti1")
+
+[node name="TextureRect5" type="TextureRect" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 221.0
+offset_top = -331.0
+offset_right = 327.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_4qcoo")
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect5"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 100.0
+offset_right = 109.0
+offset_bottom = 151.0
+texture = ExtResource("16_06xp1")
+
+[node name="Label" type="Label" parent="Main_menu/TextureRect5/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1345
+место"
+label_settings = SubResource("LabelSettings_pa4cp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -220.0
+offset_right = 282.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Shop_button" type="TextureButton" parent="Main_menu/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("17_y83uj")
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/HBoxContainer/Shop_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -59.0
+offset_right = 65.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_m36hl")
+
+[node name="TextureRect2" type="TextureButton" parent="Main_menu/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("17_y83uj")
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -59.0
+offset_right = 65.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_q5oq5")
+
+[node name="Talesnts_button" type="TextureButton" parent="Main_menu/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("17_y83uj")
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/HBoxContainer/Talesnts_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -70.5
+offset_right = 53.5
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("20_bdbvx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = 111.0
+offset_right = 198.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("14_p10qp")
+
+[node name="TextureRect2" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("22_rdsba")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("14_p10qp")
+
+[node name="TextureRect4" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("22_rdsba")
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("14_p10qp")
+
+[node name="Shop" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Shop"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 35.0
+offset_right = 157.0
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "МАГАЗИН"
+label_settings = SubResource("LabelSettings_njq23")
+
+[node name="Talents" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Talents"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 35.0
+offset_right = 157.0
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "ТАЛАНТЫ"
+label_settings = SubResource("LabelSettings_njq23")
+
+[connection signal="pressed" from="Main_menu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Main_menu/HBoxContainer/Shop_button" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="Main_menu/HBoxContainer/Talesnts_button" to="." method="_on_talesnts_button_pressed"]

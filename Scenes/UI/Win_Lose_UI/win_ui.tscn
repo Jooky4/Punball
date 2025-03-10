@@ -155,6 +155,7 @@ grow_horizontal = 2
 texture = ExtResource("6_5qb58")
 
 [node name="Label" type="Label" parent="TextureRect3"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
 offset_right = 164.0
@@ -303,6 +304,7 @@ grow_vertical = 2
 texture = ExtResource("14_gdedx")
 
 [node name="Label" type="Label" parent="TextureRect9/TextureRect10"]
+layout_mode = 0
 offset_left = -1.0
 offset_right = 105.0
 offset_bottom = 68.0
