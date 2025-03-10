@@ -27,6 +27,7 @@ WaveGeneration="*res://Scenes/Global/wave_generation.gd"
 ElementsManager="*res://Scenes/Global/elements_manager.gd"
 AudioManager="*res://Scenes/Global/audio_manager.tscn"
 PlayerIndicatorsManager="*res://Scenes/Global/player_indicators_manager.gd"
+ChangeScene="*res://Scenes/Global/change_scene.tscn"
 
 [display]
 

@@ -36,12 +36,6 @@ font_color = Color(0.14902, 0.2, 0.403922, 1)
 font = ExtResource("3_cjc1q")
 font_size = 40
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lpl"]
-bg_color = Color(0.762009, 0.53941, 0.460928, 1)
-
-[sub_resource type="Theme" id="Theme_kmt4p"]
-Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
-
 [sub_resource type="LabelSettings" id="LabelSettings_njq23"]
 font = ExtResource("3_cjc1q")
 font_size = 70
@@ -61,6 +55,12 @@ line_spacing = -10.0
 font = ExtResource("3_cjc1q")
 font_size = 20
 font_color = Color(0.14902, 0.2, 0.403922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lpl"]
+bg_color = Color(0.762009, 0.53941, 0.460928, 1)
+
+[sub_resource type="Theme" id="Theme_kmt4p"]
+Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -209,34 +209,6 @@ offset_bottom = 64.0
 value = 50.0
 texture_under = ExtResource("5_fbwen")
 texture_progress = ExtResource("6_ghyfi")
-
-[node name="Button" type="TextureButton" parent="Main_menu"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -191.0
-offset_top = -402.0
-offset_right = 186.0
-offset_bottom = -269.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_kmt4p")
-texture_normal = ExtResource("3_qeymi")
-
-[node name="Label" type="Label" parent="Main_menu/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "ИГРАТЬ"
-label_settings = SubResource("LabelSettings_njq23")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="Main_menu"]
 layout_mode = 1
@@ -642,6 +614,34 @@ grow_horizontal = 2
 grow_vertical = 2
 text = ">"
 
+[node name="Button" type="TextureButton" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -402.0
+offset_right = 186.0
+offset_bottom = -269.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_kmt4p")
+texture_normal = ExtResource("3_qeymi")
+
+[node name="Label" type="Label" parent="Main_menu/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ИГРАТЬ"
+label_settings = SubResource("LabelSettings_njq23")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Shop" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -686,8 +686,8 @@ grow_horizontal = 2
 text = "ТАЛАНТЫ"
 label_settings = SubResource("LabelSettings_njq23")
 
-[connection signal="pressed" from="Main_menu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Main_menu/HBoxContainer/Shop_button" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Main_menu/HBoxContainer/Talesnts_button" to="." method="_on_talesnts_button_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
+[connection signal="pressed" from="Main_menu/Button" to="." method="_on_button_pressed"]
