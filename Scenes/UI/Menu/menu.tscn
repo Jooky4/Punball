@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=34 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -21,7 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/иконка мечи.png" id="19_q5oq5"]
 [ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/иконка книга.png" id="20_bdbvx"]
+[ext_resource type="Texture2D" uid="uid://bqnc0pms7nde4" path="res://Texture/UI/Main_menu/Сhest/1.png" id="21_tew7e"]
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
+[ext_resource type="Texture2D" uid="uid://dikogjsucwvft" path="res://Texture/UI/Main_menu/Сhest/Без имени-1.png" id="22_rgrul"]
+[ext_resource type="Texture2D" uid="uid://dw1wobtt2xah0" path="res://Texture/UI/Main_menu/Сhest/2.png" id="23_cbq87"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ugv6k"]
 line_spacing = -10.0
@@ -250,7 +253,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("12_aoauw")
 
-[node name="Label" type="Label" parent="Main_menu"]
+[node name="Location_name" type="Label" parent="Main_menu"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -260,12 +263,12 @@ offset_top = 120.0
 offset_right = 362.0
 offset_bottom = 201.0
 grow_horizontal = 2
-text = "3. Лихолесье"
+text = "1. Лихолесье"
 label_settings = SubResource("LabelSettings_njq23")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Main_menu/Label"]
+[node name="Label2" type="Label" parent="Main_menu/Location_name"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -280,7 +283,7 @@ label_settings = SubResource("LabelSettings_a3p3v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect3" type="TextureRect" parent="Main_menu/Label"]
+[node name="TextureRect3" type="TextureRect" parent="Main_menu/Location_name"]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 78.0
@@ -289,22 +292,6 @@ offset_bottom = 97.0
 texture = ExtResource("13_om7tk")
 expand_mode = 1
 stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="Main_menu/Label"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -231.0
-offset_top = 312.5
-offset_right = 226.0
-offset_bottom = 553.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("14_8iwlq")
-expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="Main_menu"]
 layout_mode = 1
@@ -476,27 +463,184 @@ offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+[node name="Сhest_1" type="TextureRect" parent="Main_menu/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("14_p10qp")
+texture = ExtResource("21_tew7e")
+expand_mode = 2
+
+[node name="Open" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -100.5
+offset_right = 58.0
+offset_bottom = -9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_rgrul")
+expand_mode = 2
+
+[node name="Close" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_1"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -53.5
+offset_right = 51.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_cbq87")
+expand_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Main_menu/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("22_rdsba")
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+[node name="Сhest_2" type="TextureRect" parent="Main_menu/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("14_p10qp")
+texture = ExtResource("21_tew7e")
+expand_mode = 2
+
+[node name="Open" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -100.5
+offset_right = 58.0
+offset_bottom = -9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_rgrul")
+expand_mode = 2
+
+[node name="Close" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -53.5
+offset_right = 51.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_cbq87")
+expand_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="Main_menu/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("22_rdsba")
 stretch_mode = 5
 
-[node name="TextureRect5" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+[node name="Сhest_3" type="TextureRect" parent="Main_menu/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("14_p10qp")
+texture = ExtResource("21_tew7e")
+expand_mode = 2
+
+[node name="Open" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -100.5
+offset_right = 58.0
+offset_bottom = -9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_rgrul")
+expand_mode = 2
+
+[node name="Close" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -53.5
+offset_right = 51.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_cbq87")
+expand_mode = 2
+
+[node name="Locations" type="Control" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Location_sprite" type="TextureRect" parent="Main_menu/Locations"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -173.0
+offset_right = 227.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_8iwlq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Back_location" type="Button" parent="Main_menu/Locations"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -87.0
+offset_right = -240.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<"
+
+[node name="Next_location" type="Button" parent="Main_menu/Locations"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 240.0
+offset_top = -87.0
+offset_right = 305.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ">"
 
 [node name="Shop" type="Control" parent="."]
 visible = false
@@ -545,3 +689,5 @@ label_settings = SubResource("LabelSettings_njq23")
 [connection signal="pressed" from="Main_menu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Main_menu/HBoxContainer/Shop_button" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Main_menu/HBoxContainer/Talesnts_button" to="." method="_on_talesnts_button_pressed"]
+[connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
+[connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
