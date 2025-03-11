@@ -108,7 +108,9 @@ func _process(delta):
 		LOSE:
 			lose()
 		CHOOSE_SKILL:
-			if LevelManager.spin_skill == 0:
+			pause_button.disabled = true
+			count_experience_label.text = str(LevelManager.count_experiance)
+			if LevelManager.spin_skill == 0 or LevelManager.spin_skill < 0:
 				count_experience_label.text = str(LevelManager.count_experiance)
 				hp_player_bar.max_value = LevelManager.max_hp_player
 				hp_player_bar.value = LevelManager.hp_player
@@ -118,9 +120,6 @@ func _process(delta):
 				balls_can_go = true
 				pause_button.disabled = false
 				game_state = PLAY
-			else:
-				pause_button.disabled = true
-				count_experience_label.text = str(LevelManager.count_experiance)
 
 func play_game() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:
@@ -234,7 +233,7 @@ func revavil_player():
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
-	if LevelManager.spin_skill != 0:
+	if LevelManager.spin_skill != 0 and LevelManager.spin_skill > 0:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
@@ -349,62 +348,80 @@ func spawn_objects_on_matrix() -> void:
 func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 	if typeof(LevelManager.first_level_links_on_objects[count/6][count%6]) == 2:
 		var buff
+		var count_wave = LevelManager.count_level
+		if LevelManager.boss_on_map:
+			count_wave = WaveGeneration.get_count_wave_on_location() - 2
+
 		match LevelManager.first_level_links_on_objects[count/6][count%6]:
 			-2: buff = SKILL_BOX.instantiate()
 			-1: buff = BONUS_BALL.instantiate()
 			1: 
 				buff = DEFALT_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
+				buff.player_damage = WaveGeneration.how_many_damage_player(1)
 			2: 
 				buff = BLUEBERRIES_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8
+				buff.player_damage = WaveGeneration.how_many_damage_player(2)
 			3: 
 				buff = BOMB_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
+				buff.player_damage = WaveGeneration.how_many_damage_player(3)
 			4: 
 				buff = BOSS_FIRST_LOCATION.instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
+				buff.hp_enemy = (WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8) * 9
+				buff.player_damage = WaveGeneration.how_many_damage_player(2) * 2
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
 				notification_about_boss_animation.play("spawn_boss")
 			5: 
 				buff = MEDIC_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.6
+				buff.player_damage = WaveGeneration.how_many_damage_player(5)
 			6: 
 				buff = SLIME_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
+				buff.player_damage = WaveGeneration.how_many_damage_player(6)
 			7: 
 				buff = SMALL_SLIME_ENEMY.instantiate()
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) / 2
+				buff.player_damage = WaveGeneration.how_many_damage_player(7) / 2
 			8:
 				buff = SHIELD_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
+				buff.player_damage = WaveGeneration.how_many_damage_player(8)
 			9:
 				buff = JUMPER_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
+				buff.player_damage = WaveGeneration.how_many_damage_player(9)
 			10:
 				buff = MAGICIAN_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
-			10:
-				buff = MAGICIAN_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.6
+				buff.player_damage = WaveGeneration.how_many_damage_player(10)
 			11:
 				buff = SERVANT_MAGICIAN_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) / 4
+				buff.player_damage = WaveGeneration.how_many_damage_player(11) / 4
 			12:
 				buff = POISON_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
+				buff.player_damage = WaveGeneration.how_many_damage_player(12)
 			13:
 				buff = BERSERKER_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
+				buff.player_damage = WaveGeneration.how_many_damage_player(13)
 			14:
 				buff = FIRE_ELEMENTAL_ENEMY.instantiate()
-				buff.hp_enemy += WaveGeneration.how_many_hp_plus_enemy(LevelManager.count_level)
-		if multiplier_stats != 1:
-			buff.hp_enemy *= multiplier_stats
-			buff.player_damage *= multiplier_stats
+				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8
+				buff.player_damage = WaveGeneration.how_many_damage_player(14)
+
+		if LevelManager.boss_on_map:
+			buff.hp_enemy *= WaveGeneration.get_coef_hp_enemy_when_boss_on_map()
+
 		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
 		game_objects.add_child(buff)

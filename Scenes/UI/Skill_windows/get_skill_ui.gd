@@ -57,7 +57,7 @@ func _ready() -> void:
 
 func _on_continue_game_pressed() -> void:
 	LevelManager.spin_skill -= 1
-	if LevelManager.spin_skill == 0:
+	if LevelManager.spin_skill <= 0:
 		animation.play("windows_output")
 	else:
 		get_number_skill(LevelManager.spin_skill)
@@ -75,14 +75,14 @@ func create_skill():
 	skil_for_ad = 0
 	sound_scroll.playing = true
 	sound_scroll.pitch_scale = 1.1
+	$Update_skill_button.visible = false
 	for i in bye_button.get_children():
 		i.disabled = true
+		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
 		for j in i.get_children():
 				if "AD" in j.name:
 					j.visible = false
-	for i in button_arr:
-		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
-	$Update_skill_button.visible = false
+
 	for i in range(3):
 		var buff = SKILL_WINDOW.instantiate()
 		windows_skill.add_child(buff)
@@ -104,6 +104,7 @@ func create_skill():
 			skills.append(new_skill)
 			rare_skills.append(3)
 			buff.show_rarity_window(3)
+
 	for i in range(skills.size()):
 		if skills[i][1] > LevelManager.count_experiance:
 			button_arr[i].texture_normal = BUTTON_NOT_CAN_PRESS_TEXTURE
@@ -141,8 +142,6 @@ func create_skill():
 	await get_tree().create_timer(0.25).timeout
 	for i in range(skills.size()):
 		if skills[i][1] > LevelManager.count_experiance:
-			button_arr[i].texture_normal = BUTTON_NOT_CAN_PRESS_TEXTURE
-			button_arr[i].disabled = true
 			for j in button_arr[i].get_children():
 				if "AD" in j.name:
 					j.visible = true
@@ -168,18 +167,18 @@ func regular_sound() -> void:
 
 func _on_skill_1_pressed() -> void:
 	AudioManager.click()
-	add_skill(skills[0][0])
 	LevelManager.buy_skill(skills[0][1])
+	add_skill(skills[0][0])
 
 func _on_skill_2_pressed() -> void:
 	AudioManager.click()
-	add_skill(skills[1][0])
 	LevelManager.buy_skill(skills[1][1])
+	add_skill(skills[1][0])
 
 func _on_skill_3_pressed() -> void:
 	AudioManager.click()
-	add_skill(skills[2][0])
 	LevelManager.buy_skill(skills[2][1])
+	add_skill(skills[2][0])
 
 func add_skill(skill) -> void:
 	match skill:
@@ -310,12 +309,12 @@ func add_skill(skill) -> void:
 
 func _on_update_skill_button_pressed() -> void:
 	if 100 <= LevelManager.count_experiance:
+		LevelManager.buy_skill(100)
 		AudioManager.click()
 		for i in windows_skill.get_children():
 			i.queue_free()
 		skills.clear()
 		create_skill()
-		LevelManager.buy_skill(100)
 
 func _on_skill_for_ad_pressed(extra_arg_0: int) -> void:
 	AudioManager.click()

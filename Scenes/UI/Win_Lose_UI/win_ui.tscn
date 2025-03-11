@@ -142,7 +142,7 @@ material = SubResource("ShaderMaterial_jk7fe")
 position = Vector2(307, 78)
 texture = ExtResource("6_qeasg")
 
-[node name="TextureRect3" type="TextureRect" parent="."]
+[node name="Wave_container" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -154,7 +154,7 @@ offset_bottom = 409.0
 grow_horizontal = 2
 texture = ExtResource("6_5qb58")
 
-[node name="Label" type="Label" parent="TextureRect3"]
+[node name="Count_wave" type="Label" parent="Wave_container"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 2.0
@@ -165,7 +165,7 @@ label_settings = SubResource("LabelSettings_1vbbd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="TextureRect3"]
+[node name="Label2" type="Label" parent="Wave_container"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -212,7 +212,7 @@ offset_right = 41.0
 offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "5"
+text = "1"
 label_settings = SubResource("LabelSettings_8dbnd")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -224,7 +224,6 @@ offset_left = 68.0
 offset_top = 18.0
 offset_right = 366.0
 offset_bottom = 76.0
-value = 50.0
 texture_under = ExtResource("8_5iycb")
 texture_progress = ExtResource("9_0cey1")
 
@@ -256,7 +255,7 @@ layout_mode = 0
 offset_left = 16.0
 offset_right = 120.0
 offset_bottom = 42.0
-text = "184/800"
+text = "0/800"
 label_settings = SubResource("LabelSettings_pn3sq")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -308,7 +307,7 @@ layout_mode = 0
 offset_left = -1.0
 offset_right = 105.0
 offset_bottom = 68.0
-text = "333
+text = "0
 место"
 label_settings = SubResource("LabelSettings_qq5wo")
 horizontal_alignment = 1

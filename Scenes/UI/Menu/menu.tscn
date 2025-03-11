@@ -270,7 +270,7 @@ label_settings = SubResource("LabelSettings_njq23")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Main_menu/Location_name"]
+[node name="Max_wave_on_locations" type="Label" parent="Main_menu/Location_name"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -280,7 +280,7 @@ offset_top = 97.0
 offset_right = 360.0
 offset_bottom = 132.0
 grow_horizontal = 2
-text = "максимальный уровень 23/80"
+text = "максимальный уровень 0/20"
 label_settings = SubResource("LabelSettings_a3p3v")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -327,7 +327,7 @@ offset_left = 18.0
 offset_right = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "184/800"
+text = "0/800"
 label_settings = SubResource("LabelSettings_tufoo")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -370,7 +370,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1345
+text = "0
 место"
 label_settings = SubResource("LabelSettings_pa4cp")
 horizontal_alignment = 1
@@ -645,7 +645,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = ">"
 
-[node name="Button" type="TextureButton" parent="Main_menu"]
+[node name="PLay_button" type="TextureButton" parent="Main_menu"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -661,7 +661,7 @@ grow_vertical = 0
 theme = SubResource("Theme_kmt4p")
 texture_normal = ExtResource("3_qeymi")
 
-[node name="Label" type="Label" parent="Main_menu/Button"]
+[node name="Label" type="Label" parent="Main_menu/PLay_button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -723,4 +723,4 @@ label_settings = SubResource("LabelSettings_njq23")
 [connection signal="pressed" from="Main_menu/HBoxContainer/Talesnts_button" to="." method="_on_talesnts_button_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
-[connection signal="pressed" from="Main_menu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Main_menu/PLay_button" to="." method="_on_button_pressed"]

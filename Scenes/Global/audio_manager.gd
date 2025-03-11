@@ -4,8 +4,9 @@ extends Node2D
 var MUSIC_PULL = [preload("res://Resources/Music/Colorful-Flowers(chosic.com).mp3"), preload("res://Resources/Music/Daydreams-chosic.com_.mp3"), preload("res://Resources/Music/Late-at-Night(chosic.com).mp3")]
 
 func music_start() -> void:
-	$Music.stream = MUSIC_PULL[randi() % MUSIC_PULL.size()]
-	$Music.playing = true
+	if $Music.playing != true:
+		$Music.stream = MUSIC_PULL[randi() % MUSIC_PULL.size()]
+		$Music.playing = true
 
 func _process(delta: float) -> void:
 	fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
