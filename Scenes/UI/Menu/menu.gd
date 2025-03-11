@@ -5,6 +5,10 @@ extends Control
 @onready var talents_UI = $Talents
 @onready var location_sprite = $Main_menu/Locations/Location_sprite
 @onready var location_name_label = $Main_menu/Location_name
+
+@onready var crystals_label = $Main_menu/Crystals/Crystals_label
+@onready var coins_label = $Main_menu/Coins/Coins_label
+
 var location = {
 	1 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Лихолесье"],
 	2 : [preload("res://Texture/UI/Main_menu/187df1185276443abedf225b5eb270b6.jpg"), "Пустыня"],
@@ -14,11 +18,27 @@ var current_location = 1
 
 func _ready() -> void:
 	YandexSDK.init_game()
+	YandexSDK.init_player() 
 	YandexSDK.game_ready()
-	Engine.max_fps = 10000
+	YandexSDK.gameplay_started()
 	main_menu_UI.visible = true
 	shop_UI.visible = false
-	AudioManager.musiic_start()
+	talents_UI.visible = false
+
+func _init() -> void:
+	YandexSDK.connect("data_loaded", player_date_loaded)
+	PlayerIndicatorsManager.update_player_date_in_game()
+	AudioManager.music_start()
+
+func player_date_loaded(data) -> void:
+	update_coins_label()
+	update_crystal_label()
+
+func update_coins_label() -> void:
+	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
+
+func update_crystal_label() -> void:
+	crystals_label.text = str(PlayerIndicatorsManager.get_player_indicators()["crystals"])
 
 func _on_button_pressed() -> void:
 	AudioManager.click()
@@ -51,3 +71,13 @@ func _on_back_location_pressed() -> void:
 		current_location -= 1
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
+
+func _on_plus_crystal_pressed() -> void:
+	AudioManager.click()
+	PlayerIndicatorsManager.update_crystal_count(+100)
+	update_crystal_label()
+
+func _on_plus_coins_pressed() -> void:
+	AudioManager.click()
+	PlayerIndicatorsManager.update_coins_count(+100)
+	update_coins_label()

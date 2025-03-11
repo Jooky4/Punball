@@ -105,7 +105,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect8" type="TextureRect" parent="Main_menu"]
+[node name="Crystals" type="TextureRect" parent="Main_menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -120,17 +120,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_e5vte")
 
-[node name="Label" type="Label" parent="Main_menu/TextureRect8"]
+[node name="Crystals_label" type="Label" parent="Main_menu/Crystals"]
 layout_mode = 0
 offset_left = 16.0
 offset_right = 120.0
 offset_bottom = 42.0
-text = "36904"
+text = "0"
 label_settings = SubResource("LabelSettings_ugv6k")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect8"]
+[node name="TextureRect" type="TextureRect" parent="Main_menu/Crystals"]
 layout_mode = 0
 offset_left = -30.0
 offset_top = -8.0
@@ -138,7 +138,22 @@ offset_right = 25.0
 offset_bottom = 48.0
 texture = ExtResource("5_h3ti1")
 
-[node name="TextureRect9" type="TextureRect" parent="Main_menu"]
+[node name="Plus_crystal" type="Button" parent="Main_menu/Crystals"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 30.0
+offset_right = -46.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+
+[node name="Coins" type="TextureRect" parent="Main_menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,17 +168,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_e5vte")
 
-[node name="Label" type="Label" parent="Main_menu/TextureRect9"]
+[node name="Coins_label" type="Label" parent="Main_menu/Coins"]
 layout_mode = 0
 offset_left = 16.0
 offset_right = 120.0
 offset_bottom = 42.0
-text = "36904"
+text = "0"
 label_settings = SubResource("LabelSettings_ugv6k")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect9"]
+[node name="TextureRect" type="TextureRect" parent="Main_menu/Coins"]
 layout_mode = 0
 offset_left = -30.0
 offset_top = -8.0
@@ -171,7 +186,22 @@ offset_right = 28.0
 offset_bottom = 48.0
 texture = ExtResource("6_uun7o")
 
-[node name="TextureRect3" type="TextureRect" parent="Main_menu"]
+[node name="Plus_coins" type="Button" parent="Main_menu/Coins"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 30.0
+offset_right = -47.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+
+[node name="Player_level" type="TextureRect" parent="Main_menu"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -187,26 +217,26 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_cw7m0")
 
-[node name="Label2" type="Label" parent="Main_menu/TextureRect3"]
+[node name="Player_level_label" type="Label" parent="Main_menu/Player_level"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "5"
+text = "1
+"
 label_settings = SubResource("LabelSettings_8rve7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Main_menu/TextureRect3"]
+[node name="Player_level_bar" type="TextureProgressBar" parent="Main_menu/Player_level"]
 z_index = -1
 layout_mode = 0
 offset_left = 31.0
 offset_top = 6.0
 offset_right = 329.0
 offset_bottom = 64.0
-value = 50.0
 texture_under = ExtResource("5_fbwen")
 texture_progress = ExtResource("6_ghyfi")
 
@@ -566,6 +596,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Location_sprite" type="TextureRect" parent="Main_menu/Locations"]
 layout_mode = 1
@@ -686,6 +717,8 @@ grow_horizontal = 2
 text = "ТАЛАНТЫ"
 label_settings = SubResource("LabelSettings_njq23")
 
+[connection signal="pressed" from="Main_menu/Crystals/Plus_crystal" to="." method="_on_plus_crystal_pressed"]
+[connection signal="pressed" from="Main_menu/Coins/Plus_coins" to="." method="_on_plus_coins_pressed"]
 [connection signal="pressed" from="Main_menu/HBoxContainer/Shop_button" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Main_menu/HBoxContainer/Talesnts_button" to="." method="_on_talesnts_button_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
