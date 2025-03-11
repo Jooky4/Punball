@@ -81,6 +81,8 @@ var mouse_in_pause_button_area = false
 func _ready() -> void:
 	get_tree().paused = false
 	await get_tree().create_timer(0.1).timeout
+	#LevelManager.restert()
+	#LevelManager.player_balls = [1, 1, 1, 1]
 	ChangeScene.normal_screen()
 	spawn_objects_on_matrix()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
@@ -155,10 +157,10 @@ func chec_game_end() -> void:
 
 	for child in game_objects.get_children():
 		if child.has_method("boss"):
-			boss_alive = true
+			if child.alive:
+				boss_alive = true
 			break
-
-	if boss_alive == false and LevelManager.count_level > 19:
+	if boss_alive == false and LevelManager.count_level > 18:
 		game_state = WIN
 		return
 	else:
@@ -372,7 +374,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
-				buff.hp_enemy = (WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8) * 9
+				buff.hp_enemy = 100
 				buff.player_damage = WaveGeneration.how_many_damage_player(2) * 2
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true
