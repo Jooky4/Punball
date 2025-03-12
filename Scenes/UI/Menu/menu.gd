@@ -10,6 +10,9 @@ extends Control
 @onready var coins_label = $Main_menu/Coins/Coins_label
 @onready var max_wave_on_locations_label = $Main_menu/Location_name/Max_wave_on_locations
 
+@onready var player_level_label = $Main_menu/Player_level/Player_level_label
+@onready var player_level_bar = $Main_menu/Player_level/Player_level_bar
+
 @onready var play_button = $Main_menu/PLay_button
 var button_play_disabled = preload("res://Texture/UI/Main_menu/кнопка Играть не активна.png")
 var button_play_can_press = preload("res://Texture/UI/Main_menu/кнопка Играть.png")
@@ -45,9 +48,9 @@ func update_player_indicators() -> void:
 	AudioManager.music_start()
 
 func player_date_loaded(data) -> void:
-	$Label.text = str(data)
 	update_coins_label()
 	update_crystal_label()
+	update_level_label_and_bar()
 	if get_count_max_wave(current_location) != null and get_count_max_wave(current_location) > 0:
 		max_wave_on_locations_label.text = "максимальный уровень " + str(get_count_max_wave(current_location)) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
 	else:
@@ -58,6 +61,11 @@ func update_coins_label() -> void:
 
 func update_crystal_label() -> void:
 	crystals_label.text = str(PlayerIndicatorsManager.get_player_indicators()["crystals"])
+
+func update_level_label_and_bar() -> void:
+	player_level_label.text = str(PlayerIndicatorsManager.LEVEL_PLAYER)
+	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
+	player_level_bar.value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER
 
 func _on_button_pressed() -> void:
 	AudioManager.click()

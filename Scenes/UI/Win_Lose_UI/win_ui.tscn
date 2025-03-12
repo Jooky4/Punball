@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b5qxmagbaw24c"]
+[gd_scene load_steps=37 format=3 uid="uid://b5qxmagbaw24c"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/win_ui.gd" id="1_4kmws"]
 [ext_resource type="Texture2D" uid="uid://beiknpx7eyqi" path="res://Texture/UI/Win_Lose_UI/фон общий.png" id="1_o4yq4"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://doc6fa24hisco" path="res://Texture/UI/Win_Lose_UI/текст ADS.png" id="20_w16w8"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="21_4rxdy"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="21_q3r7a"]
+[ext_resource type="PackedScene" uid="uid://360y0xs402w7" path="res://Scenes/UI/Level_up_UI/level_up_ui.tscn" id="26_g8bbw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dewbw"]
 font = ExtResource("5_8wu2b")
@@ -183,7 +184,7 @@ label_settings = SubResource("LabelSettings_spjdl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect6" type="TextureRect" parent="."]
+[node name="Player_level" type="TextureRect" parent="."]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -199,7 +200,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_j61ym")
 
-[node name="Label2" type="Label" parent="TextureRect6"]
+[node name="Player_level_label" type="Label" parent="Player_level"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -217,7 +218,7 @@ label_settings = SubResource("LabelSettings_8dbnd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="TextureRect6"]
+[node name="Player_level_bar" type="TextureProgressBar" parent="Player_level"]
 z_index = -1
 layout_mode = 0
 offset_left = 68.0
@@ -703,5 +704,9 @@ text = "ПРОДОЛЖИТЬ"
 label_settings = SubResource("LabelSettings_f07na")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Level_up_UI" parent="." instance=ExtResource("26_g8bbw")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Go_to_menu" to="." method="_on_go_to_menu_pressed"]

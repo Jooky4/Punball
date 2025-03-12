@@ -1,0 +1,361 @@
+[gd_scene load_steps=20 format=3 uid="uid://360y0xs402w7"]
+
+[ext_resource type="Texture2D" uid="uid://36gxn3svqfhg" path="res://Texture/UI/Win_Lose_UI/прогресс бар (круг).png" id="1_2ggey"]
+[ext_resource type="Texture2D" uid="uid://beiknpx7eyqi" path="res://Texture/UI/Win_Lose_UI/фон общий.png" id="1_3w6k7"]
+[ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="1_8vny0"]
+[ext_resource type="Script" path="res://Scenes/UI/Level_up_UI/level_up_ui.gd" id="1_fculq"]
+[ext_resource type="Texture2D" uid="uid://rb1vl8noii34" path="res://Texture/UI/Win_Lose_UI/свечение.png" id="2_5arqq"]
+[ext_resource type="Texture2D" uid="uid://bvcmpaxjnq4lb" path="res://Texture/UI/Win_Lose_UI/фон ЗВЕЗДЫ.png" id="2_5txeg"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="2_kxf6h"]
+[ext_resource type="Texture2D" uid="uid://b0d8lk7mn6ebi" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА.png" id="3_ef0dd"]
+[ext_resource type="Texture2D" uid="uid://rhbme4wegha3" path="res://Texture/UI/Win_Lose_UI/звезды победы.png" id="3_udkcu"]
+[ext_resource type="Texture2D" uid="uid://dfmgd4spspuao" path="res://Texture/UI/Win_Lose_UI/палшка под награды.png" id="4_5pk2d"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="5_fpuiw"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_i0uw8"]
+[ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="12_fqfi0"]
+[ext_resource type="AudioStream" uid="uid://t3t68dif710b" path="res://Resources/Sounds/увеличение_уровня.ogg" id="13_1smex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ocma"]
+font = ExtResource("2_kxf6h")
+font_size = 75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i80ih"]
+shader = ExtResource("1_8vny0")
+shader_parameter/speed = 0.6
+
+[sub_resource type="LabelSettings" id="LabelSettings_idc36"]
+font = ExtResource("2_kxf6h")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_6heqt"]
+font = ExtResource("2_kxf6h")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_2up7a"]
+font = ExtResource("2_kxf6h")
+font_size = 40
+
+[node name="Level_up_UI" type="Control"]
+z_index = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fculq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3w6k7")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5txeg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -377.5
+offset_right = 377.5
+offset_bottom = 349.0
+grow_horizontal = 2
+texture = ExtResource("3_udkcu")
+
+[node name="Player_level" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -248.0
+offset_right = -59.0
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("1_2ggey")
+
+[node name="Player_level_label" type="Label" parent="Player_level"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -44.0
+offset_right = 41.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_8ocma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect8" type="Sprite2D" parent="Player_level"]
+z_index = -1
+material = SubResource("ShaderMaterial_i80ih")
+position = Vector2(48, 50.6667)
+scale = Vector2(0.333333, 0.333333)
+texture = ExtResource("2_5arqq")
+
+[node name="Player_level_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -389.0
+offset_right = 307.0
+offset_bottom = -299.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "НОВЫЙ УРОВЕНЬ!"
+label_settings = SubResource("LabelSettings_8ocma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -379.0
+offset_top = 153.0
+offset_right = 380.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="TextureRect13" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_ef0dd")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "НАГРАДА"
+label_settings = SubResource("LabelSettings_idc36")
+
+[node name="TextureRect12" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_ef0dd")
+stretch_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = 297.0
+offset_right = 87.0
+offset_bottom = 381.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_5pk2d")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -34.0
+offset_right = 29.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_fpuiw")
+
+[node name="Label" type="Label" parent="GridContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -22.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x100"
+label_settings = SubResource("LabelSettings_6heqt")
+horizontal_alignment = 2
+
+[node name="TextureRect3" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_5pk2d")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -34.0
+offset_right = 29.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i0uw8")
+
+[node name="Label" type="Label" parent="GridContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -22.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x100"
+label_settings = SubResource("LabelSettings_6heqt")
+horizontal_alignment = 2
+
+[node name="TextureRect4" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_5pk2d")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -34.0
+offset_right = 29.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -22.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_6heqt")
+horizontal_alignment = 2
+
+[node name="TextureRect5" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_5pk2d")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -34.0
+offset_right = 29.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -22.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_6heqt")
+horizontal_alignment = 2
+
+[node name="Continue" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -140.0
+offset_right = 173.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("12_fqfi0")
+
+[node name="Label" type="Label" parent="Continue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ПРОДОЛЖИТЬ"
+label_settings = SubResource("LabelSettings_2up7a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level_up_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_1smex")
+volume_db = -12.0
+bus = &"SFX"
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
