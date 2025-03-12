@@ -13,19 +13,7 @@ var MAX_WAVE_ON_LOCATIONS_6 = 0
 var MAX_WAVE_ON_LOCATIONS_7 = 0
 var MAX_WAVE_ON_LOCATIONS_8 = 0
 var MAX_WAVE_ON_LOCATIONS_9 = 0
-var MAX_WAVE_ON_LOCATIONS_10  = 0
-var MAX_WAVE_ON_LOCATIONS = {
-	1: MAX_WAVE_ON_LOCATIONS_1,
-	2: MAX_WAVE_ON_LOCATIONS_2,
-	3: MAX_WAVE_ON_LOCATIONS_3,
-	4: MAX_WAVE_ON_LOCATIONS_4,
-	5: MAX_WAVE_ON_LOCATIONS_5,
-	6: MAX_WAVE_ON_LOCATIONS_6,
-	7: MAX_WAVE_ON_LOCATIONS_7,
-	8: MAX_WAVE_ON_LOCATIONS_8,
-	9: MAX_WAVE_ON_LOCATIONS_9,
-	10: MAX_WAVE_ON_LOCATIONS_10,
-}
+var MAX_WAVE_ON_LOCATIONS_10 = 0
 
 func update_player_date_in_game() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
@@ -73,22 +61,32 @@ func player_date_loaded(data) -> void:
 func update_count_max_wave(num_location, max_wave) -> void:
 	match num_location:
 		1:
-			MAX_WAVE_ON_LOCATIONS_1 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_1 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_1 = max_wave
 		2:
-			MAX_WAVE_ON_LOCATIONS_2 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_2 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_2 = max_wave
 		3:
-			MAX_WAVE_ON_LOCATIONS_3 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_3 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_3 = max_wave
 		4:
-			MAX_WAVE_ON_LOCATIONS_4 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_4 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_4 = max_wave
 		5:
-			MAX_WAVE_ON_LOCATIONS_5 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_5 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_5 = max_wave
 		6:
-			MAX_WAVE_ON_LOCATIONS_6 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_6 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_6 = max_wave
 		7:
-			MAX_WAVE_ON_LOCATIONS_7 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_7 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_7 = max_wave
 		8:
-			MAX_WAVE_ON_LOCATIONS_8 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_8 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_8 = max_wave
 		9:
-			MAX_WAVE_ON_LOCATIONS_9 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_9 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_9 = max_wave
 		10:
-			MAX_WAVE_ON_LOCATIONS_10 = max_wave
+			if MAX_WAVE_ON_LOCATIONS_10 < max_wave:
+				MAX_WAVE_ON_LOCATIONS_10 = max_wave

@@ -78,3 +78,7 @@ func update_texture_skill() -> void:
 		elif skill in legendary:
 			skills_box[i].texture = legendary_ramk
 		skills_box[i].get_child(0).texture = texture_skill[skill]
+
+func _on_home_pressed() -> void:
+	AudioManager.click()
+	get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")

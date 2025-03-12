@@ -215,10 +215,14 @@ func lose() -> void:
 		end_game_UI_lose.visible = true
 		end_game_UI_lose.update_count_cristal()
 	else:
+		if LevelManager.boss_on_map:
+			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.current_location, WaveGeneration.count_wave_on_locations[WaveGeneration.current_location] - 1)
+		else:
+			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.current_location, LevelManager.count_level + 1)
+		PlayerIndicatorsManager.update_player_date_on_server()
 		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
 
 func revavil_player():
-	revavil_for_AD_or_crystal = true
 	end_game_UI_lose.visible = false
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
@@ -230,7 +234,6 @@ func revavil_player():
 		$UI/Boss_label.visible = true
 		count_level_label.visible = false
 	else:
-		print(LevelManager.count_level)
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
@@ -249,6 +252,7 @@ func revavil_player():
 	end_game_UI_lose.visible = false
 	balls_can_go = true
 	game_state = PLAY
+	revavil_for_AD_or_crystal = true
 
 func _on_start_again_pressed() -> void:
 	LevelManager.restert()
@@ -379,7 +383,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
-				buff.hp_enemy = 100
+				buff.hp_enemy = (WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8) * 9
 				buff.player_damage = WaveGeneration.how_many_damage_player(2) * 2
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true

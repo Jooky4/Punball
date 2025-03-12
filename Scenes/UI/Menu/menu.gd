@@ -47,10 +47,8 @@ func update_player_indicators() -> void:
 func player_date_loaded(data) -> void:
 	update_coins_label()
 	update_crystal_label()
-	$Main_menu/Label.text = str(data)
-
-	if PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location] != null:
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	if get_count_max_wave(current_location) != null:
+		max_wave_on_locations_label.text = "максимальный уровень " + str(get_count_max_wave(current_location)) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
 	else:
 		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
 
@@ -84,9 +82,8 @@ func _on_next_location_pressed() -> void:
 		current_location += 1
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
-		
-	if PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location] != null:
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	if get_count_max_wave(current_location) != null:
+		max_wave_on_locations_label.text = "максимальный уровень " + str(get_count_max_wave(current_location)) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
 	else:
 		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
 	if current_location == 1:
@@ -102,9 +99,8 @@ func _on_back_location_pressed() -> void:
 		current_location -= 1
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
-
-	if PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location] != null:
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	if get_count_max_wave(current_location) != null:
+		max_wave_on_locations_label.text = "максимальный уровень " + str(get_count_max_wave(current_location)) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
 	else:
 		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
 	if current_location == 1:
@@ -123,3 +119,26 @@ func _on_plus_coins_pressed() -> void:
 	AudioManager.click()
 	PlayerIndicatorsManager.update_coins_count(+100)
 	update_coins_label()
+
+func get_count_max_wave(num_location):
+	match num_location:
+		1:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_1
+		2:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_2
+		3:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_3
+		4:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_4
+		5:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_5
+		6:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_6
+		7:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_7
+		8:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_8
+		9:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_9
+		10:
+			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_10
