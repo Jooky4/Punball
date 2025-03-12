@@ -61,32 +61,32 @@ func player_date_loaded(data) -> void:
 func update_count_max_wave(num_location, max_wave) -> void:
 	match num_location:
 		1:
-			if MAX_WAVE_ON_LOCATIONS_1 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_1 < max_wave or MAX_WAVE_ON_LOCATIONS_1 == null:
 				MAX_WAVE_ON_LOCATIONS_1 = max_wave
 		2:
-			if MAX_WAVE_ON_LOCATIONS_2 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_2 < max_wave or MAX_WAVE_ON_LOCATIONS_2 == null:
 				MAX_WAVE_ON_LOCATIONS_2 = max_wave
 		3:
-			if MAX_WAVE_ON_LOCATIONS_3 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_3 < max_wave or MAX_WAVE_ON_LOCATIONS_3 == null:
 				MAX_WAVE_ON_LOCATIONS_3 = max_wave
 		4:
-			if MAX_WAVE_ON_LOCATIONS_4 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_4 < max_wave or MAX_WAVE_ON_LOCATIONS_4 == null:
 				MAX_WAVE_ON_LOCATIONS_4 = max_wave
 		5:
-			if MAX_WAVE_ON_LOCATIONS_5 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_5 < max_wave or MAX_WAVE_ON_LOCATIONS_5 == null:
 				MAX_WAVE_ON_LOCATIONS_5 = max_wave
 		6:
-			if MAX_WAVE_ON_LOCATIONS_6 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_6 < max_wave or MAX_WAVE_ON_LOCATIONS_6 == null:
 				MAX_WAVE_ON_LOCATIONS_6 = max_wave
 		7:
-			if MAX_WAVE_ON_LOCATIONS_7 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_7 < max_wave or MAX_WAVE_ON_LOCATIONS_7 == null:
 				MAX_WAVE_ON_LOCATIONS_7 = max_wave
 		8:
-			if MAX_WAVE_ON_LOCATIONS_8 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_8 < max_wave or MAX_WAVE_ON_LOCATIONS_8 == null:
 				MAX_WAVE_ON_LOCATIONS_8 = max_wave
 		9:
-			if MAX_WAVE_ON_LOCATIONS_9 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_9 < max_wave or MAX_WAVE_ON_LOCATIONS_9 == null:
 				MAX_WAVE_ON_LOCATIONS_9 = max_wave
 		10:
-			if MAX_WAVE_ON_LOCATIONS_10 < max_wave:
+			if MAX_WAVE_ON_LOCATIONS_10 < max_wave or MAX_WAVE_ON_LOCATIONS_10 == null:
 				MAX_WAVE_ON_LOCATIONS_10 = max_wave

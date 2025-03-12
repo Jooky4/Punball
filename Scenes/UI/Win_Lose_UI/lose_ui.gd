@@ -10,11 +10,13 @@ func _on_ad_pressed() -> void:
 	AudioServer.set_bus_mute(0, true)
 
 func _on_crystals_pressed() -> void:
-	PlayerIndicatorsManager.CRYSTALS_COUNT -= 100
-	LevelManager.revival(0.2)
-	if get_tree().current_scene.has_method("revavil_player"):
-		get_tree().get_current_scene().call("revavil_player")
-	self.visible = false
+	if PlayerIndicatorsManager.CRYSTALS_COUNT >= 100:
+		AudioManager.click()
+		PlayerIndicatorsManager.CRYSTALS_COUNT -= 100
+		LevelManager.revival(0.2)
+		if get_tree().current_scene.has_method("revavil_player"):
+			get_tree().get_current_scene().call("revavil_player")
+		self.visible = false
 
 func rew_ad_res(result:String) -> void:
 	if result == "closed" or result == "error":

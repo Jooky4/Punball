@@ -108,7 +108,7 @@ func how_many_hp_plus_enemy(number_wave) -> float:
 	return float(hp_enemy)
 
 func how_many_damage_player(num_enemy) -> int:
-	if num_enemy != 2 and num_enemy != 14:
+	if num_enemy == 2 or num_enemy == 14:
 		return based_distant_enemy_damage_player_on_locations[current_location]
 	else:
 		return based_сlose_enemy_damage_player_on_locations[current_location]
