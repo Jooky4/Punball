@@ -219,7 +219,6 @@ func lose() -> void:
 			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.current_location, WaveGeneration.count_wave_on_locations[WaveGeneration.current_location] - 1)
 		else:
 			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.current_location, LevelManager.count_level + 1)
-		PlayerIndicatorsManager.update_player_date_on_server()
 		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
 
 func revavil_player():

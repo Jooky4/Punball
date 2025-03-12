@@ -5,7 +5,6 @@ extends Control
 func _ready() -> void:
 	count_wave.text = str(WaveGeneration.get_count_wave_on_location())
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.current_location, WaveGeneration.get_count_wave_on_location())
-	PlayerIndicatorsManager.update_player_date_on_server()
 
 func _on_go_to_menu_pressed() -> void:
 	AudioManager.click()

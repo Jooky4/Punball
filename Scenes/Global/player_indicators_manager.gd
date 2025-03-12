@@ -1,10 +1,10 @@
 extends Node
 
-var CRYSTALS_COUNT : int = 0
+var CRYSTALS_COUNT : int = 100
 var COINS_COUNT : int = 0
 var LEVEL_PLAYER : int = 1
 var LEVEL_EXPERIANCE_PLAYER : int = 0
-var MAX_WAVE_ON_LOCATIONS_1 = 0
+var MAX_WAVE_ON_LOCATIONS_1 = null
 var MAX_WAVE_ON_LOCATIONS_2 = 0
 var MAX_WAVE_ON_LOCATIONS_3 = 0
 var MAX_WAVE_ON_LOCATIONS_4 = 0
@@ -61,32 +61,63 @@ func player_date_loaded(data) -> void:
 func update_count_max_wave(num_location, max_wave) -> void:
 	match num_location:
 		1:
-			if MAX_WAVE_ON_LOCATIONS_1 < max_wave or MAX_WAVE_ON_LOCATIONS_1 == null:
+			if MAX_WAVE_ON_LOCATIONS_1:
+				if MAX_WAVE_ON_LOCATIONS_1 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_1 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_1 = max_wave
 		2:
-			if MAX_WAVE_ON_LOCATIONS_2 < max_wave or MAX_WAVE_ON_LOCATIONS_2 == null:
+			if MAX_WAVE_ON_LOCATIONS_2:
+				if MAX_WAVE_ON_LOCATIONS_2 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_2 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_2 = max_wave
 		3:
-			if MAX_WAVE_ON_LOCATIONS_3 < max_wave or MAX_WAVE_ON_LOCATIONS_3 == null:
+			if MAX_WAVE_ON_LOCATIONS_3:
+				if MAX_WAVE_ON_LOCATIONS_3 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_3 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_3 = max_wave
 		4:
-			if MAX_WAVE_ON_LOCATIONS_4 < max_wave or MAX_WAVE_ON_LOCATIONS_4 == null:
+			if MAX_WAVE_ON_LOCATIONS_4:
+				if MAX_WAVE_ON_LOCATIONS_4 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_4 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_4 = max_wave
 		5:
-			if MAX_WAVE_ON_LOCATIONS_5 < max_wave or MAX_WAVE_ON_LOCATIONS_5 == null:
+			if MAX_WAVE_ON_LOCATIONS_5:
+				if MAX_WAVE_ON_LOCATIONS_5 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_5 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_5 = max_wave
 		6:
-			if MAX_WAVE_ON_LOCATIONS_6 < max_wave or MAX_WAVE_ON_LOCATIONS_6 == null:
+			if MAX_WAVE_ON_LOCATIONS_6:
+				if MAX_WAVE_ON_LOCATIONS_6 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_6 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_6 = max_wave
 		7:
-			if MAX_WAVE_ON_LOCATIONS_7 < max_wave or MAX_WAVE_ON_LOCATIONS_7 == null:
+			if MAX_WAVE_ON_LOCATIONS_7:
+				if MAX_WAVE_ON_LOCATIONS_7 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_7 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_7 = max_wave
 		8:
-			if MAX_WAVE_ON_LOCATIONS_8 < max_wave or MAX_WAVE_ON_LOCATIONS_8 == null:
+			if MAX_WAVE_ON_LOCATIONS_8:
+				if MAX_WAVE_ON_LOCATIONS_8 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_8 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_8 = max_wave
 		9:
-			if MAX_WAVE_ON_LOCATIONS_9 < max_wave or MAX_WAVE_ON_LOCATIONS_9 == null:
+			if MAX_WAVE_ON_LOCATIONS_9:
+				if MAX_WAVE_ON_LOCATIONS_9 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_9 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_9 = max_wave
 		10:
-			if MAX_WAVE_ON_LOCATIONS_10 < max_wave or MAX_WAVE_ON_LOCATIONS_10 == null:
+			if MAX_WAVE_ON_LOCATIONS_10:
+				if MAX_WAVE_ON_LOCATIONS_10 < max_wave:
+					MAX_WAVE_ON_LOCATIONS_10 = max_wave
+			else:
 				MAX_WAVE_ON_LOCATIONS_10 = max_wave
+	update_player_date_on_server()

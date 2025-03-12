@@ -45,9 +45,10 @@ func update_player_indicators() -> void:
 	AudioManager.music_start()
 
 func player_date_loaded(data) -> void:
+	$Label.text = str(data)
 	update_coins_label()
 	update_crystal_label()
-	if get_count_max_wave(current_location) != null:
+	if get_count_max_wave(current_location) != null and get_count_max_wave(current_location) > 0:
 		max_wave_on_locations_label.text = "максимальный уровень " + str(get_count_max_wave(current_location)) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
 	else:
 		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])

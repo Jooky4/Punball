@@ -9,7 +9,7 @@ var TRAP = preload("res://Scenes/For skills/trap.tscn")
 var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var EFFECT_EXPLOSION = preload("res://Scenes/Effects/BombBallExplosion.tscn")
 
-var hp_player : float = 1000
+var hp_player : float = 10
 var max_hp_player : float = 1000
 var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
@@ -44,9 +44,9 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
  											[null, 1, 1, 1, 1, 1,],
- 											[null, null, null, null, null, null],
+ 											[2, 2, 2, 2, 2, 2],
  											[1, 1, 1, 1, 1, null],
- 											[null, null, null, null, null, null],
+ 											[2, 2, 2, 2, 2, 2],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
