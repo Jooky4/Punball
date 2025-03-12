@@ -27,22 +27,11 @@ var location = {
 	10 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Безднария"]
 }
 var current_location = 1
-var max_wave_on_locations = {
-	1: 0,
-	2: 0,
-	3: 0,
-	4: 0,
-	5: 0,
-	6: 0,
-	7: 0,
-	8: 0,
-	9: 0,
-	10: 0
-}
 
 func _ready() -> void:
 	YandexSDK.init_game()
 	YandexSDK.init_player() 
+	YandexSDK.game_ready()
 	main_menu_UI.visible = true
 	shop_UI.visible = false
 	talents_UI.visible = false
@@ -58,10 +47,10 @@ func update_player_indicators() -> void:
 func player_date_loaded(data) -> void:
 	update_coins_label()
 	update_crystal_label()
-	max_wave_on_locations = data["max_wave_on_locations"]
+	$Main_menu/Label.text = str(data)
 
-	if max_wave_on_locations[current_location] != null:
-		max_wave_on_locations_label.text = "максимальный уровень " + str(max_wave_on_locations[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	if PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location] != null:
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
 	else:
 		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
 
@@ -96,16 +85,16 @@ func _on_next_location_pressed() -> void:
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
 		
-		if max_wave_on_locations[current_location] != null:
-			max_wave_on_locations_label.text = "максимальный уровень " + str(max_wave_on_locations[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
-		else:
-			max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
-		if current_location == 1:
-			play_button.disabled = false
-			play_button.texture_normal = button_play_can_press
-		else:
-			play_button.disabled = true
-			play_button.texture_normal = button_play_disabled
+	if PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location] != null:
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	else:
+		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	if current_location == 1:
+		play_button.disabled = false
+		play_button.texture_normal = button_play_can_press
+	else:
+		play_button.disabled = true
+		play_button.texture_normal = button_play_disabled
 
 func _on_back_location_pressed() -> void:
 	AudioManager.click()
@@ -114,16 +103,16 @@ func _on_back_location_pressed() -> void:
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
 
-		if max_wave_on_locations[current_location] != null:
-			max_wave_on_locations_label.text = "максимальный уровень " + str(max_wave_on_locations[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
-		else:
-			max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
-		if current_location == 1:
-			play_button.disabled = false
-			play_button.texture_normal = button_play_can_press
-		else:
-			play_button.disabled = true
-			play_button.texture_normal = button_play_disabled
+	if PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location] != null:
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS[current_location]) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	else:
+		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	if current_location == 1:
+		play_button.disabled = false
+		play_button.texture_normal = button_play_can_press
+	else:
+		play_button.disabled = true
+		play_button.texture_normal = button_play_disabled
 
 func _on_plus_crystal_pressed() -> void:
 	AudioManager.click()

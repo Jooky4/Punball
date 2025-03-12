@@ -77,6 +77,7 @@ var new_position_balls = 0
 var rignt_extreme_point : Vector2
 var left_extreme_point : Vector2
 var mouse_in_pause_button_area = false
+var revavil_for_AD_or_crystal : bool = false
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -206,14 +207,18 @@ func get_health(health_hp) -> void:
 	hp_player_label.text = str(LevelManager.hp_player)
 
 func win() -> void:
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.2).timeout
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_ui.tscn")
 
 func lose() -> void:
-	end_game_UI_lose.visible = true
-	end_game_UI_lose.update_count_cristal()
+	if revavil_for_AD_or_crystal == false:
+		end_game_UI_lose.visible = true
+		end_game_UI_lose.update_count_cristal()
+	else:
+		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
 
 func revavil_player():
+	revavil_for_AD_or_crystal = true
 	end_game_UI_lose.visible = false
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)

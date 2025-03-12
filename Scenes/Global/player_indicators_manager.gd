@@ -4,28 +4,46 @@ var CRYSTALS_COUNT : int = 0
 var COINS_COUNT : int = 0
 var LEVEL_PLAYER : int = 1
 var LEVEL_EXPERIANCE_PLAYER : int = 0
-
+var MAX_WAVE_ON_LOCATIONS_1 = 0
+var MAX_WAVE_ON_LOCATIONS_2 = 0
+var MAX_WAVE_ON_LOCATIONS_3 = 0
+var MAX_WAVE_ON_LOCATIONS_4 = 0
+var MAX_WAVE_ON_LOCATIONS_5 = 0
+var MAX_WAVE_ON_LOCATIONS_6 = 0
+var MAX_WAVE_ON_LOCATIONS_7 = 0
+var MAX_WAVE_ON_LOCATIONS_8 = 0
+var MAX_WAVE_ON_LOCATIONS_9 = 0
+var MAX_WAVE_ON_LOCATIONS_10  = 0
 var MAX_WAVE_ON_LOCATIONS = {
-	1: 0,
-	2: 0,
-	3: 0,
-	4: 0,
-	5: 0,
-	6: 0,
-	7: 0,
-	8: 0,
-	9: 0,
-	10: 0
+	1: MAX_WAVE_ON_LOCATIONS_1,
+	2: MAX_WAVE_ON_LOCATIONS_2,
+	3: MAX_WAVE_ON_LOCATIONS_3,
+	4: MAX_WAVE_ON_LOCATIONS_4,
+	5: MAX_WAVE_ON_LOCATIONS_5,
+	6: MAX_WAVE_ON_LOCATIONS_6,
+	7: MAX_WAVE_ON_LOCATIONS_7,
+	8: MAX_WAVE_ON_LOCATIONS_8,
+	9: MAX_WAVE_ON_LOCATIONS_9,
+	10: MAX_WAVE_ON_LOCATIONS_10,
 }
 
 func update_player_date_in_game() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
-	YandexSDK.load_data(["coins", "crystals"])
+	YandexSDK.load_data(["coins", "crystals", "max_wave_on_locations_1"])
 
 func get_player_indicators() -> Dictionary:
 	return {"coins" : COINS_COUNT, 
 			"crystals": CRYSTALS_COUNT,
-			"max_wave_on_locations": MAX_WAVE_ON_LOCATIONS}
+			"max_wave_on_locations_1" : MAX_WAVE_ON_LOCATIONS_1,
+			"max_wave_on_locations_2" : MAX_WAVE_ON_LOCATIONS_2,
+			"max_wave_on_locations_3" : MAX_WAVE_ON_LOCATIONS_3,
+			"max_wave_on_locations_4" : MAX_WAVE_ON_LOCATIONS_4,
+			"max_wave_on_locations_5" : MAX_WAVE_ON_LOCATIONS_5,
+			"max_wave_on_locations_6" : MAX_WAVE_ON_LOCATIONS_6,
+			"max_wave_on_locations_7" : MAX_WAVE_ON_LOCATIONS_7,
+			"max_wave_on_locations_8" : MAX_WAVE_ON_LOCATIONS_8,
+			"max_wave_on_locations_9" : MAX_WAVE_ON_LOCATIONS_9,
+			"max_wave_on_locations_10" :  MAX_WAVE_ON_LOCATIONS_10}
 
 func update_crystal_count(num) -> void:
 	CRYSTALS_COUNT += num
@@ -41,4 +59,36 @@ func update_player_date_on_server() -> void:
 func player_date_loaded(data) -> void:
 	COINS_COUNT = data["coins"]
 	CRYSTALS_COUNT = data["crystals"]
-	MAX_WAVE_ON_LOCATIONS = data["max_wave_on_locations"]
+	MAX_WAVE_ON_LOCATIONS_1 = data["max_wave_on_locations_1"]
+	MAX_WAVE_ON_LOCATIONS_2 = data["max_wave_on_locations_2"]
+	MAX_WAVE_ON_LOCATIONS_3 = data["max_wave_on_locations_3"]
+	MAX_WAVE_ON_LOCATIONS_4 = data["max_wave_on_locations_4"]
+	MAX_WAVE_ON_LOCATIONS_5 = data["max_wave_on_locations_5"]
+	MAX_WAVE_ON_LOCATIONS_6 = data["max_wave_on_locations_6"]
+	MAX_WAVE_ON_LOCATIONS_7 = data["max_wave_on_locations_7"]
+	MAX_WAVE_ON_LOCATIONS_8 = data["max_wave_on_locations_8"]
+	MAX_WAVE_ON_LOCATIONS_9 = data["max_wave_on_locations_9"]
+	MAX_WAVE_ON_LOCATIONS_10 = data["max_wave_on_locations_10"]
+
+func update_count_max_wave(num_location, max_wave) -> void:
+	match num_location:
+		1:
+			MAX_WAVE_ON_LOCATIONS_1 = max_wave
+		2:
+			MAX_WAVE_ON_LOCATIONS_2 = max_wave
+		3:
+			MAX_WAVE_ON_LOCATIONS_3 = max_wave
+		4:
+			MAX_WAVE_ON_LOCATIONS_4 = max_wave
+		5:
+			MAX_WAVE_ON_LOCATIONS_5 = max_wave
+		6:
+			MAX_WAVE_ON_LOCATIONS_6 = max_wave
+		7:
+			MAX_WAVE_ON_LOCATIONS_7 = max_wave
+		8:
+			MAX_WAVE_ON_LOCATIONS_8 = max_wave
+		9:
+			MAX_WAVE_ON_LOCATIONS_9 = max_wave
+		10:
+			MAX_WAVE_ON_LOCATIONS_10 = max_wave

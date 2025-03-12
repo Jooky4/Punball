@@ -673,6 +673,21 @@ label_settings = SubResource("LabelSettings_njq23")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -365.0
+offset_right = 143.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3
+
 [node name="Shop" type="Control" parent="."]
 visible = false
 layout_mode = 1
