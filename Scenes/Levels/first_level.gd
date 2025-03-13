@@ -222,7 +222,7 @@ func lose() -> void:
 			PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
 		get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
-func revavil_player():
+func revavil_player(for_AD_or_crystal : bool = false):
 	end_game_UI_lose.visible = false
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
@@ -252,7 +252,8 @@ func revavil_player():
 	end_game_UI_lose.visible = false
 	balls_can_go = true
 	game_state = PLAY
-	revavil_for_AD_or_crystal = true
+	if for_AD_or_crystal:
+		revavil_for_AD_or_crystal = true
 
 func _on_start_again_pressed() -> void:
 	LevelManager.restert()

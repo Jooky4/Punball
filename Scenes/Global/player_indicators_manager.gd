@@ -8,8 +8,10 @@ var LEVEL_EXPERIANCE_FOR_NEXT_LEVEL : int = 500
 var CURRENT_LOCATIONS : int = 1
 var MAX_WAVE_ON_CURRENT_LOCATIONS : int = 0
 
-func update_player_date_in_game() -> void:
+func _ready() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
+
+func update_player_date_in_game() -> void:
 	YandexSDK.load_data(["coins", 
 						 "crystals", 
 						 "level_player",

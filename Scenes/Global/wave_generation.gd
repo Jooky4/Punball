@@ -1,6 +1,6 @@
 extends Node
 
-var current_location = 3
+var current_location = 1
 var percent_cells_by_enemies = [10, 25, 70, 85, 95]
 var dop_hp_defolt_enemy = [[2, 4, 1],
 						   [5, 10, 2],
@@ -123,6 +123,8 @@ func how_many_hp_plus_enemy(number_wave) -> float:
 
 func how_many_damage_player(num_enemy) -> int:
 	if num_enemy == 2 or num_enemy == 14:
+		print(num_enemy)
+		print(based_distant_enemy_damage_player_on_locations[current_location])
 		return based_distant_enemy_damage_player_on_locations[current_location]
 	else:
 		return based_сlose_enemy_damage_player_on_locations[current_location]
