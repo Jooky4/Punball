@@ -1837,12 +1837,16 @@ blend_times = [&"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.2, &"Move", &"I
 
 [node name="Hit_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_otf7t")
+volume_db = 3.0
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_ogonq")
+volume_db = -15.0
+pitch_scale = 1.2
 
 [node name="Magic_spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_444vf")
+volume_db = -16.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]

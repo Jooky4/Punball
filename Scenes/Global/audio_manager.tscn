@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://csdyirn2lmmyg"]
+[gd_scene load_steps=19 format=3 uid="uid://csdyirn2lmmyg"]
 
 [ext_resource type="Script" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
 [ext_resource type="AudioStream" uid="uid://cn6u3g3veh3hd" path="res://Resources/Sounds/взрыв_бомба.mp3" id="3_wj7ne"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://bux3eyhwvvfns" path="res://Resources/Sounds/звукОЗ.mp3" id="7_0x08u"]
 [ext_resource type="AudioStream" uid="uid://bufx3g7145e25" path="res://Resources/Sounds/клик.mp3" id="8_nb2ns"]
 [ext_resource type="AudioStream" uid="uid://cvoeswerd3jjr" path="res://Resources/Sounds/лазер_шар.mp3" id="11_fe4mr"]
-[ext_resource type="AudioStream" uid="uid://cs7mfkmjejd1d" path="res://Resources/Sounds/лечениеОЗ.mp3" id="13_i4ljo"]
 [ext_resource type="AudioStream" uid="uid://i4xu4a8de8sd" path="res://Resources/Sounds/ловушка.mp3" id="14_eu57q"]
 [ext_resource type="AudioStream" uid="uid://csgt0m857e1iv" path="res://Resources/Sounds/молния.mp3" id="15_1nwku"]
 [ext_resource type="AudioStream" uid="uid://5j4eihqkxro7" path="res://Resources/Sounds/огненный_шар.mp3" id="19_bvxve"]
@@ -29,12 +28,16 @@ script = ExtResource("1_xhnrq")
 
 [node name="Bomb_explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wj7ne")
+volume_db = 5.0
 
 [node name="Bomb_explosion_var_2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_psfai")
+volume_db = 5.0
 
 [node name="OZ_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0x08u")
+volume_db = -15.0
+pitch_scale = 1.5
 
 [node name="Button_click" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -42,23 +45,31 @@ stream = ExtResource("8_nb2ns")
 bus = &"SFX"
 
 [node name="Heal_OZ" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_i4ljo")
+stream = ExtResource("7_0x08u")
+volume_db = -15.0
+pitch_scale = 1.5
 
 [node name="Trap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_eu57q")
+volume_db = -20.0
+pitch_scale = 1.4
 
 [node name="Lightning" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_1nwku")
+volume_db = 10.0
 
 [node name="Rocket" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_vtta4")
+volume_db = 5.0
 
 [node name="Enemy_spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_ibed4")
+volume_db = -14.0
 bus = &"SFX"
 
 [node name="Ball_spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_55cke")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="Enemy_move" type="AudioStreamPlayer" parent="."]
@@ -67,6 +78,7 @@ bus = &"SFX"
 
 [node name="Thorns" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_7tkvr")
+volume_db = -10.0
 
 [node name="Freezing_combo_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_6glt2")
@@ -76,13 +88,17 @@ stream = ExtResource("19_bvxve")
 
 [node name="Laser_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_fe4mr")
+volume_db = -5.0
+pitch_scale = 1.2
 
 [node name="Health_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0x08u")
+volume_db = -15.0
+pitch_scale = 1.5
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("39_onrjk")
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

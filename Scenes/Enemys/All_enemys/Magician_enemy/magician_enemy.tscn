@@ -1557,9 +1557,11 @@ stream = ExtResource("14_a674y")
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_7jdoe")
+volume_db = -15.0
 
 [node name="Spawn_enemy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_e12ve")
+volume_db = -20.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]

@@ -1351,6 +1351,7 @@ stream = ExtResource("13_3obb5")
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_bmtmm")
+volume_db = -15.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

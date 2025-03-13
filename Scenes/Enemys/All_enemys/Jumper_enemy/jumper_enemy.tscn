@@ -2506,9 +2506,12 @@ stream = ExtResource("17_c4lof")
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_kt8w1")
+volume_db = -15.0
 
 [node name="Move_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_djmwm")
+volume_db = -20.0
+pitch_scale = 1.2
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]

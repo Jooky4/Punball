@@ -1670,6 +1670,8 @@ stream = ExtResource("15_vdg6u")
 
 [node name="Heal_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_wlv7k")
+volume_db = -14.0
+pitch_scale = 1.4
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]

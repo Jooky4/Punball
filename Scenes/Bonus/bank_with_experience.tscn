@@ -116,3 +116,5 @@ autoplay = "idle"
 
 [node name="Experience_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_dxb67")
+volume_db = -14.0
+pitch_scale = 0.9

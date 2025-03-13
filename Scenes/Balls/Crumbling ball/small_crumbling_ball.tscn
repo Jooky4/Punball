@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Balls/Crumbling ball/small_crumbling_ball.gd" id="1_ars7c"]
 [ext_resource type="Texture2D" uid="uid://dyhc37ijbl8xw" path="res://Texture/Balls/РассыпающийсяНов_2.png" id="2_0qm70"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_xec7g"]
-[ext_resource type="AudioStream" uid="uid://b81wwssvfphao" path="res://Resources/Sounds/рикошет.mp3" id="4_bpv86"]
+[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="4_6ouaq"]
 [ext_resource type="AudioStream" uid="uid://ueldbbjdob14" path="res://Resources/Sounds/рассыпающийся_шар.mp3" id="5_ftnol"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
@@ -48,7 +48,9 @@ texture = ExtResource("3_xec7g")
 texture_mode = 2
 
 [node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_bpv86")
+stream = ExtResource("4_6ouaq")
+volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ftnol")
+volume_db = -7.0
