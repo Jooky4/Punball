@@ -233,12 +233,13 @@ vertical_alignment = 1
 [node name="Player_level_bar" type="TextureProgressBar" parent="Main_menu/Player_level"]
 z_index = -1
 layout_mode = 0
-offset_left = 31.0
-offset_top = 6.0
-offset_right = 329.0
-offset_bottom = 64.0
+offset_left = 39.0
+offset_top = 5.0
+offset_right = 173.0
+offset_bottom = 44.0
 texture_under = ExtResource("5_fbwen")
 texture_progress = ExtResource("6_ghyfi")
+texture_progress_offset = Vector2(10, 11)
 
 [node name="TextureButton" type="TextureButton" parent="Main_menu"]
 layout_mode = 1
