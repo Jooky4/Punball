@@ -394,11 +394,11 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 4
 
-[node name="TextureRect2" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
+[node name="Experiance" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("20_dl1ot")
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/TextureRect2"]
+[node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Experiance"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -413,7 +413,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_q335r")
 
-[node name="Label" type="Label" parent="TextureRect8/MarginContainer/GridContainer/TextureRect2"]
+[node name="Experiance_label" type="Label" parent="TextureRect8/MarginContainer/GridContainer/Experiance"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -425,7 +425,7 @@ offset_top = -22.0
 offset_bottom = 8.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "x1111"
+text = "x0"
 label_settings = SubResource("LabelSettings_fc05t")
 horizontal_alignment = 2
 
@@ -460,7 +460,7 @@ offset_top = -22.0
 offset_bottom = 8.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "x1111"
+text = "x0"
 label_settings = SubResource("LabelSettings_fc05t")
 horizontal_alignment = 2
 

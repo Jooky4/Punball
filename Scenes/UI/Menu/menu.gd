@@ -105,13 +105,3 @@ func _on_back_location_pressed() -> void:
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
 		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
-
-func _on_plus_crystal_pressed() -> void:
-	AudioManager.click()
-	PlayerIndicatorsManager.update_crystal_count(+100)
-	update_crystal_label()
-
-func _on_plus_coins_pressed() -> void:
-	AudioManager.click()
-	PlayerIndicatorsManager.update_coins_count(+100)
-	update_coins_label()

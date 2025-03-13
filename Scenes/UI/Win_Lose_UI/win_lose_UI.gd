@@ -25,13 +25,14 @@ func update_level_label_and_bar() -> void:
 
 func plus_expiriance_level_player() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
-	var count_exp : int = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 50 * (WaveGeneration.current_location * 0.5 + 0.5))
+	var count_exp : int = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
 	PlayerIndicatorsManager.update_level_player(count_exp)
 	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	for i in range(new_level - current_level):
 		while level_up_UI.visible != false:
 			await get_tree().create_timer(0.1).timeout
 		level_up_UI.level_up(current_level + i + 1)
+	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(count_exp)
 	update_level_label_and_bar()
 
 func win() -> void:
