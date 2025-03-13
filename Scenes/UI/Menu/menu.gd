@@ -40,10 +40,10 @@ func _ready() -> void:
 	talents_UI.visible = false
 	AudioManager.music_start()
 	YandexSDK.connect("game_initialized", update_player_indicators)
+	YandexSDK.connect("data_loaded", player_date_loaded)
 	update_player_indicators()
 
 func update_player_indicators() -> void:
-	YandexSDK.connect("data_loaded", player_date_loaded)
 	PlayerIndicatorsManager.update_player_date_in_game()
 	AudioManager.music_start()
 
