@@ -9,51 +9,80 @@ var BUTTON_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка 
 @onready var bye_button = $Bye_button
 @onready var sound_scroll = $Get_skill_scrolling
 var skil_for_ad = 0
-var regular = [["Шар-заморозка", 150],
-			   ["Усиление обычного шара", 0],
-			   ["Огненный шар", 120],
-			   ["Усиление особого шара", 100],
-			   ["Последний рывок", 30],
-			   ["Суперначало", 30]]
-var rare = [["Шар молний",  350],
-			["Рассыпающийся шар", 280],
-			["Шар-бомба", 300],
-			["Прибавка ОЗ", 200],
-			["Бомба-заморозка", 250],
-			["Молния: комбо", 380],
-			["Лед: комбо", 250],
+var regular = [["Шар-заморозка", 200],
+			   ["Лед: комбо", 180],
+			   ["Ядерная: комбо", 110],
+			   ["Прибавка к восстановлению", 0],
+			   ["Прибавка ОЗ", 0],
+			   ["Усиление обычного шара", 0]]
+var rare = [["Огненный шар", 400],
+			["Шар-бомба", 450],
+			["Бомба-заморозка", 480],
+			["Молния: комбо", 210],
+			["Лазер: комбо", 250],
 			["Огонь: комбо", 250],
-			["Вертикальный лазерный шар", 220],
-			["Горизонтальный лазерный шар", 220],
 			["Шар ракета", 280],
-			["Кумулятивный шар", 320],
-			["Ядерная: комбо", 300],
-			["Шар удара в спину", 150],
-			["Шар убийца", 200],
-			["Бурящий шар", 300],
-			["Технология: комбо с тыла", 350],
-			["Технология: комбо с фронта", 350],
-			["Прибавка к восстановлению", 250]]
-var epic = [["Усиление атаки", 550],
-			["Молния смерти", 500],
-			["Холод смерти", 450],
-			["Бомба смерти", 600],
-			["Лазер смерти", 430],
-			["Лазер: комбо", 650],
-			["Ракета смерти", 700],
-			["Ловушка", 1000],
-			["Комбо: скидка", 450]]
-var legendary = [["Повелитель молний", 1200],
-				 ["Повелитель льда", 1350],
-				 ["Повелитель огня", 1000],
-				 ["Повелитель лазера", 780],
-				 ["Повелитель атома", 1300],
-				 ["Повелитель технологий", 1100],
-				 ["Оживление", 1200]]
+			["Кумулятивный шар", 500],
+			["Шар удара в спину", 460],
+			["Шар убийца", 490],
+			["Технология: комбо с тыла", 210],
+			["Технология: комбо с фронта", 210],
+			["Усиление особого шара", 280],
+			["Усиление атаки", 490],
+			["Комбо: скидка", 260],
+			["Суперначало", 390]]
+var epic = [["Шар молний",  600],
+			["Повелитель льда", 1000],
+			["Повелитель огня", 1080],
+			["Рассыпающийся шар", 580],
+			["Вертикальный лазерный шар", 680],
+			["Горизонтальный лазерный шар", 700],
+			["Повелитель лазера", 1140],
+			["Шар ракета", 600],
+			["Повелитель атома", 970],
+			["Бурящий шар", 1000],
+			["Ловушка", 1080],
+			["Холод смерти", 1060],
+			["Повелитель молний", 970]]
+var legendary = [["Молния смерти", 1220],
+				 ["Бомба смерти", 1220],
+				 ["Лазер смерти", 1220],
+				 ["Ракета смерти", 1220],
+				 ["Повелитель технологий", 1380],
+				 ["Оживление", 1820], 
+				 ["Последний рывок", 1320]]
 var skills = []
+var all_skills = []
+var skills_once = ["Молния смерти",
+				  "Повелитель молний",
+				  "Молния: комбо",
+				  "Холод смерти",
+				  "Повелитель льда",
+				  "Лед: комбо",
+				  "Бомба смерти",
+				  "Повелитель огня",
+				  "Огонь: комбо",
+				  "Лазер смерти",
+				  "Повелитель лазера",
+				  "Лазер: комбо",
+				  "Ракета смерти",
+				  "Повелитель атома",
+				  "Ядерная: комбо",
+				  "Ловушка",
+				  "Повелитель технологий",
+				  "Технология: комбо с фронта",
+				  "Технология: комбо с тыла",
+				  "Суперначало",
+				  "Последний рывок",
+				  "Оживление",
+				  "Комбо: скидка"]
 
 func _ready() -> void:
 	visible = false
+	all_skills.append_array(regular)
+	all_skills.append_array(rare)
+	all_skills.append_array(epic)
+	all_skills.append_array(legendary)
 
 func _on_continue_game_pressed() -> void:
 	LevelManager.spin_skill -= 1
@@ -83,27 +112,57 @@ func create_skill():
 				if "AD" in j.name:
 					j.visible = false
 
+	var spread = LevelManager.count_experiance * (1 - ((LevelManager.count_experiance - 400) / (23.67 * 100)))
+	var min_cost = LevelManager.count_experiance - spread
+	var max_cost = LevelManager.count_experiance
+	var skill_with_max_cost
+	var skill_can_drop = []
+	var not_can_buy_skills = []
+
+	var skill_max_cost = -1
+	all_skills.shuffle()
+	for i in all_skills:
+		if i[0] not in LevelManager.player_skills:
+			if min_cost <= i[1] and i[1] <= max_cost:
+				skill_can_drop.append(i)
+				if i[1] > skill_max_cost:
+					skill_with_max_cost = i
+					skill_max_cost = i[1]
+			if i[1] > LevelManager.count_experiance:
+				not_can_buy_skills.append(i)
+	skill_can_drop.shuffle()
+	not_can_buy_skills.shuffle()
+
 	for i in range(3):
+		var random_index = randi() % skill_can_drop.size()
+		var new_skill = skill_can_drop[random_index]
+		if i == 2:
+			if (randi() % 100 + 1) <= 30:
+				new_skill = skill_with_max_cost
+		skills.append(new_skill)
+		skill_can_drop.remove_at(random_index)
+	skills.sort_custom(Callable(self, "compare_skills"))
+	if (randi() % 100 + 1) <= 30:
+		skills[2] = not_can_buy_skills[randi() % not_can_buy_skills.size()]
+
+	for i in windows_skill.get_children():
+		i.queue_free()
+	for i in skills:
 		var buff = SKILL_WINDOW.instantiate()
 		windows_skill.add_child(buff)
-		if i == 0:
-			var new_skill = regular[randi() % regular.size()]
-			buff.update_discription(new_skill[0])
-			skills.append(new_skill)
+		buff.update_discription(i[0])
+		if i in regular:
 			rare_skills.append(1)
 			buff.show_rarity_window(1)
-		elif i == 1:
-			var new_skill = rare[randi() % rare.size()]
-			buff.update_discription(new_skill[0])
-			skills.append(new_skill)
+		elif i in rare:
 			rare_skills.append(2)
 			buff.show_rarity_window(2)
-		elif i == 2:
-			var new_skill = epic[randi() % epic.size()]
-			buff.update_discription(new_skill[0])
-			skills.append(new_skill)
+		elif i in epic:
 			rare_skills.append(3)
 			buff.show_rarity_window(3)
+		elif i in legendary:
+			rare_skills.append(4)
+			buff.show_rarity_window(4)
 
 	for i in range(skills.size()):
 		if skills[i][1] > LevelManager.count_experiance:
@@ -116,7 +175,6 @@ func create_skill():
 			if j.name == "Label":
 				j.text = str(skills[count][1])
 		count += 1
-
 	var time_wait = 0 
 	if 4 in rare_skills:
 		time_wait = 4
@@ -148,6 +206,9 @@ func create_skill():
 		else:
 			button_arr[i].disabled = false
 	$Update_skill_button.visible = true
+
+func compare_skills(a, b):
+	return a[1] < b[1] 
 
 func legendary_sound() -> void:
 	await get_tree().create_timer(4).timeout

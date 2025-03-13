@@ -15,7 +15,7 @@ var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
-var count_experiance : int = 200
+var count_experiance : int = 1120
 var combo_count : int = 0
 var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
@@ -46,7 +46,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
  											[null, 1, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
- 											[null, null, null, null, null, null],
+ 											[null, -2, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
