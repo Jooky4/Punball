@@ -15,7 +15,7 @@ var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
-var count_experiance : int = 1120
+var count_experiance : int = 0
 var combo_count : int = 0
 var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
@@ -46,7 +46,7 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
  											[null, 1, 1, 1, 1, 1,],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
- 											[null, -2, null, null, null, null],
+ 											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null],
  											[null, null, null, null, null, null]]
@@ -315,9 +315,12 @@ func updete_last_line() -> void:
 				if new_line_spawn[i] != null:
 					first_level_links_on_objects[1][i] = new_line_spawn[i]
 			count_level += 1
-			if new_line_spawn != [null, null, null, null, null, null]:
-				await get_tree().create_timer(0.8).timeout
-				AudioManager.enemy_spawn()
+			for i in new_line_spawn:
+				if i != null:
+					if i > 0:
+						await get_tree().create_timer(0.8).timeout
+						AudioManager.enemy_spawn()
+						break
 
 func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
 	var x
