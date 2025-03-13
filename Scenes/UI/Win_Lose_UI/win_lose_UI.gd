@@ -6,9 +6,12 @@ extends Control
 @onready var level_up_UI = $Level_up_UI
 
 func _ready() -> void:
+	if PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS == WaveGeneration.get_count_wave_on_location():
+		win()
+	elif PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS <= WaveGeneration.get_count_wave_on_location():
+		lose()
 	level_up_UI.visible = false
-	count_wave.text = str(WaveGeneration.get_count_wave_on_location())
-	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.current_location, WaveGeneration.get_count_wave_on_location())
+	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
 	plus_expiriance_level_player()
 
 func _on_go_to_menu_pressed() -> void:
@@ -22,7 +25,7 @@ func update_level_label_and_bar() -> void:
 
 func plus_expiriance_level_player() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
-	var count_exp : int = round(WaveGeneration.get_count_wave_on_location() * 50 * (WaveGeneration.current_location * 0.5 + 0.5))
+	var count_exp : int = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 50 * (WaveGeneration.current_location * 0.5 + 0.5))
 	PlayerIndicatorsManager.update_level_player(count_exp)
 	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	for i in range(new_level - current_level):
@@ -30,3 +33,15 @@ func plus_expiriance_level_player() -> void:
 			await get_tree().create_timer(0.1).timeout
 		level_up_UI.level_up(current_level + i + 1)
 	update_level_label_and_bar()
+
+func win() -> void:
+	$Win_Lose_Label/Win.visible = true
+	$Win_Lose_Label/TextureRect8.visible = true
+	$Win_Lose_Label/Lose.visible = false
+	PlayerIndicatorsManager.update_count_max_wave(0)
+	PlayerIndicatorsManager.update_count_current_location()
+
+func lose() -> void:
+	$Win_Lose_Label/Lose.visible = true
+	$Win_Lose_Label/Win.visible = false
+	$Win_Lose_Label/TextureRect8.visible = false

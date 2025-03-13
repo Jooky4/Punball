@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ciuhn6dg5mwdo"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/lose_ui.gd" id="1_c74sn"]
+[ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
 [ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="1_do3n0"]
 [ext_resource type="Texture2D" uid="uid://bc7u6hiofpjs6" path="res://Texture/UI/Skills_UI/текст кнопки ADS.png" id="2_vs4b1"]
 [ext_resource type="Texture2D" uid="uid://dnrlesu4tygyc" path="res://Texture/UI/Skills_UI/иконка кнопки ADS.png" id="3_wgfp8"]
@@ -15,7 +15,7 @@ font_size = 28
 font = ExtResource("4_yc3ln")
 font_size = 50
 
-[node name="lose_ui" type="Control"]
+[node name="revival_ui" type="Control"]
 z_index = 7
 layout_mode = 3
 anchors_preset = 15

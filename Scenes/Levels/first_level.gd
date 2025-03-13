@@ -161,7 +161,7 @@ func chec_game_end() -> void:
 			if child.alive:
 				boss_alive = true
 			break
-	if boss_alive == false and LevelManager.count_level > 18:
+	if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
 		game_state = WIN
 		return
 	else:
@@ -207,8 +207,9 @@ func get_health(health_hp) -> void:
 	hp_player_label.text = str(LevelManager.hp_player)
 
 func win() -> void:
+	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[WaveGeneration.current_location])
 	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_ui.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
 func lose() -> void:
 	if revavil_for_AD_or_crystal == false:
@@ -216,10 +217,10 @@ func lose() -> void:
 		end_game_UI_lose.update_count_cristal()
 	else:
 		if LevelManager.boss_on_map:
-			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.current_location, WaveGeneration.count_wave_on_locations[WaveGeneration.current_location] - 1)
+			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[WaveGeneration.current_location] - 1)
 		else:
-			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.current_location, LevelManager.count_level + 1)
-		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
+			PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
+		get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
 func revavil_player():
 	end_game_UI_lose.visible = false
@@ -237,7 +238,7 @@ func revavil_player():
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
 
-	if count_level_label.text == "19" and count_level_label.visible:
+	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible:
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
@@ -481,7 +482,7 @@ func end_wave() -> void:
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
 
-	if count_level_label.text == "19" and count_level_label.visible:
+	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible:
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":

@@ -284,7 +284,7 @@ func updete_last_line() -> void:
 	var new_line_spawn
 	var slot_for_new_enemy 
 	var free_slots = []
-	if count_level >= 19:
+	if boss_on_map and WaveGeneration.get_count_wave_on_location() - 1 >= 19:
 		if count_level % 2 == 1:
 			for i in range(5):
 				for j in range(first_level_links_on_objects[i].size()):
@@ -304,7 +304,7 @@ func updete_last_line() -> void:
 		if WaveGeneration.current_location == 1:
 			new_line_spawn = first_level_spawn[count_level]
 		else:
-			new_line_spawn = WaveGeneration.generetion_new_wave(count_level+1)
+			new_line_spawn = WaveGeneration.generetion_new_wave(count_level+2)
 
 		var can_spawn = true
 		for i in first_level_links_on_objects[1]:

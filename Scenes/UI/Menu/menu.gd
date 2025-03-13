@@ -51,10 +51,7 @@ func player_date_loaded(data) -> void:
 	update_coins_label()
 	update_crystal_label()
 	update_level_label_and_bar()
-	if get_count_max_wave(current_location) != null and get_count_max_wave(current_location) > 0:
-		max_wave_on_locations_label.text = "максимальный уровень " + str(get_count_max_wave(current_location)) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
-	else:
-		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
+	update_cuurent_location_texture()
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
@@ -67,9 +64,17 @@ func update_level_label_and_bar() -> void:
 	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
 	player_level_bar.value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER
 
+func update_cuurent_location_texture() -> void:
+	current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+	location_sprite.texture = location[current_location][0]
+	location_name_label.text = str(current_location) + ". " + location[current_location][1]
+	max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
+
 func _on_button_pressed() -> void:
 	AudioManager.click()
 	ChangeScene.black_screen()
+	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
 	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 
@@ -91,16 +96,7 @@ func _on_next_location_pressed() -> void:
 		current_location += 1
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
-	if get_count_max_wave(current_location) != null:
-		max_wave_on_locations_label.text = "максимальный уровень " + str(get_count_max_wave(current_location)) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
-	else:
-		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
-	if current_location == 1:
-		play_button.disabled = false
-		play_button.texture_normal = button_play_can_press
-	else:
-		play_button.disabled = true
-		play_button.texture_normal = button_play_disabled
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
 
 func _on_back_location_pressed() -> void:
 	AudioManager.click()
@@ -108,16 +104,7 @@ func _on_back_location_pressed() -> void:
 		current_location -= 1
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
-	if get_count_max_wave(current_location) != null:
-		max_wave_on_locations_label.text = "максимальный уровень " + str(get_count_max_wave(current_location)) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
-	else:
-		max_wave_on_locations_label.text = "максимальный уровень 0/" + str(WaveGeneration.count_wave_on_locations[current_location])
-	if current_location == 1:
-		play_button.disabled = false
-		play_button.texture_normal = button_play_can_press
-	else:
-		play_button.disabled = true
-		play_button.texture_normal = button_play_disabled
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
 
 func _on_plus_crystal_pressed() -> void:
 	AudioManager.click()
@@ -128,26 +115,3 @@ func _on_plus_coins_pressed() -> void:
 	AudioManager.click()
 	PlayerIndicatorsManager.update_coins_count(+100)
 	update_coins_label()
-
-func get_count_max_wave(num_location):
-	match num_location:
-		1:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_1
-		2:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_2
-		3:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_3
-		4:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_4
-		5:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_5
-		6:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_6
-		7:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_7
-		8:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_8
-		9:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_9
-		10:
-			return PlayerIndicatorsManager.MAX_WAVE_ON_LOCATIONS_10

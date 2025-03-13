@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b281v7p3hsju0" path="res://Texture/UI/healthbarProgress_Player.png" id="9_m32s6"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="10_fo6nb"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
-[ext_resource type="PackedScene" uid="uid://ciuhn6dg5mwdo" path="res://Scenes/UI/Win_Lose_UI/lose_ui.tscn" id="12_tjpvy"]
+[ext_resource type="PackedScene" uid="uid://ciuhn6dg5mwdo" path="res://Scenes/UI/Win_Lose_UI/revival_ui.tscn" id="12_tjpvy"]
 [ext_resource type="PackedScene" uid="uid://xxprkydai7iy" path="res://Scenes/UI/Skill_windows/get_skill_ui.tscn" id="13_1g2hj"]
 [ext_resource type="PackedScene" uid="uid://03cucs0teyc1" path="res://Scenes/UI/For test/chose_ball.tscn" id="13_31ajf"]
 [ext_resource type="Texture2D" uid="uid://bby3mm6q8rrn0" path="res://Texture/UI/Уровень 1 текст.png" id="13_yxrlo"]

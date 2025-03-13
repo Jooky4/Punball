@@ -1,18 +1,12 @@
 extends Node
 
-var current_location = 1
-var percent_cells_by_enemies = [[[1, 6], 10, 20, 60, 10, null],
-								[[7, 10], null, null, 20, 40, 40],
-								[[11, 15], 10, 20, 60, 10, null],
-								[[16, 20], null, null, 20, 40, 40]]
+var current_location = 3
+var percent_cells_by_enemies = [10, 25, 70, 85, 95]
 var dop_hp_defolt_enemy = [[2, 4, 1],
 						   [5, 10, 2],
 						   [11, 14, 3],
 						   [14, 17, 4],
 						   [18, 10000, 5]]
-var percent_spawn_enemy = [[1, 1, 40],
-						   [2, 6, 30],
-						   [3, 11, 30]]
 var count_wave_on_locations = {
 	1: 20,
 	2: 20,
@@ -62,31 +56,50 @@ var based_distant_enemy_damage_player_on_locations = {
 	10: 310
 }
 
+var enemy_for_locations = [[1, 2, 3, null], 
+						   [1, 2, 6, null],
+						   [1, 2, 5, 8],
+						   [1, 2, 3, 9],
+						   [1, 2, 10, 12],
+						   [1, 2, 14, null],
+						   [1, 2, 6, 8],
+						   [1, 2, 12, 13],
+						   [1, 2, 5, 9],
+						   [1, 2, 3, 10]]
+
 func generetion_new_wave(number_wave):
-	var coun_cell_with_enemy = 0
-	for i in range(percent_cells_by_enemies.size()):
-		if percent_cells_by_enemies[i][0][0] <= number_wave and number_wave <= percent_cells_by_enemies[i][0][1]:
-			while coun_cell_with_enemy == 0:
-				for j in range(1, percent_cells_by_enemies[i].size()):
-					if percent_cells_by_enemies[i][j] != null:
-						if percent_cells_by_enemies[i][j] > randi() % 100 + 1:
-							coun_cell_with_enemy = j
-							break
-	var enemy_who_can_spawn = []
-	for i in range(percent_spawn_enemy.size()):
-		if percent_spawn_enemy[i][1] <= number_wave:
-			enemy_who_can_spawn.append([percent_spawn_enemy[i][0], percent_spawn_enemy[i][2]])
-	var new_enemy_array = []
-	for i in range(coun_cell_with_enemy):
-		var new_enemy = null
-		while new_enemy == null:
-			for j in enemy_who_can_spawn:
-				if j[1] > randi() % 100 + 1:
-					new_enemy = j[0]
-					new_enemy_array.append(j[0])
-					break
-	new_enemy_array.shuffle()
 	var finish_array = [null,null,null,null,null,null]
+	if number_wave == count_wave_on_locations[current_location]:
+		finish_array = [4,null,null,null,null,null]
+		finish_array.shuffle()
+		return finish_array
+	elif number_wave == count_wave_on_locations[current_location] - 1:
+		return finish_array
+
+	var coun_cell_with_enemy = 5
+	if number_wave >= 2 and number_wave % 2 == 0:
+		finish_array[0] = -1
+		coun_cell_with_enemy -= 1
+	if number_wave >= 3 and number_wave % 2 == 1:
+		finish_array[0] = -2
+		coun_cell_with_enemy -= 1
+
+	var coun_cell_for_enemy = 0
+	for i in range(percent_cells_by_enemies.size()):
+		while coun_cell_for_enemy == 0:
+			var random_index = randi() % percent_cells_by_enemies.size()
+			if percent_cells_by_enemies[random_index] > (randi() % 100 + 1) and random_index + 1 <= coun_cell_with_enemy:
+				coun_cell_for_enemy = random_index + 1
+				break
+	var enemy_who_can_spawn = []
+	for i in enemy_for_locations[current_location - 1]:
+		if i != 0:
+			enemy_who_can_spawn.append(i)
+
+	var new_enemy_array = []
+	for i in range(coun_cell_for_enemy):
+		new_enemy_array.append(enemy_who_can_spawn[randi() % enemy_who_can_spawn.size()])
+	new_enemy_array.shuffle()
 	for i in range(new_enemy_array.size()):
 		var inserted = false
 		while not inserted:
@@ -94,6 +107,7 @@ func generetion_new_wave(number_wave):
 			if finish_array[random_index] == null:
 				finish_array[random_index] = new_enemy_array[i]
 				inserted = true
+	finish_array.shuffle()
 	return finish_array
 
 func how_many_hp_plus_enemy(number_wave) -> float:
