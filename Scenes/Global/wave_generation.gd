@@ -70,8 +70,7 @@ var enemy_for_locations = [[1, 2, 3, null],
 func generetion_new_wave(number_wave):
 	var finish_array = [null,null,null,null,null,null]
 	if number_wave == count_wave_on_locations[current_location]:
-		finish_array = [4,null,null,null,null,null]
-		finish_array.shuffle()
+		finish_array = [null,null,4,null,null,null]
 		return finish_array
 	elif number_wave == count_wave_on_locations[current_location] - 1:
 		return finish_array

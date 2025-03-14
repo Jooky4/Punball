@@ -64,3 +64,11 @@ func health_sound() -> void:
 func _on_music_finished() -> void:
 	$Music.stream = MUSIC_PULL[randi() % MUSIC_PULL.size()]
 	$Music.playing = true
+
+func bomb_ball_hit_sound() -> void:
+	$Bomb_ball_hit_sound.pitch_scale = get_random_pitch()
+	$Bomb_ball_hit_sound.play()
+
+func cumulative_ball_hit_sound() -> void:
+	$Cumulative_ball_hit_sound.pitch_scale = get_random_pitch()
+	$Cumulative_ball_hit_sound.play()
