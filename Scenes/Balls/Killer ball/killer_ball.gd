@@ -10,7 +10,7 @@ func collide_with_enemy(collider) -> void:
 	hit_enemy_sound.play()
 	if !collider.has_method("boss"):
 		if "Усиление особого шара" in LevelManager.player_skills:
-			damage_ball = round(damage_ball * 0.05)
+			damage_ball = round(damage_ball * 1.05)
 		if randf() < 0.02:
 			collider.deal_damage(collider.hp_enemy, ElementsManager.color_elements["TECHNOLOGIES"], true)
 		else:
