@@ -17,7 +17,7 @@ func moving(direction_object) -> void:
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
-	label.text = "-" + str(damage_ball)
+	label.text = "-" + str(round(damage_ball))
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)

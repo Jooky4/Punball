@@ -208,7 +208,7 @@ func get_health(health_hp) -> void:
 
 func win() -> void:
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[WaveGeneration.current_location])
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
 func lose() -> void:

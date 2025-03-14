@@ -2394,7 +2394,7 @@ scale_amount_curve = SubResource("Curve_aadmt")
 color = Color(0.96875, 0.96875, 0.96875, 1)
 color_ramp = SubResource("Gradient_lyxq8")
 
-[node name="Fire_effect2" type="CPUParticles2D" parent="Effects"]
+[node name="Fire_effect" type="CPUParticles2D" parent="Effects"]
 z_index = 1
 position = Vector2(0, 40)
 emitting = false

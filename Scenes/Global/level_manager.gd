@@ -468,6 +468,7 @@ func enemy_died(enemy) -> void:
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] == self:
 				first_level_links_on_objects[i][j] = null
+				break
 
 	if "Молния смерти" in player_skills:
 		lighthing_ball_damage(enemy, 600 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"], true)

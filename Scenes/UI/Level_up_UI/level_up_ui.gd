@@ -4,7 +4,7 @@ extends Control
 @onready var level_label = $Player_level/Player_level_label
 @onready var coins_label = $GridContainer/TextureRect3/Coins_label
 
-func level_up(count_level) -> void:
+func level_up(count_level : float) -> void:
 	self.visible = true
 	coins_label.text = "x" + str((count_level / 4) * 1000)
 	PlayerIndicatorsManager.update_crystal_count(+50)

@@ -1749,6 +1749,7 @@ color = Color(0.96875, 0.96875, 0.96875, 1)
 color_ramp = SubResource("Gradient_b0mv2")
 
 [node name="Fire_effect" type="CPUParticles2D" parent="Effects"]
+z_index = 1
 position = Vector2(0, 40)
 emitting = false
 amount = 80
@@ -1767,6 +1768,7 @@ scale_amount_curve = SubResource("Curve_2r5ej")
 color_ramp = SubResource("Gradient_bby7f")
 
 [node name="Poison_effect" type="CPUParticles2D" parent="Effects"]
+z_index = 1
 position = Vector2(0, 41)
 emitting = false
 amount = 30

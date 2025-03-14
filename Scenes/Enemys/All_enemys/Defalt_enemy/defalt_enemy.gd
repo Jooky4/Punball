@@ -20,7 +20,8 @@ var max_hp_enemy : float
 @onready var hp_enemy_label = $Hp_boss_label
 @onready var hp_enemy_bar = $TextureProgressBar
 @onready var animation_enemy = $AnimationPlayer
-@onready var fire_effect = $Fire_effect
+@onready var fire_effect = $Effects/Fire_effect
+@onready var poison_effect = $Effects/Poison_effect
 @onready var freezen_sprite = $Sprite_enemy/freezen_sprite
 @onready var collision_shape = $CollisionShape2D
 @onready var hit_sound = $Hit_sound
@@ -145,6 +146,7 @@ func delete_freezing_and_fire() -> void:
 		freezen_sprite.visible = false
 	if poisoned:
 		deal_damage(200, ElementsManager.color_elements["POISON"])
+		poison_effect.emitting = false
 		poisoned = false
 
 func moving(direction_object) -> void:
@@ -168,16 +170,17 @@ func moving(direction_object) -> void:
 
 func poisoning() -> void:
 	poisoned = true
+	poison_effect.emitting = true
 
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
 	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
-		label.text = str(damage_ball)
+		label.text = str(round(damage_ball))
 	elif color_label == ElementsManager.color_elements["HEAL"]:
-		label.text = "+" + str(damage_ball)
+		label.text = "+" + str(round(damage_ball))
 	else:
-		label.text = "-" + str(damage_ball)
+		label.text = "-" + str(round(damage_ball))
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)
