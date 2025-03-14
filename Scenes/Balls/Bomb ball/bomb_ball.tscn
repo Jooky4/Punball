@@ -83,3 +83,5 @@ volume_db = -14.0
 stream = ExtResource("6_3k376")
 volume_db = 2.0
 pitch_scale = 1.5
+
+[connection signal="finished" from="Hit_enemy_sound" to="." method="_on_hit_enemy_sound_finished"]

@@ -10,4 +10,10 @@ func collide_with_enemy(collider) -> void:
 	var effect = EFFECT_BALL.instantiate()
 	effect.global_position = self.global_position
 	get_tree().current_scene.add_child(effect)
+	self.visible = false
+	collision_mask = 0
+	direction_bullet = Vector2(0, 0)
+	speed = 0
+
+func _on_hit_enemy_sound_finished() -> void:
 	queue_free()
