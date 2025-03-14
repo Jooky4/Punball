@@ -1,13 +1,17 @@
-[gd_scene load_steps=36 format=3 uid="uid://btt53uxq2a182"]
+[gd_scene load_steps=47 format=3 uid="uid://btt53uxq2a182"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
 [ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/UI/ligting.png" id="2_ii2ha"]
 [ext_resource type="Texture2D" uid="uid://dc4bosyi510a1" path="res://Texture/UI/Skills_UI/Regular/обычныйВерх.png" id="2_tl1jo"]
 [ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 3.png" id="3_8n6dk"]
 [ext_resource type="Texture2D" uid="uid://dxluksimoc10k" path="res://Texture/UI/Skills_UI/Regular/обычныйНиз.png" id="3_f8gh8"]
+[ext_resource type="Texture2D" uid="uid://131mekxb47s1" path="res://Texture/Level_environment/particleStar_2.png" id="3_trmed"]
+[ext_resource type="Texture2D" uid="uid://bfloruavj3vov" path="res://Texture/Level_environment/звездочка.png" id="4_t0bp5"]
 [ext_resource type="Texture2D" uid="uid://defyku3t56jyi" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 2.png" id="4_uo73p"]
 [ext_resource type="Texture2D" uid="uid://db6hskxypvv6v" path="res://Texture/UI/Skills_UI/Regular/текст (обычный).png" id="5_d6d1w"]
+[ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="5_tjaaj"]
 [ext_resource type="Texture2D" uid="uid://bpqapqkxxbs35" path="res://Texture/UI/Skills_UI/Regular/окно описания скилл обычный.png" id="6_8xcjj"]
+[ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="6_uhrnc"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_gbsxi"]
 [ext_resource type="Texture2D" uid="uid://bi4tqxqkq2sb4" path="res://Texture/UI/Skills_UI/Rare/WindowUp.png" id="8_iux2o"]
 [ext_resource type="Texture2D" uid="uid://c7rgmnk02u5so" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 3.png" id="8_q1tj2"]
@@ -28,6 +32,35 @@
 [ext_resource type="Texture2D" uid="uid://dpy0iskpmsq8e" path="res://Texture/UI/Skills_UI/Legendary/окно описания скилл легендарный.png" id="20_u3v3r"]
 [ext_resource type="Texture2D" uid="uid://bddsbdwsqnnqh" path="res://Texture/UI/Skills_UI/Legendary/WindowUp.png" id="21_kd1mb"]
 [ext_resource type="Texture2D" uid="uid://c7nj0p05fcbp2" path="res://Texture/UI/Skills_UI/Legendary/WindowDown.png" id="22_ryi60"]
+
+[sub_resource type="Gradient" id="Gradient_wcxfe"]
+offsets = PackedFloat32Array(0.064, 0.176, 0.862, 0.974)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_fqjom"]
+_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.11553, 0.986364), 0.783673, 0.783673, 0, 0, Vector2(0.67803, 0.836364), -1.30909, -1.30909, 0, 0, Vector2(1, 0), -3.02608, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_ds174"]
+offsets = PackedFloat32Array(0.004, 0.052, 0.796, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_enhuo"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_f5re4"]
+offsets = PackedFloat32Array(0.004, 0.052, 0.438, 0.712)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_r112x"]
+offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 0.823498, 0.304688, 1, 1, 0.7112, 0.0898438, 0)
+
+[sub_resource type="Gradient" id="Gradient_uyurs"]
+offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.996078, 0.670588, 0.94902, 1, 1, 0.435294, 0.913725, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yme44"]
 resource_local_to_scene = true
@@ -349,6 +382,30 @@ tracks/25/keys = {
 "update": 0,
 "values": [Color(0.27451, 0.278431, 0.25098, 1)]
 }
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Effects/Legeng_stars:emitting")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Effects/Epic_stars:emitting")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qmjxo"]
 resource_name = "epic_window"
@@ -445,7 +502,7 @@ tracks/7/path = NodePath("Ligting:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.75, 0.9, 1.325, 1.375, 1.525, 1.75, 2.4, 2.6),
+"times": PackedFloat32Array(0, 0.7, 0.9, 1.325, 1.375, 1.525, 1.75, 2.4, 2.6),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.1, 1), Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.146, 1.25), Vector2(1, 0.65), Vector2(1, 0.65), Vector2(1, 0.93)]
@@ -457,10 +514,10 @@ tracks/8/path = NodePath("Ligting:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.9, 1.1, 1.425, 1.525, 1.75, 2.4),
+"times": PackedFloat32Array(0, 0.8, 0.9, 1.15, 1.425, 1.525, 1.75, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.919912, 0.688134, 0.922175, 1), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(0.952941, 0.811765, 0.952941, 0.713726)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 0.694118, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.996078, 0.584314, 1, 1), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(1, 0.701961, 1, 0.713726)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -534,6 +591,54 @@ tracks/14/keys = {
 "update": 0,
 "values": [Color(0.4375, 0.123047, 0.390332, 1)]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Effects/Epic_stars2:emitting")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Effects/Epic_light:emitting")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(1.375),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Effects/Epic_circle:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(1.375),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Effects/Epic_stars:emitting")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_mrjpc"]
 resource_name = "legend_window"
@@ -558,7 +663,7 @@ tracks/1/path = NodePath("rare_window:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9, 1.5),
+"times": PackedFloat32Array(0, 0.9, 1.525),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -678,7 +783,7 @@ tracks/11/path = NodePath("Ligting:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.75, 0.9, 1.325, 1.375, 1.525, 1.75, 2, 2.25, 2.4, 2.8, 3.8, 4),
+"times": PackedFloat32Array(0, 0.7, 0.9, 1.325, 1.375, 1.525, 1.75, 2, 2.25, 2.4, 2.8, 3.8, 4),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.1, 1), Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.146, 1.25), Vector2(1, 0.65), Vector2(1, 0.65), Vector2(0.905, 0.57), Vector2(1.1, 1.5), Vector2(1.05, 0.61), Vector2(1.05, 0.61), Vector2(1.05, 0.95)]
@@ -690,10 +795,10 @@ tracks/12/path = NodePath("Ligting:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.9, 1.1, 1.425, 1.525, 1.75, 2.3, 2.4, 3.8),
+"times": PackedFloat32Array(0, 0.8, 0.9, 1.15, 1.425, 1.525, 1.75, 2.3, 2.4, 3.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.919912, 0.688134, 0.922175, 1), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(0.929156, 0.798169, 0.496497, 1), Color(0.964382, 0.878587, 0.685951, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 0.694118, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.919912, 0.688134, 0.922175, 1), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(0.952941, 0.811765, 0.952941, 0.713726), Color(1, 0.808361, 0.394531, 1), Color(1, 0.729412, 0.145098, 1)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -742,6 +847,90 @@ tracks/16/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.539063, 0.202841, 0.0168457, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Effects/Legeng_stars:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(3.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Effects/Legeng_stars2:emitting")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Effects/Legeng_light:emitting")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(2.175),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Effects/Legeng_circle:emitting")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(2.175),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Effects/Epic_stars2:emitting")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(1.325),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Effects/Epic_circle:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Effects/Epic_light:emitting")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_pat2w"]
@@ -803,10 +992,10 @@ tracks/4/path = NodePath("Ligting:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(-2),
+"times": PackedFloat32Array(0, 1.5, 1.7),
+"transitions": PackedFloat32Array(-2, 1, 1),
 "update": 0,
-"values": [Vector2(103, 125)]
+"values": [Vector2(103, 125), Vector2(103, 125), Vector2(103, 192)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -815,10 +1004,10 @@ tracks/5/path = NodePath("Ligting:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.75, 0.9),
-"transitions": PackedFloat32Array(-2, -2, -2),
+"times": PackedFloat32Array(0, 0.7, 0.9, 1.275, 1.5, 1.7),
+"transitions": PackedFloat32Array(-2, -2, -2, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.1, 1)]
+"values": [Vector2(1.1, 0), Vector2(1.1, 0), Vector2(1.1, 1), Vector2(1.1, 0.6), Vector2(1.1, 0.6), Vector2(1.1, 0.85)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -827,10 +1016,10 @@ tracks/6/path = NodePath("Ligting:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.9, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.8, 0.9, 1.15, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 0.694118, 1, 1), Color(0.596078, 0.878431, 1, 0.278431), Color(0, 0.694118, 1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1031,6 +1220,153 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_qu6ra")
+
+[node name="Effects" type="Node2D" parent="."]
+position = Vector2(102, 200)
+
+[node name="Legeng_stars" type="CPUParticles2D" parent="Effects"]
+emitting = false
+amount = 70
+lifetime = 5.0
+local_coords = true
+texture = ExtResource("3_trmed")
+emission_shape = 3
+emission_rect_extents = Vector2(150, 270)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 14.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+scale_amount_min = 0.1
+scale_amount_max = 0.14
+color = Color(1, 0.722451, 0.121094, 1)
+color_ramp = SubResource("Gradient_wcxfe")
+
+[node name="Legeng_stars2" type="CPUParticles2D" parent="Effects"]
+position = Vector2(1, -169)
+emitting = false
+amount = 30
+lifetime = 1.4
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.9
+lifetime_randomness = 1.0
+texture = ExtResource("4_t0bp5")
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 320.0
+initial_velocity_max = 400.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+linear_accel_min = -200.0
+linear_accel_max = -200.0
+scale_amount_min = 0.4
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_fqjom")
+color_ramp = SubResource("Gradient_ds174")
+
+[node name="Legeng_light" type="CPUParticles2D" parent="Effects"]
+position = Vector2(4, -212)
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 1.2
+texture = ExtResource("5_tjaaj")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.6
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_enhuo")
+color_ramp = SubResource("Gradient_f5re4")
+
+[node name="Legeng_circle" type="CPUParticles2D" parent="Effects"]
+position = Vector2(4, -212)
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 1.2
+texture = ExtResource("6_uhrnc")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.6
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_enhuo")
+color_ramp = SubResource("Gradient_r112x")
+
+[node name="Epic_stars" type="CPUParticles2D" parent="Effects"]
+emitting = false
+amount = 20
+lifetime = 5.0
+local_coords = true
+texture = ExtResource("3_trmed")
+emission_shape = 3
+emission_rect_extents = Vector2(150, 270)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 14.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+scale_amount_min = 0.1
+scale_amount_max = 0.14
+color = Color(1, 0.407843, 0.913725, 1)
+color_ramp = SubResource("Gradient_wcxfe")
+
+[node name="Epic_stars2" type="CPUParticles2D" parent="Effects"]
+position = Vector2(1, -169)
+emitting = false
+amount = 14
+lifetime = 1.4
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.9
+lifetime_randomness = 1.0
+texture = ExtResource("4_t0bp5")
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 320.0
+initial_velocity_max = 380.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+linear_accel_min = -200.0
+linear_accel_max = -200.0
+scale_amount_min = 0.4
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_fqjom")
+color_ramp = SubResource("Gradient_ds174")
+
+[node name="Epic_light" type="CPUParticles2D" parent="Effects"]
+position = Vector2(4, -212)
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 1.2
+texture = ExtResource("5_tjaaj")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.55
+scale_amount_max = 0.55
+scale_amount_curve = SubResource("Curve_enhuo")
+color_ramp = SubResource("Gradient_f5re4")
+
+[node name="Epic_circle" type="CPUParticles2D" parent="Effects"]
+position = Vector2(4, -212)
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+speed_scale = 1.2
+texture = ExtResource("6_uhrnc")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.55
+scale_amount_max = 0.55
+scale_amount_curve = SubResource("Curve_enhuo")
+color_ramp = SubResource("Gradient_uyurs")
 
 [node name="Ligting" type="Sprite2D" parent="."]
 visible = false
