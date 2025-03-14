@@ -1,6 +1,6 @@
 extends Node2D
 
-var damage : float = 1500
+var damage : float = 2000
 @onready var animation_trap = $AnimationPlayer
 @onready var delete_trap_sound = $Delete_trap_sound
 

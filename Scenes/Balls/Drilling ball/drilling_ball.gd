@@ -12,6 +12,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		hit_enemy_sound.pitch_scale = AudioManager.get_random_pitch()
 		hit_enemy_sound.play()
+		if "Усиление особого шара" in LevelManager.player_skills:
+			damage_ball = round(damage_ball * 0.05)
 		body.deal_damage(damage_ball * ElementsManager.technologies_modifier, ElementsManager.color_elements["TECHNOLOGIES"])
 	LevelManager.heal_hp_plaer_from_technologies()
 

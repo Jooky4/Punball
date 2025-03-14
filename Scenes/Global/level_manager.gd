@@ -443,6 +443,7 @@ func rocket_ball_damage(enemy, damage_ball, color_ball, start_pos, count_rocket,
 				rocket.arc_height += 200 + (100 * i)
 				rocket.speed = 1200
 			else:
+				rocket.rocket_damage = 900
 				rocket.global_position = start_pos
 				rocket.arc_height += -50 * i
 			get_tree().current_scene.add_child(rocket)
@@ -469,20 +470,20 @@ func enemy_died(enemy) -> void:
 				first_level_links_on_objects[i][j] = null
 
 	if "Молния смерти" in player_skills:
-		lighthing_ball_damage(enemy, 200 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"], true)
+		lighthing_ball_damage(enemy, 600 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"], true)
 	if "Холод смерти" in player_skills:
-		ball_explosion(enemy, 200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], true)
+		ball_explosion(enemy, 300 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], true)
 	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):
-		ball_explosion(enemy, 200 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"], true)
+		ball_explosion(enemy, 400 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"], true)
 		if "Бомба смерти" in player_skills and !enemy.has_method("bomb_enemy") and !enemy.has_method("poison_enemy"):
 			var effect = EFFECT_EXPLOSION.instantiate()
 			effect.global_position = enemy.global_position
 			get_tree().current_scene.add_child(effect)
 	if "Лазер смерти" in player_skills:
-		laser_ball_damage(enemy, 200 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
+		laser_ball_damage(enemy, 600 * ElementsManager.laser_modifier, ElementsManager.color_elements["LASER"], 0)
 		AudioManager.liser_sound()
 	if "Ракета смерти" in player_skills:
-		rocket_ball_damage(enemy, 300 * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"], enemy.global_position, 2)
+		rocket_ball_damage(enemy, 900 * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"], enemy.global_position, 2)
 	if "Ловушка" in player_skills:
 		for i in range(first_level_links_on_objects.size()):
 			for j in range(first_level_links_on_objects[i].size()):

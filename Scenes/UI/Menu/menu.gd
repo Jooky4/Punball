@@ -32,6 +32,8 @@ var location = {
 var current_location = 1
 
 func _ready() -> void:
+	Engine.time_scale = 1
+	get_tree().paused = false
 	YandexSDK.init_game()
 	YandexSDK.init_player() 
 	YandexSDK.game_ready()
@@ -75,7 +77,7 @@ func _on_button_pressed() -> void:
 	ChangeScene.black_screen()
 	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
 	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.35).timeout
 	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 
 func _on_shop_button_pressed() -> void:

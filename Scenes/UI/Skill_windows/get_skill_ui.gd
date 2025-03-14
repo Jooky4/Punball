@@ -294,12 +294,6 @@ func add_skill(skill) -> void:
 			AudioManager.health_sound()
 			LevelManager.player_skills.append("Прибавка ОЗ")
 		"Усиление особого шара":
-			ElementsManager.fire_modifier += 0.1
-			ElementsManager.frost_modifier += 0.1
-			ElementsManager.laser_modifier += 0.1
-			ElementsManager.lightning_modifier += 0.1
-			ElementsManager.nuclear_modifier += 0.1
-			ElementsManager.technologies_modifier += 0.1
 			LevelManager.player_skills.append("Усиление особого шара")
 		"Усиление атаки":
 			ElementsManager.normal_modifier += 0.1

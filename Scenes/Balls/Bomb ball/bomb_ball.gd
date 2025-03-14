@@ -5,6 +5,8 @@ var EFFECT_BALL = preload("res://Scenes/Effects/BombBallExplosion.tscn")
 func collide_with_enemy(collider) -> void:
 	hit_enemy_sound.pitch_scale = AudioManager.get_random_pitch()
 	hit_enemy_sound.play()
+	if "Усиление особого шара" in LevelManager.player_skills:
+		damage_ball = round(damage_ball * 0.05)
 	LevelManager.ball_explosion(collider, damage_ball * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"])
 	var effect = EFFECT_BALL.instantiate()
 	effect.global_position = self.global_position

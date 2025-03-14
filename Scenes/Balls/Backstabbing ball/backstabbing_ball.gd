@@ -12,6 +12,8 @@ func collide_with_enemy(collider) -> void:
 	var self_position = self.get_global_position()
 	var delta_x = position_enemy.x - self_position.x
 	var delta_y = position_enemy.y - self_position.y 
+	if "Усиление особого шара" in LevelManager.player_skills:
+		damage_ball = round(damage_ball * 0.05)
 	if abs(delta_x) > abs(delta_y):
 		if delta_x > 0:
 			collider.deal_damage(damage_ball * ElementsManager.technologies_modifier, ElementsManager.color_elements["TECHNOLOGIES"])

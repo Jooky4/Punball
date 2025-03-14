@@ -6,5 +6,5 @@ func ice_cube_go(enemy):
 	await get_tree().create_timer(0.5).timeout
 	if enemy != null:
 		if enemy.alive:
-			enemy.deal_freezing_damage(200 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"])
+			enemy.deal_freezing_damage(500 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"])
 	queue_free()
