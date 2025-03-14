@@ -48,8 +48,8 @@ var texture_skill = {
 func update_discription(new_discription) -> void:
 	discription = new_discription
 
-func show_rarity_window(rarity : int) -> void:
-	scroll_skill_animation(rarity)
+func show_rarity_window(skill, rarity : int) -> void:
+	scroll_skill_animation(skill, rarity)
 	$Discription_skill.visible = false
 	$regular_window.visible = false
 	$rare_window.visible = false
@@ -80,7 +80,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	$Discription_skill.visible = true
 	$Discription_skill.text = discription
 
-func scroll_skill_animation(rarity):
+func scroll_skill_animation(skill, rarity):
 	var time_animation : float = 0
 	match rarity:
 		1:
@@ -93,5 +93,5 @@ func scroll_skill_animation(rarity):
 			time_animation = 4
 	for i in $VScrollBar/Texture_skills.get_children():
 		i.texture = texture_skill[texture_skill.keys()[randi() % texture_skill.keys().size()]]
-	$VScrollBar/Texture_skills/TextureRect40.texture = texture_skill[discription]
+	$VScrollBar/Texture_skills/TextureRect40.texture = texture_skill[skill]
 	create_tween().tween_property($VScrollBar, "scroll_vertical", 512*40, time_animation).set_trans(Tween.TRANS_QUAD)

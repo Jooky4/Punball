@@ -6,13 +6,13 @@ extends Control
 @onready var level_up_UI = $Level_up_UI
 
 func _ready() -> void:
+	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
+	level_up_UI.visible = false
+	plus_expiriance_level_player()
 	if PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS == WaveGeneration.get_count_wave_on_location():
 		win()
-	elif PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS <= WaveGeneration.get_count_wave_on_location():
+	elif PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS < WaveGeneration.get_count_wave_on_location():
 		lose()
-	level_up_UI.visible = false
-	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
-	plus_expiriance_level_player()
 
 func _on_go_to_menu_pressed() -> void:
 	AudioManager.click()
