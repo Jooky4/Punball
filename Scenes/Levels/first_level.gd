@@ -252,7 +252,7 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	end_game_UI_lose.visible = false
 	balls_can_go = true
 	game_state = PLAY
-	if for_AD_or_crystal:
+	if for_AD_or_crystal == true:
 		revavil_for_AD_or_crystal = true
 
 func _on_start_again_pressed() -> void:
