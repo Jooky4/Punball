@@ -16,8 +16,8 @@
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="11_14f6r"]
 [ext_resource type="Texture2D" uid="uid://48v7rnyrdq3f" path="res://Texture/Enemys/Jumper_enemy/глаз_2.png" id="16_60bhh"]
 [ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="17_c4lof"]
-[ext_resource type="AudioStream" uid="uid://ckhfgs3asftef" path="res://Resources/Sounds/смерть.mp3" id="18_kt8w1"]
-[ext_resource type="AudioStream" uid="uid://cap706r5n8cva" path="res://Resources/Sounds/прыгун.mp3" id="19_djmwm"]
+[ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="17_llek7"]
+[ext_resource type="AudioStream" uid="uid://bahur0brpajyr" path="res://Resources/Sounds/прыгун_2.ogg" id="18_5ho70"]
 
 [sub_resource type="Curve" id="Curve_aadmt"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -2538,13 +2538,12 @@ blend_times = [&"Hit", &"Hit", 0.15, &"Hit", &"Idle", 0.3, &"Hit", &"Move", 0.3,
 stream = ExtResource("17_c4lof")
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_kt8w1")
-volume_db = -15.0
+stream = ExtResource("17_llek7")
+volume_db = -22.0
+pitch_scale = 1.3
 
 [node name="Move_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_djmwm")
-volume_db = -20.0
-pitch_scale = 1.2
+stream = ExtResource("18_5ho70")
+volume_db = -5.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]

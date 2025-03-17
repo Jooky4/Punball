@@ -12,7 +12,8 @@ func _process(delta: float) -> void:
 	fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
 
 func get_random_pitch() -> float:
-	return randf_range(-0.1, 0.1)
+	#return randf_range(-0.1, 0.1) убрал рандом питча пока что
+	return 0
 
 func click() -> void:
 	$Button_click.play()

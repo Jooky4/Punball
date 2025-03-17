@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bmqp36us31dlh" path="res://Texture/Enemys/Berserker_enemy/топор_2.png" id="9_npx7p"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="10_lwebr"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="11_3aje5"]
+[ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="12_ie76y"]
 [ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="13_3obb5"]
-[ext_resource type="AudioStream" uid="uid://ckhfgs3asftef" path="res://Resources/Sounds/смерть.mp3" id="14_bmtmm"]
 [ext_resource type="Texture2D" uid="uid://b7fq8vx6d7bnw" path="res://Texture/Enemys/Berserker_enemy/глаза_3.png" id="15_34wc0"]
 [ext_resource type="Texture2D" uid="uid://b2xd88io748vw" path="res://Texture/Enemys/Berserker_enemy/глаза_2.png" id="16_6xbej"]
 
@@ -1383,8 +1383,9 @@ shape = SubResource("RectangleShape2D_n58q7")
 stream = ExtResource("13_3obb5")
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_bmtmm")
-volume_db = -15.0
+stream = ExtResource("12_ie76y")
+volume_db = -22.0
+pitch_scale = 1.3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1395,5 +1396,4 @@ playback_auto_capture = false
 next/Spawn = &"Idle"
 blend_times = [&"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.2, &"Move", &"Idle", 0.35, &"Move", &"Preparation", 0.35, &"Preparation", &"Hit", 0.5, &"Spawn", &"Idle", 0.6]
 
-[connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
