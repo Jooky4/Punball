@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/Balls/Rocket ball/rocket.gd" id="1_4jamx"]
 [ext_resource type="Texture2D" uid="uid://b74f0w5agfq17" path="res://Texture/Balls/шар ракета.png" id="1_4rsko"]
-[ext_resource type="AudioStream" uid="uid://cjxhlu7le18yd" path="res://Resources/Sounds/спавн_ракет.mp3" id="4_uh6pq"]
+[ext_resource type="AudioStream" uid="uid://cdywux8t0f77d" path="res://Resources/Sounds/ракета_старт.ogg" id="4_w5xoj"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_yqtnj"]
-[ext_resource type="AudioStream" uid="uid://b62reiyqbdbqq" path="res://Resources/Sounds/ракета.mp3" id="5_o3u3i"]
+[ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="5_a3kcv"]
 
 [sub_resource type="Curve" id="Curve_q7ck3"]
 _data = [Vector2(0, 0.486364), 0.0, -0.263636, 0, 1, Vector2(1, 0.222727), -0.263636, 0.0, 1, 0]
@@ -80,11 +80,11 @@ libraries = {
 autoplay = "Spawn"
 
 [node name="Start_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_uh6pq")
+stream = ExtResource("4_w5xoj")
 volume_db = -15.0
-pitch_scale = 0.7
 
 [node name="End_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_o3u3i")
+stream = ExtResource("5_a3kcv")
+volume_db = -12.0
 
 [connection signal="finished" from="End_sound" to="." method="_on_end_sound_finished"]
