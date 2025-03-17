@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_ymc6v"]
 [ext_resource type="Texture2D" uid="uid://c812vjdm7cuxt" path="res://Texture/Balls/Минимолния_2.png" id="4_ji8wt"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_ew8ax"]
-[ext_resource type="AudioStream" uid="uid://csgt0m857e1iv" path="res://Resources/Sounds/молния.mp3" id="6_p4dvm"]
+[ext_resource type="AudioStream" uid="uid://dadbioxv01fh5" path="res://Resources/Sounds/молния_2.ogg" id="6_e82ak"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fr3gy"]
 radius = 16.0312
@@ -66,5 +66,6 @@ stream = ExtResource("5_ew8ax")
 volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_p4dvm")
-volume_db = 10.0
+stream = ExtResource("6_e82ak")
+volume_db = -14.0
+pitch_scale = 1.1

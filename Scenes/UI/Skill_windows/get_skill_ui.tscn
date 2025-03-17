@@ -307,7 +307,6 @@ libraries = {
 
 [node name="Get_skill_scrolling" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_hiegy")
-pitch_scale = 1.1
 bus = &"SFX"
 
 [node name="Legendari_skill" type="AudioStreamPlayer" parent="."]

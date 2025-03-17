@@ -101,5 +101,5 @@ volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_q3m5a")
-volume_db = -4.0
-pitch_scale = 1.2
+volume_db = -10.0
+pitch_scale = 1.5
