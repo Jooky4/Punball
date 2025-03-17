@@ -254,19 +254,19 @@ func compare_skills(a, b):
 	return a[1] < b[1] 
 
 func legendary_sound() -> void:
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(2.4).timeout
 	$Legendari_skill.play()
 
 func epic_sound() -> void:
-	await get_tree().create_timer(2.6).timeout
+	await get_tree().create_timer(1.5).timeout
 	$Epic_skill.play()
 
 func rare_sound() -> void:
-	await get_tree().create_timer(1.7).timeout
+	await get_tree().create_timer(0.9).timeout
 	$Rare_skill.play()
 
 func regular_sound() -> void:
-	await get_tree().create_timer(1.1).timeout
+	await get_tree().create_timer(0).timeout
 	$Regular_skill.play()
 
 func _on_skill_1_pressed() -> void:
