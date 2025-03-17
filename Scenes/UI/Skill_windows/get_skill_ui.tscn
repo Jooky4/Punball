@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://bc7u6hiofpjs6" path="res://Texture/UI/Skills_UI/текст кнопки ADS.png" id="8_ttmyg"]
 [ext_resource type="Texture2D" uid="uid://cxk3lp3iqgprs" path="res://Texture/UI/Skills_UI/стрелки кнопки обновить.png" id="9_wywd0"]
 [ext_resource type="AudioStream" uid="uid://biy8w38m71sov" path="res://Resources/Sounds/прокрутка.mp3" id="10_hiegy"]
-[ext_resource type="AudioStream" uid="uid://bn5ns2plduu24" path="res://Resources/Sounds/легендарный.mp3" id="11_h7n1n"]
-[ext_resource type="AudioStream" uid="uid://dbkexw7e6y6lh" path="res://Resources/Sounds/обычный_скилл.mp3" id="12_b4ch7"]
-[ext_resource type="AudioStream" uid="uid://bd8h8noysrwef" path="res://Resources/Sounds/редкий.mp3" id="13_cmqrr"]
-[ext_resource type="AudioStream" uid="uid://wamndic44ny4" path="res://Resources/Sounds/эпик.mp3" id="14_ihb0p"]
+[ext_resource type="AudioStream" uid="uid://c1wsr6h4t3367" path="res://Resources/Sounds/скилл_легенд.ogg" id="13_63lcq"]
+[ext_resource type="AudioStream" uid="uid://8ikyddi0hl8o" path="res://Resources/Sounds/скилл_обычный.ogg" id="14_chdng"]
+[ext_resource type="AudioStream" uid="uid://dagj8wotn2oef" path="res://Resources/Sounds/скилл_редкий.ogg" id="15_mauj0"]
+[ext_resource type="AudioStream" uid="uid://dogch0jj44u8b" path="res://Resources/Sounds/скилл_эпик.ogg" id="16_xjmww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fibwp"]
 font = ExtResource("1_42rjm")
@@ -310,16 +310,20 @@ stream = ExtResource("10_hiegy")
 bus = &"SFX"
 
 [node name="Legendari_skill" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_h7n1n")
+stream = ExtResource("13_63lcq")
+volume_db = -10.0
 
 [node name="Regular_skill" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_b4ch7")
+stream = ExtResource("14_chdng")
+volume_db = -10.0
 
 [node name="Rare_skill" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_cmqrr")
+stream = ExtResource("15_mauj0")
+volume_db = -10.0
 
 [node name="Epic_skill" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_ihb0p")
+stream = ExtResource("16_xjmww")
+volume_db = -10.0
 
 [connection signal="pressed" from="Bye_button/Skill_1" to="." method="_on_skill_1_pressed"]
 [connection signal="pressed" from="Bye_button/Skill_1/Button" to="." method="_on_skill_1_pressed"]

@@ -67,4 +67,4 @@ volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_m5fmt")
-volume_db = -16.0
+volume_db = -12.0
