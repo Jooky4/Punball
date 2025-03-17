@@ -78,6 +78,8 @@ func _on_button_pressed() -> void:
 	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
 	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
 	await get_tree().create_timer(0.35).timeout
+	LevelManager.restert()
+	LevelManager.player_balls = [1, 1, 1, 1]
 	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 
 func _on_shop_button_pressed() -> void:

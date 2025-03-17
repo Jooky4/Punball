@@ -106,6 +106,8 @@ func apeend_new_balls() -> void:
 	player_balls_after_wave.clear()
 
 func moving_object(player_position) -> void:
+	print(first_level_links_on_objects)
+	print()
 	hit_player = false
 	for i in first_level_links_on_objects: # ЖДЁМ ПОКА ЗАСПАВНЯТСЯ ВСЕ СЛИЗИ
 		for j in i:
@@ -206,6 +208,8 @@ func moving_object(player_position) -> void:
 				first_level_links_on_objects[7][i].enemy_on_last_line()
 	if somebody_move_on_this_wave == true:
 		AudioManager.enemy_move()
+	print(first_level_links_on_objects)
+	print()
 	await get_tree().create_timer(1).timeout
 	check_traps()
 
@@ -342,6 +346,7 @@ func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false)
 						if first_level_links_on_objects[target_x][target_y].alive:
 							if color_ball == ElementsManager.color_elements["POISON"]:
 								first_level_links_on_objects[target_x][target_y].poisoning()
+								AudioManager.bomb_sound()
 							elif color_ball == ElementsManager.color_elements["FIRE"]:
 								first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
 								if create_sound:
@@ -428,7 +433,7 @@ func laser_ball_damage_vertically(damage_ball, color_ball, line_damage, pos_enem
 func rocket_ball_damage(enemy, damage_ball, color_ball, start_pos, count_rocket, combo : bool = false) -> void:
 	var enemy_arr : Array = find_all_enemys()
 	var weak_enemy
-	var min_hp = 1000000
+	var min_hp = 10000000
 	if enemy_arr != [] and enemy_arr.size() != 1:
 		for i in enemy_arr:
 			if i.hp_enemy < min_hp and i != enemy and i.alive:
@@ -438,12 +443,12 @@ func rocket_ball_damage(enemy, damage_ball, color_ball, start_pos, count_rocket,
 			count_rocket += 1
 		for i in range(count_rocket):
 			var rocket = ROCKET.instantiate()
+			rocket.rocket_damage = damage_ball
 			if combo:
 				rocket.global_position = Vector2(358, -200)
 				rocket.arc_height += 200 + (100 * i)
 				rocket.speed = 1200
 			else:
-				rocket.rocket_damage = 900
 				rocket.global_position = start_pos
 				rocket.arc_height += -50 * i
 			get_tree().current_scene.add_child(rocket)
@@ -474,6 +479,9 @@ func enemy_died(enemy) -> void:
 		lighthing_ball_damage(enemy, 600 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"], true)
 	if "Холод смерти" in player_skills:
 		ball_explosion(enemy, 300 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], true)
+		var effect = EFFECT_EXPLOSION.instantiate()
+		effect.global_position = enemy.global_position
+		get_tree().current_scene.add_child(effect)
 	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):
 		ball_explosion(enemy, 400 * ElementsManager.fire_modifier, ElementsManager.color_elements["FIRE"], true)
 		if "Бомба смерти" in player_skills and !enemy.has_method("bomb_enemy") and !enemy.has_method("poison_enemy"):
