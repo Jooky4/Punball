@@ -106,8 +106,10 @@ func apeend_new_balls() -> void:
 	player_balls_after_wave.clear()
 
 func moving_object(player_position) -> void:
-	print(first_level_links_on_objects)
 	print()
+	for i in first_level_links_on_objects:
+		print(i)
+
 	hit_player = false
 	for i in first_level_links_on_objects: # ЖДЁМ ПОКА ЗАСПАВНЯТСЯ ВСЕ СЛИЗИ
 		for j in i:
@@ -208,8 +210,11 @@ func moving_object(player_position) -> void:
 				first_level_links_on_objects[7][i].enemy_on_last_line()
 	if somebody_move_on_this_wave == true:
 		AudioManager.enemy_move()
-	print(first_level_links_on_objects)
+
 	print()
+	for i in first_level_links_on_objects:
+		print(i)
+
 	await get_tree().create_timer(1).timeout
 	check_traps()
 
@@ -471,8 +476,9 @@ func update_combo_count(enemy) -> void:
 func enemy_died(enemy) -> void:
 	for i in range(first_level_links_on_objects.size()):
 		for j in range(first_level_links_on_objects[i].size()):
-			if first_level_links_on_objects[i][j] == self:
+			if first_level_links_on_objects[i][j] == enemy:
 				first_level_links_on_objects[i][j] = null
+				print(1)
 				break
 
 	if "Молния смерти" in player_skills:

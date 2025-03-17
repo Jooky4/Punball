@@ -1396,4 +1396,5 @@ playback_auto_capture = false
 next/Spawn = &"Idle"
 blend_times = [&"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.2, &"Move", &"Idle", 0.35, &"Move", &"Preparation", 0.35, &"Preparation", &"Hit", 0.5, &"Spawn", &"Idle", 0.6]
 
+[connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

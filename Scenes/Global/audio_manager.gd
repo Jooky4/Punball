@@ -69,6 +69,7 @@ func _on_music_finished() -> void:
 	$Music.playing = true
 
 func bomb_ball_hit_sound() -> void:
+	$Bomb_explosion_var_2.stop() 
 	$Bomb_ball_hit_sound.pitch_scale += get_random_pitch()
 	$Bomb_ball_hit_sound.play()
 

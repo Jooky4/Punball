@@ -105,7 +105,7 @@ stream = ExtResource("39_onrjk")
 volume_db = -20.0
 
 [node name="Bomb_ball_hit_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_6glt2")
+stream = ExtResource("3_wj7ne")
 volume_db = -4.0
 pitch_scale = 1.2
 
