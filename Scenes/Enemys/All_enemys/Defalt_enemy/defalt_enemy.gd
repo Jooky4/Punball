@@ -62,7 +62,7 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 		if animation_enemy.current_animation == "Move":
 			await animation_enemy.current_animation_changed
 		elif animation_enemy.current_animation == "Spawn":
-			await await animation_enemy.current_animation_changed
+			await animation_enemy.current_animation_changed
 
 		if hp_enemy <= 0 and alive == false:
 			hp_enemy_label.text = "0"
@@ -150,7 +150,9 @@ func delete_freezing_and_fire() -> void:
 		poisoned = false
 
 func moving(direction_object) -> void:
-	if alive and animation_enemy.current_animation != "Spawn":
+	if alive:
+		if animation_enemy.current_animation == "Spawn":
+			await animation_enemy.current_animation_changed
 		if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 			animation_enemy.play("Move")
 		if direction_object != "":
@@ -212,7 +214,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		elif anim_name == "Hit" and on_last_line and !self.has_method("boss"):
 			self.queue_free()
 		elif anim_name == "Death":
-			LevelManager.enemy_died(self)
 			self.visible = false
 		else:
 			if on_last_line:
@@ -241,7 +242,7 @@ func play_magic_spawn_anim():
 	animation_enemy.play("SpawnMagic")
 
 func die() -> void:
-	pass
+	LevelManager.enemy_died(self)
 
 func math_damage_player() -> void:
 	pass

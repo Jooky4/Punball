@@ -11,6 +11,7 @@ func die() -> void:
 		await animation_enemy.current_animation_changed
 	elif animation_enemy.current_animation == "Spawn":
 		await await animation_enemy.current_animation_changed
+	LevelManager.enemy_died(self)
 	var effect = EFFECT_EXPLOSION.instantiate()
 	effect.global_position = self.global_position
 	get_tree().current_scene.add_child(effect)
