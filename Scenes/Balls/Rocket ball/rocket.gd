@@ -29,7 +29,7 @@ func go(enemy, start_pos) -> void:
 		tween.set_trans(Tween.TRANS_EXPO)
 		await tween.finished
 		if enemy != null:
-			enemy.deal_damage(rocket_damage * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"])
+			enemy.deal_damage(rocket_damage, ElementsManager.color_elements["NUCLEAR"])
 			end_sound.pitch_scale += AudioManager.get_random_pitch()
 			end_sound.play()
 			self.visible = false
