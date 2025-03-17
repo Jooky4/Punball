@@ -229,12 +229,18 @@ func create_skill():
 		time_wait = 1.2
 
 	if 4 in rare_skills:
-		legendary_sound()
-	if 3 in rare_skills:
-		epic_sound()
-	if 2 in rare_skills:
+		regular_sound()
 		rare_sound()
-	if 1 in rare_skills:
+		epic_sound()
+		legendary_sound()
+	elif 3 in rare_skills:
+		regular_sound()
+		rare_sound()
+		epic_sound()
+	elif 2 in rare_skills:
+		regular_sound()
+		rare_sound()
+	elif 1 in rare_skills:
 		regular_sound()
 
 	create_tween().tween_property(sound_scroll, "pitch_scale", 0.9, time_wait - 0.25)
