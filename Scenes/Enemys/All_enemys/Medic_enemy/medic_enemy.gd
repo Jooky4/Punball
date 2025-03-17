@@ -15,7 +15,7 @@ func heal_enemy() -> bool:
 					if (j.max_hp_enemy > j.hp_enemy) and (max_hp > j.hp_enemy):
 						enemy_for_heal = j
 	if enemy_for_heal != null:
-		heal_sound.pitch_scale = AudioManager.get_random_pitch()
+		heal_sound.pitch_scale += AudioManager.get_random_pitch()
 		heal_sound.play()
 		enemy_for_heal.heal_hp(self.max_hp_enemy * 0.5)
 		animation_enemy.play("Hill")

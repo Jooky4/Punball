@@ -11,7 +11,7 @@ var rocket_damage : int = 300
 @onready var end_sound = $End_sound
 
 func _ready() -> void:
-	start_sound.pitch_scale = AudioManager.get_random_pitch()
+	start_sound.pitch_scale += AudioManager.get_random_pitch()
 	start_sound.play()
 
 func go(enemy, start_pos) -> void:
@@ -30,7 +30,7 @@ func go(enemy, start_pos) -> void:
 		await tween.finished
 		if enemy != null:
 			enemy.deal_damage(rocket_damage * ElementsManager.nuclear_modifier, ElementsManager.color_elements["NUCLEAR"])
-			end_sound.pitch_scale = AudioManager.get_random_pitch()
+			end_sound.pitch_scale += AudioManager.get_random_pitch()
 			end_sound.play()
 			self.visible = false
 	else:

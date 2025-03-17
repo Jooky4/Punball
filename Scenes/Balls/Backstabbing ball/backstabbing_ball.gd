@@ -6,7 +6,7 @@ func collide_with_enemy(collider) -> void:
 	var effect = EFFECT_BALL.instantiate()
 	effect.global_position = self.global_position
 	get_tree().current_scene.add_child(effect)
-	hit_enemy_sound.pitch_scale = AudioManager.get_random_pitch()
+	hit_enemy_sound.pitch_scale += AudioManager.get_random_pitch()
 	hit_enemy_sound.play()
 	var position_enemy = collider.get_global_position()
 	var self_position = self.get_global_position()

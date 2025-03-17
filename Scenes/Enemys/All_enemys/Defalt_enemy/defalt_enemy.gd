@@ -79,7 +79,7 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 					buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
 					get_tree().current_scene.add_child(buff_health)
 			if animation_enemy:
-				death_sound.pitch_scale = AudioManager.get_random_pitch()
+				death_sound.pitch_scale += AudioManager.get_random_pitch()
 				death_sound.play()
 				animation_enemy.play("Death")
 				var effect = DEATH_EFFECT.instantiate()
@@ -192,7 +192,7 @@ func enemy_on_last_line():
 func play_animation_hit_player():
 	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Hit")
-		hit_sound.pitch_scale = AudioManager.get_random_pitch()
+		hit_sound.pitch_scale += AudioManager.get_random_pitch()
 		hit_sound.play()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -236,7 +236,7 @@ func heal_hp(hp_heal) -> void:
 
 func play_magic_spawn_anim():
 	animation_enemy.stop()
-	$Magic_spawn.pitch_scale = AudioManager.get_random_pitch()
+	$Magic_spawn.pitch_scale += AudioManager.get_random_pitch()
 	$Magic_spawn.play()
 	animation_enemy.play("SpawnMagic")
 

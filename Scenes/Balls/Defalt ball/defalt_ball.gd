@@ -37,13 +37,13 @@ func _physics_process(delta) -> void:
 				LevelManager.update_combo_count(collider)
 				collide_with_enemy(collider)
 			elif "Wall" in collider.name:
-				ricochet_sound.pitch_scale = AudioManager.get_random_pitch()
+				ricochet_sound.pitch_scale += AudioManager.get_random_pitch()
 				ricochet_sound.play()
 
 			move_and_collide(direction_bullet * velocity * delta)
 
 func collide_with_enemy(collider) -> void:
-	hit_enemy_sound.pitch_scale = AudioManager.get_random_pitch()
+	hit_enemy_sound.pitch_scale += AudioManager.get_random_pitch()
 	hit_enemy_sound.play()
 	collider.deal_damage(damage_ball * ElementsManager.normal_modifier, ElementsManager.color_elements["NORMAL"])
 

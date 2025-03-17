@@ -26,7 +26,7 @@ func spawn_new_enemy() -> void:
 	if free_spot != [] and free_spot.size() != 0:
 		var spot_for_new_enemy = free_spot[randi() % free_spot.size()]
 		if get_tree().current_scene.has_method("spawn_objects_by_index"):
-			spawn_enemy_sound.pitch_scale = AudioManager.get_random_pitch()
+			spawn_enemy_sound.pitch_scale += AudioManager.get_random_pitch()
 			spawn_enemy_sound.play()
 			animation_enemy.play("Cast")
 			var count_pos = int((spot_for_new_enemy.x * 6) + (spot_for_new_enemy.y + 1)) - 1 

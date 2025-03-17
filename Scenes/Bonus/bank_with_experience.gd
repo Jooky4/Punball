@@ -14,7 +14,7 @@ func go_to_count() -> void:
 		bank_go = false
 		get_tree().current_scene.get_expirians_animation(experience)
 	self.visible = false
-	experience_sound.pitch_scale = AudioManager.get_random_pitch()
+	experience_sound.pitch_scale += AudioManager.get_random_pitch()
 	experience_sound.play()
 	await get_tree().create_timer(0.6).timeout
 	queue_free()
