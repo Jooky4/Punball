@@ -1,0 +1,538 @@
+[gd_scene load_steps=12 format=3 uid="uid://caf0ebk5ttcbn"]
+
+[ext_resource type="Texture2D" uid="uid://dnvg0ncyk7tc2" path="res://Texture/UI/Talents_UI/ячейка активная для талантов за монеты.png" id="1_0phtb"]
+[ext_resource type="Script" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
+[ext_resource type="Texture2D" uid="uid://72rpjmcdgvit" path="res://Texture/UI/Talents_UI/золотая ячейка.png" id="2_tv2hr"]
+[ext_resource type="Texture2D" uid="uid://dtpqw0kjhm278" path="res://Texture/UI/Talents_UI/всплывающее окно (покупка).png" id="3_pv7q1"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_tylve"]
+[ext_resource type="Texture2D" uid="uid://ck04ttpiwx5hx" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна).png" id="5_pjx38"]
+[ext_resource type="Texture2D" uid="uid://kp41ah4lio7c" path="res://Texture/UI/Talents_UI/монетка (для всплывающего окна).png" id="6_21xj4"]
+[ext_resource type="Texture2D" uid="uid://sl81gelp2o3x" path="res://Texture/UI/Talents_UI/зеленая галочка.png" id="7_unbt6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qkcps"]
+font = ExtResource("4_tylve")
+font_size = 30
+font_color = Color(0.219608, 0.184314, 0.14902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8p74j"]
+font = ExtResource("4_tylve")
+font_size = 18
+font_color = Color(0.219608, 0.184314, 0.14902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmj3m"]
+font = ExtResource("4_tylve")
+font_size = 50
+
+[node name="Scill_scroll_conteiner" type="MarginContainer"]
+custom_minimum_size = Vector2(720, 0)
+theme_override_constants/margin_left = 55
+theme_override_constants/margin_right = 55
+script = ExtResource("1_jrb2a")
+
+[node name="For_coins" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+disabled = true
+texture_normal = ExtResource("1_0phtb")
+
+[node name="Information" type="TextureRect" parent="For_coins"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -350.0
+offset_right = 77.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_pv7q1")
+
+[node name="Need_level" type="Label" parent="For_coins/Information"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Требуется уровень
+"
+label_settings = SubResource("LabelSettings_qkcps")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Bye_skill" type="Control" parent="For_coins/Information"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Skill_name" type="Label" parent="For_coins/Information/Bye_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -1.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Увеличение атаки"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Discription" type="Label" parent="For_coins/Information/Bye_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 53.0
+offset_right = 2.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Атака +50
+"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Bye_Button" type="TextureButton" parent="For_coins/Information/Bye_skill"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -76.0
+offset_right = 53.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("5_pjx38")
+
+[node name="TextureRect" type="TextureRect" parent="For_coins/Information/Bye_skill/Bye_Button"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -12.0
+offset_right = 107.0
+offset_bottom = 28.0
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_21xj4")
+
+[node name="Label" type="Label" parent="For_coins/Information/Bye_skill/Bye_Button"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 155.0
+offset_bottom = 68.0
+scale = Vector2(0.45, 0.45)
+text = "500"
+label_settings = SubResource("LabelSettings_pmj3m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Have_this_skill" type="Control" parent="For_coins/Information"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Skill_name" type="Label" parent="For_coins/Information/Have_this_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -1.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Увеличение атаки"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Discription" type="Label" parent="For_coins/Information/Have_this_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 53.0
+offset_right = 2.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Атака +50
+"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="For_coins/Information/Have_this_skill"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 131.0
+offset_right = 111.0
+offset_bottom = 182.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_unbt6")
+
+[node name="Need_previous_skill" type="Control" parent="For_coins/Information"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Skill_name" type="Label" parent="For_coins/Information/Need_previous_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -1.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Увеличение атаки"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Discription" type="Label" parent="For_coins/Information/Need_previous_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 53.0
+offset_right = 2.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Атака +50
+"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Skill_texture" type="TextureRect" parent="For_coins"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 43.0
+offset_right = -39.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Button_for_coins" type="Button" parent="For_coins"]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 32.0
+offset_right = -29.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="For_crystal" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 2
+disabled = true
+texture_normal = ExtResource("2_tv2hr")
+
+[node name="Information" type="TextureRect" parent="For_crystal"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -380.0
+offset_right = 77.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_pv7q1")
+
+[node name="Need_level" type="Label" parent="For_crystal/Information"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -5.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Требуется уровень
+"
+label_settings = SubResource("LabelSettings_qkcps")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Bye_skill" type="Control" parent="For_crystal/Information"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Skill_name" type="Label" parent="For_crystal/Information/Bye_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -1.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Увеличение атаки"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Discription" type="Label" parent="For_crystal/Information/Bye_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 53.0
+offset_right = 2.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Атака +50
+"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Bye_Button" type="TextureButton" parent="For_crystal/Information/Bye_skill"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -76.0
+offset_right = 53.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("5_pjx38")
+
+[node name="TextureRect" type="TextureRect" parent="For_crystal/Information/Bye_skill/Bye_Button"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -12.0
+offset_right = 107.0
+offset_bottom = 28.0
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_21xj4")
+
+[node name="Label" type="Label" parent="For_crystal/Information/Bye_skill/Bye_Button"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 155.0
+offset_bottom = 68.0
+scale = Vector2(0.45, 0.45)
+text = "500"
+label_settings = SubResource("LabelSettings_pmj3m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Have_this_skill" type="Control" parent="For_crystal/Information"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Skill_name" type="Label" parent="For_crystal/Information/Have_this_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -1.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Увеличение атаки"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Discription" type="Label" parent="For_crystal/Information/Have_this_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 53.0
+offset_right = 2.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Атака +50
+"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="For_crystal/Information/Have_this_skill"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 131.0
+offset_right = 111.0
+offset_bottom = 182.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_unbt6")
+
+[node name="Need_previous_skill" type="Control" parent="For_crystal/Information"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Skill_name" type="Label" parent="For_crystal/Information/Need_previous_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -1.0
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Увеличение атаки"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Discription" type="Label" parent="For_crystal/Information/Need_previous_skill"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 53.0
+offset_right = 2.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Атака +50
+"
+label_settings = SubResource("LabelSettings_8p74j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Skill_texture" type="TextureRect" parent="For_crystal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 40.0
+offset_right = -34.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Button_for_crystall" type="Button" parent="For_crystal"]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Timer_can_close" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="pressed" from="For_coins/Button_for_coins" to="." method="_on_button_for_coins_pressed"]
+[connection signal="pressed" from="For_crystal/Button_for_crystall" to="." method="_on_button_for_crystall_pressed"]
+[connection signal="timeout" from="Timer_can_close" to="." method="_on_timer_can_close_timeout"]

@@ -252,11 +252,6 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	if for_AD_or_crystal == true:
 		revavil_for_AD_or_crystal = true
 
-func _on_start_again_pressed() -> void:
-	LevelManager.restert()
-	LevelManager.player_balls = [1, 1, 1, 1]
-	get_tree().reload_current_scene()
-
 func draw_trajectory() -> void:
 	strelka.points[0] = start_balls_position.position
 	strelka.points[1] = start_balls_position.position + (direction * 100)

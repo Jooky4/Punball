@@ -47,6 +47,12 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-4, 6)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ockje"]
+font = ExtResource("10_fo6nb")
+font_size = 90
+outline_size = 20
+outline_color = Color(0, 1, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
 bg_color = Color(0.478007, 0.618938, 0.736741, 1)
 
@@ -68,12 +74,6 @@ Button/styles/focus = SubResource("StyleBoxFlat_jkoco")
 Button/styles/hover = SubResource("StyleBoxFlat_ny5mh")
 Button/styles/normal = SubResource("StyleBoxFlat_x8hou")
 Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
-
-[sub_resource type="LabelSettings" id="LabelSettings_ockje"]
-font = ExtResource("10_fo6nb")
-font_size = 90
-outline_size = 20
-outline_color = Color(0, 1, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_afqc7"]
 font = ExtResource("10_fo6nb")
@@ -333,18 +333,6 @@ offset_bottom = 1280.0
 [node name="Lose" parent="UI" instance=ExtResource("12_tjpvy")]
 visible = false
 layout_mode = 1
-
-[node name="Start_again" type="Button" parent="UI/Lose"]
-z_index = 2
-layout_mode = 0
-offset_left = 55.0
-offset_top = 1040.0
-offset_right = 669.0
-offset_bottom = 1122.0
-theme = SubResource("Theme_6um41")
-theme_override_fonts/font = ExtResource("10_fo6nb")
-theme_override_font_sizes/font_size = 60
-text = "Попробовать ещё раз"
 
 [node name="Win" type="Label" parent="UI"]
 visible = false
@@ -650,7 +638,6 @@ texture_normal = ExtResource("23_t4wce")
 layout_mode = 1
 
 [connection signal="body_entered" from="Dicariations/Detection_last_ball" to="." method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="UI/Lose/Start_again" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Win/Start_again" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Start_again/Start_again_button" to="." method="_on_start_again_pressed"]
 [connection signal="pressed" from="UI/Button" to="." method="_chose_ball_button_pressed"]
