@@ -57,7 +57,7 @@ func _ready() -> void:
 			level_container.add_child(level_conteiner_buff)
 			level_container.move_child(level_conteiner_buff, 0)
 
-			skills_conteiner_buff.for_coins_update_texture_and_discriotion(skills_for_coins[(count_skills - 1) % 25])
+			skills_conteiner_buff.for_coins_update_texture_and_discriotion(skills_for_coins[(count_skills - 1) % 25], count_skills)
 			skills_conteiner_buff.update_need_level(i)
 			if count_skills % 6 != 0 and count_skills != 1:
 				skills_conteiner_buff.erase_for_crystal()

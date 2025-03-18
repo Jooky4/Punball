@@ -7,6 +7,8 @@ var LEVEL_EXPERIANCE_PLAYER : int = 0
 var LEVEL_EXPERIANCE_FOR_NEXT_LEVEL : int = 500
 var CURRENT_LOCATIONS : int = 1
 var MAX_WAVE_ON_CURRENT_LOCATIONS : int = 0
+var COUNT_BYE_TALANTS_FOR_COINS : int = 0
+var COUNT_BYE_TALANTS_FOR_CRYSTAL : int = 0
 
 func _ready() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)

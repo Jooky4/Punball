@@ -154,9 +154,6 @@ func create_skill():
 		for j in i.get_children():
 				if "AD" in j.name:
 					j.visible = false
-		for j in i.get_children():
-			if "Button" in j.name:
-				j.disabled = true
 
 	var spread = LevelManager.count_experiance * (1 - ((LevelManager.count_experiance - 400) / (23.67 * 100)))
 	var min_cost = LevelManager.count_experiance - spread
@@ -211,9 +208,13 @@ func create_skill():
 			buff.show_rarity_window(i[0], 4)
 
 	for i in range(skills.size()):
+		button_arr[i].disabled = true
+		for j in button_arr[i].get_children():
+			if "Button" in j.name:
+				j.disabled = true
+
 		if skills[i][1] > LevelManager.count_experiance:
 			button_arr[i].texture_normal = BUTTON_NOT_CAN_PRESS_TEXTURE
-			button_arr[i].disabled = true
 
 	var count : int = 0
 	for i in button_arr:

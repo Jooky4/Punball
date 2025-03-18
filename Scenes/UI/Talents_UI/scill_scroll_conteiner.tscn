@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://caf0ebk5ttcbn"]
+[gd_scene load_steps=14 format=3 uid="uid://caf0ebk5ttcbn"]
 
 [ext_resource type="Texture2D" uid="uid://dnvg0ncyk7tc2" path="res://Texture/UI/Talents_UI/ячейка активная для талантов за монеты.png" id="1_0phtb"]
 [ext_resource type="Script" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
@@ -8,20 +8,26 @@
 [ext_resource type="Texture2D" uid="uid://ck04ttpiwx5hx" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна).png" id="5_pjx38"]
 [ext_resource type="Texture2D" uid="uid://kp41ah4lio7c" path="res://Texture/UI/Talents_UI/монетка (для всплывающего окна).png" id="6_21xj4"]
 [ext_resource type="Texture2D" uid="uid://sl81gelp2o3x" path="res://Texture/UI/Talents_UI/зеленая галочка.png" id="7_unbt6"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="9_qrbyd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkcps"]
 font = ExtResource("4_tylve")
 font_size = 30
 font_color = Color(0.219608, 0.184314, 0.14902, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_pmj3m"]
+font = ExtResource("4_tylve")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_rku7x"]
+font = ExtResource("4_tylve")
+font_size = 14
+font_color = Color(1, 0.184314, 0.14902, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_8p74j"]
 font = ExtResource("4_tylve")
 font_size = 18
 font_color = Color(0.219608, 0.184314, 0.14902, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_pmj3m"]
-font = ExtResource("4_tylve")
-font_size = 50
 
 [node name="Scill_scroll_conteiner" type="MarginContainer"]
 custom_minimum_size = Vector2(720, 0)
@@ -82,40 +88,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Skill_name" type="Label" parent="For_coins/Information/Bye_skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = -1.0
-offset_bottom = -145.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Увеличение атаки"
-label_settings = SubResource("LabelSettings_8p74j")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Discription" type="Label" parent="For_coins/Information/Bye_skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 53.0
-offset_right = 2.0
-offset_bottom = -82.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Атака +50
-"
-label_settings = SubResource("LabelSettings_8p74j")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
 [node name="Bye_Button" type="TextureButton" parent="For_coins/Information/Bye_skill"]
 layout_mode = 1
 anchors_preset = 7
@@ -166,40 +138,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Skill_name" type="Label" parent="For_coins/Information/Have_this_skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = -1.0
-offset_bottom = -145.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Увеличение атаки"
-label_settings = SubResource("LabelSettings_8p74j")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Discription" type="Label" parent="For_coins/Information/Have_this_skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 53.0
-offset_right = 2.0
-offset_bottom = -82.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Атака +50
-"
-label_settings = SubResource("LabelSettings_8p74j")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
 [node name="TextureRect" type="TextureRect" parent="For_coins/Information/Have_this_skill"]
 layout_mode = 0
 offset_left = 54.0
@@ -219,7 +157,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Skill_name" type="Label" parent="For_coins/Information/Need_previous_skill"]
+[node name="Label" type="Label" parent="For_coins/Information/Need_previous_skill"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -72.0
+offset_right = 76.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "необходимо купить предыдщий талант"
+label_settings = SubResource("LabelSettings_rku7x")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Skill_name" type="Label" parent="For_coins/Information"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -235,7 +192,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Discription" type="Label" parent="For_coins/Information/Need_previous_skill"]
+[node name="Discription" type="Label" parent="For_coins/Information"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -333,40 +290,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Skill_name" type="Label" parent="For_crystal/Information/Bye_skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = -1.0
-offset_bottom = -145.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Увеличение атаки"
-label_settings = SubResource("LabelSettings_8p74j")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Discription" type="Label" parent="For_crystal/Information/Bye_skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 53.0
-offset_right = 2.0
-offset_bottom = -82.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Атака +50
-"
-label_settings = SubResource("LabelSettings_8p74j")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
 [node name="Bye_Button" type="TextureButton" parent="For_crystal/Information/Bye_skill"]
 layout_mode = 1
 anchors_preset = 7
@@ -388,12 +311,12 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 67.0
-offset_top = -12.0
-offset_right = 107.0
-offset_bottom = 28.0
+offset_top = -14.0
+offset_right = 122.0
+offset_bottom = 42.0
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_21xj4")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_qrbyd")
 
 [node name="Label" type="Label" parent="For_crystal/Information/Bye_skill/Bye_Button"]
 layout_mode = 0
@@ -417,40 +340,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Skill_name" type="Label" parent="For_crystal/Information/Have_this_skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = -1.0
-offset_bottom = -145.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Увеличение атаки"
-label_settings = SubResource("LabelSettings_8p74j")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Discription" type="Label" parent="For_crystal/Information/Have_this_skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 53.0
-offset_right = 2.0
-offset_bottom = -82.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Атака +50
-"
-label_settings = SubResource("LabelSettings_8p74j")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
 [node name="TextureRect" type="TextureRect" parent="For_crystal/Information/Have_this_skill"]
 layout_mode = 0
 offset_left = 54.0
@@ -470,7 +359,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Skill_name" type="Label" parent="For_crystal/Information/Need_previous_skill"]
+[node name="Label" type="Label" parent="For_crystal/Information/Need_previous_skill"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -72.0
+offset_right = 76.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "необходимо купить предыдщий талант"
+label_settings = SubResource("LabelSettings_rku7x")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Skill_name" type="Label" parent="For_crystal/Information"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -486,7 +394,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Discription" type="Label" parent="For_crystal/Information/Need_previous_skill"]
+[node name="Discription" type="Label" parent="For_crystal/Information"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
