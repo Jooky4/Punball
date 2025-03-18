@@ -6,12 +6,12 @@ extends Control
 @onready var location_sprite = $Main_menu/Locations/Location_sprite
 @onready var location_name_label = $Main_menu/Location_name
 
-@onready var crystals_label = $Main_menu/Crystals/Crystals_label
-@onready var coins_label = $Main_menu/Coins/Coins_label
+@onready var crystals_label = $Player_state/Crystals/Crystals_label
+@onready var coins_label = $Player_state/Coins/Coins_label
 @onready var max_wave_on_locations_label = $Main_menu/Location_name/Max_wave_on_locations
 
-@onready var player_level_label = $Main_menu/Player_level/Player_level_label
-@onready var player_level_bar = $Main_menu/Player_level/Player_level_bar
+@onready var player_level_label = $Player_state/Player_level/Player_level_label
+@onready var player_level_bar = $Player_state/Player_level/Player_level_bar
 
 @onready var play_button = $Main_menu/PLay_button
 var button_play_disabled = preload("res://Texture/UI/Main_menu/кнопка Играть не активна.png")
@@ -109,3 +109,9 @@ func _on_back_location_pressed() -> void:
 		location_sprite.texture = location[current_location][0]
 		location_name_label.text = str(current_location) + ". " + location[current_location][1]
 		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location])
+
+func _on_mainmenu_button_pressed() -> void:
+	AudioManager.click()
+	main_menu_UI.visible = true
+	shop_UI.visible = false
+	talents_UI.visible = false

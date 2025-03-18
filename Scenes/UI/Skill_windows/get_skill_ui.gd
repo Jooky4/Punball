@@ -154,6 +154,9 @@ func create_skill():
 		for j in i.get_children():
 				if "AD" in j.name:
 					j.visible = false
+		for j in i.get_children():
+			if "Button" in j.name:
+				j.disabled = true
 
 	var spread = LevelManager.count_experiance * (1 - ((LevelManager.count_experiance - 400) / (23.67 * 100)))
 	var min_cost = LevelManager.count_experiance - spread
@@ -254,6 +257,9 @@ func create_skill():
 					j.visible = true
 		else:
 			button_arr[i].disabled = false
+			for j in button_arr[i].get_children():
+				if "Button" in j.name:
+					j.disabled = false
 	$Update_skill_button.visible = true
 
 func compare_skills(a, b):

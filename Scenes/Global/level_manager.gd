@@ -357,12 +357,10 @@ func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false)
 func lighthing_ball_damage(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
 	var enemy_arr = find_all_enemys()
 	var enemy_pos : Vector2
-	for i in range(first_level_links_on_objects.size()):
-			for j in range(first_level_links_on_objects[i].size()):
-				if first_level_links_on_objects[i][j] != null:
-					if first_level_links_on_objects[i][j] == enemy:
-						enemy_pos = first_level_links_on_objects[i][j].global_position
-						break
+	for i in enemy_arr:
+		if i == enemy:
+			enemy_pos = i.global_position
+			break
 	for i in enemy_arr:
 		if i == enemy:
 			enemy_arr.erase(i)
@@ -374,8 +372,8 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball, create_sound : bool =
 				var num_enemy = randi() % enemy_arr.size()
 				if enemy_arr[num_enemy] != enemy and enemy_arr[num_enemy].alive:
 					var effect = LINE_LIGHTNING.instantiate()
-					for w in range(6):
-						effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * (w + 1))
+					for w in range(effect.points.size()):
+						effect.points[w] = enemy_pos + (((enemy_arr[num_enemy].global_position - enemy_pos) / 6) * w)
 					enemy_arr[num_enemy].deal_damage(damage_ball, color_ball)
 					combo_count += 1
 					check_count_combo(enemy_arr[num_enemy])
@@ -465,12 +463,6 @@ func update_combo_count(enemy) -> void:
 	check_count_combo(enemy)
 
 func enemy_died(enemy) -> void:
-	for i in range(first_level_links_on_objects.size()):
-		for j in range(first_level_links_on_objects[i].size()):
-			if first_level_links_on_objects[i][j] == enemy:
-				first_level_links_on_objects[i][j] = null
-				break
-
 	if "Молния смерти" in player_skills:
 		lighthing_ball_damage(enemy, 600 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"], true)
 	if "Холод смерти" in player_skills:
@@ -501,6 +493,12 @@ func enemy_died(enemy) -> void:
 						break
 	if enemy.has_method("poison_enemy"):
 		ball_explosion(enemy, 0, ElementsManager.color_elements["POISON"])
+
+	for i in range(first_level_links_on_objects.size()):
+		for j in range(first_level_links_on_objects[i].size()):
+			if first_level_links_on_objects[i][j] == enemy:
+				first_level_links_on_objects[i][j] = null
+				break
 
 func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost

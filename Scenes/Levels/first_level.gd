@@ -185,7 +185,6 @@ func get_expirians_animation(experience) -> void:
 	tween1.chain().tween_property(get_count_experience_label, "scale", Vector2(1, 1), 0.05)
 	count_get_experience_on_wave += experience
 	get_count_experience_label.text = "+"+str(count_get_experience_on_wave)
-	LevelManager.count_experiance += experience
 	count_experience_label.text = str(LevelManager.count_experiance)
 	var count_bank = 0
 	for i in self.get_children():
@@ -495,6 +494,12 @@ func end_wave() -> void:
 	game_state = PLAY
 
 func animation_bank_with_experience() -> void:
+	for i in self.get_children():
+		if i != null:
+			if i.has_method("bank_with_experience"):
+				if !i.bank_go:
+					LevelManager.count_experiance += i.experience
+					i.experience = 0
 	for i in self.get_children():
 		if i != null:
 			if i.has_method("bank_with_experience"):
