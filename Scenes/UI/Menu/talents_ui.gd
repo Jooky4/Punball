@@ -36,7 +36,7 @@ var skills_for_coins = [
 	"Увеличение ОЗ",
 	"Увеличение урона от босса"]
 
-func _ready() -> void:
+func update_skill() -> void:
 	var count_skills = 1
 	for i in range(0, 200, 1):
 		var count : int = 0
