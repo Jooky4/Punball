@@ -635,6 +635,7 @@ offset_bottom = 119.0
 texture_normal = ExtResource("23_t4wce")
 
 [node name="Pause_menu_UI" parent="UI" instance=ExtResource("24_gx84s")]
+z_index = 9
 layout_mode = 1
 
 [connection signal="body_entered" from="Dicariations/Detection_last_ball" to="." method="_on_area_2d_body_entered"]

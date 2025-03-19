@@ -59,6 +59,8 @@ func player_date_loaded(data) -> void:
 		LEVEL_EXPERIANCE_FOR_NEXT_LEVEL = LEVEL_PLAYER * 500
 		CURRENT_LOCATIONS = 1
 		MAX_WAVE_ON_CURRENT_LOCATIONS = 0
+		COUNT_BYE_TALANTS_FOR_COINS = 0
+		COUNT_BYE_TALANTS_FOR_CRYSTAL = 0
 
 func update_count_max_wave(max_wave) -> void:
 	MAX_WAVE_ON_CURRENT_LOCATIONS = max_wave

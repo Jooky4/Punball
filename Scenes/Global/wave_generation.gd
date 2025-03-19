@@ -90,6 +90,7 @@ func generetion_new_wave(number_wave):
 			if percent_cells_by_enemies[random_index] > (randi() % 100 + 1) and random_index + 1 <= coun_cell_with_enemy:
 				coun_cell_for_enemy = random_index + 1
 				break
+
 	var enemy_who_can_spawn = []
 	for i in enemy_for_locations[current_location - 1]:
 		if i != 0:

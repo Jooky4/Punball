@@ -8,6 +8,7 @@ var ROCKET = preload("res://Scenes/Balls/Rocket ball/rocket.tscn")
 var TRAP = preload("res://Scenes/For skills/trap.tscn")
 var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var EFFECT_EXPLOSION = preload("res://Scenes/Effects/BombBallExplosion.tscn")
+var EFFECT_EXPLOSION_FREEZE = preload("res://Scenes/Effects/FreezeBombBallExplosion.tscn")
 
 var hp_player : float = 1000
 var max_hp_player : float = 1000
@@ -47,8 +48,8 @@ var first_level_links_on_objects : Array = [[null, null, null, null, null, null]
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
  											[null, -2, null, null, null, null],
- 											[null, null, null, null, null, null],
- 											[null, null, null, null, null, null],
+ 											[null, -2, null, null, null, null],
+ 											[null, -2, null, null, null, null],
  											[null, null, null, null, null, null]]
 var trap_on_map_links = [[null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
@@ -467,7 +468,7 @@ func enemy_died(enemy) -> void:
 		lighthing_ball_damage(enemy, 600 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"], true)
 	if "Холод смерти" in player_skills:
 		ball_explosion(enemy, 300 * ElementsManager.frost_modifier, ElementsManager.color_elements["FROST"], true)
-		var effect = EFFECT_EXPLOSION.instantiate()
+		var effect = EFFECT_EXPLOSION_FREEZE.instantiate()
 		effect.global_position = enemy.global_position
 		get_tree().current_scene.add_child(effect)
 	if "Бомба смерти" in player_skills or enemy.has_method("bomb_enemy"):

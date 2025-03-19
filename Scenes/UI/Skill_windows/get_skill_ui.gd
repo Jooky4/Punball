@@ -135,6 +135,7 @@ func _on_continue_game_pressed() -> void:
 		get_number_skill(LevelManager.spin_skill)
 
 func get_number_skill(number:int) -> void:
+	$Update_skill_button.disabled = true
 	for i in windows_skill.get_children():
 		i.queue_free()
 	skills.clear()
@@ -167,7 +168,7 @@ func create_skill():
 	var skill_max_cost = -1
 	all_skills.shuffle()
 	for i in all_skills:
-		if i[0] not in LevelManager.player_skills:
+		if !(i[0] in skills_once and i[0] in LevelManager.player_skills): 
 			if min_cost <= i[1] and i[1] <= max_cost:
 				skill_can_drop.append(i)
 				if i[1] > skill_max_cost:
@@ -178,14 +179,22 @@ func create_skill():
 	skill_can_drop.shuffle()
 	not_can_buy_skills.shuffle()
 
+	if min_cost < 0:
+		min_cost = 0
+	if max_cost < 0:
+		max_cost = 0
+
 	for i in range(3):
-		var random_index = randi() % skill_can_drop.size()
-		var new_skill = skill_can_drop[random_index]
-		if i == 2:
-			if (randi() % 100 + 1) <= 30:
-				new_skill = skill_with_max_cost
-		skills.append(new_skill)
-		skill_can_drop.remove_at(random_index)
+		if skill_can_drop.size() > 0:
+			var random_index = randi() % skill_can_drop.size()
+			var new_skill = skill_can_drop[random_index]
+			if i == 2:
+				if (randi() % 100 + 1) <= 30:
+					new_skill = skill_with_max_cost
+			skills.append(new_skill)
+			skill_can_drop.remove_at(random_index)
+		else:
+			skills.append(not_can_buy_skills[randi() % not_can_buy_skills.size()])
 	skills.sort_custom(Callable(self, "compare_skills"))
 	if (randi() % 100 + 1) <= 30:
 		skills[2] = not_can_buy_skills[randi() % not_can_buy_skills.size()]
@@ -262,6 +271,8 @@ func create_skill():
 				if "Button" in j.name:
 					j.disabled = false
 	$Update_skill_button.visible = true
+	if 100 <= LevelManager.count_experiance:
+		$Update_skill_button.disabled = false
 
 func compare_skills(a, b):
 	return a[1] < b[1] 
