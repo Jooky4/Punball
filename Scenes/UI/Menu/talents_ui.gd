@@ -11,8 +11,6 @@ extends Control
 @onready var skills_container = $Scill_ScrollContainer/Skills_container
 @onready var level_container = $Lvl_ScrollContainer/Level_container
 
-var can_ubdate_skill = true
-
 var skills_for_coins = [
 	"Увеличение атаки",
 	"Увеличение ОЗ",
@@ -69,18 +67,19 @@ func update_skill() -> void:
 	skills_container.move_child(buff, 0)
 	level_container.add_child(buff1)
 	level_container.move_child(buff1, 0)
-	await get_tree().create_timer(0.01).timeout
 	update_scroll()
 
 func _process(delta):
-	if skill_scroll.scroll_vertical != level_scroll.scroll_vertical and self.visible:
-		level_scroll.scroll_vertical = skill_scroll.scroll_vertical
+	if self.visible:
+		if skill_scroll.scroll_vertical != level_scroll.scroll_vertical:
+			level_scroll.scroll_vertical = skill_scroll.scroll_vertical
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and self.visible:
-		for i in skills_container.get_children():
-			if i.has_method("information_close"):
-				i.information_close()
+	if self.visible:
+		if event is InputEventMouseButton:
+			for i in skills_container.get_children():
+				if i.has_method("information_close"):
+					i.information_close()
 
 func update_scroll() -> void:
 	level_scroll.scroll_vertical = 1000000

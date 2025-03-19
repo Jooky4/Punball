@@ -228,7 +228,6 @@ offset_bottom = 48.0
 texture = ExtResource("5_h3ti1")
 
 [node name="Main_menu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -604,6 +603,7 @@ text = "МАГАЗИН"
 label_settings = SubResource("LabelSettings_njq23")
 
 [node name="Talents" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
