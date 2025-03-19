@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://caf0ebk5ttcbn"]
+[gd_scene load_steps=15 format=3 uid="uid://caf0ebk5ttcbn"]
 
 [ext_resource type="Texture2D" uid="uid://dnvg0ncyk7tc2" path="res://Texture/UI/Talents_UI/ячейка активная для талантов за монеты.png" id="1_0phtb"]
 [ext_resource type="Script" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ck04ttpiwx5hx" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна).png" id="5_pjx38"]
 [ext_resource type="Texture2D" uid="uid://kp41ah4lio7c" path="res://Texture/UI/Talents_UI/монетка (для всплывающего окна).png" id="6_21xj4"]
 [ext_resource type="Texture2D" uid="uid://sl81gelp2o3x" path="res://Texture/UI/Talents_UI/зеленая галочка.png" id="7_unbt6"]
+[ext_resource type="Texture2D" uid="uid://c45d0wb078w46" path="res://Texture/UI/Talents_UI/серая полоска.png" id="8_rfvt8"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="9_qrbyd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkcps"]
@@ -231,11 +232,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 29.0
 offset_top = 32.0
-offset_right = -29.0
+offset_right = -3.0
 offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
+
+[node name="TextureRect3" type="TextureRect" parent="For_coins"]
+z_index = -1
+layout_mode = 2
+offset_left = 72.0
+offset_top = 94.0
+offset_right = 112.0
+offset_bottom = 248.0
+mouse_filter = 2
+texture = ExtResource("8_rfvt8")
+expand_mode = 1
 
 [node name="For_crystal" type="TextureButton" parent="."]
 z_index = 1
@@ -436,6 +448,18 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
+
+[node name="TextureRect" type="TextureRect" parent="For_crystal"]
+z_index = -1
+layout_mode = 0
+offset_left = 74.0
+offset_top = -1211.0
+offset_right = 114.0
+offset_bottom = 99.0
+pivot_offset = Vector2(1, 1311)
+mouse_filter = 2
+texture = ExtResource("8_rfvt8")
+expand_mode = 1
 
 [node name="Timer_can_close" type="Timer" parent="."]
 wait_time = 0.1

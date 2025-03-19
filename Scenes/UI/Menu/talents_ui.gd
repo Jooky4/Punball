@@ -1,5 +1,7 @@
 extends Control
 
+@onready var empty_container = preload("res://Scenes/UI/Talents_UI/buff.tscn")
+
 @onready var level_scroll_conteiner = preload("res://Scenes/UI/Talents_UI/level_scroll_conteiner.tscn")
 @onready var scill_scroll_conteiner = preload("res://Scenes/UI/Talents_UI/scill_scroll_conteiner.tscn")
 
@@ -40,7 +42,7 @@ var skills_for_coins = [
 
 func update_skill() -> void:
 	var count_skills = 1
-	for i in range(0, 120, 1):
+	for i in range(0, 151, 1):
 		var count : int = 0
 		if 1 <= i and i <= 3: 
 			count = 5
@@ -70,6 +72,10 @@ func update_skill() -> void:
 			else:
 				level_conteiner_buff.set_visible_conteiner(false)
 			count_skills += 1
+	for i in range(2):
+		var buff = empty_container.instantiate()
+		skills_container.add_child(buff)
+		skills_container.move_child(buff, 0)
 	await get_tree().create_timer(0.01).timeout
 	level_scroll.scroll_vertical = 1000000
 	skill_scroll.scroll_vertical = 1000000
@@ -81,4 +87,5 @@ func _process(delta):
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and self.visible:
 		for i in skills_container.get_children():
-			i.information_close()
+			if i.has_method("information_close"):
+				i.information_close()

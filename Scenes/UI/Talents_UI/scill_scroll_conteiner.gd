@@ -9,6 +9,8 @@ extends MarginContainer
 @onready var skill_for_coins_close_texture = preload("res://Texture/UI/Talents_UI/ячейка неактивная для талантов за монеты.png")
 @onready var skill_for_crystal_close_texture = preload("res://Texture/UI/Talents_UI/серая ячейка (для золотой).png")
 @onready var close_texture = preload("res://Texture/UI/Talents_UI/замок.png")
+@onready var have_for_coins_talant_texture_line = preload("res://Texture/UI/Talents_UI/синяя полоса.png")
+@onready var have_for_crystal_talant_texture_line = preload("res://Texture/UI/Talents_UI/золотая полоса.png")
 
 var can_bye : bool = true
 var bye : bool = false
@@ -72,6 +74,8 @@ func erase_for_crystal() -> void:
 func for_coins_update_texture_and_discriotion(skill, count_skills) -> void:
 	count_skill_for_coins = count_skills
 	for_coins_texture.texture = for_coins_talent_texture[skill]
+	if count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS:
+		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
 	update_discription_for_coins(skill)
 
 func for_crystal_update_texture_and_discriotion(count) -> void:
@@ -80,6 +84,7 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		count_skill_for_crystal = 1
 		for_crystal_texture.texture = for_crystal_talent_texture["Дополнительный навык при старте боя"]
 		talant = "Дополнительный навык при старте боя"
+		$For_crystal/TextureRect.scale = Vector2(1, 0.8)
 	elif count == 6:
 		count_skill_for_crystal = 2
 		for_crystal_texture.texture = for_crystal_talent_texture["Дополнительные монеты в начале боя"]
@@ -90,6 +95,8 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		count -= 2
 		for_crystal_texture.texture = for_crystal_talent_texture[skills_for_crystall[count % 6]]
 		talant = skills_for_crystall[count % 6]
+	if count_skill_for_crystal <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL:
+		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
 	update_discription_for_crystal(talant)
 
 func update_discription_for_crystal(talant) -> void:
@@ -148,15 +155,15 @@ func _on_button_for_crystall_pressed() -> void:
 	$For_crystal/Information/Need_previous_skill.visible = false
 	$For_crystal/Information/Skill_name.visible = false
 	$For_crystal/Information/Discription.visible = false
-	if PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS:
+	if PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL:
 		$For_crystal/Information/Have_this_skill.visible = true
 		$For_crystal/Information/Skill_name.visible = true
 		$For_crystal/Information/Discription.visible = true
-	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins == PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS + 1:
+	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins == PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 1:
 		$For_crystal/Information/Bye_skill.visible = true
 		$For_crystal/Information/Skill_name.visible = true
 		$For_crystal/Information/Discription.visible = true
-	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS + 2:
+	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 2:
 		$For_crystal/Information/Need_previous_skill.visible = true
 		$For_crystal/Information/Discription.visible = true
 		$For_crystal/Information/Skill_name.visible = true
