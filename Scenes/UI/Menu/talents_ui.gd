@@ -48,7 +48,7 @@ func update_skill() -> void:
 			count = 5
 		if 4 <= i and i <= 7: 
 			count = 4
-		if 8 <= i and i <= 11: 
+		if 8 <= i and i <= 1000: 
 			count = 3
 		if 11 <= i and i <= 1000: 
 			count = 2

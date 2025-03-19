@@ -240,7 +240,7 @@ func revavil_player(for_AD_or_crystal : bool = false):
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
-	if LevelManager.spin_skill != 0 and LevelManager.spin_skill > 0:
+	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
@@ -248,9 +248,9 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	await get_tree().create_timer(0.05).timeout
 	end_game_UI_lose.visible = false
 	balls_can_go = true
-	game_state = PLAY
 	if for_AD_or_crystal == true:
 		revavil_for_AD_or_crystal = true
+	game_state = PLAY
 
 func draw_trajectory() -> void:
 	strelka.points[0] = start_balls_position.position
@@ -480,7 +480,7 @@ func end_wave() -> void:
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
-	if LevelManager.spin_skill != 0:
+	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL

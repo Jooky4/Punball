@@ -23,6 +23,9 @@ var can_close_information = true
 var skill_for_crystal
 var skill_for_coins
 
+var skill_for_crystal_cost : int = 0
+var skill_for_coins_cost : int = 0
+
 var for_coins_talent_texture = {
 	"Увеличение атаки": preload("res://Texture/UI/Talents_UI/Talent_texture/увеличение атаки.png"),
 	"Увеличение ОЗ": preload("res://Texture/UI/Talents_UI/Talent_texture/увеличение ОЗ.png"),
@@ -73,6 +76,7 @@ func erase_for_crystal() -> void:
 
 func for_coins_update_texture_and_discriotion(skill, count_skills) -> void:
 	count_skill_for_coins = count_skills
+	skill_for_coins_cost = 500 + (1250 * (count_skill_for_coins / 5))
 	for_coins_texture.texture = for_coins_talent_texture[skill]
 	if count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS:
 		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
@@ -97,6 +101,7 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		talant = skills_for_crystall[count % 6]
 	if count_skill_for_crystal <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL:
 		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
+	skill_for_crystal_cost = 200 * (count_skill_for_crystal / 6)
 	update_discription_for_crystal(talant)
 
 func update_discription_for_crystal(talant) -> void:

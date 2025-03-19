@@ -26,9 +26,11 @@ func _physics_process(delta) -> void:
 		if collider.has_method("bonus_ball"):
 			LevelManager.add_ball(1)
 			collider.queue_free()
+			return
 		elif collider.has_method("skill_box"):
 			LevelManager.spin_skill += 1
 			collider.queue_free()
+			return
 		else:
 			direction_bullet = direction_bullet.bounce(collision.get_normal()).normalized()
 			sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(direction_bullet * 10000))
