@@ -42,7 +42,7 @@ var skills_for_coins = [
 
 func update_skill() -> void:
 	var count_skills = 1
-	for i in range(0, 151, 1):
+	for i in range(0, 150, 1):
 		var count : int = 0
 		if 1 <= i and i <= 3: 
 			count = 5
@@ -74,8 +74,11 @@ func update_skill() -> void:
 			count_skills += 1
 	for i in range(2):
 		var buff = empty_container.instantiate()
+		var buff1 = empty_container.instantiate()
 		skills_container.add_child(buff)
 		skills_container.move_child(buff, 0)
+		level_container.add_child(buff1)
+		level_container.move_child(buff1, 0)
 	await get_tree().create_timer(0.01).timeout
 	level_scroll.scroll_vertical = 1000000
 	skill_scroll.scroll_vertical = 1000000
