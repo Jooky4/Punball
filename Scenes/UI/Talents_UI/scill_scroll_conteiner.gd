@@ -145,13 +145,9 @@ func _on_button_for_coins_pressed() -> void:
 		$For_coins/Information/Discription.visible = true
 		$For_coins/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_coins_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS + 2:
-		$For_coins/Information/Bye_skill.visible = true
-		$For_coins/Information/Skill_name.visible = true
+		$For_coins/Information/Need_previous_skill.visible = true
 		$For_coins/Information/Discription.visible = true
-		$For_coins/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_coins_cost)
-		#$For_coins/Information/Need_previous_skill.visible = true
-		#$For_coins/Information/Discription.visible = true
-		#$For_coins/Information/Skill_name.visible = true
+		$For_coins/Information/Skill_name.visible = true
 	elif bye == false and can_bye == false:
 		$For_coins/Information/Need_level.visible = true
 		$For_coins/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)
@@ -177,13 +173,9 @@ func _on_button_for_crystall_pressed() -> void:
 		$For_crystal/Information/Discription.visible = true
 		$For_crystal/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_crystal_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_crystal >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 2:
-		$For_crystal/Information/Bye_skill.visible = true
-		$For_crystal/Information/Skill_name.visible = true
+		$For_crystal/Information/Need_previous_skill.visible = true
 		$For_crystal/Information/Discription.visible = true
-		$For_crystal/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_crystal_cost)
-		#$For_crystal/Information/Need_previous_skill.visible = true
-		#$For_crystal/Information/Discription.visible = true
-		#$For_crystal/Information/Skill_name.visible = true
+		$For_crystal/Information/Skill_name.visible = true
 	elif bye == false and can_bye == false:
 		$For_crystal/Information/Need_level.visible = true
 		$For_crystal/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)

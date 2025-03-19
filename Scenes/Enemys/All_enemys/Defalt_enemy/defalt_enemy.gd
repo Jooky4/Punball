@@ -178,7 +178,7 @@ func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
 	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
-		label.text = str(round(damage_ball))
+		label.text = str(damage_ball)
 	elif color_label == ElementsManager.color_elements["HEAL"]:
 		label.text = "+" + str(round(damage_ball))
 	else:
