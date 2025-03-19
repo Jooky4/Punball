@@ -148,12 +148,14 @@ func create_skill():
 	sound_scroll.playing = true
 	sound_scroll.pitch_scale = 1.1
 	$Update_skill_button.visible = false
+	for i in windows_skill.get_children():
+		i.queue_free()
 	for i in bye_button.get_children():
 		i.disabled = true
 		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
 		for j in i.get_children():
-				if "AD" in j.name:
-					j.visible = false
+			if "AD" in j.name:
+				j.visible = false
 
 	var spread = LevelManager.count_experiance * (1 - ((LevelManager.count_experiance - 400) / (23.67 * 100)))
 	var min_cost = LevelManager.count_experiance - spread
@@ -188,8 +190,6 @@ func create_skill():
 	if (randi() % 100 + 1) <= 30:
 		skills[2] = not_can_buy_skills[randi() % not_can_buy_skills.size()]
 
-	for i in windows_skill.get_children():
-		i.queue_free()
 	for i in skills:
 		var buff = SKILL_WINDOW.instantiate()
 		windows_skill.add_child(buff)

@@ -153,7 +153,7 @@ layout_mode = 0
 offset_left = -15.0
 offset_top = -466.0
 offset_right = 188.0
-offset_bottom = -23.0
+offset_bottom = -60.0
 
 [node name="Skill_1_for_AD" type="TextureButton" parent="Bye_button/Skill_1"]
 visible = false
@@ -197,7 +197,7 @@ layout_mode = 0
 offset_left = -15.0
 offset_top = -466.0
 offset_right = 188.0
-offset_bottom = -16.0
+offset_bottom = -41.0
 
 [node name="Skill_2_for_AD2" type="TextureButton" parent="Bye_button/Skill_2"]
 visible = false
@@ -241,7 +241,7 @@ layout_mode = 0
 offset_left = -15.0
 offset_top = -466.0
 offset_right = 188.0
-offset_bottom = -21.0
+offset_bottom = -45.0
 
 [node name="Skill_3_for_AD" type="TextureButton" parent="Bye_button/Skill_3"]
 visible = false
