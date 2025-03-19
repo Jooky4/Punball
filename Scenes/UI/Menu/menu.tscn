@@ -655,7 +655,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Settings_button" type="TextureButton" parent="."]
-z_index = 2
+z_index = 10
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

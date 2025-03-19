@@ -44,7 +44,7 @@ func _ready() -> void:
 	YandexSDK.connect("game_initialized", update_player_indicators)
 	YandexSDK.connect("data_loaded", player_date_loaded)
 	update_player_indicators()
-	#talents_UI.update_skill()
+	talents_UI.update_skill()
 
 func update_player_indicators() -> void:
 	PlayerIndicatorsManager.update_player_date_in_game()
@@ -55,6 +55,7 @@ func player_date_loaded(data) -> void:
 	update_crystal_label()
 	update_level_label_and_bar()
 	update_cuurent_location_texture()
+	await get_tree().create_timer(0.03).timeout
 	talents_UI.update_skill()
 
 func update_coins_label() -> void:
@@ -92,9 +93,9 @@ func _on_shop_button_pressed() -> void:
 
 func _on_talesnts_button_pressed() -> void:
 	AudioManager.click()
-	talents_UI.visible = true
 	main_menu_UI.visible = false
 	shop_UI.visible = false
+	talents_UI.visible = true
 
 func _on_next_location_pressed() -> void:
 	AudioManager.click()
