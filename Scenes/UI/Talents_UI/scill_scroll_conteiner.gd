@@ -88,12 +88,12 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		count_skill_for_crystal = 1
 		for_crystal_texture.texture = for_crystal_talent_texture["Дополнительный навык при старте боя"]
 		talant = "Дополнительный навык при старте боя"
-		skill_for_crystal_cost = 100
+		skill_for_crystal_cost = 200
 		$For_crystal/TextureRect.scale = Vector2(1, 0.8)
 	elif count == 6:
 		count_skill_for_crystal = 2
 		for_crystal_texture.texture = for_crystal_talent_texture["Дополнительные монеты в начале боя"]
-		skill_for_crystal_cost = 100
+		skill_for_crystal_cost = 200
 		talant = "Дополнительные монеты в начале боя"
 	else:
 		count = count / 6
@@ -101,7 +101,7 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		count -= 2
 		for_crystal_texture.texture = for_crystal_talent_texture[skills_for_crystall[count % 6]]
 		talant = skills_for_crystall[count % 6]
-		skill_for_crystal_cost = 200 * (((count_skill_for_crystal - 3) / 6) + 1)
+		skill_for_crystal_cost = 300 * (((count_skill_for_crystal - 3) / 6) + 1)
 	if count_skill_for_crystal <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL:
 		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
 	update_discription_for_crystal(talant)
@@ -145,9 +145,13 @@ func _on_button_for_coins_pressed() -> void:
 		$For_coins/Information/Discription.visible = true
 		$For_coins/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_coins_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS + 2:
-		$For_coins/Information/Need_previous_skill.visible = true
-		$For_coins/Information/Discription.visible = true
+		$For_coins/Information/Bye_skill.visible = true
 		$For_coins/Information/Skill_name.visible = true
+		$For_coins/Information/Discription.visible = true
+		$For_coins/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_coins_cost)
+		#$For_coins/Information/Need_previous_skill.visible = true
+		#$For_coins/Information/Discription.visible = true
+		#$For_coins/Information/Skill_name.visible = true
 	elif bye == false and can_bye == false:
 		$For_coins/Information/Need_level.visible = true
 		$For_coins/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)
@@ -173,9 +177,13 @@ func _on_button_for_crystall_pressed() -> void:
 		$For_crystal/Information/Discription.visible = true
 		$For_crystal/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_crystal_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_crystal >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 2:
-		$For_crystal/Information/Need_previous_skill.visible = true
-		$For_crystal/Information/Discription.visible = true
+		$For_crystal/Information/Bye_skill.visible = true
 		$For_crystal/Information/Skill_name.visible = true
+		$For_crystal/Information/Discription.visible = true
+		$For_crystal/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_crystal_cost)
+		#$For_crystal/Information/Need_previous_skill.visible = true
+		#$For_crystal/Information/Discription.visible = true
+		#$For_crystal/Information/Skill_name.visible = true
 	elif bye == false and can_bye == false:
 		$For_crystal/Information/Need_level.visible = true
 		$For_crystal/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)

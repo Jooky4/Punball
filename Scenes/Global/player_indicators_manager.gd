@@ -1,6 +1,6 @@
 extends Node
 
-var CRYSTALS_COUNT : int = 100
+var CRYSTALS_COUNT : int = 0
 var COINS_COUNT : int = 0
 var LEVEL_PLAYER : int = 1
 var LEVEL_EXPERIANCE_PLAYER : int = 0
@@ -52,7 +52,7 @@ func player_date_loaded(data) -> void:
 		CURRENT_LOCATIONS = data["current_locations"]
 		MAX_WAVE_ON_CURRENT_LOCATIONS = data["max_wave_on_current_locations"]
 	else:
-		COINS_COUNT = 300
+		COINS_COUNT = 200
 		CRYSTALS_COUNT = 300
 		LEVEL_PLAYER = 1
 		LEVEL_EXPERIANCE_PLAYER = 0

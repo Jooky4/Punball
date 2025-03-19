@@ -93,6 +93,7 @@ func _on_shop_button_pressed() -> void:
 
 func _on_talesnts_button_pressed() -> void:
 	AudioManager.click()
+	talents_UI.update_scroll()
 	main_menu_UI.visible = false
 	shop_UI.visible = false
 	talents_UI.visible = true

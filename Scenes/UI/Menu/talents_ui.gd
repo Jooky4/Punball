@@ -42,17 +42,8 @@ var skills_for_coins = [
 
 func update_skill() -> void:
 	var count_skills = 1
-	for i in range(0, 150, 1):
-		var count : int = 0
-		if 1 <= i and i <= 3: 
-			count = 5
-		if 4 <= i and i <= 7: 
-			count = 4
-		if 8 <= i and i <= 1000: 
-			count = 3
-		if 11 <= i and i <= 1000: 
-			count = 2
-		for j in range(count):
+	for i in range(1, 151, 1):
+		for j in range(3):
 			var level_conteiner_buff = level_scroll_conteiner.instantiate()
 			var skills_conteiner_buff = scill_scroll_conteiner.instantiate()
 			skills_container.add_child(skills_conteiner_buff)
@@ -72,16 +63,14 @@ func update_skill() -> void:
 			else:
 				level_conteiner_buff.set_visible_conteiner(false)
 			count_skills += 1
-	for i in range(2):
-		var buff = empty_container.instantiate()
-		var buff1 = empty_container.instantiate()
-		skills_container.add_child(buff)
-		skills_container.move_child(buff, 0)
-		level_container.add_child(buff1)
-		level_container.move_child(buff1, 0)
+	var buff = empty_container.instantiate()
+	var buff1 = empty_container.instantiate()
+	skills_container.add_child(buff)
+	skills_container.move_child(buff, 0)
+	level_container.add_child(buff1)
+	level_container.move_child(buff1, 0)
 	await get_tree().create_timer(0.01).timeout
-	level_scroll.scroll_vertical = 1000000
-	skill_scroll.scroll_vertical = 1000000
+	update_scroll()
 
 func _process(delta):
 	if skill_scroll.scroll_vertical != level_scroll.scroll_vertical and self.visible:
@@ -92,3 +81,9 @@ func _input(event: InputEvent) -> void:
 		for i in skills_container.get_children():
 			if i.has_method("information_close"):
 				i.information_close()
+
+func update_scroll() -> void:
+	level_scroll.scroll_vertical = 1000000
+	skill_scroll.scroll_vertical = 1000000
+	level_scroll.scroll_vertical = level_scroll.scroll_vertical - (612 * (PlayerIndicatorsManager.LEVEL_PLAYER - 1))
+	skill_scroll.scroll_vertical = skill_scroll.scroll_vertical - (612 * (PlayerIndicatorsManager.LEVEL_PLAYER - 1))
