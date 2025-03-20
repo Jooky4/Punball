@@ -54,7 +54,7 @@ func player_date_loaded(data) -> void:
 	update_crystal_label()
 	update_level_label_and_bar()
 	update_cuurent_location_texture()
-	talents_UI.update_skill()
+	$Select_buttons/Talesnts_button.disabled = false
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
@@ -94,7 +94,7 @@ func _on_talesnts_button_pressed() -> void:
 	talents_UI.visible = true
 	main_menu_UI.visible = false
 	shop_UI.visible = false
-	talents_UI.update_scroll()
+	talents_UI.update_skill()
 
 func _on_next_location_pressed() -> void:
 	AudioManager.click()

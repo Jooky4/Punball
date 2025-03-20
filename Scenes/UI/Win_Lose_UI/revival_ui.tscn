@@ -1,22 +1,65 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciuhn6dg5mwdo"]
+[gd_scene load_steps=29 format=3 uid="uid://ciuhn6dg5mwdo"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
-[ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="1_do3n0"]
-[ext_resource type="Texture2D" uid="uid://bc7u6hiofpjs6" path="res://Texture/UI/Skills_UI/текст кнопки ADS.png" id="2_vs4b1"]
-[ext_resource type="Texture2D" uid="uid://dnrlesu4tygyc" path="res://Texture/UI/Skills_UI/иконка кнопки ADS.png" id="3_wgfp8"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_yc3ln"]
-[ext_resource type="Texture2D" uid="uid://b0i1dp1embqqv" path="res://Texture/UI/Win_Lose_UI/кристалл.png" id="6_chnja"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_y6afk"]
-font = ExtResource("4_yc3ln")
-font_size = 28
+[ext_resource type="Texture2D" uid="uid://beiknpx7eyqi" path="res://Texture/UI/Win_Lose_UI/фон общий.png" id="7_cktyw"]
+[ext_resource type="Texture2D" uid="uid://bvcmpaxjnq4lb" path="res://Texture/UI/Win_Lose_UI/фон ЗВЕЗДЫ.png" id="8_adqk7"]
+[ext_resource type="Texture2D" uid="uid://uit2cj333elo" path="res://Texture/UI/Revival_UI/кнопка супероживление.png" id="8_sjjra"]
+[ext_resource type="Texture2D" uid="uid://dr8bphursbhnu" path="res://Texture/UI/Revival_UI/основная плашка.png" id="9_emg5l"]
+[ext_resource type="Texture2D" uid="uid://br1jvi21pc6nb" path="res://Texture/UI/Revival_UI/кнопка закрыть.png" id="10_ahg8p"]
+[ext_resource type="Texture2D" uid="uid://s2v1d6m4rgr5" path="res://Texture/UI/Revival_UI/кристалл для кнопки супероживления.png" id="10_h8l6s"]
+[ext_resource type="Texture2D" uid="uid://c3qbdnmbn82w7" path="res://Texture/UI/Revival_UI/100 проц. ХР 3 ряда.png" id="11_5ts6g"]
+[ext_resource type="Texture2D" uid="uid://bkmkcc5c2f415" path="res://Texture/UI/Revival_UI/кнопка АДС.png" id="12_wkuqu"]
+[ext_resource type="Texture2D" uid="uid://dg4xq5qxdjhwr" path="res://Texture/UI/Revival_UI/текст кнопки АДС.png" id="13_s7prf"]
+[ext_resource type="Texture2D" uid="uid://d237q620rwapy" path="res://Texture/UI/Revival_UI/текст 50 проц. ХР.png" id="14_54frb"]
+[ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="14_foy0a"]
+[ext_resource type="Texture2D" uid="uid://c68mn065f4ror" path="res://Texture/UI/Revival_UI/i.png" id="14_urfrw"]
+[ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/уровень мира.png" id="15_402ae"]
+[ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/бар прогресс мира.png" id="16_ghtno"]
+[ext_resource type="Texture2D" uid="uid://bw6xyapc0da5g" path="res://Texture/UI/Main_menu/прогресс мира шкала.png" id="17_bspsp"]
+[ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/бар для кристалла 182-800.png" id="18_37g3u"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="19_vb275"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="20_masc1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2glv1"]
 font = ExtResource("4_yc3ln")
 font_size = 50
 
+[sub_resource type="LabelSettings" id="LabelSettings_7osg2"]
+font = ExtResource("4_yc3ln")
+font_size = 60
+font_color = Color(0.266667, 0.266667, 0.27451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tt6py"]
+font = ExtResource("4_yc3ln")
+font_size = 28
+font_color = Color(0.266667, 0.266667, 0.27451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_werv1"]
+font = ExtResource("4_yc3ln")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6xey"]
+font = ExtResource("4_yc3ln")
+font_size = 80
+font_color = Color(0.266667, 0.266667, 0.27451, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_csjnb"]
+shader = ExtResource("14_foy0a")
+shader_parameter/speed = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_vw055"]
+font = ExtResource("4_yc3ln")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_xe5q2"]
+line_spacing = -10.0
+font = ExtResource("4_yc3ln")
+font_size = 25
+font_color = Color(0.14902, 0.2, 0.403922, 1)
+
 [node name="revival_ui" type="Control"]
-z_index = 7
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,74 +68,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c74sn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -1686.0
-offset_top = -355.0
-offset_right = 2318.0
-offset_bottom = 1847.0
-mouse_filter = 2
-color = Color(0.0745098, 0.0745098, 0.0745098, 0.854902)
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -201.5
-offset_top = -91.0
-offset_right = 201.5
-offset_bottom = 91.0
+offset_left = -196.0
+offset_top = -650.0
+offset_right = 207.0
+offset_bottom = -450.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.4, 1.4)
 pivot_offset = Vector2(211.071, 93.5714)
 theme_override_constants/separation = 22
-
-[node name="AD" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("1_do3n0")
-texture_pressed = ExtResource("1_do3n0")
-texture_hover = ExtResource("1_do3n0")
-stretch_mode = 0
-
-[node name="ТекстКнопкиAds" type="Sprite2D" parent="VBoxContainer/AD"]
-position = Vector2(314.5, 49)
-texture = ExtResource("2_vs4b1")
-
-[node name="ИконкаКнопкиAds" type="Sprite2D" parent="VBoxContainer/AD"]
-position = Vector2(324, 47)
-texture = ExtResource("3_wgfp8")
-
-[node name="Label" type="Label" parent="VBoxContainer/AD"]
-layout_mode = 0
-offset_right = 272.0
-offset_bottom = 91.0
-text = "ВЕРНУТЬСЯ В ИГРУ"
-label_settings = SubResource("LabelSettings_y6afk")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="CRYSTALS" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("1_do3n0")
-texture_pressed = ExtResource("1_do3n0")
-texture_hover = ExtResource("1_do3n0")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/CRYSTALS"]
-layout_mode = 0
-offset_right = 403.0
-offset_bottom = 91.0
-text = "ВЕРНУТЬСЯ В ИГРУ 
-100 КРИСТАЛЛОВ"
-label_settings = SubResource("LabelSettings_y6afk")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -108,17 +100,307 @@ text = "100"
 label_settings = SubResource("LabelSettings_2glv1")
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1520.0
+offset_right = 1520.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_cktyw")
+stretch_mode = 6
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_adqk7")
+stretch_mode = 6
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -184.5
+offset_right = 242.0
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_emg5l")
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect4"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -62.0
+offset_top = -75.5
+offset_bottom = -14.5
+grow_horizontal = 0
+texture_normal = ExtResource("10_ahg8p")
+
+[node name="Label" type="Label" parent="TextureRect4"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Оживление"
+label_settings = SubResource("LabelSettings_7osg2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect4/Label"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 55.5
+offset_bottom = 113.5
+grow_horizontal = 2
+text = "Вы почти прошли этап"
+label_settings = SubResource("LabelSettings_tt6py")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CRYSTALS" type="TextureButton" parent="TextureRect4"]
+layout_mode = 2
+offset_left = 254.0
+offset_top = 307.5
+offset_right = 471.0
+offset_bottom = 396.5
+texture_normal = ExtResource("8_sjjra")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TextureRect4/CRYSTALS"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 199.0
+offset_bottom = 76.0
+text = "Супер возрождение
+x100"
+label_settings = SubResource("LabelSettings_werv1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect4/CRYSTALS/Label"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 31.0
+offset_right = 144.0
+offset_bottom = 56.0
+texture = ExtResource("10_h8l6s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect4/CRYSTALS"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -109.0
-offset_top = 16.0
-offset_right = -31.0
-offset_bottom = 94.0
+offset_left = -100.5
+offset_top = -47.0
+offset_right = 100.5
+offset_bottom = 7.0
 grow_horizontal = 2
-texture = ExtResource("6_chnja")
+texture = ExtResource("11_5ts6g")
+expand_mode = 1
+stretch_mode = 5
 
-[connection signal="pressed" from="VBoxContainer/AD" to="." method="_on_ad_pressed"]
-[connection signal="pressed" from="VBoxContainer/CRYSTALS" to="." method="_on_crystals_pressed"]
+[node name="AD" type="TextureButton" parent="TextureRect4"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = 307.5
+offset_right = 211.0
+offset_bottom = 396.5
+texture_normal = ExtResource("12_wkuqu")
+stretch_mode = 5
+
+[node name="ТекстКнопкиAds" type="TextureRect" parent="TextureRect4/AD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -18.0
+offset_right = 64.5
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_s7prf")
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect4/AD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.5
+offset_top = -44.0
+offset_right = 49.5
+offset_bottom = 1.0
+grow_horizontal = 2
+texture = ExtResource("14_54frb")
+
+[node name="Label_time" type="Label" parent="TextureRect4"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+label_settings = SubResource("LabelSettings_i6xey")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect4/Label_time"]
+material = SubResource("ShaderMaterial_csjnb")
+position = Vector2(243, 45)
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("14_urfrw")
+
+[node name="Player_state" type="Control" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Player_level" type="TextureRect" parent="Player_state"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -628.0
+offset_right = -250.0
+offset_bottom = -576.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_402ae")
+
+[node name="Player_level_label" type="Label" parent="Player_state/Player_level"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1
+"
+label_settings = SubResource("LabelSettings_vw055")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player_level_bar" type="TextureProgressBar" parent="Player_state/Player_level"]
+z_index = -1
+layout_mode = 0
+offset_left = 39.0
+offset_top = 5.0
+offset_right = 173.0
+offset_bottom = 44.0
+texture_under = ExtResource("16_ghtno")
+texture_progress = ExtResource("17_bspsp")
+texture_progress_offset = Vector2(10, 11)
+
+[node name="Coins" type="TextureRect" parent="Player_state"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -623.0
+offset_right = 62.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_37g3u")
+
+[node name="Coins_label" type="Label" parent="Player_state/Coins"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 120.0
+offset_bottom = 42.0
+text = "0"
+label_settings = SubResource("LabelSettings_xe5q2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Player_state/Coins"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 48.0
+texture = ExtResource("19_vb275")
+
+[node name="Crystals" type="TextureRect" parent="Player_state"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = -623.0
+offset_right = 277.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_37g3u")
+
+[node name="Crystals_label" type="Label" parent="Player_state/Crystals"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 120.0
+offset_bottom = 42.0
+text = "0"
+label_settings = SubResource("LabelSettings_xe5q2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Player_state/Crystals"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 25.0
+offset_bottom = 48.0
+texture = ExtResource("20_masc1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+
+[connection signal="pressed" from="TextureRect4/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect4/CRYSTALS" to="." method="_on_crystals_pressed"]
+[connection signal="pressed" from="TextureRect4/AD" to="." method="_on_ad_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

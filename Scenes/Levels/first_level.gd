@@ -45,7 +45,6 @@ var KILLER_BALL = preload("res://Scenes/Balls/Killer ball/killer_ball.tscn")
 var DRILLING_BALL = preload("res://Scenes/Balls/Drilling ball/drilling_ball.tscn")
 var BACKSTABBING_BALL = preload("res://Scenes/Balls/Backstabbing ball/backstabbing_ball.tscn")
 
-@onready var end_game_UI_win = $UI/Win
 @onready var end_game_UI_lose = $UI/Lose
 @onready var pause_menu_UI = $UI/Pause_menu_UI
 @onready var pause_button = $UI/Button_Pause
@@ -224,7 +223,7 @@ func win() -> void:
 func lose() -> void:
 	if revavil_for_AD_or_crystal == false:
 		end_game_UI_lose.visible = true
-		end_game_UI_lose.update_count_cristal()
+		end_game_UI_lose.update_player_state()
 	else:
 		if LevelManager.boss_on_map:
 			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[WaveGeneration.current_location] - 1)
@@ -467,12 +466,13 @@ func end_wave() -> void:
 		await get_tree().create_timer(1).timeout
 	if LevelManager.hp_player <= 0:
 		if "Оживление" in LevelManager.player_skills:
-			LevelManager.revival()
+			LevelManager.revival(1, true)
 			hp_player_bar.value = LevelManager.hp_player
 			hp_player_label.text = str(LevelManager.hp_player)
 		else:
 			hp_player_bar.value = 0
 			hp_player_label.text = "0"
+			end_game_UI_lose.start_timer()
 			game_state = LOSE
 			return
 	else:

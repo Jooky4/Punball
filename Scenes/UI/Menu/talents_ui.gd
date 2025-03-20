@@ -80,16 +80,19 @@ func update_skill() -> void:
 		level_container.move_child(buff1, 0)
 
 		update_player_indicator_talant_for_coins()
+		await get_tree().create_timer(0.03).timeout
 		update_scroll()
 		load_data_talant = true
+	else:
+		update_scroll()
 
 func _process(delta):
-	if self.visible:
+	if self.visible and load_data_talant:
 		if skill_scroll.scroll_vertical != level_scroll.scroll_vertical:
 			level_scroll.scroll_vertical = skill_scroll.scroll_vertical
 
 func _input(event: InputEvent) -> void:
-	if self.visible:
+	if self.visible and load_data_talant:
 		if event is InputEventMouseButton:
 			for i in skills_container.get_children():
 				if i.has_method("information_close"):

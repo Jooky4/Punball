@@ -732,6 +732,7 @@ texture = ExtResource("19_q5oq5")
 
 [node name="Talesnts_button" type="TextureButton" parent="Select_buttons"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("17_y83uj")
 
 [node name="TextureRect" type="TextureRect" parent="Select_buttons/Talesnts_button"]

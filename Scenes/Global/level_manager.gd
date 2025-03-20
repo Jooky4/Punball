@@ -639,16 +639,17 @@ func heal_hp_plaer_from_technologies() -> void:
 		if hp_player > max_hp_player:
 			hp_player += max_hp_player
 
-func revival(hp_player_prozent : float = 1):
+func revival(hp_player_prozent : float = 1, delete_enemy : bool = false):
 	if hp_player_prozent == 1:
 		hp_player = max_hp_player
 	else:
 		hp_player = max_hp_player * hp_player_prozent
-	for i in range(5, len(first_level_links_on_objects)):
-		for j in range(first_level_links_on_objects[i].size()):
-			if first_level_links_on_objects[i][j] != null:
-				if first_level_links_on_objects[i][j].has_method("enemy") and !first_level_links_on_objects[i][j].has_method("boss"):
-					first_level_links_on_objects[i][j].queue_free()
-					first_level_links_on_objects[i][j] = null
+	if delete_enemy:
+		for i in range(5, len(first_level_links_on_objects)):
+			for j in range(first_level_links_on_objects[i].size()):
+				if first_level_links_on_objects[i][j] != null:
+					if first_level_links_on_objects[i][j].has_method("enemy") and !first_level_links_on_objects[i][j].has_method("boss"):
+						first_level_links_on_objects[i][j].queue_free()
+						first_level_links_on_objects[i][j] = null
 	AudioManager.health_sound()
 	player_skills.erase("Оживление")
