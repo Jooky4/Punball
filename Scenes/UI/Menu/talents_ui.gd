@@ -46,8 +46,6 @@ var skills_for_crystall = [
 	"0,1% нанести в 100 раз больше урона",
 	"ОЗ +5%"]
 
-var first_time_open = true
-
 func update_skill() -> void:
 	var count_skills = 1
 	for i in range(1, 151, 1):
@@ -79,9 +77,10 @@ func update_skill() -> void:
 	level_container.move_child(buff1, 0)
 
 	update_player_indicator_talant_for_coins()
+	update_scroll()
 
 func _process(delta):
-	if self.visible and first_time_open == false:
+	if self.visible:
 		if skill_scroll.scroll_vertical != level_scroll.scroll_vertical:
 			level_scroll.scroll_vertical = skill_scroll.scroll_vertical
 
@@ -93,13 +92,10 @@ func _input(event: InputEvent) -> void:
 					i.information_close()
 
 func update_scroll() -> void:
-	if first_time_open:
-		await get_tree().create_timer(0.05).timeout
-	level_scroll.scroll_vertical = 100000
-	skill_scroll.scroll_vertical = 100000
+	level_scroll.scroll_vertical = 1000000
+	skill_scroll.scroll_vertical = 1000000
 	level_scroll.scroll_vertical = level_scroll.scroll_vertical - (612 * (PlayerIndicatorsManager.LEVEL_PLAYER - 1))
 	skill_scroll.scroll_vertical = skill_scroll.scroll_vertical - (612 * (PlayerIndicatorsManager.LEVEL_PLAYER - 1))
-	first_time_open = false
 
 func update_player_indicator_talant_for_coins() -> void:
 	PlayerIndicatorsManager.defalt_for_talant()
