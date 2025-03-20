@@ -44,6 +44,10 @@ func _ready() -> void:
 	YandexSDK.connect("game_initialized", update_player_indicators)
 	YandexSDK.connect("data_loaded", player_date_loaded)
 	update_player_indicators()
+
+	#$Select_buttons/Talesnts_button.disabled = false
+	#talents_UI.update_skill()
+
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
 		YandexSDK.show_interstitial_ad()
 		PlayerIndicatorsManager.SHOW_AD_FIRST_TIME = true

@@ -44,7 +44,7 @@ var skills_for_crystall = [
 	"Атака +5%",
 	"1% нанести в 10 раз больше урона",
 	"Урон по боссу на 10% больше",
-	"5% шанс при взятии “+1 шар” получить 2 шара",
+	"10% шанс при взятии “+1 шар” получить 2 шара",
 	"0,1% нанести в 100 раз больше урона",
 	"ОЗ +5%"]
 
@@ -156,8 +156,8 @@ func update_player_indicator_talant_for_crystal() -> void:
 				"Урон по боссу на 10% больше":
 					PlayerIndicatorsManager.FOR_CRYSTAL_UP_DAMAGE_TO_BOSS += 0.1 * count_up_damage_to_boss
 					count_up_damage_to_boss += 1
-				"5% шанс при взятии “+1 шар” получить 2 шара":
-					PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_DOP_BALL += 0.05 * count_shanse_dop_ball
+				"10% шанс при взятии “+1 шар” получить 2 шара":
+					PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_DOP_BALL += 0.1 * count_shanse_dop_ball
 					count_shanse_dop_ball += 1
 				"0,1% нанести в 100 раз больше урона":
 					PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_X100_DAMAGE += 0.001 * count_shanse_x100_damage

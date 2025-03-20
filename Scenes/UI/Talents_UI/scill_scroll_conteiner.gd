@@ -27,13 +27,13 @@ var skill_for_crystal_cost : int = 0
 var skill_for_coins_cost : int = 0
 
 var for_coins_talent_texture = {
-	"Увеличение атаки": preload("res://Texture/UI/Talents_UI/Talent_texture/увеличение атаки.png"),
-	"Увеличение ОЗ": preload("res://Texture/UI/Talents_UI/Talent_texture/увеличение ОЗ.png"),
-	"Уменьшение урона от дальних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/уменьшение урона дальнийбой.png"),
-	"Улучшение восстановления": preload("res://Texture/UI/Talents_UI/Talent_texture/улучшение эффекта восстановления.png"),
-	"Уменьшение урона от ближних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/уменьшение урона ближний бой.png"),
-	"Регенерация": preload("res://Texture/UI/Talents_UI/Talent_texture/регенерация.png"),
-	"Увеличение урона от босса": preload("res://Texture/UI/Talents_UI/Talent_texture/Урон по боссу на Х_ больше.png")}
+	"Увеличение атаки": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение Атаки.png"),
+	"Увеличение ОЗ": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение ОЗ.png"),
+	"Уменьшение урона от дальних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов дальнего боя.png"),
+	"Улучшение восстановления": preload("res://Texture/UI/Talents_UI/Talent_texture/Улучшение эффекта восстановления.png"),
+	"Уменьшение урона от ближних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов ближнего боя.png"),
+	"Регенерация": preload("res://Texture/UI/Talents_UI/Talent_texture/Регенерация.png"),
+	"Увеличение урона от босса": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от босса.png")}
 
 var for_crystal_talent_texture = {
 	"Дополнительный навык при старте боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Дополнительный навык при старте боя.png"),
@@ -41,7 +41,7 @@ var for_crystal_talent_texture = {
 	"Атака +5%": preload("res://Texture/UI/Talents_UI/Talent_texture/Атака +Х_.png"),
 	"1% нанести в 10 раз больше урона": preload("res://Texture/UI/Talents_UI/Talent_texture/1_ нанести в 10 раз больше урона.png"),
 	"Урон по боссу на 10% больше": preload("res://Texture/UI/Talents_UI/Talent_texture/Урон по боссу на Х_ больше.png"),
-	"5% шанс при взятии “+1 шар” получить 2 шара": preload("res://Texture/UI/Talents_UI/Talent_texture/регенерация.png"),
+	"10% шанс при взятии “+1 шар” получить 2 шара": preload("res://Texture/UI/Talents_UI/Talent_texture/10_ шанс при взятии “+1 шар” получить 2 шара.png"),
 	"0,1% нанести в 100 раз больше урона": preload("res://Texture/UI/Talents_UI/Talent_texture/1_ нанести в 10 раз больше урона.png"),
 	"ОЗ +5%": preload("res://Texture/UI/Talents_UI/Talent_texture/ОЗ +Х_.png")}
 
@@ -58,7 +58,7 @@ var discription_talants = {
 	"Атака +5%": "Увеличивает весь урон на 5% от текущего урона",
 	"1% нанести в 10 раз больше урона": "+1% шанс при каждом попадании нанести в 10 раз больше урона",
 	"Урон по боссу на 10% больше": "Увеличивает урон по боссу на 10%",
-	"5% шанс при взятии “+1 шар” получить 2 шара": "+10% шанс при взятии “+1 шар” получить 2 шара",
+	"10% шанс при взятии “+1 шар” получить 2 шара": "+10% шанс при взятии “+1 шар” получить 2 шара",
 	"0,1% нанести в 100 раз больше урона": "+0.1% шанс при каждом попадании нанести в 100 раз больше урона",
 	"ОЗ +5%": "Увеличивает ОЗ на 5%"}
 
@@ -66,7 +66,7 @@ var skills_for_crystall = [
 	"Атака +5%",
 	"1% нанести в 10 раз больше урона",
 	"Урон по боссу на 10% больше",
-	"5% шанс при взятии “+1 шар” получить 2 шара",
+	"10% шанс при взятии “+1 шар” получить 2 шара",
 	"0,1% нанести в 100 раз больше урона",
 	"ОЗ +5%"]
 
