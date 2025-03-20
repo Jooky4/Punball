@@ -119,6 +119,8 @@ var skills_once = ["Молния смерти",
 				  "Последний рывок",
 				  "Оживление",
 				  "Комбо: скидка"]
+var count_get_skill : int = 0
+var show_AD = false
 
 func _ready() -> void:
 	self.visible = false
@@ -128,12 +130,29 @@ func _ready() -> void:
 	all_skills.append_array(legendary)
 
 func _on_continue_game_pressed() -> void:
+	count_get_skill += 1
+	if count_get_skill % 3 == 0:
+		show_AD = true
 	LevelManager.spin_skill -= 1
 	if LevelManager.spin_skill <= 0:
+		if show_AD:
+			YandexSDK.show_interstitial_ad()
+			YandexSDK.connect("interstitial_ad", close_ad)
+			AudioServer.set_bus_mute(0, true)
+			show_AD = false
+			return
 		LevelManager.spin_skill = 0
 		animation.play("windows_output")
 	else:
 		get_number_skill(LevelManager.spin_skill)
+
+func close_ad(result) -> void:
+	if result == "closed" or result == "error":
+		AudioServer.set_bus_mute(0, false)
+		LevelManager.spin_skill = 0
+		animation.play("windows_output")
+	elif result == "opened":
+		AudioServer.set_bus_mute(0, true)
 
 func get_number_skill(number:int) -> void:
 	$Update_skill_button.disabled = true

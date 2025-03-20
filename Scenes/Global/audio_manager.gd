@@ -31,6 +31,7 @@ func enemy_move() -> void:
 	$Enemy_move.stop()
 
 func lightning_sound() -> void:
+	$Lightning.stop() 
 	$Lightning.pitch_scale += get_random_pitch()
 	$Lightning.play()
 

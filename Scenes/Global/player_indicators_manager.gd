@@ -25,6 +25,8 @@ var FOR_CRYSTAL_UP_DAMAGE : float = 0
 var FOR_CRYSTAL_UP_OZ : float = 0
 var FOR_CRYSTAL_SHANSE_DOP_BALL : float = 0
 
+var SHOW_AD_FIRST_TIME : bool = false
+
 func _ready() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
 
@@ -84,9 +86,9 @@ func player_date_loaded(data) -> void:
 		COUNT_BYE_TALANTS_FOR_CRYSTAL = 0
 
 func update_count_max_wave(max_wave) -> void:
-	if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS:
-		MAX_WAVE_ON_CURRENT_LOCATIONS = max_wave
-		update_player_date_on_server()
+	#if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS: раскомитить когда уберём кнопки перелистывания локаций
+	MAX_WAVE_ON_CURRENT_LOCATIONS = max_wave
+	update_player_date_on_server()
 
 func update_count_current_location(num_loc : int = 0) -> void:
 	if num_loc == 0:

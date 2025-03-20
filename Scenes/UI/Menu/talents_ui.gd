@@ -79,7 +79,6 @@ func update_skill() -> void:
 		level_container.add_child(buff1)
 		level_container.move_child(buff1, 0)
 
-		update_player_indicator_talant_for_coins()
 		await get_tree().create_timer(0.03).timeout
 		update_scroll()
 		load_data_talant = true

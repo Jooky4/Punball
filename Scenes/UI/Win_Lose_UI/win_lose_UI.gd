@@ -23,7 +23,7 @@ func update_level_label_and_bar() -> void:
 	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
 	player_level_bar.value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER
 
-func plus_expiriance_level_player() -> void:
+func plus_expiriance_level_player(scale : float = 1) -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	var count_exp : int = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
 	PlayerIndicatorsManager.update_level_player(count_exp)
@@ -32,12 +32,12 @@ func plus_expiriance_level_player() -> void:
 		while level_up_UI.visible != false:
 			await get_tree().create_timer(0.1).timeout
 		level_up_UI.level_up(current_level + i + 1)
-	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(count_exp)
+	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(count_exp * scale)
 
 	var count_coins = 500
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 2:
 		count_coins = count_coins + (count_coins * 0.05)
-	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(count_coins)
+	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(count_coins * scale)
 	PlayerIndicatorsManager.update_coins_count(count_coins)
 	update_level_label_and_bar()
 
@@ -52,3 +52,16 @@ func lose() -> void:
 	$Win_Lose_Label/Lose.visible = true
 	$Win_Lose_Label/Win.visible = false
 	$Win_Lose_Label/TextureRect8.visible = false
+
+func _on_button_ad_pressed() -> void:
+	YandexSDK.show_rewarded_ad()
+	YandexSDK.connect("rewarded_ad", rew_ad_res)
+	AudioServer.set_bus_mute(0, true)
+
+func rew_ad_res(result:String) -> void:
+	if result == "closed" or result == "error":
+		AudioServer.set_bus_mute(0, false)
+	elif result == "rewarded":
+		AudioServer.set_bus_mute(0, false)
+		$Button_AD.disabled = true
+		plus_expiriance_level_player(0.5)

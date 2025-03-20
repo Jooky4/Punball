@@ -662,7 +662,7 @@ grow_vertical = 0
 label_settings = SubResource("LabelSettings_fc05t")
 horizontal_alignment = 2
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Button_AD" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -677,7 +677,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("23_8dhcs")
 
-[node name="Sprite2D" type="TextureRect" parent="TextureButton"]
+[node name="Sprite2D" type="TextureRect" parent="Button_AD"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -725,4 +725,5 @@ vertical_alignment = 1
 visible = false
 layout_mode = 1
 
+[connection signal="pressed" from="Button_AD" to="." method="_on_button_ad_pressed"]
 [connection signal="pressed" from="Go_to_menu" to="." method="_on_go_to_menu_pressed"]

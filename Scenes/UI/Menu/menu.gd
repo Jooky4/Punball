@@ -44,6 +44,9 @@ func _ready() -> void:
 	YandexSDK.connect("game_initialized", update_player_indicators)
 	YandexSDK.connect("data_loaded", player_date_loaded)
 	update_player_indicators()
+	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
+		YandexSDK.show_interstitial_ad()
+		PlayerIndicatorsManager.SHOW_AD_FIRST_TIME = true
 
 func update_player_indicators() -> void:
 	PlayerIndicatorsManager.update_player_date_in_game()
@@ -55,6 +58,7 @@ func player_date_loaded(data) -> void:
 	update_level_label_and_bar()
 	update_cuurent_location_texture()
 	$Select_buttons/Talesnts_button.disabled = false
+	talents_UI.update_player_indicator_talant_for_coins()
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
@@ -75,13 +79,21 @@ func update_cuurent_location_texture() -> void:
 
 func _on_button_pressed() -> void:
 	AudioManager.click()
-	ChangeScene.black_screen()
-	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
-	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
-	await get_tree().create_timer(0.35).timeout
-	LevelManager.restert()
-	LevelManager.player_balls = [1, 1, 1, 1]
-	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	YandexSDK.show_interstitial_ad()
+	YandexSDK.connect("interstitial_ad", star_location)
+
+func star_location(result) -> void:
+	if result == "closed" or result == "error":
+		ChangeScene.black_screen()
+		PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+		WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+		LevelManager.restert()
+		LevelManager.player_balls = [1, 1, 1, 1]
+		AudioServer.set_bus_mute(0, false)
+		await get_tree().create_timer(0.35).timeout
+		get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	elif result == "opened":
+		AudioServer.set_bus_mute(0, true)
 
 func _on_shop_button_pressed() -> void:
 	AudioManager.click()
