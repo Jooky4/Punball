@@ -44,7 +44,6 @@ func _ready() -> void:
 	YandexSDK.connect("game_initialized", update_player_indicators)
 	YandexSDK.connect("data_loaded", player_date_loaded)
 	update_player_indicators()
-	#talents_UI.update_skill() # из-за этого может не првильно работать прокрутка
 
 func update_player_indicators() -> void:
 	PlayerIndicatorsManager.update_player_date_in_game()
