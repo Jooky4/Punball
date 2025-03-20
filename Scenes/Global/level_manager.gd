@@ -643,7 +643,7 @@ func revival(hp_player_prozent : float = 1, delete_enemy : bool = false):
 	if hp_player_prozent == 1:
 		hp_player = max_hp_player
 	else:
-		hp_player = max_hp_player * hp_player_prozent
+		hp_player = round(max_hp_player * hp_player_prozent)
 	if delete_enemy:
 		for i in range(5, len(first_level_links_on_objects)):
 			for j in range(first_level_links_on_objects[i].size()):
