@@ -56,8 +56,6 @@ func player_date_loaded(data) -> void:
 	update_level_label_and_bar()
 	update_cuurent_location_texture()
 	talents_UI.update_skill()
-	await get_tree().create_timer(0.15).timeout
-	talents_UI.update_scroll()
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
@@ -95,9 +93,9 @@ func _on_shop_button_pressed() -> void:
 func _on_talesnts_button_pressed() -> void:
 	AudioManager.click()
 	talents_UI.visible = true
-	talents_UI.update_scroll()
 	main_menu_UI.visible = false
 	shop_UI.visible = false
+	talents_UI.update_scroll()
 
 func _on_next_location_pressed() -> void:
 	AudioManager.click()
