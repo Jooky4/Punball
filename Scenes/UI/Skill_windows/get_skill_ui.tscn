@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://xxprkydai7iy"]
+[gd_scene load_steps=23 format=3 uid="uid://xxprkydai7iy"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
@@ -16,6 +16,11 @@
 [ext_resource type="AudioStream" uid="uid://8ikyddi0hl8o" path="res://Resources/Sounds/скилл_обычный.ogg" id="14_chdng"]
 [ext_resource type="AudioStream" uid="uid://dagj8wotn2oef" path="res://Resources/Sounds/скилл_редкий.ogg" id="15_mauj0"]
 [ext_resource type="AudioStream" uid="uid://dogch0jj44u8b" path="res://Resources/Sounds/скилл_эпик.ogg" id="16_xjmww"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_abvhf"]
+font = ExtResource("1_42rjm")
+font_size = 26
+font_color = Color(0.133333, 0.266667, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fibwp"]
 font = ExtResource("1_42rjm")
@@ -132,11 +137,18 @@ layout_mode = 2
 disabled = true
 texture_normal = ExtResource("5_b6die")
 
-[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_1"]
-position = Vector2(79, 37)
-texture = ExtResource("6_kc041")
+[node name="FREE" type="Label" parent="Bye_button/Skill_1"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 185.0
+offset_bottom = 78.0
+text = "БЕСПЛАТНО"
+label_settings = SubResource("LabelSettings_abvhf")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Bye_button/Skill_1"]
+visible = false
 layout_mode = 0
 offset_left = 30.0
 offset_top = 12.0
@@ -146,6 +158,10 @@ text = "0"
 label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_1/Label"]
+position = Vector2(49, 25)
+texture = ExtResource("6_kc041")
 
 [node name="Button" type="Button" parent="Bye_button/Skill_1"]
 modulate = Color(1, 1, 1, 0)
@@ -176,11 +192,18 @@ layout_mode = 2
 disabled = true
 texture_normal = ExtResource("5_b6die")
 
-[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_2"]
-position = Vector2(79, 37)
-texture = ExtResource("6_kc041")
+[node name="FREE" type="Label" parent="Bye_button/Skill_2"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 185.0
+offset_bottom = 78.0
+text = "БЕСПЛАТНО"
+label_settings = SubResource("LabelSettings_abvhf")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Bye_button/Skill_2"]
+visible = false
 layout_mode = 0
 offset_left = 30.0
 offset_top = 12.0
@@ -190,6 +213,10 @@ text = "0"
 label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_2/Label"]
+position = Vector2(49, 25)
+texture = ExtResource("6_kc041")
 
 [node name="Button" type="Button" parent="Bye_button/Skill_2"]
 modulate = Color(1, 1, 1, 0)
@@ -220,11 +247,18 @@ layout_mode = 2
 disabled = true
 texture_normal = ExtResource("5_b6die")
 
-[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_3"]
-position = Vector2(79, 37)
-texture = ExtResource("6_kc041")
+[node name="FREE" type="Label" parent="Bye_button/Skill_3"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 185.0
+offset_bottom = 78.0
+text = "БЕСПЛАТНО"
+label_settings = SubResource("LabelSettings_abvhf")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Bye_button/Skill_3"]
+visible = false
 layout_mode = 0
 offset_left = 30.0
 offset_top = 12.0
@@ -234,6 +268,10 @@ text = "0"
 label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_3/Label"]
+position = Vector2(49, 25)
+texture = ExtResource("6_kc041")
 
 [node name="Button" type="Button" parent="Bye_button/Skill_3"]
 modulate = Color(1, 1, 1, 0)

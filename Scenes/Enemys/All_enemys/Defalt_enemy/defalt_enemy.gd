@@ -49,7 +49,7 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 			if !self.call("can_ball_deal_damage"):
 				create_label_damage("БЛОК", ElementsManager.color_elements["NORMAL"])
 				return
-
+		damage_ball = scale_damage_for_talant(damage_ball)
 		hp_enemy -= damage_ball
 		if hp_enemy <= 0 and alive:
 			alive = false 
@@ -249,3 +249,14 @@ func math_damage_player() -> void:
 
 func _on_death_sound_finished() -> void:
 	self.queue_free()
+
+func scale_damage_for_talant(damage) -> float:
+	damage *= PlayerIndicatorsManager.FOR_COIS_UP_ATTACK
+	damage *= (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_DAMAGE)
+	if randf() <= PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_X10_DAMAGE:
+		damage *= 10
+	if randf() <= PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_X100_DAMAGE:
+		damage *= 100
+	if self.has_method("boss"):
+		damage *= (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_DAMAGE_TO_BOSS)
+	return damage

@@ -25,6 +25,8 @@ func _physics_process(delta) -> void:
 
 		if collider.has_method("bonus_ball"):
 			LevelManager.add_ball(1)
+			if randf() <= PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_DOP_BALL:
+				LevelManager.add_ball(1)
 			collider.queue_free()
 			return
 		elif collider.has_method("skill_box"):

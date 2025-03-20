@@ -21,6 +21,7 @@ var combo_count : int = 0
 var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
+var prosen_hp_plus : float = 1
 var hit_player : bool = false
 var somebody_move_on_this_wave : bool = false
 var player_skills : Array = []
@@ -62,14 +63,15 @@ var trap_on_map_links = [[null, null, null, null, null, null],
 
 func restert() -> void:
 	ElementsManager.restart()
-	hp_player = 1000
+	hp_player = (1000 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ)
+	max_hp_player = (1000 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ)
 	boss_on_map = false
-	max_hp_player = 1000
 	count_level = 0
 	spin_skill = 0
 	combo_count = 0
 	count_experiance = 0
 	chance_of_freezing = 0.1
+	prosen_hp_plus = 1
 	count_damage_lightning_enemy = 3
 	player_balls_after_wave = []
 	player_skills = []
@@ -94,7 +96,17 @@ func restert() -> void:
 func add_ball(num_ball) -> void:
 	player_balls_after_wave.append(num_ball)
 
-func damage_player(damage) -> void:
+func damage_player(damage, enemy) -> void:
+	if enemy.has_method("boss"):
+		damage -= PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_BOSS
+		print(damage)
+	elif enemy.has_method("shoot_at_player"):
+		damage -= PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_DISTANT_ENEMY
+	else:
+		damage -= PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_CLOSE_ENEMY
+
+	if damage <= 0:
+		damage = 0
 	hp_player -= damage
 	if hp_player <= 0:
 		hp_player = 0
@@ -120,7 +132,7 @@ func moving_object(player_position) -> void:
 			if i.has_method("enemy") and !i.has_method("boss"):
 				if !i.freezen and i.alive:
 					i.play_animation_hit_player()
-					damage_player(i.player_damage)
+					damage_player(i.player_damage, i)
 					hit_player = true
 
 	var boss_shoot = false

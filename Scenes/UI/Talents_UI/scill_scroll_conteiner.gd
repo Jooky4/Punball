@@ -187,3 +187,34 @@ func information_close() -> void:
 
 func _on_timer_can_close_timeout() -> void:
 	can_close_information = true
+
+func _on_bye_for_crystal_pressed() -> void:
+	AudioManager.click()
+	if PlayerIndicatorsManager.CRYSTALS_COUNT >= skill_for_crystal_cost:
+		$For_crystal/Information.visible = false
+		$For_coins/Information.visible = false
+		AudioManager.click()
+		AudioManager.bye_talant_sound()
+		PlayerIndicatorsManager.buy_crystal_talant()
+		PlayerIndicatorsManager.update_crystal_count(-skill_for_crystal_cost)
+		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
+		get_parent().get_parent().get_parent().call("update_player_indicator_talant_for_coins")
+		get_parent().get_parent().get_parent().get_parent().call("update_crystal_label")
+
+func _on_bye_for_cois_pressed() -> void:
+	AudioManager.click()
+	if PlayerIndicatorsManager.COINS_COUNT >= skill_for_coins_cost:
+		$For_crystal/Information.visible = false
+		$For_coins/Information.visible = false
+		AudioManager.bye_talant_sound()
+		PlayerIndicatorsManager.buy_coins_talant()
+		PlayerIndicatorsManager.update_coins_count(-skill_for_coins_cost)
+		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
+		get_parent().get_parent().get_parent().call("update_player_indicator_talant_for_coins")
+		get_parent().get_parent().get_parent().get_parent().call("update_coins_label")
+
+func _on_bye_button_mouse_entered() -> void:
+	can_close_information = false
+
+func _on_bye_button_mouse_exited() -> void:
+	can_close_information = true

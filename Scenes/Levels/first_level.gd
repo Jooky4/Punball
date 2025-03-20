@@ -83,6 +83,18 @@ func _ready() -> void:
 	get_tree().paused = false
 	await get_tree().create_timer(0.05).timeout
 	ChangeScene.normal_screen()
+	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
+	hp_player_bar.max_value = LevelManager.max_hp_player
+	hp_player_bar.value = LevelManager.hp_player
+	hp_player_label.text = str(LevelManager.hp_player)
+	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 1:
+		LevelManager.spin_skill = 1
+		choose_skill_UI.visible = true
+		choose_skill_UI.get_number_skill(-1)
+	while LevelManager.spin_skill == 1:
+		await get_tree().create_timer(0.1).timeout
+	$UI/Button.disabled = false
+	LevelManager.apeend_new_balls()
 	spawn_objects_on_matrix()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	count_level_label.text = str(LevelManager.count_level + 1)
@@ -197,6 +209,7 @@ func get_expirians_animation(experience) -> void:
 		get_count_experience_label.visible = false
 
 func get_health(health_hp) -> void:
+	health_hp = health_hp * LevelManager.prosen_hp_plus
 	LevelManager.hp_player += health_hp
 	if LevelManager.hp_player > LevelManager.max_hp_player:
 		LevelManager.hp_player = LevelManager.max_hp_player
@@ -445,6 +458,8 @@ func end_wave() -> void:
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 	animation_bank_with_experience()
 	animation_health()
+	if !LevelManager.boss_on_map:
+		get_health(PlayerIndicatorsManager.FOR_COIS_REGENIRATION)
 	LevelManager.moving_object(start_balls_position.position)
 	if LevelManager.hit_player:
 		await get_tree().create_timer(3).timeout

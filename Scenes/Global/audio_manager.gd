@@ -76,3 +76,6 @@ func bomb_ball_hit_sound() -> void:
 func cumulative_ball_hit_sound() -> void:
 	$Cumulative_ball_hit_sound.pitch_scale += get_random_pitch()
 	$Cumulative_ball_hit_sound.play()
+
+func bye_talant_sound() -> void:
+	$Bye_talant.play()

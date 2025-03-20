@@ -130,6 +130,7 @@ func _ready() -> void:
 func _on_continue_game_pressed() -> void:
 	LevelManager.spin_skill -= 1
 	if LevelManager.spin_skill <= 0:
+		LevelManager.spin_skill = 0
 		animation.play("windows_output")
 	else:
 		get_number_skill(LevelManager.spin_skill)
@@ -140,7 +141,10 @@ func get_number_skill(number:int) -> void:
 		i.queue_free()
 	skills.clear()
 	animation.play("window_input")
-	create_skill()
+	if number == -1:
+		create_free_skill()
+	else:
+		create_skill()
 
 func create_skill():
 	var rare_skills = []
@@ -157,6 +161,10 @@ func create_skill():
 		for j in i.get_children():
 			if "AD" in j.name:
 				j.visible = false
+			if "FREE" in j.name:
+				j.visible = false
+			if "Label" in j.name:
+				j.visible = true
 
 	var spread = LevelManager.count_experiance * (1 - ((LevelManager.count_experiance - 400) / (23.67 * 100)))
 	var min_cost = LevelManager.count_experiance - spread
@@ -274,9 +282,6 @@ func create_skill():
 	if 100 <= LevelManager.count_experiance:
 		$Update_skill_button.disabled = false
 
-func compare_skills(a, b):
-	return a[1] < b[1] 
-
 func legendary_sound() -> void:
 	await get_tree().create_timer(2.4).timeout
 	$Legendari_skill.play()
@@ -353,11 +358,11 @@ func add_skill(skill) -> void:
 			ElementsManager.normal_modifier += 0.1
 			LevelManager.player_skills.append("Усиление обычного шара")
 		"Прибавка ОЗ":
-			var prosen_hp_plus = 0.1
+			var prosen_hp_plus_ = 0.1
 			if "Прибавка к восстановлению" in LevelManager.player_skills:
-				prosen_hp_plus *= 1.5
-			LevelManager.hp_player = round(LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus))
-			LevelManager.max_hp_player = round(LevelManager.max_hp_player * (1 + prosen_hp_plus))
+				prosen_hp_plus_ *= LevelManager.prosen_hp_plus
+			LevelManager.hp_player = round(LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus_))
+			LevelManager.max_hp_player = round(LevelManager.max_hp_player * (1 + prosen_hp_plus_))
 			AudioManager.health_sound()
 			LevelManager.player_skills.append("Прибавка ОЗ")
 		"Усиление особого шара":
@@ -374,6 +379,7 @@ func add_skill(skill) -> void:
 		"Оживление":
 			LevelManager.player_skills.append("Оживление")
 		"Прибавка к восстановлению":
+			LevelManager.prosen_hp_plus += 0.5
 			LevelManager.player_skills.append("Прибавка к восстановлению")
 		"Суперначало":
 			LevelManager.player_skills.append("Суперначало")
@@ -451,3 +457,79 @@ func rew_ad_res(result:String) -> void:
 	elif result == "rewarded":
 		AudioServer.set_bus_mute(0, false)
 		add_skill(skills[skil_for_ad][0])
+
+func create_free_skill() -> void:
+	var rare_skills = []
+	var button_arr = bye_button.get_children()
+	skil_for_ad = 0
+	sound_scroll.playing = true
+	sound_scroll.pitch_scale = 1.1
+	$Update_skill_button.visible = false
+	for i in windows_skill.get_children():
+		i.queue_free()
+	for i in bye_button.get_children():
+		i.disabled = true
+		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
+		for j in i.get_children():
+			if "AD" in j.name:
+				j.visible = false
+	var skill_can_drop = []
+	skill_can_drop.append_array(regular)
+	skill_can_drop.append_array(rare)
+	skill_can_drop.shuffle()
+	for i in range(3):
+		if skill_can_drop.size() > 0:
+			var random_index = randi() % skill_can_drop.size()
+			var new_skill = skill_can_drop[random_index]
+			skills.append(new_skill)
+			skill_can_drop.remove_at(random_index)
+	skills.sort_custom(Callable(self, "compare_skills"))
+	for i in skills:
+		var buff = SKILL_WINDOW.instantiate()
+		windows_skill.add_child(buff)
+		buff.update_discription(skill_discription[i[0]])
+		if i in regular:
+			rare_skills.append(1)
+			buff.show_rarity_window(i[0], 1)
+		elif i in rare:
+			rare_skills.append(2)
+			buff.show_rarity_window(i[0], 2)
+	for i in range(skills.size()):
+		button_arr[i].disabled = true
+		for j in button_arr[i].get_children():
+			if "Button" in j.name:
+				j.disabled = true
+
+	for i in skills:
+		i[1] = 0
+	var count : int = 0
+	for i in button_arr:
+		for j in i.get_children():
+			if j.name == "Label":
+				j.text = str("БЕСПЛАТНО")
+		count += 1
+
+	var time_wait = 0 
+	if 2 in rare_skills:
+		time_wait = 1.7
+	elif 1 in rare_skills:
+		time_wait = 1.2
+
+	if 2 in rare_skills:
+		regular_sound()
+		rare_sound()
+	elif 1 in rare_skills:
+		regular_sound()
+
+	create_tween().tween_property(sound_scroll, "pitch_scale", 0.9, time_wait - 0.25)
+	await get_tree().create_timer(time_wait - 0.25).timeout
+	sound_scroll.playing = false
+	await get_tree().create_timer(0.25).timeout
+	for i in range(skills.size()):
+		button_arr[i].disabled = false
+		for j in button_arr[i].get_children():
+			if "Button" in j.name:
+				j.disabled = false
+
+func compare_skills(a, b):
+	return a[1] < b[1] 

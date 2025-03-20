@@ -465,6 +465,12 @@ expand_mode = 1
 wait_time = 0.1
 one_shot = true
 
+[connection signal="mouse_entered" from="For_coins/Information/Bye_skill/Bye_Button" to="." method="_on_bye_button_mouse_entered"]
+[connection signal="mouse_exited" from="For_coins/Information/Bye_skill/Bye_Button" to="." method="_on_bye_button_mouse_exited"]
+[connection signal="pressed" from="For_coins/Information/Bye_skill/Bye_Button" to="." method="_on_bye_for_cois_pressed"]
 [connection signal="pressed" from="For_coins/Button_for_coins" to="." method="_on_button_for_coins_pressed"]
+[connection signal="mouse_entered" from="For_crystal/Information/Bye_skill/Bye_Button" to="." method="_on_bye_button_mouse_entered"]
+[connection signal="mouse_exited" from="For_crystal/Information/Bye_skill/Bye_Button" to="." method="_on_bye_button_mouse_exited"]
+[connection signal="pressed" from="For_crystal/Information/Bye_skill/Bye_Button" to="." method="_on_bye_for_crystal_pressed"]
 [connection signal="pressed" from="For_crystal/Button_for_crystall" to="." method="_on_button_for_crystall_pressed"]
 [connection signal="timeout" from="Timer_can_close" to="." method="_on_timer_can_close_timeout"]

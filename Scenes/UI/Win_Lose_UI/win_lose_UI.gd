@@ -33,6 +33,12 @@ func plus_expiriance_level_player() -> void:
 			await get_tree().create_timer(0.1).timeout
 		level_up_UI.level_up(current_level + i + 1)
 	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(count_exp)
+
+	var count_coins = 500
+	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 2:
+		count_coins = count_coins + (count_coins * 0.05)
+	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(count_coins)
+	PlayerIndicatorsManager.update_coins_count(count_coins)
 	update_level_label_and_bar()
 
 func win() -> void:

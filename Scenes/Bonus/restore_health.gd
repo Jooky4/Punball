@@ -11,7 +11,7 @@ func go_to_player(pos) -> void:
 	await get_tree().create_timer(0.5).timeout
 	self.visible = false
 	if get_tree().current_scene.has_method("get_health"):
-		get_tree().current_scene.get_health(health_hp * LevelManager.max_hp_player)
+		get_tree().current_scene.get_health((health_hp * LevelManager.max_hp_player) + PlayerIndicatorsManager.FOR_COIS_UP_RESTORE_HILL)
 	self.visible = false
 	health_sound.pitch_scale += AudioManager.get_random_pitch()
 	health_sound.play()

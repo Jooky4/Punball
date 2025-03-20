@@ -399,6 +399,7 @@ offset_right = 795.0
 offset_bottom = 1282.0
 theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 35
+disabled = true
 text = "СКИЛЛЫ
  МЯЧИ"
 

@@ -429,11 +429,11 @@ text = "x0"
 label_settings = SubResource("LabelSettings_fc05t")
 horizontal_alignment = 2
 
-[node name="TextureRect3" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
+[node name="Coins" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("20_dl1ot")
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/TextureRect3"]
+[node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Coins"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -448,7 +448,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("22_iqx7g")
 
-[node name="Label" type="Label" parent="TextureRect8/MarginContainer/GridContainer/TextureRect3"]
+[node name="Coins" type="Label" parent="TextureRect8/MarginContainer/GridContainer/Coins"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

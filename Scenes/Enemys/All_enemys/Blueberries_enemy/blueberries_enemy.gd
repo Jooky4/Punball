@@ -13,7 +13,7 @@ func shoot_at_player(player_position) -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property(buff, "global_position", player_position, 0.5)
 		await get_tree().create_timer(0.5).timeout
-		LevelManager.damage_player(player_damage)
+		LevelManager.damage_player(player_damage, self)
 		buff.queue_free()
 
 func get_bullet_pos() -> Vector2:
