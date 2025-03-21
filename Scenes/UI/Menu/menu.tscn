@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_uun7o"]
 [ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/настройки.png" id="12_aoauw"]
 [ext_resource type="Texture2D" uid="uid://bwghrgqkw6d8n" path="res://Texture/UI/Main_menu/линия для разделения.png" id="13_om7tk"]
-[ext_resource type="Texture2D" uid="uid://blaskxu1uj1hd" path="res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg" id="14_8iwlq"]
 [ext_resource type="Texture2D" uid="uid://c6ipwsl2ty1u2" path="res://Texture/UI/Main_menu/свинья.png" id="14_p10qp"]
 [ext_resource type="Texture2D" uid="uid://bpd4yjl1llu86" path="res://Texture/UI/Main_menu/кубок.png" id="15_4qcoo"]
 [ext_resource type="Texture2D" uid="uid://bexfyxdbuodbu" path="res://Texture/UI/Main_menu/плашка для кубка.png" id="16_06xp1"]
 [ext_resource type="Texture2D" uid="uid://bamqxwlu31sgo" path="res://Texture/UI/Main_menu/панель для иконок.png" id="17_y83uj"]
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
+[ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/иконка мечи.png" id="19_q5oq5"]
 [ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/иконка книга.png" id="20_bdbvx"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
@@ -283,10 +283,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -309.0
-offset_top = -326.0
-offset_right = -219.0
-offset_bottom = -235.0
+offset_left = -325.0
+offset_top = -351.0
+offset_right = -235.0
+offset_bottom = -260.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("14_p10qp")
@@ -328,10 +328,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 221.0
-offset_top = -331.0
-offset_right = 327.0
-offset_bottom = -240.0
+offset_left = 224.0
+offset_top = -356.0
+offset_right = 330.0
+offset_bottom = -265.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_4qcoo")
@@ -511,13 +511,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -230.0
-offset_top = -173.0
-offset_right = 227.0
+offset_left = -231.0
+offset_top = -323.0
+offset_right = 259.0
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_8iwlq")
+texture = ExtResource("19_pv3nj")
 expand_mode = 1
 stretch_mode = 5
 

@@ -18,13 +18,13 @@ var button_play_disabled = preload("res://Texture/UI/Main_menu/кнопка Иг
 var button_play_can_press = preload("res://Texture/UI/Main_menu/кнопка Играть.png")
 
 var location = {
-	0 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Лихолесье"],
-	1 : [preload("res://Texture/UI/Main_menu/187df1185276443abedf225b5eb270b6.jpg"), "Пустыня"],
-	2 : [preload("res://Texture/UI/Main_menu/2ca8523a9efd64cae4db7cf73a15a9bd.jpg"), "Замок"],
-	3 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Туманграф"],
-	4 : [preload("res://Texture/UI/Main_menu/187df1185276443abedf225b5eb270b6.jpg"), "Эфирион"],
-	5 : [preload("res://Texture/UI/Main_menu/2ca8523a9efd64cae4db7cf73a15a9bd.jpg"), "Ржавник"],
-	6 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Лунарис"],
+	0 : [preload("res://Texture/UI/Main_menu/Location/1.png"), "Лихолесье"],
+	1 : [preload("res://Texture/UI/Main_menu/Location/2.png"), "Пустыня"],
+	2 : [preload("res://Texture/UI/Main_menu/Location/3.png"), "Замок"],
+	3 : [preload("res://Texture/UI/Main_menu/Location/4.png"), "Туманграф"],
+	4 : [preload("res://Texture/UI/Main_menu/Location/5.png"), "Эфирион"],
+	5 : [preload("res://Texture/UI/Main_menu/Location/6.png"), "Ржавник"],
+	6 : [preload("res://Texture/UI/Main_menu/Location/7.png"), "Лунарис"],
 	7 : [preload("res://Texture/UI/Main_menu/187df1185276443abedf225b5eb270b6.jpg"), "Шептоль"],
 	8 : [preload("res://Texture/UI/Main_menu/2ca8523a9efd64cae4db7cf73a15a9bd.jpg"), "Пламеград"],
 	-1 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Безднария"]

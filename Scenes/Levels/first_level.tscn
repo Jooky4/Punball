@@ -864,6 +864,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="UI/Notification_about_enemy"]
+z_index = 4
 layout_mode = 0
 offset_left = 453.0
 offset_top = -1000.0
