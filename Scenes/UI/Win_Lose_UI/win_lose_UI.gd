@@ -45,10 +45,10 @@ func plus_expiriance_level_player() -> void:
 	update_level_label_and_bar()
 
 func bonus_for_AD() -> void:
+	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	PlayerIndicatorsManager.update_level_player(round(count_exp * 0.5))
 	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp * 1.5))
 	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
-	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	for i in range(new_level - current_level):
 		while level_up_UI.visible != false:
 			await get_tree().create_timer(0.1).timeout
