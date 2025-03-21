@@ -367,7 +367,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 		var count_wave = LevelManager.count_level
 		if LevelManager.boss_on_map:
 			count_wave = WaveGeneration.get_count_wave_on_location() - 2
-
+		notification_about_new_enemy(LevelManager.first_level_links_on_objects[count/6][count%6])
 		match LevelManager.first_level_links_on_objects[count/6][count%6]:
 			-2: buff = SKILL_BOX.instantiate()
 			-1: buff = BONUS_BALL.instantiate()
@@ -502,6 +502,79 @@ func end_wave() -> void:
 		return
 	balls_can_go = true
 	game_state = PLAY
+
+func notification_about_new_enemy(num_enemy) -> void:
+	while LevelManager.spin_skill > 0:
+		await get_tree().create_timer(0.1).timeout
+
+	match num_enemy:
+		1:
+			if PlayerIndicatorsManager.ENEMY_1_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/1".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Разбойник"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		2:
+			if PlayerIndicatorsManager.ENEMY_2_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/2".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Черника"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг дальнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		3:
+			if PlayerIndicatorsManager.ENEMY_3_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/3".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Бомба"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		5:
+			if PlayerIndicatorsManager.ENEMY_5_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/5".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Медик"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		6:
+			if PlayerIndicatorsManager.ENEMY_6_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/6".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Слизь"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		8:
+			if PlayerIndicatorsManager.ENEMY_8_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/8".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Щитовик"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		9:
+			if PlayerIndicatorsManager.ENEMY_9_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/9".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Прыгун"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		10:
+			if PlayerIndicatorsManager.ENEMY_10_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/10".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Колдун"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		12:
+			if PlayerIndicatorsManager.ENEMY_12_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/12".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Ядовитый бак"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		13:
+			if PlayerIndicatorsManager.ENEMY_13_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/13".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Берсерк"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+		14:
+			if PlayerIndicatorsManager.ENEMY_14_FIRST_TIME == 0:
+				$"UI/Notification_about_enemy/ColorRect/14".visible = true
+				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Элементаль огня"
+				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг дальнего боя"
+				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+	PlayerIndicatorsManager.enemy_firs_time_spawn(num_enemy)
 
 func animation_bank_with_experience() -> void:
 	for i in self.get_children():

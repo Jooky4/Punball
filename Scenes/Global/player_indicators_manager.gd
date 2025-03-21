@@ -27,6 +27,18 @@ var FOR_CRYSTAL_SHANSE_DOP_BALL : float = 0
 
 var SHOW_AD_FIRST_TIME : bool = false
 
+var ENEMY_1_FIRST_TIME : int = 0
+var ENEMY_2_FIRST_TIME : int = 0
+var ENEMY_3_FIRST_TIME : int = 0
+var ENEMY_5_FIRST_TIME : int = 0
+var ENEMY_6_FIRST_TIME : int = 0
+var ENEMY_8_FIRST_TIME : int = 0
+var ENEMY_9_FIRST_TIME : int = 0
+var ENEMY_10_FIRST_TIME : int = 0
+var ENEMY_12_FIRST_TIME : int = 0
+var ENEMY_13_FIRST_TIME : int = 0
+var ENEMY_14_FIRST_TIME : int = 0
+
 func _ready() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
 
@@ -39,7 +51,18 @@ func update_player_date_in_game() -> void:
 						 "current_locations", 
 						 "max_wave_on_current_locations",
 						 "count_bye_talants_for_coins",
-						 "count_bye_talants_for_crystal"])
+						 "count_bye_talants_for_crystal",
+						 "enemy_1_first_time",
+						 "enemy_2_first_time",
+						 "enemy_3_first_time",
+						 "enemy_5_first_time",
+						 "enemy_6_first_time",
+						 "enemy_8_first_time",
+						 "enemy_9_first_time",
+						 "enemy_10_first_time",
+						 "enemy_12_first_time",
+						 "enemy_13_first_time",
+						 "enemy_14_first_time"])
 
 func get_player_indicators() -> Dictionary:
 	return {"coins" : COINS_COUNT, 
@@ -50,7 +73,18 @@ func get_player_indicators() -> Dictionary:
 			"current_locations": CURRENT_LOCATIONS,
 			"max_wave_on_current_locations" : MAX_WAVE_ON_CURRENT_LOCATIONS,
 			"count_bye_talants_for_coins" : COUNT_BYE_TALANTS_FOR_COINS,
-			"count_bye_talants_for_crystal" : COUNT_BYE_TALANTS_FOR_CRYSTAL}
+			"count_bye_talants_for_crystal" : COUNT_BYE_TALANTS_FOR_CRYSTAL,
+			"enemy_1_first_time" : ENEMY_1_FIRST_TIME,
+			"enemy_2_first_time" : ENEMY_2_FIRST_TIME,
+			"enemy_3_first_time" : ENEMY_3_FIRST_TIME,
+			"enemy_5_first_time" : ENEMY_5_FIRST_TIME,
+			"enemy_6_first_time" : ENEMY_6_FIRST_TIME,
+			"enemy_8_first_time" : ENEMY_8_FIRST_TIME,
+			"enemy_9_first_time" : ENEMY_9_FIRST_TIME,
+			"enemy_10_first_time" : ENEMY_10_FIRST_TIME,
+			"enemy_12_first_time" : ENEMY_12_FIRST_TIME,
+			"enemy_13_first_time" : ENEMY_13_FIRST_TIME,
+			"enemy_14_first_time" : ENEMY_14_FIRST_TIME,}
 
 func update_crystal_count(num) -> void:
 	CRYSTALS_COUNT += num
@@ -74,6 +108,17 @@ func player_date_loaded(data) -> void:
 		MAX_WAVE_ON_CURRENT_LOCATIONS = data["max_wave_on_current_locations"]
 		COUNT_BYE_TALANTS_FOR_COINS = data["count_bye_talants_for_coins"]
 		COUNT_BYE_TALANTS_FOR_CRYSTAL = data["count_bye_talants_for_crystal"]
+		ENEMY_1_FIRST_TIME = data["enemy_1_first_time"]
+		ENEMY_2_FIRST_TIME = data["enemy_2_first_time"]
+		ENEMY_3_FIRST_TIME = data["enemy_3_first_time"]
+		ENEMY_5_FIRST_TIME = data["enemy_5_first_time"]
+		ENEMY_6_FIRST_TIME = data["enemy_6_first_time"]
+		ENEMY_8_FIRST_TIME = data["enemy_8_first_time"]
+		ENEMY_9_FIRST_TIME = data["enemy_9_first_time" ]
+		ENEMY_10_FIRST_TIME = data["enemy_10_first_time"]
+		ENEMY_12_FIRST_TIME = data["enemy_12_first_time"]
+		ENEMY_13_FIRST_TIME = data["enemy_13_first_time"]
+		ENEMY_14_FIRST_TIME = data["enemy_14_first_time"]
 	else:
 		COINS_COUNT = 10000
 		CRYSTALS_COUNT = 1000
@@ -84,6 +129,17 @@ func player_date_loaded(data) -> void:
 		MAX_WAVE_ON_CURRENT_LOCATIONS = 0
 		COUNT_BYE_TALANTS_FOR_COINS = 0
 		COUNT_BYE_TALANTS_FOR_CRYSTAL = 0
+		ENEMY_1_FIRST_TIME = 0
+		ENEMY_2_FIRST_TIME = 0
+		ENEMY_3_FIRST_TIME = 0
+		ENEMY_5_FIRST_TIME = 0
+		ENEMY_6_FIRST_TIME = 0
+		ENEMY_8_FIRST_TIME = 0
+		ENEMY_9_FIRST_TIME = 0
+		ENEMY_10_FIRST_TIME = 0
+		ENEMY_12_FIRST_TIME = 0
+		ENEMY_13_FIRST_TIME = 0
+		ENEMY_14_FIRST_TIME = 0
 
 func update_count_max_wave(max_wave) -> void:
 	#if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS: раскомитить когда уберём кнопки перелистывания локаций
@@ -128,3 +184,39 @@ func buy_crystal_talant() -> void:
 func buy_coins_talant() -> void:
 	COUNT_BYE_TALANTS_FOR_COINS += 1
 	update_player_date_on_server()
+
+func enemy_firs_time_spawn(num_enemy) -> void:
+	match num_enemy:
+		1:
+			PlayerIndicatorsManager.ENEMY_1_FIRST_TIME = 1
+			update_player_date_on_server()
+		2:
+			PlayerIndicatorsManager.ENEMY_2_FIRST_TIME = 1
+			update_player_date_on_server()
+		3:
+			PlayerIndicatorsManager.ENEMY_3_FIRST_TIME = 1
+			update_player_date_on_server()
+		5:
+			PlayerIndicatorsManager.ENEMY_5_FIRST_TIME = 1
+			update_player_date_on_server()
+		6:
+			PlayerIndicatorsManager.ENEMY_6_FIRST_TIME = 1
+			update_player_date_on_server()
+		8:
+			PlayerIndicatorsManager.ENEMY_8_FIRST_TIME = 1
+			update_player_date_on_server()
+		9:
+			PlayerIndicatorsManager.ENEMY_9_FIRST_TIME = 1
+			update_player_date_on_server()
+		10:
+			PlayerIndicatorsManager.ENEMY_10_FIRST_TIME = 1
+			update_player_date_on_server()
+		12:
+			PlayerIndicatorsManager.ENEMY_12_FIRST_TIME = 1
+			update_player_date_on_server()
+		13:
+			PlayerIndicatorsManager.ENEMY_13_FIRST_TIME = 1
+			update_player_date_on_server()
+		14:
+			PlayerIndicatorsManager.ENEMY_14_FIRST_TIME = 1
+			update_player_date_on_server()

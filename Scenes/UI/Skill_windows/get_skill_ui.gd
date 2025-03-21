@@ -122,6 +122,15 @@ var skills_once = ["Молния смерти",
 				  "Последний рывок",
 				  "Оживление",
 				  "Комбо: скидка"]
+var skill_from_spesific_location = {
+	"Лед: комбо": 2,
+	"Огонь: комбо": 2,
+	"Ядерная: комбо": 2,
+	"Молния: комбо": 3,
+	"Технология: комбо с тыла": 3,
+	"Технология: комбо с фронта": 3,
+	"Лазер: комбо": 4,
+	"Комбо: скидка": 4}
 var count_get_skill : int = 0
 var show_AD = false
 
@@ -200,7 +209,8 @@ func create_skill():
 	var skill_with_max_cost
 	var skill_can_drop = []
 	var not_can_buy_skills = []
-
+	if max_cost > 1820:
+		min_cost = 1000
 	var skill_max_cost = -1
 	all_skills.shuffle()
 	for i in all_skills:
@@ -212,13 +222,10 @@ func create_skill():
 					skill_max_cost = i[1]
 			if i[1] > LevelManager.count_experiance:
 				not_can_buy_skills.append(i)
+	skill_can_drop = delete_skill_for_this_location(skill_can_drop)
+	not_can_buy_skills = delete_skill_for_this_location(not_can_buy_skills)
 	skill_can_drop.shuffle()
 	not_can_buy_skills.shuffle()
-
-	if min_cost < 0:
-		min_cost = 0
-	if max_cost < 0:
-		max_cost = 0
 
 	for i in range(3):
 		if skill_can_drop.size() > 0:
@@ -309,6 +316,16 @@ func create_skill():
 	$Update_skill_button.visible = true
 	if 100 <= LevelManager.count_experiance:
 		$Update_skill_button.disabled = false
+
+func delete_skill_for_this_location(arr_skill):
+	var finish_arr = []
+	for i in arr_skill:
+		if i[0] in skill_from_spesific_location.keys():
+			if WaveGeneration.current_location >= skill_from_spesific_location[i[0]]:
+				finish_arr.append(i)
+		else:
+			finish_arr.append(i)
+	return finish_arr
 
 func legendary_sound() -> void:
 	await get_tree().create_timer(2.4).timeout
@@ -504,6 +521,7 @@ func create_free_skill() -> void:
 	var skill_can_drop = []
 	skill_can_drop.append_array(regular)
 	skill_can_drop.append_array(rare)
+	skill_can_drop = delete_skill_for_this_location(skill_can_drop)
 	skill_can_drop.shuffle()
 	for i in range(3):
 		if skill_can_drop.size() > 0:

@@ -37,7 +37,7 @@ func plus_expiriance_level_player() -> void:
 		level_up_UI.level_up(current_level + i + 1)
 	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp))
 
-	count_coins = 500
+	count_coins = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 100 * (WaveGeneration.current_location * 0.15 + 0.85))
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 2:
 		count_coins = count_coins + (count_coins * 0.05)
 	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins))

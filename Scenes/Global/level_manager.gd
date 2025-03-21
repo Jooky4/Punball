@@ -99,7 +99,6 @@ func add_ball(num_ball) -> void:
 func damage_player(damage, enemy) -> void:
 	if enemy.has_method("boss"):
 		damage -= PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_BOSS
-		print(damage)
 	elif enemy.has_method("shoot_at_player"):
 		damage -= PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_DISTANT_ENEMY
 	else:
@@ -369,16 +368,12 @@ func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false)
 
 func lighthing_ball_damage(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
 	var enemy_arr = find_all_enemys()
-	var enemy_pos : Vector2
-	for i in enemy_arr:
-		if i == enemy:
-			enemy_pos = i.global_position
-			break
+	var enemy_pos : Vector2 = enemy.global_position
 	for i in enemy_arr:
 		if i == enemy:
 			enemy_arr.erase(i)
 	if enemy_arr != [] and enemy_arr.size() != 0:
-		if enemy_arr.size() > 1 and create_sound:
+		if enemy_arr.size() >= 1 and create_sound:
 			AudioManager.lightning_sound()
 		for i in range(count_damage_lightning_enemy):
 			if enemy_arr.size() != 0:
