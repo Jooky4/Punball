@@ -6,7 +6,7 @@ var dop_hp_defolt_enemy = [[2, 4, 1],
 						   [5, 10, 2],
 						   [11, 14, 3],
 						   [14, 17, 4],
-						   [18, 10000, 5]]
+						   [18, 100, 5]]
 var count_wave_on_locations = {
 	0: 20,
 	1: 20,
@@ -90,10 +90,11 @@ func how_many_hp_plus_enemy(number_wave) -> float:
 			step += 200
 		start_plus_hp += step
 	hp_enemy += start_plus_hp
+	var start_hp_enemy = hp_enemy
 	for j in dop_hp_defolt_enemy:
-		if j[0] <= number_wave and number_wave <= j[1]:
-			hp_enemy += (hp_enemy / 2) * j[2]
-			return float(hp_enemy)
+		for k in range((j[1] - j[0]) + 1):
+			if j[0] <= number_wave and j[1] <= number_wave:
+				hp_enemy += (start_hp_enemy / 2) * j[2]
 	return float(hp_enemy)
 
 func how_many_damage_player(num_enemy) -> int:

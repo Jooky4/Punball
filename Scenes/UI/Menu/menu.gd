@@ -27,12 +27,25 @@ var location = {
 	6 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Лунарис"],
 	7 : [preload("res://Texture/UI/Main_menu/187df1185276443abedf225b5eb270b6.jpg"), "Шептоль"],
 	8 : [preload("res://Texture/UI/Main_menu/2ca8523a9efd64cae4db7cf73a15a9bd.jpg"), "Пламеград"],
-	9 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Безднария"]
+	-1 : [preload("res://Texture/UI/Main_menu/7946966c7e70cd7cae0a844972d0d189.jpg"), "Безднария"]
 }
-var current_location = 0
+var current_location = 1
 var number_cycle = 0
 
 var rim_num_location = []
+
+var count_wave_on_locations = {
+	0: 20,
+	1: 20,
+	2: 30,
+	3: 20,
+	4: 40,
+	5: 20,
+	6: 20,
+	7: 30,
+	8: 20,
+	-1: 40
+}
 
 func _ready() -> void:
 	Engine.time_scale = 1
@@ -95,16 +108,16 @@ func update_level_label_and_bar() -> void:
 func update_cuurent_location_texture() -> void:
 	current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
 	if current_location <= 10008:
-		location_sprite.texture = location[current_location % 10][0]
-		if current_location > 9:
-			location_name_label.text = str(location[current_location % 10][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
+		location_sprite.texture = location[(current_location % 10) - 1][0]
+		if current_location > 10:
+			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
 		else:
-			location_name_label.text = location[current_location % 10][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[(current_location % 10) - 1])
+			location_name_label.text = location[(current_location % 10) - 1][1]
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
 func _on_button_pressed() -> void:
 	#ChangeScene.black_screen()
-	#PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location + 1
+	#PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
 	#WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
 	#LevelManager.restert()
 	#LevelManager.player_balls = [1, 1, 1, 1]
@@ -118,7 +131,7 @@ func _on_button_pressed() -> void:
 func star_location(result) -> void:
 	if result == "closed" or result == "error":
 		ChangeScene.black_screen()
-		PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location + 1
+		PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
 		WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
 		LevelManager.restert()
 		LevelManager.player_balls = [1, 1, 1, 1]
@@ -145,23 +158,23 @@ func _on_next_location_pressed() -> void:
 	AudioManager.click()
 	if current_location <= 10008:
 		current_location += 1
-		location_sprite.texture = location[current_location % 10][0]
-		if current_location > 9:
-			location_name_label.text = str(location[current_location % 10][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
+		location_sprite.texture = location[(current_location % 10) - 1][0]
+		if current_location > 10:
+			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
 		else:
-			location_name_label.text = location[current_location % 10][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[(current_location % 10) - 1])
+			location_name_label.text = location[(current_location % 10) - 1][1]
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
 func _on_back_location_pressed() -> void:
 	AudioManager.click()
-	if current_location - 1 >= 0:
+	if current_location - 1 >= 1:
 		current_location -= 1
-		location_sprite.texture = location[current_location % 10][0]
-		if current_location > 9:
-			location_name_label.text = str(location[current_location % 10][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
+		location_sprite.texture = location[(current_location % 10) - 1][0]
+		if current_location > 10:
+			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
 		else:
-			location_name_label.text = location[current_location % 10][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[(current_location % 10) - 1])
+			location_name_label.text = location[(current_location % 10) - 1][1]
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
 func _on_mainmenu_button_pressed() -> void:
 	AudioManager.click()

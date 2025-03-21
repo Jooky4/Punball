@@ -23,22 +23,22 @@ func update_level_label_and_bar() -> void:
 	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
 	player_level_bar.value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER
 
-func plus_expiriance_level_player(scale : float = 1) -> void:
+func plus_expiriance_level_player(scale : float = 0) -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	var count_exp : int = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
-	PlayerIndicatorsManager.update_level_player(count_exp)
+	PlayerIndicatorsManager.update_level_player(round(count_exp))
 	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	for i in range(new_level - current_level):
 		while level_up_UI.visible != false:
 			await get_tree().create_timer(0.1).timeout
 		level_up_UI.level_up(current_level + i + 1)
-	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(count_exp * scale)
+	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp * (1+scale)))
 
 	var count_coins = 500
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 2:
 		count_coins = count_coins + (count_coins * 0.05)
-	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(count_coins * scale)
-	PlayerIndicatorsManager.update_coins_count(count_coins)
+	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins * (1+scale)))
+	PlayerIndicatorsManager.update_coins_count(round(count_coins))
 	update_level_label_and_bar()
 
 func win() -> void:
