@@ -38,6 +38,8 @@ func _ready() -> void:
 			hp_enemy_label.text = str(hp_enemy / 1000) + "K"
 		elif int(hp_enemy) % 10000 != 0:
 			hp_enemy_label.text = ("%.1f" % (hp_enemy / 1000)) + "K"
+	else:
+		hp_enemy_label.text = str(round(hp_enemy))
 	if !self.has_method("boss"):
 		self.z_index = 2
 
