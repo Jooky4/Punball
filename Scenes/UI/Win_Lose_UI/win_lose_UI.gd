@@ -5,6 +5,9 @@ extends Control
 @onready var player_level_bar = $Player_level/Player_level_bar
 @onready var level_up_UI = $Level_up_UI
 
+var count_coins = 0
+var count_exp = 0
+
 func _ready() -> void:
 	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
 	level_up_UI.visible = false
@@ -23,22 +26,35 @@ func update_level_label_and_bar() -> void:
 	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
 	player_level_bar.value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER
 
-func plus_expiriance_level_player(scale : float = 0) -> void:
+func plus_expiriance_level_player() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
-	var count_exp : int = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
+	count_exp = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
 	PlayerIndicatorsManager.update_level_player(round(count_exp))
 	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	for i in range(new_level - current_level):
 		while level_up_UI.visible != false:
 			await get_tree().create_timer(0.1).timeout
 		level_up_UI.level_up(current_level + i + 1)
-	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp * (1+scale)))
+	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp))
 
-	var count_coins = 500
+	count_coins = 500
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 2:
 		count_coins = count_coins + (count_coins * 0.05)
-	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins * (1+scale)))
+	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins))
 	PlayerIndicatorsManager.update_coins_count(round(count_coins))
+	update_level_label_and_bar()
+
+func bonus_for_AD() -> void:
+	PlayerIndicatorsManager.update_level_player(round(count_exp * 0.5))
+	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp * 1.5))
+	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
+	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
+	for i in range(new_level - current_level):
+		while level_up_UI.visible != false:
+			await get_tree().create_timer(0.1).timeout
+		level_up_UI.level_up(current_level + i + 1)
+	PlayerIndicatorsManager.update_coins_count(round(count_coins * 0.5))
+	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins * 1.5))
 	update_level_label_and_bar()
 
 func win() -> void:
@@ -64,4 +80,4 @@ func rew_ad_res(result:String) -> void:
 	elif result == "rewarded":
 		AudioServer.set_bus_mute(0, false)
 		$Button_AD.disabled = true
-		plus_expiriance_level_player(0.5)
+		bonus_for_AD()
