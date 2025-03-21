@@ -216,7 +216,7 @@ func get_health(health_hp) -> void:
 	hp_player_label.text = str(LevelManager.hp_player)
 
 func win() -> void:
-	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[WaveGeneration.current_location])
+	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
 	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
@@ -226,7 +226,7 @@ func lose() -> void:
 		end_game_UI_lose.update_player_state()
 	else:
 		if LevelManager.boss_on_map:
-			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[WaveGeneration.current_location] - 1)
+			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location() - 1)
 		else:
 			PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
 		get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
@@ -388,7 +388,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
-				buff.hp_enemy = (WaveGeneration.how_many_hp_plus_enemy(count_wave - 1) * 0.8) * 9
+				buff.hp_enemy = (WaveGeneration.how_many_hp_plus_enemy(count_wave - 1)) * 9
 				buff.player_damage = WaveGeneration.how_many_damage_player(2) * 2
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true

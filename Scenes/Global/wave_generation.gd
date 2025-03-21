@@ -17,7 +17,7 @@ var count_wave_on_locations = {
 	6: 20,
 	7: 30,
 	8: 20,
-	9: 40
+	-1: 40
 }
 
 var enemy_for_locations = [[1, 2, 3, null], 
@@ -33,10 +33,10 @@ var enemy_for_locations = [[1, 2, 3, null],
 
 func generetion_new_wave(number_wave):
 	var finish_array = [null,null,null,null,null,null]
-	if number_wave == count_wave_on_locations[current_location % 10]:
+	if number_wave == count_wave_on_locations[(current_location % 10) - 1]:
 		finish_array = [null,null,4,null,null,null]
 		return finish_array
-	elif number_wave == count_wave_on_locations[current_location % 10] - 1:
+	elif number_wave == count_wave_on_locations[(current_location % 10) - 1] - 1:
 		return finish_array
 
 	var coun_cell_with_enemy = 5
@@ -64,7 +64,6 @@ func generetion_new_wave(number_wave):
 				enemy_who_can_spawn.append(enemy_for_locations[(current_location % 10) - 1][i])
 			elif i == 3 and number_wave >= 11:
 				enemy_who_can_spawn.append(enemy_for_locations[(current_location % 10) - 1][i])
-
 	var new_enemy_array = []
 	for i in range(coun_cell_for_enemy):
 		new_enemy_array.append(enemy_who_can_spawn[randi() % enemy_who_can_spawn.size()])
@@ -81,8 +80,8 @@ func generetion_new_wave(number_wave):
 
 func how_many_hp_plus_enemy(number_wave) -> float:
 	number_wave += 1 
-	if number_wave > count_wave_on_locations[current_location % 10]:
-		number_wave = count_wave_on_locations[current_location % 10]
+	if number_wave > count_wave_on_locations[(current_location % 10) - 1]:
+		number_wave = count_wave_on_locations[(current_location % 10) - 1]
 	var hp_enemy = 400
 	var step = 0
 	var start_plus_hp = 0
@@ -112,10 +111,10 @@ func how_many_damage_player(num_enemy) -> int:
 		return enemy_damage
 
 func get_count_wave_on_location() -> float:
-	return count_wave_on_locations[current_location % 10]
+	return count_wave_on_locations[(current_location % 10) - 1]
 
 func get_coef_hp_enemy_when_boss_on_map():
-	match count_wave_on_locations[current_location]:
+	match count_wave_on_locations[(current_location % 10) - 1]:
 		20:
 			return 1.6
 		30:

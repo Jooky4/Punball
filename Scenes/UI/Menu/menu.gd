@@ -100,7 +100,7 @@ func update_cuurent_location_texture() -> void:
 			location_name_label.text = str(location[current_location % 10][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
 		else:
 			location_name_label.text = location[current_location % 10][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location % 10])
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[(current_location % 10) - 1])
 
 func _on_button_pressed() -> void:
 	#ChangeScene.black_screen()
@@ -150,7 +150,7 @@ func _on_next_location_pressed() -> void:
 			location_name_label.text = str(location[current_location % 10][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
 		else:
 			location_name_label.text = location[current_location % 10][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location % 10])
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[(current_location % 10) - 1])
 
 func _on_back_location_pressed() -> void:
 	AudioManager.click()
@@ -161,7 +161,7 @@ func _on_back_location_pressed() -> void:
 			location_name_label.text = str(location[current_location % 10][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
 		else:
 			location_name_label.text = location[current_location % 10][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location % 10])
+		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[(current_location % 10) - 1])
 
 func _on_mainmenu_button_pressed() -> void:
 	AudioManager.click()
