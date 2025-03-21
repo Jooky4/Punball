@@ -8,52 +8,16 @@ var dop_hp_defolt_enemy = [[2, 4, 1],
 						   [14, 17, 4],
 						   [18, 10000, 5]]
 var count_wave_on_locations = {
-	1: 20,
-	2: 20,
-	3: 30,
-	4: 20,
-	5: 40,
-	6: 20,
-	7: 20,
-	8: 30,
-	9: 20,
-	10: 40
-}
-var based_enemy_hp_on_locations = {
-	1: 400,
-	2: 600,
-	3: 800,
-	4: 1200,
-	5: 2000,
-	6: 3000,
-	7: 4000,
-	8: 5000,
-	9: 6000,
-	10: 7000
-}
-var based_сlose_enemy_damage_player_on_locations = {
-	1: 100,
-	2: 140,
-	3: 220,
-	4: 300,
-	5: 420,
-	6: 540,
-	7: 700,
-	8: 860,
-	9: 1060,
-	10: 1260
-}
-var based_distant_enemy_damage_player_on_locations = {
+	0: 20,
 	1: 20,
 	2: 30,
-	3: 50,
-	4: 70,
-	5: 100,
-	6: 130,
-	7: 170,
-	8: 210,
-	9: 260,
-	10: 310
+	3: 20,
+	4: 40,
+	5: 20,
+	6: 20,
+	7: 30,
+	8: 20,
+	9: 40
 }
 
 var enemy_for_locations = [[1, 2, 3, null], 
@@ -69,10 +33,10 @@ var enemy_for_locations = [[1, 2, 3, null],
 
 func generetion_new_wave(number_wave):
 	var finish_array = [null,null,null,null,null,null]
-	if number_wave == count_wave_on_locations[current_location]:
+	if number_wave == count_wave_on_locations[current_location % 10]:
 		finish_array = [null,null,4,null,null,null]
 		return finish_array
-	elif number_wave == count_wave_on_locations[current_location] - 1:
+	elif number_wave == count_wave_on_locations[current_location % 10] - 1:
 		return finish_array
 
 	var coun_cell_with_enemy = 5
@@ -92,9 +56,14 @@ func generetion_new_wave(number_wave):
 				break
 
 	var enemy_who_can_spawn = []
-	for i in enemy_for_locations[current_location - 1]:
-		if i != 0:
-			enemy_who_can_spawn.append(i)
+	for i in range(enemy_for_locations[(current_location % 10) - 1].size()):
+		if enemy_for_locations[(current_location % 10) - 1][i] != null:
+			if i == 0 or i == 1:
+				enemy_who_can_spawn.append(enemy_for_locations[(current_location % 10) - 1][i])
+			elif i == 2 and number_wave >= 6:
+				enemy_who_can_spawn.append(enemy_for_locations[(current_location % 10) - 1][i])
+			elif i == 3 and number_wave >= 11:
+				enemy_who_can_spawn.append(enemy_for_locations[(current_location % 10) - 1][i])
 
 	var new_enemy_array = []
 	for i in range(coun_cell_for_enemy):
@@ -112,23 +81,38 @@ func generetion_new_wave(number_wave):
 
 func how_many_hp_plus_enemy(number_wave) -> float:
 	number_wave += 1 
-	if number_wave > count_wave_on_locations[current_location]:
-		number_wave = count_wave_on_locations[current_location]
-	var hp_enemy = based_enemy_hp_on_locations[current_location]
-	for i in range(1, number_wave + 1):
-		for j in dop_hp_defolt_enemy:
-			if j[0] <= i and i <= j[1]:
-				hp_enemy += ((based_enemy_hp_on_locations[current_location] / 2) * j[2])
+	if number_wave > count_wave_on_locations[current_location % 10]:
+		number_wave = count_wave_on_locations[current_location % 10]
+	var hp_enemy = 400
+	var step = 0
+	var start_plus_hp = 0
+	for i in range(1, current_location + 1):
+		if i % 2 == 0:
+			step += 200
+		start_plus_hp += step
+	hp_enemy += start_plus_hp
+	for j in dop_hp_defolt_enemy:
+		if j[0] <= number_wave and number_wave <= j[1]:
+			hp_enemy += (hp_enemy / 2) * j[2]
+			return float(hp_enemy)
 	return float(hp_enemy)
 
 func how_many_damage_player(num_enemy) -> int:
+	var enemy_damage = 100
+	var step = 0
+	var start_plus_damage = 0
+	for i in range(1, current_location + 1):
+		if i % 2 == 0:
+			step += 50
+		start_plus_damage += step
+	enemy_damage += start_plus_damage
 	if num_enemy == 2 or num_enemy == 14:
-		return based_distant_enemy_damage_player_on_locations[current_location]
+		return round(enemy_damage / 5)
 	else:
-		return based_сlose_enemy_damage_player_on_locations[current_location]
+		return enemy_damage
 
 func get_count_wave_on_location() -> float:
-	return count_wave_on_locations[current_location]
+	return count_wave_on_locations[current_location % 10]
 
 func get_coef_hp_enemy_when_boss_on_map():
 	match count_wave_on_locations[current_location]:

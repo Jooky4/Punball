@@ -1,9 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://ciuhn6dg5mwdo"]
+[gd_scene load_steps=27 format=3 uid="uid://ciuhn6dg5mwdo"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
+[ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/background.png" id="2_bhn41"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_yc3ln"]
-[ext_resource type="Texture2D" uid="uid://beiknpx7eyqi" path="res://Texture/UI/Win_Lose_UI/фон общий.png" id="7_cktyw"]
-[ext_resource type="Texture2D" uid="uid://bvcmpaxjnq4lb" path="res://Texture/UI/Win_Lose_UI/фон ЗВЕЗДЫ.png" id="8_adqk7"]
 [ext_resource type="Texture2D" uid="uid://uit2cj333elo" path="res://Texture/UI/Revival_UI/кнопка супероживление.png" id="8_sjjra"]
 [ext_resource type="Texture2D" uid="uid://dr8bphursbhnu" path="res://Texture/UI/Revival_UI/основная плашка.png" id="9_emg5l"]
 [ext_resource type="Texture2D" uid="uid://br1jvi21pc6nb" path="res://Texture/UI/Revival_UI/кнопка закрыть.png" id="10_ahg8p"]
@@ -20,10 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/бар для кристалла 182-800.png" id="18_37g3u"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="19_vb275"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="20_masc1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_2glv1"]
-font = ExtResource("4_yc3ln")
-font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_7osg2"]
 font = ExtResource("4_yc3ln")
@@ -68,6 +63,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c74sn")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(375, 595)
+scale = Vector2(2.47324, 2.28916)
+texture = ExtResource("2_bhn41")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 z_index = 1
 layout_mode = 1
@@ -85,42 +85,6 @@ grow_vertical = 2
 scale = Vector2(1.4, 1.4)
 pivot_offset = Vector2(211.071, 93.5714)
 theme_override_constants/separation = 22
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -12.0
-offset_top = 30.0
-offset_right = 282.0
-offset_bottom = 88.0
-grow_horizontal = 2
-text = "100"
-label_settings = SubResource("LabelSettings_2glv1")
-vertical_alignment = 1
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1520.0
-offset_right = 1520.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_cktyw")
-stretch_mode = 6
-
-[node name="TextureRect3" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_adqk7")
-stretch_mode = 6
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 layout_mode = 1

@@ -45,8 +45,8 @@ func _on_ad_pressed() -> void:
 func _on_crystals_pressed() -> void:
 	AudioManager.click()
 	if PlayerIndicatorsManager.CRYSTALS_COUNT >= 100:
-		timer.stop(false)
-		timer_2.stop(false)
+		timer.stop()
+		timer_2.stop()
 		PlayerIndicatorsManager.CRYSTALS_COUNT -= 100
 		LevelManager.revival(1, true)
 		if get_tree().current_scene.has_method("revavil_player"):

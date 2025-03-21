@@ -2,7 +2,7 @@ extends Node
 
 var CRYSTALS_COUNT : int = 1000
 var COINS_COUNT : int = 10000
-var LEVEL_PLAYER : int = 55
+var LEVEL_PLAYER : int = 1
 var LEVEL_EXPERIANCE_PLAYER : int = 0
 var LEVEL_EXPERIANCE_FOR_NEXT_LEVEL : int = 500
 var CURRENT_LOCATIONS : int = 1

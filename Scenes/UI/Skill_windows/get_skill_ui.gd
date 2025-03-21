@@ -4,6 +4,9 @@ var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
 var BUTTON_NOT_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка покупки неактивная.png")
 var BUTTON_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка покупки активная (кнопка рекламы).png")
 
+var BUTTON_UPDATE_SKILL_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка обновить.png")
+var BUTTON_UPDATE_SKILL_NOT_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка обновить неактивна.png")
+
 @onready var windows_skill = $Windows_skill
 @onready var animation = $AnimationPlayer
 @onready var bye_button = $Bye_button
@@ -171,7 +174,13 @@ func create_skill():
 	skil_for_ad = 0
 	sound_scroll.playing = true
 	sound_scroll.pitch_scale = 1.1
+
 	$Update_skill_button.visible = false
+	if 100 <= LevelManager.count_experiance:
+		$Update_skill_button.texture_normal = BUTTON_UPDATE_SKILL_CAN_PRESS_TEXTURE
+	else:
+		$Update_skill_button.texture_normal = BUTTON_UPDATE_SKILL_NOT_PRESS_TEXTURE
+
 	for i in windows_skill.get_children():
 		i.queue_free()
 	for i in bye_button.get_children():

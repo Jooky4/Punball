@@ -11,6 +11,28 @@ extends Control
 @onready var skills_container = $Scill_ScrollContainer/Skills_container
 @onready var level_container = $Lvl_ScrollContainer/Level_container
 
+@onready var skill_for_coins_close_texture = preload("res://Texture/UI/Talents_UI/ячейка неактивная для талантов за монеты.png")
+@onready var skill_for_crystal_close_texture = preload("res://Texture/UI/Talents_UI/серая ячейка (для золотой).png")
+@onready var close_texture = preload("res://Texture/UI/Talents_UI/замок.png")
+
+var for_coins_talent_texture = {
+	"Увеличение атаки": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение Атаки.png"),
+	"Увеличение ОЗ": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение ОЗ.png"),
+	"Уменьшение урона от дальних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов дальнего боя.png"),
+	"Улучшение восстановления": preload("res://Texture/UI/Talents_UI/Talent_texture/Улучшение эффекта восстановления.png"),
+	"Уменьшение урона от ближних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов ближнего боя.png"),
+	"Регенерация": preload("res://Texture/UI/Talents_UI/Talent_texture/Регенерация.png"),
+	"Увеличение урона от босса": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от босса.png")}
+
+var discription_talants = {
+	"Увеличение атаки": "Атака + 50",
+	"Увеличение ОЗ": "ОЗ +500",
+	"Уменьшение урона от дальних врагов": "Уменьшение урона на 100",
+	"Улучшение восстановления": "Дополнительно +50 ОЗ",
+	"Уменьшение урона от ближних врагов": "Уменьшение урона на 100",
+	"Регенерация": "Каждую волну, кроме волн на боссе +50 ОЗ",
+	"Увеличение урона от босса": ""}
+
 var load_data_talant : bool = false
 
 var skills_for_coins = [
@@ -51,7 +73,12 @@ var skills_for_crystall = [
 func update_skill() -> void:
 	if load_data_talant == false:
 		var count_skills = 1
-		for i in range(1, 151, 1):
+		#var min_visible_level = 1
+		#if PlayerIndicatorsManager.LEVEL_PLAYER - 20 >= 1:
+			#min_visible_level = PlayerIndicatorsManager.LEVEL_PLAYER - 20
+			#count_skills = (min_visible_level * 3) - 3
+			#print(count_skills)
+		for i in range(1, PlayerIndicatorsManager.LEVEL_PLAYER + 20, 1):
 			for j in range(3):
 				var level_conteiner_buff = level_scroll_conteiner.instantiate()
 				var skills_conteiner_buff = scill_scroll_conteiner.instantiate()
@@ -59,19 +86,25 @@ func update_skill() -> void:
 				skills_container.move_child(skills_conteiner_buff, 0)
 				level_container.add_child(level_conteiner_buff)
 				level_container.move_child(level_conteiner_buff, 0)
-				skills_conteiner_buff.for_coins_update_texture_and_discriotion(skills_for_coins[(count_skills - 1) % 25], count_skills)
 				skills_conteiner_buff.update_need_level(i)
+
+				if i > PlayerIndicatorsManager.LEVEL_PLAYER:
+					skills_conteiner_buff.skills_close(close_texture, skill_for_coins_close_texture, skill_for_crystal_close_texture)
+				else:
+					var talant_for_coins = skills_for_coins[(count_skills - 1) % 25]
+					skills_conteiner_buff.for_coins_update_texture_and_discriotion(talant_for_coins, count_skills, discription_talants[talant_for_coins], for_coins_talent_texture[talant_for_coins])
+
 				if count_skills % 6 != 0 and count_skills != 1:
 					skills_conteiner_buff.erase_for_crystal()
-				elif count_skills % 6 == 0 or count_skills == 1:
+				elif (count_skills % 6 == 0 or count_skills == 1) and i <= PlayerIndicatorsManager.LEVEL_PLAYER:
 					skills_conteiner_buff.for_crystal_update_texture_and_discriotion(count_skills)
-				if i > PlayerIndicatorsManager.LEVEL_PLAYER:
-					skills_conteiner_buff.skills_close()
+
 				if j == 0:
 					level_conteiner_buff.update_lvl(i)
 				else:
 					level_conteiner_buff.set_visible_conteiner(false)
 				count_skills += 1
+
 		var buff = empty_container.instantiate()
 		var buff1 = empty_container.instantiate()
 		skills_container.add_child(buff)
@@ -79,7 +112,7 @@ func update_skill() -> void:
 		level_container.add_child(buff1)
 		level_container.move_child(buff1, 0)
 
-		await get_tree().create_timer(0.03).timeout
+		await get_tree().create_timer(0.05).timeout
 		update_scroll()
 		load_data_talant = true
 	else:

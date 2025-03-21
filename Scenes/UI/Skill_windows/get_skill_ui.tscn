@@ -312,8 +312,6 @@ grow_horizontal = 2
 grow_vertical = 0
 disabled = true
 texture_normal = ExtResource("7_mbj7w")
-texture_pressed = ExtResource("7_mbj7w")
-texture_focused = ExtResource("7_mbj7w")
 
 [node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Update_skill_button"]
 position = Vector2(274, 42)

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://db5f27epdvkn8"]
+[gd_scene load_steps=2 format=3 uid="uid://db5f27epdvkn8"]
+
+[ext_resource type="Texture2D" uid="uid://c45d0wb078w46" path="res://Texture/UI/Talents_UI/серая полоска.png" id="1_rx2c1"]
 
 [node name="Buff" type="Control"]
 custom_minimum_size = Vector2(720, 184)
@@ -9,3 +11,27 @@ anchor_bottom = 1.0
 offset_bottom = -1096.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = 128.0
+offset_top = -214.0
+offset_right = 168.0
+offset_bottom = 675.0
+pivot_offset = Vector2(1, 1311)
+mouse_filter = 2
+texture = ExtResource("1_rx2c1")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = 549.0
+offset_top = -233.0
+offset_right = 589.0
+offset_bottom = 1088.0
+pivot_offset = Vector2(1, 1311)
+mouse_filter = 2
+texture = ExtResource("1_rx2c1")
+expand_mode = 1

@@ -6,9 +6,6 @@ extends MarginContainer
 @onready var for_coins_texture = $For_coins/Skill_texture
 @onready var for_crystal_texture = $For_crystal/Skill_texture
 
-@onready var skill_for_coins_close_texture = preload("res://Texture/UI/Talents_UI/ячейка неактивная для талантов за монеты.png")
-@onready var skill_for_crystal_close_texture = preload("res://Texture/UI/Talents_UI/серая ячейка (для золотой).png")
-@onready var close_texture = preload("res://Texture/UI/Talents_UI/замок.png")
 @onready var have_for_coins_talant_texture_line = preload("res://Texture/UI/Talents_UI/синяя полоса.png")
 @onready var have_for_crystal_talant_texture_line = preload("res://Texture/UI/Talents_UI/золотая полоса.png")
 
@@ -26,15 +23,6 @@ var skill_for_coins
 var skill_for_crystal_cost : int = 0
 var skill_for_coins_cost : int = 0
 
-var for_coins_talent_texture = {
-	"Увеличение атаки": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение Атаки.png"),
-	"Увеличение ОЗ": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение ОЗ.png"),
-	"Уменьшение урона от дальних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов дальнего боя.png"),
-	"Улучшение восстановления": preload("res://Texture/UI/Talents_UI/Talent_texture/Улучшение эффекта восстановления.png"),
-	"Уменьшение урона от ближних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов ближнего боя.png"),
-	"Регенерация": preload("res://Texture/UI/Talents_UI/Talent_texture/Регенерация.png"),
-	"Увеличение урона от босса": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от босса.png")}
-
 var for_crystal_talent_texture = {
 	"Дополнительный навык при старте боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Дополнительный навык при старте боя.png"),
 	"Дополнительные монеты в начале боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Дополнительные монеты в начале боя.png"),
@@ -46,13 +34,6 @@ var for_crystal_talent_texture = {
 	"ОЗ +5%": preload("res://Texture/UI/Talents_UI/Talent_texture/ОЗ +Х_.png")}
 
 var discription_talants = {
-	"Увеличение атаки": "Атака + 50",
-	"Увеличение ОЗ": "ОЗ +500",
-	"Уменьшение урона от дальних врагов": "Уменьшение урона на 100",
-	"Улучшение восстановления": "Дополнительно +50 ОЗ",
-	"Уменьшение урона от ближних врагов": "Уменьшение урона на 100",
-	"Регенерация": "Каждую волну, кроме волн на боссе +50 ОЗ",
-	"Увеличение урона от босса": "",
 	"Дополнительный навык при старте боя": "Обычный или редкий скилл при старте уровня",
 	"Дополнительные монеты в начале боя": "Подучашь дополнительные монеты",
 	"Атака +5%": "Увеличивает весь урон на 5% от текущего урона",
@@ -74,13 +55,13 @@ func erase_for_crystal() -> void:
 	for_crystal.disabled = true
 	for_crystal.visible = false
 
-func for_coins_update_texture_and_discriotion(skill, count_skills) -> void:
+func for_coins_update_texture_and_discriotion(skill, count_skills, discription, texture) -> void:
 	count_skill_for_coins = count_skills
 	skill_for_coins_cost = 500 + (1250 * ((count_skill_for_coins - 1) / 5))
-	for_coins_texture.texture = for_coins_talent_texture[skill]
+	for_coins_texture.texture = texture
 	if count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS:
 		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
-	update_discription_for_coins(skill)
+	update_discription_for_coins(skill, discription)
 
 func for_crystal_update_texture_and_discriotion(count) -> void:
 	var talant
@@ -110,15 +91,15 @@ func update_discription_for_crystal(talant) -> void:
 	$For_crystal/Information/Skill_name.text = talant
 	$For_crystal/Information/Discription.text = discription_talants[talant]
 
-func update_discription_for_coins(talant) -> void:
+func update_discription_for_coins(talant, discription) -> void:
 	$For_coins/Information/Skill_name.text = talant
-	$For_coins/Information/Discription.text = discription_talants[talant]
+	$For_coins/Information/Discription.text = discription
 
-func skills_close() -> void:
-	for_cois.texture_normal = skill_for_coins_close_texture
-	for_coins_texture.texture = close_texture
-	for_crystal.texture_normal = skill_for_crystal_close_texture
-	for_crystal_texture.texture = close_texture
+func skills_close(zamoc, texture_for_coins, texture_for_crystal) -> void:
+	for_cois.texture_normal = texture_for_coins
+	for_coins_texture.texture = zamoc
+	for_crystal.texture_normal = texture_for_crystal
+	for_crystal_texture.texture = zamoc
 	can_bye = false
 
 func update_need_level(lvl) -> void:
@@ -143,7 +124,7 @@ func _on_button_for_coins_pressed() -> void:
 		$For_coins/Information/Bye_skill.visible = true
 		$For_coins/Information/Skill_name.visible = true
 		$For_coins/Information/Discription.visible = true
-		$For_coins/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_coins_cost)
+		$For_coins/Information/Bye_skill/Label.text = str(skill_for_coins_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS + 2:
 		$For_coins/Information/Need_previous_skill.visible = true
 		$For_coins/Information/Discription.visible = true
@@ -171,7 +152,7 @@ func _on_button_for_crystall_pressed() -> void:
 		$For_crystal/Information/Bye_skill.visible = true
 		$For_crystal/Information/Skill_name.visible = true
 		$For_crystal/Information/Discription.visible = true
-		$For_crystal/Information/Bye_skill/Bye_Button/Label.text = str(skill_for_crystal_cost)
+		$For_crystal/Information/Bye_skill/Label.text = str(skill_for_crystal_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_crystal >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 2:
 		$For_crystal/Information/Need_previous_skill.visible = true
 		$For_crystal/Information/Discription.visible = true
