@@ -60,6 +60,7 @@ var trap_on_map_links = [[null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null]]
+var kill_on_whis_wave : int = 0
 
 func restert() -> void:
 	ElementsManager.restart()
@@ -76,6 +77,7 @@ func restert() -> void:
 	player_balls_after_wave = []
 	player_skills = []
 	hit_player = false
+	kill_on_whis_wave = 0
 	first_level_links_on_objects = [[null, null, null, null, null, null],
  									[null, 1, 1, 1, 1, 1,],
  									[null, null, null, null, null, null],
@@ -471,6 +473,7 @@ func update_combo_count(enemy) -> void:
 	check_count_combo(enemy)
 
 func enemy_died(enemy) -> void:
+	kill_on_whis_wave += 1
 	if "Молния смерти" in player_skills:
 		lighthing_ball_damage(enemy, 600 * ElementsManager.lightning_modifier, ElementsManager.color_elements["LIGHTNING"], true)
 	if "Холод смерти" in player_skills:

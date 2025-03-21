@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var experience_sound = $Experience_sound
-@export var experience : int = 50
+@export var experience : int = 0
 @export var experience_for_label : int = 50
 var bank_go = false
 

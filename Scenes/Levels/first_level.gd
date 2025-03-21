@@ -77,6 +77,7 @@ var rignt_extreme_point : Vector2
 var left_extreme_point : Vector2
 var mouse_in_pause_button_area = false
 var revavil_for_AD_or_crystal : bool = false
+var kill_on_wave : int = 0
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -194,7 +195,7 @@ func get_expirians_animation(experience) -> void:
 	var tween1 = get_tree().create_tween()
 	tween1.tween_property(get_count_experience_label, "scale", Vector2(1.2, 1.2), 0.05)
 	tween1.chain().tween_property(get_count_experience_label, "scale", Vector2(1, 1), 0.05)
-	count_get_experience_on_wave += experience
+	count_get_experience_on_wave += round((10 * ((kill_on_wave * (kill_on_wave + 1)) / 2)) / kill_on_wave)
 	get_count_experience_label.text = "+"+str(count_get_experience_on_wave)
 	count_experience_label.text = str(LevelManager.count_experiance)
 	var count_bank = 0
@@ -245,6 +246,7 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	else:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
+	LevelManager.kill_on_whis_wave = 0
 	LevelManager.delete_freezing_and_fire_on_enemy()
 
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible:
@@ -455,7 +457,6 @@ func end_wave() -> void:
 	start_balls_position.position.x += new_position_balls
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
-	animation_bank_with_experience()
 	animation_health()
 	if !LevelManager.boss_on_map:
 		get_health(PlayerIndicatorsManager.FOR_COIS_REGENIRATION)
@@ -488,8 +489,8 @@ func end_wave() -> void:
 	else:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
+	LevelManager.kill_on_whis_wave = 0
 	LevelManager.delete_freezing_and_fire_on_enemy()
-
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible:
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished
@@ -577,12 +578,9 @@ func notification_about_new_enemy(num_enemy) -> void:
 	PlayerIndicatorsManager.enemy_firs_time_spawn(num_enemy)
 
 func animation_bank_with_experience() -> void:
-	for i in self.get_children():
-		if i != null:
-			if i.has_method("bank_with_experience"):
-				if !i.bank_go:
-					LevelManager.count_experiance += i.experience
-					i.experience = 0
+	kill_on_wave = LevelManager.kill_on_whis_wave
+	var count_exp = 10 * ((LevelManager.kill_on_whis_wave * (LevelManager.kill_on_whis_wave + 1)) / 2)
+	LevelManager.count_experiance += count_exp
 	for i in self.get_children():
 		if i != null:
 			if i.has_method("bank_with_experience"):
