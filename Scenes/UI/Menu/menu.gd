@@ -94,10 +94,10 @@ func update_level_label_and_bar() -> void:
 
 func update_cuurent_location_texture() -> void:
 	current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
-	if current_location <= 10009:
+	if current_location <= 10008:
 		location_sprite.texture = location[current_location % 10][0]
-		if current_location > 10:
-				location_name_label.text = str(location[current_location % 10][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
+		if current_location > 9:
+			location_name_label.text = str(location[current_location % 10][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
 		else:
 			location_name_label.text = location[current_location % 10][1]
 		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(WaveGeneration.count_wave_on_locations[current_location % 10])
