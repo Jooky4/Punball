@@ -241,10 +241,10 @@ func create_skill():
 			skill_can_drop.remove_at(random_index)
 		else:
 			skills.append(not_can_buy_skills[randi() % not_can_buy_skills.size()])
-	if (randi() % 100 + 1) <= 30 and not_can_buy_skills.size() > 1:
+	if (randi() % 100 + 1) <= 30 and not_can_buy_skills.size() >= 1:
 		skills[2] = not_can_buy_skills[randi() % not_can_buy_skills.size()]
 
-	skills.sort_custom(Callable(self, "compare_skills"))
+	skills = bubble_sort(skills)
 	for i in skills:
 		var buff = SKILL_WINDOW.instantiate()
 		windows_skill.add_child(buff)
@@ -532,7 +532,7 @@ func create_free_skill() -> void:
 			var new_skill = skill_can_drop[random_index]
 			skills.append(new_skill)
 			skill_can_drop.remove_at(random_index)
-	skills.sort_custom(Callable(self, "compare_skills"))
+	skills = bubble_sort(skills)
 	for i in skills:
 		var buff = SKILL_WINDOW.instantiate()
 		windows_skill.add_child(buff)
@@ -580,5 +580,12 @@ func create_free_skill() -> void:
 			if "Button" in j.name:
 				j.disabled = false
 
-func compare_skills(a, b):
-	return a[1] < b[1] 
+func bubble_sort(arr: Array) -> Array:
+	var n = arr.size()
+	for i in range(n):
+		for j in range(0, n - i - 1):
+			if arr[j][1] > arr[j + 1][1]:
+				var temp = arr[j]
+				arr[j] = arr[j + 1]
+				arr[j + 1] = temp
+	return arr

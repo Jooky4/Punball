@@ -111,6 +111,7 @@ func damage_player(damage, enemy) -> void:
 	hp_player -= damage
 	if hp_player <= 0:
 		hp_player = 0
+	hp_player = round(hp_player)
 
 func apeend_new_balls() -> void:
 	if 11 in player_balls_after_wave:
