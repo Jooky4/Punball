@@ -181,6 +181,7 @@ func _on_bye_for_crystal_pressed() -> void:
 		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
 		get_parent().get_parent().get_parent().call("update_player_indicator_talant_for_coins")
 		get_parent().get_parent().get_parent().get_parent().call("update_crystal_label")
+		get_parent().get_parent().get_parent().get_parent().call("can_by_new_talant")
 
 func _on_bye_for_cois_pressed() -> void:
 	AudioManager.click()
@@ -193,6 +194,7 @@ func _on_bye_for_cois_pressed() -> void:
 		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
 		get_parent().get_parent().get_parent().call("update_player_indicator_talant_for_coins")
 		get_parent().get_parent().get_parent().get_parent().call("update_coins_label")
+		get_parent().get_parent().get_parent().get_parent().call("can_by_new_talant")
 
 func _on_bye_button_mouse_entered() -> void:
 	can_close_information = false

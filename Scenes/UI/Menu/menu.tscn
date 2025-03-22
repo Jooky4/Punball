@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=36 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
 [ext_resource type="Texture2D" uid="uid://dikogjsucwvft" path="res://Texture/UI/Main_menu/Сhest/Без имени-1.png" id="22_rgrul"]
 [ext_resource type="Texture2D" uid="uid://dw1wobtt2xah0" path="res://Texture/UI/Main_menu/Сhest/2.png" id="23_cbq87"]
+[ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
 font = ExtResource("3_cjc1q")
@@ -751,6 +752,20 @@ grow_vertical = 2
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("20_bdbvx")
 expand_mode = 1
+stretch_mode = 5
+
+[node name="Can_by" type="TextureRect" parent="Select_buttons/Talesnts_button"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = 54.0
+grow_horizontal = 0
+texture = ExtResource("27_c31n5")
 stretch_mode = 5
 
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
