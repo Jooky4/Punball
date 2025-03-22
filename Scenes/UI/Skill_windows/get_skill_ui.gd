@@ -239,10 +239,10 @@ func create_skill():
 			skill_can_drop.remove_at(random_index)
 		else:
 			skills.append(not_can_buy_skills[randi() % not_can_buy_skills.size()])
-	skills.sort_custom(Callable(self, "compare_skills"))
 	if (randi() % 100 + 1) <= 30:
 		skills[2] = not_can_buy_skills[randi() % not_can_buy_skills.size()]
 
+	skills.sort_custom(Callable(self, "compare_skills"))
 	for i in skills:
 		var buff = SKILL_WINDOW.instantiate()
 		windows_skill.add_child(buff)
