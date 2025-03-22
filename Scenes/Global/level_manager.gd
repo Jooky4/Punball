@@ -513,6 +513,8 @@ func enemy_died(enemy) -> void:
 
 func buy_skill(skill_cost : int) -> void:
 	count_experiance -= skill_cost
+	if count_experiance <= 0:
+		count_experiance = 0
 
 func check_count_combo(enemy) -> void:
 	var need_combo = 40
