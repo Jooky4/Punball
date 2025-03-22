@@ -135,11 +135,11 @@ var count_get_skill : int = 0
 var show_AD = false
 
 func _ready() -> void:
-	self.visible = false
 	all_skills.append_array(regular)
 	all_skills.append_array(rare)
 	all_skills.append_array(epic)
 	all_skills.append_array(legendary)
+	self.visible = false
 
 func _on_continue_game_pressed() -> void:
 	count_get_skill += 1
@@ -153,8 +153,9 @@ func _on_continue_game_pressed() -> void:
 			AudioServer.set_bus_mute(0, true)
 			show_AD = false
 			return
-		LevelManager.spin_skill = 0
-		animation.play("windows_output")
+		else:
+			LevelManager.spin_skill = 0
+			animation.play("windows_output")
 	else:
 		get_number_skill(LevelManager.spin_skill)
 
@@ -211,8 +212,9 @@ func create_skill():
 	var not_can_buy_skills = []
 	if max_cost > 1820:
 		min_cost = 1000
+	if min_cost <= 0:
+		min_cost = 0
 	var skill_max_cost = -1
-	all_skills.shuffle()
 	for i in all_skills:
 		if !(i[0] in skills_once and i[0] in LevelManager.player_skills): 
 			if min_cost <= i[1] and i[1] <= max_cost:
@@ -231,7 +233,7 @@ func create_skill():
 		if skill_can_drop.size() > 0:
 			var random_index = randi() % skill_can_drop.size()
 			var new_skill = skill_can_drop[random_index]
-			if i == 2:
+			if i == 2 and skill_with_max_cost:
 				if (randi() % 100 + 1) <= 30:
 					if skill_with_max_cost not in skills:
 						new_skill = skill_with_max_cost
@@ -239,7 +241,7 @@ func create_skill():
 			skill_can_drop.remove_at(random_index)
 		else:
 			skills.append(not_can_buy_skills[randi() % not_can_buy_skills.size()])
-	if (randi() % 100 + 1) <= 30:
+	if (randi() % 100 + 1) <= 30 and not_can_buy_skills.size() > 1:
 		skills[2] = not_can_buy_skills[randi() % not_can_buy_skills.size()]
 
 	skills.sort_custom(Callable(self, "compare_skills"))
