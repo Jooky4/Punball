@@ -66,7 +66,6 @@ func _ready() -> void:
 
 	main_menu_UI.visible = true
 	shop_UI.visible = false
-	talents_UI.visible = false
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
 		YandexSDK.show_interstitial_ad()
 		PlayerIndicatorsManager.SHOW_AD_FIRST_TIME = true
@@ -92,6 +91,7 @@ func player_date_loaded(data) -> void:
 	update_crystal_label()
 	update_level_label_and_bar()
 	update_cuurent_location_texture()
+	talents_UI.update_skill()
 	talents_UI.update_player_indicator_talant_for_coins()
 	can_by_new_talant()
 	$Select_buttons/Talesnts_button.disabled = false

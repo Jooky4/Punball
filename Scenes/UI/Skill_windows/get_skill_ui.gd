@@ -233,7 +233,8 @@ func create_skill():
 			var new_skill = skill_can_drop[random_index]
 			if i == 2:
 				if (randi() % 100 + 1) <= 30:
-					new_skill = skill_with_max_cost
+					if skill_with_max_cost not in skills:
+						new_skill = skill_with_max_cost
 			skills.append(new_skill)
 			skill_can_drop.remove_at(random_index)
 		else:

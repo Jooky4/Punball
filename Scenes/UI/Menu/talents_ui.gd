@@ -73,11 +73,6 @@ var skills_for_crystall = [
 func update_skill() -> void:
 	if load_data_talant == false:
 		var count_skills = 1
-		#var min_visible_level = 1
-		#if PlayerIndicatorsManager.LEVEL_PLAYER - 20 >= 1:
-			#min_visible_level = PlayerIndicatorsManager.LEVEL_PLAYER - 20
-			#count_skills = (min_visible_level * 3) - 3
-			#print(count_skills)
 		for i in range(1, PlayerIndicatorsManager.LEVEL_PLAYER + 20, 1):
 			for j in range(3):
 				var level_conteiner_buff = level_scroll_conteiner.instantiate()
@@ -114,6 +109,7 @@ func update_skill() -> void:
 
 		await get_tree().create_timer(0.05).timeout
 		update_scroll()
+		self.visible = false
 		load_data_talant = true
 	else:
 		update_scroll()

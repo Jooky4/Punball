@@ -9,6 +9,10 @@ func collide_with_enemy(collider) -> void:
 	hit_enemy_sound.pitch_scale += AudioManager.get_random_pitch()
 	hit_enemy_sound.play()
 	var position_enemy = collider.get_global_position()
+	if collider.has_method("boss"):
+		var cell_size = 104
+		position_enemy.x += cell_size * 0.5
+		position_enemy.y += cell_size * 0.5
 	var self_position = self.get_global_position()
 	var delta_x = position_enemy.x - self_position.x
 	var delta_y = position_enemy.y - self_position.y 
