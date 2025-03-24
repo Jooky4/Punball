@@ -134,6 +134,9 @@ var count_get_skill : int = 0
 var show_AD = false
 
 func _ready() -> void:
+	for i in windows_skill.get_children():
+		i.queue_free()
+	skills.clear()
 	all_skills.append_array(regular)
 	all_skills.append_array(rare)
 	all_skills.append_array(epic)
@@ -151,6 +154,7 @@ func _on_continue_game_pressed() -> void:
 	LevelManager.spin_skill -= 1
 	if LevelManager.spin_skill <= 0:
 		if show_AD:
+			LevelManager.spin_skill = 0
 			YandexSDK.show_interstitial_ad()
 			YandexSDK.connect("interstitial_ad", close_ad)
 			AudioServer.set_bus_mute(0, true)
@@ -208,8 +212,8 @@ func create_skill():
 			if "Label" in j.name:
 				j.visible = true
 
-	var spread = LevelManager.count_experiance * (1 - ((LevelManager.count_experiance - 400) / (23.67 * 100)))
-	var min_cost = LevelManager.count_experiance - spread
+	var spread = int(LevelManager.count_experiance * (1 - ((LevelManager.count_experiance - 400) / (23.67 * 100))))
+	var min_cost = int(LevelManager.count_experiance - spread)
 	var max_cost = LevelManager.count_experiance
 	var skill_with_max_cost
 	var skill_can_drop = []
@@ -218,6 +222,7 @@ func create_skill():
 		min_cost = 1000
 	if min_cost <= 0:
 		min_cost = 0
+
 	var skill_max_cost = -1
 	for i in all_skills:
 		if i[0] in skills_once:
@@ -242,7 +247,6 @@ func create_skill():
 					skill_max_cost = i[1]
 			if i[1] > LevelManager.count_experiance:
 				not_can_buy_skills.append(i)
-
 	skill_can_drop = delete_skill_for_this_location(skill_can_drop)
 	not_can_buy_skills = delete_skill_for_this_location(not_can_buy_skills)
 

@@ -583,8 +583,8 @@ func notification_about_new_enemy(num_enemy) -> void:
 
 func animation_bank_with_experience() -> void:
 	kill_on_wave = LevelManager.kill_on_whis_wave
-	var count_exp = 10 * ((LevelManager.kill_on_whis_wave * (LevelManager.kill_on_whis_wave + 1)) / 2)
-	LevelManager.count_experiance += count_exp
+	var count_exp = 10 * ((kill_on_wave * (kill_on_wave + 1)) / 2)
+	LevelManager.count_experiance += round(count_exp)
 	for i in self.get_children():
 		if i != null:
 			if i.has_method("bank_with_experience"):
