@@ -209,7 +209,7 @@ func get_expirians_animation(experience) -> void:
 		get_count_experience_label.visible = false
 
 func get_health(health_hp) -> void:
-	health_hp = health_hp * LevelManager.prosen_hp_plus
+	health_hp = round(health_hp * LevelManager.prosen_hp_plus)
 	LevelManager.hp_player += health_hp
 	if LevelManager.hp_player > LevelManager.max_hp_player:
 		LevelManager.hp_player = LevelManager.max_hp_player
@@ -238,15 +238,12 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	hp_player_label.text = str(LevelManager.hp_player)
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
-	animation_bank_with_experience()
-	animation_health()
 	if LevelManager.boss_on_map:
 		$UI/Boss_label.visible = true
 		count_level_label.visible = false
 	else:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
-	LevelManager.kill_on_whis_wave = 0
 	LevelManager.delete_freezing_and_fire_on_enemy()
 
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible:
@@ -254,6 +251,7 @@ func revavil_player(for_AD_or_crystal : bool = false):
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
+	LevelManager.kill_on_whis_wave = 0
 	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
@@ -458,11 +456,12 @@ func end_wave() -> void:
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 	animation_health()
+	animation_bank_with_experience()
 	if !LevelManager.boss_on_map:
 		get_health(PlayerIndicatorsManager.FOR_COIS_REGENIRATION)
 	LevelManager.moving_object(start_balls_position.position)
 	if LevelManager.hit_player:
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(3.2).timeout
 	else:
 		await get_tree().create_timer(1).timeout
 	if LevelManager.hp_player <= 0:
@@ -481,21 +480,19 @@ func end_wave() -> void:
 		hp_player_label.text = str(LevelManager.hp_player)
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
-	animation_bank_with_experience()
-	animation_health()
 	if LevelManager.boss_on_map:
 		$UI/Boss_label.visible = true
 		count_level_label.visible = false
 	else:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
-	LevelManager.kill_on_whis_wave = 0
 	LevelManager.delete_freezing_and_fire_on_enemy()
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible:
 		notification_about_boss_animation.play("boss_close")
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
+	LevelManager.kill_on_whis_wave = 0
 	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)

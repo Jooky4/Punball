@@ -165,7 +165,7 @@ func moving_object(player_position) -> void:
 						first_level_links_on_objects[i][j].spawn_new_enemy()
 						hit_player = true
 	if hit_player:
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(1.7).timeout
 
 	for i in first_level_links_on_objects:
 		for j in i:

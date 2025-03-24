@@ -179,6 +179,8 @@ func get_number_skill(number:int) -> void:
 		create_skill()
 
 func create_skill():
+	for i in windows_skill.get_children():
+		i.queue_free()
 	var rare_skills = []
 	var button_arr = bye_button.get_children()
 	skil_for_ad = 0
@@ -191,8 +193,6 @@ func create_skill():
 	else:
 		$Update_skill_button.texture_normal = BUTTON_UPDATE_SKILL_NOT_PRESS_TEXTURE
 
-	for i in windows_skill.get_children():
-		i.queue_free()
 	for i in bye_button.get_children():
 		i.disabled = true
 		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
