@@ -15,18 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://bwghrgqkw6d8n" path="res://Texture/UI/Main_menu/линия для разделения.png" id="13_om7tk"]
 [ext_resource type="Texture2D" uid="uid://c6ipwsl2ty1u2" path="res://Texture/UI/Main_menu/свинья.png" id="14_p10qp"]
 [ext_resource type="Texture2D" uid="uid://bpd4yjl1llu86" path="res://Texture/UI/Main_menu/кубок.png" id="15_4qcoo"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
 [ext_resource type="Texture2D" uid="uid://bexfyxdbuodbu" path="res://Texture/UI/Main_menu/плашка для кубка.png" id="16_06xp1"]
+[ext_resource type="PackedScene" uid="uid://dotgv7p76vjh5" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
 [ext_resource type="Texture2D" uid="uid://bamqxwlu31sgo" path="res://Texture/UI/Main_menu/панель для иконок.png" id="17_y83uj"]
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/иконка мечи.png" id="19_q5oq5"]
 [ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/иконка книга.png" id="20_bdbvx"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
-[ext_resource type="Texture2D" uid="uid://bqnc0pms7nde4" path="res://Texture/UI/Main_menu/Сhest/1.png" id="21_tew7e"]
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
-[ext_resource type="Texture2D" uid="uid://dikogjsucwvft" path="res://Texture/UI/Main_menu/Сhest/Без имени-1.png" id="22_rgrul"]
-[ext_resource type="Texture2D" uid="uid://dw1wobtt2xah0" path="res://Texture/UI/Main_menu/Сhest/2.png" id="23_cbq87"]
 [ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
+[ext_resource type="PackedScene" uid="uid://c2ys2oj4481m3" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
 font = ExtResource("3_cjc1q")
@@ -358,143 +358,40 @@ label_settings = SubResource("LabelSettings_pa4cp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Main_menu"]
+[node name="Chests" type="HBoxContainer" parent="Main_menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -198.0
-offset_top = 111.0
-offset_right = 198.0
-offset_bottom = 202.0
+offset_left = -358.0
+offset_top = 116.0
+offset_right = 357.0
+offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+script = ExtResource("15_83luh")
 
-[node name="Сhest_1" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+[node name="Сhest_1" parent="Main_menu/Chests" instance=ExtResource("16_jxu4w")]
 layout_mode = 2
-texture = ExtResource("21_tew7e")
-expand_mode = 2
 
-[node name="Open" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -33.0
-offset_top = -100.5
-offset_right = 58.0
-offset_bottom = -9.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("22_rgrul")
-expand_mode = 2
-
-[node name="Close" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_1"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -53.5
-offset_right = 51.0
-offset_bottom = 37.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("23_cbq87")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+[node name="Line" type="TextureRect" parent="Main_menu/Chests"]
 layout_mode = 2
 texture = ExtResource("22_rdsba")
 stretch_mode = 5
 
-[node name="Сhest_2" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+[node name="Сhest_2" parent="Main_menu/Chests" instance=ExtResource("16_jxu4w")]
 layout_mode = 2
-texture = ExtResource("21_tew7e")
-expand_mode = 2
 
-[node name="Open" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_2"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -33.0
-offset_top = -100.5
-offset_right = 58.0
-offset_bottom = -9.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("22_rgrul")
-expand_mode = 2
-
-[node name="Close" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -53.5
-offset_right = 51.0
-offset_bottom = 37.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("23_cbq87")
-expand_mode = 2
-
-[node name="TextureRect4" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+[node name="Line_2" type="TextureRect" parent="Main_menu/Chests"]
 layout_mode = 2
 texture = ExtResource("22_rdsba")
 stretch_mode = 5
 
-[node name="Сhest_3" type="TextureRect" parent="Main_menu/HBoxContainer2"]
+[node name="Сhest_3" parent="Main_menu/Chests" instance=ExtResource("16_jxu4w")]
 layout_mode = 2
-texture = ExtResource("21_tew7e")
-expand_mode = 2
-
-[node name="Open" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_3"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -33.0
-offset_top = -100.5
-offset_right = 58.0
-offset_bottom = -9.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("22_rgrul")
-expand_mode = 2
-
-[node name="Close" type="TextureRect" parent="Main_menu/HBoxContainer2/Сhest_3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -53.5
-offset_right = 51.0
-offset_bottom = 37.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("23_cbq87")
-expand_mode = 2
 
 [node name="Locations" type="Control" parent="Main_menu"]
 layout_mode = 1
@@ -560,9 +457,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -191.0
-offset_top = -402.0
+offset_top = -362.0
 offset_right = 186.0
-offset_bottom = -269.0
+offset_bottom = -229.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_kmt4p")
@@ -686,9 +583,8 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -281.0
-offset_top = -220.0
+offset_top = -175.0
 offset_right = 282.0
-offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
@@ -767,6 +663,10 @@ offset_bottom = 54.0
 grow_horizontal = 0
 texture = ExtResource("27_c31n5")
 stretch_mode = 5
+
+[node name="Chest_reward" parent="." instance=ExtResource("27_temh2")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]

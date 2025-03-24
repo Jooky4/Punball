@@ -5,6 +5,7 @@ extends Control
 @onready var talents_UI = $Talents
 @onready var location_sprite = $Main_menu/Locations/Location_sprite
 @onready var location_name_label = $Main_menu/Location_name
+@onready var chests = $Main_menu/Chests
 
 @onready var crystals_label = $Player_state/Crystals/Crystals_label
 @onready var coins_label = $Player_state/Coins/Coins_label
@@ -63,6 +64,7 @@ func _ready() -> void:
 	#talents_UI.update_scroll()
 	#talents_UI.update_skill()
 	#can_by_new_talant()
+	#chests.update_label_chests()
 
 	main_menu_UI.visible = true
 	shop_UI.visible = false
@@ -93,6 +95,7 @@ func player_date_loaded(data) -> void:
 	update_cuurent_location_texture()
 	talents_UI.update_skill()
 	talents_UI.update_player_indicator_talant_for_coins()
+	chests.update_label_chests()
 	can_by_new_talant()
 	$Select_buttons/Talesnts_button.disabled = false
 

@@ -9,6 +9,7 @@ var CURRENT_LOCATIONS : int = 1
 var MAX_WAVE_ON_CURRENT_LOCATIONS : int = 0
 var COUNT_BYE_TALANTS_FOR_COINS : int = 0
 var COUNT_BYE_TALANTS_FOR_CRYSTAL : int = 0
+var COUNT_OPEN_CHEST : int = 0
 
 var FOR_COIS_UP_ATTACK : float = 1.0
 var FOR_COIS_UP_OZ : int = 0
@@ -52,6 +53,7 @@ func update_player_date_in_game() -> void:
 						 "max_wave_on_current_locations",
 						 "count_bye_talants_for_coins",
 						 "count_bye_talants_for_crystal",
+						 "count_open_chest",
 						 "enemy_1_first_time",
 						 "enemy_2_first_time",
 						 "enemy_3_first_time",
@@ -74,6 +76,7 @@ func get_player_indicators() -> Dictionary:
 			"max_wave_on_current_locations" : MAX_WAVE_ON_CURRENT_LOCATIONS,
 			"count_bye_talants_for_coins" : COUNT_BYE_TALANTS_FOR_COINS,
 			"count_bye_talants_for_crystal" : COUNT_BYE_TALANTS_FOR_CRYSTAL,
+			"count_open_chest": COUNT_OPEN_CHEST,
 			"enemy_1_first_time" : ENEMY_1_FIRST_TIME,
 			"enemy_2_first_time" : ENEMY_2_FIRST_TIME,
 			"enemy_3_first_time" : ENEMY_3_FIRST_TIME,
@@ -108,6 +111,7 @@ func player_date_loaded(data) -> void:
 		MAX_WAVE_ON_CURRENT_LOCATIONS = data["max_wave_on_current_locations"]
 		COUNT_BYE_TALANTS_FOR_COINS = data["count_bye_talants_for_coins"]
 		COUNT_BYE_TALANTS_FOR_CRYSTAL = data["count_bye_talants_for_crystal"]
+		COUNT_OPEN_CHEST = data["count_open_chest"]
 		ENEMY_1_FIRST_TIME = data["enemy_1_first_time"]
 		ENEMY_2_FIRST_TIME = data["enemy_2_first_time"]
 		ENEMY_3_FIRST_TIME = data["enemy_3_first_time"]
@@ -129,6 +133,7 @@ func player_date_loaded(data) -> void:
 		MAX_WAVE_ON_CURRENT_LOCATIONS = 0
 		COUNT_BYE_TALANTS_FOR_COINS = 0
 		COUNT_BYE_TALANTS_FOR_CRYSTAL = 0
+		COUNT_OPEN_CHEST = 0
 		ENEMY_1_FIRST_TIME = 0
 		ENEMY_2_FIRST_TIME = 0
 		ENEMY_3_FIRST_TIME = 0
@@ -162,6 +167,10 @@ func update_level_player(count_exp) -> void:
 			LEVEL_EXPERIANCE_FOR_NEXT_LEVEL = 1250
 		else:
 			LEVEL_EXPERIANCE_FOR_NEXT_LEVEL = LEVEL_PLAYER * 500
+	update_player_date_on_server()
+
+func update_count_open_chest() -> void:
+	COUNT_OPEN_CHEST += 1
 	update_player_date_on_server()
 
 func defalt_for_talant() -> void:
