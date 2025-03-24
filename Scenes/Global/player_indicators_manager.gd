@@ -147,9 +147,12 @@ func player_date_loaded(data) -> void:
 		ENEMY_14_FIRST_TIME = 0
 
 func update_count_max_wave(max_wave) -> void:
-	#if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS: раскомитить когда уберём кнопки перелистывания локаций
-	MAX_WAVE_ON_CURRENT_LOCATIONS = max_wave
-	update_player_date_on_server()
+	if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS:
+		MAX_WAVE_ON_CURRENT_LOCATIONS = max_wave
+		update_player_date_on_server()
+	elif max_wave == 0:
+		MAX_WAVE_ON_CURRENT_LOCATIONS = 0
+		update_player_date_on_server()
 
 func update_count_current_location(num_loc : int = 0) -> void:
 	if num_loc == 0:
