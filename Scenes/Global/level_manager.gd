@@ -422,7 +422,7 @@ func laser_ball_damage_horizontally(damage_ball, color_ball, line_damage, pos_en
 		if i != null:
 			if i.has_method("enemy"):
 				if i.alive:
-					i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
+					i.deal_damage(damage_ball * ElementsManager.laser_modifier, color_ball)
 
 func laser_ball_damage_vertically(damage_ball, color_ball, line_damage, pos_enemy) -> void:
 	var effect = LASER_LINE.instantiate()
@@ -433,7 +433,7 @@ func laser_ball_damage_vertically(damage_ball, color_ball, line_damage, pos_enem
 		if i != null:
 			if i.has_method("enemy"):
 				if i.alive:
-					i.deal_damage(damage_ball * ElementsManager.normal_modifier, color_ball)
+					i.deal_damage(damage_ball * ElementsManager.laser_modifier, color_ball)
 
 func rocket_ball_damage(enemy, damage_ball, color_ball, start_pos, count_rocket, combo : bool = false) -> void:
 	var enemy_arr : Array = find_all_enemys()
