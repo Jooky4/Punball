@@ -63,6 +63,7 @@ _data = {
 }
 
 [node name="Line_lightning" type="Line2D"]
+z_index = 2
 texture_repeat = 3
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 100.0

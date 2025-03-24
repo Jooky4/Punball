@@ -507,75 +507,78 @@ func end_wave() -> void:
 func notification_about_new_enemy(num_enemy) -> void:
 	while LevelManager.spin_skill > 0:
 		await get_tree().create_timer(0.1).timeout
-
+	var play_anim = false
 	match num_enemy:
 		1:
 			if PlayerIndicatorsManager.ENEMY_1_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/1".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Разбойник"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/1".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Разбойник"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		2:
 			if PlayerIndicatorsManager.ENEMY_2_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/2".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Черника"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг дальнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/2".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Черника"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг дальнего боя"
+				play_anim = true
 		3:
 			if PlayerIndicatorsManager.ENEMY_3_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/3".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Бомба"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/3".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Бомба"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		5:
 			if PlayerIndicatorsManager.ENEMY_5_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/5".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Медик"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/5".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Медик"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		6:
 			if PlayerIndicatorsManager.ENEMY_6_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/6".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Слизь"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/6".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Слизь"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		8:
 			if PlayerIndicatorsManager.ENEMY_8_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/8".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Щитовик"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/8".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Щитовик"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		9:
 			if PlayerIndicatorsManager.ENEMY_9_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/9".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Прыгун"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/9".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Прыгун"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		10:
 			if PlayerIndicatorsManager.ENEMY_10_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/10".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Колдун"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/10".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Колдун"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		12:
 			if PlayerIndicatorsManager.ENEMY_12_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/12".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Ядовитый бак"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/12".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Ядовитый бак"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		13:
 			if PlayerIndicatorsManager.ENEMY_13_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/13".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Берсерк"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг ближнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
+				$"UI/Notification_about_enemy/For_PC/13".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Берсерк"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг ближнего боя"
+				play_anim = true
 		14:
 			if PlayerIndicatorsManager.ENEMY_14_FIRST_TIME == 0:
-				$"UI/Notification_about_enemy/ColorRect/14".visible = true
-				$UI/Notification_about_enemy/ColorRect/Enemy_name.text = "Элементаль огня"
-				$UI/Notification_about_enemy/ColorRect/Enemy_discription.text = "Враг дальнего боя"
-				$UI/Notification_about_enemy/AnimationPlayer.play("main")
-	PlayerIndicatorsManager.enemy_firs_time_spawn(num_enemy)
+				$"UI/Notification_about_enemy/For_PC/14".visible = true
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Элементаль огня"
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Враг дальнего боя"
+				play_anim = true
+	if play_anim:
+		await get_tree().create_timer(1).timeout
+		$UI/Notification_about_enemy/AnimationPlayer.play("for_pc")
+		PlayerIndicatorsManager.enemy_firs_time_spawn(num_enemy)
 
 func animation_bank_with_experience() -> void:
 	kill_on_wave = LevelManager.kill_on_whis_wave

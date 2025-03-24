@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cs6xiix7bua8s" path="res://Texture/For Skills/ледяной конус1.png" id="2_jl72f"]
 
 [node name="Ice_cube" type="Node2D"]
-z_index = 1
+z_index = 3
 script = ExtResource("1_dk6s5")
 
 [node name="Sprite" type="Sprite2D" parent="."]

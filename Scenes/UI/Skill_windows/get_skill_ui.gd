@@ -216,7 +216,21 @@ func create_skill():
 		min_cost = 0
 	var skill_max_cost = -1
 	for i in all_skills:
-		if !(i[0] in skills_once and i[0] in LevelManager.player_skills): 
+		if i[0] in skills_once:
+			if i[0] not in LevelManager.player_skills: 
+				if min_cost <= i[1] and i[1] <= max_cost:
+					skill_can_drop.append(i)
+					if i[1] > skill_max_cost:
+						if i[0] in skill_from_spesific_location.keys():
+							if WaveGeneration.current_location >= skill_from_spesific_location[i[0]]:
+								skill_with_max_cost = i
+								skill_max_cost = i[1]
+						else:
+							skill_with_max_cost = i
+							skill_max_cost = i[1]
+				if i[1] > LevelManager.count_experiance:
+					not_can_buy_skills.append(i)
+		else:
 			if min_cost <= i[1] and i[1] <= max_cost:
 				skill_can_drop.append(i)
 				if i[1] > skill_max_cost:
@@ -224,18 +238,17 @@ func create_skill():
 					skill_max_cost = i[1]
 			if i[1] > LevelManager.count_experiance:
 				not_can_buy_skills.append(i)
+
 	skill_can_drop = delete_skill_for_this_location(skill_can_drop)
 	not_can_buy_skills = delete_skill_for_this_location(not_can_buy_skills)
-	skill_can_drop.shuffle()
-	not_can_buy_skills.shuffle()
 
 	for i in range(3):
 		if skill_can_drop.size() > 0:
 			var random_index = randi() % skill_can_drop.size()
 			var new_skill = skill_can_drop[random_index]
 			if i == 2 and skill_with_max_cost:
-				if (randi() % 100 + 1) <= 30:
-					if skill_with_max_cost not in skills:
+				if skill_with_max_cost not in skills:
+					if (randi() % 100 + 1) <= 30:
 						new_skill = skill_with_max_cost
 			skills.append(new_skill)
 			skill_can_drop.remove_at(random_index)
@@ -525,7 +538,6 @@ func create_free_skill() -> void:
 	skill_can_drop.append_array(regular)
 	skill_can_drop.append_array(rare)
 	skill_can_drop = delete_skill_for_this_location(skill_can_drop)
-	skill_can_drop.shuffle()
 	for i in range(3):
 		if skill_can_drop.size() > 0:
 			var random_index = randi() % skill_can_drop.size()
