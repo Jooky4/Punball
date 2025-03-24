@@ -141,6 +141,10 @@ func _ready() -> void:
 	self.visible = false
 
 func _on_continue_game_pressed() -> void:
+	for i in windows_skill.get_children():
+		i.queue_free()
+	skills.clear()
+
 	count_get_skill += 1
 	if count_get_skill % 3 == 0:
 		show_AD = true
@@ -180,6 +184,7 @@ func get_number_skill(number:int) -> void:
 func create_skill():
 	for i in windows_skill.get_children():
 		i.queue_free()
+	skills.clear()
 	var rare_skills = []
 	var button_arr = bye_button.get_children()
 	skil_for_ad = 0
