@@ -57,6 +57,7 @@ var BACKSTABBING_BALL = preload("res://Scenes/Balls/Backstabbing ball/backstabbi
 @onready var notification_about_boss_animation = $UI/Reminder_boss/AnimationPlayer
 var count_get_experience_on_wave = 0
 var combo_count : int = 0
+var end_wave_bool : bool = false
 
 @onready var game_objects = $Game_objects
 
@@ -153,37 +154,39 @@ func play_game() -> void:
 		balls_go()
 
 func chec_game_end() -> void:
-	hp_player_bar.value = LevelManager.hp_player
-	hp_player_label.text = str(LevelManager.hp_player)
-	var balls_on_map = true
-	var boss_alive = false
-	if LevelManager.combo_count > combo_count:
-		combo_count_label.visible = true
-		combo_count_label.text = str(LevelManager.combo_count)
-		combo_count_label.scale = Vector2(1.5, 1.5)
-		combo_count = LevelManager.combo_count
-	else:
-		if combo_count_label.scale > Vector2(1, 1):
-			combo_count_label.scale -= Vector2(0.05, 0.05)
+	if !end_wave_bool:
+		hp_player_bar.value = LevelManager.hp_player
+		hp_player_label.text = str(LevelManager.hp_player)
+		var balls_on_map = true
+		var boss_alive = false
+		if LevelManager.combo_count > combo_count:
+			combo_count_label.visible = true
+			combo_count_label.text = str(LevelManager.combo_count)
+			combo_count_label.scale = Vector2(1.5, 1.5)
+			combo_count = LevelManager.combo_count
+		else:
+			if combo_count_label.scale > Vector2(1, 1):
+				combo_count_label.scale -= Vector2(0.05, 0.05)
 
-	for child in game_objects.get_children():
-		if child.has_method("boss"):
-			if child.alive:
-				boss_alive = true
-			break
-	if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
-		game_state = WIN
-		return
-	else:
-		boss_alive = true
+		for child in game_objects.get_children():
+			if child.has_method("boss"):
+				if child.alive:
+					boss_alive = true
+				break
+		if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
+			game_state = WIN
+			return
+		else:
+			boss_alive = true
 
-	for child in self.get_children():
-		if child.has_method("ball"):
-			balls_on_map = false
-			break
+		for child in self.get_children():
+			if child.has_method("ball"):
+				balls_on_map = false
+				break
 
-	if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
-		end_wave()
+		if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
+			end_wave_bool = true
+			end_wave()
 
 func get_expirians_animation(experience) -> void:
 	get_count_experience_label.visible = true
@@ -288,6 +291,7 @@ func draw_trajectory() -> void:
 
 func balls_go() -> void:
 	if balls_can_go:
+		end_wave_bool = false
 		balls_can_go = false
 		line.visible = false
 		strelka.visible = false
