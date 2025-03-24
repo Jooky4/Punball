@@ -61,7 +61,6 @@ func _ready() -> void:
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
 	#$Select_buttons/Talesnts_button.disabled = false
-	#talents_UI.update_scroll()
 	#talents_UI.update_skill()
 	#can_by_new_talant()
 	#chests.update_label_chests()
