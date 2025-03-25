@@ -222,6 +222,7 @@ func get_health(health_hp) -> void:
 
 func win() -> void:
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
+	LevelManager.win_or_lose = "win"
 	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
@@ -231,9 +232,10 @@ func lose() -> void:
 		end_game_UI_lose.update_player_state()
 	else:
 		if LevelManager.boss_on_map:
-			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location() - 1)
+			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
 		else:
 			PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
+		LevelManager.win_or_lose = "lose"
 		get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
 func revavil_player(for_AD_or_crystal : bool = false):
@@ -257,8 +259,8 @@ func revavil_player(for_AD_or_crystal : bool = false):
 		await notification_about_boss_animation.animation_finished
 	LevelManager.kill_on_whis_wave = 0
 	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
-		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		choose_skill_UI.visible = true
+		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
 		return
 	await get_tree().create_timer(0.05).timeout
@@ -499,8 +501,8 @@ func end_wave() -> void:
 		await notification_about_boss_animation.animation_finished
 	LevelManager.kill_on_whis_wave = 0
 	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
-		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		choose_skill_UI.visible = true
+		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
 		return
 	balls_can_go = true

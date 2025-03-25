@@ -14,9 +14,9 @@ func _ready() -> void:
 	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
 	level_up_UI.visible = false
 	plus_expiriance_level_player()
-	if PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS == WaveGeneration.get_count_wave_on_location():
+	if LevelManager.win_or_lose == "win":
 		win()
-	elif PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS < WaveGeneration.get_count_wave_on_location():
+	elif LevelManager.win_or_lose == "lose":
 		lose()
 
 func _on_go_to_menu_pressed() -> void:

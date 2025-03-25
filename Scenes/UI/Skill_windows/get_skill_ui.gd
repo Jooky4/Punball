@@ -141,6 +141,7 @@ func _ready() -> void:
 	all_skills.append_array(rare)
 	all_skills.append_array(epic)
 	all_skills.append_array(legendary)
+	YandexSDK.connect("interstitial_ad", close_ad)
 	self.visible = false
 
 func _on_continue_game_pressed() -> void:
@@ -155,9 +156,7 @@ func _on_continue_game_pressed() -> void:
 	if LevelManager.spin_skill <= 0:
 		if show_AD:
 			YandexSDK.show_interstitial_ad()
-			YandexSDK.connect("interstitial_ad", close_ad)
 			AudioServer.set_bus_mute(0, true)
-			show_AD = false
 			return
 		else:
 			LevelManager.spin_skill = 0
@@ -166,19 +165,21 @@ func _on_continue_game_pressed() -> void:
 		get_number_skill(LevelManager.spin_skill)
 
 func close_ad(result) -> void:
-	if result == "closed" or result == "error":
-		AudioServer.set_bus_mute(0, false)
-		LevelManager.spin_skill = 0
-		animation.play("windows_output")
-	elif result == "opened":
-		AudioServer.set_bus_mute(0, true)
+	if show_AD:
+		if result == "closed" or result == "error":
+			show_AD = false
+			AudioServer.set_bus_mute(0, false)
+			LevelManager.spin_skill = 0
+			animation.play("windows_output")
+		elif result == "opened":
+			AudioServer.set_bus_mute(0, true)
 
 func get_number_skill(number:int) -> void:
+	animation.play("window_input")
 	$Update_skill_button.disabled = true
 	for i in windows_skill.get_children():
 		i.queue_free()
 	skills.clear()
-	animation.play("window_input")
 	if number == -1:
 		create_free_skill()
 	else:
@@ -222,7 +223,10 @@ func create_skill():
 		min_cost = 1000
 	if min_cost <= 0:
 		min_cost = 0
-
+	print()
+	print(LevelManager.count_experiance)
+	print(min_cost)
+	print(max_cost)
 	var skill_max_cost = -1
 	for i in all_skills:
 		if i[0] in skills_once:
@@ -249,7 +253,7 @@ func create_skill():
 				not_can_buy_skills.append(i)
 	skill_can_drop = delete_skill_for_this_location(skill_can_drop)
 	not_can_buy_skills = delete_skill_for_this_location(not_can_buy_skills)
-
+	print(skill_can_drop)
 	for i in range(3):
 		if skill_can_drop.size() > 0:
 			var random_index = randi() % skill_can_drop.size()
@@ -261,11 +265,13 @@ func create_skill():
 			skills.append(new_skill)
 			skill_can_drop.remove_at(random_index)
 		else:
-			skills.append(not_can_buy_skills[randi() % not_can_buy_skills.size()])
+			if not_can_buy_skills.size() > 0:
+				skills.append(not_can_buy_skills[randi() % not_can_buy_skills.size()])
 	if (randi() % 100 + 1) <= 30 and not_can_buy_skills.size() >= 1:
 		skills[2] = not_can_buy_skills[randi() % not_can_buy_skills.size()]
 
 	skills = bubble_sort(skills)
+	print(skills)
 	for i in skills:
 		var buff = SKILL_WINDOW.instantiate()
 		windows_skill.add_child(buff)
@@ -292,12 +298,11 @@ func create_skill():
 		if skills[i][1] > LevelManager.count_experiance:
 			button_arr[i].texture_normal = BUTTON_NOT_CAN_PRESS_TEXTURE
 
-	var count : int = 0
-	for i in button_arr:
-		for j in i.get_children():
+	for i in range(button_arr.size()):
+		for j in button_arr[i].get_children():
 			if j.name == "Label":
-				j.text = str(skills[count][1])
-		count += 1
+				j.text = str(skills[i][1])
+
 	var time_wait = 0 
 	if 4 in rare_skills:
 		time_wait = 4
@@ -369,20 +374,30 @@ func regular_sound() -> void:
 
 func _on_skill_1_pressed() -> void:
 	AudioManager.click()
-	LevelManager.buy_skill(skills[0][1])
-	add_skill(skills[0][0])
+	if $Bye_button/Skill_1/FREE.visible:
+		add_skill(skills[0][0])
+	else:
+		LevelManager.buy_skill(skills[0][1])
+		add_skill(skills[0][0])
 
 func _on_skill_2_pressed() -> void:
 	AudioManager.click()
-	LevelManager.buy_skill(skills[1][1])
-	add_skill(skills[1][0])
+	if $Bye_button/Skill_2/FREE.visible:
+		add_skill(skills[1][0])
+	else:
+		LevelManager.buy_skill(skills[1][1])
+		add_skill(skills[1][0])
 
 func _on_skill_3_pressed() -> void:
 	AudioManager.click()
-	LevelManager.buy_skill(skills[2][1])
-	add_skill(skills[2][0])
+	if $Bye_button/Skill_3/FREE.visible:
+		add_skill(skills[2][0])
+	else:
+		LevelManager.buy_skill(skills[2][1])
+		add_skill(skills[2][0])
 
 func add_skill(skill) -> void:
+	print(skill)
 	match skill:
 		"Рассыпающийся шар":
 			LevelManager.add_ball(2)
@@ -502,12 +517,13 @@ func add_skill(skill) -> void:
 		"Повелитель технологий":
 			ElementsManager.technologies_modifier += 0.4
 			LevelManager.player_skills.append("Повелитель технологий")
+	print(LevelManager.player_skills)
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:
 	if 100 <= LevelManager.count_experiance:
-		LevelManager.buy_skill(100)
 		AudioManager.click()
+		LevelManager.buy_skill(100)
 		for i in windows_skill.get_children():
 			i.queue_free()
 		skills.clear()
@@ -528,14 +544,14 @@ func rew_ad_res(result:String) -> void:
 		add_skill(skills[skil_for_ad][0])
 
 func create_free_skill() -> void:
+	for i in windows_skill.get_children():
+		i.queue_free()
+	skills.clear()
 	var rare_skills = []
 	var button_arr = bye_button.get_children()
-	skil_for_ad = 0
 	sound_scroll.playing = true
 	sound_scroll.pitch_scale = 1.1
 	$Update_skill_button.visible = false
-	for i in windows_skill.get_children():
-		i.queue_free()
 	for i in bye_button.get_children():
 		i.disabled = true
 		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
@@ -569,14 +585,10 @@ func create_free_skill() -> void:
 			if "Button" in j.name:
 				j.disabled = true
 
-	for i in skills:
-		i[1] = 0
-	var count : int = 0
 	for i in button_arr:
 		for j in i.get_children():
 			if j.name == "Label":
 				j.text = str("БЕСПЛАТНО")
-		count += 1
 
 	var time_wait = 0 
 	if 2 in rare_skills:

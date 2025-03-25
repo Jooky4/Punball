@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://xxprkydai7iy"]
+[gd_scene load_steps=22 format=3 uid="uid://xxprkydai7iy"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
 [ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/background.png" id="2_guy50"]
-[ext_resource type="PackedScene" uid="uid://btt53uxq2a182" path="res://Scenes/UI/Skill_windows/skill_window.tscn" id="3_yghhh"]
 [ext_resource type="Texture2D" uid="uid://7cjj53ffct7k" path="res://Texture/UI/Skills_UI/кнопка покупки активная (кнопка рекламы).png" id="5_b6die"]
 [ext_resource type="Texture2D" uid="uid://di2ih4646tj0g" path="res://Texture/UI/Skills_UI/иконка кнопки покупки.png" id="6_kc041"]
 [ext_resource type="Texture2D" uid="uid://dnrlesu4tygyc" path="res://Texture/UI/Skills_UI/иконка кнопки ADS.png" id="7_lujy0"]
@@ -109,15 +108,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 55
 alignment = 1
-
-[node name="Skill_window" parent="Windows_skill" instance=ExtResource("3_yghhh")]
-layout_mode = 2
-
-[node name="Skill_window2" parent="Windows_skill" instance=ExtResource("3_yghhh")]
-layout_mode = 2
-
-[node name="Skill_window3" parent="Windows_skill" instance=ExtResource("3_yghhh")]
-layout_mode = 2
 
 [node name="Bye_button" type="HBoxContainer" parent="."]
 layout_mode = 1

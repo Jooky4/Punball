@@ -61,6 +61,7 @@ var trap_on_map_links = [[null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null]]
 var kill_on_whis_wave : int = 0
+var win_or_lose = ""
 
 func restert() -> void:
 	ElementsManager.restart()
@@ -78,6 +79,7 @@ func restert() -> void:
 	player_skills = []
 	hit_player = false
 	kill_on_whis_wave = 0
+	win_or_lose = ""
 	first_level_links_on_objects = [[null, null, null, null, null, null],
  									[null, 1, 1, 1, 1, 1,],
  									[null, null, null, null, null, null],
