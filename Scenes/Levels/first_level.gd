@@ -189,27 +189,28 @@ func chec_game_end() -> void:
 			end_wave()
 
 func get_expirians_animation(experience) -> void:
-	get_count_experience_label.visible = true
-	experience_texture.scale = Vector2(1, 1)
-	get_count_experience_label.scale = Vector2(1, 1)
-	var tween = get_tree().create_tween()
-	tween.tween_property(experience_texture, "scale", Vector2(1.2, 1.2), 0.05)
-	tween.chain().tween_property(experience_texture, "scale", Vector2(1, 1), 0.05)
-	var tween1 = get_tree().create_tween()
-	tween1.tween_property(get_count_experience_label, "scale", Vector2(1.2, 1.2), 0.05)
-	tween1.chain().tween_property(get_count_experience_label, "scale", Vector2(1, 1), 0.05)
-	count_get_experience_on_wave += round((10 * ((kill_on_wave * (kill_on_wave + 1)) / 2)) / kill_on_wave)
-	get_count_experience_label.text = "+"+str(count_get_experience_on_wave)
-	count_experience_label.text = str(LevelManager.count_experiance)
-	var count_bank = 0
-	for i in self.get_children():
-		if i != null:
-			if i.has_method("bank_with_experience"):
-				if i.bank_go:
-					count_bank += 1
-	if count_bank == 1 or count_bank == 0:
-		await get_tree().create_timer(0.75).timeout
-		get_count_experience_label.visible = false
+	if kill_on_wave > 0:
+		get_count_experience_label.visible = true
+		experience_texture.scale = Vector2(1, 1)
+		get_count_experience_label.scale = Vector2(1, 1)
+		var tween = get_tree().create_tween()
+		tween.tween_property(experience_texture, "scale", Vector2(1.2, 1.2), 0.05)
+		tween.chain().tween_property(experience_texture, "scale", Vector2(1, 1), 0.05)
+		var tween1 = get_tree().create_tween()
+		tween1.tween_property(get_count_experience_label, "scale", Vector2(1.2, 1.2), 0.05)
+		tween1.chain().tween_property(get_count_experience_label, "scale", Vector2(1, 1), 0.05)
+		count_get_experience_on_wave += round((10 * ((kill_on_wave * (kill_on_wave + 1)) / 2)) / kill_on_wave)
+		get_count_experience_label.text = "+"+str(count_get_experience_on_wave)
+		count_experience_label.text = str(LevelManager.count_experiance)
+		var count_bank = 0
+		for i in self.get_children():
+			if i != null:
+				if i.has_method("bank_with_experience"):
+					if i.bank_go:
+						count_bank += 1
+		if count_bank == 1 or count_bank == 0:
+			await get_tree().create_timer(0.75).timeout
+			get_count_experience_label.visible = false
 
 func get_health(health_hp) -> void:
 	health_hp = round(health_hp * LevelManager.prosen_hp_plus)

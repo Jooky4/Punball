@@ -154,7 +154,6 @@ func _on_continue_game_pressed() -> void:
 	LevelManager.spin_skill -= 1
 	if LevelManager.spin_skill <= 0:
 		if show_AD:
-			LevelManager.spin_skill = 0
 			YandexSDK.show_interstitial_ad()
 			YandexSDK.connect("interstitial_ad", close_ad)
 			AudioServer.set_bus_mute(0, true)
@@ -189,6 +188,7 @@ func create_skill():
 	for i in windows_skill.get_children():
 		i.queue_free()
 	skills.clear()
+	skills = []
 	var rare_skills = []
 	var button_arr = bye_button.get_children()
 	skil_for_ad = 0
