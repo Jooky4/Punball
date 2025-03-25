@@ -160,9 +160,9 @@ func play_game() -> void:
 		balls_go()
 
 func chec_game_end() -> void:
+	hp_player_bar.value = LevelManager.hp_player
+	hp_player_label.text = str(LevelManager.hp_player)
 	if !end_wave_bool:
-		hp_player_bar.value = LevelManager.hp_player
-		hp_player_label.text = str(LevelManager.hp_player)
 		var balls_on_map = true
 		var boss_alive = false
 		if LevelManager.combo_count > combo_count:
@@ -193,6 +193,17 @@ func chec_game_end() -> void:
 		if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
 			end_wave_bool = true
 			end_wave()
+
+func check_boss_alive() -> void:
+	var boss_alive = false
+	for child in game_objects.get_children():
+		if child.has_method("boss"):
+			if child.alive:
+				boss_alive = true
+				break
+	if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
+		game_state = WIN
+		return
 
 func get_expirians_animation(experience) -> void:
 	if kill_on_wave > 0:
@@ -280,6 +291,7 @@ func revavil_player(for_AD_or_crystal : bool = false):
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
+	check_boss_alive()
 
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible and notification_about_boss_close == false:
 		notification_about_boss_animation.play("boss_close")
@@ -529,6 +541,7 @@ func end_wave() -> void:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
+	check_boss_alive()
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible and notification_about_boss_close == false:
 		notification_about_boss_animation.play("boss_close")
 		notification_about_boss_close = true
