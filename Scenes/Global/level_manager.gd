@@ -10,8 +10,8 @@ var THORNS = preload("res://Scenes/For skills/thorns.tscn")
 var EFFECT_EXPLOSION = preload("res://Scenes/Effects/BombBallExplosion.tscn")
 var EFFECT_EXPLOSION_FREEZE = preload("res://Scenes/Effects/FreezeBombBallExplosion.tscn")
 
-var hp_player : float = 1000
-var max_hp_player : float = 1000
+var hp_player : float = 500
+var max_hp_player : float = 500
 var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
