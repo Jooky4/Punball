@@ -40,6 +40,12 @@ var ENEMY_12_FIRST_TIME : int = 0
 var ENEMY_13_FIRST_TIME : int = 0
 var ENEMY_14_FIRST_TIME : int = 0
 
+var CURRENT_CHARACTER : int = 1
+var CHARACTER_UP_ATTACK : float = 1.0
+var CHARACTER_UP_OZ : float = 1.0
+
+var CHARACTER_3_UP_ATTACK_FROM_OZ : float = 1.0
+
 func _ready() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
 
@@ -145,6 +151,7 @@ func player_date_loaded(data) -> void:
 		ENEMY_12_FIRST_TIME = 0
 		ENEMY_13_FIRST_TIME = 0
 		ENEMY_14_FIRST_TIME = 0
+		CURRENT_CHARACTER = 1
 
 func update_count_max_wave(max_wave) -> void:
 	if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS:

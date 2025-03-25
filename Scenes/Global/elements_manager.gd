@@ -38,3 +38,5 @@ func restart():
 	lightning_modifier = 1.0
 	nuclear_modifier = 1.0
 	technologies_modifier = 1.0
+	if PlayerIndicatorsManager.CURRENT_CHARACTER == 2:
+		frost_modifier = 1.1

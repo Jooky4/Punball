@@ -16,22 +16,25 @@ var game_state = PLAY
 var DEFALT_ENEMY = preload("res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.tscn")
 var BLUEBERRIES_ENEMY = preload("res://Scenes/Enemys/All_enemys/Blueberries_enemy/blueberries_enemy.tscn")
 var BOMB_ENEMY = preload("res://Scenes/Enemys/All_enemys/Bomb_enemy/bomb_enemy.tscn")
-var MEDIC_ENEMY = preload("res://Scenes/Enemys/All_enemys/Medic_enemy/medic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var SLIME_ENEMY = preload("res://Scenes/Enemys/All_enemys/Slime_enemy/slime_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var SMALL_SLIME_ENEMY = preload("res://Scenes/Enemys/All_enemys/Slime_small_enemy/slime_small_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var SHIELD_ENEMY = preload("res://Scenes/Enemys/All_enemys/Shield_enemy/shield_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var JUMPER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Jumper_enemy/jumper_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var MAGICIAN_ENEMY = preload("res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var SERVANT_MAGICIAN_ENEMY = preload("res://Scenes/Enemys/All_enemys/Servant_magic_enemy/servant_magic_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var POISON_ENEMY = preload("res://Scenes/Enemys/All_enemys/Poison_enemy/poison_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var BERSERKER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
-var FIRE_ELEMENTAL_ENEMY = preload("res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.tscn") # НА ПЕРВОЙ ЛОКАЦИИ ЕГО НЕ БУДЕТ, ПОТОМ УБРАТЬ
+var MEDIC_ENEMY = preload("res://Scenes/Enemys/All_enemys/Medic_enemy/medic_enemy.tscn")
+var SLIME_ENEMY = preload("res://Scenes/Enemys/All_enemys/Slime_enemy/slime_enemy.tscn")
+var SMALL_SLIME_ENEMY = preload("res://Scenes/Enemys/All_enemys/Slime_small_enemy/slime_small_enemy.tscn")
+var SHIELD_ENEMY = preload("res://Scenes/Enemys/All_enemys/Shield_enemy/shield_enemy.tscn")
+var JUMPER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Jumper_enemy/jumper_enemy.tscn")
+var MAGICIAN_ENEMY = preload("res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.tscn")
+var SERVANT_MAGICIAN_ENEMY = preload("res://Scenes/Enemys/All_enemys/Servant_magic_enemy/servant_magic_enemy.tscn")
+var POISON_ENEMY = preload("res://Scenes/Enemys/All_enemys/Poison_enemy/poison_enemy.tscn")
+var BERSERKER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.tscn")
+var FIRE_ELEMENTAL_ENEMY = preload("res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.tscn")
 
 var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
 
-var DEFALT_BALL = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
+var DEFALT_BALL_1_CHARACTER = preload("res://Scenes/Balls/Defalt ball/defalt_ball.tscn")
+var DEFALT_BALL_2_CHARACTER = preload("res://Scenes/Balls/Character_balls/character_2_ball.tscn")
+var DEFALT_BALL_3_CHARACTER = preload("res://Scenes/Balls/Character_balls/character_3_ball.tscn")
+
 var CRUNBLING_BALL = preload("res://Scenes/Balls/Crumbling ball/crumbling_ball.tscn")
 var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
 var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
@@ -44,6 +47,8 @@ var CUMULATIVE_BALL = preload("res://Scenes/Balls/Cumulative ball/cumulative_bal
 var KILLER_BALL = preload("res://Scenes/Balls/Killer ball/killer_ball.tscn")
 var DRILLING_BALL = preload("res://Scenes/Balls/Drilling ball/drilling_ball.tscn")
 var BACKSTABBING_BALL = preload("res://Scenes/Balls/Backstabbing ball/backstabbing_ball.tscn")
+
+var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
 
 @onready var end_game_UI_lose = $UI/Lose
 @onready var pause_menu_UI = $UI/Pause_menu_UI
@@ -219,6 +224,25 @@ func get_health(health_hp) -> void:
 		LevelManager.hp_player = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
+	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
+		LevelManager.update_character_3_damage_from_OZ()
+
+func player_take_damage_create_label(label_damage) -> void:
+	var color_label = ElementsManager.color_elements["FIRE"]
+	var label = LABEL_DAMAGE.instantiate()
+	label.global_position = start_balls_position.global_position
+	if typeof(label_damage) != 3 and typeof(label_damage) != 2:
+		label.global_position = start_balls_position.global_position + Vector2(-30, 0)
+		color_label = ElementsManager.color_elements["NORMAL"]
+		label.text = str(label_damage)
+	else:
+		label.text = "-" + str(label_damage)
+	label.modulate = color_label
+	label.scale = Vector2(0.2, 0.2)
+	get_tree().current_scene.add_child(label)
+	label.show_label()
+	hp_player_bar.value = LevelManager.hp_player
+	hp_player_label.text = str(LevelManager.hp_player)
 
 func win() -> void:
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
@@ -242,6 +266,8 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	end_game_UI_lose.visible = false
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
+	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
+		LevelManager.update_character_3_damage_from_OZ()
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
 	if LevelManager.boss_on_map:
@@ -306,7 +332,12 @@ func balls_go() -> void:
 			var ball
 			match LevelManager.player_balls[i]:
 				1:
-					ball = DEFALT_BALL.instantiate()
+					if PlayerIndicatorsManager.CURRENT_CHARACTER == 1:
+						ball = DEFALT_BALL_1_CHARACTER.instantiate()
+					elif PlayerIndicatorsManager.CURRENT_CHARACTER == 2:
+						ball = DEFALT_BALL_2_CHARACTER.instantiate()
+					elif PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
+						ball = DEFALT_BALL_3_CHARACTER.instantiate()
 				2:
 					ball = CRUNBLING_BALL.instantiate()
 				3:

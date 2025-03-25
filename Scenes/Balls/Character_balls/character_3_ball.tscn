@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://yvcvkt4mlbnv"]
+
+[ext_resource type="Script" path="res://Scenes/Balls/Character_balls/character_3_ball.gd" id="1_hvhfl"]
+[ext_resource type="Texture2D" uid="uid://c66pfsvxlrvhx" path="res://Texture/Balls/РассыпающийсяНов_1.png" id="1_uhr1x"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="2_kc2ds"]
+[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="3_4ibbg"]
+[ext_resource type="AudioStream" uid="uid://ueldbbjdob14" path="res://Resources/Sounds/рассыпающийся_шар.mp3" id="4_r30ah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
+radius = 15.0
+
+[sub_resource type="Curve" id="Curve_g6ny1"]
+_data = [Vector2(0, 0.225366), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2q21l"]
+offsets = PackedFloat32Array(0.532, 0.96, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0)
+
+[node name="character_3_ball" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 4
+collision_mask = 11
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+script = ExtResource("1_hvhfl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l7c6x")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+z_index = 5
+position = Vector2(0, 2)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("1_uhr1x")
+offset = Vector2(1, 0)
+flip_v = true
+
+[node name="Line2D" type="Line2D" parent="."]
+show_behind_parent = true
+top_level = true
+width = 35.0
+width_curve = SubResource("Curve_g6ny1")
+gradient = SubResource("Gradient_2q21l")
+texture = ExtResource("2_kc2ds")
+texture_mode = 2
+
+[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4ibbg")
+volume_db = -14.0
+
+[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_r30ah")
+volume_db = -7.0

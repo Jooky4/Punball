@@ -52,7 +52,7 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 			if !self.call("can_ball_deal_damage"):
 				create_label_damage("БЛОК", ElementsManager.color_elements["NORMAL"])
 				return
-		damage_ball = scale_damage_for_talant(damage_ball)
+		damage_ball = round(scale_damage_for_talant_and_character(damage_ball))
 		hp_enemy -= damage_ball
 		if hp_enemy <= 0 and alive:
 			alive = false 
@@ -77,7 +77,11 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 				var buff_bank_experience = BANK_WITH_EXPERIENCE.instantiate()
 				buff_bank_experience.position = self.global_position + Vector2(randi() % 5 - 25, randi() % 5 - 25)
 				get_tree().current_scene.add_child(buff_bank_experience)
-				if randf() < 0.2:
+
+				var chance_drop_hill = 0.2
+				if PlayerIndicatorsManager.CURRENT_CHARACTER == 2:
+					chance_drop_hill = 0.25
+				if randf() <= chance_drop_hill:
 					var buff_health = RESTORE_HEALTH.instantiate()
 					buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
 					get_tree().current_scene.add_child(buff_health)
@@ -123,6 +127,18 @@ func deal_freezing_damage(damage_ball, color_label) -> void:
 
 		deal_damage(damage_ball, color_label)
 		if randf() < LevelManager.chance_of_freezing:
+			freezen = true
+			freezen_sprite.visible = true
+
+func deal_ball_character_2_damage(damage_ball, color_label) -> void:
+	if alive:
+		if self.has_method("shiield_enemy"):  # ЕСЛИ ЩИТОНОСЕЦ ПРОВЕРКА ЧТО МЯЧ НЕ СПЕРЕДИ
+			if !self.call("can_ball_deal_damage"):
+				create_label_damage("БЛОК", ElementsManager.color_elements["NORMAL"])
+				return
+
+		deal_damage(damage_ball, color_label)
+		if randf() <= 0.01:
 			freezen = true
 			freezen_sprite.visible = true
 
@@ -253,9 +269,13 @@ func math_damage_player() -> void:
 func _on_death_sound_finished() -> void:
 	self.queue_free()
 
-func scale_damage_for_talant(damage) -> float:
+func scale_damage_for_talant_and_character(damage) -> float:
+	damage *= PlayerIndicatorsManager.CHARACTER_UP_ATTACK
 	damage *= PlayerIndicatorsManager.FOR_COIS_UP_ATTACK
 	damage *= (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_DAMAGE)
+	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
+		damage *= PlayerIndicatorsManager.CHARACTER_3_UP_ATTACK_FROM_OZ
+
 	if randf() <= PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_X10_DAMAGE:
 		damage *= 10
 	if randf() <= PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_X100_DAMAGE:

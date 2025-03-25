@@ -65,8 +65,14 @@ var win_or_lose = ""
 
 func restert() -> void:
 	ElementsManager.restart()
-	hp_player = (1000 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ)
-	max_hp_player = (1000 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ)
+	match PlayerIndicatorsManager.CURRENT_CHARACTER:
+		1:
+			hp_player = (500 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ) * PlayerIndicatorsManager.CHARACTER_UP_OZ
+		2:
+			hp_player = (600 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ) * PlayerIndicatorsManager.CHARACTER_UP_OZ
+		3:
+			hp_player = (750 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ) * PlayerIndicatorsManager.CHARACTER_UP_OZ
+	max_hp_player = hp_player
 	boss_on_map = false
 	count_level = 0
 	spin_skill = 0
@@ -101,6 +107,10 @@ func add_ball(num_ball) -> void:
 	player_balls_after_wave.append(num_ball)
 
 func damage_player(damage, enemy) -> void:
+	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
+		if randf() <= 0.2:
+			get_node("/root/First_level").player_take_damage_create_label("УВОРОТ")
+			return
 	if enemy.has_method("boss"):
 		damage -= PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_BOSS
 	elif enemy.has_method("shoot_at_player"):
@@ -114,6 +124,18 @@ func damage_player(damage, enemy) -> void:
 	if hp_player <= 0:
 		hp_player = 0
 	hp_player = round(hp_player)
+
+	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
+		update_character_3_damage_from_OZ()
+	if damage != 0:
+		get_node("/root/First_level").player_take_damage_create_label(damage)
+
+func update_character_3_damage_from_OZ():
+	var hp_ratio = clamp(hp_player / max_hp_player, 0.1, 1.0)
+	if hp_ratio > 0.5:
+		PlayerIndicatorsManager.CHARACTER_3_UP_ATTACK_FROM_OZ =  lerp(1.0, 1.25, (1.0 - hp_ratio)/0.5)
+	else:
+		PlayerIndicatorsManager.CHARACTER_3_UP_ATTACK_FROM_OZ =  lerp(1.25, 1.5, (0.5 - hp_ratio)/0.4)
 
 func apeend_new_balls() -> void:
 	if 11 in player_balls_after_wave:
