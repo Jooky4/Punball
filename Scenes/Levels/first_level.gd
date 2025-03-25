@@ -63,6 +63,7 @@ var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
 var count_get_experience_on_wave = 0
 var combo_count : int = 0
 var end_wave_bool : bool = false
+var notification_about_boss_close : bool = false
 
 @onready var game_objects = $Game_objects
 
@@ -205,6 +206,8 @@ func get_expirians_animation(experience) -> void:
 		tween1.tween_property(get_count_experience_label, "scale", Vector2(1.2, 1.2), 0.05)
 		tween1.chain().tween_property(get_count_experience_label, "scale", Vector2(1, 1), 0.05)
 		count_get_experience_on_wave += round((10 * ((kill_on_wave * (kill_on_wave + 1)) / 2)) / kill_on_wave)
+		if count_get_experience_on_wave >= round(10 * ((kill_on_wave * (kill_on_wave + 1)) / 2)):
+			count_get_experience_on_wave = round(10 * ((kill_on_wave * (kill_on_wave + 1)) / 2))
 		get_count_experience_label.text = "+"+str(count_get_experience_on_wave)
 		count_experience_label.text = str(LevelManager.count_experiance)
 		var count_bank = 0
@@ -278,8 +281,9 @@ func revavil_player(for_AD_or_crystal : bool = false):
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
 
-	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible:
+	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible and notification_about_boss_close == false:
 		notification_about_boss_animation.play("boss_close")
+		notification_about_boss_close = true
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
@@ -525,8 +529,9 @@ func end_wave() -> void:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
-	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible:
+	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible and notification_about_boss_close == false:
 		notification_about_boss_animation.play("boss_close")
+		notification_about_boss_close = true
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished

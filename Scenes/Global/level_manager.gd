@@ -344,11 +344,14 @@ func updete_last_line() -> void:
 			new_line_spawn = first_level_spawn[count_level]
 		else:
 			new_line_spawn = WaveGeneration.generetion_new_wave(count_level+2)
-
 		var can_spawn = true
 		for i in first_level_links_on_objects[1]:
 			if i != null:
 				return
+		if 4 in new_line_spawn:
+			if can_boss_spawn() == false:
+				return
+
 		if can_spawn:
 			for i in range(new_line_spawn.size()):
 				if new_line_spawn[i] != null:
@@ -360,6 +363,17 @@ func updete_last_line() -> void:
 						await get_tree().create_timer(0.8).timeout
 						AudioManager.enemy_spawn()
 						break
+
+func can_boss_spawn() -> bool:
+	if first_level_links_on_objects[1][2] != null:
+		return false
+	if first_level_links_on_objects[1][3] != null:
+		return false
+	if first_level_links_on_objects[2][2] != null:
+		return false
+	if first_level_links_on_objects[2][3] != null:
+		return false
+	return true
 
 func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
 	var x
@@ -662,7 +676,7 @@ func heal_hp_plaer_from_technologies() -> void:
 				prosen_hp_plus *= 1.5
 		hp_player += round(max_hp_player*prosen_hp_plus)
 		if hp_player > max_hp_player:
-			hp_player += max_hp_player
+			hp_player = max_hp_player
 
 func revival(hp_player_prozent : float = 1, delete_enemy : bool = false):
 	if hp_player_prozent == 1:
