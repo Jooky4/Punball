@@ -443,10 +443,13 @@ func add_skill(skill) -> void:
 			LevelManager.player_skills.append("Усиление обычного шара")
 		"Прибавка ОЗ":
 			var prosen_hp_plus_ = 0.1
-			if "Прибавка к восстановлению" in LevelManager.player_skills:
-				prosen_hp_plus_ *= LevelManager.prosen_hp_plus
+			var count_bust_hp = LevelManager.player_skills.count("Прибавка к восстановлению")
+			if count_bust_hp != 0:
+				prosen_hp_plus_ *= 1 + (count_bust_hp * 0.5)
 			LevelManager.hp_player = round(LevelManager.hp_player + (LevelManager.max_hp_player * prosen_hp_plus_))
 			LevelManager.max_hp_player = round(LevelManager.max_hp_player * (1 + prosen_hp_plus_))
+			if LevelManager.hp_player >= LevelManager.max_hp_player:
+				LevelManager.hp_player = LevelManager.max_hp_player
 			AudioManager.health_sound()
 			LevelManager.player_skills.append("Прибавка ОЗ")
 		"Усиление особого шара":

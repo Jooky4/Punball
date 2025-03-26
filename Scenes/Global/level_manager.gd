@@ -672,8 +672,9 @@ func create_thorns(enemy) -> void:
 func heal_hp_plaer_from_technologies() -> void:
 	if "Повелитель технологий" in player_skills:
 		var prosen_hp_plus = 0.02
-		if "Прибавка к восстановлению" in LevelManager.player_skills:
-				prosen_hp_plus *= 1.5
+		var count_bust_hp = LevelManager.player_skills.count("Прибавка к восстановлению")
+		if count_bust_hp != 0:
+			prosen_hp_plus *= 1 + (count_bust_hp * 0.5)
 		hp_player += round(max_hp_player*prosen_hp_plus)
 		if hp_player > max_hp_player:
 			hp_player = max_hp_player
