@@ -9,6 +9,7 @@ var bitton_AD_not_can_press_texture = preload("res://Texture/UI/Win_Lose_UI/кн
 
 var count_coins = 0
 var count_exp = 0
+var count_rune = 0
 
 func _ready() -> void:
 	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
@@ -46,6 +47,14 @@ func plus_expiriance_level_player() -> void:
 	PlayerIndicatorsManager.update_coins_count(round(count_coins))
 	update_level_label_and_bar()
 
+	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
+		count_rune = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 5)
+		PlayerIndicatorsManager.update_rune_count(+count_rune)
+		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.text = "x" + str(count_rune)
+	else:
+		$TextureRect8/MarginContainer/GridContainer/Runes/TextureRect.visible = false
+		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.visible = false
+
 func bonus_for_AD() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	PlayerIndicatorsManager.update_level_player(round(count_exp * 0.5))
@@ -58,6 +67,13 @@ func bonus_for_AD() -> void:
 	PlayerIndicatorsManager.update_coins_count(round(count_coins * 0.5))
 	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins * 1.5))
 	update_level_label_and_bar()
+
+	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
+		PlayerIndicatorsManager.update_rune_count(round(count_rune * 0.5))
+		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.text = "x" + str(round(count_rune * 1.5))
+	else:
+		$TextureRect8/MarginContainer/GridContainer/Runes/TextureRect.visible = false
+		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.visible = false
 
 func win() -> void:
 	$Win_Lose_Label/Win.visible = true

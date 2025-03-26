@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b5qxmagbaw24c"]
+[gd_scene load_steps=38 format=3 uid="uid://b5qxmagbaw24c"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/win_lose_UI.gd" id="1_syo30"]
 [ext_resource type="Texture2D" uid="uid://beiknpx7eyqi" path="res://Texture/UI/Win_Lose_UI/фон общий.png" id="2_yyvh5"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dkyjb1bc4omcq" path="res://Texture/UI/Win_Lose_UI/награда опыта.png" id="21_q335r"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="22_iqx7g"]
 [ext_resource type="Texture2D" uid="uid://bohwhq1oy2bm4" path="res://Texture/UI/Win_Lose_UI/кнопка ADS.png" id="23_8dhcs"]
+[ext_resource type="Texture2D" uid="uid://bsdyhgqa07kp6" path="res://Texture/UI/Main_menu/runes.png" id="23_gq5ph"]
 [ext_resource type="Texture2D" uid="uid://doc6fa24hisco" path="res://Texture/UI/Win_Lose_UI/текст ADS.png" id="24_3qt67"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="25_bbyqq"]
 [ext_resource type="PackedScene" uid="uid://360y0xs402w7" path="res://Scenes/UI/Level_up_UI/level_up_ui.tscn" id="26_sicc2"]
@@ -464,25 +465,28 @@ text = "x0"
 label_settings = SubResource("LabelSettings_fc05t")
 horizontal_alignment = 2
 
-[node name="TextureRect4" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
+[node name="Runes" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("20_dl1ot")
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/TextureRect4"]
+[node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Runes"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.5
-offset_top = -34.0
-offset_right = 29.5
-offset_bottom = 21.0
+offset_left = -38.5
+offset_top = -43.0
+offset_right = 38.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("23_gq5ph")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="TextureRect8/MarginContainer/GridContainer/TextureRect4"]
+[node name="Runes_label" type="Label" parent="TextureRect8/MarginContainer/GridContainer/Runes"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -494,6 +498,7 @@ offset_top = -22.0
 offset_bottom = 8.0
 grow_horizontal = 0
 grow_vertical = 0
+text = "x0"
 label_settings = SubResource("LabelSettings_fc05t")
 horizontal_alignment = 2
 

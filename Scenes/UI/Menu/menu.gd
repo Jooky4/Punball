@@ -3,14 +3,17 @@ extends Control
 @onready var shop_UI = $Shop
 @onready var main_menu_UI = $Main_menu
 @onready var talents_UI = $Talents
+@onready var characters_UI = $Characters
 @onready var location_sprite = $Main_menu/Locations/Location_sprite
 @onready var location_name_label = $Main_menu/Location_name
 @onready var chests = $Main_menu/Chests
 
 @onready var crystals_label = $Player_state/Crystals/Crystals_label
 @onready var coins_label = $Player_state/Coins/Coins_label
+@onready var rune_label = $Characters/Runes_count/Runes_label
 @onready var max_wave_on_locations_label = $Main_menu/Location_name/Max_wave_on_locations
 
+@onready var player_leve_UI = $Player_state/Player_level
 @onready var player_level_label = $Player_state/Player_level/Player_level_label
 @onready var player_level_bar = $Player_state/Player_level/Player_level_bar
 
@@ -60,11 +63,6 @@ func _ready() -> void:
 	update_player_indicators()
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
-	#$Select_buttons/Talesnts_button.disabled = false
-	#talents_UI.update_skill()
-	#can_by_new_talant()
-	#chests.update_label_chests()
-
 	main_menu_UI.visible = true
 	shop_UI.visible = false
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
@@ -90,6 +88,7 @@ func update_player_indicators() -> void:
 func player_date_loaded(data) -> void:
 	update_coins_label()
 	update_crystal_label()
+	update_rune_label()
 	update_level_label_and_bar()
 	update_cuurent_location_texture()
 	talents_UI.update_skill()
@@ -119,18 +118,26 @@ func update_cuurent_location_texture() -> void:
 			location_name_label.text = location[(current_location % 10) - 1][1]
 		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
+func update_rune_label() -> void:
+	rune_label.text = str(PlayerIndicatorsManager.COUNT_RUNE)
+	if PlayerIndicatorsManager.LEVEL_PLAYER < 5:
+		$Select_buttons/Character_button/Not_can_press.visible = true
+		$Select_buttons/Character_button/Can_press.visible = false
+		$Select_buttons/Character_button.texture_normal = load("res://Texture/UI/Main_menu/панель для иконок не активна.png")
+		$Select_buttons/Character_button.disabled = true
+
 func _on_button_pressed() -> void:
-	ChangeScene.black_screen()
-	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
-	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
-	LevelManager.restert()
-	LevelManager.player_balls = [1, 1, 1, 1]
-	AudioServer.set_bus_mute(0, false)
-	await get_tree().create_timer(0.35).timeout
-	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
-	#AudioManager.click()
-	#YandexSDK.show_interstitial_ad()
-	#YandexSDK.connect("interstitial_ad", star_location)
+	#ChangeScene.black_screen()
+	#PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+	#WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+	#LevelManager.restert()
+	#LevelManager.player_balls = [1, 1, 1, 1]
+	#AudioServer.set_bus_mute(0, false)
+	#await get_tree().create_timer(0.35).timeout
+	#get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	AudioManager.click()
+	YandexSDK.show_interstitial_ad()
+	YandexSDK.connect("interstitial_ad", star_location)
 
 func star_location(result) -> void:
 	if result == "closed" or result == "error":
@@ -148,14 +155,18 @@ func star_location(result) -> void:
 func _on_shop_button_pressed() -> void:
 	AudioManager.click()
 	shop_UI.visible = true
+	player_leve_UI.visible = true
 	main_menu_UI.visible = false
 	talents_UI.visible = false
+	characters_UI.visible = false
 
 func _on_talesnts_button_pressed() -> void:
 	AudioManager.click()
 	talents_UI.visible = true
+	player_leve_UI.visible = true
 	main_menu_UI.visible = false
 	shop_UI.visible = false
+	characters_UI.visible = false
 	talents_UI.update_skill()
 
 func _on_next_location_pressed() -> void:
@@ -183,8 +194,18 @@ func _on_back_location_pressed() -> void:
 func _on_mainmenu_button_pressed() -> void:
 	AudioManager.click()
 	main_menu_UI.visible = true
+	player_leve_UI.visible = true
 	shop_UI.visible = false
 	talents_UI.visible = false
+	characters_UI.visible = false
+
+func _on_character_button_pressed() -> void:
+	AudioManager.click()
+	main_menu_UI.visible = false
+	player_leve_UI.visible = false
+	shop_UI.visible = false
+	talents_UI.visible = false
+	characters_UI.visible = true
 
 func can_by_new_talant() -> void:
 	var crystal_cost = 0
