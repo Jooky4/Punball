@@ -130,7 +130,7 @@ var skill_from_spesific_location = {
 	"Технология: комбо с фронта": 3,
 	"Лазер: комбо": 4,
 	"Комбо: скидка": 4}
-var count_get_skill : int = 0
+var count_get_skill : int = 1 # должно быть 0!!!!!!!
 var show_AD = false
 
 func _ready() -> void:
@@ -149,7 +149,7 @@ func _on_continue_game_pressed() -> void:
 		i.queue_free()
 	skills.clear()
 
-	count_get_skill += 1
+	#count_get_skill += 1 раскомитить
 	if count_get_skill % 3 == 0:
 		show_AD = true
 	LevelManager.spin_skill -= 1
