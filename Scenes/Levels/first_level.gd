@@ -64,6 +64,7 @@ var count_get_experience_on_wave = 0
 var combo_count : int = 0
 var end_wave_bool : bool = false
 var notification_about_boss_close : bool = false
+var revaving_from_skill : bool = false
 
 @onready var game_objects = $Game_objects
 
@@ -518,7 +519,8 @@ func end_wave() -> void:
 	else:
 		await get_tree().create_timer(1).timeout
 	if LevelManager.hp_player <= 0:
-		if "Оживление" in LevelManager.player_skills:
+		if "Оживление" in LevelManager.player_skills and revaving_from_skill == false:
+			revaving_from_skill = true
 			LevelManager.revival(1, true)
 			hp_player_bar.value = LevelManager.hp_player
 			hp_player_label.text = str(LevelManager.hp_player)
