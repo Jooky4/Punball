@@ -5,8 +5,8 @@ var percent_cells_by_enemies = [10, 25, 70, 85, 95]
 var dop_hp_defolt_enemy = [[2, 4, 1],
 						   [5, 10, 2],
 						   [11, 14, 3],
-						   [14, 17, 4],
-						   [18, 100, 5]]
+						   [15, 18, 4],
+						   [19, 100, 5]]
 var count_wave_on_locations = {
 	0: 20,
 	1: 20,
@@ -79,7 +79,7 @@ func generetion_new_wave(number_wave):
 	return finish_array
 
 func how_many_hp_plus_enemy(number_wave) -> float:
-	number_wave += 1 
+	number_wave += 1
 	if number_wave > count_wave_on_locations[(current_location % 10) - 1]:
 		number_wave = count_wave_on_locations[(current_location % 10) - 1]
 	var hp_enemy = 400
@@ -91,10 +91,12 @@ func how_many_hp_plus_enemy(number_wave) -> float:
 		start_plus_hp += step
 	hp_enemy += start_plus_hp
 	var start_hp_enemy = hp_enemy
+	var count_wave : int = 2
 	for j in dop_hp_defolt_enemy:
 		for k in range((j[1] - j[0]) + 1):
-			if j[0] <= number_wave and j[1] <= number_wave:
+			if j[0] <= count_wave and count_wave <= j[1] and count_wave <= number_wave:
 				hp_enemy += (start_hp_enemy / 2) * j[2]
+			count_wave += 1
 	return float(hp_enemy)
 
 func how_many_damage_player(num_enemy) -> int:

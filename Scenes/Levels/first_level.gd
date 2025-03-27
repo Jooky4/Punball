@@ -413,8 +413,6 @@ func spawn_objects_on_matrix() -> void:
 		for j in i:
 			count += 1
 			spawn_objects_by_index(count)
-	await get_tree().create_timer(1.1).timeout
-	LevelManager.check_traps()
 
 func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 	if typeof(LevelManager.first_level_links_on_objects[count/6][count%6]) == 2:
@@ -459,6 +457,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff.player_damage = WaveGeneration.how_many_damage_player(6)
 			7: 
 				buff = SMALL_SLIME_ENEMY.instantiate()
+				buff.alive = false
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) / 2
 				buff.player_damage = WaveGeneration.how_many_damage_player(7) / 2
 			8:
