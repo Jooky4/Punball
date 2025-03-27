@@ -125,6 +125,8 @@ func update_rune_label() -> void:
 		$Select_buttons/Character_button/Can_press.visible = false
 		$Select_buttons/Character_button.texture_normal = load("res://Texture/UI/Main_menu/панель для иконок не активна.png")
 		$Select_buttons/Character_button.disabled = true
+	else:
+		$Select_buttons/Character_button.disabled = false
 
 func _on_button_pressed() -> void:
 	#ChangeScene.black_screen()
