@@ -264,6 +264,7 @@ func player_take_damage_create_label(label_damage, who_deal_damage : int = 0) ->
 			camera.small_shake(1.3)
 			show_hit_effect()
 		character_anim.damage()
+		$Damage_Player.play()
 	label.modulate = color_label
 	label.scale = Vector2(0.2, 0.2)
 	get_tree().current_scene.add_child(label)
