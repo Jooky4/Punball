@@ -175,7 +175,7 @@ func _on_next_location_pressed() -> void:
 		current_location += 1
 		location_sprite.texture = location[(current_location % 10) - 1][0]
 		if current_location > 10:
-			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
+			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[((current_location - 1) / 10) - 1])
 		else:
 			location_name_label.text = location[(current_location % 10) - 1][1]
 		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
@@ -186,7 +186,7 @@ func _on_back_location_pressed() -> void:
 		current_location -= 1
 		location_sprite.texture = location[(current_location % 10) - 1][0]
 		if current_location > 10:
-			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[(current_location / 10) - 1])
+			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[((current_location - 1) / 10) - 1])
 		else:
 			location_name_label.text = location[(current_location % 10) - 1][1]
 		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
