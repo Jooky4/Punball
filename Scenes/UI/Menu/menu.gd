@@ -65,6 +65,7 @@ func _ready() -> void:
 		rim_num_location.append(arabic_to_roman(i))
 	main_menu_UI.visible = true
 	shop_UI.visible = false
+	characters_UI.visible = false
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
 		YandexSDK.show_interstitial_ad()
 		PlayerIndicatorsManager.SHOW_AD_FIRST_TIME = true

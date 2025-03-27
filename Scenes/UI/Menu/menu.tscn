@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=42 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -22,8 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/иконка мечи.png" id="19_q5oq5"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/characters_UI.gd" id="20_1y5uy"]
 [ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/иконка книга.png" id="20_bdbvx"]
 [ext_resource type="Texture2D" uid="uid://bsdyhgqa07kp6" path="res://Texture/UI/Main_menu/runes.png" id="20_er5ji"]
+[ext_resource type="Texture2D" uid="uid://72rpjmcdgvit" path="res://Texture/UI/Talents_UI/золотая ячейка.png" id="21_cmmdu"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
 [ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
@@ -65,6 +67,10 @@ bg_color = Color(0.762009, 0.53941, 0.460928, 1)
 
 [sub_resource type="Theme" id="Theme_kmt4p"]
 Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ccqrc"]
+font = ExtResource("3_cjc1q")
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_ayrqo"]
 font = ExtResource("3_cjc1q")
@@ -519,6 +525,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("20_1y5uy")
 
 [node name="Runes_count" type="TextureRect" parent="Characters"]
 z_index = 2
@@ -555,6 +562,117 @@ offset_bottom = 51.0
 texture = ExtResource("20_er5ji")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Character_1" type="TextureRect" parent="Characters"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -159.0
+offset_right = -107.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_cmmdu")
+
+[node name="Label" type="Label" parent="Characters/Character_1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ВЫБРАН"
+label_settings = SubResource("LabelSettings_ccqrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Characters/Character_1"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 194.0
+offset_right = 166.0
+offset_bottom = 241.0
+text = "ВЫБРАТЬ"
+
+[node name="Character_2" type="TextureRect" parent="Characters"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -161.0
+offset_right = 86.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_cmmdu")
+
+[node name="Label" type="Label" parent="Characters/Character_2"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ВЫБРАН"
+label_settings = SubResource("LabelSettings_ccqrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Characters/Character_2"]
+offset_left = 26.0
+offset_top = 194.0
+offset_right = 166.0
+offset_bottom = 241.0
+text = "ВЫБРАТЬ"
+
+[node name="Character_3" type="TextureRect" parent="Characters"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 98.0
+offset_top = -162.0
+offset_right = 282.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_cmmdu")
+
+[node name="Label" type="Label" parent="Characters/Character_3"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ВЫБРАН"
+label_settings = SubResource("LabelSettings_ccqrc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Characters/Character_3"]
+offset_left = 26.0
+offset_top = 194.0
+offset_right = 166.0
+offset_bottom = 241.0
+text = "ВЫБРАТЬ"
 
 [node name="Talents" type="Control" parent="."]
 layout_mode = 1
@@ -797,6 +915,9 @@ layout_mode = 1
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
 [connection signal="pressed" from="Main_menu/PLay_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Characters/Character_1/Button" to="Characters" method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="Characters/Character_2/Button" to="Characters" method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="Characters/Character_3/Button" to="Characters" method="_on_button_pressed" binds= [3]]
 [connection signal="pressed" from="Select_buttons/Shop_button" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Select_buttons/Main_menu_button" to="." method="_on_mainmenu_button_pressed"]
 [connection signal="pressed" from="Select_buttons/Talesnts_button" to="." method="_on_talesnts_button_pressed"]

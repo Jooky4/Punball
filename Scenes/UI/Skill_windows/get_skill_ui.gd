@@ -223,10 +223,6 @@ func create_skill():
 		min_cost = 1000
 	if min_cost <= 0:
 		min_cost = 0
-	print()
-	print(LevelManager.count_experiance)
-	print(min_cost)
-	print(max_cost)
 	var skill_max_cost = -1
 	for i in all_skills:
 		if i[0] in skills_once:
@@ -253,7 +249,6 @@ func create_skill():
 				not_can_buy_skills.append(i)
 	skill_can_drop = delete_skill_for_this_location(skill_can_drop)
 	not_can_buy_skills = delete_skill_for_this_location(not_can_buy_skills)
-	print(skill_can_drop)
 	for i in range(3):
 		if skill_can_drop.size() > 0:
 			var random_index = randi() % skill_can_drop.size()
@@ -271,7 +266,6 @@ func create_skill():
 		skills[2] = not_can_buy_skills[randi() % not_can_buy_skills.size()]
 
 	skills = bubble_sort(skills)
-	print(skills)
 	for i in skills:
 		var buff = SKILL_WINDOW.instantiate()
 		windows_skill.add_child(buff)
@@ -397,7 +391,6 @@ func _on_skill_3_pressed() -> void:
 		add_skill(skills[2][0])
 
 func add_skill(skill) -> void:
-	print(skill)
 	match skill:
 		"Рассыпающийся шар":
 			LevelManager.add_ball(2)
@@ -520,7 +513,6 @@ func add_skill(skill) -> void:
 		"Повелитель технологий":
 			ElementsManager.technologies_modifier += 0.4
 			LevelManager.player_skills.append("Повелитель технологий")
-	print(LevelManager.player_skills)
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:
