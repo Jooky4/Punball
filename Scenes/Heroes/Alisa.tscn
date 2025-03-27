@@ -743,7 +743,6 @@ tracks/27/keys = {
 [sub_resource type="Animation" id="Animation_md0an"]
 resource_name = "Damage"
 length = 0.2
-loop_mode = 1
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false

@@ -77,6 +77,7 @@ var revaving_from_skill : bool = false
 @onready var strelka = $Dicariations/Start_bullet_position/Strelka
 @onready var ball_rotate_UI = $Dicariations/Start_bullet_position/Ball_rotate_UI
 @onready var character_anim = $Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Alisa
+@onready var camera = $Camera2D
 
 var old_coord_mouse : Vector2 = Vector2.ZERO
 var direction = Vector2.ZERO
@@ -194,6 +195,7 @@ func chec_game_end() -> void:
 
 		if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
 			end_wave_bool = true
+			await get_tree().create_timer(0.5).timeout
 			end_wave()
 
 func check_boss_alive() -> void:
@@ -243,7 +245,7 @@ func get_health(health_hp) -> void:
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
 		LevelManager.update_character_3_damage_from_OZ()
 
-func player_take_damage_create_label(label_damage) -> void:
+func player_take_damage_create_label(label_damage, who_deal_damage : int = 0) -> void:
 	var color_label = ElementsManager.color_elements["FIRE"]
 	var label = LABEL_DAMAGE.instantiate()
 	label.z_index = 8
@@ -254,12 +256,25 @@ func player_take_damage_create_label(label_damage) -> void:
 		label.text = str(label_damage)
 	else:
 		label.text = "-" + str(label_damage)
+		if who_deal_damage == 0:
+			camera.small_shake(1.1)
+		elif who_deal_damage == 1:
+			camera.small_shake(0.75)
+		elif who_deal_damage == 2:
+			camera.small_shake(1.3)
+			show_hit_effect()
+		character_anim.damage()
 	label.modulate = color_label
 	label.scale = Vector2(0.2, 0.2)
 	get_tree().current_scene.add_child(label)
 	label.show_label()
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
+
+func show_hit_effect():
+	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($UI/Damage, "color:a", 0.4, 0.1)
+	tween.tween_property($UI/Damage, "color:a", 0.0, 0.7)
 
 func win() -> void:
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
@@ -281,6 +296,7 @@ func lose() -> void:
 
 func revavil_player(for_AD_or_crystal : bool = false):
 	end_game_UI_lose.visible = false
+	character_anim.alive()
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
@@ -549,6 +565,9 @@ func end_wave() -> void:
 		await get_tree().create_timer(1).timeout
 	if LevelManager.hp_player <= 0:
 		if "Оживление" in LevelManager.player_skills and revaving_from_skill == false:
+			character_anim.death()
+			await get_tree().create_timer(2).timeout
+			character_anim.alive()
 			revaving_from_skill = true
 			LevelManager.revival(1, true)
 			hp_player_bar.value = LevelManager.hp_player
@@ -556,6 +575,8 @@ func end_wave() -> void:
 		else:
 			hp_player_bar.value = 0
 			hp_player_label.text = "0"
+			character_anim.death()
+			await get_tree().create_timer(2).timeout
 			end_game_UI_lose.start_timer()
 			game_state = LOSE
 			return

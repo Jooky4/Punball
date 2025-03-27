@@ -107,6 +107,7 @@ func add_ball(num_ball) -> void:
 	player_balls_after_wave.append(num_ball)
 
 func damage_player(damage, enemy) -> void:
+	var who_damage : int = 0
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
 		if randf() <= 0.2:
 			get_node("/root/First_level").player_take_damage_create_label("УВОРОТ")
@@ -118,6 +119,11 @@ func damage_player(damage, enemy) -> void:
 	else:
 		damage -= PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_CLOSE_ENEMY
 
+	if enemy.has_method("boss"):
+		who_damage = 2
+	elif enemy.has_method("shoot_at_player"):
+		who_damage = 1
+
 	if damage <= 0:
 		damage = 0
 	hp_player -= damage
@@ -128,7 +134,7 @@ func damage_player(damage, enemy) -> void:
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
 		update_character_3_damage_from_OZ()
 	if damage != 0:
-		get_node("/root/First_level").player_take_damage_create_label(damage)
+		get_node("/root/First_level").player_take_damage_create_label(damage, who_damage)
 
 func update_character_3_damage_from_OZ():
 	var hp_ratio = clamp(hp_player / max_hp_player, 0.1, 1.0)
@@ -157,9 +163,10 @@ func moving_object(player_position) -> void:
 		if i != null:
 			if i.has_method("enemy") and !i.has_method("boss"):
 				if !i.freezen and i.alive:
-					i.play_animation_hit_player()
-					damage_player(i.player_damage, i)
-					hit_player = true
+					if !i.has_method("shoot_at_player"):
+						i.play_animation_hit_player()
+						damage_player(i.player_damage, i)
+						hit_player = true
 
 	var boss_shoot = false
 	for i in first_level_links_on_objects: # НАНЕСЕНИЕ УРОНА ИГРОКУ ВРАГАМИ ДАЛЬНЕГО БОЯ
@@ -691,4 +698,3 @@ func revival(hp_player_prozent : float = 1, delete_enemy : bool = false):
 						first_level_links_on_objects[i][j].queue_free()
 						first_level_links_on_objects[i][j] = null
 	AudioManager.health_sound()
-	player_skills.erase("Оживление")

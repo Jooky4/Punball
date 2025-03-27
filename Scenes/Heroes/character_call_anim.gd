@@ -12,7 +12,8 @@ func attack() -> void:
 	animation.play("Attack")
 
 func damage() -> void:
-	animation.play("Damage")
+	if animation.current_animation != "Damage":
+		animation.play("Damage")
 
 func death() -> void:
 	animation.play("Death")
@@ -30,5 +31,5 @@ func not_pause() -> void:
 	animation.play("Attack")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "Attack" or anim_name == "Spawn":
+	if anim_name == "Attack" or anim_name == "Spawn" or anim_name == "Damage" or anim_name == "Alive":
 		idle()
