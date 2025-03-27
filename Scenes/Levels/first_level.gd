@@ -76,6 +76,7 @@ var revaving_from_skill : bool = false
 @onready var start_balls_position = $Dicariations/Start_bullet_position/Start_bullet_position
 @onready var strelka = $Dicariations/Start_bullet_position/Strelka
 @onready var ball_rotate_UI = $Dicariations/Start_bullet_position/Ball_rotate_UI
+@onready var character_anim = $Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Alisa
 
 var old_coord_mouse : Vector2 = Vector2.ZERO
 var direction = Vector2.ZERO
@@ -245,6 +246,7 @@ func get_health(health_hp) -> void:
 func player_take_damage_create_label(label_damage) -> void:
 	var color_label = ElementsManager.color_elements["FIRE"]
 	var label = LABEL_DAMAGE.instantiate()
+	label.z_index = 8
 	label.global_position = start_balls_position.global_position
 	if typeof(label_damage) != 3 and typeof(label_damage) != 2:
 		label.global_position = start_balls_position.global_position + Vector2(-30, 0)
@@ -343,7 +345,9 @@ func balls_go() -> void:
 		strelka.visible = false
 		ball_rotate_UI.visible = false
 		new_position_balls = 0
+		character_anim.attack()
 		game_state = BALLS_GO
+		var count_time = 0
 
 		for i in range(LevelManager.player_balls.size()):
 			var ball
@@ -393,8 +397,23 @@ func balls_go() -> void:
 			count_ball_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
 			AudioManager.ball_spawn()
 			await get_tree().create_timer(0.1).timeout
-	balls_back_button.position = start_balls_position.position + Vector2(0, -100)
+			count_time += 0.1
+			if count_time > 1:
+				character_anim.pause()
+	character_anim.not_pause()
+	balls_back_button.position = start_balls_position.position + Vector2(0, -210)
 	balls_back_button.visible = true
+	if new_position_balls != 0:
+		create_tween().tween_property(start_balls_position, "position", Vector2(start_balls_position.position.x + new_position_balls, start_balls_position.position.y), 1).set_trans(Tween.TRANS_QUAD)
+		create_tween().tween_property(balls_back_button, "position", Vector2(start_balls_position.position.x + new_position_balls, balls_back_button.position.y), 1).set_trans(Tween.TRANS_QUAD)
+		if new_position_balls > 0:
+			character_anim.move_right()
+		else:
+			character_anim.move_left()
+		await get_tree().create_timer(1.05).timeout
+		character_anim.idle()
+		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
+		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if ("CharacterBody2D" in body.name or "ball" in body.name):
@@ -405,7 +424,20 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 					new_position_balls = new_position_balls - start_balls_position.position.x
 				else:
 					new_position_balls = -(start_balls_position.position.x - new_position_balls)
-			body.queue_free()
+				body.queue_free()
+				if balls_back_button.visible:
+					create_tween().tween_property(start_balls_position, "position", Vector2(start_balls_position.position.x + new_position_balls, start_balls_position.position.y), 1).set_trans(Tween.TRANS_QUAD)
+					create_tween().tween_property(balls_back_button, "position", Vector2(start_balls_position.position.x + new_position_balls, balls_back_button.position.y), 1).set_trans(Tween.TRANS_QUAD)
+					if new_position_balls > 0:
+						character_anim.move_right()
+					else:
+						character_anim.move_left()
+					await get_tree().create_timer(1.05).timeout
+					character_anim.idle()
+					rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
+					left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
+			else:
+				body.queue_free()
 
 func spawn_objects_on_matrix() -> void:
 	var count = -1
@@ -506,9 +538,6 @@ func end_wave() -> void:
 	combo_count_label.text = str(0)
 	count_get_experience_on_wave = 0
 	get_count_experience_label.text = ""
-	start_balls_position.position.x += new_position_balls
-	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
-	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 	animation_health()
 	animation_bank_with_experience()
 	if !LevelManager.boss_on_map:

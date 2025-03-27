@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/punktire_line.png" id="5_7ui2n"]
 [ext_resource type="Texture2D" uid="uid://ehfrga1mi7t1" path="res://Texture/UI/i.png" id="5_ho1at"]
 [ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
-[ext_resource type="Texture2D" uid="uid://bccybr0vgw8f2" path="res://Texture/Balls/3).png" id="6_3rmiv"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="8_s8suq"]
 [ext_resource type="Texture2D" uid="uid://bnub4rxgaa20e" path="res://Texture/UI/strelka.png" id="8_wf17s"]
 [ext_resource type="PackedScene" uid="uid://i7udjd2in6et" path="res://Scenes/UI/ball_rotate_ui.tscn" id="9_2r8vu"]
 [ext_resource type="Texture2D" uid="uid://b281v7p3hsju0" path="res://Texture/UI/healthbarProgress_Player.png" id="9_m32s6"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="10_fo6nb"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
+[ext_resource type="PackedScene" uid="uid://4mtxd0nc2dg1" path="res://Scenes/Heroes/Alisa.tscn" id="11_eus6s"]
 [ext_resource type="PackedScene" uid="uid://ciuhn6dg5mwdo" path="res://Scenes/UI/Win_Lose_UI/revival_ui.tscn" id="12_tjpvy"]
 [ext_resource type="PackedScene" uid="uid://xxprkydai7iy" path="res://Scenes/UI/Skill_windows/get_skill_ui.tscn" id="13_1g2hj"]
 [ext_resource type="PackedScene" uid="uid://03cucs0teyc1" path="res://Scenes/UI/For test/chose_ball.tscn" id="13_31ajf"]
@@ -524,13 +524,13 @@ texture_mode = 2
 [node name="Start_bullet_position" type="Sprite2D" parent="Dicariations/Start_bullet_position"]
 z_index = 3
 position = Vector2(359.5, 1205.5)
-texture = ExtResource("6_3rmiv")
 
 [node name="Player_hp_bar" type="TextureProgressBar" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
+z_index = 5
 offset_left = -63.0
-offset_top = 17.0
+offset_top = 25.0
 offset_right = 68.0
-offset_bottom = 43.0
+offset_bottom = 51.0
 max_value = 1000.0
 value = 1000.0
 nine_patch_stretch = true
@@ -538,10 +538,11 @@ texture_under = ExtResource("8_s8suq")
 texture_progress = ExtResource("9_m32s6")
 
 [node name="Player_hp_label" type="Label" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
+z_index = 5
 offset_left = -63.5
-offset_top = 15.5
+offset_top = 23.5
 offset_right = 266.5
-offset_bottom = 91.5
+offset_bottom = 99.5
 scale = Vector2(0.4, 0.4)
 text = "1000"
 label_settings = SubResource("LabelSettings_5dhya")
@@ -549,11 +550,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Count_bullet_label" type="Label" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
-z_index = 1
-offset_left = -24.5
-offset_top = -51.5
-offset_right = 71.5
-offset_bottom = 18.5
+z_index = 5
+offset_left = -30.5
+offset_top = -166.5
+offset_right = 65.5
+offset_bottom = -96.5
 scale = Vector2(0.5, 0.5)
 text = "x10"
 label_settings = SubResource("LabelSettings_skssn")
@@ -561,8 +562,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Detection_walls" type="RayCast2D" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
-position = Vector2(-1.5, -2.5)
+position = Vector2(-1.5, 0.5)
 target_position = Vector2(720, 197)
+
+[node name="Chatacter" type="Node2D" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
+position = Vector2(-359.5, -1202.5)
+
+[node name="Alisa" parent="Dicariations/Start_bullet_position/Start_bullet_position/Chatacter" instance=ExtResource("11_eus6s")]
+z_index = 4
+position = Vector2(353, 1163)
 
 [node name="Ball_rotate_UI" parent="Dicariations/Start_bullet_position" instance=ExtResource("9_2r8vu")]
 visible = false
@@ -596,7 +604,7 @@ visible = false
 layout_mode = 1
 
 [node name="End_game" type="Control" parent="UI"]
-z_index = 8
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_left = -379.0
@@ -632,7 +640,6 @@ text = "СКИЛЛЫ
 [node name="Chose_ball" parent="UI" instance=ExtResource("13_31ajf")]
 process_mode = 3
 visible = false
-z_index = 8
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -674,6 +681,7 @@ vertical_alignment = 1
 
 [node name="Get_skill_UI" parent="UI" instance=ExtResource("13_1g2hj")]
 visible = false
+z_index = 10
 layout_mode = 1
 
 [node name="Combo_count" type="Label" parent="UI"]
@@ -741,7 +749,7 @@ vertical_alignment = 1
 
 [node name="Balls_back_button" type="Sprite2D" parent="UI"]
 visible = false
-position = Vector2(359, 1103)
+position = Vector2(355, 981)
 texture = ExtResource("17_dobv8")
 
 [node name="Balls_back_button" type="Button" parent="UI/Balls_back_button"]
@@ -862,7 +870,7 @@ offset_bottom = 119.0
 texture_normal = ExtResource("23_t4wce")
 
 [node name="Pause_menu_UI" parent="UI" instance=ExtResource("24_gx84s")]
-z_index = 9
+z_index = 10
 layout_mode = 1
 
 [node name="Notification_about_enemy" type="Control" parent="UI"]
