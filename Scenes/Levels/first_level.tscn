@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=97 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -10,13 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://bnub4rxgaa20e" path="res://Texture/UI/strelka.png" id="8_wf17s"]
 [ext_resource type="PackedScene" uid="uid://i7udjd2in6et" path="res://Scenes/UI/ball_rotate_ui.tscn" id="9_2r8vu"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="10_fo6nb"]
-[ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
+[ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Лок_1.png" id="10_t5r1o"]
 [ext_resource type="PackedScene" uid="uid://4mtxd0nc2dg1" path="res://Scenes/Heroes/Alisa.tscn" id="11_eus6s"]
 [ext_resource type="Script" path="res://Scenes/Levels/camera_2d.gd" id="12_3nvo2"]
 [ext_resource type="PackedScene" uid="uid://ciuhn6dg5mwdo" path="res://Scenes/UI/Win_Lose_UI/revival_ui.tscn" id="12_tjpvy"]
 [ext_resource type="PackedScene" uid="uid://xxprkydai7iy" path="res://Scenes/UI/Skill_windows/get_skill_ui.tscn" id="13_1g2hj"]
 [ext_resource type="PackedScene" uid="uid://03cucs0teyc1" path="res://Scenes/UI/For test/chose_ball.tscn" id="13_31ajf"]
-[ext_resource type="Texture2D" uid="uid://bby3mm6q8rrn0" path="res://Texture/UI/Уровень 1 текст.png" id="13_yxrlo"]
 [ext_resource type="Texture2D" uid="uid://bjo207pgwvdxv" path="res://Texture/UI/счетчик опыта.png" id="14_wmonb"]
 [ext_resource type="Texture2D" uid="uid://cq5bj185114sr" path="res://Texture/UI/иконка счетчика опыта.png" id="15_yu5pj"]
 [ext_resource type="Texture2D" uid="uid://doiu3jp8f4ygl" path="res://Texture/UI/UI возвращения.png" id="17_dobv8"]
@@ -91,7 +90,9 @@ shadow_offset = Vector2(-4, 6)
 [sub_resource type="LabelSettings" id="LabelSettings_afqc7"]
 font = ExtResource("10_fo6nb")
 font_size = 60
-font_color = Color(0.27451, 0.278431, 0.25098, 1)
+font_color = Color(0.266072, 0.269531, 0.245316, 1)
+shadow_color = Color(0.167969, 0.167969, 0.167969, 1)
+shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8a56q"]
 font = ExtResource("10_fo6nb")
@@ -568,7 +569,7 @@ position = Vector2(-1.5, 0.5)
 target_position = Vector2(720, 197)
 
 [node name="Chatacter" type="Node2D" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
-position = Vector2(-359.5, -1210.5)
+position = Vector2(-359.5, -1218.5)
 
 [node name="Alisa" parent="Dicariations/Start_bullet_position/Start_bullet_position/Chatacter" instance=ExtResource("11_eus6s")]
 z_index = 4
@@ -616,6 +617,7 @@ offset_right = -339.0
 offset_bottom = -80.0
 
 [node name="Start_again" type="Sprite2D" parent="UI"]
+visible = false
 z_index = 1
 position = Vector2(0, 1223)
 scale = Vector2(0.3, 0.3)
@@ -630,15 +632,14 @@ offset_bottom = 157.0
 
 [node name="Button" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 616.0
-offset_top = 1190.0
-offset_right = 770.0
-offset_bottom = 1280.0
+offset_left = 548.0
+offset_top = 1212.0
+offset_right = 702.0
+offset_bottom = 1261.0
 theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 35
 disabled = true
-text = "СКИЛЛЫ
- МЯЧИ"
+text = "СКИЛЛЫ"
 
 [node name="Chose_ball" parent="UI" instance=ExtResource("13_31ajf")]
 process_mode = 3
@@ -654,9 +655,16 @@ offset_top = -779.5
 offset_right = 1707.0
 offset_bottom = 779.5
 
-[node name="Уровень1Текст" type="Sprite2D" parent="UI"]
-position = Vector2(361, 80)
-texture = ExtResource("13_yxrlo")
+[node name="Уровень текст" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -944.0
+offset_top = -17.0
+offset_right = 1663.0
+offset_bottom = 105.0
+text = "Уровень"
+label_settings = SubResource("LabelSettings_afqc7")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Count_level_label" type="Label" parent="UI"]
 layout_mode = 0

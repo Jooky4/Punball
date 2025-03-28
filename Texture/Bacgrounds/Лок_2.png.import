@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://couua5ueetks2"
-path="res://.godot/imported/Фон.png-708552c3ddd98f8ee1536189775996bc.ctex"
+uid="uid://bod5hnqpfnr4q"
+path="res://.godot/imported/Лок_2.png-3208d9357ddb9b74a36110ef60e6bbda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Bacgrounds/Фон.png"
-dest_files=["res://.godot/imported/Фон.png-708552c3ddd98f8ee1536189775996bc.ctex"]
+source_file="res://Texture/Bacgrounds/Лок_2.png"
+dest_files=["res://.godot/imported/Лок_2.png-3208d9357ddb9b74a36110ef60e6bbda.ctex"]
 
 [params]
 
