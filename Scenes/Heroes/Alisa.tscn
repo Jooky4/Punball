@@ -422,7 +422,7 @@ tracks/1/path = NodePath("Весь физуал:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.475, 0.7, 0.9, 1.7, 2),
+"times": PackedFloat32Array(0, 0.25, 0.325, 0.55, 0.75, 1.55, 1.85),
 "transitions": PackedFloat32Array(-2, -2, -2, 0.5, -2, -2, -2),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-9, 11), Vector2(-6.75, 8.25), Vector2(26, -28), Vector2(19, -21), Vector2(19, -21), Vector2(0, 0)]
@@ -614,7 +614,7 @@ tracks/17/path = NodePath("Весь физуал/Тыл/Туловище2:rotati
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.475, 0.7, 0.925),
+"times": PackedFloat32Array(0, 0.25, 0.325, 0.55, 0.775),
 "transitions": PackedFloat32Array(-2, -2, -2, 0.5, -2),
 "update": 0,
 "values": [0.0, 0.0841332, 0.0841332, -0.0349066, 0.0]
@@ -650,7 +650,7 @@ tracks/20/path = NodePath("Весь физуал/Тыл/РукаСПосохом
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.475, 0.7, 1.475, 2),
+"times": PackedFloat32Array(0, 0.25, 0.325, 0.55, 1.325, 1.85),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
 "update": 0,
 "values": [0.0, 0.160755, 0.160755, -0.416569, -0.416569, 0.0]
@@ -662,7 +662,7 @@ tracks/21/path = NodePath("Весь физуал/Тыл/РукаСПосохом
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.475, 0.7, 0.925, 1.6, 1.875),
+"times": PackedFloat32Array(0, 0.25, 0.325, 0.55, 0.775, 1.45, 1.725),
 "transitions": PackedFloat32Array(-2, -2, -2, 0.5, 0.5, 0.5, -2),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1.15, 1.15), Vector2(1.15, 1.15), Vector2(1, 1)]
@@ -686,7 +686,7 @@ tracks/23/path = NodePath("Весь физуал/Тыл/Рука3:rotation")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.475, 0.7, 1.6, 2),
+"times": PackedFloat32Array(0, 0.25, 0.325, 0.55, 1.45, 1.85),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
 "update": 0,
 "values": [0.0, 0.23895, 0.23895, -0.575598, -0.575598, 0.0]
@@ -722,7 +722,7 @@ tracks/26/path = NodePath("Весь физуал/Тыл/Голова:rotation")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.475, 0.7, 1.05),
+"times": PackedFloat32Array(0, 0.25, 0.325, 0.55, 0.9),
 "transitions": PackedFloat32Array(-2, -2, -2, 0.5, -2),
 "update": 0,
 "values": [0.0, -0.244346, -0.244346, 0.0460507, -0.0261799]
@@ -3318,5 +3318,7 @@ libraries = {
 "": SubResource("AnimationLibrary_3eas8")
 }
 autoplay = "Spawn"
+speed_scale = 1.4
+blend_times = [&"Alive", &"Idle", 0.2, &"Alive", &"MoveLeft", 0.2, &"Alive", &"MoveRight", 0.2, &"Idle", &"Death", 0.2, &"Idle", &"MoveLeft", 0.3, &"Idle", &"MoveRight", 0.3, &"MoveLeft", &"Idle", 0.3, &"MoveRight", &"Idle", 0.3, &"Spawn", &"Idle", 0.4]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
