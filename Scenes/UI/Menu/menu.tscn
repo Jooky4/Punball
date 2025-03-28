@@ -1144,6 +1144,7 @@ grow_vertical = 2
 texture = ExtResource("26_ei0qc")
 
 [node name="Attack_label" type="Label" parent="Characters/Character_1_window/VBoxContainer/Attack_character"]
+z_index = 1
 layout_mode = 2
 text = "100"
 label_settings = SubResource("LabelSettings_t5pu5")
@@ -1182,6 +1183,7 @@ grow_vertical = 2
 texture = ExtResource("28_5xtva")
 
 [node name="HP_label" type="Label" parent="Characters/Character_1_window/VBoxContainer/HP_character"]
+z_index = 1
 layout_mode = 2
 text = "500"
 label_settings = SubResource("LabelSettings_t5pu5")
@@ -1463,6 +1465,7 @@ grow_vertical = 2
 texture = ExtResource("26_ei0qc")
 
 [node name="Attack_label" type="Label" parent="Characters/Character_2_window/VBoxContainer/Attack_character"]
+z_index = 1
 layout_mode = 2
 text = "120"
 label_settings = SubResource("LabelSettings_t5pu5")
@@ -1503,6 +1506,7 @@ grow_vertical = 2
 texture = ExtResource("28_5xtva")
 
 [node name="HP_label" type="Label" parent="Characters/Character_2_window/VBoxContainer/HP_character"]
+z_index = 1
 layout_mode = 2
 text = "600"
 label_settings = SubResource("LabelSettings_t5pu5")
@@ -1951,6 +1955,7 @@ grow_vertical = 2
 texture = ExtResource("26_ei0qc")
 
 [node name="Attack_label" type="Label" parent="Characters/Character_3_window/VBoxContainer/Attack_character"]
+z_index = 1
 layout_mode = 2
 text = "150"
 label_settings = SubResource("LabelSettings_t5pu5")
@@ -1991,6 +1996,7 @@ grow_vertical = 2
 texture = ExtResource("28_5xtva")
 
 [node name="HP_label" type="Label" parent="Characters/Character_3_window/VBoxContainer/HP_character"]
+z_index = 1
 layout_mode = 2
 text = "750"
 label_settings = SubResource("LabelSettings_t5pu5")
