@@ -88,3 +88,4 @@ func try_open_chest() -> void:
 		update_label_chests()
 		menu.update_coins_label()
 		menu.update_crystal_label()
+		menu.characters_UI.can_or_not_update()

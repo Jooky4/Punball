@@ -89,7 +89,7 @@ func update_player_indicators() -> void:
 func player_date_loaded(data) -> void:
 	update_coins_label()
 	update_crystal_label()
-	update_rune_label()
+	update_characte_UI()
 	update_level_label_and_bar()
 	update_cuurent_location_texture()
 	talents_UI.update_skill()
@@ -119,28 +119,34 @@ func update_cuurent_location_texture() -> void:
 			location_name_label.text = location[(current_location % 10) - 1][1]
 		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
+func update_characte_UI() -> void:
+	rune_label.text = str(PlayerIndicatorsManager.COUNT_RUNE)
+	#if PlayerIndicatorsManager.LEVEL_PLAYER < 5:
+		#$Select_buttons/Character_button/Not_can_press.visible = true
+		#$Select_buttons/Character_button/Can_press.visible = false
+		#$Select_buttons/Character_button.texture_normal = load("res://Texture/UI/Main_menu/панель для иконок не активна.png")
+		#$Select_buttons/Character_button.disabled = true
+	#else: РАСКОМИТИТЬ !!!!!!!!!!
+	$Select_buttons/Character_button.disabled = false
+	characters_UI.can_or_not_update()
+	characters_UI.update_ui()
+	update_rune_label()
+
 func update_rune_label() -> void:
 	rune_label.text = str(PlayerIndicatorsManager.COUNT_RUNE)
-	if PlayerIndicatorsManager.LEVEL_PLAYER < 5:
-		$Select_buttons/Character_button/Not_can_press.visible = true
-		$Select_buttons/Character_button/Can_press.visible = false
-		$Select_buttons/Character_button.texture_normal = load("res://Texture/UI/Main_menu/панель для иконок не активна.png")
-		$Select_buttons/Character_button.disabled = true
-	else:
-		$Select_buttons/Character_button.disabled = false
 
 func _on_button_pressed() -> void:
-	#ChangeScene.black_screen()
-	#PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
-	#WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
-	#LevelManager.restert()
-	#LevelManager.player_balls = [1, 1, 1, 1]
-	#AudioServer.set_bus_mute(0, false)
-	#await get_tree().create_timer(0.35).timeout
-	#get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
-	AudioManager.click()
-	YandexSDK.show_interstitial_ad()
-	YandexSDK.connect("interstitial_ad", star_location)
+	ChangeScene.black_screen()
+	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+	LevelManager.restert()
+	LevelManager.player_balls = [1, 1, 1, 1]
+	AudioServer.set_bus_mute(0, false)
+	await get_tree().create_timer(0.35).timeout
+	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	#AudioManager.click()
+	#YandexSDK.show_interstitial_ad()
+	#YandexSDK.connect("interstitial_ad", star_location)
 
 func star_location(result) -> void:
 	if result == "closed" or result == "error":
@@ -208,6 +214,7 @@ func _on_character_button_pressed() -> void:
 	player_leve_UI.visible = false
 	shop_UI.visible = false
 	talents_UI.visible = false
+	characters_UI._on_back_button_pressed()
 	characters_UI.visible = true
 
 func can_by_new_talant() -> void:

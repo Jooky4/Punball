@@ -443,6 +443,7 @@ func add_skill(skill) -> void:
 			LevelManager.max_hp_player = round(LevelManager.max_hp_player * (1 + prosen_hp_plus_))
 			if LevelManager.hp_player >= LevelManager.max_hp_player:
 				LevelManager.hp_player = LevelManager.max_hp_player
+			LevelManager.hp_player = round(LevelManager.hp_player)
 			AudioManager.health_sound()
 			LevelManager.player_skills.append("Прибавка ОЗ")
 		"Усиление особого шара":

@@ -1,8 +1,8 @@
 extends Node
 
-var CRYSTALS_COUNT : int = 1000
+var CRYSTALS_COUNT : int = 10000
 var COINS_COUNT : int = 10000
-var COUNT_RUNE : int = 0
+var COUNT_RUNE : int = 1000
 var LEVEL_PLAYER : int = 1
 var LEVEL_EXPERIANCE_PLAYER : int = 0
 var LEVEL_EXPERIANCE_FOR_NEXT_LEVEL : int = 1000
@@ -42,13 +42,12 @@ var ENEMY_13_FIRST_TIME : int = 0
 var ENEMY_14_FIRST_TIME : int = 0
 
 var CURRENT_CHARACTER : int = 1
-var CHARACTER_UP_ATTACK : float = 1.0
-var CHARACTER_UP_OZ : float = 1.0
 
 var CHARACTER_1_LVL : int = 1
 var CHARACTER_2_LVL : int = 0
 var CHARACTER_3_LVL : int = 0
 
+var CHARACTER_UP_ATTACK : float = 1.0
 var CHARACTER_3_UP_ATTACK_FROM_OZ : float = 1.0
 
 func _ready() -> void:
@@ -76,7 +75,11 @@ func update_player_date_in_game() -> void:
 						 "enemy_10_first_time",
 						 "enemy_12_first_time",
 						 "enemy_13_first_time",
-						 "enemy_14_first_time"])
+						 "enemy_14_first_time",
+						 "current_character",
+						 "character_1_lvl",
+						 "character_2_lvl",
+						 "character_3_lvl"])
 
 func get_player_indicators() -> Dictionary:
 	return {"coins" : COINS_COUNT, 
@@ -100,7 +103,11 @@ func get_player_indicators() -> Dictionary:
 			"enemy_10_first_time" : ENEMY_10_FIRST_TIME,
 			"enemy_12_first_time" : ENEMY_12_FIRST_TIME,
 			"enemy_13_first_time" : ENEMY_13_FIRST_TIME,
-			"enemy_14_first_time" : ENEMY_14_FIRST_TIME,}
+			"enemy_14_first_time" : ENEMY_14_FIRST_TIME,
+			"current_character": CURRENT_CHARACTER,
+			"character_1_lvl": CHARACTER_1_LVL,
+			"character_2_lvl": CHARACTER_2_LVL,
+			"character_3_lvl": CHARACTER_3_LVL}
 
 func update_crystal_count(num) -> void:
 	CRYSTALS_COUNT += num
@@ -141,10 +148,14 @@ func player_date_loaded(data) -> void:
 		ENEMY_12_FIRST_TIME = data["enemy_12_first_time"]
 		ENEMY_13_FIRST_TIME = data["enemy_13_first_time"]
 		ENEMY_14_FIRST_TIME = data["enemy_14_first_time"]
+		CURRENT_CHARACTER = data["current_character"]
+		CHARACTER_1_LVL = data["character_1_lvl"]
+		CHARACTER_2_LVL = data["character_2_lvl"]
+		CHARACTER_3_LVL = data["character_3_lvl"]
 	else:
 		COINS_COUNT = 10000
-		CRYSTALS_COUNT = 1000
-		COUNT_RUNE = 0
+		CRYSTALS_COUNT = 10000
+		COUNT_RUNE = 1000
 		LEVEL_PLAYER = 1
 		LEVEL_EXPERIANCE_PLAYER = 0
 		LEVEL_EXPERIANCE_FOR_NEXT_LEVEL = 1000
@@ -165,6 +176,9 @@ func player_date_loaded(data) -> void:
 		ENEMY_13_FIRST_TIME = 0
 		ENEMY_14_FIRST_TIME = 0
 		CURRENT_CHARACTER = 1
+		CHARACTER_1_LVL = 1
+		CHARACTER_2_LVL = 0
+		CHARACTER_3_LVL = 0
 
 func update_count_max_wave(max_wave) -> void:
 	if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS:
@@ -259,11 +273,26 @@ func enemy_firs_time_spawn(num_enemy) -> void:
 func character_1_up_lvl() -> void:
 	if CHARACTER_1_LVL < 20:
 		CHARACTER_1_LVL += 1
+		update_player_date_on_server()
 
 func character_2_up_lvl() -> void:
 	if CHARACTER_2_LVL < 20:
 		CHARACTER_2_LVL += 1
+		update_player_date_on_server()
 
 func character_3_up_lvl() -> void:
 	if CHARACTER_3_LVL < 20:
 		CHARACTER_3_LVL += 1
+		update_player_date_on_server()
+
+func update_current_character(num) -> void:
+	match num:
+		1:
+			CURRENT_CHARACTER = 1
+			update_player_date_on_server()
+		2:
+			CURRENT_CHARACTER = 2
+			update_player_date_on_server()
+		3:
+			CURRENT_CHARACTER = 3
+			update_player_date_on_server()

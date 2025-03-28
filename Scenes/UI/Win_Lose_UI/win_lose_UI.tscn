@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://dfmgd4spspuao" path="res://Texture/UI/Win_Lose_UI/палшка под награды.png" id="20_dl1ot"]
 [ext_resource type="Texture2D" uid="uid://dkyjb1bc4omcq" path="res://Texture/UI/Win_Lose_UI/награда опыта.png" id="21_q335r"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="22_iqx7g"]
+[ext_resource type="Texture2D" uid="uid://bo7sf7mnakgq1" path="res://Texture/UI/Character_UI/Character_window/иконка руна.png" id="23_4srrm"]
 [ext_resource type="Texture2D" uid="uid://bohwhq1oy2bm4" path="res://Texture/UI/Win_Lose_UI/кнопка ADS.png" id="23_8dhcs"]
-[ext_resource type="Texture2D" uid="uid://bsdyhgqa07kp6" path="res://Texture/UI/Main_menu/runes.png" id="23_gq5ph"]
 [ext_resource type="Texture2D" uid="uid://doc6fa24hisco" path="res://Texture/UI/Win_Lose_UI/текст ADS.png" id="24_3qt67"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="25_bbyqq"]
 [ext_resource type="PackedScene" uid="uid://360y0xs402w7" path="res://Scenes/UI/Level_up_UI/level_up_ui.tscn" id="26_sicc2"]
@@ -476,13 +476,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -38.5
-offset_top = -43.0
-offset_right = 38.5
-offset_bottom = 30.0
+offset_left = -29.5
+offset_top = -34.0
+offset_right = 29.5
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_gq5ph")
+texture = ExtResource("23_4srrm")
 expand_mode = 1
 stretch_mode = 5
 

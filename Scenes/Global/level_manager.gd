@@ -67,11 +67,14 @@ func restert() -> void:
 	ElementsManager.restart()
 	match PlayerIndicatorsManager.CURRENT_CHARACTER:
 		1:
-			hp_player = (500 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ) * PlayerIndicatorsManager.CHARACTER_UP_OZ
+			hp_player = round(((500 * (1 + ((PlayerIndicatorsManager.CHARACTER_1_LVL - 1) * 0.05))) + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ))
+			PlayerIndicatorsManager.CHARACTER_UP_ATTACK = (100 * (1 + ((PlayerIndicatorsManager.CHARACTER_1_LVL - 1) * 0.05))) / 100
 		2:
-			hp_player = (600 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ) * PlayerIndicatorsManager.CHARACTER_UP_OZ
+			hp_player = round(((600 * (1 + ((PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 0.05))) + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ))
+			PlayerIndicatorsManager.CHARACTER_UP_ATTACK = (120 * (1 + ((PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 0.05))) / 100
 		3:
-			hp_player = (750 + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ) * PlayerIndicatorsManager.CHARACTER_UP_OZ
+			hp_player = round(((round(750 * (1 + ((PlayerIndicatorsManager.CHARACTER_3_LVL - 1) * 0.05)))) + PlayerIndicatorsManager.FOR_COIS_UP_OZ) * (1 + PlayerIndicatorsManager.FOR_CRYSTAL_UP_OZ))
+			PlayerIndicatorsManager.CHARACTER_UP_ATTACK = (round(150 * (1 + ((PlayerIndicatorsManager.CHARACTER_3_LVL - 1) * 0.05)))) / 100
 	max_hp_player = hp_player
 	boss_on_map = false
 	count_level = 0
@@ -684,6 +687,7 @@ func heal_hp_plaer_from_technologies() -> void:
 		if count_bust_hp != 0:
 			prosen_hp_plus *= 1 + (count_bust_hp * 0.5)
 		hp_player += round(max_hp_player*prosen_hp_plus)
+		hp_player = round(hp_player)
 		if hp_player > max_hp_player:
 			hp_player = max_hp_player
 

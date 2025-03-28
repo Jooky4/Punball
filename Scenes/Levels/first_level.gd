@@ -238,6 +238,7 @@ func get_expirians_animation(experience) -> void:
 
 func get_health(health_hp) -> void:
 	LevelManager.hp_player += round(health_hp)
+	LevelManager.hp_player = round(LevelManager.hp_player)
 	if LevelManager.hp_player > LevelManager.max_hp_player:
 		LevelManager.hp_player = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
