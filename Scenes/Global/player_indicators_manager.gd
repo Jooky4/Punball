@@ -45,6 +45,10 @@ var CURRENT_CHARACTER : int = 1
 var CHARACTER_UP_ATTACK : float = 1.0
 var CHARACTER_UP_OZ : float = 1.0
 
+var CHARACTER_1_LVL : int = 1
+var CHARACTER_2_LVL : int = 0
+var CHARACTER_3_LVL : int = 0
+
 var CHARACTER_3_UP_ATTACK_FROM_OZ : float = 1.0
 
 func _ready() -> void:
@@ -251,3 +255,15 @@ func enemy_firs_time_spawn(num_enemy) -> void:
 		14:
 			PlayerIndicatorsManager.ENEMY_14_FIRST_TIME = 1
 			update_player_date_on_server()
+
+func character_1_up_lvl() -> void:
+	if CHARACTER_1_LVL < 20:
+		CHARACTER_1_LVL += 1
+
+func character_2_up_lvl() -> void:
+	if CHARACTER_2_LVL < 20:
+		CHARACTER_2_LVL += 1
+
+func character_3_up_lvl() -> void:
+	if CHARACTER_3_LVL < 20:
+		CHARACTER_3_LVL += 1

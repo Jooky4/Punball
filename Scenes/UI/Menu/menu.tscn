@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=51 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bpd4yjl1llu86" path="res://Texture/UI/Main_menu/кубок.png" id="15_4qcoo"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
 [ext_resource type="Texture2D" uid="uid://bexfyxdbuodbu" path="res://Texture/UI/Main_menu/плашка для кубка.png" id="16_06xp1"]
-[ext_resource type="PackedScene" uid="uid://dotgv7p76vjh5" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
+[ext_resource type="PackedScene" uid="uid://1ilhlj1qeg8s" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
 [ext_resource type="Texture2D" uid="uid://bamqxwlu31sgo" path="res://Texture/UI/Main_menu/панель для иконок.png" id="17_y83uj"]
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
@@ -28,6 +28,10 @@
 [ext_resource type="Texture2D" uid="uid://72rpjmcdgvit" path="res://Texture/UI/Talents_UI/золотая ячейка.png" id="21_cmmdu"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
+[ext_resource type="Script" path="res://Scenes/UI/Characters/character_1_window.gd" id="23_6x0rm"]
+[ext_resource type="Texture2D" uid="uid://dvhi5ccp4uix2" path="res://Texture/UI/Win_Lose_UI/прогресс бар.png" id="23_wgbns"]
+[ext_resource type="Texture2D" uid="uid://bcw45dakn580r" path="res://Texture/UI/Win_Lose_UI/прогресс бар (зеленый прогресс).png" id="24_atecc"]
+[ext_resource type="Texture2D" uid="uid://ck04ttpiwx5hx" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна).png" id="26_niv1a"]
 [ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
 [ext_resource type="PackedScene" uid="uid://c2ys2oj4481m3" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
 [ext_resource type="Texture2D" uid="uid://cl5c1073l1ns3" path="res://Texture/UI/Talents_UI/замок.png" id="29_k5hbu"]
@@ -71,6 +75,27 @@ Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
 [sub_resource type="LabelSettings" id="LabelSettings_ccqrc"]
 font = ExtResource("3_cjc1q")
 font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghhbb"]
+font = ExtResource("3_cjc1q")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5pu5"]
+font = ExtResource("3_cjc1q")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_x4hat"]
+font = ExtResource("3_cjc1q")
+font_size = 40
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uqh6h"]
+font = ExtResource("3_cjc1q")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_edc2c"]
+font = ExtResource("3_cjc1q")
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_ayrqo"]
 font = ExtResource("3_cjc1q")
@@ -570,10 +595,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -291.0
-offset_top = -159.0
-offset_right = -107.0
-offset_bottom = 25.0
+offset_left = -285.0
+offset_top = -164.0
+offset_right = -101.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_cmmdu")
@@ -607,10 +632,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.0
-offset_top = -161.0
-offset_right = 86.0
-offset_bottom = 23.0
+offset_left = -92.0
+offset_top = -166.0
+offset_right = 92.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_cmmdu")
@@ -645,10 +670,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 98.0
-offset_top = -162.0
-offset_right = 282.0
-offset_bottom = 22.0
+offset_left = 104.0
+offset_top = -167.0
+offset_right = 288.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_cmmdu")
@@ -675,6 +700,190 @@ offset_top = 194.0
 offset_right = 166.0
 offset_bottom = 241.0
 text = "ВЫБРАТЬ"
+
+[node name="Character_1_window" type="Control" parent="Characters"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("23_6x0rm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Characters/Character_1_window"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 191.0
+offset_right = 670.0
+offset_bottom = 383.0
+theme_override_constants/separation = 20
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Characters/Character_1_window/VBoxContainer"]
+layout_mode = 2
+max_value = 20.0
+value = 1.0
+texture_under = ExtResource("23_wgbns")
+texture_progress = ExtResource("24_atecc")
+texture_progress_offset = Vector2(17, 15)
+
+[node name="Label" type="Label" parent="Characters/Character_1_window/VBoxContainer/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "УР: 1/20"
+label_settings = SubResource("LabelSettings_ghhbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack_character" type="HBoxContainer" parent="Characters/Character_1_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Attack_label" type="Label" parent="Characters/Character_1_window/VBoxContainer/Attack_character"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_t5pu5")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_1_window/VBoxContainer/Attack_character"]
+layout_mode = 2
+texture = ExtResource("27_c31n5")
+
+[node name="Attack_label_UP" type="Label" parent="Characters/Character_1_window/VBoxContainer/Attack_character/TextureRect"]
+layout_mode = 2
+offset_left = 43.0
+offset_top = 1.0
+offset_right = 106.0
+offset_bottom = 47.0
+text = "105"
+label_settings = SubResource("LabelSettings_x4hat")
+
+[node name="HP_character2" type="HBoxContainer" parent="Characters/Character_1_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HP_label" type="Label" parent="Characters/Character_1_window/VBoxContainer/HP_character2"]
+layout_mode = 2
+text = "500"
+label_settings = SubResource("LabelSettings_t5pu5")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_1_window/VBoxContainer/HP_character2"]
+layout_mode = 2
+texture = ExtResource("27_c31n5")
+
+[node name="HP_label_UP" type="Label" parent="Characters/Character_1_window/VBoxContainer/HP_character2/TextureRect"]
+layout_mode = 2
+offset_left = 45.0
+offset_top = 1.0
+offset_right = 108.0
+offset_bottom = 47.0
+text = "525"
+label_settings = SubResource("LabelSettings_x4hat")
+
+[node name="Level_UP_character_1_button" type="TextureButton" parent="Characters/Character_1_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 340.0
+offset_right = 183.0
+offset_bottom = 433.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("26_niv1a")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "УЛУЧШИТЬ"
+label_settings = SubResource("LabelSettings_ghhbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Need_matirial" type="TextureRect" parent="Characters/Character_1_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = 88.0
+offset_right = 299.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_cmmdu")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Characters/Character_1_window/Need_matirial"]
+layout_mode = 1
+offset_left = 57.0
+offset_top = 23.0
+offset_right = 230.0
+offset_bottom = 58.0
+text = "Материалы:"
+label_settings = SubResource("LabelSettings_uqh6h")
+
+[node name="Coins" type="TextureRect" parent="Characters/Character_1_window/Need_matirial"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 80.0
+offset_right = 143.0
+offset_bottom = 132.0
+texture = ExtResource("6_uun7o")
+
+[node name="Coins_Label" type="Label" parent="Characters/Character_1_window/Need_matirial/Coins"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -50.0
+offset_right = 97.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1000"
+label_settings = SubResource("LabelSettings_edc2c")
+
+[node name="Runes" type="TextureRect" parent="Characters/Character_1_window/Need_matirial"]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 67.0
+offset_right = 372.0
+offset_bottom = 143.0
+texture = ExtResource("20_er5ji")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Runes_Label" type="Label" parent="Characters/Character_1_window/Need_matirial/Runes"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_right = 93.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1000"
+label_settings = SubResource("LabelSettings_edc2c")
 
 [node name="Talents" type="Control" parent="."]
 layout_mode = 1
@@ -840,7 +1049,6 @@ stretch_mode = 5
 
 [node name="Character_button" type="TextureButton" parent="Select_buttons"]
 layout_mode = 2
-disabled = true
 texture_normal = ExtResource("17_y83uj")
 
 [node name="Can_press" type="TextureRect" parent="Select_buttons/Character_button"]
@@ -920,6 +1128,7 @@ layout_mode = 1
 [connection signal="pressed" from="Characters/Character_1/Button" to="Characters" method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="Characters/Character_2/Button" to="Characters" method="_on_button_pressed" binds= [2]]
 [connection signal="pressed" from="Characters/Character_3/Button" to="Characters" method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="Characters/Character_1_window/Level_UP_character_1_button" to="Characters/Character_1_window" method="_on_level_up_character_1_button_pressed"]
 [connection signal="pressed" from="Select_buttons/Shop_button" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Select_buttons/Main_menu_button" to="." method="_on_mainmenu_button_pressed"]
 [connection signal="pressed" from="Select_buttons/Talesnts_button" to="." method="_on_talesnts_button_pressed"]
