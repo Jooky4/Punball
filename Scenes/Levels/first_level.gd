@@ -195,7 +195,7 @@ func chec_game_end() -> void:
 
 		if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
 			end_wave_bool = true
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(1).timeout
 			end_wave()
 
 func check_boss_alive() -> void:
@@ -320,16 +320,16 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
 	LevelManager.kill_on_whis_wave = 0
+	await get_tree().create_timer(0.05).timeout
+	end_game_UI_lose.visible = false
 	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
 		return
-	await get_tree().create_timer(0.05).timeout
-	end_game_UI_lose.visible = false
-	balls_can_go = true
 	if for_AD_or_crystal == true:
 		revavil_for_AD_or_crystal = true
+	balls_can_go = true
 	game_state = PLAY
 
 func draw_trajectory() -> void:
@@ -561,9 +561,9 @@ func end_wave() -> void:
 		get_health(PlayerIndicatorsManager.FOR_COIS_REGENIRATION)
 	LevelManager.moving_object(start_balls_position.position)
 	if LevelManager.hit_player:
-		await get_tree().create_timer(3.2).timeout
+		await get_tree().create_timer(4).timeout
 	else:
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(2).timeout
 	if LevelManager.hp_player <= 0:
 		if "Оживление" in LevelManager.player_skills and revaving_from_skill == false:
 			character_anim.death()
@@ -606,6 +606,7 @@ func end_wave() -> void:
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
 		return
+	await get_tree().create_timer(0.5).timeout
 	balls_can_go = true
 	game_state = PLAY
 

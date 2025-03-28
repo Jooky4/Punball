@@ -177,12 +177,12 @@ func moving(direction_object) -> void:
 		if direction_object != "":
 			var tween = create_tween()
 			if direction_object == "forward":
-				tween.tween_property(self, "position", Vector2(0, 103) + self.position, 1).set_trans(Tween.TRANS_QUAD)
+				tween.tween_property(self, "position", Vector2(0, 103) + self.position, 0.5).set_trans(Tween.TRANS_QUAD)
 			elif direction_object == "left":
-				tween.tween_property(self, "position", Vector2(-103, 0) + self.position, 1).set_trans(Tween.TRANS_QUAD)
+				tween.tween_property(self, "position", Vector2(-103, 0) + self.position, 0.5).set_trans(Tween.TRANS_QUAD)
 			elif direction_object == "right":
-				tween.tween_property(self, "position", Vector2(103, 0) + self.position, 1).set_trans(Tween.TRANS_QUAD)
-		await get_tree().create_timer(1).timeout
+				tween.tween_property(self, "position", Vector2(103, 0) + self.position, 0.5).set_trans(Tween.TRANS_QUAD)
+		await get_tree().create_timer(0.5).timeout
 		if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 			if on_last_line:
 				animation_enemy.play("Preparation")
@@ -210,11 +210,16 @@ func create_label_damage(damage_ball, color_label) -> void:
 func enemy_on_last_line():
 	on_last_line = true
 
-func play_animation_hit_player():
+func play_animation_hit_player(player_position):
 	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Hit")
 		hit_sound.pitch_scale += AudioManager.get_random_pitch()
 		hit_sound.play()
+		var self_position = self.position
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "position", player_position + Vector2(-50, -90), 0.5)
+		await get_tree().create_timer(0.55).timeout
+		queue_free()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ

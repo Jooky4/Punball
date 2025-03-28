@@ -7,7 +7,7 @@ func jumper_enemy() -> void:
 	pass
 
 func jump() -> void:
-	var free_spot_on_map : Array = LevelManager.find_all_free_spot()
+	var free_spot_on_map : Array = LevelManager.find_all_free_spot(1)
 	if count_jump >= 2:
 		var free_spot_on_last_line = []
 		for i in range(LevelManager.first_level_links_on_objects[7].size()):
@@ -30,7 +30,7 @@ func jump() -> void:
 		move_on_this_wave = true
 		count_jump += 1
 		animation_enemy.play("Move")
-		move_sound.pitch_scale += AudioManager.get_random_pitch()
+		move_sound.pitch_scale = 2
 		move_sound.play()
 		var end_pos = Vector2((new_spot - self_spot) * Vector2(103, 103))
 		end_pos = Vector2(end_pos.y, end_pos.x)

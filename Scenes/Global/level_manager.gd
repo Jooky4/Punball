@@ -164,9 +164,10 @@ func moving_object(player_position) -> void:
 			if i.has_method("enemy") and !i.has_method("boss"):
 				if !i.freezen and i.alive:
 					if !i.has_method("shoot_at_player"):
-						i.play_animation_hit_player()
+						i.play_animation_hit_player(player_position)
 						damage_player(i.player_damage, i)
 						hit_player = true
+						await get_tree().create_timer(0.2).timeout
 
 	var boss_shoot = false
 	for i in first_level_links_on_objects: # НАНЕСЕНИЕ УРОНА ИГРОКУ ВРАГАМИ ДАЛЬНЕГО БОЯ
@@ -179,6 +180,7 @@ func moving_object(player_position) -> void:
 					elif !j.has_method("boss"):
 						j.shoot_at_player(player_position)
 					hit_player = true
+					await get_tree().create_timer(0.2).timeout
 
 	for i in (first_level_links_on_objects.size() - 1): # ВРАГИ МЕДИКИ ЛЕЧАТ
 		for j in (first_level_links_on_objects[i].size()):
@@ -196,7 +198,7 @@ func moving_object(player_position) -> void:
 						first_level_links_on_objects[i][j].spawn_new_enemy()
 						hit_player = true
 	if hit_player:
-		await get_tree().create_timer(1.7).timeout
+		await get_tree().create_timer(2).timeout
 
 	for i in first_level_links_on_objects:
 		for j in i:
@@ -636,9 +638,9 @@ func find_all_enemys():
 						enemy_arr.append(j)
 	return enemy_arr
 
-func find_all_free_spot():
+func find_all_free_spot(index : int = 0):
 	var free_spots = []
-	for i in range(first_level_links_on_objects.size() - 1):
+	for i in range(first_level_links_on_objects.size() + index - 2):
 		if i != 0 and i != 1:
 			for j in range(first_level_links_on_objects[i].size()):
 				if first_level_links_on_objects[i][j] == null:
