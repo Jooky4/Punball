@@ -130,17 +130,17 @@ func update_rune_label() -> void:
 		$Select_buttons/Character_button.disabled = false
 
 func _on_button_pressed() -> void:
-	ChangeScene.black_screen()
-	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
-	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
-	LevelManager.restert()
-	LevelManager.player_balls = [1, 1, 1, 1]
-	AudioServer.set_bus_mute(0, false)
-	await get_tree().create_timer(0.35).timeout
-	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
-	#AudioManager.click()
-	#YandexSDK.show_interstitial_ad()
-	#YandexSDK.connect("interstitial_ad", star_location)
+	#ChangeScene.black_screen()
+	#PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+	#WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+	#LevelManager.restert()
+	#LevelManager.player_balls = [1, 1, 1, 1]
+	#AudioServer.set_bus_mute(0, false)
+	#await get_tree().create_timer(0.35).timeout
+	#get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	AudioManager.click()
+	YandexSDK.show_interstitial_ad()
+	YandexSDK.connect("interstitial_ad", star_location)
 
 func star_location(result) -> void:
 	if result == "closed" or result == "error":

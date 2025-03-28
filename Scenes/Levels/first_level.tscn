@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/punktire_line.png" id="5_7ui2n"]
 [ext_resource type="Texture2D" uid="uid://ehfrga1mi7t1" path="res://Texture/UI/i.png" id="5_ho1at"]
 [ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
-[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="8_s8suq"]
+[ext_resource type="Texture2D" uid="uid://d3iosktj0epje" path="res://Texture/UI/основа_игрок_2.png" id="7_tv3do"]
+[ext_resource type="Texture2D" uid="uid://6lvlhg5wu06p" path="res://Texture/UI/Main_menu/основа_игрок.png" id="8_ttsce"]
 [ext_resource type="Texture2D" uid="uid://bnub4rxgaa20e" path="res://Texture/UI/strelka.png" id="8_wf17s"]
 [ext_resource type="PackedScene" uid="uid://i7udjd2in6et" path="res://Scenes/UI/ball_rotate_ui.tscn" id="9_2r8vu"]
-[ext_resource type="Texture2D" uid="uid://b281v7p3hsju0" path="res://Texture/UI/healthbarProgress_Player.png" id="9_m32s6"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="10_fo6nb"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/Фон.png" id="10_t5r1o"]
 [ext_resource type="PackedScene" uid="uid://4mtxd0nc2dg1" path="res://Scenes/Heroes/Alisa.tscn" id="11_eus6s"]
@@ -76,7 +76,7 @@ shader = ExtResource("5_ix1q1")
 [sub_resource type="LabelSettings" id="LabelSettings_5dhya"]
 font = ExtResource("10_fo6nb")
 font_size = 60
-font_color = Color(1.03481e-06, 0.720339, 1.54018e-06, 1)
+font_color = Color(0.38639, 0.765625, 0, 1)
 outline_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_skssn"]
@@ -530,21 +530,21 @@ position = Vector2(359.5, 1205.5)
 [node name="Player_hp_bar" type="TextureProgressBar" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
 z_index = 5
 offset_left = -63.0
-offset_top = 25.0
+offset_top = 31.0
 offset_right = 68.0
-offset_bottom = 51.0
+offset_bottom = 57.0
 max_value = 1000.0
 value = 1000.0
 nine_patch_stretch = true
-texture_under = ExtResource("8_s8suq")
-texture_progress = ExtResource("9_m32s6")
+texture_under = ExtResource("7_tv3do")
+texture_progress = ExtResource("8_ttsce")
 
 [node name="Player_hp_label" type="Label" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
 z_index = 5
 offset_left = -63.5
-offset_top = 23.5
+offset_top = 28.5
 offset_right = 266.5
-offset_bottom = 99.5
+offset_bottom = 104.5
 scale = Vector2(0.4, 0.4)
 text = "1000"
 label_settings = SubResource("LabelSettings_5dhya")
@@ -554,9 +554,9 @@ vertical_alignment = 1
 [node name="Count_bullet_label" type="Label" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
 z_index = 5
 offset_left = -30.5
-offset_top = -166.5
+offset_top = -160.5
 offset_right = 65.5
-offset_bottom = -96.5
+offset_bottom = -90.5
 scale = Vector2(0.5, 0.5)
 text = "x10"
 label_settings = SubResource("LabelSettings_skssn")
@@ -568,7 +568,7 @@ position = Vector2(-1.5, 0.5)
 target_position = Vector2(720, 197)
 
 [node name="Chatacter" type="Node2D" parent="Dicariations/Start_bullet_position/Start_bullet_position"]
-position = Vector2(-359.5, -1202.5)
+position = Vector2(-359.5, -1210.5)
 
 [node name="Alisa" parent="Dicariations/Start_bullet_position/Start_bullet_position/Chatacter" instance=ExtResource("11_eus6s")]
 z_index = 4
@@ -1245,9 +1245,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -938.0
-offset_top = -1.0
+offset_top = 5.0
 offset_right = 943.0
-offset_bottom = 1.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
