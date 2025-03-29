@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=83 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://cbjdufopv0pmk" path="res://Texture/UI/Character_UI/плашка персонажа активная.png" id="28_30gul"]
 [ext_resource type="Texture2D" uid="uid://cc53ex5bd746r" path="res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png" id="29_dv1yp"]
 [ext_resource type="Texture2D" uid="uid://cl5c1073l1ns3" path="res://Texture/UI/Talents_UI/замок.png" id="29_k5hbu"]
+[ext_resource type="Texture2D" uid="uid://qqfohh4ohbyu" path="res://Texture/UI/Character_UI/Character_window/фон вертикальный.png" id="29_ke4g2"]
 [ext_resource type="Texture2D" uid="uid://jcy8balgn8ur" path="res://Texture/UI/Character_UI/уровень перса.png" id="29_lxmlr"]
 [ext_resource type="Texture2D" uid="uid://bmtxu0eqj1ssr" path="res://Texture/UI/Character_UI/полоска разделитель.png" id="30_g1evk"]
 [ext_resource type="Texture2D" uid="uid://ckgv7detkwio1" path="res://Texture/UI/Character_UI/Character_window/плашка для материалов покупки.png" id="30_qcdih"]
@@ -602,6 +603,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("20_1y5uy")
+
+[node name="TextureRect" type="TextureRect" parent="Characters"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.5
+offset_top = -642.0
+offset_right = 390.5
+offset_bottom = 642.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_ke4g2")
+stretch_mode = 5
 
 [node name="All_characters" type="Control" parent="Characters"]
 layout_mode = 1
