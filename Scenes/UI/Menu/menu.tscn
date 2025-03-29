@@ -2522,6 +2522,7 @@ stretch_mode = 5
 
 [node name="Character_button" type="TextureButton" parent="Select_buttons"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("17_y83uj")
 
 [node name="Can_press" type="TextureRect" parent="Select_buttons/Character_button"]
