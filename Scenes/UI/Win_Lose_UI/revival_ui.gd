@@ -10,10 +10,6 @@ extends Control
 @onready var timer_2 = $Timer2
 @onready var label_time = $TextureRect4/Label_time
 
-#func _ready() -> void:
-	#update_player_state()
-	#start_timer()
-
 func update_player_state() -> void:
 	update_coins_label()
 	update_crystal_label()
@@ -71,7 +67,7 @@ func _on_timer_timeout() -> void:
 	timer.stop()
 	timer_2.stop()
 	if LevelManager.boss_on_map:
-		PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[WaveGeneration.current_location] - 1)
+		PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[(WaveGeneration.current_location % 10) - 1] - 1)
 	else:
 		PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
@@ -83,7 +79,7 @@ func _on_texture_button_pressed() -> void:
 	timer.stop()
 	timer_2.stop()
 	if LevelManager.boss_on_map:
-		PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[WaveGeneration.current_location] - 1)
+		PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[(WaveGeneration.current_location % 10) - 1] - 1)
 	else:
 		PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")

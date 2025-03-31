@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bqogtnd7d18tc" path="res://Texture/Enemys/Blueberries_enemy/снаряд чернички.png" id="1_0j7ms"]
 
 [node name="blueberries_bullet" type="Node2D"]
-z_index = 2
+z_index = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.429688, 0.429687)

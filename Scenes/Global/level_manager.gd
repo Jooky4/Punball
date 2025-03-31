@@ -15,7 +15,7 @@ var max_hp_player : float = 500
 var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
-var count_level : int = 18
+var count_level : int = 1
 var count_experiance : int = 0
 var combo_count : int = 0
 var spin_skill : int = 0
@@ -261,8 +261,11 @@ func moving_object(player_position) -> void:
 								if !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
 									move_left_or_right(i, j)
 							else:
-								if !first_level_links_on_objects[i][j].has_method("boss"):
+								if !first_level_links_on_objects[i][j].has_method("boss") and !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
 									move_left_or_right(i, j)
+						else:
+							if !first_level_links_on_objects[i][j].has_method("boss") and !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
+								move_left_or_right(i, j)
 	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
 		if (((WaveGeneration.current_location % 10) - 1) == 2 or ((WaveGeneration.current_location % 10) - 1) == 3 or
 		((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5 or
