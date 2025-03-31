@@ -19,9 +19,9 @@ func spawn_new_enemy() -> void:
 
 	free_spot = LevelManager.find_all_free_spot()
 	if free_spot == []:
-		for i in range(LevelManager.first_level_links_on_objects[0].size()):
-			if LevelManager.first_level_links_on_objects[0][i] == null:
-				free_spot.append(Vector2(0, i))
+		for i in range(LevelManager.first_level_links_on_objects[1].size()):
+			if LevelManager.first_level_links_on_objects[1][i] == null:
+				free_spot.append(Vector2(1, i))
 
 	if free_spot != [] and free_spot.size() != 0:
 		var spot_for_new_enemy = free_spot[randi() % free_spot.size()]

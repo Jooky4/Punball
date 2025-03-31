@@ -692,7 +692,7 @@ layout_mode = 1
 
 [node name="Combo_count" type="Label" parent="UI"]
 visible = false
-z_index = 1
+z_index = 4
 layout_mode = 0
 offset_left = 538.0
 offset_top = 107.0
@@ -877,7 +877,7 @@ offset_bottom = 119.0
 texture_normal = ExtResource("23_t4wce")
 
 [node name="Pause_menu_UI" parent="UI" instance=ExtResource("24_gx84s")]
-z_index = 10
+z_index = 12
 layout_mode = 1
 
 [node name="Notification_about_enemy" type="Control" parent="UI"]

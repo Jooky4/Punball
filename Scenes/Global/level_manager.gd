@@ -200,6 +200,17 @@ func moving_object(player_position) -> void:
 					if !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
 						first_level_links_on_objects[i][j].spawn_new_enemy()
 						hit_player = true
+
+	if boss_on_map:
+		if ((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5:
+			var boss_pos = find_boss_position()
+			if count_level % 2 == 0:
+				first_level_links_on_objects[boss_pos.x][boss_pos.y].spawn_new_enemy()
+			else:
+				first_level_links_on_objects[boss_pos.x][boss_pos.y].play_animation_hit_player(player_position)
+				damage_player(first_level_links_on_objects[boss_pos.x][boss_pos.y].player_damage, first_level_links_on_objects[boss_pos.x][boss_pos.y])
+			hit_player = true
+
 	if hit_player:
 		await get_tree().create_timer(2).timeout
 
@@ -331,7 +342,10 @@ func move_boss() -> void:
 func move_boss_forward_only(player_position) -> void:
 	var boss_pos = find_boss_position()
 	if first_level_links_on_objects[boss_pos.x][boss_pos.y].on_last_line:
-		boss_hit_player(player_position)
+		if first_level_links_on_objects[boss_pos.x][boss_pos.y].has_method("magician_boss"):
+			return
+		else:
+			boss_hit_player(player_position)
 		return
 	var can_move = true
 	for x in range(2):

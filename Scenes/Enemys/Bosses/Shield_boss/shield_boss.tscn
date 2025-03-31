@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b2usb4is2xb26"]
+[gd_scene load_steps=36 format=3 uid="uid://b2usb4is2xb26"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/Bosses/Shield_boss/shield_boss.gd" id="1_kup5q"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_l2wvx"]
@@ -13,12 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://266wlatwdaig" path="res://Texture/Enemys/Полоска здоровья/босс.png" id="11_1verr"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="12_ok8p6"]
 [ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="13_yy3gl"]
-[ext_resource type="AudioStream" uid="uid://b2f8uwluae3cf" path="res://Resources/Sounds/прыжок_БОСС.mp3" id="14_65b5q"]
 [ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="15_wq3fe"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="16_t3k5g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
-size = Vector2(186, 174)
+size = Vector2(180, 168)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yivx0"]
 resource_local_to_scene = true
@@ -1276,7 +1275,7 @@ offsets = PackedFloat32Array(0, 0.286, 0.624, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo1qr"]
-size = Vector2(187, 29)
+size = Vector2(180, 26)
 
 [node name="Shield_boss" type="StaticBody2D"]
 z_index = 1
@@ -1285,7 +1284,7 @@ collision_mask = 0
 script = ExtResource("1_kup5q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(48, 55)
+position = Vector2(48, 58)
 shape = SubResource("RectangleShape2D_m8ci2")
 
 [node name="Sprite_enemy" type="Node2D" parent="."]
@@ -1362,11 +1361,6 @@ vertical_alignment = 1
 
 [node name="Hit_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_yy3gl")
-
-[node name="Boss_move" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_65b5q")
-volume_db = -14.0
-bus = &"SFX"
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_wq3fe")
@@ -1450,7 +1444,7 @@ collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(48.5, 155.5)
+position = Vector2(48, 154)
 shape = SubResource("RectangleShape2D_fo1qr")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

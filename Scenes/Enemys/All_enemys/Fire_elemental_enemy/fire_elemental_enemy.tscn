@@ -823,7 +823,6 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_tceq3")
 ENEMY_BULLET = ExtResource("2_a0j8s")
-hp_enemy = 1440.0
 
 [node name="Effects" type="Node2D" parent="."]
 

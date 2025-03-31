@@ -1,6 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://gtlmyjduk11v"]
+[gd_scene load_steps=36 format=3 uid="uid://gtlmyjduk11v"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/Bosses/Berserker_boss/berserker_boss.gd" id="1_0sjh5"]
+[ext_resource type="PackedScene" uid="uid://bp0mjtyaydrm8" path="res://Scenes/Enemys/Dops/fire_elemental_bullet.tscn" id="2_43pfi"]
 [ext_resource type="Texture2D" uid="uid://bpu363g4yk53w" path="res://Texture/Enemys/Полоска здоровья/основа_босс.png" id="2_dfle6"]
 [ext_resource type="Texture2D" uid="uid://dfekb3n26yy4x" path="res://Texture/Enemys/Полоска здоровья/красная_босс.png" id="3_8m0m3"]
 [ext_resource type="Texture2D" uid="uid://266wlatwdaig" path="res://Texture/Enemys/Полоска здоровья/босс.png" id="4_8tgc5"]
@@ -15,8 +15,46 @@
 [ext_resource type="Texture2D" uid="uid://bia00tvf3k2lj" path="res://Texture/Enemys/Fire_elemental_enemy/глаза.png" id="13_igbjw"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="14_6nhso"]
 
+[sub_resource type="GDScript" id="GDScript_22yl0"]
+script/source = "extends \"res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.gd\"
+
+@onready var boss_move = $Boss_move
+
+func moving(direction_object) -> void:
+	if alive:
+		on_last_line = false
+		animation_enemy.play(\"Move\")
+		boss_move.play()
+		create_tween().tween_property(self, \"position\", Vector2(103, 103) * Vector2(direction_object.y, direction_object.x), 1).as_relative().set_trans(Tween.TRANS_QUAD)
+		await get_tree().create_timer(1).timeout
+		if on_last_line:
+			animation_enemy.play(\"Preparation\")
+		else:
+			animation_enemy.play(\"Idle\")
+
+func create_label_damage(damage_ball, color_label) -> void:
+	var label = LABEL_DAMAGE.instantiate()
+	label.global_position = self.global_position
+	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
+		label.text = str(damage_ball)
+	elif color_label == ElementsManager.color_elements[\"HEAL\"]:
+		label.text = \"+\" + str(round(damage_ball))
+	else:
+		label.text = \"-\" + str(round(damage_ball))
+	label.modulate = color_label
+	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
+	get_tree().current_scene.add_child(label)
+	label.show_label(125)
+
+func get_bullet_pos() -> Vector2:
+	return Vector2(47, 108)
+
+func boss() -> void:
+	pass
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
-size = Vector2(186, 174)
+size = Vector2(184, 170)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bp515"]
 resource_local_to_scene = true
@@ -370,8 +408,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_3slqe"]
 resource_name = "Move"
-length = 0.65
-loop_mode = 1
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -432,6 +468,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hp_boss_label:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.025, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-4, 119), Vector2(-4, -167), Vector2(-4, 119)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureProgressBar:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-32, 129), Vector2(-32, -156), Vector2(-32, 129)]
 }
 
 [sub_resource type="Animation" id="Animation_ql6h3"]
@@ -739,10 +799,11 @@ _data = {
 z_index = 1
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_0sjh5")
+script = SubResource("GDScript_22yl0")
+ENEMY_BULLET = ExtResource("2_43pfi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(48, 55)
+position = Vector2(48, 57)
 shape = SubResource("RectangleShape2D_m8ci2")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
@@ -907,3 +968,4 @@ next/Spawn = &"Idle"
 blend_times = [&"Hit", &"Hit", 0.15, &"Hit", &"Idle", 0.3, &"Hit", &"Move", 0.3, &"Hit", &"Preparation", 0.3, &"Idle", &"Hit", 0.15, &"Idle", &"Idle", 0.3, &"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.3, &"Move", &"Hit", 0.2, &"Move", &"Idle", 0.3, &"Move", &"Move", 0.3, &"Move", &"Preparation", 0.3, &"Preparation", &"Hit", 0.2, &"Preparation", &"Idle", 0.3, &"Preparation", &"Move", 0.3, &"Preparation", &"Preparation", 0.3, &"Spawn", &"Idle", 0.6]
 
 [connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
