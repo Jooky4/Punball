@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://u3bq37uhub8y"]
+[gd_scene load_steps=5 format=3 uid="uid://u3bq37uhub8y"]
 
 [ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_csvfs"]
-[ext_resource type="Texture2D" uid="uid://gf6en0ib8qlk" path="res://Texture/Effects/искра_2.png" id="3_1gxmi"]
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="5_b8le6"]
 
 [sub_resource type="Curve" id="Curve_bsjg4"]
@@ -11,14 +10,6 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_scpgs"]
 offsets = PackedFloat32Array(0, 0.144, 0.596, 0.826, 1)
 colors = PackedColorArray(0.592157, 0.592157, 0.592157, 0, 0.575688, 0.575688, 0.575688, 1, 0.494118, 0.494118, 0.494118, 1, 0.378906, 0.378906, 0.378906, 1, 0.380392, 0.380392, 0.380392, 0)
-
-[sub_resource type="Curve" id="Curve_j1831"]
-_data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.11553, 0.986364), 0.783673, 0.783673, 0, 0, Vector2(0.67803, 0.836364), -1.30909, -1.30909, 0, 0, Vector2(1, 0), -3.02608, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Gradient" id="Gradient_l22ub"]
-offsets = PackedFloat32Array(0.004, 0.052, 0.796, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="BombBallExplosion" type="Node2D"]
 z_index = 3
@@ -44,25 +35,3 @@ scale_amount_min = 0.25
 scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_bsjg4")
 color_ramp = SubResource("Gradient_scpgs")
-
-[node name="Искры" type="CPUParticles2D" parent="."]
-visible = false
-emitting = false
-amount = 4
-lifetime = 0.4
-one_shot = true
-speed_scale = 1.2
-explosiveness = 1.0
-texture = ExtResource("3_1gxmi")
-particle_flag_align_y = true
-direction = Vector2(0, -1)
-spread = 140.0
-gravity = Vector2(0, 150)
-initial_velocity_min = 100.0
-initial_velocity_max = 170.0
-linear_accel_min = -100.0
-linear_accel_max = -100.0
-scale_amount_min = 0.25
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_j1831")
-color_ramp = SubResource("Gradient_l22ub")
