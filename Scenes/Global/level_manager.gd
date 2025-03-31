@@ -15,7 +15,7 @@ var max_hp_player : float = 500
 var boss_on_map : bool = false
 var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
-var count_level : int = 0
+var count_level : int = 18
 var count_experiance : int = 0
 var combo_count : int = 0
 var spin_skill : int = 0
@@ -220,8 +220,9 @@ func moving_object(player_position) -> void:
 
 	somebody_move_on_this_wave = false
 	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
-		move_boss()
-
+		if (((WaveGeneration.current_location % 10) - 1) == 0 or ((WaveGeneration.current_location % 10) - 1) == 1 or
+		((WaveGeneration.current_location % 10) - 1) == 6 or ((WaveGeneration.current_location % 10) - 1) == 7):
+			move_boss()
 	for i in first_level_links_on_objects: # СНАЧАЛА ПРЫГАЮТ ВСЕ ПРЫГУНЫ
 		for j in i:
 			if j != null:
@@ -251,6 +252,11 @@ func moving_object(player_position) -> void:
 							else:
 								if !first_level_links_on_objects[i][j].has_method("boss"):
 									move_left_or_right(i, j)
+	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
+		if (((WaveGeneration.current_location % 10) - 1) == 2 or ((WaveGeneration.current_location % 10) - 1) == 3 or
+		((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5 or
+		((WaveGeneration.current_location % 10) - 1) == 8 or ((WaveGeneration.current_location % 10) - 1) == -1):
+			move_boss_forward_only(player_position)
 	for i in range(first_level_links_on_objects[7].size()): # ЗАПУСКАЕМ АНИМАЦИЮ У ИГРОКОВ НА ПОСЛЕДНЕЙ СТРОКЕ
 		if first_level_links_on_objects[7][i] != null:
 			if first_level_links_on_objects[7][i].has_method("enemy"):
@@ -261,7 +267,7 @@ func moving_object(player_position) -> void:
 	check_traps()
 
 func move_forward(i, j) -> void:
-	if !first_level_links_on_objects[i][j].move_on_this_wave:
+	if !first_level_links_on_objects[i][j].move_on_this_wave and !first_level_links_on_objects[i][j].has_method("boss"):
 		first_level_links_on_objects[i][j].moving("forward")
 		first_level_links_on_objects[i][j].move_on_this_wave = true
 		first_level_links_on_objects[i+1][j] = first_level_links_on_objects[i][j]
@@ -269,7 +275,7 @@ func move_forward(i, j) -> void:
 		somebody_move_on_this_wave = true
 
 func move_left_or_right(i, j) -> void:
-	if !first_level_links_on_objects[i][j].move_on_this_wave:
+	if !first_level_links_on_objects[i][j].move_on_this_wave and !first_level_links_on_objects[i][j].has_method("boss"):
 		if j != 0:
 			if first_level_links_on_objects[i][j-1] == null:
 				first_level_links_on_objects[i][j].moving("left")
@@ -322,6 +328,48 @@ func move_boss() -> void:
 									first_level_links_on_objects[boss_pos.x + i1][boss_pos.y + j1] = null
 							return
 
+func move_boss_forward_only(player_position) -> void:
+	var boss_pos = find_boss_position()
+	if first_level_links_on_objects[boss_pos.x][boss_pos.y].on_last_line:
+		boss_hit_player(player_position)
+		return
+	var can_move = true
+	for x in range(2):
+		var check_pos = boss_pos + Vector2(2, x)
+		if first_level_links_on_objects[check_pos.x][check_pos.y] != null:
+			if first_level_links_on_objects[check_pos.x][check_pos.y].has_method("enemy"):
+				if !first_level_links_on_objects[check_pos.x][check_pos.y].freezen:
+					can_move = true
+				else:
+					can_move = false
+					break
+		else:
+			can_move = true
+
+	if can_move:
+		first_level_links_on_objects[boss_pos.x][boss_pos.y].moving("forward")
+		first_level_links_on_objects[boss_pos.x][boss_pos.y].move_on_this_wave = true
+		somebody_move_on_this_wave = true
+		for i in range(2):
+			for j in range(2):
+				var new_pos = boss_pos + Vector2(1 + i, j)
+				first_level_links_on_objects[new_pos.x][new_pos.y] = first_level_links_on_objects[boss_pos.x][boss_pos.y]
+		for i in range(2):
+			first_level_links_on_objects[boss_pos.x][boss_pos.y + i] = null
+
+func find_boss_position() -> Vector2:
+	for i in range(first_level_links_on_objects.size() - 1):
+		for j in range(first_level_links_on_objects[i].size() - 1):
+			if first_level_links_on_objects[i][j] != null and first_level_links_on_objects[i][j].has_method("boss"):
+				return Vector2(i, j)
+	return Vector2(-1, -1) 
+
+func boss_hit_player(player_position) -> void:
+	var boss_pos = find_boss_position()
+	if first_level_links_on_objects[boss_pos.x][boss_pos.y].on_last_line and !first_level_links_on_objects[boss_pos.x][boss_pos.y].freezen:
+		first_level_links_on_objects[boss_pos.x][boss_pos.y].play_animation_hit_player(player_position)
+		damage_player(first_level_links_on_objects[boss_pos.x][boss_pos.y].player_damage, first_level_links_on_objects[boss_pos.x][boss_pos.y])
+
 func check_traps() -> void:
 	for i in range(first_level_links_on_objects.size()):
 		for j in range(first_level_links_on_objects[i].size()):
@@ -359,7 +407,7 @@ func updete_last_line() -> void:
 		for i in first_level_links_on_objects[1]:
 			if i != null:
 				return
-		if 4 in new_line_spawn:
+		if 4 in new_line_spawn or 15 in new_line_spawn or 16 in new_line_spawn or 17 in new_line_spawn or 18 in new_line_spawn:
 			if can_boss_spawn() == false:
 				return
 

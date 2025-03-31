@@ -27,7 +27,10 @@ var POISON_ENEMY = preload("res://Scenes/Enemys/All_enemys/Poison_enemy/poison_e
 var BERSERKER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.tscn")
 var FIRE_ELEMENTAL_ENEMY = preload("res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.tscn")
 
-var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/First_location/boss_first_location.tscn")
+var BOSS_FIRST_LOCATION = preload("res://Scenes/Enemys/Bosses/Blieberries_boss/boss_first_location.tscn")
+var SHIELD_BOSS = preload("res://Scenes/Enemys/Bosses/Shield_boss/shield_boss.tscn")
+var BERSERKER_BOSS = preload("res://Scenes/Enemys/Bosses/Berserker_boss/berserker_boss.tscn")
+
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
 
@@ -574,10 +577,33 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff = BERSERKER_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(13)
+				print(buff.player_damage)
 			14:
 				buff = FIRE_ELEMENTAL_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8
 				buff.player_damage = WaveGeneration.how_many_damage_player(14)
+			15: 
+				buff = SHIELD_BOSS.instantiate()
+				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
+				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
+				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
+				buff.hp_enemy = (WaveGeneration.how_many_hp_plus_enemy(count_wave - 1)) * 9
+				buff.player_damage = WaveGeneration.how_many_damage_player(1) * 2
+				LevelManager.boss_on_map = true
+				$UI/Boss_label.visible = true
+				count_level_label.visible = false
+				notification_about_boss_animation.play("spawn_boss")
+			16:
+				buff = BERSERKER_BOSS.instantiate()
+				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
+				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
+				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
+				buff.hp_enemy = (WaveGeneration.how_many_hp_plus_enemy(count_wave - 1)) * 9
+				buff.player_damage = WaveGeneration.how_many_damage_player(1) * 2
+				LevelManager.boss_on_map = true
+				$UI/Boss_label.visible = true
+				count_level_label.visible = false
+				notification_about_boss_animation.play("spawn_boss")
 
 		if LevelManager.boss_on_map:
 			buff.hp_enemy *= WaveGeneration.get_coef_hp_enemy_when_boss_on_map()

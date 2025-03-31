@@ -1,6 +1,6 @@
 extends Node
 
-var current_location = 1
+var current_location = 11
 var percent_cells_by_enemies = [10, 25, 70, 85, 95]
 var dop_hp_defolt_enemy = [[2, 4, 1],
 						   [5, 10, 2],
@@ -34,7 +34,12 @@ var enemy_for_locations = [[1, 2, 3, null],
 func generetion_new_wave(number_wave):
 	var finish_array = [null,null,null,null,null,null]
 	if number_wave == count_wave_on_locations[(current_location % 10) - 1]:
-		finish_array = [null,null,4,null,null,null]
+		if ((current_location % 10) - 1) == 0 or ((current_location % 10) - 1) == 1:
+			finish_array = [null,null,4,null,null,null]
+		elif ((current_location % 10) - 1) == 2 or ((current_location % 10) - 1) == 3:
+			finish_array = [null,null,15,null,null,null]
+		elif ((current_location % 10) - 1) == 8 or ((current_location % 10) - 1) == -1:
+			finish_array = [null,null,16,null,null,null]
 		return finish_array
 	elif number_wave == count_wave_on_locations[(current_location % 10) - 1] - 1:
 		return finish_array
