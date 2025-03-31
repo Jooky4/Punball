@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=92 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -59,8 +59,17 @@
 [ext_resource type="Script" path="res://Scenes/UI/Menu/character_2_window.gd" id="41_58n8s"]
 [ext_resource type="Texture2D" uid="uid://2qrb78wuvipj" path="res://Texture/UI/Character_UI/Character_window/шанс уклонения от атаки.png" id="41_bykgj"]
 [ext_resource type="Texture2D" uid="uid://bg6wp5fbqpob7" path="res://Texture/UI/Character_UI/Character_window/меньше оз выше урон.png" id="42_efscd"]
+[ext_resource type="Texture2D" uid="uid://cy3s6ygutmtpe" path="res://Texture/Heroes/Merlin/рука 1.png" id="44_ae1hd"]
+[ext_resource type="Texture2D" uid="uid://5o0c0mkghnp0" path="res://Texture/Heroes/Merlin/рука с посохом 1.png" id="45_ul4jd"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/character_3_window.gd" id="46_8my5a"]
+[ext_resource type="Texture2D" uid="uid://c0nlp8v7bo5yj" path="res://Texture/Heroes/Merlin/туловище 2.png" id="46_tiq4v"]
+[ext_resource type="Texture2D" uid="uid://c3q7qsua5mhg6" path="res://Texture/Heroes/Merlin/туловище 1.png" id="47_84lfy"]
 [ext_resource type="Texture2D" uid="uid://cwtdxveax7eyd" path="res://Texture/UI/Character_UI/Character_window/кнопка назад.png" id="48_4n6dk"]
+[ext_resource type="Texture2D" uid="uid://ppnayrtmqj3e" path="res://Texture/Heroes/Merlin/голова 1.png" id="48_fg55b"]
+[ext_resource type="Texture2D" uid="uid://42mgcv17tc7f" path="res://Texture/Heroes/Busya/рука с посохом 1.png" id="54_f0um0"]
+[ext_resource type="Texture2D" uid="uid://ck1hg1r3dddeu" path="res://Texture/Heroes/Busya/рука 1.png" id="55_13vvl"]
+[ext_resource type="Texture2D" uid="uid://bvbknmf3c7f1v" path="res://Texture/Heroes/Busya/туловище 1.png" id="56_nkeph"]
+[ext_resource type="Texture2D" uid="uid://dbq6arjpxghb5" path="res://Texture/Heroes/Busya/голова 1.png" id="57_qno1k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
 font = ExtResource("3_cjc1q")
@@ -1379,31 +1388,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -226.0
-offset_top = -388.0
-offset_right = -186.0
-offset_bottom = -348.0
+offset_left = -237.0
+offset_top = -366.0
+offset_right = -197.0
+offset_bottom = -326.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
-
-[node name="TextureRect4" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
-layout_mode = 0
-offset_left = -160.0
-offset_top = -105.0
-offset_right = 352.0
-offset_bottom = 407.0
-texture = ExtResource("23_xq13h")
-stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
-layout_mode = 0
-offset_left = -160.0
-offset_top = -105.0
-offset_right = 352.0
-offset_bottom = 407.0
-texture = ExtResource("24_h2qap")
-stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
 layout_mode = 0
@@ -1411,7 +1402,7 @@ offset_left = -160.0
 offset_top = -105.0
 offset_right = 352.0
 offset_bottom = 407.0
-texture = ExtResource("25_ea5mv")
+texture = ExtResource("44_ae1hd")
 stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
@@ -1420,7 +1411,34 @@ offset_left = -160.0
 offset_top = -105.0
 offset_right = 352.0
 offset_bottom = 407.0
-texture = ExtResource("26_sqpxk")
+texture = ExtResource("45_ul4jd")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("46_tiq4v")
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("47_84lfy")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("48_fg55b")
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Characters/Character_2_window"]
@@ -1869,30 +1887,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -226.0
-offset_top = -388.0
-offset_right = -186.0
-offset_bottom = -348.0
+offset_left = -233.0
+offset_top = -372.0
+offset_right = -193.0
+offset_bottom = -332.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
 
-[node name="TextureRect4" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
+[node name="TextureRect3" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
 layout_mode = 0
 offset_left = -160.0
 offset_top = -105.0
 offset_right = 352.0
 offset_bottom = 407.0
-texture = ExtResource("23_xq13h")
-stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
-layout_mode = 0
-offset_left = -160.0
-offset_top = -105.0
-offset_right = 352.0
-offset_bottom = 407.0
-texture = ExtResource("24_h2qap")
+texture = ExtResource("54_f0um0")
 stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
@@ -1901,16 +1910,25 @@ offset_left = -160.0
 offset_top = -105.0
 offset_right = 352.0
 offset_bottom = 407.0
-texture = ExtResource("25_ea5mv")
+texture = ExtResource("55_13vvl")
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
+[node name="TextureRect4" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
 layout_mode = 0
 offset_left = -160.0
 offset_top = -105.0
 offset_right = 352.0
 offset_bottom = 407.0
-texture = ExtResource("26_sqpxk")
+texture = ExtResource("56_nkeph")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("57_qno1k")
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Characters/Character_3_window"]

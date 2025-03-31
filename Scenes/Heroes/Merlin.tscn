@@ -3166,7 +3166,7 @@ _data = {
 "Spawn": SubResource("Animation_6ecps")
 }
 
-[node name="Alisa" type="Node2D"]
+[node name="Merlin" type="Node2D"]
 script = ExtResource("1_1t5gy")
 
 [node name="Весь физуал" type="Node2D" parent="."]

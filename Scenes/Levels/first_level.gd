@@ -91,6 +91,8 @@ var kill_on_wave : int = 0
 
 func _ready() -> void:
 	get_tree().paused = false
+	update_location_image()
+	update_character()
 	await get_tree().create_timer(0.05).timeout
 	ChangeScene.normal_screen()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
@@ -119,6 +121,44 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	balls_can_go = true
 	#YandexSDK.gameplay_started()
+
+func update_location_image() -> void:
+	match ((WaveGeneration.current_location % 10) - 1):
+		0:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 1.png")
+		1:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 2.png")
+		2:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 3.png")
+		3:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 4.png")
+		4:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 5.png")
+		5:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 6.png")
+		6:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 7.png")
+		7:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 8.png")
+		8:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 1.png")
+		-1:
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 1.png")
+
+func update_character() -> void:
+	match PlayerIndicatorsManager.CURRENT_CHARACTER:
+		1:
+			character_anim = $Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Alisa
+			$Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Merlin.queue_free()
+			$Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Busya.queue_free()
+		2:
+			character_anim = $Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Merlin
+			$Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Alisa.queue_free()
+			$Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Busya.queue_free()
+		3:
+			character_anim = $Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Busya
+			$Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Alisa.queue_free()
+			$Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Merlin.queue_free()
 
 func _process(delta):
 	match game_state:
@@ -290,7 +330,7 @@ func lose() -> void:
 		end_game_UI_lose.update_player_state()
 	else:
 		if LevelManager.boss_on_map:
-			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
+			PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location() - 1)
 		else:
 			PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
 		LevelManager.win_or_lose = "lose"

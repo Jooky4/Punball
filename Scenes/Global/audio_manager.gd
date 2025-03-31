@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var fps_label = $Control/fps_label
-var MUSIC_PULL = [preload("res://Resources/Music/Colorful-Flowers(chosic.com).mp3"), preload("res://Resources/Music/Daydreams-chosic.com_.mp3"), preload("res://Resources/Music/Late-at-Night(chosic.com).mp3")]
+var MUSIC_PULL = [preload("res://Resources/Music/music.ogg")]
 
 func _ready():
 	get_viewport().connect("focus_entered", _on_focus_entered)
