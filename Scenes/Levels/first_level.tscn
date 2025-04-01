@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bb7y7v4mnb42k" path="res://Scenes/UI/Menu/pause_menu_ui.tscn" id="24_gx84s"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="26_u0ss4"]
 [ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="27_6lrpk"]
+[ext_resource type="Texture2D" uid="uid://cavfn4g8a37dn" path="res://Texture/UI/уведомление.png" id="27_p64ry"]
 [ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="28_g8ck8"]
 [ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="29_22o7v"]
 [ext_resource type="Texture2D" uid="uid://d0ud3823gq70m" path="res://Texture/Enemys/Bomb_enemy/тело.png" id="30_aisah"]
@@ -241,6 +242,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("For_PC:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-937, 49)]
+}
 
 [sub_resource type="Animation" id="Animation_6gbx0"]
 resource_name = "for_pc"
@@ -252,10 +265,10 @@ tracks/0/path = NodePath("For_PC:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 2.8, 3),
-"transitions": PackedFloat32Array(2, 2, 2, 2),
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, 2),
 "update": 0,
-"values": [Vector2(-937, -1000), Vector2(-937, 154), Vector2(-937, 154), Vector2(-937, -1000)]
+"values": [Vector2(-937, -1000), Vector2(-937, 57), Vector2(-937, 57), Vector2(-937, -1000)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -409,12 +422,9 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_hc57q"]
+line_spacing = -4.0
 font = ExtResource("10_fo6nb")
 font_size = 25
-
-[sub_resource type="LabelSettings" id="LabelSettings_g37mf"]
-font = ExtResource("10_fo6nb")
-font_size = 20
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pk1lh"]
 resource_local_to_scene = true
@@ -895,43 +905,52 @@ visible = false
 z_index = 4
 layout_mode = 0
 offset_left = -937.0
-offset_top = -1000.0
+offset_top = 49.0
 offset_right = 1664.0
-offset_bottom = -888.0
-color = Color(0, 0, 0, 0.462745)
+offset_bottom = 161.0
+color = Color(1, 1, 1, 0)
+
+[node name="Уведомление" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC"]
+z_index = 1
+position = Vector2(1300, -72)
+scale = Vector2(2.15909, 2.15909)
+texture = ExtResource("27_p64ry")
 
 [node name="Enemy_name" type="Label" parent="UI/Notification_about_enemy/For_PC"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 89.0
-offset_right = -12.0
-offset_bottom = 45.0
+offset_left = 1232.0
+offset_top = -14.0
+offset_right = -1025.0
+offset_bottom = 31.0
 grow_horizontal = 2
 text = "Разбойник"
 label_settings = SubResource("LabelSettings_hc57q")
-horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Enemy_discription" type="Label" parent="UI/Notification_about_enemy/For_PC"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 103.0
-offset_top = 44.0
-offset_right = -15.0
-offset_bottom = 111.0
+offset_left = 1232.0
+offset_top = 23.0
+offset_right = -1025.0
+offset_bottom = 86.0
 grow_horizontal = 2
-text = "Враг ближнего боя"
-label_settings = SubResource("LabelSettings_g37mf")
-horizontal_alignment = 1
+text = "Ничего необычного, просто не подпускайте близко"
+label_settings = SubResource("LabelSettings_hc57q")
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="1" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_pk1lh")
-position = Vector2(1160, 48)
+position = Vector2(1162, 31)
 
 [node name="Body" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/1"]
 use_parent_material = true
@@ -953,8 +972,9 @@ texture = ExtResource("29_22o7v")
 
 [node name="2" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_gqt1y")
-position = Vector2(1159, 53)
+position = Vector2(1163, 41)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/2"]
@@ -978,8 +998,9 @@ offset = Vector2(45.4571, 117.586)
 
 [node name="3" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_iifrd")
-position = Vector2(1158, 52)
+position = Vector2(1163, 40)
 scale = Vector2(0.076, 0.076)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
@@ -1010,8 +1031,9 @@ texture = ExtResource("33_4ppm5")
 
 [node name="5" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_tuob1")
-position = Vector2(1155, 44)
+position = Vector2(1159, 30)
 
 [node name="Body" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/5"]
 use_parent_material = true
@@ -1033,8 +1055,9 @@ texture = ExtResource("36_dramc")
 
 [node name="6" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_jlbgd")
-position = Vector2(1158, 57)
+position = Vector2(1159, 44)
 scale = Vector2(0.073, 0.073)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/6"]
@@ -1051,8 +1074,9 @@ texture = ExtResource("38_6oyu1")
 
 [node name="8" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_s520g")
-position = Vector2(1158, 53)
+position = Vector2(1159, 40)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8"]
@@ -1082,8 +1106,9 @@ offset = Vector2(45.4571, 117.586)
 
 [node name="9" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_uvuyf")
-position = Vector2(1154, 53)
+position = Vector2(1157, 46)
 scale = Vector2(0.075, 0.075)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9"]
@@ -1137,8 +1162,9 @@ offset = Vector2(-21.76, -5.4426)
 
 [node name="10" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_iax0b")
-position = Vector2(1160, 55)
+position = Vector2(1161, 41)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10"]
@@ -1162,8 +1188,9 @@ offset = Vector2(45.4571, 117.586)
 
 [node name="12" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_4x0c7")
-position = Vector2(1156, 56)
+position = Vector2(1157, 40)
 scale = Vector2(0.075, 0.075)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12"]
@@ -1198,8 +1225,9 @@ texture = ExtResource("58_3b5a4")
 
 [node name="13" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_4ty78")
-position = Vector2(1162, 48)
+position = Vector2(1163, 31)
 
 [node name="Body" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13"]
 use_parent_material = true
@@ -1225,8 +1253,9 @@ texture = ExtResource("62_l76s3")
 
 [node name="14" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_6ea1d")
-position = Vector2(1161, 57)
+position = Vector2(1162, 41)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/14"]
