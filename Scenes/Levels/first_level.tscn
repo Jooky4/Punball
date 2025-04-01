@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=100 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -24,8 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="18_lqjow"]
 [ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="19_xefh1"]
 [ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Blueberries_enemy/листик.png" id="20_g1vbe"]
+[ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="22_ed5nt"]
 [ext_resource type="Texture2D" uid="uid://cjxyryrovmn58" path="res://Texture/UI/пауза.png" id="23_t4wce"]
 [ext_resource type="PackedScene" uid="uid://bb7y7v4mnb42k" path="res://Scenes/UI/Menu/pause_menu_ui.tscn" id="24_gx84s"]
+[ext_resource type="Texture2D" uid="uid://cqgxfc4mx6whh" path="res://Texture/UI/иконка.png" id="26_b0xvx"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="26_u0ss4"]
 [ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="27_6lrpk"]
 [ext_resource type="Texture2D" uid="uid://cavfn4g8a37dn" path="res://Texture/UI/уведомление.png" id="27_p64ry"]
@@ -100,18 +102,22 @@ shadow_offset = Vector2(-1, 1)
 font = ExtResource("10_fo6nb")
 font_size = 80
 font_color = Color(1, 0, 0, 1)
-outline_size = 15
+shadow_color = Color(0.628906, 0.00491333, 0.00491333, 1)
+shadow_offset = Vector2(-1, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_jfa62"]
+[sub_resource type="LabelSettings" id="LabelSettings_nmicg"]
 font = ExtResource("10_fo6nb")
 font_size = 120
 font_color = Color(1, 0, 0, 1)
-outline_size = 10
+shadow_color = Color(0.628906, 0.00491333, 0.00491333, 1)
+shadow_offset = Vector2(-1, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_2bqc2"]
+[sub_resource type="LabelSettings" id="LabelSettings_q31h0"]
 font = ExtResource("10_fo6nb")
 font_size = 50
 font_color = Color(1, 0, 0, 1)
+shadow_color = Color(0.628906, 0.00491333, 0.00491333, 1)
+shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j120a"]
 font = ExtResource("10_fo6nb")
@@ -124,7 +130,7 @@ font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_e60f6"]
 font = ExtResource("10_fo6nb")
-font_size = 30
+font_size = 25
 
 [sub_resource type="Animation" id="Animation_o53b6"]
 length = 0.001
@@ -187,10 +193,10 @@ tracks/1/path = NodePath("Reminder_boss/Boss_close:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 2.7, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 2.7, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(9, 753), Vector2(2238, 753), Vector2(2238, 753), Vector2(4679, 753)]
+"values": [Vector2(-540, 753), Vector2(2285, 753), Vector2(2285, 753), Vector2(4679, 753)]
 }
 
 [sub_resource type="Animation" id="Animation_mko01"]
@@ -215,8 +221,8 @@ tracks/1/path = NodePath("Reminder_boss/Boss_here:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 2.26667, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 2.2, 2.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(11, 717), Vector2(2242, 717), Vector2(2242, 717), Vector2(4768, 717)]
 }
@@ -710,7 +716,7 @@ offset_right = 711.0
 offset_bottom = 249.0
 pivot_offset = Vector2(170, 141)
 text = "0"
-label_settings = SubResource("LabelSettings_jfa62")
+label_settings = SubResource("LabelSettings_nmicg")
 horizontal_alignment = 2
 vertical_alignment = 2
 
@@ -722,7 +728,7 @@ offset_top = 214.0
 offset_right = 708.0
 offset_bottom = 284.0
 text = "КОМБО"
-label_settings = SubResource("LabelSettings_2bqc2")
+label_settings = SubResource("LabelSettings_q31h0")
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -791,12 +797,22 @@ z_index = 1
 layout_mode = 0
 offset_left = 11.0
 offset_top = 717.0
-offset_right = 475.0
-offset_bottom = 775.0
+offset_right = 568.0
+offset_bottom = 787.0
 text = "БОЛЬШАЯ ЧЕРНИКА"
 label_settings = SubResource("LabelSettings_2dum8")
 
+[node name="ColorRect2" type="ColorRect" parent="UI/Reminder_boss/Boss_here"]
+z_index = -1
+layout_mode = 0
+offset_left = -1240.0
+offset_top = -50.0
+offset_right = 1522.0
+offset_bottom = 178.0
+color = Color(0.835294, 0.180392, 0.180392, 1)
+
 [node name="Ligting" type="Sprite2D" parent="UI/Reminder_boss/Boss_here"]
+visible = false
 modulate = Color(1, 0, 0, 1)
 z_index = -1
 position = Vector2(145.28, 70.018)
@@ -807,15 +823,21 @@ texture = ExtResource("18_gvlsg")
 [node name="Label2" type="Label" parent="UI/Reminder_boss/Boss_here"]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 69.0
+offset_top = 61.0
 offset_right = 498.0
-offset_bottom = 127.0
+offset_bottom = 119.0
 text = "Она большая и ещё стреляет воооот"
 label_settings = SubResource("LabelSettings_e60f6")
 
 [node name="Boss_sprite" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 position = Vector2(-87, 70.0001)
 scale = Vector2(0.12, 0.12)
+
+[node name="Shadow" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/Boss_sprite"]
+modulate = Color(0, 0, 0, 0.235294)
+position = Vector2(-33.3334, 508.332)
+scale = Vector2(12.1094, 6.90105)
+texture = ExtResource("22_ed5nt")
 
 [node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/Boss_sprite"]
 position = Vector2(-29.4118, -89.4797)
@@ -838,38 +860,25 @@ z_index = 1
 layout_mode = 0
 offset_left = 9.0
 offset_top = 753.0
-offset_right = 520.0
-offset_bottom = 811.0
-text = "БОСС ПРИБЛИЖАЕТСЯ"
+offset_right = 311.0
+offset_bottom = 823.0
+text = "босс идет"
 label_settings = SubResource("LabelSettings_2dum8")
+uppercase = true
 
-[node name="Ligting" type="Sprite2D" parent="UI/Reminder_boss/Boss_close"]
-modulate = Color(1, 0, 0, 1)
+[node name="иконка" type="Sprite2D" parent="UI/Reminder_boss/Boss_close"]
+position = Vector2(-36, 34)
+scale = Vector2(0.592593, 0.592593)
+texture = ExtResource("26_b0xvx")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Reminder_boss/Boss_close"]
 z_index = -1
-position = Vector2(148.172, 34.6492)
-rotation = 1.5742
-scale = Vector2(1, 1.47337)
-texture = ExtResource("18_gvlsg")
-
-[node name="Boss_sprite" type="Node2D" parent="UI/Reminder_boss/Boss_close"]
-position = Vector2(-84.1084, 34.6312)
-scale = Vector2(0.12, 0.12)
-
-[node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_close/Boss_sprite"]
-position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("18_lqjow")
-
-[node name="Рот" type="Sprite2D" parent="UI/Reminder_boss/Boss_close/Boss_sprite"]
-position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("19_xefh1")
-
-[node name="Листик" type="Sprite2D" parent="UI/Reminder_boss/Boss_close/Boss_sprite"]
-position = Vector2(-128.571, -357.143)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("20_g1vbe")
-offset = Vector2(45.4571, 117.586)
+layout_mode = 0
+offset_left = -1247.0
+offset_top = -42.0
+offset_right = 1515.0
+offset_bottom = 108.0
+color = Color(0.835294, 0.180392, 0.180392, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Reminder_boss"]
 root_node = NodePath("../..")
