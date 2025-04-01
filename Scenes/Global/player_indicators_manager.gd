@@ -1,8 +1,8 @@
 extends Node
 
-var CRYSTALS_COUNT : int = 10000
-var COINS_COUNT : int = 10000
-var COUNT_RUNE : int = 1000
+var CRYSTALS_COUNT : int = 100
+var COINS_COUNT : int = 500
+var COUNT_RUNE : int = 0
 var LEVEL_PLAYER : int = 1
 var LEVEL_EXPERIANCE_PLAYER : int = 0
 var LEVEL_EXPERIANCE_FOR_NEXT_LEVEL : int = 1000
@@ -153,9 +153,9 @@ func player_date_loaded(data) -> void:
 		CHARACTER_2_LVL = data["character_2_lvl"]
 		CHARACTER_3_LVL = data["character_3_lvl"]
 	else:
-		COINS_COUNT = 10000
-		CRYSTALS_COUNT = 10000
-		COUNT_RUNE = 1000
+		COINS_COUNT = 500
+		CRYSTALS_COUNT = 100
+		COUNT_RUNE = 0
 		LEVEL_PLAYER = 1
 		LEVEL_EXPERIANCE_PLAYER = 0
 		LEVEL_EXPERIANCE_FOR_NEXT_LEVEL = 1000

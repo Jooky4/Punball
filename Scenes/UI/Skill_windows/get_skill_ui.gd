@@ -541,6 +541,7 @@ func rew_ad_res(result:String) -> void:
 	elif result == "rewarded":
 		AudioServer.set_bus_mute(0, false)
 		add_skill(skills[skil_for_ad][0])
+		LevelManager.buy_skill(LevelManager.count_experiance)
 		YandexSDK.gameplay_started()
 
 func create_free_skill() -> void:

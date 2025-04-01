@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=106 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -13,10 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_uun7o"]
 [ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/настройки.png" id="12_aoauw"]
 [ext_resource type="Texture2D" uid="uid://bwghrgqkw6d8n" path="res://Texture/UI/Main_menu/линия для разделения.png" id="13_om7tk"]
-[ext_resource type="Texture2D" uid="uid://c6ipwsl2ty1u2" path="res://Texture/UI/Main_menu/свинья.png" id="14_p10qp"]
-[ext_resource type="Texture2D" uid="uid://bpd4yjl1llu86" path="res://Texture/UI/Main_menu/кубок.png" id="15_4qcoo"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
-[ext_resource type="Texture2D" uid="uid://bexfyxdbuodbu" path="res://Texture/UI/Main_menu/плашка для кубка.png" id="16_06xp1"]
 [ext_resource type="PackedScene" uid="uid://1ilhlj1qeg8s" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
 [ext_resource type="Texture2D" uid="uid://bamqxwlu31sgo" path="res://Texture/UI/Main_menu/панель для иконок.png" id="17_y83uj"]
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
@@ -106,18 +103,6 @@ font_size = 70
 [sub_resource type="LabelSettings" id="LabelSettings_a3p3v"]
 font = ExtResource("3_cjc1q")
 font_size = 30
-
-[sub_resource type="LabelSettings" id="LabelSettings_tufoo"]
-line_spacing = -10.0
-font = ExtResource("3_cjc1q")
-font_size = 18
-font_color = Color(0.14902, 0.2, 0.403922, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_pa4cp"]
-line_spacing = -10.0
-font = ExtResource("3_cjc1q")
-font_size = 20
-font_color = Color(0.14902, 0.2, 0.403922, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lpl"]
 bg_color = Color(0.762009, 0.53941, 0.460928, 1)
@@ -397,87 +382,6 @@ texture = ExtResource("13_om7tk")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="TextureRect4" type="TextureRect" parent="Main_menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -325.0
-offset_top = -351.0
-offset_right = -235.0
-offset_bottom = -260.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("14_p10qp")
-
-[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect4"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 109.0
-offset_bottom = 136.0
-texture = ExtResource("3_e5vte")
-
-[node name="Label" type="Label" parent="Main_menu/TextureRect4/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 18.0
-offset_right = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0/800"
-label_settings = SubResource("LabelSettings_tufoo")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect2" type="TextureRect" parent="Main_menu/TextureRect4"]
-layout_mode = 0
-offset_left = -28.0
-offset_top = 89.0
-offset_right = 27.0
-offset_bottom = 145.0
-texture = ExtResource("5_h3ti1")
-
-[node name="TextureRect5" type="TextureRect" parent="Main_menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 224.0
-offset_top = -356.0
-offset_right = 330.0
-offset_bottom = -265.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("15_4qcoo")
-
-[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect5"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 100.0
-offset_right = 109.0
-offset_bottom = 151.0
-texture = ExtResource("16_06xp1")
-
-[node name="Label" type="Label" parent="Main_menu/TextureRect5/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0
-место"
-label_settings = SubResource("LabelSettings_pa4cp")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Chests" type="HBoxContainer" parent="Main_menu"]
 layout_mode = 1
 anchors_preset = 8
@@ -540,6 +444,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Back_location" type="Button" parent="Main_menu/Locations"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -555,6 +460,7 @@ grow_vertical = 2
 text = "<"
 
 [node name="Next_location" type="Button" parent="Main_menu/Locations"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
