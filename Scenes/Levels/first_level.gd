@@ -94,6 +94,7 @@ func _ready() -> void:
 	update_character()
 	await get_tree().create_timer(0.05).timeout
 	ChangeScene.normal_screen()
+	YandexSDK.gameplay_started()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
@@ -830,6 +831,7 @@ func _on_balls_back_pressed() -> void:
 func _on_button_pause_pressed() -> void:
 	AudioManager.click()
 	pause_menu_UI.update_texture_skill()
+	YandexSDK.gameplay_stopped()
 	pause_menu_UI.visible = true
 	get_tree().paused = true
 	Engine.time_scale = 0

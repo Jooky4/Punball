@@ -16,6 +16,7 @@ func update_player_state() -> void:
 	update_level_label_and_bar()
 
 func start_timer() -> void:
+	YandexSDK.gameplay_stopped()
 	timer.start()
 	timer_2.start()
 
@@ -32,6 +33,7 @@ func update_level_label_and_bar() -> void:
 
 func _on_ad_pressed() -> void:
 	AudioManager.click()
+	YandexSDK.gameplay_stopped()
 	YandexSDK.show_rewarded_ad()
 	YandexSDK.connect("rewarded_ad", rew_ad_res)
 	AudioServer.set_bus_mute(0, true)
@@ -48,6 +50,7 @@ func _on_crystals_pressed() -> void:
 		if get_tree().current_scene.has_method("revavil_player"):
 			get_tree().get_current_scene().call("revavil_player", true)
 		self.visible = false
+		YandexSDK.gameplay_started()
 
 func rew_ad_res(result:String) -> void:
 	if result == "closed" or result == "error":
@@ -62,6 +65,7 @@ func rew_ad_res(result:String) -> void:
 		if get_tree().current_scene.has_method("revavil_player"):
 			get_tree().get_current_scene().call("revavil_player", true)
 		self.visible = false
+		YandexSDK.gameplay_started()
 
 func _on_timer_timeout() -> void:
 	timer.stop()
@@ -70,6 +74,7 @@ func _on_timer_timeout() -> void:
 		PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[(WaveGeneration.current_location % 10) - 1] - 1)
 	else:
 		PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
+	YandexSDK.gameplay_stopped()
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
 func _on_timer_2_timeout() -> void:

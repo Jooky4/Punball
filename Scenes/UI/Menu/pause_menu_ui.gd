@@ -63,6 +63,7 @@ func _on_continue_pressed() -> void:
 	await get_tree().create_timer(0.1).timeout
 	get_tree().paused = false
 	self.visible = false
+	YandexSDK.gameplay_started()
 
 func update_texture_skill() -> void:
 	var skills_box : Array = $Player_skills.get_children()

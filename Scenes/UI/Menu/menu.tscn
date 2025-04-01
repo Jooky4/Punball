@@ -127,7 +127,7 @@ Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
 
 [sub_resource type="LabelSettings" id="LabelSettings_3n0kt"]
 font = ExtResource("3_cjc1q")
-font_size = 50
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_hfpbj"]
 font = ExtResource("3_cjc1q")
@@ -683,13 +683,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.5
-offset_top = 23.0
+offset_top = 30.5
 offset_right = 48.5
-offset_bottom = 78.0
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "5 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Coins_2" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
 layout_mode = 2
@@ -719,14 +721,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -52.0
+offset_top = 30.5
+offset_right = 52.0
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "19 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Coins_3" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
 layout_mode = 2
@@ -756,14 +760,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -54.5
+offset_top = 30.5
+offset_right = 54.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "45 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Coins_4" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
 layout_mode = 2
@@ -793,14 +799,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -54.5
+offset_top = 30.5
+offset_right = 54.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "99 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Coins_5" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
 layout_mode = 2
@@ -830,14 +838,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -62.5
+offset_top = 30.5
+offset_right = 62.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "150 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Coins_6" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
 layout_mode = 2
@@ -867,14 +877,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -66.5
+offset_top = 30.5
+offset_right = 66.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "300 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -929,14 +941,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -52.0
+offset_top = 30.5
+offset_right = 52.0
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "19 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Crystal_2" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
 layout_mode = 2
@@ -966,14 +980,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -55.0
+offset_top = 30.5
+offset_right = 55.0
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "69 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Crystal_3" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
 layout_mode = 2
@@ -1003,14 +1019,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -59.0
+offset_top = 30.5
+offset_right = 59.0
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "119 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Crystal_4" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
 layout_mode = 2
@@ -1040,14 +1058,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -60.5
+offset_top = 30.5
+offset_right = 60.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "179 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Crystal_5" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
 layout_mode = 2
@@ -1077,14 +1097,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -64.5
+offset_top = 30.5
+offset_right = 64.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "249 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Crystal_6" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
 layout_mode = 2
@@ -1114,14 +1136,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = 23.0
-offset_right = 48.5
-offset_bottom = 78.0
+offset_left = -66.5
+offset_top = 30.5
+offset_right = 66.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "100 ₽"
+text = "300 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Characters" type="Control" parent="."]
 visible = false

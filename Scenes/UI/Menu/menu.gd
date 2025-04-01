@@ -57,6 +57,7 @@ func _ready() -> void:
 	YandexSDK.init_game()
 	YandexSDK.init_player() 
 	YandexSDK.game_ready()
+	YandexSDK.gameplay_stopped()
 	AudioManager.music_start()
 	YandexSDK.connect("game_initialized", update_player_indicators)
 	YandexSDK.connect("data_loaded", player_date_loaded)

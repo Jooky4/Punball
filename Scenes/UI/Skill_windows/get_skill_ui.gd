@@ -530,15 +530,18 @@ func _on_skill_for_ad_pressed(extra_arg_0: int) -> void:
 	AudioManager.click()
 	AudioServer.set_bus_mute(0, true)
 	skil_for_ad = extra_arg_0
+	YandexSDK.gameplay_stopped()
 	YandexSDK.show_rewarded_ad()
 	YandexSDK.connect("rewarded_ad", rew_ad_res)
 
 func rew_ad_res(result:String) -> void:
 	if result == "closed" or result == "error":
 		AudioServer.set_bus_mute(0, false)
+		YandexSDK.gameplay_started()
 	elif result == "rewarded":
 		AudioServer.set_bus_mute(0, false)
 		add_skill(skills[skil_for_ad][0])
+		YandexSDK.gameplay_started()
 
 func create_free_skill() -> void:
 	for i in windows_skill.get_children():
