@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://doh6rbwv7nhx2" path="res://Texture/UI/Main_menu/ограничение поля UI.png" id="4_h3cqw"]
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/бар прогресс мира.png" id="5_fbwen"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="5_h3ti1"]
-[ext_resource type="Texture2D" uid="uid://bw6xyapc0da5g" path="res://Texture/UI/Main_menu/прогресс мира шкала.png" id="6_ghyfi"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_uun7o"]
+[ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/прогресс мира шкала2.png" id="7_usr1m"]
+[ext_resource type="Texture2D" uid="uid://bptuq68epuon6" path="res://Texture/UI/Main_menu/линия для разделения2.png" id="11_p4754"]
 [ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/настройки.png" id="12_aoauw"]
-[ext_resource type="Texture2D" uid="uid://bwghrgqkw6d8n" path="res://Texture/UI/Main_menu/линия для разделения.png" id="13_om7tk"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
 [ext_resource type="PackedScene" uid="uid://1ilhlj1qeg8s" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
 [ext_resource type="Texture2D" uid="uid://bamqxwlu31sgo" path="res://Texture/UI/Main_menu/панель для иконок.png" id="17_y83uj"]
@@ -233,10 +233,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -349.0
-offset_top = -628.0
-offset_right = -295.0
-offset_bottom = -576.0
+offset_left = -340.0
+offset_top = -629.0
+offset_right = -286.0
+offset_bottom = -577.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_cw7m0")
@@ -257,13 +257,13 @@ vertical_alignment = 1
 [node name="Player_level_bar" type="TextureProgressBar" parent="Player_state/Player_level"]
 z_index = -1
 layout_mode = 0
-offset_left = 39.0
-offset_top = 5.0
-offset_right = 173.0
-offset_bottom = 44.0
+offset_left = 28.0
+offset_top = 6.0
+offset_right = 162.0
+offset_bottom = 45.0
 texture_under = ExtResource("5_fbwen")
-texture_progress = ExtResource("6_ghyfi")
-texture_progress_offset = Vector2(10, 11)
+texture_progress = ExtResource("7_usr1m")
+texture_progress_offset = Vector2(10, 9.6)
 
 [node name="Coins" type="TextureRect" parent="Player_state"]
 z_index = 2
@@ -378,7 +378,7 @@ offset_left = 65.0
 offset_top = 78.0
 offset_right = 645.0
 offset_bottom = 97.0
-texture = ExtResource("13_om7tk")
+texture = ExtResource("11_p4754")
 expand_mode = 1
 stretch_mode = 4
 
@@ -2888,9 +2888,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 270.0
+offset_left = 260.0
 offset_top = -623.0
-offset_right = 348.0
+offset_right = 338.0
 offset_bottom = -545.0
 grow_horizontal = 2
 grow_vertical = 2
