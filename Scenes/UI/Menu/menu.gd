@@ -57,7 +57,6 @@ func _ready() -> void:
 	YandexSDK.init_game()
 	YandexSDK.init_player() 
 	YandexSDK.game_ready()
-	YandexSDK.gameplay_stopped()
 	AudioManager.music_start()
 	YandexSDK.connect("game_initialized", update_player_indicators)
 	YandexSDK.connect("data_loaded", player_date_loaded)
@@ -98,6 +97,7 @@ func player_date_loaded(data) -> void:
 	chests.update_label_chests()
 	can_by_new_talant()
 	$Select_buttons/Talesnts_button.disabled = false
+	YandexSDK.gameplay_stopped()
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
