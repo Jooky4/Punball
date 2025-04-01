@@ -1,0 +1,3204 @@
+[gd_scene load_steps=106 format=3 uid="uid://cvj7tl2h5804k"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
+[ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_cjc1q"]
+[ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/уровень мира.png" id="3_cw7m0"]
+[ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/бар для кристалла 182-800.png" id="3_e5vte"]
+[ext_resource type="Texture2D" uid="uid://budqgveapxyg0" path="res://Texture/UI/Main_menu/кнопка Играть.png" id="3_qeymi"]
+[ext_resource type="Texture2D" uid="uid://doh6rbwv7nhx2" path="res://Texture/UI/Main_menu/ограничение поля UI.png" id="4_h3cqw"]
+[ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/бар прогресс мира.png" id="5_fbwen"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="5_h3ti1"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_uun7o"]
+[ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/прогресс мира шкала2.png" id="7_usr1m"]
+[ext_resource type="Texture2D" uid="uid://bptuq68epuon6" path="res://Texture/UI/Main_menu/линия для разделения2.png" id="11_p4754"]
+[ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/настройки.png" id="12_aoauw"]
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://c6ipwsl2ty1u2" path="res://Texture/UI/Main_menu/свинья.png" id="14_p10qp"]
+[ext_resource type="Texture2D" uid="uid://bpd4yjl1llu86" path="res://Texture/UI/Main_menu/кубок.png" id="15_4qcoo"]
+=======
+[ext_resource type="Texture2D" uid="uid://bwghrgqkw6d8n" path="res://Texture/UI/Main_menu/линия для разделения.png" id="13_om7tk"]
+>>>>>>> 50d99a5ee8bd3869d4b0229f69f1f9efd7a6ef2d
+[ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
+[ext_resource type="PackedScene" uid="uid://1ilhlj1qeg8s" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
+[ext_resource type="Texture2D" uid="uid://bamqxwlu31sgo" path="res://Texture/UI/Main_menu/панель для иконок.png" id="17_y83uj"]
+[ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
+[ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
+[ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/иконка мечи.png" id="19_q5oq5"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/characters_UI.gd" id="20_1y5uy"]
+[ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/иконка книга.png" id="20_bdbvx"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/shop.gd" id="20_gcgux"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
+[ext_resource type="Texture2D" uid="uid://bo7sf7mnakgq1" path="res://Texture/UI/Character_UI/Character_window/иконка руна.png" id="21_nwckc"]
+[ext_resource type="Texture2D" uid="uid://cr8nvoy2b67ys" path="res://Texture/UI/Shop_UI/монеты подрожка.png" id="21_skdl8"]
+[ext_resource type="Texture2D" uid="uid://kk8ljg172upi" path="res://Texture/UI/Shop_UI/синяя подложка для окон монет-кристаллов.png" id="22_hq88r"]
+[ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
+[ext_resource type="Texture2D" uid="uid://c27j04flqk5yi" path="res://Texture/UI/Shop_UI/окно для монет.png" id="23_0d0bh"]
+[ext_resource type="Script" path="res://Scenes/UI/Characters/character_1_window.gd" id="23_6x0rm"]
+[ext_resource type="Texture2D" uid="uid://cfy3yh6mgo2qu" path="res://Texture/UI/Character_UI/Character_window/прогресс бар уровня персонажа.png" id="23_g0yqi"]
+[ext_resource type="Texture2D" uid="uid://crnbctqhjowll" path="res://Texture/UI/Shop_UI/кристаллы подрожка.png" id="23_wpccf"]
+[ext_resource type="Texture2D" uid="uid://boytwpg07b51f" path="res://Texture/Heroes/Alisa/3_4 анфас/туловище.png" id="23_xq13h"]
+[ext_resource type="Texture2D" uid="uid://dj0mdg2cyqpsk" path="res://Texture/Heroes/Alisa/3_4 анфас/голова 2.png" id="24_h2qap"]
+[ext_resource type="Texture2D" uid="uid://cj2voext6rg6i" path="res://Texture/UI/Shop_UI/монета 1.png" id="24_nehew"]
+[ext_resource type="Texture2D" uid="uid://bdsgv1droqrif" path="res://Texture/UI/Character_UI/Character_window/зеленый уровнь персонажа для прогресса.png" id="24_ykvw2"]
+[ext_resource type="Texture2D" uid="uid://gq0f75y2oogd" path="res://Texture/UI/Shop_UI/монета 2.png" id="25_21de7"]
+[ext_resource type="Texture2D" uid="uid://7re5qk7w6cgm" path="res://Texture/Heroes/Alisa/3_4 анфас/рука 2.png" id="25_ea5mv"]
+[ext_resource type="Texture2D" uid="uid://2iny41pxjg20" path="res://Texture/UI/Character_UI/Character_window/плашка под иконку.png" id="25_rjbq8"]
+[ext_resource type="Texture2D" uid="uid://b6r20b2owmufa" path="res://Texture/UI/Character_UI/Character_window/меч.png" id="26_ei0qc"]
+[ext_resource type="Texture2D" uid="uid://tl6d1j151n1k" path="res://Texture/Heroes/Alisa/3_4 анфас/рука с посохом.png" id="26_sqpxk"]
+[ext_resource type="Texture2D" uid="uid://cn1jsdr3evt7x" path="res://Texture/UI/Shop_UI/монета 3.png" id="26_wvchi"]
+[ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
+[ext_resource type="Texture2D" uid="uid://b3c8d7ow373q6" path="res://Texture/UI/Shop_UI/монета 4.png" id="27_jjtc7"]
+[ext_resource type="Texture2D" uid="uid://j11yp4115jic" path="res://Texture/UI/Character_UI/Character_window/стрелка улучшения.png" id="27_p4vig"]
+[ext_resource type="PackedScene" uid="uid://bfq4lhxqp2x0" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
+[ext_resource type="Texture2D" uid="uid://6m4xmt8olxn4" path="res://Texture/UI/Character_UI/Character_window/сердце база.png" id="28_5xtva"]
+[ext_resource type="Texture2D" uid="uid://cbjdufopv0pmk" path="res://Texture/UI/Character_UI/плашка персонажа активная.png" id="28_30gul"]
+[ext_resource type="Texture2D" uid="uid://lin3afhbskvv" path="res://Texture/UI/Shop_UI/монета 5.png" id="28_lceg1"]
+[ext_resource type="Texture2D" uid="uid://1lmkgscpmf2q" path="res://Texture/UI/Shop_UI/монета 6.png" id="29_d1w7v"]
+[ext_resource type="Texture2D" uid="uid://cc53ex5bd746r" path="res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png" id="29_dv1yp"]
+[ext_resource type="Texture2D" uid="uid://cl5c1073l1ns3" path="res://Texture/UI/Talents_UI/замок.png" id="29_k5hbu"]
+[ext_resource type="Texture2D" uid="uid://qqfohh4ohbyu" path="res://Texture/UI/Character_UI/Character_window/фон вертикальный.png" id="29_ke4g2"]
+[ext_resource type="Texture2D" uid="uid://jcy8balgn8ur" path="res://Texture/UI/Character_UI/уровень перса.png" id="29_lxmlr"]
+[ext_resource type="Texture2D" uid="uid://bmtxu0eqj1ssr" path="res://Texture/UI/Character_UI/полоска разделитель.png" id="30_g1evk"]
+[ext_resource type="Texture2D" uid="uid://ckgv7detkwio1" path="res://Texture/UI/Character_UI/Character_window/плашка для материалов покупки.png" id="30_qcdih"]
+[ext_resource type="Texture2D" uid="uid://d01f1hwel8jg4" path="res://Texture/UI/Shop_UI/окно для кристаллов.png" id="31_1qtya"]
+[ext_resource type="Texture2D" uid="uid://8ecjqcdbb4a" path="res://Texture/UI/Character_UI/плашка персонажа неактивная.png" id="31_5u4xa"]
+[ext_resource type="Texture2D" uid="uid://b5uosa6inw6tq" path="res://Texture/UI/Shop_UI/кристалл 1.png" id="32_0mmh1"]
+[ext_resource type="Texture2D" uid="uid://dsh2mk3uxj0ap" path="res://Texture/UI/Character_UI/кнопка выбран.png" id="32_sva66"]
+[ext_resource type="Texture2D" uid="uid://by1ysutk6o7tf" path="res://Texture/UI/Shop_UI/кристалл 2.png" id="33_lr1uh"]
+[ext_resource type="Texture2D" uid="uid://do65vkjck28pi" path="res://Texture/UI/Shop_UI/кристалл 3.png" id="34_3ixuv"]
+[ext_resource type="Texture2D" uid="uid://bs4qmb742an6q" path="res://Texture/UI/Shop_UI/кристалл 4.png" id="35_aktnb"]
+[ext_resource type="Texture2D" uid="uid://dp6g21b77mmvu" path="res://Texture/UI/Character_UI/Character_window/кнопка ВЫБРАТь.png" id="35_yveks"]
+[ext_resource type="Texture2D" uid="uid://pmcgodh3ehj0" path="res://Texture/UI/Character_UI/Character_window/кнопка КУПИТЬ за кристаллы.png" id="36_0hnwo"]
+[ext_resource type="Texture2D" uid="uid://b6e103x27c8je" path="res://Texture/UI/Character_UI/Character_window/шанс заморозить врага.png" id="36_cqs0r"]
+[ext_resource type="Texture2D" uid="uid://dbas0a7qifn8x" path="res://Texture/UI/Shop_UI/кристалл 5..png" id="36_hq60e"]
+[ext_resource type="Texture2D" uid="uid://dyomqh0hueksa" path="res://Texture/UI/Shop_UI/кристалл 6.png" id="37_142ex"]
+[ext_resource type="Texture2D" uid="uid://ckjtkyvasjni8" path="res://Texture/UI/Character_UI/Character_window/усиление стихии холода.png" id="37_ovsro"]
+[ext_resource type="Texture2D" uid="uid://c8f717ql3qobr" path="res://Texture/UI/Character_UI/Character_window/шанс восстановления.png" id="38_lotfc"]
+[ext_resource type="Texture2D" uid="uid://cdnp7wqrqoaui" path="res://Texture/UI/Character_UI/Character_window/иконка 4.png" id="39_ys04g"]
+[ext_resource type="Texture2D" uid="uid://dioy3jxbwas2r" path="res://Texture/UI/Character_UI/Character_window/шанс распасться на 2 таких же.png" id="40_0kfjt"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/character_2_window.gd" id="41_58n8s"]
+[ext_resource type="Texture2D" uid="uid://2qrb78wuvipj" path="res://Texture/UI/Character_UI/Character_window/шанс уклонения от атаки.png" id="41_bykgj"]
+[ext_resource type="Texture2D" uid="uid://bg6wp5fbqpob7" path="res://Texture/UI/Character_UI/Character_window/меньше оз выше урон.png" id="42_efscd"]
+[ext_resource type="Texture2D" uid="uid://cy3s6ygutmtpe" path="res://Texture/Heroes/Merlin/рука 1.png" id="44_ae1hd"]
+[ext_resource type="Texture2D" uid="uid://5o0c0mkghnp0" path="res://Texture/Heroes/Merlin/рука с посохом 1.png" id="45_ul4jd"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/character_3_window.gd" id="46_8my5a"]
+[ext_resource type="Texture2D" uid="uid://c0nlp8v7bo5yj" path="res://Texture/Heroes/Merlin/туловище 2.png" id="46_tiq4v"]
+[ext_resource type="Texture2D" uid="uid://c3q7qsua5mhg6" path="res://Texture/Heroes/Merlin/туловище 1.png" id="47_84lfy"]
+[ext_resource type="Texture2D" uid="uid://cwtdxveax7eyd" path="res://Texture/UI/Character_UI/Character_window/кнопка назад.png" id="48_4n6dk"]
+[ext_resource type="Texture2D" uid="uid://ppnayrtmqj3e" path="res://Texture/Heroes/Merlin/голова 1.png" id="48_fg55b"]
+[ext_resource type="Texture2D" uid="uid://42mgcv17tc7f" path="res://Texture/Heroes/Busya/рука с посохом 1.png" id="54_f0um0"]
+[ext_resource type="Texture2D" uid="uid://ck1hg1r3dddeu" path="res://Texture/Heroes/Busya/рука 1.png" id="55_13vvl"]
+[ext_resource type="Texture2D" uid="uid://bvbknmf3c7f1v" path="res://Texture/Heroes/Busya/туловище 1.png" id="56_nkeph"]
+[ext_resource type="Texture2D" uid="uid://dbq6arjpxghb5" path="res://Texture/Heroes/Busya/голова 1.png" id="57_qno1k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
+font = ExtResource("3_cjc1q")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_ugv6k"]
+line_spacing = -10.0
+font = ExtResource("3_cjc1q")
+font_size = 25
+font_color = Color(0.054902, 0.113725, 0.341176, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_njq23"]
+font = ExtResource("3_cjc1q")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_a3p3v"]
+font = ExtResource("3_cjc1q")
+font_size = 30
+
+<<<<<<< HEAD
+[sub_resource type="LabelSettings" id="LabelSettings_tufoo"]
+line_spacing = -10.0
+font = ExtResource("3_cjc1q")
+font_size = 18
+font_color = Color(0.054902, 0.113725, 0.341176, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pa4cp"]
+line_spacing = -10.0
+font = ExtResource("3_cjc1q")
+font_size = 20
+font_color = Color(0.054902, 0.113725, 0.341176, 1)
+
+=======
+>>>>>>> 50d99a5ee8bd3869d4b0229f69f1f9efd7a6ef2d
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lpl"]
+bg_color = Color(0.762009, 0.53941, 0.460928, 1)
+
+[sub_resource type="Theme" id="Theme_kmt4p"]
+Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3n0kt"]
+font = ExtResource("3_cjc1q")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_hfpbj"]
+font = ExtResource("3_cjc1q")
+font_size = 30
+font_color = Color(0.0666667, 0.309804, 0.223529, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vksps"]
+font = ExtResource("3_cjc1q")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_bij1h"]
+font = ExtResource("3_cjc1q")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5pu5"]
+font = ExtResource("3_cjc1q")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_x4hat"]
+font = ExtResource("3_cjc1q")
+font_size = 40
+font_color = Color(0.341176, 0.835294, 0.101961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghhbb"]
+font = ExtResource("3_cjc1q")
+font_size = 55
+
+[sub_resource type="LabelSettings" id="LabelSettings_uqh6h"]
+font = ExtResource("3_cjc1q")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_edc2c"]
+font = ExtResource("3_cjc1q")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_oites"]
+font = ExtResource("3_cjc1q")
+font_size = 35
+font_color = Color(0.258824, 0.262745, 0.27451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f7jfj"]
+font = ExtResource("3_cjc1q")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_pr7md"]
+font = ExtResource("3_cjc1q")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_eqhan"]
+font = ExtResource("3_cjc1q")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_ayrqo"]
+font = ExtResource("3_cjc1q")
+font_size = 20
+
+[node name="Menu" type="Control"]
+z_index = 8
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_duxj8")
+
+[node name="Backgroung" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Backgroung"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vxxsk")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="Backgroung"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -883.0
+offset_top = -708.0
+offset_right = 883.0
+offset_bottom = 620.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_h3cqw")
+
+[node name="Player_state" type="Control" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Player_level" type="TextureRect" parent="Player_state"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -628.0
+offset_right = -288.0
+offset_bottom = -576.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cw7m0")
+
+[node name="Player_level_label" type="Label" parent="Player_state/Player_level"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1
+"
+label_settings = SubResource("LabelSettings_8rve7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player_level_bar" type="TextureProgressBar" parent="Player_state/Player_level"]
+z_index = -1
+layout_mode = 0
+offset_left = 30.0
+offset_top = 6.0
+offset_right = 164.0
+offset_bottom = 45.0
+texture_under = ExtResource("5_fbwen")
+texture_progress = ExtResource("7_usr1m")
+texture_progress_offset = Vector2(10, 9.73)
+
+[node name="Coins" type="TextureRect" parent="Player_state"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -623.0
+offset_right = -8.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e5vte")
+
+[node name="Coins_label" type="Label" parent="Player_state/Coins"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 120.0
+offset_bottom = 42.0
+text = "0"
+label_settings = SubResource("LabelSettings_ugv6k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Player_state/Coins"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 28.0
+offset_bottom = 48.0
+texture = ExtResource("6_uun7o")
+
+[node name="Crystals" type="TextureRect" parent="Player_state"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -623.0
+offset_right = 157.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e5vte")
+
+[node name="Crystals_label" type="Label" parent="Player_state/Crystals"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 120.0
+offset_bottom = 42.0
+text = "0"
+label_settings = SubResource("LabelSettings_ugv6k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Player_state/Crystals"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 25.0
+offset_bottom = 48.0
+texture = ExtResource("5_h3ti1")
+
+[node name="Main_menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Location_name" type="Label" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 120.0
+offset_right = 362.0
+offset_bottom = 201.0
+grow_horizontal = 2
+text = "Лихолесье"
+label_settings = SubResource("LabelSettings_njq23")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Max_wave_on_locations" type="Label" parent="Main_menu/Location_name"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -361.0
+offset_top = 97.0
+offset_right = 360.0
+offset_bottom = 132.0
+grow_horizontal = 2
+text = "максимальный уровень 0/20"
+label_settings = SubResource("LabelSettings_a3p3v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Main_menu/Location_name"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 78.0
+offset_right = 645.0
+offset_bottom = 97.0
+texture = ExtResource("11_p4754")
+expand_mode = 1
+stretch_mode = 4
+
+<<<<<<< HEAD
+[node name="TextureRect4" type="TextureRect" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.0
+offset_top = -350.0
+offset_right = -226.0
+offset_bottom = -259.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_p10qp")
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect4"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 93.0
+offset_right = 119.0
+offset_bottom = 133.0
+texture = ExtResource("3_e5vte")
+
+[node name="Label" type="Label" parent="Main_menu/TextureRect4/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0/800"
+label_settings = SubResource("LabelSettings_tufoo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Main_menu/TextureRect4"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 86.0
+offset_right = 29.0
+offset_bottom = 142.0
+texture = ExtResource("5_h3ti1")
+
+[node name="TextureRect5" type="TextureRect" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 232.0
+offset_top = -365.0
+offset_right = 338.0
+offset_bottom = -274.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_4qcoo")
+
+[node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect5"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 91.0
+offset_right = 100.0
+offset_bottom = 149.0
+texture = ExtResource("16_06xp1")
+
+[node name="Label" type="Label" parent="Main_menu/TextureRect5/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1224
+место"
+label_settings = SubResource("LabelSettings_pa4cp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+=======
+>>>>>>> 50d99a5ee8bd3869d4b0229f69f1f9efd7a6ef2d
+[node name="Chests" type="HBoxContainer" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.0
+offset_top = 116.0
+offset_right = 357.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("15_83luh")
+
+[node name="Сhest_1" parent="Main_menu/Chests" instance=ExtResource("16_jxu4w")]
+layout_mode = 2
+
+[node name="Line" type="TextureRect" parent="Main_menu/Chests"]
+layout_mode = 2
+texture = ExtResource("22_rdsba")
+stretch_mode = 5
+
+[node name="Сhest_2" parent="Main_menu/Chests" instance=ExtResource("16_jxu4w")]
+layout_mode = 2
+
+[node name="Line_2" type="TextureRect" parent="Main_menu/Chests"]
+layout_mode = 2
+texture = ExtResource("22_rdsba")
+stretch_mode = 5
+
+[node name="Сhest_3" parent="Main_menu/Chests" instance=ExtResource("16_jxu4w")]
+layout_mode = 2
+
+[node name="Locations" type="Control" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Location_sprite" type="TextureRect" parent="Main_menu/Locations"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -323.0
+offset_right = 259.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_pv3nj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Back_location" type="Button" parent="Main_menu/Locations"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -87.0
+offset_right = -240.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<"
+
+[node name="Next_location" type="Button" parent="Main_menu/Locations"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 240.0
+offset_top = -87.0
+offset_right = 305.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ">"
+
+[node name="PLay_button" type="TextureButton" parent="Main_menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -362.0
+offset_right = 186.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_kmt4p")
+texture_normal = ExtResource("3_qeymi")
+
+[node name="Label" type="Label" parent="Main_menu/PLay_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ИГРАТЬ"
+label_settings = SubResource("LabelSettings_njq23")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shop" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("20_gcgux")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -542.0
+offset_right = 316.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("21_skdl8")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("22_hq88r")
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -232.0
+offset_right = 269.5
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Coins_1" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_nehew")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 30.5
+offset_right = 48.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coins_2" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_21de7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 30.5
+offset_right = 52.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "19 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coins_3" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_wvchi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = 30.5
+offset_right = 54.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "45 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coins_4" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_jjtc7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = 30.5
+offset_right = 54.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "99 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coins_5" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_lceg1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = 30.5
+offset_right = 62.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "150 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coins_6" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_d1w7v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = 30.5
+offset_right = 66.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "300 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("23_wpccf")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("22_hq88r")
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -232.0
+offset_right = 269.5
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Crystal_1" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("32_0mmh1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 30.5
+offset_right = 52.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "19 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crystal_2" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_lr1uh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 30.5
+offset_right = 55.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "69 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crystal_3" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("34_3ixuv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 30.5
+offset_right = 59.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "119 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crystal_4" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("35_aktnb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = 30.5
+offset_right = 60.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "179 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crystal_5" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("36_hq60e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = 30.5
+offset_right = 64.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "249 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crystal_6" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("37_142ex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = 30.5
+offset_right = 66.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "300 РУБ"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Characters" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_1y5uy")
+
+[node name="TextureRect" type="TextureRect" parent="Characters"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.5
+offset_top = -642.0
+offset_right = 390.5
+offset_bottom = 642.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_ke4g2")
+stretch_mode = 5
+
+[node name="All_characters" type="Control" parent="Characters"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Characters/All_characters"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -467.0
+offset_right = 302.0
+offset_bottom = -235.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Character_1" type="TextureRect" parent="Characters/All_characters/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("28_30gul")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = -17.0
+offset_right = 13.0
+offset_bottom = 47.0
+grow_horizontal = 0
+texture = ExtResource("29_lxmlr")
+
+[node name="Lvl" type="Label" parent="Characters/All_characters/HBoxContainer/Character_1/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1
+"
+label_settings = SubResource("LabelSettings_8rve7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Can_update" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_1/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = -16.0
+offset_right = 86.0
+offset_bottom = 31.0
+texture = ExtResource("27_c31n5")
+
+[node name="Button_1_character" type="Button" parent="Characters/All_characters/HBoxContainer/Character_1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Select" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -53.0
+offset_right = 74.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("32_sva66")
+
+[node name="Label" type="Label" parent="Characters/All_characters/HBoxContainer/Character_1/Select"]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 58.0
+text = "Выбран"
+label_settings = SubResource("LabelSettings_hfpbj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Character_2" type="TextureRect" parent="Characters/All_characters/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("28_30gul")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = -17.0
+offset_right = 13.0
+offset_bottom = 47.0
+grow_horizontal = 0
+texture = ExtResource("29_lxmlr")
+
+[node name="Lvl" type="Label" parent="Characters/All_characters/HBoxContainer/Character_2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1
+"
+label_settings = SubResource("LabelSettings_8rve7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Can_update" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_2/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = -16.0
+offset_right = 86.0
+offset_bottom = 31.0
+texture = ExtResource("27_c31n5")
+
+[node name="Button_2_character" type="Button" parent="Characters/All_characters/HBoxContainer/Character_2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Select" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_2"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -53.0
+offset_right = 74.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("32_sva66")
+
+[node name="Label" type="Label" parent="Characters/All_characters/HBoxContainer/Character_2/Select"]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 58.0
+text = "Выбран"
+label_settings = SubResource("LabelSettings_hfpbj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Character_3" type="TextureRect" parent="Characters/All_characters/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("28_30gul")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = -17.0
+offset_right = 13.0
+offset_bottom = 47.0
+grow_horizontal = 0
+texture = ExtResource("29_lxmlr")
+
+[node name="Lvl" type="Label" parent="Characters/All_characters/HBoxContainer/Character_3/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1
+"
+label_settings = SubResource("LabelSettings_8rve7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Can_update" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_3/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = -16.0
+offset_right = 86.0
+offset_bottom = 31.0
+texture = ExtResource("27_c31n5")
+
+[node name="Button_3_character" type="Button" parent="Characters/All_characters/HBoxContainer/Character_3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Select" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_3"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -53.0
+offset_right = 74.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("32_sva66")
+
+[node name="Label" type="Label" parent="Characters/All_characters/HBoxContainer/Character_3/Select"]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 58.0
+text = "Выбран"
+label_settings = SubResource("LabelSettings_hfpbj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Characters/All_characters"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -193.0
+offset_right = 334.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_g1evk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Characters/All_characters/TextureRect"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = -33.0
+offset_right = 453.0
+offset_bottom = 67.0
+text = "Все герои"
+label_settings = SubResource("LabelSettings_vksps")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Characters/All_characters"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -117.0
+offset_right = 91.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Character_2" type="TextureRect" parent="Characters/All_characters/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("31_5u4xa")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer2/Character_2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.5
+offset_top = -49.0
+offset_right = 75.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("32_sva66")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer2/Character_2/TextureRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 55.0
+offset_bottom = 50.0
+texture = ExtResource("5_h3ti1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Characters/All_characters/HBoxContainer2/Character_2/TextureRect/TextureRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -7.0
+offset_right = 142.0
+offset_bottom = 42.0
+text = "1000"
+label_settings = SubResource("LabelSettings_hfpbj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_buy_2" type="Button" parent="Characters/All_characters/HBoxContainer2/Character_2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character_3" type="TextureRect" parent="Characters/All_characters/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("31_5u4xa")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer2/Character_3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.5
+offset_top = -49.0
+offset_right = 75.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("32_sva66")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer2/Character_3/TextureRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 55.0
+offset_bottom = 50.0
+texture = ExtResource("5_h3ti1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Characters/All_characters/HBoxContainer2/Character_3/TextureRect/TextureRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -7.0
+offset_right = 142.0
+offset_bottom = 42.0
+text = "5000"
+label_settings = SubResource("LabelSettings_hfpbj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_buy_3" type="Button" parent="Characters/All_characters/HBoxContainer2/Character_3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Runes_count" type="TextureRect" parent="Characters"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -623.0
+offset_right = -176.0
+offset_bottom = -583.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e5vte")
+
+[node name="Runes_label" type="Label" parent="Characters/Runes_count"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 120.0
+offset_bottom = 42.0
+text = "0"
+label_settings = SubResource("LabelSettings_ugv6k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Runes_count"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -9.0
+offset_right = 31.0
+offset_bottom = 48.0
+texture = ExtResource("21_nwckc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Character_1_window" type="Control" parent="Characters"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("23_6x0rm")
+
+[node name="Texture_characters" type="Control" parent="Characters/Character_1_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -388.0
+offset_right = -186.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+
+[node name="TextureRect4" type="TextureRect" parent="Characters/Character_1_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("23_xq13h")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_1_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("24_h2qap")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_1_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("25_ea5mv")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Characters/Character_1_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("26_sqpxk")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Characters/Character_1_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -449.0
+offset_right = 291.0
+offset_bottom = -223.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Characters/Character_1_window/VBoxContainer"]
+layout_mode = 2
+max_value = 20.0
+value = 1.0
+texture_under = ExtResource("23_g0yqi")
+texture_progress = ExtResource("24_ykvw2")
+texture_progress_offset = Vector2(13, 14)
+
+[node name="Label" type="Label" parent="Characters/Character_1_window/VBoxContainer/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "УР: 1/20"
+label_settings = SubResource("LabelSettings_bij1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack_character" type="HBoxContainer" parent="Characters/Character_1_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_1_window/VBoxContainer/Attack_character"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_1_window/VBoxContainer/Attack_character/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_ei0qc")
+
+[node name="Attack_label" type="Label" parent="Characters/Character_1_window/VBoxContainer/Attack_character"]
+z_index = 1
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_t5pu5")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_1_window/VBoxContainer/Attack_character"]
+layout_mode = 2
+texture = ExtResource("27_p4vig")
+stretch_mode = 5
+
+[node name="Attack_UP" type="Label" parent="Characters/Character_1_window/VBoxContainer/Attack_character"]
+layout_mode = 2
+text = "105"
+label_settings = SubResource("LabelSettings_x4hat")
+
+[node name="HP_character" type="HBoxContainer" parent="Characters/Character_1_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_1_window/VBoxContainer/HP_character"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_1_window/VBoxContainer/HP_character/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_5xtva")
+
+[node name="HP_label" type="Label" parent="Characters/Character_1_window/VBoxContainer/HP_character"]
+z_index = 1
+layout_mode = 2
+text = "500"
+label_settings = SubResource("LabelSettings_t5pu5")
+
+[node name="TextureRect3" type="TextureRect" parent="Characters/Character_1_window/VBoxContainer/HP_character"]
+layout_mode = 2
+texture = ExtResource("27_p4vig")
+stretch_mode = 5
+
+[node name="HP_UP" type="Label" parent="Characters/Character_1_window/VBoxContainer/HP_character"]
+layout_mode = 2
+text = "525"
+label_settings = SubResource("LabelSettings_x4hat")
+
+[node name="Level_UP_character_1_button" type="TextureButton" parent="Characters/Character_1_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 355.0
+offset_right = 183.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("29_dv1yp")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Улучшить"
+label_settings = SubResource("LabelSettings_ghhbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Need_matirial" type="TextureRect" parent="Characters/Character_1_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = 123.0
+offset_right = 299.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_qcdih")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Characters/Character_1_window/Need_matirial"]
+layout_mode = 1
+offset_left = 26.0
+offset_top = 22.0
+offset_right = 257.0
+offset_bottom = 68.0
+text = "Материалы:"
+label_settings = SubResource("LabelSettings_uqh6h")
+
+[node name="Coins" type="TextureRect" parent="Characters/Character_1_window/Need_matirial"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 91.0
+offset_right = 154.0
+offset_bottom = 143.0
+texture = ExtResource("6_uun7o")
+
+[node name="Coins_Label" type="Label" parent="Characters/Character_1_window/Need_matirial/Coins"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -54.0
+offset_right = 120.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1000"
+label_settings = SubResource("LabelSettings_edc2c")
+
+[node name="Runes" type="TextureRect" parent="Characters/Character_1_window/Need_matirial"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 87.0
+offset_right = 380.0
+offset_bottom = 151.0
+texture = ExtResource("21_nwckc")
+stretch_mode = 5
+
+[node name="Runes_Label" type="Label" parent="Characters/Character_1_window/Need_matirial/Runes"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -62.0
+offset_right = 125.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "20"
+label_settings = SubResource("LabelSettings_edc2c")
+
+[node name="Select_character" type="TextureButton" parent="Characters/Character_1_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -101.0
+offset_right = -67.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("35_yveks")
+
+[node name="Label" type="Label" parent="Characters/Character_1_window/Select_character"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Выбран"
+label_settings = SubResource("LabelSettings_oites")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="Characters/Character_1_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -362.0
+offset_top = -514.0
+offset_right = 358.0
+offset_bottom = -491.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Алиса"
+label_settings = SubResource("LabelSettings_f7jfj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Character_2_window" type="Control" parent="Characters"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("41_58n8s")
+
+[node name="Texture_characters" type="Control" parent="Characters/Character_2_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -366.0
+offset_right = -197.0
+offset_bottom = -326.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("44_ae1hd")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("45_ul4jd")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("46_tiq4v")
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("47_84lfy")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("48_fg55b")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Characters/Character_2_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -449.0
+offset_right = 292.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Characters/Character_2_window/VBoxContainer"]
+layout_mode = 2
+max_value = 20.0
+texture_under = ExtResource("23_g0yqi")
+texture_progress = ExtResource("24_ykvw2")
+texture_progress_offset = Vector2(13, 14)
+
+[node name="Label" type="Label" parent="Characters/Character_2_window/VBoxContainer/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "УР: 0/20"
+label_settings = SubResource("LabelSettings_bij1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack_character" type="HBoxContainer" parent="Characters/Character_2_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/Attack_character"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/Attack_character/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_ei0qc")
+
+[node name="Attack_label" type="Label" parent="Characters/Character_2_window/VBoxContainer/Attack_character"]
+z_index = 1
+layout_mode = 2
+text = "120"
+label_settings = SubResource("LabelSettings_t5pu5")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/Attack_character"]
+visible = false
+layout_mode = 2
+texture = ExtResource("27_p4vig")
+stretch_mode = 5
+
+[node name="Attack_UP" type="Label" parent="Characters/Character_2_window/VBoxContainer/Attack_character"]
+visible = false
+layout_mode = 2
+text = "126"
+label_settings = SubResource("LabelSettings_x4hat")
+
+[node name="HP_character" type="HBoxContainer" parent="Characters/Character_2_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_5xtva")
+
+[node name="HP_label" type="Label" parent="Characters/Character_2_window/VBoxContainer/HP_character"]
+z_index = 1
+layout_mode = 2
+text = "600"
+label_settings = SubResource("LabelSettings_t5pu5")
+
+[node name="TextureRect3" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character"]
+visible = false
+layout_mode = 2
+texture = ExtResource("27_p4vig")
+stretch_mode = 5
+
+[node name="HP_UP" type="Label" parent="Characters/Character_2_window/VBoxContainer/HP_character"]
+visible = false
+layout_mode = 2
+text = "630"
+label_settings = SubResource("LabelSettings_x4hat")
+
+[node name="HP_character2" type="HBoxContainer" parent="Characters/Character_2_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character2"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("36_cqs0r")
+
+[node name="HP_character3" type="HBoxContainer" parent="Characters/Character_2_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character3"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character3/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("37_ovsro")
+
+[node name="HP_character4" type="HBoxContainer" parent="Characters/Character_2_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character4"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/VBoxContainer/HP_character4/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("38_lotfc")
+
+[node name="Discript" type="Label" parent="Characters/Character_2_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 66.0
+offset_top = -208.0
+offset_right = 320.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Обычные шары становятся 
+ледяными глыбами 
+1% заморозить врага"
+label_settings = SubResource("LabelSettings_pr7md")
+
+[node name="Discript2" type="Label" parent="Characters/Character_2_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 63.0
+offset_top = -110.0
+offset_right = 317.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Усиление стихии холода 
+на 10%"
+label_settings = SubResource("LabelSettings_pr7md")
+
+[node name="Discript3" type="Label" parent="Characters/Character_2_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 66.0
+offset_top = -23.0
+offset_right = 332.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+5% шанс выпадения бонуса 
+восстановления"
+label_settings = SubResource("LabelSettings_pr7md")
+
+[node name="Level_UP_character_2_button" type="TextureButton" parent="Characters/Character_2_window"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 355.0
+offset_right = 183.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("29_dv1yp")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Characters/Character_2_window/Level_UP_character_2_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Улучшить"
+label_settings = SubResource("LabelSettings_ghhbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Need_matirial" type="TextureRect" parent="Characters/Character_2_window"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = 123.0
+offset_right = 299.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_qcdih")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Characters/Character_2_window/Need_matirial"]
+layout_mode = 1
+offset_left = 26.0
+offset_top = 22.0
+offset_right = 257.0
+offset_bottom = 68.0
+text = "Материалы:"
+label_settings = SubResource("LabelSettings_uqh6h")
+
+[node name="Coins" type="TextureRect" parent="Characters/Character_2_window/Need_matirial"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 91.0
+offset_right = 154.0
+offset_bottom = 143.0
+texture = ExtResource("6_uun7o")
+
+[node name="Coins_Label" type="Label" parent="Characters/Character_2_window/Need_matirial/Coins"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -54.0
+offset_right = 120.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1000"
+label_settings = SubResource("LabelSettings_edc2c")
+
+[node name="Runes" type="TextureRect" parent="Characters/Character_2_window/Need_matirial"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 87.0
+offset_right = 380.0
+offset_bottom = 151.0
+texture = ExtResource("21_nwckc")
+stretch_mode = 5
+
+[node name="Runes_Label" type="Label" parent="Characters/Character_2_window/Need_matirial/Runes"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -62.0
+offset_right = 125.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "20"
+label_settings = SubResource("LabelSettings_edc2c")
+
+[node name="Select_character" type="TextureButton" parent="Characters/Character_2_window"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -101.0
+offset_right = -67.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("35_yveks")
+
+[node name="Label" type="Label" parent="Characters/Character_2_window/Select_character"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Выбрать"
+label_settings = SubResource("LabelSettings_oites")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="Characters/Character_2_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -362.0
+offset_top = -514.0
+offset_right = 358.0
+offset_bottom = -491.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Мерлин"
+label_settings = SubResource("LabelSettings_f7jfj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buy_button" type="TextureButton" parent="Characters/Character_2_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = 276.0
+offset_right = 195.0
+offset_bottom = 389.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("36_0hnwo")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/Buy_button"]
+layout_mode = 0
+offset_left = 34.5
+offset_top = 26.5
+offset_right = 89.5
+offset_bottom = 82.5
+texture = ExtResource("5_h3ti1")
+
+[node name="Label" type="Label" parent="Characters/Character_2_window/Buy_button"]
+layout_mode = 0
+offset_left = 94.5
+offset_top = 32.5
+offset_right = 187.5
+offset_bottom = 78.5
+text = "1000"
+label_settings = SubResource("LabelSettings_eqhan")
+
+[node name="Label2" type="Label" parent="Characters/Character_2_window/Buy_button"]
+layout_mode = 0
+offset_left = 196.5
+offset_top = 33.5
+offset_right = 342.5
+offset_bottom = 79.5
+text = "КУПИТЬ"
+label_settings = SubResource("LabelSettings_eqhan")
+
+[node name="Character_3_window" type="Control" parent="Characters"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("46_8my5a")
+
+[node name="Texture_characters" type="Control" parent="Characters/Character_3_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.0
+offset_top = -372.0
+offset_right = -193.0
+offset_bottom = -332.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+
+[node name="TextureRect3" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("54_f0um0")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("55_13vvl")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("56_nkeph")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/Texture_characters"]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -105.0
+offset_right = 352.0
+offset_bottom = 407.0
+texture = ExtResource("57_qno1k")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Characters/Character_3_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -449.0
+offset_right = 292.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Characters/Character_3_window/VBoxContainer"]
+layout_mode = 2
+max_value = 20.0
+texture_under = ExtResource("23_g0yqi")
+texture_progress = ExtResource("24_ykvw2")
+texture_progress_offset = Vector2(13, 14)
+
+[node name="Label" type="Label" parent="Characters/Character_3_window/VBoxContainer/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "УР: 0/20"
+label_settings = SubResource("LabelSettings_bij1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack_character" type="HBoxContainer" parent="Characters/Character_3_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/Attack_character"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/Attack_character/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_ei0qc")
+
+[node name="Attack_label" type="Label" parent="Characters/Character_3_window/VBoxContainer/Attack_character"]
+z_index = 1
+layout_mode = 2
+text = "150"
+label_settings = SubResource("LabelSettings_t5pu5")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/Attack_character"]
+visible = false
+layout_mode = 2
+texture = ExtResource("27_p4vig")
+stretch_mode = 5
+
+[node name="Attack_UP" type="Label" parent="Characters/Character_3_window/VBoxContainer/Attack_character"]
+visible = false
+layout_mode = 2
+text = "105"
+label_settings = SubResource("LabelSettings_x4hat")
+
+[node name="HP_character" type="HBoxContainer" parent="Characters/Character_3_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_5xtva")
+
+[node name="HP_label" type="Label" parent="Characters/Character_3_window/VBoxContainer/HP_character"]
+z_index = 1
+layout_mode = 2
+text = "750"
+label_settings = SubResource("LabelSettings_t5pu5")
+
+[node name="TextureRect3" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character"]
+visible = false
+layout_mode = 2
+texture = ExtResource("27_p4vig")
+stretch_mode = 5
+
+[node name="HP_UP" type="Label" parent="Characters/Character_3_window/VBoxContainer/HP_character"]
+visible = false
+layout_mode = 2
+text = "525"
+label_settings = SubResource("LabelSettings_x4hat")
+
+[node name="HP_character2" type="HBoxContainer" parent="Characters/Character_3_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character2"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("40_0kfjt")
+
+[node name="HP_character3" type="HBoxContainer" parent="Characters/Character_3_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character3"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character3/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("41_bykgj")
+
+[node name="HP_character4" type="HBoxContainer" parent="Characters/Character_3_window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character4"]
+layout_mode = 2
+texture = ExtResource("25_rjbq8")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/VBoxContainer/HP_character4/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("42_efscd")
+
+[node name="Discript" type="Label" parent="Characters/Character_3_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 66.0
+offset_top = -211.0
+offset_right = 320.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Обычные шары имеют 1% 
+шанс распаться на 2 таких 
+же шара"
+label_settings = SubResource("LabelSettings_pr7md")
+
+[node name="Discript2" type="Label" parent="Characters/Character_3_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -95.0
+offset_right = 343.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Шанс уклонения от атак +20%"
+label_settings = SubResource("LabelSettings_pr7md")
+
+[node name="Discript3" type="Label" parent="Characters/Character_3_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -23.0
+offset_right = 331.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Чем меньше ОЗ, тем больше 
+становится урон"
+label_settings = SubResource("LabelSettings_pr7md")
+
+[node name="Level_UP_character_3_button" type="TextureButton" parent="Characters/Character_3_window"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 355.0
+offset_right = 183.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("29_dv1yp")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Characters/Character_3_window/Level_UP_character_3_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Улучшить"
+label_settings = SubResource("LabelSettings_ghhbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Need_matirial" type="TextureRect" parent="Characters/Character_3_window"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = 123.0
+offset_right = 299.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_qcdih")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Characters/Character_3_window/Need_matirial"]
+layout_mode = 1
+offset_left = 26.0
+offset_top = 22.0
+offset_right = 257.0
+offset_bottom = 68.0
+text = "Материалы:"
+label_settings = SubResource("LabelSettings_uqh6h")
+
+[node name="Coins" type="TextureRect" parent="Characters/Character_3_window/Need_matirial"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 91.0
+offset_right = 154.0
+offset_bottom = 143.0
+texture = ExtResource("6_uun7o")
+
+[node name="Coins_Label" type="Label" parent="Characters/Character_3_window/Need_matirial/Coins"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -54.0
+offset_right = 120.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1000"
+label_settings = SubResource("LabelSettings_edc2c")
+
+[node name="Runes" type="TextureRect" parent="Characters/Character_3_window/Need_matirial"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 87.0
+offset_right = 380.0
+offset_bottom = 151.0
+texture = ExtResource("21_nwckc")
+stretch_mode = 5
+
+[node name="Runes_Label" type="Label" parent="Characters/Character_3_window/Need_matirial/Runes"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -62.0
+offset_right = 125.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "20"
+label_settings = SubResource("LabelSettings_edc2c")
+
+[node name="Select_character" type="TextureButton" parent="Characters/Character_3_window"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -101.0
+offset_right = -67.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("35_yveks")
+
+[node name="Label" type="Label" parent="Characters/Character_3_window/Select_character"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Выбрать"
+label_settings = SubResource("LabelSettings_oites")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="Characters/Character_3_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -362.0
+offset_top = -514.0
+offset_right = 358.0
+offset_bottom = -491.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Буся"
+label_settings = SubResource("LabelSettings_f7jfj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buy_button" type="TextureButton" parent="Characters/Character_3_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = 276.0
+offset_right = 195.0
+offset_bottom = 389.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("36_0hnwo")
+
+[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/Buy_button"]
+layout_mode = 0
+offset_left = 34.5
+offset_top = 26.5
+offset_right = 89.5
+offset_bottom = 82.5
+texture = ExtResource("5_h3ti1")
+
+[node name="Label" type="Label" parent="Characters/Character_3_window/Buy_button"]
+layout_mode = 0
+offset_left = 94.5
+offset_top = 32.5
+offset_right = 187.5
+offset_bottom = 78.5
+text = "5000"
+label_settings = SubResource("LabelSettings_eqhan")
+
+[node name="Label2" type="Label" parent="Characters/Character_3_window/Buy_button"]
+layout_mode = 0
+offset_left = 196.5
+offset_top = 33.5
+offset_right = 342.5
+offset_bottom = 79.5
+text = "КУПИТЬ"
+label_settings = SubResource("LabelSettings_eqhan")
+
+[node name="Back_button" type="TextureButton" parent="Characters"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -542.0
+offset_right = -177.0
+offset_bottom = -470.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("48_4n6dk")
+stretch_mode = 5
+
+[node name="Talents" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_fmiso")
+
+[node name="Lvl_ScrollContainer" type="ScrollContainer" parent="Talents"]
+z_index = 1
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -640.0
+offset_right = 360.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="Level_container" type="VBoxContainer" parent="Talents/Lvl_ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Scill_ScrollContainer" type="ScrollContainer" parent="Talents"]
+z_index = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -639.0
+offset_right = 360.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="Skills_container" type="VBoxContainer" parent="Talents/Scill_ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Settings_button" type="TextureButton" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 263.0
+offset_top = -623.0
+offset_right = 341.0
+offset_bottom = -545.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("12_aoauw")
+
+[node name="Select_buttons" type="HBoxContainer" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -309.0
+offset_top = -150.0
+offset_right = 443.0
+offset_bottom = 24.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.85, 0.85)
+alignment = 1
+
+[node name="Shop_button" type="TextureButton" parent="Select_buttons"]
+layout_mode = 2
+texture_normal = ExtResource("17_y83uj")
+
+[node name="TextureRect" type="TextureRect" parent="Select_buttons/Shop_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -59.0
+offset_right = 65.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_m36hl")
+
+[node name="Main_menu_button" type="TextureButton" parent="Select_buttons"]
+layout_mode = 2
+texture_normal = ExtResource("17_y83uj")
+
+[node name="TextureRect" type="TextureRect" parent="Select_buttons/Main_menu_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -59.0
+offset_right = 65.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_q5oq5")
+
+[node name="Talesnts_button" type="TextureButton" parent="Select_buttons"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("17_y83uj")
+
+[node name="TextureRect" type="TextureRect" parent="Select_buttons/Talesnts_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -70.5
+offset_right = 53.5
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("20_bdbvx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Can_by" type="TextureRect" parent="Select_buttons/Talesnts_button"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = 54.0
+grow_horizontal = 0
+texture = ExtResource("27_c31n5")
+stretch_mode = 5
+
+[node name="Character_button" type="TextureButton" parent="Select_buttons"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("17_y83uj")
+
+[node name="Can_press" type="TextureRect" parent="Select_buttons/Character_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5001
+offset_top = -70.5
+offset_right = 53.4999
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("39_ys04g")
+stretch_mode = 5
+
+[node name="Not_can_press" type="TextureRect" parent="Select_buttons/Character_button"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -56.5
+offset_right = 43.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("29_k5hbu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Select_buttons/Character_button/Not_can_press"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.951
+offset_top = -13.9705
+offset_right = 24.049
+offset_bottom = 10.0295
+grow_horizontal = 2
+grow_vertical = 0
+text = "с 5 уровня"
+label_settings = SubResource("LabelSettings_ayrqo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Can_update" type="TextureRect" parent="Select_buttons/Character_button"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = 54.0
+grow_horizontal = 0
+texture = ExtResource("27_c31n5")
+stretch_mode = 5
+
+[node name="Chest_reward" parent="." instance=ExtResource("27_temh2")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
+[connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
+[connection signal="pressed" from="Main_menu/PLay_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1" to="Shop" method="_on_coins_1_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2" to="Shop" method="_on_coins_2_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3" to="Shop" method="_on_coins_3_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4" to="Shop" method="_on_coins_4_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5" to="Shop" method="_on_coins_5_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6" to="Shop" method="_on_coins_6_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1" to="Shop" method="_on_crystal_1_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2" to="Shop" method="_on_crystal_2_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3" to="Shop" method="_on_crystal_3_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4" to="Shop" method="_on_crystal_4_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5" to="Shop" method="_on_crystal_5_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6" to="Shop" method="_on_crystal_6_pressed"]
+[connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_1/Button_1_character" to="Characters" method="_on_button_1_character_pressed"]
+[connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_2/Button_2_character" to="Characters" method="_on_button_buy_2_pressed"]
+[connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_3/Button_3_character" to="Characters" method="_on_button_buy_3_pressed"]
+[connection signal="pressed" from="Characters/All_characters/HBoxContainer2/Character_2/Button_buy_2" to="Characters" method="_on_button_buy_2_pressed"]
+[connection signal="pressed" from="Characters/All_characters/HBoxContainer2/Character_3/Button_buy_3" to="Characters" method="_on_button_buy_3_pressed"]
+[connection signal="pressed" from="Characters/Character_1_window/Level_UP_character_1_button" to="Characters/Character_1_window" method="_on_level_up_character_1_button_pressed"]
+[connection signal="pressed" from="Characters/Character_1_window/Select_character" to="Characters/Character_1_window" method="_on_select_character_pressed"]
+[connection signal="pressed" from="Characters/Character_2_window/Level_UP_character_2_button" to="Characters/Character_2_window" method="_on_level_up_character_2_button_pressed"]
+[connection signal="pressed" from="Characters/Character_2_window/Select_character" to="Characters/Character_2_window" method="_on_select_character_pressed"]
+[connection signal="pressed" from="Characters/Character_2_window/Buy_button" to="Characters" method="_on_buy_2_hero_button_pressed"]
+[connection signal="pressed" from="Characters/Character_3_window/Level_UP_character_3_button" to="Characters/Character_3_window" method="_on_level_up_character_3_button_pressed"]
+[connection signal="pressed" from="Characters/Character_3_window/Select_character" to="Characters/Character_3_window" method="_on_select_character_pressed"]
+[connection signal="pressed" from="Characters/Character_3_window/Buy_button" to="Characters" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Characters/Back_button" to="Characters" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Select_buttons/Shop_button" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="Select_buttons/Main_menu_button" to="." method="_on_mainmenu_button_pressed"]
+[connection signal="pressed" from="Select_buttons/Talesnts_button" to="." method="_on_talesnts_button_pressed"]
+[connection signal="pressed" from="Select_buttons/Character_button" to="." method="_on_character_button_pressed"]
