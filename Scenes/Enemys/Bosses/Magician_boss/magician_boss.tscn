@@ -1052,67 +1052,67 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("TextureProgressBar:position")
+tracks/9/path = NodePath("Sprite_enemy/Голова/Eye:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-45, 36)]
+"values": [Vector2(1.019, 1.019)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Hp_boss_label:position")
+tracks/10/path = NodePath("Sprite_enemy/Голова/Eye2:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-45, 22)]
+"values": [Vector2(1.019, 1.019)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite_enemy/Голова/Eye:scale")
+tracks/11/path = NodePath("Sprite_enemy/Голова/Eye2:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.019, 1.019)]
+"update": 1,
+"values": [false]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite_enemy/Голова/Eye2:scale")
+tracks/12/path = NodePath("Sprite_enemy/Голова/Eye:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.019, 1.019)]
+"update": 1,
+"values": [false]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Sprite_enemy/Голова/Eye2:visible")
+tracks/13/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite_enemy/Голова/Eye:visible")
+tracks/14/path = NodePath("Effects/Spawn_effect:emitting")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -1124,34 +1124,10 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
+tracks/15/path = NodePath("Sprite_enemy/Посох/Сast_Effect:emitting")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Effects/Spawn_effect:emitting")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("Sprite_enemy/Посох/Сast_Effect:emitting")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1307,10 +1283,10 @@ shape = SubResource("RectangleShape2D_m8ci2")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 2
-offset_left = -45.0
-offset_top = 36.0
-offset_right = 120.0
-offset_bottom = 54.0
+offset_left = -32.0
+offset_top = 129.0
+offset_right = 133.0
+offset_bottom = 147.0
 value = 99.0
 nine_patch_stretch = true
 texture_under = ExtResource("2_golxc")
@@ -1323,10 +1299,10 @@ texture = ExtResource("4_mhq7p")
 
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 2
-offset_left = -45.0
-offset_top = 22.0
-offset_right = 297.0
-offset_bottom = 103.0
+offset_left = -4.0
+offset_top = 119.0
+offset_right = 338.0
+offset_bottom = 200.0
 scale = Vector2(0.4, 0.4)
 text = "144K"
 label_settings = SubResource("LabelSettings_bp515")

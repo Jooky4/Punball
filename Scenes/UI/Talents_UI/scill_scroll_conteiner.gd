@@ -51,6 +51,33 @@ var skills_for_crystall = [
 	"0,1% нанести в 100 раз больше урона",
 	"ОЗ +5%"]
 
+var skills_for_coins = [
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Урон от врагов дальнего боя",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Улучшение восстановления",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Урон от врагов ближнего боя",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Улучшение регенерации",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Увеличение атаки",
+	"Увеличение здоровья",
+	"Урон от БОССА"]
+
 func erase_for_crystal() -> void:
 	for_crystal.disabled = true
 	for_crystal.visible = false
@@ -93,7 +120,53 @@ func update_discription_for_crystal(talant) -> void:
 
 func update_discription_for_coins(talant, discription) -> void:
 	$For_coins/Information/Skill_name.text = talant
-	$For_coins/Information/Discription.text = discription
+	$For_coins/Information/Discription.text = discription + add_discription_coins(count_skill_for_coins, talant)
+
+func add_discription_coins(num_talant, name_talant) -> String:
+	var add_discripton = ""
+	var count_talant : int = 1
+	var result_talant : float = 0
+	for i in range(num_talant+1):
+		if skills_for_coins[i % 25] == name_talant:
+			match skills_for_coins[i % 25]:
+				"Увеличение атаки":
+					result_talant = 0.2 * count_talant
+					count_talant += 1
+				"Увеличение здоровья":
+					result_talant = 50 * count_talant
+					count_talant += 1
+				"Урон от врагов дальнего боя":
+					result_talant = 20 * count_talant
+					count_talant += 1
+				"Урон от врагов ближнего боя":
+					result_talant = 100 * count_talant
+					count_talant += 1
+				"Улучшение восстановления":
+					result_talant = 50 * count_talant
+					count_talant += 1
+				"Улучшение регенерации":
+					result_talant = 20 * count_talant
+					count_talant += 1
+				"Урон от БОССА":
+					result_talant = 20 * count_talant
+					count_talant += 1
+
+	match name_talant:
+		"Увеличение атаки":
+			add_discripton = "+" + str(result_talant * 100)
+		"Увеличение здоровья":
+			add_discripton = "+" + str(result_talant)
+		"Урон от врагов дальнего боя":
+			add_discripton = "-" + str(result_talant)
+		"Урон от врагов ближнего боя":
+			add_discripton = "-" + str(result_talant)
+		"Улучшение восстановления":
+			add_discripton = "+" + str(result_talant)
+		"Улучшение регенерации":
+			add_discripton = "+" + str(result_talant)
+		"Урон от БОССА":
+			add_discripton = "-" + str(result_talant)
+	return add_discripton
 
 func skills_close(zamoc, texture_for_coins, texture_for_crystal) -> void:
 	for_cois.texture_normal = texture_for_coins
@@ -146,17 +219,14 @@ func _on_button_for_crystall_pressed() -> void:
 	$For_crystal/Information/Discription.visible = false
 	if PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_crystal <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL:
 		$For_crystal/Information/Have_this_skill.visible = true
-		$For_crystal/Information/Skill_name.visible = true
 		$For_crystal/Information/Discription.visible = true
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_crystal == PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 1:
 		$For_crystal/Information/Bye_skill.visible = true
-		$For_crystal/Information/Skill_name.visible = true
 		$For_crystal/Information/Discription.visible = true
 		$For_crystal/Information/Bye_skill/Label.text = str(skill_for_crystal_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_crystal >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 2:
 		$For_crystal/Information/Need_previous_skill.visible = true
 		$For_crystal/Information/Discription.visible = true
-		$For_crystal/Information/Skill_name.visible = true
 	elif bye == false and can_bye == false:
 		$For_crystal/Information/Need_level.visible = true
 		$For_crystal/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)

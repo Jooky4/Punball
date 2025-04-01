@@ -535,7 +535,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
-				notification_about_boss_animation.play("spawn_boss")
+				notification_about_boss_here()
 			5: 
 				buff = MEDIC_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.6
@@ -573,7 +573,6 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff = BERSERKER_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(13)
-				print(buff.player_damage)
 			14:
 				buff = FIRE_ELEMENTAL_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8
@@ -588,7 +587,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
-				notification_about_boss_animation.play("spawn_boss")
+				notification_about_boss_here()
 			16:
 				buff = preload("res://Scenes/Enemys/Bosses/Berserker_boss/berserker_boss.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
@@ -599,7 +598,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
-				notification_about_boss_animation.play("spawn_boss")
+				notification_about_boss_here()
 			17:
 				buff = preload("res://Scenes/Enemys/Bosses/Fire_elemental_boss/Fire_elemental_boss.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
@@ -610,7 +609,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
-				notification_about_boss_animation.play("spawn_boss")
+				notification_about_boss_here()
 			18:
 				buff = preload("res://Scenes/Enemys/Bosses/Magician_boss/magician_boss.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
@@ -621,7 +620,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				LevelManager.boss_on_map = true
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
-				notification_about_boss_animation.play("spawn_boss")
+				notification_about_boss_here()
 
 		if LevelManager.boss_on_map:
 			buff.hp_enemy *= WaveGeneration.get_coef_hp_enemy_when_boss_on_map()
@@ -770,6 +769,38 @@ func notification_about_new_enemy(num_enemy) -> void:
 		await get_tree().create_timer(1).timeout
 		$UI/Notification_about_enemy/AnimationPlayer.play("for_pc")
 		PlayerIndicatorsManager.enemy_firs_time_spawn(num_enemy)
+
+func notification_about_boss_here() -> void:
+	$"UI/Reminder_boss/Boss_here/1".visible = false
+	$"UI/Reminder_boss/Boss_here/2".visible = false
+	$"UI/Reminder_boss/Boss_here/3".visible = false
+	$"UI/Reminder_boss/Boss_here/4".visible = false
+	$"UI/Reminder_boss/Boss_here/5".visible = false
+	if ((WaveGeneration.current_location % 10) - 1) == 0 or ((WaveGeneration.current_location % 10) - 1) == 1:
+		$UI/Reminder_boss/Boss_here.text = "Большая черника"
+		$UI/Reminder_boss/Boss_here/Label2.text = "Большой ствол, внушительный урон"
+		$"UI/Reminder_boss/Boss_here/1".visible = true
+		notification_about_boss_animation.play("spawn_boss")
+	elif ((WaveGeneration.current_location % 10) - 1) == 2 or ((WaveGeneration.current_location % 10) - 1) == 3:
+		$UI/Reminder_boss/Boss_here.text = "Щитоносец гвардеец"
+		$UI/Reminder_boss/Boss_here/Label2.text = "Абсолютно непробиваемый спереди"
+		$"UI/Reminder_boss/Boss_here/2".visible = true
+		notification_about_boss_animation.play("spawn_boss")
+	elif ((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5:
+		$UI/Reminder_boss/Boss_here.text = "Верховный некромант"
+		$UI/Reminder_boss/Boss_here/Label2.text = "Призывает огромные орды из 2х разбойников"
+		$"UI/Reminder_boss/Boss_here/3".visible = true
+		notification_about_boss_animation.play("spawn_boss")
+	elif ((WaveGeneration.current_location % 10) - 1) == 6 or ((WaveGeneration.current_location % 10) - 1) == 7:
+		$UI/Reminder_boss/Boss_here.text = "Лавовый голем"
+		$UI/Reminder_boss/Boss_here/Label2.text = "Очень горячий, жжет не по детски"
+		$"UI/Reminder_boss/Boss_here/4".visible = true
+		notification_about_boss_animation.play("spawn_boss")
+	elif ((WaveGeneration.current_location % 10) - 1) == 8 or ((WaveGeneration.current_location % 10) - 1) == -1:
+		$UI/Reminder_boss/Boss_here.text = "Воин одина"
+		$UI/Reminder_boss/Boss_here/Label2.text = "Абсолютный урон, близко не подпускать"
+		$"UI/Reminder_boss/Boss_here/5".visible = true
+		notification_about_boss_animation.play("spawn_boss")
 
 func animation_bank_with_experience() -> void:
 	kill_on_wave = LevelManager.kill_on_whis_wave

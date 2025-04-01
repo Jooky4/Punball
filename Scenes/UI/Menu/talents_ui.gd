@@ -17,50 +17,50 @@ extends Control
 
 var for_coins_talent_texture = {
 	"Увеличение атаки": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение Атаки.png"),
-	"Увеличение ОЗ": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение ОЗ.png"),
-	"Уменьшение урона от дальних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов дальнего боя.png"),
+	"Увеличение здоровья": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение ОЗ.png"),
+	"Урон от врагов дальнего боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов дальнего боя.png"),
 	"Улучшение восстановления": preload("res://Texture/UI/Talents_UI/Talent_texture/Улучшение эффекта восстановления.png"),
-	"Уменьшение урона от ближних врагов": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов ближнего боя.png"),
-	"Регенерация": preload("res://Texture/UI/Talents_UI/Talent_texture/Регенерация.png"),
-	"Увеличение урона от босса": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от босса.png")}
+	"Урон от врагов ближнего боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов ближнего боя.png"),
+	"Улучшение регенерации": preload("res://Texture/UI/Talents_UI/Talent_texture/Регенерация.png"),
+	"Урон от БОССА": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от босса.png")}
 
 var discription_talants = {
-	"Увеличение атаки": "Атака + 50",
-	"Увеличение ОЗ": "ОЗ +500",
-	"Уменьшение урона от дальних врагов": "Уменьшение урона на 100",
-	"Улучшение восстановления": "Дополнительно +50 ОЗ",
-	"Уменьшение урона от ближних врагов": "Уменьшение урона на 100",
-	"Регенерация": "Каждую волну, кроме волн на боссе +50 ОЗ",
-	"Увеличение урона от босса": ""}
+	"Увеличение атаки": "Атака:",
+	"Увеличение здоровья": "ОЗ:",
+	"Урон от врагов дальнего боя": "Урон:",
+	"Улучшение восстановления": "ОЗ лечения:",
+	"Урон от врагов ближнего боя": "Урон:",
+	"Улучшение регенерации": "Регенерация:",
+	"Урон от БОССА": "Урон:"}
 
 var load_data_talant : bool = false
 
 var skills_for_coins = [
 	"Увеличение атаки",
-	"Увеличение ОЗ",
+	"Увеличение здоровья",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
-	"Уменьшение урона от дальних врагов",
+	"Увеличение здоровья",
+	"Урон от врагов дальнего боя",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
+	"Увеличение здоровья",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
+	"Увеличение здоровья",
 	"Улучшение восстановления",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
+	"Увеличение здоровья",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
-	"Уменьшение урона от ближних врагов",
+	"Увеличение здоровья",
+	"Урон от врагов ближнего боя",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
+	"Увеличение здоровья",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
-	"Регенерация",
+	"Увеличение здоровья",
+	"Улучшение регенерации",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
+	"Увеличение здоровья",
 	"Увеличение атаки",
-	"Увеличение ОЗ",
-	"Увеличение урона от босса"]
+	"Увеличение здоровья",
+	"Урон от БОССА"]
 
 var skills_for_crystall = [
 	"Атака +5%",
@@ -146,22 +146,22 @@ func update_player_indicator_talant_for_coins() -> void:
 			"Увеличение атаки":
 				PlayerIndicatorsManager.FOR_COIS_UP_ATTACK += 0.2 * count_for_attack
 				count_for_attack += 1
-			"Увеличение ОЗ":
+			"Увеличение здоровья":
 				PlayerIndicatorsManager.FOR_COIS_UP_OZ += 50 * count_for_OZ
 				count_for_OZ += 1
-			"Уменьшение урона от дальних врагов":
+			"Урон от врагов дальнего боя":
 				PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_DISTANT_ENEMY += 20 * count_down_damage_distans_enemy
 				count_down_damage_distans_enemy += 1
-			"Уменьшение урона от ближних врагов":
+			"Урон от врагов ближнего боя":
 				PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_CLOSE_ENEMY += 100 * count_down_damage_close_enemy
 				count_down_damage_close_enemy += 1
 			"Улучшение восстановления":
 				PlayerIndicatorsManager.FOR_COIS_UP_RESTORE_HILL += 50 * count_up_restore_OZ
 				count_up_restore_OZ += 1
-			"Регенерация":
+			"Улучшение регенерации":
 				PlayerIndicatorsManager.FOR_COIS_REGENIRATION += 20 * count_regeniration
 				count_regeniration += 1
-			"Увеличение урона от босса":
+			"Урон от БОССА":
 				PlayerIndicatorsManager.FOR_COIS_DOWN_DAMAGE_BOSS += 20 * count_down_boss_damage
 				count_down_boss_damage += 1
 	update_player_indicator_talant_for_crystal()

@@ -10,9 +10,11 @@ var bitton_AD_not_can_press_texture = preload("res://Texture/UI/Win_Lose_UI/кн
 var count_coins = 0
 var count_exp = 0
 var count_rune = 0
+var max_wave = 1
 
 func _ready() -> void:
 	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
+	max_wave = PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS
 	level_up_UI.visible = false
 	plus_expiriance_level_player()
 	if LevelManager.win_or_lose == "win":
@@ -31,7 +33,7 @@ func update_level_label_and_bar() -> void:
 
 func plus_expiriance_level_player() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
-	count_exp = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
+	count_exp = round(max_wave * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
 	PlayerIndicatorsManager.update_level_player(round(count_exp))
 	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	for i in range(new_level - current_level):
@@ -40,7 +42,7 @@ func plus_expiriance_level_player() -> void:
 		level_up_UI.level_up(current_level + i + 1)
 	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp))
 
-	count_coins = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 100 * (WaveGeneration.current_location * 0.15 + 0.85))
+	count_coins = round(max_wave * 100 * (WaveGeneration.current_location * 0.15 + 0.85))
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 2:
 		count_coins = count_coins + (count_coins * 0.05)
 	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins))
@@ -48,7 +50,7 @@ func plus_expiriance_level_player() -> void:
 	update_level_label_and_bar()
 
 	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
-		count_rune = round(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS * 5)
+		count_rune = round(max_wave * 5)
 		PlayerIndicatorsManager.update_rune_count(+count_rune)
 		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.text = "x" + str(count_rune)
 	else:
