@@ -362,16 +362,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 82.0
-offset_right = 2.0
-offset_bottom = -53.0
+offset_left = 9.0
+offset_top = 14.0
+offset_right = -8.0
+offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Атака +50
 "
 label_settings = SubResource("LabelSettings_8p74j")
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Skill_texture" type="TextureRect" parent="For_crystal"]
