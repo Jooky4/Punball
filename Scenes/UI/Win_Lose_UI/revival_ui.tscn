@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://c3qbdnmbn82w7" path="res://Texture/UI/Revival_UI/100 проц. ХР 3 ряда.png" id="11_5ts6g"]
 [ext_resource type="Texture2D" uid="uid://bkmkcc5c2f415" path="res://Texture/UI/Revival_UI/кнопка АДС.png" id="12_wkuqu"]
 [ext_resource type="Texture2D" uid="uid://dg4xq5qxdjhwr" path="res://Texture/UI/Revival_UI/текст кнопки АДС.png" id="13_s7prf"]
+[ext_resource type="Texture2D" uid="uid://djiv5hip3kul0" path="res://Texture/UI/Revival_UI/i2.png" id="13_vx2gc"]
 [ext_resource type="Texture2D" uid="uid://d237q620rwapy" path="res://Texture/UI/Revival_UI/текст 50 проц. ХР.png" id="14_54frb"]
 [ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="14_foy0a"]
-[ext_resource type="Texture2D" uid="uid://c68mn065f4ror" path="res://Texture/UI/Revival_UI/i.png" id="14_urfrw"]
 [ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/уровень мира.png" id="15_402ae"]
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/бар прогресс мира.png" id="16_ghtno"]
 [ext_resource type="Texture2D" uid="uid://bw6xyapc0da5g" path="res://Texture/UI/Main_menu/прогресс мира шкала.png" id="17_bspsp"]
@@ -237,7 +237,7 @@ vertical_alignment = 1
 material = SubResource("ShaderMaterial_csjnb")
 position = Vector2(243, 45)
 scale = Vector2(0.29, 0.29)
-texture = ExtResource("14_urfrw")
+texture = ExtResource("13_vx2gc")
 
 [node name="Player_state" type="Control" parent="."]
 z_index = 10

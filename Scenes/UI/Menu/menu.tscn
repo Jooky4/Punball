@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://doh6rbwv7nhx2" path="res://Texture/UI/Main_menu/ограничение поля UI.png" id="4_h3cqw"]
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/бар прогресс мира.png" id="5_fbwen"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="5_h3ti1"]
-[ext_resource type="Texture2D" uid="uid://bw6xyapc0da5g" path="res://Texture/UI/Main_menu/прогресс мира шкала.png" id="6_ghyfi"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_uun7o"]
+[ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/прогресс мира шкала2.png" id="7_usr1m"]
+[ext_resource type="Texture2D" uid="uid://bptuq68epuon6" path="res://Texture/UI/Main_menu/линия для разделения2.png" id="11_p4754"]
 [ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/настройки.png" id="12_aoauw"]
-[ext_resource type="Texture2D" uid="uid://bwghrgqkw6d8n" path="res://Texture/UI/Main_menu/линия для разделения.png" id="13_om7tk"]
 [ext_resource type="Texture2D" uid="uid://c6ipwsl2ty1u2" path="res://Texture/UI/Main_menu/свинья.png" id="14_p10qp"]
 [ext_resource type="Texture2D" uid="uid://bpd4yjl1llu86" path="res://Texture/UI/Main_menu/кубок.png" id="15_4qcoo"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://tl6d1j151n1k" path="res://Texture/Heroes/Alisa/3_4 анфас/рука с посохом.png" id="26_sqpxk"]
 [ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
 [ext_resource type="Texture2D" uid="uid://j11yp4115jic" path="res://Texture/UI/Character_UI/Character_window/стрелка улучшения.png" id="27_p4vig"]
-[ext_resource type="PackedScene" uid="uid://c2ys2oj4481m3" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
+[ext_resource type="PackedScene" uid="uid://bfq4lhxqp2x0" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
 [ext_resource type="Texture2D" uid="uid://6m4xmt8olxn4" path="res://Texture/UI/Character_UI/Character_window/сердце база.png" id="28_5xtva"]
 [ext_resource type="Texture2D" uid="uid://cbjdufopv0pmk" path="res://Texture/UI/Character_UI/плашка персонажа активная.png" id="28_30gul"]
 [ext_resource type="Texture2D" uid="uid://cc53ex5bd746r" path="res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png" id="29_dv1yp"]
@@ -73,13 +73,13 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
 font = ExtResource("3_cjc1q")
-font_size = 40
+font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_ugv6k"]
 line_spacing = -10.0
 font = ExtResource("3_cjc1q")
 font_size = 25
-font_color = Color(0.14902, 0.2, 0.403922, 1)
+font_color = Color(0.054902, 0.113725, 0.341176, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_njq23"]
 font = ExtResource("3_cjc1q")
@@ -93,13 +93,13 @@ font_size = 30
 line_spacing = -10.0
 font = ExtResource("3_cjc1q")
 font_size = 18
-font_color = Color(0.14902, 0.2, 0.403922, 1)
+font_color = Color(0.054902, 0.113725, 0.341176, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pa4cp"]
 line_spacing = -10.0
 font = ExtResource("3_cjc1q")
 font_size = 20
-font_color = Color(0.14902, 0.2, 0.403922, 1)
+font_color = Color(0.054902, 0.113725, 0.341176, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lpl"]
 bg_color = Color(0.762009, 0.53941, 0.460928, 1)
@@ -226,9 +226,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -349.0
+offset_left = -342.0
 offset_top = -628.0
-offset_right = -295.0
+offset_right = -288.0
 offset_bottom = -576.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -250,13 +250,13 @@ vertical_alignment = 1
 [node name="Player_level_bar" type="TextureProgressBar" parent="Player_state/Player_level"]
 z_index = -1
 layout_mode = 0
-offset_left = 39.0
-offset_top = 5.0
-offset_right = 173.0
-offset_bottom = 44.0
+offset_left = 30.0
+offset_top = 6.0
+offset_right = 164.0
+offset_bottom = 45.0
 texture_under = ExtResource("5_fbwen")
-texture_progress = ExtResource("6_ghyfi")
-texture_progress_offset = Vector2(10, 11)
+texture_progress = ExtResource("7_usr1m")
+texture_progress_offset = Vector2(10, 9.73)
 
 [node name="Coins" type="TextureRect" parent="Player_state"]
 z_index = 2
@@ -371,7 +371,7 @@ offset_left = 65.0
 offset_top = 78.0
 offset_right = 645.0
 offset_bottom = 97.0
-texture = ExtResource("13_om7tk")
+texture = ExtResource("11_p4754")
 expand_mode = 1
 stretch_mode = 4
 
@@ -382,20 +382,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -325.0
-offset_top = -351.0
-offset_right = -235.0
-offset_bottom = -260.0
+offset_left = -316.0
+offset_top = -350.0
+offset_right = -226.0
+offset_bottom = -259.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("14_p10qp")
 
 [node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect4"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 109.0
-offset_bottom = 136.0
+offset_left = -12.0
+offset_top = 93.0
+offset_right = 119.0
+offset_bottom = 133.0
 texture = ExtResource("3_e5vte")
 
 [node name="Label" type="Label" parent="Main_menu/TextureRect4/TextureRect"]
@@ -403,8 +403,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 18.0
-offset_right = -5.0
+offset_left = 24.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0/800"
@@ -414,10 +414,10 @@ vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Main_menu/TextureRect4"]
 layout_mode = 0
-offset_left = -28.0
-offset_top = 89.0
-offset_right = 27.0
-offset_bottom = 145.0
+offset_left = -26.0
+offset_top = 86.0
+offset_right = 29.0
+offset_bottom = 142.0
 texture = ExtResource("5_h3ti1")
 
 [node name="TextureRect5" type="TextureRect" parent="Main_menu"]
@@ -427,20 +427,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 224.0
-offset_top = -356.0
-offset_right = 330.0
-offset_bottom = -265.0
+offset_left = 232.0
+offset_top = -365.0
+offset_right = 338.0
+offset_bottom = -274.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_4qcoo")
 
 [node name="TextureRect" type="TextureRect" parent="Main_menu/TextureRect5"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 100.0
-offset_right = 109.0
-offset_bottom = 151.0
+offset_left = 6.0
+offset_top = 91.0
+offset_right = 100.0
+offset_bottom = 149.0
 texture = ExtResource("16_06xp1")
 
 [node name="Label" type="Label" parent="Main_menu/TextureRect5/TextureRect"]
@@ -450,7 +450,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "0
+text = "1224
 место"
 label_settings = SubResource("LabelSettings_pa4cp")
 horizontal_alignment = 1
@@ -2438,9 +2438,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 270.0
+offset_left = 263.0
 offset_top = -623.0
-offset_right = 348.0
+offset_right = 341.0
 offset_bottom = -545.0
 grow_horizontal = 2
 grow_vertical = 2

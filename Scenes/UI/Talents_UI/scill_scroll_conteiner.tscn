@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dnvg0ncyk7tc2" path="res://Texture/UI/Talents_UI/ячейка активная для талантов за монеты.png" id="1_0phtb"]
 [ext_resource type="Script" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
-[ext_resource type="Texture2D" uid="uid://72rpjmcdgvit" path="res://Texture/UI/Talents_UI/золотая ячейка.png" id="2_tv2hr"]
 [ext_resource type="Texture2D" uid="uid://dtpqw0kjhm278" path="res://Texture/UI/Talents_UI/всплывающее окно (покупка).png" id="3_pv7q1"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_tylve"]
 [ext_resource type="Texture2D" uid="uid://ck04ttpiwx5hx" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна).png" id="5_pjx38"]
 [ext_resource type="Texture2D" uid="uid://kp41ah4lio7c" path="res://Texture/UI/Talents_UI/монетка (для всплывающего окна).png" id="6_21xj4"]
 [ext_resource type="Texture2D" uid="uid://dg4tm5hm7o1r0" path="res://Texture/UI/Talents_UI/зеленая галочка2.png" id="7_w7t02"]
 [ext_resource type="Texture2D" uid="uid://c45d0wb078w46" path="res://Texture/UI/Talents_UI/серая полоска.png" id="8_rfvt8"]
+[ext_resource type="Texture2D" uid="uid://da7nwj1s8ivou" path="res://Texture/UI/Talents_UI/золотая ячейка2.png" id="9_en243"]
 [ext_resource type="Texture2D" uid="uid://cpxwnyyvl6vo5" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна)2.png" id="10_aeudc"]
 [ext_resource type="Texture2D" uid="uid://bxqyq6ikvha7n" path="res://Texture/UI/Main_menu/кристаллБезОбв.png" id="11_841kq"]
 
@@ -20,6 +20,8 @@ font_color = Color(0.541176, 0.403922, 0.262745, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_pmj3m"]
 font = ExtResource("4_tylve")
 font_size = 50
+shadow_color = Color(0, 0, 0, 0.160784)
+shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rku7x"]
 font = ExtResource("4_tylve")
@@ -27,9 +29,12 @@ font_size = 15
 font_color = Color(0.890625, 0.240356, 0.212219, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8p74j"]
+line_spacing = 0.0
 font = ExtResource("4_tylve")
-font_size = 20
+font_size = 22
 font_color = Color(0.542969, 0.402985, 0.263, 1)
+shadow_color = Color(0.435294, 0.305882, 0.176471, 0)
+shadow_offset = Vector2(-1, 1)
 
 [node name="Scill_scroll_conteiner" type="MarginContainer"]
 custom_minimum_size = Vector2(720, 0)
@@ -54,12 +59,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -374.0
-offset_right = 96.0
-offset_bottom = -127.0
+offset_left = -116.0
+offset_top = -421.0
+offset_right = 76.0
+offset_bottom = -174.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_pv7q1")
 
 [node name="Need_level" type="Label" parent="For_coins/Information"]
@@ -126,10 +132,10 @@ vertical_alignment = 1
 [node name="Have_this_skill" type="TextureRect" parent="For_coins/Information"]
 visible = false
 layout_mode = 0
-offset_left = 66.0
-offset_top = 163.0
-offset_right = 143.0
-offset_bottom = 232.0
+offset_left = 61.0
+offset_top = 155.0
+offset_right = 150.0
+offset_bottom = 235.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_w7t02")
 
@@ -160,15 +166,16 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 15.0
-offset_top = 7.0
+offset_top = 10.8333
 offset_right = -13.0
-offset_bottom = -160.0
+offset_bottom = -156.167
 grow_horizontal = 2
 grow_vertical = 2
 text = "Увеличение атаки"
 label_settings = SubResource("LabelSettings_8p74j")
 horizontal_alignment = 1
 autowrap_mode = 3
+uppercase = true
 
 [node name="Discription" type="Label" parent="For_coins/Information"]
 layout_mode = 1
@@ -176,8 +183,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.0
-offset_top = 81.0
-offset_right = 2.0
+offset_top = 90.0
+offset_right = -2.0
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -186,6 +193,7 @@ text = "Атака +50
 label_settings = SubResource("LabelSettings_8p74j")
 horizontal_alignment = 1
 autowrap_mode = 3
+uppercase = true
 
 [node name="Skill_texture" type="TextureRect" parent="For_coins"]
 layout_mode = 1
@@ -232,7 +240,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 2
 disabled = true
-texture_normal = ExtResource("2_tv2hr")
+texture_normal = ExtResource("9_en243")
 
 [node name="Information" type="TextureRect" parent="For_crystal"]
 visible = false
@@ -242,12 +250,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -408.0
-offset_right = 96.0
-offset_bottom = -161.0
+offset_left = -117.0
+offset_top = -449.0
+offset_right = 75.0
+offset_bottom = -202.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_pv7q1")
 
 [node name="Need_level" type="Label" parent="For_crystal/Information"]
@@ -314,9 +323,9 @@ vertical_alignment = 1
 [node name="Have_this_skill" type="TextureRect" parent="For_crystal/Information"]
 visible = false
 layout_mode = 0
-offset_left = 66.0
-offset_top = 166.0
-offset_right = 143.0
+offset_left = 60.8333
+offset_top = 155.0
+offset_right = 149.833
 offset_bottom = 235.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_w7t02")
@@ -343,20 +352,22 @@ autowrap_mode = 3
 uppercase = true
 
 [node name="Skill_name" type="Label" parent="For_crystal/Information"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 14.0
-offset_top = 8.0
+offset_top = 10.8333
 offset_right = -12.0
-offset_bottom = -137.0
+offset_bottom = -134.167
 grow_horizontal = 2
 grow_vertical = 2
 text = "Увеличение атаки"
 label_settings = SubResource("LabelSettings_8p74j")
 horizontal_alignment = 1
 autowrap_mode = 3
+uppercase = true
 
 [node name="Discription" type="Label" parent="For_crystal/Information"]
 layout_mode = 1
@@ -375,6 +386,7 @@ label_settings = SubResource("LabelSettings_8p74j")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+uppercase = true
 
 [node name="Skill_texture" type="TextureRect" parent="For_crystal"]
 layout_mode = 1

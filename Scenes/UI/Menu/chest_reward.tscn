@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2ys2oj4481m3"]
+[gd_scene load_steps=14 format=3 uid="uid://bfq4lhxqp2x0"]
 
 [ext_resource type="Texture2D" uid="uid://b0d8lk7mn6ebi" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА.png" id="1_jvfyh"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chest_reward.gd" id="1_ppeti"]

@@ -202,7 +202,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_13ul0"]
 resource_name = "boss_close"
-length = 3.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -210,7 +210,7 @@ tracks/0/path = NodePath("Reminder_boss:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -222,7 +222,7 @@ tracks/1/path = NodePath("Reminder_boss/Boss_close:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 2.7, 3),
+"times": PackedFloat32Array(0, 0.3, 1.2, 1.5),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(-540, 753), Vector2(2285, 753), Vector2(2285, 753), Vector2(4679, 753)]
@@ -254,7 +254,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_mko01"]
 resource_name = "spawn_boss"
-length = 2.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -262,7 +262,7 @@ tracks/0/path = NodePath("Reminder_boss:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -274,7 +274,7 @@ tracks/1/path = NodePath("Reminder_boss/Boss_here:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 2.2, 2.5),
+"times": PackedFloat32Array(0, 0.3, 1.7, 2),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(11, 717), Vector2(2242, 717), Vector2(2242, 717), Vector2(4768, 717)]
@@ -870,7 +870,6 @@ offset_bottom = 1371.0
 color = Color(0, 0, 0, 0.694118)
 
 [node name="Boss_here" type="Label" parent="UI/Reminder_boss"]
-visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 11.0
@@ -879,6 +878,7 @@ offset_right = 568.0
 offset_bottom = 787.0
 text = "Большая черника"
 label_settings = SubResource("LabelSettings_2dum8")
+vertical_alignment = 2
 
 [node name="ColorRect2" type="ColorRect" parent="UI/Reminder_boss/Boss_here"]
 z_index = -1
@@ -901,22 +901,22 @@ texture = ExtResource("18_gvlsg")
 [node name="Label2" type="Label" parent="UI/Reminder_boss/Boss_here"]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 61.0
+offset_top = 66.0
 offset_right = 498.0
-offset_bottom = 119.0
+offset_bottom = 124.0
 text = "Большой ствол, внушительный урон"
 label_settings = SubResource("LabelSettings_e60f6")
+
+[node name="Shadow" type="Sprite2D" parent="UI/Reminder_boss/Boss_here"]
+modulate = Color(0, 0, 0, 0.235294)
+position = Vector2(-91, 131)
+scale = Vector2(1.45313, 0.828126)
+texture = ExtResource("22_ed5nt")
 
 [node name="1" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
 position = Vector2(-87, 70.0001)
 scale = Vector2(0.12, 0.12)
-
-[node name="Shadow" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/1"]
-modulate = Color(0, 0, 0, 0.235294)
-position = Vector2(-33.3334, 508.332)
-scale = Vector2(12.1094, 6.90105)
-texture = ExtResource("22_ed5nt")
 
 [node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/1"]
 position = Vector2(-29.4118, -89.4797)
@@ -937,7 +937,7 @@ offset = Vector2(45.4571, 117.586)
 [node name="2" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
 material = SubResource("ShaderMaterial_8mudr")
-position = Vector2(-91, 65)
+position = Vector2(-85, 63)
 scale = Vector2(0.14, 0.14)
 
 [node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2"]
@@ -968,7 +968,7 @@ offset = Vector2(45.4571, 117.586)
 [node name="3" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
 material = SubResource("ShaderMaterial_0087b")
-position = Vector2(-88, 67)
+position = Vector2(-85, 64)
 scale = Vector2(0.14, 0.14)
 
 [node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/3"]
@@ -993,7 +993,7 @@ offset = Vector2(45.4571, 117.586)
 [node name="4" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
 material = SubResource("ShaderMaterial_f6qx8")
-position = Vector2(-91, 72)
+position = Vector2(-87, 65)
 scale = Vector2(0.14, 0.14)
 
 [node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/4"]
@@ -1029,7 +1029,7 @@ texture = ExtResource("64_ehpe0")
 [node name="5" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
 material = SubResource("ShaderMaterial_ysv2o")
-position = Vector2(-96, 59)
+position = Vector2(-92, 50)
 scale = Vector2(1.8, 1.8)
 
 [node name="Body" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5"]
@@ -1055,6 +1055,7 @@ scale = Vector2(0.285, 0.285)
 texture = ExtResource("62_l76s3")
 
 [node name="Boss_close" type="Label" parent="UI/Reminder_boss"]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 9.0
@@ -1154,6 +1155,13 @@ label_settings = SubResource("LabelSettings_hc57q")
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Shadow" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC"]
+modulate = Color(0, 0, 0, 0.196078)
+z_index = 1
+position = Vector2(1163, 74)
+scale = Vector2(0.859375, 0.625)
+texture = ExtResource("22_ed5nt")
+
 [node name="1" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
 z_index = 2
@@ -1182,7 +1190,7 @@ texture = ExtResource("29_22o7v")
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_gqt1y")
-position = Vector2(1163, 41)
+position = Vector2(1165, 42)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/2"]
@@ -1208,7 +1216,7 @@ offset = Vector2(45.4571, 117.586)
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_iifrd")
-position = Vector2(1163, 40)
+position = Vector2(1165, 41)
 scale = Vector2(0.076, 0.076)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
@@ -1241,7 +1249,7 @@ texture = ExtResource("33_4ppm5")
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_tuob1")
-position = Vector2(1159, 30)
+position = Vector2(1162, 32)
 
 [node name="Body" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/5"]
 use_parent_material = true
@@ -1265,7 +1273,7 @@ texture = ExtResource("36_dramc")
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_jlbgd")
-position = Vector2(1159, 44)
+position = Vector2(1164, 47)
 scale = Vector2(0.073, 0.073)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/6"]
@@ -1284,7 +1292,7 @@ texture = ExtResource("38_6oyu1")
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_s520g")
-position = Vector2(1159, 40)
+position = Vector2(1165, 43)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8"]
@@ -1316,7 +1324,7 @@ offset = Vector2(45.4571, 117.586)
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_uvuyf")
-position = Vector2(1157, 46)
+position = Vector2(1160, 49)
 scale = Vector2(0.075, 0.075)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9"]
@@ -1372,7 +1380,7 @@ offset = Vector2(-21.76, -5.4426)
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_iax0b")
-position = Vector2(1161, 41)
+position = Vector2(1165, 43)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10"]
@@ -1398,7 +1406,7 @@ offset = Vector2(45.4571, 117.586)
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_4x0c7")
-position = Vector2(1157, 40)
+position = Vector2(1164, 41)
 scale = Vector2(0.075, 0.075)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12"]
@@ -1435,7 +1443,7 @@ texture = ExtResource("58_3b5a4")
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_4ty78")
-position = Vector2(1163, 31)
+position = Vector2(1162, 32)
 
 [node name="Body" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13"]
 use_parent_material = true
@@ -1463,7 +1471,7 @@ texture = ExtResource("62_l76s3")
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_6ea1d")
-position = Vector2(1162, 41)
+position = Vector2(1164, 44)
 scale = Vector2(0.07, 0.07)
 
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/14"]
