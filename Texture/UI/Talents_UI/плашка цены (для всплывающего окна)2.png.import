@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sl81gelp2o3x"
-path="res://.godot/imported/зеленая галочка.png-1702e3226513ec79995c3d5371054641.ctex"
+uid="uid://cpxwnyyvl6vo5"
+path="res://.godot/imported/плашка цены (для всплывающего окна)2.png-d099bf2140ece6d0e3257bb36a748788.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Talents_UI/зеленая галочка.png"
-dest_files=["res://.godot/imported/зеленая галочка.png-1702e3226513ec79995c3d5371054641.ctex"]
+source_file="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна)2.png"
+dest_files=["res://.godot/imported/плашка цены (для всплывающего окна)2.png-d099bf2140ece6d0e3257bb36a748788.ctex"]
 
 [params]
 
