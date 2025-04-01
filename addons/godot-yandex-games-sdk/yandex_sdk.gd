@@ -42,6 +42,10 @@ var callback_stats_loaded = JavaScriptBridge.create_callback(_stats_loaded)
 var callback_leaderboard_player_entry_loaded = JavaScriptBridge.create_callback(_leaderboard_player_entry_loaded)
 var callback_leaderboard_entries_loaded = JavaScriptBridge.create_callback(_leaderboard_entries_loaded)
 
+signal purchased(item_id)
+var is_payments_initialized: bool = false
+var callback_purchase = JavaScriptBridge.create_callback(_onPurchaseItem)
+
 @onready var window = JavaScriptBridge.get_interface("window")
 
 
@@ -92,6 +96,7 @@ func init_game() -> void:
 		return
 	if not is_game_initialization_started and not is_game_initialized:
 		is_game_initialization_started = true
+		is_payments_initialized = true
 		var options = JavaScriptBridge.create_object("Object")
 		window.InitGame(options, callback_game_initialized)
 
@@ -326,3 +331,15 @@ func _player_initialized(args) -> void:
 func _leaderboard_initialized(args) -> void:
 	is_leaderboard_initialized = true
 	leaderboard_initialized.emit()
+
+
+func purchase_item(item_id: String):
+	if not OS.has_feature("yandex"):
+		return
+	if not is_payments_initialized:
+		await game_initialized
+	window.purchaseItem(item_id,callback_purchase)
+
+
+func _onPurchaseItem(item_id):
+	emit_signal('purchased',item_id)

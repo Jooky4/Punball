@@ -1,4 +1,5 @@
 let ysdk;
+let payments = null;
 function InitGame(params, callback) {
 	console.log("Yandex SDK start initialization");
 	YaGames.init(params)
@@ -8,6 +9,13 @@ function InitGame(params, callback) {
 
 			console.log("Game initialized");
 			console.log("Environment", ysdk.environment);
+			
+			ysdk.getPayments({ signed: true }).then(_payments => {
+				payments = _payments;
+				console.log('Payments initialized');
+				}).catch(err => {
+					console.error("Error initializing payments: ", err);
+				});
 
 			callback(ysdk.environment);
 		})
@@ -264,4 +272,19 @@ function incrementStats(increments, callback) {
 		console.log("Stats incremented ", result);
 		callback(result);
 	});
+}
+
+function purchaseItem(item_id, callback) {
+    if (!payments) {
+        console.error("Payments not initialized.");
+        return;
+    }
+    else {
+        payments.purchase({ id: item_id }).then(purchase => {
+            console.log("Purchase successful: ", item_id);
+            callback(item_id);
+        }).catch(err => {
+            console.log("Purchase failed: ", err);
+        });
+    }
 }

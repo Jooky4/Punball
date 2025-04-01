@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=111 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -24,34 +24,52 @@
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/иконка мечи.png" id="19_q5oq5"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/characters_UI.gd" id="20_1y5uy"]
 [ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/иконка книга.png" id="20_bdbvx"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/shop.gd" id="20_gcgux"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
 [ext_resource type="Texture2D" uid="uid://bo7sf7mnakgq1" path="res://Texture/UI/Character_UI/Character_window/иконка руна.png" id="21_nwckc"]
+[ext_resource type="Texture2D" uid="uid://cr8nvoy2b67ys" path="res://Texture/UI/Shop_UI/монеты подрожка.png" id="21_skdl8"]
+[ext_resource type="Texture2D" uid="uid://kk8ljg172upi" path="res://Texture/UI/Shop_UI/синяя подложка для окон монет-кристаллов.png" id="22_hq88r"]
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
+[ext_resource type="Texture2D" uid="uid://c27j04flqk5yi" path="res://Texture/UI/Shop_UI/окно для монет.png" id="23_0d0bh"]
 [ext_resource type="Script" path="res://Scenes/UI/Characters/character_1_window.gd" id="23_6x0rm"]
 [ext_resource type="Texture2D" uid="uid://cfy3yh6mgo2qu" path="res://Texture/UI/Character_UI/Character_window/прогресс бар уровня персонажа.png" id="23_g0yqi"]
+[ext_resource type="Texture2D" uid="uid://crnbctqhjowll" path="res://Texture/UI/Shop_UI/кристаллы подрожка.png" id="23_wpccf"]
 [ext_resource type="Texture2D" uid="uid://boytwpg07b51f" path="res://Texture/Heroes/Alisa/3_4 анфас/туловище.png" id="23_xq13h"]
 [ext_resource type="Texture2D" uid="uid://dj0mdg2cyqpsk" path="res://Texture/Heroes/Alisa/3_4 анфас/голова 2.png" id="24_h2qap"]
+[ext_resource type="Texture2D" uid="uid://cj2voext6rg6i" path="res://Texture/UI/Shop_UI/монета 1.png" id="24_nehew"]
 [ext_resource type="Texture2D" uid="uid://bdsgv1droqrif" path="res://Texture/UI/Character_UI/Character_window/зеленый уровнь персонажа для прогресса.png" id="24_ykvw2"]
+[ext_resource type="Texture2D" uid="uid://gq0f75y2oogd" path="res://Texture/UI/Shop_UI/монета 2.png" id="25_21de7"]
 [ext_resource type="Texture2D" uid="uid://7re5qk7w6cgm" path="res://Texture/Heroes/Alisa/3_4 анфас/рука 2.png" id="25_ea5mv"]
 [ext_resource type="Texture2D" uid="uid://2iny41pxjg20" path="res://Texture/UI/Character_UI/Character_window/плашка под иконку.png" id="25_rjbq8"]
 [ext_resource type="Texture2D" uid="uid://b6r20b2owmufa" path="res://Texture/UI/Character_UI/Character_window/меч.png" id="26_ei0qc"]
 [ext_resource type="Texture2D" uid="uid://tl6d1j151n1k" path="res://Texture/Heroes/Alisa/3_4 анфас/рука с посохом.png" id="26_sqpxk"]
+[ext_resource type="Texture2D" uid="uid://cn1jsdr3evt7x" path="res://Texture/UI/Shop_UI/монета 3.png" id="26_wvchi"]
 [ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
+[ext_resource type="Texture2D" uid="uid://b3c8d7ow373q6" path="res://Texture/UI/Shop_UI/монета 4.png" id="27_jjtc7"]
 [ext_resource type="Texture2D" uid="uid://j11yp4115jic" path="res://Texture/UI/Character_UI/Character_window/стрелка улучшения.png" id="27_p4vig"]
 [ext_resource type="PackedScene" uid="uid://c2ys2oj4481m3" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
 [ext_resource type="Texture2D" uid="uid://6m4xmt8olxn4" path="res://Texture/UI/Character_UI/Character_window/сердце база.png" id="28_5xtva"]
 [ext_resource type="Texture2D" uid="uid://cbjdufopv0pmk" path="res://Texture/UI/Character_UI/плашка персонажа активная.png" id="28_30gul"]
+[ext_resource type="Texture2D" uid="uid://lin3afhbskvv" path="res://Texture/UI/Shop_UI/монета 5.png" id="28_lceg1"]
+[ext_resource type="Texture2D" uid="uid://1lmkgscpmf2q" path="res://Texture/UI/Shop_UI/монета 6.png" id="29_d1w7v"]
 [ext_resource type="Texture2D" uid="uid://cc53ex5bd746r" path="res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png" id="29_dv1yp"]
 [ext_resource type="Texture2D" uid="uid://cl5c1073l1ns3" path="res://Texture/UI/Talents_UI/замок.png" id="29_k5hbu"]
 [ext_resource type="Texture2D" uid="uid://qqfohh4ohbyu" path="res://Texture/UI/Character_UI/Character_window/фон вертикальный.png" id="29_ke4g2"]
 [ext_resource type="Texture2D" uid="uid://jcy8balgn8ur" path="res://Texture/UI/Character_UI/уровень перса.png" id="29_lxmlr"]
 [ext_resource type="Texture2D" uid="uid://bmtxu0eqj1ssr" path="res://Texture/UI/Character_UI/полоска разделитель.png" id="30_g1evk"]
 [ext_resource type="Texture2D" uid="uid://ckgv7detkwio1" path="res://Texture/UI/Character_UI/Character_window/плашка для материалов покупки.png" id="30_qcdih"]
+[ext_resource type="Texture2D" uid="uid://d01f1hwel8jg4" path="res://Texture/UI/Shop_UI/окно для кристаллов.png" id="31_1qtya"]
 [ext_resource type="Texture2D" uid="uid://8ecjqcdbb4a" path="res://Texture/UI/Character_UI/плашка персонажа неактивная.png" id="31_5u4xa"]
+[ext_resource type="Texture2D" uid="uid://b5uosa6inw6tq" path="res://Texture/UI/Shop_UI/кристалл 1.png" id="32_0mmh1"]
 [ext_resource type="Texture2D" uid="uid://dsh2mk3uxj0ap" path="res://Texture/UI/Character_UI/кнопка выбран.png" id="32_sva66"]
+[ext_resource type="Texture2D" uid="uid://by1ysutk6o7tf" path="res://Texture/UI/Shop_UI/кристалл 2.png" id="33_lr1uh"]
+[ext_resource type="Texture2D" uid="uid://do65vkjck28pi" path="res://Texture/UI/Shop_UI/кристалл 3.png" id="34_3ixuv"]
+[ext_resource type="Texture2D" uid="uid://bs4qmb742an6q" path="res://Texture/UI/Shop_UI/кристалл 4.png" id="35_aktnb"]
 [ext_resource type="Texture2D" uid="uid://dp6g21b77mmvu" path="res://Texture/UI/Character_UI/Character_window/кнопка ВЫБРАТь.png" id="35_yveks"]
 [ext_resource type="Texture2D" uid="uid://pmcgodh3ehj0" path="res://Texture/UI/Character_UI/Character_window/кнопка КУПИТЬ за кристаллы.png" id="36_0hnwo"]
 [ext_resource type="Texture2D" uid="uid://b6e103x27c8je" path="res://Texture/UI/Character_UI/Character_window/шанс заморозить врага.png" id="36_cqs0r"]
+[ext_resource type="Texture2D" uid="uid://dbas0a7qifn8x" path="res://Texture/UI/Shop_UI/кристалл 5..png" id="36_hq60e"]
+[ext_resource type="Texture2D" uid="uid://dyomqh0hueksa" path="res://Texture/UI/Shop_UI/кристалл 6.png" id="37_142ex"]
 [ext_resource type="Texture2D" uid="uid://ckjtkyvasjni8" path="res://Texture/UI/Character_UI/Character_window/усиление стихии холода.png" id="37_ovsro"]
 [ext_resource type="Texture2D" uid="uid://c8f717ql3qobr" path="res://Texture/UI/Character_UI/Character_window/шанс восстановления.png" id="38_lotfc"]
 [ext_resource type="Texture2D" uid="uid://cdnp7wqrqoaui" path="res://Texture/UI/Character_UI/Character_window/иконка 4.png" id="39_ys04g"]
@@ -106,6 +124,10 @@ bg_color = Color(0.762009, 0.53941, 0.460928, 1)
 
 [sub_resource type="Theme" id="Theme_kmt4p"]
 Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3n0kt"]
+font = ExtResource("3_cjc1q")
+font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_hfpbj"]
 font = ExtResource("3_cjc1q")
@@ -584,24 +606,522 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("20_gcgux")
 
-[node name="Label" type="Label" parent="Shop"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -358.0
-offset_top = -520.0
-offset_right = 359.0
-offset_bottom = -439.0
+offset_left = -315.0
+offset_top = -542.0
+offset_right = 316.0
+offset_bottom = 488.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "МАГАЗИН"
-label_settings = SubResource("LabelSettings_njq23")
-horizontal_alignment = 1
-vertical_alignment = 1
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("21_skdl8")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("22_hq88r")
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -232.0
+offset_right = 269.5
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Coins_1" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_nehew")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Coins_2" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_21de7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Coins_3" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_wvchi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Coins_4" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_jjtc7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Coins_5" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_lceg1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Coins_6" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_0d0bh")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_d1w7v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="TextureRect3" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("23_wpccf")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("22_hq88r")
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -232.0
+offset_right = 269.5
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Crystal_1" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("32_0mmh1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Crystal_2" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_lr1uh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Crystal_3" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("34_3ixuv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Crystal_4" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("35_aktnb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Crystal_5" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("36_hq60e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="Crystal_6" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
+
+[node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("37_142ex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 23.0
+offset_right = 48.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 ₽"
+label_settings = SubResource("LabelSettings_3n0kt")
 
 [node name="Characters" type="Control" parent="."]
 visible = false
@@ -2617,6 +3137,18 @@ layout_mode = 1
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
 [connection signal="pressed" from="Main_menu/PLay_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1" to="Shop" method="_on_coins_1_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2" to="Shop" method="_on_coins_2_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3" to="Shop" method="_on_coins_3_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4" to="Shop" method="_on_coins_4_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5" to="Shop" method="_on_coins_5_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6" to="Shop" method="_on_coins_6_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1" to="Shop" method="_on_crystal_1_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2" to="Shop" method="_on_crystal_2_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3" to="Shop" method="_on_crystal_3_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4" to="Shop" method="_on_crystal_4_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5" to="Shop" method="_on_crystal_5_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6" to="Shop" method="_on_crystal_6_pressed"]
 [connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_1/Button_1_character" to="Characters" method="_on_button_1_character_pressed"]
 [connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_2/Button_2_character" to="Characters" method="_on_button_buy_2_pressed"]
 [connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_3/Button_3_character" to="Characters" method="_on_button_buy_3_pressed"]

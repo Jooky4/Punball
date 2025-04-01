@@ -136,6 +136,7 @@ func update_rune_label() -> void:
 	rune_label.text = str(PlayerIndicatorsManager.COUNT_RUNE)
 
 func _on_button_pressed() -> void:
+	AudioManager.click()
 	ChangeScene.black_screen()
 	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
 	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
