@@ -36,7 +36,7 @@ func byu(id_buy) -> void:
 	menu.update_crystal_label()
 
 
-func _on_coins_1_pressed(extra_arg_0: int) -> void:
+func _on_coins_1_pressed() -> void:
 	AudioManager.click()
 	YandexSDK.purchase_item("coins_500")
 
