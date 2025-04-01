@@ -8,9 +8,12 @@ func _ready():
 	get_viewport().connect("focus_exited", _on_focus_exited)
 
 func _on_focus_entered():
+	if get_tree().current_scene.has_method("revavil_player"):
+		YandexSDK.gameplay_started()
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 
 func _on_focus_exited():
+	YandexSDK.gameplay_stopped()
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 
 func music_start() -> void:

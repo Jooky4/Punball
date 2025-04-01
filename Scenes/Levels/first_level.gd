@@ -94,6 +94,7 @@ func _ready() -> void:
 	update_character()
 	await get_tree().create_timer(0.05).timeout
 	ChangeScene.normal_screen()
+	YandexSDK.gameplay_started()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
@@ -282,6 +283,8 @@ func get_health(health_hp) -> void:
 		LevelManager.hp_player = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
+	if round(health_hp) > 0:
+		player_take_damage_create_label("+" + str(round(health_hp)), 0)
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
 		LevelManager.update_character_3_damage_from_OZ()
 
@@ -291,9 +294,13 @@ func player_take_damage_create_label(label_damage, who_deal_damage : int = 0) ->
 	label.z_index = 8
 	label.global_position = start_balls_position.global_position
 	if typeof(label_damage) != 3 and typeof(label_damage) != 2:
-		label.global_position = start_balls_position.global_position + Vector2(-30, 0)
-		color_label = ElementsManager.color_elements["NORMAL"]
-		label.text = str(label_damage)
+		if "+" in label_damage:
+			color_label = ElementsManager.color_elements["HEAL"]
+			label.text = str(label_damage)
+		else:
+			label.global_position = start_balls_position.global_position + Vector2(-30, 0)
+			color_label = ElementsManager.color_elements["NORMAL"]
+			label.text = str(label_damage)
 	else:
 		label.text = "-" + str(label_damage)
 		if who_deal_damage == 0:
@@ -830,6 +837,7 @@ func _on_balls_back_pressed() -> void:
 func _on_button_pause_pressed() -> void:
 	AudioManager.click()
 	pause_menu_UI.update_texture_skill()
+	YandexSDK.gameplay_stopped()
 	pause_menu_UI.visible = true
 	get_tree().paused = true
 	Engine.time_scale = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b5qxmagbaw24c"]
+[gd_scene load_steps=31 format=3 uid="uid://b5qxmagbaw24c"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/win_lose_UI.gd" id="1_syo30"]
 [ext_resource type="Texture2D" uid="uid://beiknpx7eyqi" path="res://Texture/UI/Win_Lose_UI/фон общий.png" id="2_yyvh5"]
@@ -12,11 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://36gxn3svqfhg" path="res://Texture/UI/Win_Lose_UI/прогресс бар (круг).png" id="10_himc1"]
 [ext_resource type="Texture2D" uid="uid://dvhi5ccp4uix2" path="res://Texture/UI/Win_Lose_UI/прогресс бар.png" id="11_il720"]
 [ext_resource type="Texture2D" uid="uid://bcw45dakn580r" path="res://Texture/UI/Win_Lose_UI/прогресс бар (зеленый прогресс).png" id="12_1bfgs"]
-[ext_resource type="Texture2D" uid="uid://bu1kw4j6ygscr" path="res://Texture/UI/Win_Lose_UI/Свинья копилка.png" id="13_a2qqn"]
-[ext_resource type="Texture2D" uid="uid://cogesovirgl3b" path="res://Texture/UI/Win_Lose_UI/прогресс бар копилки.png" id="14_a3vn6"]
-[ext_resource type="Texture2D" uid="uid://b0i1dp1embqqv" path="res://Texture/UI/Win_Lose_UI/кристалл.png" id="15_cadh6"]
-[ext_resource type="Texture2D" uid="uid://bt2rnitnuyve3" path="res://Texture/UI/Win_Lose_UI/кубок.png" id="16_utsot"]
-[ext_resource type="Texture2D" uid="uid://bce0y06mhamku" path="res://Texture/UI/Win_Lose_UI/палшка для кубка.png" id="17_iheo0"]
 [ext_resource type="Texture2D" uid="uid://b0d8lk7mn6ebi" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА.png" id="18_102kk"]
 [ext_resource type="Texture2D" uid="uid://dnrjr7lrkag4p" path="res://Texture/UI/Win_Lose_UI/место под награды.png" id="19_wlge8"]
 [ext_resource type="Texture2D" uid="uid://dfmgd4spspuao" path="res://Texture/UI/Win_Lose_UI/палшка под награды.png" id="20_dl1ot"]
@@ -47,18 +42,6 @@ font_size = 35
 [sub_resource type="LabelSettings" id="LabelSettings_8dbnd"]
 font = ExtResource("6_amvnp")
 font_size = 75
-
-[sub_resource type="LabelSettings" id="LabelSettings_pn3sq"]
-line_spacing = -10.0
-font = ExtResource("6_amvnp")
-font_size = 20
-font_color = Color(0.14902, 0.2, 0.403922, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_qq5wo"]
-line_spacing = -10.0
-font = ExtResource("6_amvnp")
-font_size = 25
-font_color = Color(0.14902, 0.2, 0.403922, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2q3ig"]
 font = ExtResource("6_amvnp")
@@ -242,92 +225,6 @@ offset_bottom = 73.0
 texture_under = ExtResource("11_il720")
 texture_progress = ExtResource("12_1bfgs")
 texture_progress_offset = Vector2(17, 15)
-
-[node name="TextureRect7" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -356.0
-offset_top = -238.0
-offset_right = -221.0
-offset_bottom = -101.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("13_a2qqn")
-
-[node name="TextureRect8" type="TextureRect" parent="TextureRect7"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 159.0
-offset_right = 147.0
-offset_bottom = 199.0
-texture = ExtResource("14_a3vn6")
-
-[node name="Label" type="Label" parent="TextureRect7/TextureRect8"]
-layout_mode = 0
-offset_left = 16.0
-offset_right = 120.0
-offset_bottom = 42.0
-text = "0/800"
-label_settings = SubResource("LabelSettings_pn3sq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect7"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = 2.0
-offset_right = 46.0
-offset_bottom = 80.0
-grow_vertical = 0
-texture = ExtResource("15_cadh6")
-
-[node name="TextureRect9" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 217.0
-offset_top = -220.0
-offset_right = 362.0
-offset_bottom = -108.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("16_utsot")
-
-[node name="TextureRect10" type="TextureRect" parent="TextureRect9"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -51.5
-offset_top = 69.0
-offset_right = 52.5
-offset_bottom = 136.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("17_iheo0")
-
-[node name="Label" type="Label" parent="TextureRect9/TextureRect10"]
-layout_mode = 0
-offset_left = -1.0
-offset_right = 105.0
-offset_bottom = 68.0
-text = "0
-место"
-label_settings = SubResource("LabelSettings_qq5wo")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
