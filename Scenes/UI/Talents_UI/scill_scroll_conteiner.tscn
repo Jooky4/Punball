@@ -47,6 +47,7 @@ texture_normal = ExtResource("1_0phtb")
 
 [node name="Information" type="TextureRect" parent="For_coins"]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
