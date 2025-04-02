@@ -60,9 +60,11 @@ func _ready() -> void:
 	AudioManager.music_start()
 	YandexSDK.connect("game_initialized", update_player_indicators)
 	YandexSDK.connect("data_loaded", player_date_loaded)
+	YandexSDK.connect('purchased', _process_purchase)
 	update_player_indicators()
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
+
 	main_menu_UI.visible = true
 	shop_UI.visible = false
 	characters_UI.visible = false
@@ -82,6 +84,36 @@ func arabic_to_roman(num: int) -> String:
 		i += 1
 	return roman_num
 
+func _process_purchase(id_buy) -> void:
+	if "coins_500" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(500)
+	if "coins_2500" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(2500)
+	if "coins_7000" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(7000)
+	if "coins_16000" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(16000)
+	if "coins_35000" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(35000)
+	if "coins_80000" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(80000)
+
+	if "crystal_100" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(100)
+	if "crystal_500" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(500)
+	if "crystal_1200" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(1200)
+	if "crystal_2500" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(2500)
+	if "crystal_6000" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(6000)
+	if "crystal_14000" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(14000)
+
+	update_coins_label()
+	update_crystal_label()
+
 func update_player_indicators() -> void:
 	PlayerIndicatorsManager.update_player_date_in_game()
 	AudioManager.music_start()
@@ -97,7 +129,6 @@ func player_date_loaded(data) -> void:
 	chests.update_label_chests()
 	can_by_new_talant()
 	$Select_buttons/Talesnts_button.disabled = false
-	YandexSDK.gameplay_stopped()
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])

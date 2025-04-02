@@ -46,9 +46,6 @@ signal purchased(item_id)
 var is_payments_initialized: bool = false
 var callback_purchase = JavaScriptBridge.create_callback(_onPurchaseItem)
 
-signal unprocessed_purchases_loaded(purchases)
-var callback_unprocessed_purchases = JavaScriptBridge.create_callback(_on_unprocessed_purchases_loaded)
-
 @onready var window = JavaScriptBridge.get_interface("window")
 
 
@@ -60,24 +57,6 @@ var callback_unprocessed_purchases = JavaScriptBridge.create_callback(_on_unproc
 # 		print("focus out notification")
 # 		pass
 
-func check_unprocessed_purchases() -> void:
-	if not OS.has_feature("yandex"):
-		return
-	if not is_payments_initialized:
-		await game_initialized
-	window.getUnprocessedPurchases(callback_unprocessed_purchases)
-
-func _on_unprocessed_purchases_loaded(args) -> void:
-	var purchases = args[0]
-	if purchases and purchases.length > 0:
-		unprocessed_purchases_loaded.emit(purchases)
-
-func consume_purchase(purchase_token: String) -> void:
-	if not OS.has_feature("yandex"):
-		return
-	if not is_payments_initialized:
-		await game_initialized
-	window.consumePurchase(purchase_token)
 
 func is_working() -> bool:
 	return OS.has_feature("yandex")

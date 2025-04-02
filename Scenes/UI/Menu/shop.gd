@@ -1,51 +1,5 @@
 extends Control
 
-@onready var menu = $".."
-
-func _ready() -> void:
-	YandexSDK.connect('purchased', _process_purchase)
-	YandexSDK.connect('unprocessed_purchases_loaded', _process_unprocessed_purchases)
-
-	# Проверяем необработанные покупки при запуске
-	YandexSDK.check_unprocessed_purchases()
-
-func _process_unprocessed_purchases(purchases: Array) -> void:
-	for purchase in purchases:
-		_process_purchase(purchase.id)
-		if OS.has_feature("yandex"):
-			YandexSDK.consume_purchase(purchase.purchaseToken)
-
-func _process_purchase(id_buy) -> void:
-	if "coins_500" in id_buy:
-		PlayerIndicatorsManager.update_coins_count(500)
-	if "coins_2500" in id_buy:
-		PlayerIndicatorsManager.update_coins_count(2500)
-	if "coins_7000" in id_buy:
-		PlayerIndicatorsManager.update_coins_count(7000)
-	if "coins_16000" in id_buy:
-		PlayerIndicatorsManager.update_coins_count(16000)
-	if "coins_35000" in id_buy:
-		PlayerIndicatorsManager.update_coins_count(35000)
-	if "coins_80000" in id_buy:
-		PlayerIndicatorsManager.update_coins_count(80000)
-
-	if "crystal_100" in id_buy:
-		PlayerIndicatorsManager.update_crystal_count(100)
-	if "crystal_500" in id_buy:
-		PlayerIndicatorsManager.update_crystal_count(500)
-	if "crystal_1200" in id_buy:
-		PlayerIndicatorsManager.update_crystal_count(1200)
-	if "crystal_2500" in id_buy:
-		PlayerIndicatorsManager.update_crystal_count(2500)
-	if "crystal_6000" in id_buy:
-		PlayerIndicatorsManager.update_crystal_count(6000)
-	if "crystal_14000" in id_buy:
-		PlayerIndicatorsManager.update_crystal_count(14000)
-
-	menu.update_coins_label()
-	menu.update_crystal_label()
-
-
 func _on_coins_1_pressed() -> void:
 	AudioManager.click()
 	YandexSDK.purchase_item("coins_500")
