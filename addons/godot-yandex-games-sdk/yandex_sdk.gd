@@ -46,10 +46,8 @@ signal purchased(item_id)
 var is_payments_initialized: bool = false
 var callback_purchase = JavaScriptBridge.create_callback(_onPurchaseItem)
 
-signal pending_purchases_loaded(purchases)
-var callback_pending_purchases = JavaScriptBridge.create_callback(_on_pending_purchases_loaded)
-
 @onready var window = JavaScriptBridge.get_interface("window")
+
 
 # func _notification(what: int) -> void:
 # 	if what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
@@ -59,29 +57,6 @@ var callback_pending_purchases = JavaScriptBridge.create_callback(_on_pending_pu
 # 		print("focus out notification")
 # 		pass
 
-# Функция для проверки необработанных покупок
-func check_pending_purchases():
-	if not OS.has_feature("yandex"):
-		return
-	if not is_payments_initialized:
-		await game_initialized
-	window.checkPendingPurchases(callback_pending_purchases)
-
-# Обработчик необработанных покупок
-func _on_pending_purchases_loaded(args):
-	var purchases = []
-	# Преобразуем JavaScript массив в Godot массив
-	for i in range(args[0].length):
-		purchases.append(args[0][i].id)  # Отправляем только ID покупок
-	pending_purchases_loaded.emit(purchases)
-
-# Функция для подтверждения покупки (если нужно)
-func consume_purchase(purchase_token: String):
-	if not OS.has_feature("yandex"):
-		return
-	if not is_payments_initialized:
-		await game_initialized
-	window.consumePurchase(purchase_token)
 
 func is_working() -> bool:
 	return OS.has_feature("yandex")

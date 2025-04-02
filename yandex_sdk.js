@@ -1,31 +1,30 @@
 let ysdk;
 let payments = null;
 function InitGame(params, callback) {
-    console.log("Yandex SDK start initialization");
-    YaGames.init(params)
-        .then((_sdk) => {
-            ysdk = _sdk;
-            console.log("Yandex SDK initialized");
+	console.log("Yandex SDK start initialization");
+	YaGames.init(params)
+		.then((_sdk) => {
+			ysdk = _sdk;
+			console.log("Yandex SDK initialized");
 
-            console.log("Game initialized");
-            console.log("Environment", ysdk.environment);
-            
-            ysdk.getPayments({ signed: true }).then(_payments => {
-                payments = _payments;
-                console.log('Payments initialized');
-                // Автоматически проверяем необработанные покупки
-                checkPendingPurchases();
-            }).catch(err => {
-                console.error("Error initializing payments: ", err);
-            });
+			console.log("Game initialized");
+			console.log("Environment", ysdk.environment);
+			
+			ysdk.getPayments({ signed: true }).then(_payments => {
+				payments = _payments;
+				console.log('Payments initialized');
+				}).catch(err => {
+					console.error("Error initializing payments: ", err);
+				});
 
-            callback(ysdk.environment);
-        })
-        .catch((err) => {
-            console.log(err);
-            console.log("Game initialization error");
-        });
+			callback(ysdk.environment);
+		})
+		.catch((err) => {
+			console.log(err);
+			console.log("Game initialization error");
+		});
 }
+
 function GameReady() {
 	ysdk.features.LoadingAPI?.ready();
 	console.log("Game ready");
@@ -288,33 +287,4 @@ function purchaseItem(item_id, callback) {
             console.log("Purchase failed: ", err);
         });
     }
-}
-
-// Функция для проверки необработанных покупок
-function checkPendingPurchases(callback) {
-    if (!payments) {
-        console.error("Payments not initialized.");
-        return;
-    }
-    payments.getPurchases().then(purchases => {
-        console.log("Pending purchases:", purchases);
-        if (callback) {
-            callback(purchases);
-        }
-    }).catch(err => {
-        console.error("Error checking pending purchases:", err);
-    });
-}
-
-// Функция для подтверждения покупки
-function consumePurchase(purchaseToken) {
-    if (!payments) {
-        console.error("Payments not initialized.");
-        return;
-    }
-    payments.consumePurchase(purchaseToken).then(() => {
-        console.log("Purchase consumed successfully");
-    }).catch(err => {
-        console.error("Error consuming purchase:", err);
-    });
 }
