@@ -1,7 +1,7 @@
 extends Node
 
 var current_location = 1
-var percent_cells_by_enemies = [10, 25, 70, 85, 95]
+var percent_cells_by_enemies = [10, 20, 70, 90, 100]
 var dop_hp_defolt_enemy = [[2, 4, 1],
 						   [5, 10, 2],
 						   [11, 14, 3],

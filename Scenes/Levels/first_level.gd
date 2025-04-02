@@ -260,9 +260,9 @@ func get_expirians_animation(experience) -> void:
 		var tween1 = get_tree().create_tween()
 		tween1.tween_property(get_count_experience_label, "scale", Vector2(1.2, 1.2), 0.05)
 		tween1.chain().tween_property(get_count_experience_label, "scale", Vector2(1, 1), 0.05)
-		count_get_experience_on_wave += round((15 * ((kill_on_wave * (kill_on_wave + 1)) / 2)) / kill_on_wave)
-		if count_get_experience_on_wave >= 15 * ((kill_on_wave * (kill_on_wave + 1)) / 2):
-			count_get_experience_on_wave = 15 * ((kill_on_wave * (kill_on_wave + 1)) / 2)
+		count_get_experience_on_wave += round((25 * ((kill_on_wave * (kill_on_wave + 1)) / 2)) / kill_on_wave)
+		if count_get_experience_on_wave >= 25 * ((kill_on_wave * (kill_on_wave + 1)) / 2):
+			count_get_experience_on_wave = 25 * ((kill_on_wave * (kill_on_wave + 1)) / 2)
 		get_count_experience_label.text = "+"+str(count_get_experience_on_wave)
 		count_experience_label.text = str(LevelManager.count_experiance)
 		var count_bank = 0
@@ -272,7 +272,7 @@ func get_expirians_animation(experience) -> void:
 					if i.bank_go:
 						count_bank += 1
 		if count_bank == 1 or count_bank == 0:
-			count_get_experience_on_wave = 15 * ((kill_on_wave * (kill_on_wave + 1)) / 2)
+			count_get_experience_on_wave = 25 * ((kill_on_wave * (kill_on_wave + 1)) / 2)
 			await get_tree().create_timer(0.75).timeout
 			get_count_experience_label.visible = false
 
@@ -811,7 +811,7 @@ func notification_about_boss_here() -> void:
 
 func animation_bank_with_experience() -> void:
 	kill_on_wave = LevelManager.kill_on_whis_wave
-	var count_exp = 15 * ((kill_on_wave * (kill_on_wave + 1)) / 2)
+	var count_exp = 25 * ((kill_on_wave * (kill_on_wave + 1)) / 2)
 	LevelManager.count_experiance += round(count_exp)
 	for i in self.get_children():
 		if i != null:
