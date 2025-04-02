@@ -45,7 +45,7 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
- 											[null, 1, 1, 1, 1, 1,],
+ 											[null, 1, 1, 1, 1, 1],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
  											[null, null, null, null, null, null],
@@ -90,7 +90,7 @@ func restert() -> void:
 	kill_on_whis_wave = 0
 	win_or_lose = ""
 	first_level_links_on_objects = [[null, null, null, null, null, null],
- 									[null, 1, 1, 1, 1, 1,],
+ 									[null, 1, 1, 1, 1, 1],
  									[null, null, null, null, null, null],
  									[1, 1, 1, 1, 1, null],
  									[null, null, null, null, null, null],
