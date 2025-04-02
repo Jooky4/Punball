@@ -45,7 +45,7 @@ var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
 								[null, null, null, null, null, null],
 								[null, null, 4, null, null, null]]
 var first_level_links_on_objects : Array = [[null, null, null, null, null, null],
- 											[null, 1, 1, 1, 1, 1,],
+ 											[null, 1, 1, 1, 1, 1],
  											[null, null, null, null, null, null],
  											[1, 1, 1, 1, 1, null],
  											[null, null, null, null, null, null],
@@ -90,7 +90,7 @@ func restert() -> void:
 	kill_on_whis_wave = 0
 	win_or_lose = ""
 	first_level_links_on_objects = [[null, null, null, null, null, null],
- 									[null, 1, 1, 1, 1, 1,],
+ 									[null, 1, 1, 1, 1, 1],
  									[null, null, null, null, null, null],
  									[1, 1, 1, 1, 1, null],
  									[null, null, null, null, null, null],
@@ -456,8 +456,8 @@ func can_boss_spawn() -> bool:
 	return true
 
 func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
-	var x
-	var y
+	var x = 0
+	var y = 0
 	for i in range(first_level_links_on_objects.size()):
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null:
@@ -465,27 +465,28 @@ func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false)
 					x = i
 					y = j
 					break
-	for dx in range(-1, 2):
-		for dy in range(-1, 2):
-			var target_x = x + dx
-			var target_y = y + dy
-			if target_x >= 0 and target_x < 8 and target_y >= 0 and target_y < 6:
-				if first_level_links_on_objects[target_x][target_y] != null:
-					if first_level_links_on_objects[target_x][target_y].has_method("enemy"):
-						if first_level_links_on_objects[target_x][target_y].alive:
-							if color_ball == ElementsManager.color_elements["POISON"]:
-								first_level_links_on_objects[target_x][target_y].poisoning()
-								AudioManager.bomb_sound()
-							elif color_ball == ElementsManager.color_elements["FIRE"]:
-								first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
-								if create_sound:
+	if x != 0 and y != 0:
+		for dx in range(-1, 2):
+			for dy in range(-1, 2):
+				var target_x = x + dx
+				var target_y = y + dy
+				if target_x >= 0 and target_x < 8 and target_y >= 0 and target_y < 6:
+					if first_level_links_on_objects[target_x][target_y] != null:
+						if first_level_links_on_objects[target_x][target_y].has_method("enemy"):
+							if first_level_links_on_objects[target_x][target_y].alive:
+								if color_ball == ElementsManager.color_elements["POISON"]:
+									first_level_links_on_objects[target_x][target_y].poisoning()
 									AudioManager.bomb_sound()
-							elif color_ball == ElementsManager.color_elements["FROST"]:
-								first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
-								if create_sound:
-									AudioManager.freezing_bomb_sound()
-							combo_count += 1 
-							check_count_combo(first_level_links_on_objects[target_x][target_y])
+								elif color_ball == ElementsManager.color_elements["FIRE"]:
+									first_level_links_on_objects[target_x][target_y].deal_bomb_damage(damage_ball, color_ball)
+									if create_sound:
+										AudioManager.bomb_sound()
+								elif color_ball == ElementsManager.color_elements["FROST"]:
+									first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
+									if create_sound:
+										AudioManager.freezing_bomb_sound()
+								combo_count += 1 
+								check_count_combo(first_level_links_on_objects[target_x][target_y])
 
 func lighthing_ball_damage(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
 	var enemy_arr = find_all_enemys()
