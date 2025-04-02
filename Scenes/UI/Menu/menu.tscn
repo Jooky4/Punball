@@ -542,9 +542,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -315.0
+offset_left = -469.0
 offset_top = -542.0
-offset_right = 316.0
+offset_right = 468.0
 offset_bottom = 488.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -552,7 +552,10 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Shop/ScrollContainer"]
+custom_minimum_size = Vector2(937, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 40
 alignment = 1
 

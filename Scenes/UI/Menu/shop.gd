@@ -4,6 +4,16 @@ extends Control
 
 func _ready() -> void:
 	YandexSDK.connect('purchased', _process_purchase)
+	YandexSDK.connect('unprocessed_purchases_loaded', _process_unprocessed_purchases)
+
+	# Проверяем необработанные покупки при запуске
+	YandexSDK.check_unprocessed_purchases()
+
+func _process_unprocessed_purchases(purchases: Array) -> void:
+	for purchase in purchases:
+		_process_purchase(purchase.id)
+		if OS.has_feature("yandex"):
+			YandexSDK.consume_purchase(purchase.purchaseToken)
 
 func _process_purchase(id_buy) -> void:
 	if "coins_500" in id_buy:

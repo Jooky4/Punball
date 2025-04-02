@@ -288,3 +288,28 @@ function purchaseItem(item_id, callback) {
         });
     }
 }
+
+function getUnprocessedPurchases(callback) {
+    if (!payments) {
+        console.error("Payments not initialized.");
+        return;
+    }
+    payments.getPurchases().then(purchases => {
+        console.log("Unprocessed purchases:", purchases);
+        callback(purchases);
+    }).catch(err => {
+        console.log("Error getting purchases:", err);
+    });
+}
+
+function consumePurchase(purchaseToken) {
+    if (!payments) {
+        console.error("Payments not initialized.");
+        return;
+    }
+    payments.consumePurchase(purchaseToken).then(() => {
+        console.log("Purchase consumed successfully");
+    }).catch(err => {
+        console.log("Error consuming purchase:", err);
+    });
+}
