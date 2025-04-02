@@ -3,9 +3,9 @@ extends Control
 @onready var menu = $".."
 
 func _ready() -> void:
-	YandexSDK.connect('purchased', byu)
+	YandexSDK.connect('purchased', _process_purchase)
 
-func byu(id_buy) -> void:
+func _process_purchase(id_buy) -> void:
 	if "coins_500" in id_buy:
 		PlayerIndicatorsManager.update_coins_count(500)
 	if "coins_2500" in id_buy:
