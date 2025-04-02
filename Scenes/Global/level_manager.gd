@@ -396,6 +396,8 @@ func check_traps() -> void:
 				if first_level_links_on_objects[i][j] != null:
 					if first_level_links_on_objects[i][j].has_method("enemy"):
 						trap_on_map_links[i][j].delete_trap(first_level_links_on_objects[i][j])
+	if get_tree().current_scene.has_method("check_boss_alive"):
+		get_tree().get_current_scene().call("check_boss_alive")
 
 func updete_last_line() -> void:
 	var new_line_spawn
