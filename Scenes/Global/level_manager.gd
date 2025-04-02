@@ -263,9 +263,13 @@ func moving_object(player_position) -> void:
 							else:
 								if !first_level_links_on_objects[i][j].has_method("boss"):
 									move_left_or_right(i, j)
-						#else:
-							#if !first_level_links_on_objects[i][j].has_method("boss") and !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
-								#move_left_or_right(i, j)
+						else:
+							if first_level_links_on_objects[i][j].has_method("enemy") and !first_level_links_on_objects[i][j].has_method("boss"):
+								if !first_level_links_on_objects[i][j].freezen and first_level_links_on_objects[i][j].alive:
+									move_left_or_right(i, j)
+							else:
+								if !first_level_links_on_objects[i][j].has_method("boss"):
+									move_left_or_right(i, j)
 	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
 		if (((WaveGeneration.current_location % 10) - 1) == 2 or ((WaveGeneration.current_location % 10) - 1) == 3 or
 		((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5 or
