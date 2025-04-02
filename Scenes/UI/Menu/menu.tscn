@@ -221,6 +221,7 @@ texture = ExtResource("3_ef1jr")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Backgroung"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
