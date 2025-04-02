@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1tbpt7mrxmyo"
-path="res://.godot/imported/плашка для уровня.png-7db436817db43659071314f1cebe2826.ctex"
+uid="uid://da5bloe1ww1r0"
+path="res://.godot/imported/легенда-2.png-40fdbf92aed0d04f34809c26ec834745.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Talents_UI/плашка для уровня.png"
-dest_files=["res://.godot/imported/плашка для уровня.png-7db436817db43659071314f1cebe2826.ctex"]
+source_file="res://Texture/UI/Pause_UI/легенда-2.png"
+dest_files=["res://.godot/imported/легенда-2.png-40fdbf92aed0d04f34809c26ec834745.ctex"]
 
 [params]
 
