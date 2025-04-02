@@ -8,28 +8,28 @@ func _ready() -> void:
 func byu(id_buy) -> void:
 	if "coins_500" in id_buy:
 		PlayerIndicatorsManager.update_coins_count(500)
-	elif "coins_2500" in id_buy:
+	if "coins_2500" in id_buy:
 		PlayerIndicatorsManager.update_coins_count(2500)
-	elif "coins_7000" in id_buy:
+	if "coins_7000" in id_buy:
 		PlayerIndicatorsManager.update_coins_count(7000)
-	elif "coins_16000" in id_buy:
+	if "coins_16000" in id_buy:
 		PlayerIndicatorsManager.update_coins_count(16000)
-	elif "coins_35000" in id_buy:
+	if "coins_35000" in id_buy:
 		PlayerIndicatorsManager.update_coins_count(35000)
-	elif "coins_80000" in id_buy:
+	if "coins_80000" in id_buy:
 		PlayerIndicatorsManager.update_coins_count(80000)
 
 	if "crystal_100" in id_buy:
 		PlayerIndicatorsManager.update_crystal_count(100)
-	elif "crystal_500" in id_buy:
+	if "crystal_500" in id_buy:
 		PlayerIndicatorsManager.update_crystal_count(500)
-	elif "crystal_1200" in id_buy:
+	if "crystal_1200" in id_buy:
 		PlayerIndicatorsManager.update_crystal_count(1200)
-	elif "crystal_2500" in id_buy:
+	if "crystal_2500" in id_buy:
 		PlayerIndicatorsManager.update_crystal_count(2500)
-	elif "crystal_6000" in id_buy:
+	if "crystal_6000" in id_buy:
 		PlayerIndicatorsManager.update_crystal_count(6000)
-	elif "crystal_14000" in id_buy:
+	if "crystal_14000" in id_buy:
 		PlayerIndicatorsManager.update_crystal_count(14000)
 
 	menu.update_coins_label()
