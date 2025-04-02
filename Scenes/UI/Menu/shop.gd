@@ -3,9 +3,17 @@ extends Control
 @onready var menu = $".."
 
 func _ready() -> void:
-	YandexSDK.connect('purchased', byu)
+	YandexSDK.connect('purchased', _on_purchased)
+	YandexSDK.connect('pending_purchases_loaded', _on_pending_purchases)
 
-func byu(id_buy) -> void:
+func _on_purchased(id_buy: String) -> void:
+	_process_purchase(id_buy)
+
+func _on_pending_purchases(purchases: Array) -> void:
+	for purchase_id in purchases:
+		_process_purchase(purchase_id)
+
+func _process_purchase(id_buy) -> void:
 	if "coins_500" in id_buy:
 		PlayerIndicatorsManager.update_coins_count(500)
 	if "coins_2500" in id_buy:
