@@ -417,7 +417,6 @@ func updete_last_line() -> void:
 			count_level += 1
 			await get_tree().create_timer(0.8).timeout
 			AudioManager.enemy_spawn()
-			await get_tree().create_timer(1).timeout
 			check_traps()
 		else:
 			count_level += 1
@@ -444,7 +443,6 @@ func updete_last_line() -> void:
 					if i > 0:
 						await get_tree().create_timer(0.8).timeout
 						AudioManager.enemy_spawn()
-						await get_tree().create_timer(1).timeout
 						check_traps()
 						break
 
