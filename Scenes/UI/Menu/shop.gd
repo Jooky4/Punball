@@ -3,15 +3,7 @@ extends Control
 @onready var menu = $".."
 
 func _ready() -> void:
-	YandexSDK.connect('purchased', _on_purchased)
-	YandexSDK.connect('pending_purchases_loaded', _on_pending_purchases)
-
-func _on_purchased(id_buy: String) -> void:
-	_process_purchase(id_buy)
-
-func _on_pending_purchases(purchases: Array) -> void:
-	for purchase_id in purchases:
-		_process_purchase(purchase_id)
+	YandexSDK.connect('purchased', _process_purchase)
 
 func _process_purchase(id_buy) -> void:
 	if "coins_500" in id_buy:
