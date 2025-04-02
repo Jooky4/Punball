@@ -124,7 +124,7 @@ func update_characte_UI() -> void:
 	if PlayerIndicatorsManager.LEVEL_PLAYER < 5:
 		$Select_buttons/Character_button/Not_can_press.visible = true
 		$Select_buttons/Character_button/Can_press.visible = false
-		$Select_buttons/Character_button.texture_normal = load("res://Texture/UI/Main_menu/панель для иконок не активна.png")
+		#$Select_buttons/Character_button.texture_normal = load("res://Texture/UI/Main_menu/панель для иконок не активна.png")
 		$Select_buttons/Character_button.disabled = true
 	else:
 		$Select_buttons/Character_button.disabled = false
