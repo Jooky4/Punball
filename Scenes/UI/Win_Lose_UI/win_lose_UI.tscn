@@ -12,14 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://36gxn3svqfhg" path="res://Texture/UI/Win_Lose_UI/прогресс бар (круг).png" id="10_himc1"]
 [ext_resource type="Texture2D" uid="uid://dvhi5ccp4uix2" path="res://Texture/UI/Win_Lose_UI/прогресс бар.png" id="11_il720"]
 [ext_resource type="Texture2D" uid="uid://bcw45dakn580r" path="res://Texture/UI/Win_Lose_UI/прогресс бар (зеленый прогресс).png" id="12_1bfgs"]
-[ext_resource type="Texture2D" uid="uid://b0d8lk7mn6ebi" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА.png" id="18_102kk"]
-[ext_resource type="Texture2D" uid="uid://dnrjr7lrkag4p" path="res://Texture/UI/Win_Lose_UI/место под награды.png" id="19_wlge8"]
-[ext_resource type="Texture2D" uid="uid://dfmgd4spspuao" path="res://Texture/UI/Win_Lose_UI/палшка под награды.png" id="20_dl1ot"]
+[ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА2.png" id="13_4jw3x"]
+[ext_resource type="Texture2D" uid="uid://etsa0ge3lfli" path="res://Texture/UI/Win_Lose_UI/место под награды2.png" id="14_3wtvt"]
+[ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/палшка под награды2.png" id="15_3j35c"]
+[ext_resource type="Texture2D" uid="uid://dnpvlc31yn0vv" path="res://Texture/UI/Win_Lose_UI/награда руна.png" id="18_aseoo"]
+[ext_resource type="Texture2D" uid="uid://chdb4t0j8j58e" path="res://Texture/UI/Win_Lose_UI/текст ADS2.png" id="20_babvq"]
 [ext_resource type="Texture2D" uid="uid://dkyjb1bc4omcq" path="res://Texture/UI/Win_Lose_UI/награда опыта.png" id="21_q335r"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="22_iqx7g"]
-[ext_resource type="Texture2D" uid="uid://bo7sf7mnakgq1" path="res://Texture/UI/Character_UI/Character_window/иконка руна.png" id="23_4srrm"]
 [ext_resource type="Texture2D" uid="uid://bohwhq1oy2bm4" path="res://Texture/UI/Win_Lose_UI/кнопка ADS.png" id="23_8dhcs"]
-[ext_resource type="Texture2D" uid="uid://doc6fa24hisco" path="res://Texture/UI/Win_Lose_UI/текст ADS.png" id="24_3qt67"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="25_bbyqq"]
 [ext_resource type="PackedScene" uid="uid://360y0xs402w7" path="res://Scenes/UI/Level_up_UI/level_up_ui.tscn" id="26_sicc2"]
 
@@ -41,7 +41,7 @@ font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_8dbnd"]
 font = ExtResource("6_amvnp")
-font_size = 75
+font_size = 70
 
 [sub_resource type="LabelSettings" id="LabelSettings_2q3ig"]
 font = ExtResource("6_amvnp")
@@ -50,6 +50,8 @@ font_size = 50
 [sub_resource type="LabelSettings" id="LabelSettings_fc05t"]
 font = ExtResource("6_amvnp")
 font_size = 25
+shadow_color = Color(0.574219, 0.381213, 0.163742, 1)
+shadow_offset = Vector2(-1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_f07na"]
 font = ExtResource("6_amvnp")
@@ -146,9 +148,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -82.0
-offset_top = 219.0
+offset_top = 194.0
 offset_right = 83.0
-offset_bottom = 409.0
+offset_bottom = 384.0
 grow_horizontal = 2
 texture = ExtResource("9_chk8q")
 
@@ -171,15 +173,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -360.5
-offset_top = 114.0
+offset_top = 101.0
 offset_right = 360.5
-offset_bottom = 155.0
+offset_bottom = 186.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "пройдено волн"
+text = "Солько волн 
+вы прошли!"
 label_settings = SubResource("LabelSettings_spjdl")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Player_level" type="TextureRect" parent="."]
 z_index = 1
@@ -189,10 +193,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -199.0
-offset_top = -153.0
-offset_right = -109.0
-offset_bottom = -63.0
+offset_left = -176.0
+offset_top = -142.0
+offset_right = -86.0
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_himc1")
@@ -218,9 +222,9 @@ vertical_alignment = 1
 [node name="Player_level_bar" type="TextureProgressBar" parent="Player_level"]
 z_index = -1
 layout_mode = 0
-offset_left = 73.0
+offset_left = 55.0
 offset_top = 15.0
-offset_right = 371.0
+offset_right = 353.0
 offset_bottom = 73.0
 texture_under = ExtResource("11_il720")
 texture_progress = ExtResource("12_1bfgs")
@@ -233,9 +237,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -386.0
+offset_left = -380.0
 offset_top = -9.0
-offset_right = 373.0
+offset_right = 379.0
 offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -245,7 +249,7 @@ alignment = 1
 [node name="TextureRect13" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("18_102kk")
+texture = ExtResource("13_4jw3x")
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
@@ -256,7 +260,7 @@ label_settings = SubResource("LabelSettings_2q3ig")
 [node name="TextureRect12" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("18_102kk")
+texture = ExtResource("13_4jw3x")
 stretch_mode = 2
 
 [node name="TextureRect8" type="TextureRect" parent="."]
@@ -266,13 +270,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -209.0
-offset_top = 88.0
+offset_left = -213.0
+offset_top = 66.0
 offset_right = 209.0
-offset_bottom = 353.0
+offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("19_wlge8")
+texture = ExtResource("14_3wtvt")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect8"]
 layout_mode = 1
@@ -294,7 +299,7 @@ columns = 4
 
 [node name="Experiance" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("20_dl1ot")
+texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Experiance"]
 layout_mode = 1
@@ -303,10 +308,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.5
-offset_top = -34.0
-offset_right = 29.5
-offset_bottom = 21.0
+offset_left = -33.5
+offset_top = -38.0
+offset_right = 34.5
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_q335r")
@@ -329,7 +334,7 @@ horizontal_alignment = 2
 
 [node name="Coins" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("20_dl1ot")
+texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Coins"]
 layout_mode = 1
@@ -338,10 +343,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.5
-offset_top = -34.0
-offset_right = 29.5
-offset_bottom = 21.0
+offset_left = -32.5
+offset_top = -37.0
+offset_right = 32.5
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("22_iqx7g")
@@ -364,7 +369,7 @@ horizontal_alignment = 2
 
 [node name="Runes" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("20_dl1ot")
+texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Runes"]
 layout_mode = 1
@@ -373,13 +378,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.5
-offset_top = -34.0
-offset_right = 29.5
-offset_bottom = 21.0
+offset_left = -32.5
+offset_top = -37.0
+offset_right = 32.5
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_4srrm")
+texture = ExtResource("18_aseoo")
 expand_mode = 1
 stretch_mode = 5
 
@@ -401,7 +406,7 @@ horizontal_alignment = 2
 
 [node name="TextureRect5" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("20_dl1ot")
+texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/TextureRect5"]
 layout_mode = 1
@@ -434,7 +439,7 @@ horizontal_alignment = 2
 
 [node name="TextureRect6" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("20_dl1ot")
+texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/TextureRect6"]
 layout_mode = 1
@@ -467,7 +472,7 @@ horizontal_alignment = 2
 
 [node name="TextureRect7" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("20_dl1ot")
+texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/TextureRect7"]
 layout_mode = 1
@@ -500,7 +505,7 @@ horizontal_alignment = 2
 
 [node name="TextureRect8" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("20_dl1ot")
+texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/TextureRect8"]
 layout_mode = 1
@@ -533,7 +538,7 @@ horizontal_alignment = 2
 
 [node name="TextureRect9" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("20_dl1ot")
+texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/TextureRect9"]
 layout_mode = 1
@@ -572,9 +577,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -118.0
-offset_top = -263.0
+offset_top = -270.0
 offset_right = 119.0
-offset_bottom = -167.0
+offset_bottom = -174.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("23_8dhcs")
@@ -592,7 +597,7 @@ offset_right = 77.5
 offset_bottom = 21.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("24_3qt67")
+texture = ExtResource("20_babvq")
 
 [node name="Go_to_menu" type="TextureButton" parent="."]
 layout_mode = 1
@@ -602,9 +607,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -180.0
-offset_top = -140.0
+offset_top = -144.0
 offset_right = 173.0
-offset_bottom = -44.0
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("25_bbyqq")
