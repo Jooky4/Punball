@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfq4lhxqp2x0"]
+[gd_scene load_steps=13 format=3 uid="uid://bfq4lhxqp2x0"]
 
-[ext_resource type="Texture2D" uid="uid://b0d8lk7mn6ebi" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА.png" id="1_jvfyh"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chest_reward.gd" id="1_ppeti"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="2_7w5p8"]
-[ext_resource type="Texture2D" uid="uid://dfmgd4spspuao" path="res://Texture/UI/Win_Lose_UI/палшка под награды.png" id="3_v54jx"]
-[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="4_626q5"]
-[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="5_247iw"]
+[ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА2.png" id="2_veeuj"]
+[ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/палшка под награды2.png" id="4_02akc"]
+[ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="5_0rskg"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="6_2g2cs"]
+[ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="6_v3cyc"]
 [ext_resource type="AudioStream" uid="uid://cajsdg3yjdd2d" path="res://Resources/Sounds/сундук_меню.mp3" id="7_bx0un"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_idc36"]
@@ -16,10 +16,8 @@ font_size = 50
 [sub_resource type="LabelSettings" id="LabelSettings_rb1s8"]
 font = ExtResource("2_7w5p8")
 font_size = 80
-
-[sub_resource type="LabelSettings" id="LabelSettings_q8271"]
-font = ExtResource("2_7w5p8")
-font_size = 80
+shadow_color = Color(0.572549, 0.380392, 0.164706, 1)
+shadow_offset = Vector2(-2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6heqt"]
 font = ExtResource("2_7w5p8")
@@ -67,7 +65,7 @@ alignment = 1
 [node name="TextureRect13" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("1_jvfyh")
+texture = ExtResource("2_veeuj")
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
@@ -78,7 +76,7 @@ label_settings = SubResource("LabelSettings_idc36")
 [node name="TextureRect12" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("1_jvfyh")
+texture = ExtResource("2_veeuj")
 stretch_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -101,7 +99,7 @@ columns = 4
 
 [node name="TextureRect2" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("3_v54jx")
+texture = ExtResource("4_02akc")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect2"]
 layout_mode = 1
@@ -116,7 +114,7 @@ offset_right = 29.5
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_626q5")
+texture = ExtResource("5_0rskg")
 
 [node name="Label" type="Label" parent="GridContainer/TextureRect2"]
 layout_mode = 1
@@ -139,7 +137,7 @@ vertical_alignment = 2
 
 [node name="TextureRect3" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("3_v54jx")
+texture = ExtResource("4_02akc")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect3"]
 layout_mode = 1
@@ -154,7 +152,7 @@ offset_right = 29.5
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_247iw")
+texture = ExtResource("6_v3cyc")
 
 [node name="Coins_label" type="Label" parent="GridContainer/TextureRect3"]
 layout_mode = 1
@@ -171,13 +169,13 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.25, 0.25)
 text = "x500"
-label_settings = SubResource("LabelSettings_q8271")
+label_settings = SubResource("LabelSettings_rb1s8")
 horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="TextureRect4" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("3_v54jx")
+texture = ExtResource("4_02akc")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect4"]
 layout_mode = 1
@@ -210,7 +208,7 @@ horizontal_alignment = 2
 
 [node name="TextureRect5" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("3_v54jx")
+texture = ExtResource("4_02akc")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect5"]
 layout_mode = 1

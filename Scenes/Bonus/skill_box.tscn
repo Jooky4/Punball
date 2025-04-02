@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c26a3m2emt1kg"]
+[gd_scene load_steps=11 format=3 uid="uid://c26a3m2emt1kg"]
 
 [ext_resource type="Script" path="res://Scenes/Bonus/skill_box.gd" id="1_5hwwp"]
 [ext_resource type="Texture2D" uid="uid://b7dfponmp1s61" path="res://Texture/Level_environment/скилл.png" id="1_fb7cq"]
 [ext_resource type="Texture2D" uid="uid://d1iq5m7tsl75p" path="res://Texture/Level_environment/shadow_2.png" id="2_mnvrb"]
 [ext_resource type="Texture2D" uid="uid://tdy2dyic0st1" path="res://Texture/Level_environment/particleStar.png" id="3_j8ull"]
+
+[sub_resource type="Gradient" id="Gradient_i6isk"]
+offsets = PackedFloat32Array(0, 0.0814558, 0.908146, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
 size = Vector2(91, 90)
@@ -64,10 +68,39 @@ tracks/1/keys = {
 "values": [Vector2(1, 0.9)]
 }
 
+[sub_resource type="Animation" id="Animation_gveqn"]
+resource_name = "Spawn"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(0, -275), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0.9)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o762w"]
 _data = {
 "Idle": SubResource("Animation_lejwj"),
-"RESET": SubResource("Animation_1sxj6")
+"RESET": SubResource("Animation_1sxj6"),
+"Spawn": SubResource("Animation_gveqn")
 }
 
 [node name="skill_box" type="StaticBody2D"]
@@ -90,10 +123,15 @@ amount = 7
 lifetime = 1.5
 texture = ExtResource("3_j8ull")
 emission_shape = 2
-emission_sphere_radius = 30.0
-gravity = Vector2(0, -50)
+emission_sphere_radius = 42.0
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
 scale_amount_min = 0.1
 scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_i6isk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -104,4 +142,6 @@ shape = SubResource("RectangleShape2D_m8ci2")
 libraries = {
 "": SubResource("AnimationLibrary_o762w")
 }
-autoplay = "Idle"
+autoplay = "Spawn"
+next/Spawn = &"Idle"
+blend_times = [&"Spawn", &"Idle", 0.4]

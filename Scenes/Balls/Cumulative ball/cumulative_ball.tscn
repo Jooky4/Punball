@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dokxygjpekih6" path="res://Texture/Balls/кумулятивный.png" id="3_arfsy"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="4_pl4ke"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_qinfd"]
-[ext_resource type="AudioStream" uid="uid://uk4t0tjqdi02" path="res://Resources/Sounds/кумулятивный.mp3" id="6_fqeiq"]
+[ext_resource type="AudioStream" uid="uid://7xkjgpib7lh1" path="res://Resources/Sounds/кумулятивный2.ogg" id="6_u374c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -70,5 +70,6 @@ stream = ExtResource("5_qinfd")
 volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_fqeiq")
-volume_db = 4.0
+stream = ExtResource("6_u374c")
+volume_db = -7.0
+pitch_scale = 1.2

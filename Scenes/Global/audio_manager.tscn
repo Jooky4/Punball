@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cvoeswerd3jjr" path="res://Resources/Sounds/лазер_шар.mp3" id="11_fe4mr"]
 [ext_resource type="AudioStream" uid="uid://i4xu4a8de8sd" path="res://Resources/Sounds/ловушка.mp3" id="14_eu57q"]
 [ext_resource type="AudioStream" uid="uid://chp6oyba606uw" path="res://Resources/Music/music.ogg" id="16_1u2uf"]
-[ext_resource type="AudioStream" uid="uid://uk4t0tjqdi02" path="res://Resources/Sounds/кумулятивный.mp3" id="17_nvjec"]
+[ext_resource type="AudioStream" uid="uid://7xkjgpib7lh1" path="res://Resources/Sounds/кумулятивный2.ogg" id="17_u66pd"]
 [ext_resource type="AudioStream" uid="uid://c67dcchwj3wo3" path="res://Resources/Sounds/покупка_таланта.mp3" id="18_visxg"]
 [ext_resource type="AudioStream" uid="uid://5j4eihqkxro7" path="res://Resources/Sounds/огненный_шар.mp3" id="19_bvxve"]
 [ext_resource type="AudioStream" uid="uid://b62reiyqbdbqq" path="res://Resources/Sounds/ракета.mp3" id="25_vtta4"]
@@ -111,8 +111,9 @@ volume_db = -4.0
 pitch_scale = 1.2
 
 [node name="Cumulative_ball_hit_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_nvjec")
-volume_db = 4.0
+stream = ExtResource("17_u66pd")
+volume_db = -7.0
+pitch_scale = 1.2
 
 [node name="Bye_talant" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_visxg")

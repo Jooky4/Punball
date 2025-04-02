@@ -103,7 +103,7 @@ texture = ExtResource("1_qt4ju")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(-4, 9)
-amount = 5
+amount = 4
 process_material = SubResource("ParticleProcessMaterial_cb0dl")
 texture = ExtResource("4_x6yxi")
 lifetime = 1.7
