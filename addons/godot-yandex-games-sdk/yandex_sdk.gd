@@ -42,9 +42,15 @@ var callback_stats_loaded = JavaScriptBridge.create_callback(_stats_loaded)
 var callback_leaderboard_player_entry_loaded = JavaScriptBridge.create_callback(_leaderboard_player_entry_loaded)
 var callback_leaderboard_entries_loaded = JavaScriptBridge.create_callback(_leaderboard_entries_loaded)
 
-signal purchased(item_id)
+signal purchased(item_id, purchase_token)
 var is_payments_initialized: bool = false
 var callback_purchase = JavaScriptBridge.create_callback(_onPurchaseItem)
+
+signal unprocessed_purchases_loaded(purchases)
+signal purchase_consumed(result)
+
+var callback_check_purchases = JavaScriptBridge.create_callback(_on_unprocessed_purchases)
+var callback_consume = JavaScriptBridge.create_callback(_on_consume_result)
 
 @onready var window = JavaScriptBridge.get_interface("window")
 
@@ -57,6 +63,38 @@ var callback_purchase = JavaScriptBridge.create_callback(_onPurchaseItem)
 # 		print("focus out notification")
 # 		pass
 
+func check_unprocessed_purchases():
+	if not OS.has_feature("yandex") or !is_payments_initialized: 
+		return
+	window.CheckUnprocessedPurchases(callback_check_purchases)
+
+func consume_purchase(token: String):
+	if not OS.has_feature("yandex"): return
+	window.ConsumePurchase(token, callback_consume)
+
+func _on_unprocessed_purchases(json_data):
+	print("Raw JSON:", json_data)
+	var parsed_data = JSON.parse_string(json_data)
+	if typeof(parsed_data) != TYPE_ARRAY:
+		push_error("Invalid top-level data format")
+		return
+	print("First parse:", parsed_data)
+	if typeof(parsed_data[0]) == TYPE_STRING:
+		parsed_data = JSON.parse_string(parsed_data[0])
+		if typeof(parsed_data) != TYPE_ARRAY:
+			push_error("Invalid nested data format")
+			return
+	print("Processed purchases:", parsed_data)
+	var output = []
+	for p in parsed_data:
+		output.append({
+			"product_id": p["product_id"],
+			"purchase_token": p["purchase_token"]
+		})
+	emit_signal("unprocessed_purchases_loaded", output)
+
+func _on_consume_result(result):
+	emit_signal("purchase_consumed", result[0])
 
 func is_working() -> bool:
 	return OS.has_feature("yandex")
@@ -341,5 +379,9 @@ func purchase_item(item_id: String):
 	window.purchaseItem(item_id,callback_purchase)
 
 
-func _onPurchaseItem(item_id):
-	emit_signal('purchased',item_id)
+func _onPurchaseItem(args):
+	var purchase_data = args[0]
+	emit_signal('purchased', 
+		purchase_data.productID, 
+		purchase_data.purchaseToken
+	)

@@ -51,24 +51,89 @@ var count_wave_on_locations = {
 	-1: 40
 }
 
+var load_not_buy = false
+
 func _ready() -> void:
 	Engine.time_scale = 1
 	get_tree().paused = false
-	YandexSDK.init_game()
-	YandexSDK.init_player() 
-	YandexSDK.game_ready()
-	AudioManager.music_start()
 	YandexSDK.connect("game_initialized", update_player_indicators)
 	YandexSDK.connect("data_loaded", player_date_loaded)
-	update_player_indicators()
+	YandexSDK.connect('purchased', _process_purchase_with_token)
+	YandexSDK.connect("unprocessed_purchases_loaded", _process_uncompleted_purchases)
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
-	main_menu_UI.visible = true
-	shop_UI.visible = false
-	characters_UI.visible = false
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
+		YandexSDK.init_game()
+		YandexSDK.init_player() 
+		YandexSDK.game_ready()
+		AudioManager.music_start()
+
+		if !YandexSDK.game_initialized:
+			await YandexSDK.game_initialized
+		update_player_indicators()
+
+		main_menu_UI.visible = true
+		shop_UI.visible = false
+		characters_UI.visible = false
+
 		YandexSDK.show_interstitial_ad()
 		PlayerIndicatorsManager.SHOW_AD_FIRST_TIME = true
+	else:
+		update_player_indicators()
+		main_menu_UI.visible = true
+		shop_UI.visible = false
+		characters_UI.visible = false
+
+func _process_purchase_with_token(product_id: String, token: String):
+	_process_purchase(product_id, token)
+
+func _process_uncompleted_purchases(data):
+	print("Processing purchases count:", len(data))
+	for purchase in data:
+		var product_id = purchase.get("product_id")
+		var token = purchase.get("purchase_token")
+		if not product_id or not token:
+			push_error("Invalid purchase item: ", purchase)
+			continue
+		print("Processing:", product_id, "|", token)
+		_process_purchase(product_id, token)
+
+func _process_purchase(id_buy, token) -> void:
+	if "coins_500" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(500)
+	if "coins_2500" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(2500)
+	if "coins_7000" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(7000)
+	if "coins_16000" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(16000)
+	if "coins_35000" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(35000)
+	if "coins_80000" in id_buy:
+		PlayerIndicatorsManager.update_coins_count(80000)
+
+	if "crystal_100" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(100)
+	if "crystal_500" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(500)
+	if "crystal_1200" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(1200)
+	if "crystal_2500" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(2500)
+	if "crystal_6000" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(6000)
+	if "crystal_14000" in id_buy:
+		PlayerIndicatorsManager.update_crystal_count(14000)
+
+	update_coins_label()
+	update_crystal_label()
+
+	YandexSDK.consume_purchase(token)
+	print("Purchase consumed:", id_buy)
+
+func update_player_indicators() -> void:
+	PlayerIndicatorsManager.update_player_date_in_game()
+	AudioManager.music_start()
 
 func arabic_to_roman(num: int) -> String:
 	var val = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4, 1]
@@ -82,10 +147,6 @@ func arabic_to_roman(num: int) -> String:
 		i += 1
 	return roman_num
 
-func update_player_indicators() -> void:
-	PlayerIndicatorsManager.update_player_date_in_game()
-	AudioManager.music_start()
-
 func player_date_loaded(data) -> void:
 	update_coins_label()
 	update_crystal_label()
@@ -97,7 +158,9 @@ func player_date_loaded(data) -> void:
 	chests.update_label_chests()
 	can_by_new_talant()
 	$Select_buttons/Talesnts_button.disabled = false
-	YandexSDK.gameplay_stopped()
+	if load_not_buy == false:
+		load_not_buy = true
+		YandexSDK.check_unprocessed_purchases()
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
@@ -136,18 +199,18 @@ func update_rune_label() -> void:
 	rune_label.text = str(PlayerIndicatorsManager.COUNT_RUNE)
 
 func _on_button_pressed() -> void:
-	AudioManager.click()
-	ChangeScene.black_screen()
-	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
-	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
-	LevelManager.restert()
-	LevelManager.player_balls = [1, 1, 1, 1]
-	AudioServer.set_bus_mute(0, false)
-	await get_tree().create_timer(0.35).timeout
-	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 	#AudioManager.click()
-	#YandexSDK.show_interstitial_ad()
-	#YandexSDK.connect("interstitial_ad", star_location)
+	#ChangeScene.black_screen()
+	#PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+	#WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+	#LevelManager.restert()
+	#LevelManager.player_balls = [1, 1, 1, 1]
+	#AudioServer.set_bus_mute(0, false)
+	#await get_tree().create_timer(0.35).timeout
+	#get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	AudioManager.click()
+	YandexSDK.show_interstitial_ad()
+	YandexSDK.connect("interstitial_ad", star_location)
 
 func star_location(result) -> void:
 	if result == "closed" or result == "error":

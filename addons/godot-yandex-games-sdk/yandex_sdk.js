@@ -1,28 +1,20 @@
 let ysdk;
 let payments = null;
 function InitGame(params, callback) {
-	console.log("Yandex SDK start initialization");
-	YaGames.init(params)
-		.then((_sdk) => {
-			ysdk = _sdk;
-			console.log("Yandex SDK initialized");
-
-			console.log("Game initialized");
-			console.log("Environment", ysdk.environment);
-			
-			ysdk.getPayments({ signed: true }).then(_payments => {
-				payments = _payments;
-				console.log('Payments initialized');
-				}).catch(err => {
-					console.error("Error initializing payments: ", err);
-				});
-
-			callback(ysdk.environment);
-		})
-		.catch((err) => {
-			console.log(err);
-			console.log("Game initialization error");
-		});
+    YaGames.init(params)
+        .then((_sdk) => {
+            ysdk = _sdk;
+            
+            // Ожидаем инициализацию payments перед callback
+            return ysdk.getPayments({ signed: true });
+        })
+        .then((_payments) => {
+            payments = _payments;
+            callback(ysdk.environment); // Только теперь инициализация завершена
+        })
+        .catch((err) => {
+            console.error("Init error:", err);
+        });
 }
 
 function GameReady() {
@@ -281,10 +273,39 @@ function purchaseItem(item_id, callback) {
     }
     else {
         payments.purchase({ id: item_id }).then(purchase => {
-            console.log("Purchase successful: ", item_id);
-            callback(item_id);
+			console.log("Purchase successful: ", purchase); 
+			callback(purchase);
         }).catch(err => {
             console.log("Purchase failed: ", err);
         });
     }
+}
+
+function CheckUnprocessedPurchases(callback) {
+    if (!payments) {
+        console.log("Payments not initialized!");
+        callback("[]"); // Пустой JSON-массив
+        return;
+    }
+    payments.getPurchases().then(purchases => {
+        const data = purchases.map(p => ({
+            product_id: p.productID, 
+            purchase_token: p.purchaseToken
+        }));
+        callback(JSON.stringify(data));
+        })
+        .catch(err => {
+            console.error("Error checking purchases:", err);
+            callback("[]");
+        });
+}
+
+function ConsumePurchase(purchaseToken, callback) {
+    if (!payments) return;
+    payments.consumePurchase(purchaseToken)
+        .then(() => callback("success"))
+        .catch(err => {
+            console.error("Consume error:", err);
+            callback("error");
+        });
 }

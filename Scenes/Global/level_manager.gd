@@ -281,8 +281,6 @@ func moving_object(player_position) -> void:
 				first_level_links_on_objects[7][i].enemy_on_last_line()
 	if somebody_move_on_this_wave == true:
 		AudioManager.enemy_move()
-	await get_tree().create_timer(2).timeout
-	check_traps()
 
 func move_forward(i, j) -> void:
 	if !first_level_links_on_objects[i][j].move_on_this_wave and !first_level_links_on_objects[i][j].has_method("boss"):
@@ -398,6 +396,8 @@ func check_traps() -> void:
 				if first_level_links_on_objects[i][j] != null:
 					if first_level_links_on_objects[i][j].has_method("enemy"):
 						trap_on_map_links[i][j].delete_trap(first_level_links_on_objects[i][j])
+	if get_tree().current_scene.has_method("check_boss_alive"):
+		get_tree().get_current_scene().call("check_boss_alive")
 
 func updete_last_line() -> void:
 	var new_line_spawn
@@ -417,6 +417,7 @@ func updete_last_line() -> void:
 			count_level += 1
 			await get_tree().create_timer(0.8).timeout
 			AudioManager.enemy_spawn()
+			check_traps()
 		else:
 			count_level += 1
 	else:
@@ -442,6 +443,7 @@ func updete_last_line() -> void:
 					if i > 0:
 						await get_tree().create_timer(0.8).timeout
 						AudioManager.enemy_spawn()
+						check_traps()
 						break
 
 func can_boss_spawn() -> bool:
