@@ -1,21 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://yvcvkt4mlbnv"]
+[gd_scene load_steps=11 format=3 uid="uid://yvcvkt4mlbnv"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Character_balls/character_3_ball.gd" id="1_hvhfl"]
-[ext_resource type="Texture2D" uid="uid://c66pfsvxlrvhx" path="res://Texture/Balls/РассыпающийсяНов_1.png" id="1_uhr1x"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="2_kc2ds"]
+[ext_resource type="Texture2D" uid="uid://b8b2u043kqox" path="res://Texture/Balls/Usual_Busya.png" id="2_r6f7n"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="3_4ibbg"]
-[ext_resource type="AudioStream" uid="uid://ueldbbjdob14" path="res://Resources/Sounds/рассыпающийся_шар.mp3" id="4_r30ah"]
+[ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="4_fr86l"]
+[ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="6_1dybs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
-radius = 15.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvoul"]
+radius = 16.0312
 
-[sub_resource type="Curve" id="Curve_g6ny1"]
-_data = [Vector2(0, 0.225366), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_c8j48"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_2q21l"]
-offsets = PackedFloat32Array(0.532, 0.96, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_5udv1"]
+offsets = PackedFloat32Array(0.174528, 0.962264, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_10rq6"]
+offsets = PackedFloat32Array(0, 0.0873239, 0.256338, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="character_3_ball" type="CharacterBody2D"]
 z_index = -1
@@ -27,29 +32,44 @@ script = ExtResource("1_hvhfl")
 damage_ball = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_l7c6x")
+shape = SubResource("CircleShape2D_mvoul")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 z_index = 5
-position = Vector2(0, 2)
-scale = Vector2(0.55, 0.55)
-texture = ExtResource("1_uhr1x")
+position = Vector2(0, 9)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_r6f7n")
 offset = Vector2(1, 0)
 flip_v = true
 
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 top_level = true
-width = 35.0
-width_curve = SubResource("Curve_g6ny1")
-gradient = SubResource("Gradient_2q21l")
+width = 43.0
+width_curve = SubResource("Curve_c8j48")
+gradient = SubResource("Gradient_5udv1")
 texture = ExtResource("2_kc2ds")
 texture_mode = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 4
+amount = 3
+lifetime = 0.25
+fixed_fps = 60
+texture = ExtResource("4_fr86l")
+emission_shape = 2
+emission_sphere_radius = 15.65
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 20.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_10rq6")
 
 [node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4ibbg")
 volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_r30ah")
-volume_db = -7.0
+stream = ExtResource("6_1dybs")
+volume_db = -12.0
