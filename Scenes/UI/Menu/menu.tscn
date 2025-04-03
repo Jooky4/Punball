@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=106 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -77,6 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="49_hcn8h"]
 [ext_resource type="Texture2D" uid="uid://bgxcaqhpaxogt" path="res://Texture/Heroes/Alisa/алиса_окно.png" id="50_q4tux"]
 [ext_resource type="Texture2D" uid="uid://c3lcc18w7q4ev" path="res://Texture/Heroes/Merlin/мерлин_магазин.png" id="61_jx5ik"]
+[ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="66_718i0"]
 [ext_resource type="Texture2D" uid="uid://cbuil3v7kak7b" path="res://Texture/Heroes/Busya/буся_магазин.png" id="67_vcgdb"]
 [ext_resource type="Texture2D" uid="uid://cparg72oyf74n" path="res://Texture/UI/Main_menu/подложка_1.png" id="79_57kj7"]
 [ext_resource type="Texture2D" uid="uid://bkggowhuq70ko" path="res://Texture/UI/Main_menu/подложка_3.png" id="81_exjnj"]
@@ -1591,12 +1592,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -226.0
-offset_top = -388.0
+offset_top = -363.0
 offset_right = -186.0
-offset_bottom = -348.0
+offset_bottom = -323.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.58, 0.58)
 
 [node name="Shadow" type="TextureRect" parent="Characters/Character_1_window/Texture_characters"]
 modulate = Color(0, 0, 0, 0.0784314)
@@ -1896,12 +1897,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -237.0
-offset_top = -366.0
+offset_top = -335.0
 offset_right = -197.0
-offset_bottom = -326.0
+offset_bottom = -295.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.58, 0.58)
 
 [node name="Shadow" type="TextureRect" parent="Characters/Character_2_window/Texture_characters"]
 modulate = Color(0, 0, 0, 0.0784314)
@@ -2193,6 +2194,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Need_matirial" type="TextureRect" parent="Characters/Character_2_window"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2329,28 +2331,19 @@ texture_normal = ExtResource("36_0hnwo")
 
 [node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/Buy_button"]
 layout_mode = 0
-offset_left = 34.5
+offset_left = 103.0
 offset_top = 26.5
-offset_right = 89.5
+offset_right = 158.0
 offset_bottom = 82.5
-texture = ExtResource("5_h3ti1")
+texture = ExtResource("66_718i0")
 
 [node name="Label" type="Label" parent="Characters/Character_2_window/Buy_button"]
 layout_mode = 0
-offset_left = 94.5
+offset_left = 163.0
 offset_top = 32.5
-offset_right = 187.5
+offset_right = 256.0
 offset_bottom = 78.5
 text = "1000"
-label_settings = SubResource("LabelSettings_eqhan")
-
-[node name="Label2" type="Label" parent="Characters/Character_2_window/Buy_button"]
-layout_mode = 0
-offset_left = 196.5
-offset_top = 33.5
-offset_right = 342.5
-offset_bottom = 79.5
-text = "КУПИТЬ"
 label_settings = SubResource("LabelSettings_eqhan")
 
 [node name="Character_3_window" type="Control" parent="Characters"]
@@ -2804,28 +2797,19 @@ texture_normal = ExtResource("36_0hnwo")
 
 [node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/Buy_button"]
 layout_mode = 0
-offset_left = 34.5
+offset_left = 108.0
 offset_top = 26.5
-offset_right = 89.5
+offset_right = 163.0
 offset_bottom = 82.5
-texture = ExtResource("5_h3ti1")
+texture = ExtResource("66_718i0")
 
 [node name="Label" type="Label" parent="Characters/Character_3_window/Buy_button"]
 layout_mode = 0
-offset_left = 94.5
+offset_left = 168.0
 offset_top = 32.5
-offset_right = 187.5
+offset_right = 266.0
 offset_bottom = 78.5
 text = "5000"
-label_settings = SubResource("LabelSettings_eqhan")
-
-[node name="Label2" type="Label" parent="Characters/Character_3_window/Buy_button"]
-layout_mode = 0
-offset_left = 196.5
-offset_top = 33.5
-offset_right = 342.5
-offset_bottom = 79.5
-text = "КУПИТЬ"
 label_settings = SubResource("LabelSettings_eqhan")
 
 [node name="Back_button" type="TextureButton" parent="Characters"]
