@@ -227,6 +227,9 @@ func star_location(result) -> void:
 
 func _on_shop_button_pressed() -> void:
 	AudioManager.click()
+	if shop_UI.visible == false:
+		return_norm_scale()
+		update_button_scale(1)
 	shop_UI.visible = true
 	player_leve_UI.visible = true
 	main_menu_UI.visible = false
@@ -235,6 +238,9 @@ func _on_shop_button_pressed() -> void:
 
 func _on_talesnts_button_pressed() -> void:
 	AudioManager.click()
+	if talents_UI.visible == false:
+		return_norm_scale()
+		update_button_scale(3)
 	talents_UI.visible = true
 	player_leve_UI.visible = true
 	main_menu_UI.visible = false
@@ -266,6 +272,9 @@ func _on_back_location_pressed() -> void:
 
 func _on_mainmenu_button_pressed() -> void:
 	AudioManager.click()
+	if main_menu_UI.visible == false:
+		return_norm_scale()
+		update_button_scale(2)
 	main_menu_UI.visible = true
 	player_leve_UI.visible = true
 	shop_UI.visible = false
@@ -274,12 +283,15 @@ func _on_mainmenu_button_pressed() -> void:
 
 func _on_character_button_pressed() -> void:
 	AudioManager.click()
+	if characters_UI.visible == false:
+		return_norm_scale()
+		update_button_scale(4)
+	characters_UI.visible = true
 	main_menu_UI.visible = false
 	player_leve_UI.visible = false
 	shop_UI.visible = false
 	talents_UI.visible = false
 	characters_UI._on_back_button_pressed()
-	characters_UI.visible = true
 
 func can_by_new_talant() -> void:
 	var crystal_cost = 0
@@ -305,3 +317,40 @@ func can_by_new_talant() -> void:
 		need_lvl_to_by_coins = ((i - 1) / 3) + 1
 	if PlayerIndicatorsManager.COINS_COUNT >= coins_cost and need_lvl_to_by_coins <= PlayerIndicatorsManager.LEVEL_PLAYER:
 		$Select_buttons/Talesnts_button/Can_by.visible = true
+
+func update_button_scale(what_menu):
+	match what_menu:
+		1:
+			create_tween().tween_property($Select_buttons/Shop_button/TextureRect, "scale", Vector2(1.1, 1.1), 0.1)
+			create_tween().tween_property($Select_buttons/Shop_button/TextureRect, "position", $Select_buttons/Shop_button/TextureRect.position + Vector2(0, -30), 0.1)
+			$Select_buttons/Shop_button/Label.visible = true
+		2:
+			create_tween().tween_property($Select_buttons/Main_menu_button/TextureRect, "scale", Vector2(1.1, 1.1), 0.1)
+			create_tween().tween_property($Select_buttons/Main_menu_button/TextureRect, "position", $Select_buttons/Main_menu_button/TextureRect.position + Vector2(0, -30), 0.1)
+			$Select_buttons/Main_menu_button/Label.visible = true
+		3:
+			create_tween().tween_property($Select_buttons/Talesnts_button/TextureRect, "scale", Vector2(1.1, 1.1), 0.1)
+			create_tween().tween_property($Select_buttons/Talesnts_button/TextureRect, "position", $Select_buttons/Talesnts_button/TextureRect.position + Vector2(0, -30), 0.1)
+			$Select_buttons/Talesnts_button/Label.visible = true
+		4:
+			create_tween().tween_property($Select_buttons/Character_button/Can_press, "scale", Vector2(1.1, 1.1), 0.1)
+			create_tween().tween_property($Select_buttons/Character_button/Can_press, "position", $Select_buttons/Character_button/Can_press.position + Vector2(0, -30), 0.1)
+			$Select_buttons/Character_button/Label.visible = true
+
+func return_norm_scale():
+	if shop_UI.visible:
+		create_tween().tween_property($Select_buttons/Shop_button/TextureRect, "scale", Vector2(1, 1), 0.1)
+		create_tween().tween_property($Select_buttons/Shop_button/TextureRect, "position", $Select_buttons/Shop_button/TextureRect.position + Vector2(0, 30), 0.1)
+		$Select_buttons/Shop_button/Label.visible = false
+	if main_menu_UI.visible:
+		create_tween().tween_property($Select_buttons/Main_menu_button/TextureRect, "scale", Vector2(1, 1), 0.1)
+		create_tween().tween_property($Select_buttons/Main_menu_button/TextureRect, "position", $Select_buttons/Main_menu_button/TextureRect.position + Vector2(0, 30), 0.1)
+		$Select_buttons/Main_menu_button/Label.visible = false
+	if talents_UI.visible:
+		create_tween().tween_property($Select_buttons/Talesnts_button/TextureRect, "scale", Vector2(1, 1), 0.1)
+		create_tween().tween_property($Select_buttons/Talesnts_button/TextureRect, "position", $Select_buttons/Talesnts_button/TextureRect.position + Vector2(0, 30), 0.1)
+		$Select_buttons/Talesnts_button/Label.visible = false
+	if characters_UI.visible:
+		create_tween().tween_property($Select_buttons/Character_button/Can_press, "scale", Vector2(1, 1), 0.1)
+		create_tween().tween_property($Select_buttons/Character_button/Can_press, "position", $Select_buttons/Character_button/Can_press.position + Vector2(0, 30), 0.1)
+		$Select_buttons/Character_button/Label.visible = false

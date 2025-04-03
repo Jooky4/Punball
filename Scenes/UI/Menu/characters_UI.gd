@@ -50,9 +50,9 @@ func _on_buy_2_hero_button_pressed() -> void:
 		can_or_not_update()
 
 func _on_buy_button_pressed() -> void:
-	if PlayerIndicatorsManager.CRYSTALS_COUNT >= 5000:
+	if PlayerIndicatorsManager.CRYSTALS_COUNT >= 1500:
 		AudioManager.click()
-		PlayerIndicatorsManager.update_crystal_count(-5000)
+		PlayerIndicatorsManager.update_crystal_count(-1500)
 		$"..".update_crystal_label()
 		$All_characters/HBoxContainer/Character_3.visible = true
 		$All_characters/HBoxContainer2/Character_3.visible = false

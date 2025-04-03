@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=109 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://c27j04flqk5yi" path="res://Texture/UI/Shop_UI/окно для монет.png" id="23_0d0bh"]
 [ext_resource type="Script" path="res://Scenes/UI/Characters/character_1_window.gd" id="23_6x0rm"]
 [ext_resource type="Texture2D" uid="uid://cfy3yh6mgo2qu" path="res://Texture/UI/Character_UI/Character_window/прогресс бар уровня персонажа.png" id="23_g0yqi"]
+[ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="23_moodm"]
 [ext_resource type="Texture2D" uid="uid://crnbctqhjowll" path="res://Texture/UI/Shop_UI/кристаллы подрожка.png" id="23_wpccf"]
 [ext_resource type="Texture2D" uid="uid://cj2voext6rg6i" path="res://Texture/UI/Shop_UI/монета 1.png" id="24_nehew"]
 [ext_resource type="Texture2D" uid="uid://bdsgv1droqrif" path="res://Texture/UI/Character_UI/Character_window/зеленый уровнь персонажа для прогресса.png" id="24_ykvw2"]
@@ -112,7 +113,11 @@ Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
 
 [sub_resource type="LabelSettings" id="LabelSettings_3n0kt"]
 font = ExtResource("3_cjc1q")
-font_size = 35
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_e5gv6"]
+font = ExtResource("3_cjc1q")
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_hfpbj"]
 font = ExtResource("3_cjc1q")
@@ -165,6 +170,10 @@ font_size = 20
 [sub_resource type="LabelSettings" id="LabelSettings_eqhan"]
 font = ExtResource("3_cjc1q")
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_gcvxd"]
+font = ExtResource("3_cjc1q")
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_ayrqo"]
 font = ExtResource("3_cjc1q")
@@ -241,6 +250,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 mouse_filter = 2
 
 [node name="Player_level" type="TextureRect" parent="Player_state"]
@@ -251,10 +261,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -340.0
-offset_top = -629.0
-offset_right = -286.0
-offset_bottom = -577.0
+offset_left = -350.833
+offset_top = -629.167
+offset_right = -296.833
+offset_bottom = -577.167
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_cw7m0")
@@ -291,10 +301,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = -623.0
-offset_right = -8.0
-offset_bottom = -583.0
+offset_left = -150.833
+offset_top = -623.333
+offset_right = -26.8333
+offset_bottom = -583.333
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_e5vte")
@@ -325,10 +335,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 33.0
-offset_top = -623.0
-offset_right = 157.0
-offset_bottom = -583.0
+offset_left = 9.16663
+offset_top = -623.333
+offset_right = 133.167
+offset_bottom = -583.333
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_e5vte")
@@ -495,17 +505,18 @@ text = ">"
 
 [node name="PLay_button" type="TextureButton" parent="Main_menu"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -191.0
-offset_top = -362.0
-offset_right = 186.0
-offset_bottom = -229.0
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = 281.0
+offset_right = 157.0
+offset_bottom = 414.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 theme = SubResource("Theme_kmt4p")
 texture_normal = ExtResource("3_qeymi")
 
@@ -610,14 +621,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.5
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 48.5
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "5 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = 17.5
+offset_right = -13.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_moodm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "500"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Coins_2" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
@@ -649,14 +694,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -52.0
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 52.0
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "19 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = 17.5
+offset_right = -20.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_moodm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2500"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Coins_3" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
@@ -688,14 +767,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -54.5
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 54.5
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "45 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = 17.5
+offset_right = -20.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_moodm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "7000"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Coins_4" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
@@ -727,14 +840,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -54.5
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 54.5
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "99 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = 17.5
+offset_right = -33.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_moodm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "16000"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Coins_5" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
@@ -766,14 +913,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -62.5
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 62.5
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "150 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = 17.5
+offset_right = -33.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_moodm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "35000"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Coins_6" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer"]
@@ -805,14 +986,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -66.5
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 66.5
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "300 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = 17.5
+offset_right = -33.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_moodm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "80000"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
@@ -869,14 +1084,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -52.0
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 52.0
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "19 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = 17.5
+offset_right = -13.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("66_718i0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Crystal_2" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
@@ -908,14 +1157,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -55.0
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 55.0
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "69 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = 17.5
+offset_right = -13.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("66_718i0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "500"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Crystal_3" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
@@ -947,14 +1230,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -59.0
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 59.0
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "119 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = 17.5
+offset_right = -19.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("66_718i0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1200"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Crystal_4" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
@@ -986,14 +1303,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -60.5
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 60.5
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "179 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = 17.5
+offset_right = -19.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("66_718i0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2500"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Crystal_5" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
@@ -1025,14 +1376,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.5
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 64.5
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "249 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = 17.5
+offset_right = -19.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("66_718i0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "6000"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Crystal_6" type="TextureButton" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer"]
@@ -1064,14 +1449,48 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -66.5
-offset_top = 30.5
+offset_top = 49.5
 offset_right = 66.5
-offset_bottom = 85.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "300 РУБ"
 label_settings = SubResource("LabelSettings_3n0kt")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = 17.5
+offset_right = -27.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("66_718i0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "14000"
+label_settings = SubResource("LabelSettings_e5gv6")
 vertical_alignment = 1
 
 [node name="Characters" type="Control" parent="."]
@@ -1128,6 +1547,16 @@ layout_mode = 2
 texture = ExtResource("28_30gul")
 stretch_mode = 5
 
+[node name="Character" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_1"]
+layout_mode = 0
+offset_left = -41.0
+offset_right = 237.0
+offset_bottom = 218.0
+scale = Vector2(1.175, 1.175)
+pivot_offset = Vector2(51, 212)
+texture = ExtResource("41_iuttr")
+expand_mode = 1
+
 [node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_1"]
 layout_mode = 1
 anchors_preset = 1
@@ -1161,16 +1590,6 @@ offset_top = -16.0
 offset_right = 86.0
 offset_bottom = 31.0
 texture = ExtResource("27_c31n5")
-
-[node name="Character" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_1"]
-layout_mode = 0
-offset_left = -41.0
-offset_right = 237.0
-offset_bottom = 218.0
-scale = Vector2(1.175, 1.175)
-pivot_offset = Vector2(51, 212)
-texture = ExtResource("41_iuttr")
-expand_mode = 1
 
 [node name="Button_1_character" type="Button" parent="Characters/All_characters/HBoxContainer/Character_1"]
 z_index = -1
@@ -1210,6 +1629,17 @@ visible = false
 layout_mode = 2
 texture = ExtResource("28_30gul")
 stretch_mode = 5
+
+[node name="Character" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_2"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 1.0
+offset_right = 237.0
+offset_bottom = 219.0
+scale = Vector2(1.145, 1.145)
+pivot_offset = Vector2(51, 212)
+texture = ExtResource("43_0ggey")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_2"]
 layout_mode = 1
@@ -1254,19 +1684,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Character" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_2"]
-layout_mode = 0
-offset_left = -41.0
-offset_top = 1.0
-offset_right = 237.0
-offset_bottom = 219.0
-scale = Vector2(1.145, 1.145)
-pivot_offset = Vector2(51, 212)
-texture = ExtResource("43_0ggey")
-expand_mode = 1
-
 [node name="Select" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_2"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1295,6 +1713,17 @@ visible = false
 layout_mode = 2
 texture = ExtResource("28_30gul")
 stretch_mode = 5
+
+[node name="Character" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_3"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = -14.0
+offset_right = 234.0
+offset_bottom = 243.0
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(156, 232)
+texture = ExtResource("44_v2iii")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_3"]
 layout_mode = 1
@@ -1330,17 +1759,6 @@ offset_right = 86.0
 offset_bottom = 31.0
 texture = ExtResource("27_c31n5")
 
-[node name="Character" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_3"]
-layout_mode = 0
-offset_left = -75.0
-offset_top = -14.0
-offset_right = 234.0
-offset_bottom = 243.0
-scale = Vector2(1.1, 1.1)
-pivot_offset = Vector2(156, 232)
-texture = ExtResource("44_v2iii")
-expand_mode = 1
-
 [node name="Button_3_character" type="Button" parent="Characters/All_characters/HBoxContainer/Character_3"]
 z_index = -1
 layout_mode = 1
@@ -1351,7 +1769,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Select" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_3"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1524,7 +1941,7 @@ offset_left = 21.0
 offset_top = -7.0
 offset_right = 142.0
 offset_bottom = 42.0
-text = "5000"
+text = "1500"
 label_settings = SubResource("LabelSettings_hfpbj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1547,11 +1964,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -623.0
+offset_top = -620.0
 offset_right = -176.0
-offset_bottom = -583.0
+offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_e5vte")
 
 [node name="Runes_label" type="Label" parent="Characters/Runes_count"]
@@ -2277,9 +2695,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -287.0
-offset_top = -76.0
+offset_top = 39.0
 offset_right = -103.0
-offset_bottom = -8.0
+offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("35_yveks")
@@ -2743,9 +3161,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -287.0
-offset_top = -76.0
+offset_top = -1.0
 offset_right = -103.0
-offset_bottom = -8.0
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("35_yveks")
@@ -2809,7 +3227,7 @@ offset_left = 168.0
 offset_top = 32.5
 offset_right = 266.0
 offset_bottom = 78.5
-text = "5000"
+text = "1500"
 label_settings = SubResource("LabelSettings_eqhan")
 
 [node name="Back_button" type="TextureButton" parent="Characters"]
@@ -2934,7 +3352,25 @@ offset_right = 65.0
 offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(65, 59)
 texture = ExtResource("18_m36hl")
+
+[node name="Label" type="Label" parent="Select_buttons/Shop_button"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.9706
+offset_top = -46.2351
+offset_right = 78.0294
+offset_bottom = -5.23509
+grow_horizontal = 2
+grow_vertical = 0
+text = "МАГАЗИН"
+label_settings = SubResource("LabelSettings_gcvxd")
 
 [node name="TextureRect" type="TextureRect" parent="Select_buttons"]
 modulate = Color(0, 0, 0, 0.117647)
@@ -2954,12 +3390,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -65.0
-offset_top = -59.0
+offset_top = -89.0
 offset_right = 65.0
-offset_bottom = 59.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(65, 59)
 texture = ExtResource("19_q5oq5")
+
+[node name="Label" type="Label" parent="Select_buttons/Main_menu_button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.9706
+offset_top = -46.2351
+offset_right = 78.0294
+offset_bottom = -5.23509
+grow_horizontal = 2
+grow_vertical = 0
+text = "В БОЙ"
+label_settings = SubResource("LabelSettings_gcvxd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Select_buttons"]
 modulate = Color(0, 0, 0, 0.117647)
@@ -2968,6 +3424,7 @@ texture = ExtResource("83_qc3mg")
 
 [node name="Talesnts_button" type="TextureButton" parent="Select_buttons"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("79_57kj7")
 texture_hover = ExtResource("86_0cxs1")
 
@@ -2978,13 +3435,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -76.5
-offset_top = -70.5
-offset_right = 53.5
-offset_bottom = 47.5
+offset_left = -74.9706
+offset_top = -61.941
+offset_right = 75.0294
+offset_bottom = 70.059
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(75, 66)
 texture = ExtResource("20_bdbvx")
 expand_mode = 1
 stretch_mode = 5
@@ -3003,6 +3460,25 @@ grow_horizontal = 0
 texture = ExtResource("27_c31n5")
 stretch_mode = 5
 
+[node name="Label" type="Label" parent="Select_buttons/Talesnts_button"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.9706
+offset_top = -46.2351
+offset_right = 78.0294
+offset_bottom = -5.23509
+grow_horizontal = 2
+grow_vertical = 0
+text = "ТАЛАНТЫ"
+label_settings = SubResource("LabelSettings_gcvxd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect3" type="TextureRect" parent="Select_buttons"]
 modulate = Color(0, 0, 0, 0.117647)
 layout_mode = 2
@@ -3020,13 +3496,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -76.5001
-offset_top = -70.5
-offset_right = 53.4999
-offset_bottom = 47.5
+offset_left = -65.0
+offset_top = -59.0
+offset_right = 65.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(65, 59)
 texture = ExtResource("39_ys04g")
 stretch_mode = 5
 
@@ -3080,6 +3557,25 @@ offset_bottom = 54.0
 grow_horizontal = 0
 texture = ExtResource("27_c31n5")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="Select_buttons/Character_button"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.029
+offset_top = -46.2351
+offset_right = 104.971
+offset_bottom = -5.23509
+grow_horizontal = 2
+grow_vertical = 0
+text = "ГЕРОИ"
+label_settings = SubResource("LabelSettings_gcvxd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Chest_reward" parent="." instance=ExtResource("27_temh2")]
 visible = false
