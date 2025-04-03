@@ -250,7 +250,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.2, 1.2)
 mouse_filter = 2
 
 [node name="Player_level" type="TextureRect" parent="Player_state"]
@@ -261,12 +260,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.833
-offset_top = -629.167
-offset_right = -296.833
-offset_bottom = -577.167
+offset_left = -351.0
+offset_top = -625.0
+offset_right = -297.0
+offset_bottom = -573.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_cw7m0")
 
 [node name="Player_level_label" type="Label" parent="Player_state/Player_level"]
@@ -301,12 +301,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.833
-offset_top = -623.333
-offset_right = -26.8333
-offset_bottom = -583.333
+offset_left = -114.0
+offset_top = -618.0
+offset_right = 9.99969
+offset_bottom = -578.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_e5vte")
 
 [node name="Coins_label" type="Label" parent="Player_state/Coins"]
@@ -335,12 +336,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 9.16663
-offset_top = -623.333
-offset_right = 133.167
-offset_bottom = -583.333
+offset_left = 77.0
+offset_top = -618.0
+offset_right = 201.0
+offset_bottom = -578.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_e5vte")
 
 [node name="Crystals_label" type="Label" parent="Player_state/Crystals"]
@@ -1963,10 +1965,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -620.0
-offset_right = -176.0
-offset_bottom = -580.0
+offset_left = -306.0
+offset_top = -618.0
+offset_right = -182.0
+offset_bottom = -578.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
