@@ -148,11 +148,12 @@ func arabic_to_roman(num: int) -> String:
 	return roman_num
 
 func player_date_loaded(data) -> void:
+	update_cuurent_location_texture()
+	check_tutorial()
 	update_coins_label()
 	update_crystal_label()
 	update_characte_UI()
 	update_level_label_and_bar()
-	update_cuurent_location_texture()
 	talents_UI.update_skill()
 	talents_UI.update_player_indicator_talant_for_coins()
 	chests.update_label_chests()
@@ -161,6 +162,14 @@ func player_date_loaded(data) -> void:
 	if load_not_buy == false:
 		load_not_buy = true
 		YandexSDK.check_unprocessed_purchases()
+
+func check_tutorial() -> void:
+	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and current_location == 1:
+		PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+		WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+		LevelManager.restert()
+		LevelManager.player_balls = [1, 1, 1, 1]
+		get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
