@@ -346,7 +346,7 @@ func move_boss() -> void:
 
 func move_boss_forward_only(player_position) -> void:
 	var boss_pos = find_boss_position()
-	if first_level_links_on_objects[boss_pos.x][boss_pos.y].on_last_line:
+	if first_level_links_on_objects[boss_pos.x][boss_pos.y].on_last_line and !first_level_links_on_objects[boss_pos.x][boss_pos.y].freezen:
 		if first_level_links_on_objects[boss_pos.x][boss_pos.y].has_method("magician_boss"):
 			return
 		else:
@@ -364,6 +364,8 @@ func move_boss_forward_only(player_position) -> void:
 					break
 		else:
 			can_move = true
+	if first_level_links_on_objects[boss_pos.x][boss_pos.y].freezen:
+		can_move = false
 
 	if can_move:
 		first_level_links_on_objects[boss_pos.x][boss_pos.y].moving("forward")
