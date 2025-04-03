@@ -3585,7 +3585,6 @@ visible = false
 layout_mode = 1
 
 [node name="Tutorial_talants" type="Control" parent="."]
-visible = false
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -3596,6 +3595,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="1_step" type="TextureRect" parent="Tutorial_talants"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3609,6 +3609,46 @@ offset_bottom = 829.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 3.14159
+texture = ExtResource("87_2lo32")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="2_step" type="TextureRect" parent="Tutorial_talants"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 475.0
+offset_right = 129.0
+offset_bottom = 751.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.0944
+texture = ExtResource("87_2lo32")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="3_step" type="TextureRect" parent="Tutorial_talants"]
+visible = false
+z_index = 6
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = 373.0
+offset_right = 138.0
+offset_bottom = 649.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.0944
 texture = ExtResource("87_2lo32")
 expand_mode = 1
 stretch_mode = 5
