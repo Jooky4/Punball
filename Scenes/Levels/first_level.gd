@@ -99,8 +99,7 @@ func _ready() -> void:
 	ChangeScene.normal_screen()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	hp_player_bar.max_value = LevelManager.max_hp_player
-	hp_player_bar.value = LevelManager.hp_player
-	hp_player_label.text = str(LevelManager.hp_player)
+	update_character_label()
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 1:
 		LevelManager.spin_skill = 1
 		choose_skill_UI.visible = true
@@ -116,8 +115,7 @@ func _ready() -> void:
 	rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 	hp_player_bar.max_value = LevelManager.max_hp_player
-	hp_player_bar.value = LevelManager.hp_player
-	hp_player_label.text = str(LevelManager.hp_player)
+	update_character_label()
 	YandexSDK.gameplay_started()
 	await get_tree().create_timer(0.8).timeout
 	AudioManager.enemy_spawn()
@@ -192,8 +190,7 @@ func _process(delta):
 			if LevelManager.spin_skill == 0 or LevelManager.spin_skill < 0:
 				count_experience_label.text = str(LevelManager.count_experiance)
 				hp_player_bar.max_value = LevelManager.max_hp_player
-				hp_player_bar.value = LevelManager.hp_player
-				hp_player_label.text = str(LevelManager.hp_player)
+				update_character_label()
 				LevelManager.apeend_new_balls()
 				count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 				balls_can_go = true
@@ -223,8 +220,7 @@ func play_game() -> void:
 		balls_go()
 
 func chec_game_end() -> void:
-	hp_player_bar.value = LevelManager.hp_player
-	hp_player_label.text = str(LevelManager.hp_player)
+	update_character_label()
 	if !end_wave_bool:
 		var balls_on_map = true
 		var boss_alive = false
@@ -301,8 +297,7 @@ func get_health(health_hp) -> void:
 	LevelManager.hp_player = round(LevelManager.hp_player)
 	if LevelManager.hp_player > LevelManager.max_hp_player:
 		LevelManager.hp_player = LevelManager.max_hp_player
-	hp_player_bar.value = LevelManager.hp_player
-	hp_player_label.text = str(LevelManager.hp_player)
+	update_character_label()
 	if round(health_hp) > 0:
 		player_take_damage_create_label("+" + str(round(health_hp)), 0)
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
@@ -336,8 +331,7 @@ func player_take_damage_create_label(label_damage, who_deal_damage : int = 0) ->
 	label.scale = Vector2(0.2, 0.2)
 	get_tree().current_scene.add_child(label)
 	label.show_label()
-	hp_player_bar.value = LevelManager.hp_player
-	hp_player_label.text = str(LevelManager.hp_player)
+	update_character_label()
 
 func show_hit_effect():
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
@@ -364,8 +358,7 @@ func lose() -> void:
 func revavil_player(for_AD_or_crystal : bool = false):
 	end_game_UI_lose.visible = false
 	character_anim.alive()
-	hp_player_bar.value = LevelManager.hp_player
-	hp_player_label.text = str(LevelManager.hp_player)
+	update_character_label()
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
 		LevelManager.update_character_3_damage_from_OZ()
 	LevelManager.updete_last_line()
@@ -700,8 +693,7 @@ func end_wave() -> void:
 			character_anim.alive()
 			revaving_from_skill = true
 			LevelManager.revival(1, true)
-			hp_player_bar.value = LevelManager.hp_player
-			hp_player_label.text = str(LevelManager.hp_player)
+			update_character_label()
 		else:
 			hp_player_bar.value = 0
 			hp_player_label.text = "0"
@@ -711,8 +703,7 @@ func end_wave() -> void:
 			game_state = LOSE
 			return
 	else:
-		hp_player_bar.value = LevelManager.hp_player
-		hp_player_label.text = str(LevelManager.hp_player)
+		update_character_label()
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
 	if LevelManager.boss_on_map:
@@ -879,6 +870,17 @@ func _on_button_pause_pressed() -> void:
 	pause_menu_UI.visible = true
 	get_tree().paused = true
 	Engine.time_scale = 0
+
+func update_character_label() -> void:
+	hp_player_bar.value = LevelManager.hp_player
+	hp_player_label.text = str(LevelManager.hp_player)
+	if LevelManager.hp_player>=10000:
+		if int(LevelManager.hp_player) % 10000 == 0:
+			hp_player_label.text = str(LevelManager.hp_player / 1000) + "K"
+		elif int(LevelManager.hp_player) % 10000 != 0:
+			hp_player_label.text = ("%.1f" % (LevelManager.hp_player / 1000)) + "K"
+	else:
+		hp_player_label.text = str(round(LevelManager.hp_player))
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _chose_ball_button_pressed():

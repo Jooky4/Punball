@@ -133,7 +133,6 @@ func _process_purchase(id_buy, token) -> void:
 
 func update_player_indicators() -> void:
 	PlayerIndicatorsManager.update_player_date_in_game()
-	AudioManager.music_start()
 
 func arabic_to_roman(num: int) -> String:
 	var val = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4, 1]
@@ -162,6 +161,7 @@ func player_date_loaded(data) -> void:
 	if load_not_buy == false:
 		load_not_buy = true
 		YandexSDK.check_unprocessed_purchases()
+	AudioManager.music_start()
 
 func check_tutorial() -> void:
 	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and current_location == 1:
