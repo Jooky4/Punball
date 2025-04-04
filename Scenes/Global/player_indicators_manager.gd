@@ -29,7 +29,7 @@ var FOR_CRYSTAL_SHANSE_DOP_BALL : float = 0
 
 var SHOW_AD_FIRST_TIME : bool = false
 
-var ENEMY_1_FIRST_TIME : int = 0
+var ENEMY_1_FIRST_TIME : int = 1
 var ENEMY_2_FIRST_TIME : int = 0
 var ENEMY_3_FIRST_TIME : int = 0
 var ENEMY_5_FIRST_TIME : int = 0
@@ -173,7 +173,7 @@ func player_date_loaded(data) -> void:
 		COUNT_BYE_TALANTS_FOR_COINS = 0
 		COUNT_BYE_TALANTS_FOR_CRYSTAL = 0
 		COUNT_OPEN_CHEST = 0
-		ENEMY_1_FIRST_TIME = 0
+		ENEMY_1_FIRST_TIME = 1
 		ENEMY_2_FIRST_TIME = 0
 		ENEMY_3_FIRST_TIME = 0
 		ENEMY_5_FIRST_TIME = 0
