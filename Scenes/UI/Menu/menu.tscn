@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=111 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -86,6 +86,7 @@
 [ext_resource type="Texture2D" uid="uid://msycuupxkw1x" path="res://Texture/UI/Main_menu/подложка_2.png" id="84_siqir"]
 [ext_resource type="Texture2D" uid="uid://c3mx4k6pd50ab" path="res://Texture/UI/Main_menu/подложка_4.png" id="86_0cxs1"]
 [ext_resource type="Texture2D" uid="uid://wno3dh4o5lom" path="res://Texture/For_tutorial/палец с обводкой.png" id="87_2lo32"]
+[ext_resource type="Script" path="res://Scenes/UI/Menu/StepAnimation.gd" id="88_u3omx"]
 [ext_resource type="Texture2D" uid="uid://d1foqy2pkn8et" path="res://Texture/UI/Talents_UI/замок2.png" id="89_usdmv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
@@ -3603,16 +3604,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 193.0
-offset_top = 553.0
-offset_right = 442.0
-offset_bottom = 829.0
+offset_left = -18.474
+offset_top = 459.189
+offset_right = 230.526
+offset_bottom = 735.189
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 3.14159
+pivot_offset = Vector2(105.737, 46.9055)
 texture = ExtResource("87_2lo32")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("88_u3omx")
 
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
