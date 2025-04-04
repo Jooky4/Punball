@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ciuhn6dg5mwdo"]
+[gd_scene load_steps=28 format=3 uid="uid://ciuhn6dg5mwdo"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
 [ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/background.png" id="2_bhn41"]
@@ -33,6 +33,11 @@ font_color = Color(0.266667, 0.266667, 0.27451, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_werv1"]
 font = ExtResource("4_yc3ln")
 font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_yskpe"]
+font = ExtResource("4_yc3ln")
+font_size = 22
+font_color = Color(0.32549, 0.137255, 0.0196078, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i6xey"]
 font = ExtResource("4_yc3ln")
@@ -191,6 +196,19 @@ offset_bottom = 396.5
 texture_normal = ExtResource("12_wkuqu")
 stretch_mode = 5
 
+[node name="Label2" type="Label" parent="TextureRect4/AD"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 14.0
+offset_right = 183.0
+offset_bottom = 76.0
+text = "Реклама"
+label_settings = SubResource("LabelSettings_yskpe")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
 [node name="ТекстКнопкиAds" type="TextureRect" parent="TextureRect4/AD"]
 layout_mode = 1
 anchors_preset = 8
@@ -198,13 +216,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.5
-offset_top = -18.0
-offset_right = 64.5
-offset_bottom = 18.0
+offset_left = -75.5
+offset_top = -18.5
+offset_right = -23.5
+offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_s7prf")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="TextureRect5" type="TextureRect" parent="TextureRect4/AD"]
 layout_mode = 1

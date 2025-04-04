@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://xxprkydai7iy"]
+[gd_scene load_steps=23 format=3 uid="uid://xxprkydai7iy"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
@@ -24,6 +24,11 @@ font_color = Color(0.133333, 0.266667, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_fibwp"]
 font = ExtResource("1_42rjm")
 font_size = 40
+font_color = Color(0.133333, 0.266667, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0edh"]
+font = ExtResource("1_42rjm")
+font_size = 22
 font_color = Color(0.133333, 0.266667, 0, 1)
 
 [sub_resource type="Animation" id="Animation_g87ib"]
@@ -279,13 +284,20 @@ offset_right = 184.0
 offset_bottom = 166.0
 texture_normal = ExtResource("5_b6die")
 
-[node name="Sprite2D" type="Sprite2D" parent="Bye_button/Skill_3/Skill_3_for_AD"]
-position = Vector2(162, 38)
-texture = ExtResource("7_lujy0")
+[node name="ADS" type="Label" parent="Bye_button/Skill_3/Skill_3_for_AD"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = -2.0
+offset_right = 184.0
+offset_bottom = 77.0
+text = "РЕКЛАМА"
+label_settings = SubResource("LabelSettings_w0edh")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Sprite2D2" type="Sprite2D" parent="Bye_button/Skill_3/Skill_3_for_AD"]
-position = Vector2(29, 38)
-texture = ExtResource("8_ttmyg")
+[node name="Sprite2D" type="Sprite2D" parent="Bye_button/Skill_3/Skill_3_for_AD"]
+position = Vector2(78, 38)
+texture = ExtResource("7_lujy0")
 
 [node name="Update_skill_button" type="TextureButton" parent="."]
 layout_mode = 1

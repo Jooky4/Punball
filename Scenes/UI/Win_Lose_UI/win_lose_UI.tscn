@@ -178,7 +178,7 @@ offset_right = 360.5
 offset_bottom = 186.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Солько волн 
+text = "Столько волн 
 вы прошли!"
 label_settings = SubResource("LabelSettings_spjdl")
 horizontal_alignment = 1
