@@ -90,7 +90,6 @@ var kill_on_wave : int = 0
 
 func _ready() -> void:
 	YandexSDK.connect("interstitial_ad", star_location)
-	AudioManager.music_start()
 	Engine.time_scale = 1
 	get_tree().paused = false
 	update_location_image()
