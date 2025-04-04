@@ -90,3 +90,7 @@ func _on_home_pressed() -> void:
 		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
+
+
+func _on_off_volume_pressed() -> void:
+	pass # Replace with function body.

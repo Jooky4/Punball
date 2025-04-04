@@ -248,7 +248,7 @@ func information_close() -> void:
 		$For_crystal/Information.visible = false
 		$For_coins/Information.visible = false
 	if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0 and PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS == 0:
-		if $"For_coins/Information/3_step".visible == false:
+		if $"For_coins/Information".visible == false:
 			$"For_coins/2_step".visible = true
 
 func _on_timer_can_close_timeout() -> void:
