@@ -89,10 +89,10 @@ var revavil_for_AD_or_crystal : bool = false
 var kill_on_wave : int = 0
 
 func _ready() -> void:
+	YandexSDK.connect("interstitial_ad", star_location)
+	AudioManager.music_start()
 	Engine.time_scale = 1
 	get_tree().paused = false
-	AudioManager.music_start()
-	YandexSDK.connect("interstitial_ad", star_location)
 	update_location_image()
 	update_character()
 	check_tutorial()
@@ -204,7 +204,6 @@ func _process(delta):
 func play_game() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:
 		if get_global_mouse_position() != old_coord_mouse:
-			AudioServer.set_bus_mute(0, false)
 			$Tutorial.visible = false
 			$Tutorial/Control.visible = false
 			line.visible = true
