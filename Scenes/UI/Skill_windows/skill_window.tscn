@@ -1381,6 +1381,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -2000.0
+offset_bottom = -2000.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 150)
@@ -1566,9 +1568,9 @@ libraries = {
 [node name="VScrollBar" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_left = 34.0
-offset_top = 83.0
+offset_top = -1917.0
 offset_right = 546.0
-offset_bottom = 595.0
+offset_bottom = -1405.0
 scale = Vector2(0.27, 0.27)
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
@@ -1674,66 +1676,6 @@ custom_minimum_size = Vector2(512, 512)
 layout_mode = 2
 
 [node name="TextureRect25" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect26" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect27" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect28" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect29" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect30" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect31" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect32" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect33" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect34" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect35" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect36" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect37" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect38" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect39" type="TextureRect" parent="VScrollBar/Texture_skills"]
-custom_minimum_size = Vector2(512, 512)
-layout_mode = 2
-
-[node name="TextureRect40" type="TextureRect" parent="VScrollBar/Texture_skills"]
 custom_minimum_size = Vector2(512, 512)
 layout_mode = 2
 

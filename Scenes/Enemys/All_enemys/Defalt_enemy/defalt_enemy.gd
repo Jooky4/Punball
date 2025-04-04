@@ -28,6 +28,8 @@ var max_hp_enemy : float
 @onready var death_sound = $Death_sound
 
 func _ready() -> void:
+	var preload_shader = preload("res://Resources/Shaders/defalt_enemy.gdshader")
+	ResourceLoader.load_threaded_request("res://Resources/Shaders/defalt_enemy.gdshader")
 	max_hp_enemy = hp_enemy
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Spawn")

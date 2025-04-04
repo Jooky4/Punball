@@ -67,19 +67,19 @@ func can_or_not_update() -> void:
 	$All_characters/HBoxContainer/Character_3/TextureRect/Can_update.visible = false
 
 	$Character_1_window.update_characyer_1_UI()
-	if $Character_1_window.need_cois <= PlayerIndicatorsManager.COINS_COUNT and $Character_1_window.need_runes <= PlayerIndicatorsManager.COUNT_RUNE:
+	if $Character_1_window.need_cois <= PlayerIndicatorsManager.COINS_COUNT and $Character_1_window.need_runes <= PlayerIndicatorsManager.COUNT_RUNE and PlayerIndicatorsManager.CHARACTER_1_LVL < 20:
 		$"../Select_buttons/Character_button/Can_update".visible = true
 		$All_characters/HBoxContainer/Character_1/TextureRect/Can_update.visible = true
 
 	if PlayerIndicatorsManager.CHARACTER_2_LVL > 0:
 		$Character_2_window.update_characyer_2_UI()
-		if $Character_2_window.need_cois <= PlayerIndicatorsManager.COINS_COUNT and $Character_2_window.need_runes <= PlayerIndicatorsManager.COUNT_RUNE:
+		if $Character_2_window.need_cois <= PlayerIndicatorsManager.COINS_COUNT and $Character_2_window.need_runes <= PlayerIndicatorsManager.COUNT_RUNE and PlayerIndicatorsManager.CHARACTER_2_LVL < 20:
 			$"../Select_buttons/Character_button/Can_update".visible = true
 			$All_characters/HBoxContainer/Character_2/TextureRect/Can_update.visible = true
 
 	if PlayerIndicatorsManager.CHARACTER_3_LVL > 0:
 		$Character_3_window.update_characyer_3_UI()
-		if $Character_3_window.need_cois <= PlayerIndicatorsManager.COINS_COUNT and $Character_3_window.need_runes <= PlayerIndicatorsManager.COUNT_RUNE:
+		if $Character_3_window.need_cois <= PlayerIndicatorsManager.COINS_COUNT and $Character_3_window.need_runes <= PlayerIndicatorsManager.COUNT_RUNE and PlayerIndicatorsManager.CHARACTER_3_LVL < 20:
 			$"../Select_buttons/Character_button/Can_update".visible = true
 			$All_characters/HBoxContainer/Character_3/TextureRect/Can_update.visible = true
 

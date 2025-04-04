@@ -55,7 +55,6 @@ var texture_skill = {
 	}
 
 func _ready() -> void:
-	check_volume()
 	self.visible = false
 
 func _on_continue_pressed() -> void:
@@ -67,6 +66,7 @@ func _on_continue_pressed() -> void:
 	YandexSDK.gameplay_started()
 
 func update_texture_skill() -> void:
+	check_volume()
 	var skills_box : Array = $Player_skills.get_children()
 	for i in range(LevelManager.player_skills.size()):
 		var skill = LevelManager.player_skills[i]
