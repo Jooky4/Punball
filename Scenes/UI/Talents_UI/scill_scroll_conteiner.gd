@@ -244,11 +244,12 @@ func _on_button_for_crystall_pressed() -> void:
 		$For_crystal/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)
 
 func information_close() -> void:
-	if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0 and PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS == 0:
-		$"For_coins/2_step".visible = true
 	if can_close_information:
 		$For_crystal/Information.visible = false
 		$For_coins/Information.visible = false
+	if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0 and PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS == 0:
+		if $"For_coins/Information/3_step".visible == false:
+			$"For_coins/2_step".visible = true
 
 func _on_timer_can_close_timeout() -> void:
 	can_close_information = true
@@ -270,16 +271,16 @@ func _on_bye_for_crystal_pressed() -> void:
 func _on_bye_for_cois_pressed() -> void:
 	AudioManager.click()
 	if PlayerIndicatorsManager.COINS_COUNT >= skill_for_coins_cost:
+		if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
+			$"For_coins/2_step".visible = false
+			$"For_coins/Information/3_step".visible = false
+			get_parent().get_parent().get_parent().get_parent().call("end_tutorial")
 		$For_crystal/Information.visible = false
 		$For_coins/Information.visible = false
 		AudioManager.bye_talant_sound()
 		PlayerIndicatorsManager.buy_coins_talant()
 		PlayerIndicatorsManager.update_coins_count(-skill_for_coins_cost)
 		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
-		if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
-			get_parent().get_parent().get_parent().get_parent().call("end_tutorial")
-			$"For_coins/2_step".visible = false
-			$"For_coins/Information/3_step".visible = false
 		get_parent().get_parent().get_parent().call("update_player_indicator_talant_for_coins")
 		get_parent().get_parent().get_parent().get_parent().call("update_coins_label")
 		get_parent().get_parent().get_parent().get_parent().call("can_by_new_talant")
