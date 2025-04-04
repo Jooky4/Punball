@@ -39,7 +39,6 @@ font_size = 50
 
 [node name="Pause_menu_UI" type="Control"]
 process_mode = 3
-visible = false
 z_index = 7
 custom_minimum_size = Vector2(720, 1280)
 layout_mode = 3
@@ -81,7 +80,7 @@ texture_pressed = ExtResource("3_25qqy")
 texture_disabled = ExtResource("3_25qqy")
 texture_focused = ExtResource("3_25qqy")
 
-[node name="Home2" type="TextureButton" parent="."]
+[node name="Off_volume" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 388.0
 offset_top = 1117.0
@@ -89,9 +88,6 @@ offset_right = 543.0
 offset_bottom = 1207.0
 theme = SubResource("Theme_5m7jc")
 texture_normal = ExtResource("4_sf8p2")
-texture_pressed = ExtResource("4_sf8p2")
-texture_disabled = ExtResource("4_sf8p2")
-texture_focused = ExtResource("4_sf8p2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -457,3 +453,4 @@ scale = Vector2(0.15, 0.15)
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Off_volume" to="." method="_on_off_volume_pressed"]
