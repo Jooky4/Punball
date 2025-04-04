@@ -89,13 +89,15 @@ var revavil_for_AD_or_crystal : bool = false
 var kill_on_wave : int = 0
 
 func _ready() -> void:
+	Engine.time_scale = 1
 	get_tree().paused = false
+	AudioManager.music_start()
+	YandexSDK.connect("interstitial_ad", star_location)
 	update_location_image()
 	update_character()
 	check_tutorial()
 	await get_tree().create_timer(0.05).timeout
 	ChangeScene.normal_screen()
-	YandexSDK.gameplay_started()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
@@ -117,11 +119,17 @@ func _ready() -> void:
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	hp_player_bar.value = LevelManager.hp_player
 	hp_player_label.text = str(LevelManager.hp_player)
+	YandexSDK.gameplay_started()
 	await get_tree().create_timer(0.8).timeout
 	AudioManager.enemy_spawn()
 	await get_tree().create_timer(0.3).timeout
 	balls_can_go = true
-	#YandexSDK.gameplay_started()
+
+func star_location(result) -> void:
+	if result == "closed" or result == "error":
+		AudioServer.set_bus_mute(0, false)
+		AudioManager.music_start()
+		YandexSDK.gameplay_started()
 
 func check_tutorial() -> void:
 	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
@@ -196,6 +204,7 @@ func _process(delta):
 func play_game() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:
 		if get_global_mouse_position() != old_coord_mouse:
+			AudioServer.set_bus_mute(0, false)
 			$Tutorial.visible = false
 			$Tutorial/Control.visible = false
 			line.visible = true
@@ -211,6 +220,7 @@ func play_game() -> void:
 			draw_trajectory()
 
 	if Input.is_action_just_released("LBM") and balls_can_go and mouse_in_pause_button_area == false:
+		AudioServer.set_bus_mute(0, false)
 		$Tutorial/Label.visible = false
 		balls_go()
 

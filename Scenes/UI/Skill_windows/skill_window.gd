@@ -93,5 +93,5 @@ func scroll_skill_animation(skill, rarity):
 			time_animation = 4
 	for i in $VScrollBar/Texture_skills.get_children():
 		i.texture = texture_skill[texture_skill.keys()[randi() % texture_skill.keys().size()]]
-	$VScrollBar/Texture_skills/TextureRect40.texture = texture_skill[skill]
-	create_tween().tween_property($VScrollBar, "scroll_vertical", 512*40, time_animation).set_trans(Tween.TRANS_QUAD)
+	$VScrollBar/Texture_skills/TextureRect25.texture = texture_skill[skill]
+	create_tween().tween_property($VScrollBar, "scroll_vertical", 512*25, time_animation).set_trans(Tween.TRANS_QUAD)
