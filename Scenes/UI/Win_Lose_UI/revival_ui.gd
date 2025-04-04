@@ -57,6 +57,7 @@ func rew_ad_res(result:String) -> void:
 		timer.set_paused(false)
 		timer_2.set_paused(false)
 		AudioServer.set_bus_mute(0, false)
+		YandexSDK.gameplay_started()
 	elif result == "rewarded":
 		timer.stop()
 		timer_2.stop()
@@ -64,7 +65,6 @@ func rew_ad_res(result:String) -> void:
 		if get_tree().current_scene.has_method("revavil_player"):
 			get_tree().get_current_scene().call("revavil_player", true)
 		self.visible = false
-		YandexSDK.gameplay_started()
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)
 
