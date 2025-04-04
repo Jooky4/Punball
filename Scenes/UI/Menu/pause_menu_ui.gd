@@ -85,8 +85,8 @@ func _on_home_pressed() -> void:
 	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
 		Engine.time_scale = 1
 		PlayerIndicatorsManager.GAMEPLAY_TUTORIL = 1
+		await get_tree().create_timer(0.1).timeout
 		PlayerIndicatorsManager.update_player_date_on_server()
-		await get_tree().create_timer(0.5).timeout
 		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")

@@ -536,7 +536,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff = SKILL_BOX.instantiate()
 				if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
 					show_skill_tutorial()
-					PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1
+					PlayerIndicatorsManager.GAMEPLAY_TUTORIL = 1
 					PlayerIndicatorsManager.update_player_date_on_server()
 			-1: 
 				buff = BONUS_BALL.instantiate()
