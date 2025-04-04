@@ -204,12 +204,13 @@ func moving_object(player_position) -> void:
 	if boss_on_map:
 		if ((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5:
 			var boss_pos = find_boss_position()
-			if count_level % 2 == 0:
-				first_level_links_on_objects[boss_pos.x][boss_pos.y].spawn_new_enemy()
-			else:
-				first_level_links_on_objects[boss_pos.x][boss_pos.y].play_animation_hit_player(player_position)
-				damage_player(first_level_links_on_objects[boss_pos.x][boss_pos.y].player_damage, first_level_links_on_objects[boss_pos.x][boss_pos.y])
-			hit_player = true
+			if !first_level_links_on_objects[boss_pos.x][boss_pos.y].freezen:
+				if count_level % 2 == 0:
+					first_level_links_on_objects[boss_pos.x][boss_pos.y].spawn_new_enemy()
+				else:
+					first_level_links_on_objects[boss_pos.x][boss_pos.y].play_animation_hit_player(player_position)
+					damage_player(first_level_links_on_objects[boss_pos.x][boss_pos.y].player_damage, first_level_links_on_objects[boss_pos.x][boss_pos.y])
+				hit_player = true
 
 	if hit_player:
 		await get_tree().create_timer(2).timeout
