@@ -39,6 +39,7 @@ font_size = 50
 
 [node name="Pause_menu_UI" type="Control"]
 process_mode = 3
+visible = false
 z_index = 7
 custom_minimum_size = Vector2(720, 1280)
 layout_mode = 3
