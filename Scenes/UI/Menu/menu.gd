@@ -257,6 +257,8 @@ func _on_shop_button_pressed() -> void:
 	if shop_UI.visible == false:
 		return_norm_scale()
 		update_button_scale(1)
+	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
+		$"Tutorial_talants/1_step".visible = true
 	shop_UI.visible = true
 	player_leve_UI.visible = true
 	main_menu_UI.visible = false
