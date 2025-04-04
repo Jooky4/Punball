@@ -60,7 +60,6 @@ func rew_ad_res(result:String) -> void:
 	elif result == "rewarded":
 		timer.stop()
 		timer_2.stop()
-		AudioServer.set_bus_mute(0, false)
 		LevelManager.revival(0.5, false)
 		if get_tree().current_scene.has_method("revavil_player"):
 			get_tree().get_current_scene().call("revavil_player", true)
