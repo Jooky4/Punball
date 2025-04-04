@@ -157,9 +157,9 @@ func update_location_image() -> void:
 		7:
 			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 8.png")
 		8:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 1.png")
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 9.png")
 		-1:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 1.png")
+			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 10.png")
 
 func update_character() -> void:
 	match PlayerIndicatorsManager.CURRENT_CHARACTER:

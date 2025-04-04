@@ -29,9 +29,9 @@ var location = {
 	4 : [preload("res://Texture/UI/Main_menu/Location/5.png"), "Эфирион"],
 	5 : [preload("res://Texture/UI/Main_menu/Location/6.png"), "Ржавник"],
 	6 : [preload("res://Texture/UI/Main_menu/Location/7.png"), "Лунарис"],
-	7 : [preload("res://Texture/UI/Main_menu/Location/1.png"), "Шептоль"],
-	8 : [preload("res://Texture/UI/Main_menu/Location/1.png"), "Пламеград"],
-	-1 : [preload("res://Texture/UI/Main_menu/Location/1.png"), "Безднария"]
+	7 : [preload("res://Texture/UI/Main_menu/Location/8.png"), "Шептоль"],
+	8 : [preload("res://Texture/UI/Main_menu/Location/9.png"), "Пламеград"],
+	-1 : [preload("res://Texture/UI/Main_menu/Location/10.png"), "Безднария"]
 }
 var current_location = 1
 var number_cycle = 0
