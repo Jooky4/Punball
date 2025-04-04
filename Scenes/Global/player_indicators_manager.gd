@@ -51,6 +51,7 @@ var CHARACTER_UP_ATTACK : float = 1.0
 var CHARACTER_3_UP_ATTACK_FROM_OZ : float = 1.0
 
 var GAMEPLAY_TUTORIL : int = 0
+var TALANTS_TUTORIL : int = 0
 
 func _ready() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
@@ -82,7 +83,8 @@ func update_player_date_in_game() -> void:
 						 "character_1_lvl",
 						 "character_2_lvl",
 						 "character_3_lvl",
-						 "gameplay_tutoril"])
+						 "gameplay_tutoril",
+						 "talants_tutoril"])
 
 func get_player_indicators() -> Dictionary:
 	return {"coins" : COINS_COUNT, 
@@ -111,7 +113,8 @@ func get_player_indicators() -> Dictionary:
 			"character_1_lvl": CHARACTER_1_LVL,
 			"character_2_lvl": CHARACTER_2_LVL,
 			"character_3_lvl": CHARACTER_3_LVL,
-			"gameplay_tutoril" : GAMEPLAY_TUTORIL}
+			"gameplay_tutoril" : GAMEPLAY_TUTORIL,
+			"talants_tutoril": TALANTS_TUTORIL}
 
 func update_crystal_count(num) -> void:
 	CRYSTALS_COUNT += num
@@ -157,6 +160,7 @@ func player_date_loaded(data) -> void:
 		CHARACTER_2_LVL = data["character_2_lvl"]
 		CHARACTER_3_LVL = data["character_3_lvl"]
 		GAMEPLAY_TUTORIL = data["gameplay_tutoril"]
+		TALANTS_TUTORIL = data["talants_tutoril"]
 	else:
 		COINS_COUNT = 500
 		CRYSTALS_COUNT = 100
@@ -185,6 +189,7 @@ func player_date_loaded(data) -> void:
 		CHARACTER_2_LVL = 0
 		CHARACTER_3_LVL = 0
 		GAMEPLAY_TUTORIL = 0
+		TALANTS_TUTORIL = 0
 
 func update_count_max_wave(max_wave) -> void:
 	if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS:

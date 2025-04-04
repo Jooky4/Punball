@@ -122,6 +122,7 @@ func _process(delta):
 func _input(event: InputEvent) -> void:
 	if self.visible and load_data_talant:
 		if event is InputEventMouseButton:
+			$"..".step_2_tutorial()
 			for i in skills_container.get_children():
 				if i.has_method("information_close"):
 					i.information_close()

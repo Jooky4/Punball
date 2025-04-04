@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://caf0ebk5ttcbn"]
+[gd_scene load_steps=17 format=3 uid="uid://caf0ebk5ttcbn"]
 
 [ext_resource type="Texture2D" uid="uid://dnvg0ncyk7tc2" path="res://Texture/UI/Talents_UI/ячейка активная для талантов за монеты.png" id="1_0phtb"]
 [ext_resource type="Script" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://kp41ah4lio7c" path="res://Texture/UI/Talents_UI/монетка (для всплывающего окна).png" id="6_21xj4"]
 [ext_resource type="Texture2D" uid="uid://dg4tm5hm7o1r0" path="res://Texture/UI/Talents_UI/зеленая галочка2.png" id="7_w7t02"]
 [ext_resource type="Texture2D" uid="uid://c45d0wb078w46" path="res://Texture/UI/Talents_UI/серая полоска.png" id="8_rfvt8"]
+[ext_resource type="Texture2D" uid="uid://wno3dh4o5lom" path="res://Texture/For_tutorial/палец с обводкой.png" id="9_2hx3b"]
 [ext_resource type="Texture2D" uid="uid://da7nwj1s8ivou" path="res://Texture/UI/Talents_UI/золотая ячейка2.png" id="9_en243"]
 [ext_resource type="Texture2D" uid="uid://cpxwnyyvl6vo5" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна)2.png" id="10_aeudc"]
 [ext_resource type="Texture2D" uid="uid://bxqyq6ikvha7n" path="res://Texture/UI/Main_menu/кристаллБезОбв.png" id="11_841kq"]
@@ -195,6 +196,26 @@ horizontal_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
+[node name="3_step" type="TextureRect" parent="For_coins/Information"]
+visible = false
+z_index = 6
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 91.5
+offset_top = 126.5
+offset_right = 340.5
+offset_bottom = 402.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.0944
+texture = ExtResource("9_2hx3b")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Skill_texture" type="TextureRect" parent="For_coins"]
 layout_mode = 1
 anchors_preset = 15
@@ -233,6 +254,26 @@ offset_bottom = 248.0
 mouse_filter = 2
 texture = ExtResource("8_rfvt8")
 expand_mode = 1
+
+[node name="2_step" type="TextureRect" parent="For_coins"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = 117.0
+offset_right = 345.0
+offset_bottom = 393.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.0944
+texture = ExtResource("9_2hx3b")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="For_crystal" type="TextureButton" parent="."]
 z_index = 1

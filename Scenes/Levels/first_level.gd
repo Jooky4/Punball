@@ -129,7 +129,7 @@ func check_tutorial() -> void:
 		$Tutorial/Label.visible = true
 		$Tutorial/Control.visible = true
 	else:
-		$Tutorial.queue_free()
+		$Tutorial.visible = false
 
 func update_location_image() -> void:
 	match ((WaveGeneration.current_location % 10) - 1):
@@ -196,10 +196,8 @@ func _process(delta):
 func play_game() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:
 		if get_global_mouse_position() != old_coord_mouse:
-			if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
-				$Tutorial.visible = false
-				$Tutorial/Label.visible = false
-				$Tutorial/Control.visible = false
+			$Tutorial.visible = false
+			$Tutorial/Control.visible = false
 			line.visible = true
 			ball_rotate_UI.visible = true
 			strelka.visible = true
@@ -213,9 +211,8 @@ func play_game() -> void:
 			draw_trajectory()
 
 	if Input.is_action_just_released("LBM") and balls_can_go and mouse_in_pause_button_area == false:
+		$Tutorial/Label.visible = false
 		balls_go()
-		if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
-			$Tutorial/Label.visible = false
 
 func chec_game_end() -> void:
 	hp_player_bar.value = LevelManager.hp_player
