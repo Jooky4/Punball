@@ -66,6 +66,8 @@ func rew_ad_res(result:String) -> void:
 			get_tree().get_current_scene().call("revavil_player", true)
 		self.visible = false
 		YandexSDK.gameplay_started()
+	elif result == "opened":
+		AudioServer.set_bus_mute(0, true)
 
 func _on_timer_timeout() -> void:
 	timer.stop()

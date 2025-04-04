@@ -104,3 +104,5 @@ func rew_ad_res(result:String) -> void:
 		$Button_AD.disabled = true
 		$Button_AD.texture_normal = bitton_AD_not_can_press_texture
 		bonus_for_AD()
+	elif result == "opened":
+		AudioServer.set_bus_mute(0, true)

@@ -55,6 +55,7 @@ var texture_skill = {
 	}
 
 func _ready() -> void:
+	check_volume()
 	self.visible = false
 
 func _on_continue_pressed() -> void:
@@ -91,6 +92,17 @@ func _on_home_pressed() -> void:
 	else:
 		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
 
+func check_volume() -> void:
+	if AudioServer.get_bus_volume_db(0) == -80:
+		$Off_volume.texture_normal = load("res://Texture/UI/Pause_UI/кнопка громкость нет звука.png")
+	elif AudioServer.get_bus_volume_db(0) == 0:
+		$Off_volume.texture_normal = load("res://Texture/UI/Pause_UI/кнопка громкость.png")
 
 func _on_off_volume_pressed() -> void:
-	pass # Replace with function body.
+	if AudioServer.get_bus_volume_db(0) == -80:
+		$Off_volume.texture_normal = load("res://Texture/UI/Pause_UI/кнопка громкость.png")
+		AudioServer.set_bus_volume_db(0, 0)
+		AudioManager.click()
+	elif AudioServer.get_bus_volume_db(0) == 0:
+		$Off_volume.texture_normal = load("res://Texture/UI/Pause_UI/кнопка громкость нет звука.png")
+		AudioServer.set_bus_volume_db(0, -80)
