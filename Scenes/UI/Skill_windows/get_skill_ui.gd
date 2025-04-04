@@ -538,8 +538,6 @@ func rew_ad_res(result:String) -> void:
 		AudioServer.set_bus_mute(0, false)
 		YandexSDK.gameplay_started()
 	elif result == "rewarded":
-		count_get_skill = 0
-		show_AD = false
 		add_skill(skills[skil_for_ad][0])
 		LevelManager.buy_skill(LevelManager.count_experiance)
 	elif result == "opened":

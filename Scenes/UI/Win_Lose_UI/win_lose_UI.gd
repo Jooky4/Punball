@@ -27,20 +27,10 @@ func _on_go_to_menu_pressed() -> void:
 	AudioManager.click()
 	get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
 
-func update_level_label_and_bar() -> void:
-	player_level_label.text = str(PlayerIndicatorsManager.LEVEL_PLAYER)
-	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
-	player_level_bar.value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER
-
 func plus_expiriance_level_player() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	count_exp = round(max_wave * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
 	PlayerIndicatorsManager.update_level_player(round(count_exp))
-	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
-	for i in range(new_level - current_level):
-		while level_up_UI.visible != false:
-			await get_tree().create_timer(0.1).timeout
-		level_up_UI.level_up(current_level + i + 1)
 	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp))
 
 	count_coins = round(max_wave * 100 * (WaveGeneration.current_location * 0.15 + 0.85))
@@ -48,7 +38,6 @@ func plus_expiriance_level_player() -> void:
 		count_coins = count_coins + (count_coins * 0.05)
 	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins))
 	PlayerIndicatorsManager.update_coins_count(round(count_coins))
-	update_level_label_and_bar()
 
 	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
 		count_rune = round(max_wave * 5)
@@ -58,18 +47,30 @@ func plus_expiriance_level_player() -> void:
 		$TextureRect8/MarginContainer/GridContainer/Runes/TextureRect.visible = false
 		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.visible = false
 
+	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
+	if new_level > current_level:
+		for i in range(new_level - current_level):
+			player_level_label.text = str(current_level + i)
+			player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
+			player_level_bar.value = 0
+			create_tween().tween_property(player_level_bar, "value", player_level_bar.max_value, 2).set_trans(Tween.TRANS_QUAD)
+			await get_tree().create_timer(2).timeout
+			level_up_UI.level_up(current_level + i + 1)
+			while level_up_UI.visible != false:
+				await get_tree().create_timer(0.1).timeout
+	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
+	player_level_label.text = str(PlayerIndicatorsManager.LEVEL_PLAYER)
+	player_level_bar.value = 0
+	create_tween().tween_property(player_level_bar, "value", PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER, 2).set_trans(Tween.TRANS_QUAD)
+	$Button_AD.disabled = false
+	$Go_to_menu.disabled = false
+
 func bonus_for_AD() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	PlayerIndicatorsManager.update_level_player(round(count_exp * 0.5))
 	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp * 1.5))
-	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
-	for i in range(new_level - current_level):
-		while level_up_UI.visible != false:
-			await get_tree().create_timer(0.1).timeout
-		level_up_UI.level_up(current_level + i + 1)
 	PlayerIndicatorsManager.update_coins_count(round(count_coins * 0.5))
 	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins * 1.5))
-	update_level_label_and_bar()
 
 	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
 		PlayerIndicatorsManager.update_rune_count(round(count_rune * 0.5))
@@ -77,6 +78,22 @@ func bonus_for_AD() -> void:
 	else:
 		$TextureRect8/MarginContainer/GridContainer/Runes/TextureRect.visible = false
 		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.visible = false
+
+	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
+	if new_level > current_level:
+		for i in range(new_level - current_level):
+			player_level_label.text = str(current_level + i)
+			player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
+			player_level_bar.value = 0
+			create_tween().tween_property(player_level_bar, "value", player_level_bar.max_value, 2).set_trans(Tween.TRANS_QUAD)
+			await get_tree().create_timer(2).timeout
+			level_up_UI.level_up(current_level + i + 1)
+			while level_up_UI.visible != false:
+				await get_tree().create_timer(0.1).timeout
+	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
+	player_level_label.text = str(PlayerIndicatorsManager.LEVEL_PLAYER)
+	player_level_bar.value = 0
+	create_tween().tween_property(player_level_bar, "value", PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER, 2).set_trans(Tween.TRANS_QUAD)
 
 func win() -> void:
 	$Win_Lose_Label/Win.visible = true

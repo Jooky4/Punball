@@ -582,6 +582,7 @@ offset_right = 119.0
 offset_bottom = -174.0
 grow_horizontal = 2
 grow_vertical = 0
+disabled = true
 texture_normal = ExtResource("23_8dhcs")
 
 [node name="Sprite2D" type="TextureRect" parent="Button_AD"]
@@ -612,6 +613,7 @@ offset_right = 173.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
+disabled = true
 texture_normal = ExtResource("25_bbyqq")
 
 [node name="Label" type="Label" parent="Go_to_menu"]
