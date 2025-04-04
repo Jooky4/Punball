@@ -120,6 +120,7 @@ stream = ExtResource("18_visxg")
 volume_db = -4.0
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 13
 anchor_left = 0.5
