@@ -92,6 +92,7 @@ func _ready() -> void:
 	get_tree().paused = false
 	update_location_image()
 	update_character()
+	check_tutorial()
 	await get_tree().create_timer(0.05).timeout
 	ChangeScene.normal_screen()
 	YandexSDK.gameplay_started()
@@ -121,6 +122,14 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	balls_can_go = true
 	#YandexSDK.gameplay_started()
+
+func check_tutorial() -> void:
+	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
+		$Tutorial.visible = true
+		$Tutorial/Label.visible = true
+		$Tutorial/Control.visible = true
+	else:
+		$Tutorial.visible = false
 
 func update_location_image() -> void:
 	match ((WaveGeneration.current_location % 10) - 1):
@@ -187,6 +196,8 @@ func _process(delta):
 func play_game() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:
 		if get_global_mouse_position() != old_coord_mouse:
+			$Tutorial.visible = false
+			$Tutorial/Control.visible = false
 			line.visible = true
 			ball_rotate_UI.visible = true
 			strelka.visible = true
@@ -200,6 +211,7 @@ func play_game() -> void:
 			draw_trajectory()
 
 	if Input.is_action_just_released("LBM") and balls_can_go and mouse_in_pause_button_area == false:
+		$Tutorial/Label.visible = false
 		balls_go()
 
 func chec_game_end() -> void:
@@ -327,7 +339,6 @@ func show_hit_effect():
 func win() -> void:
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
 	LevelManager.win_or_lose = "win"
-	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
 func lose() -> void:
@@ -518,8 +529,16 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 			count_wave = WaveGeneration.get_count_wave_on_location() - 2
 		notification_about_new_enemy(LevelManager.first_level_links_on_objects[count/6][count%6])
 		match LevelManager.first_level_links_on_objects[count/6][count%6]:
-			-2: buff = SKILL_BOX.instantiate()
-			-1: buff = BONUS_BALL.instantiate()
+			-2:
+				buff = SKILL_BOX.instantiate()
+				if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
+					show_skill_tutorial()
+					PlayerIndicatorsManager.GAMEPLAY_TUTORIL = 1
+					PlayerIndicatorsManager.update_player_date_on_server()
+			-1: 
+				buff = BONUS_BALL.instantiate()
+				if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
+					show_ball_tutorial()
 			1: 
 				buff = DEFALT_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
@@ -635,6 +654,17 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
 		game_objects.add_child(buff)
+
+func show_ball_tutorial() -> void:
+	await get_tree().create_timer(0.8).timeout
+	$Tutorial/Label2.visible = true
+	$Tutorial.visible = true
+
+func show_skill_tutorial() -> void:
+	await get_tree().create_timer(0.8).timeout
+	$Tutorial/Label2.visible = false
+	$Tutorial/Label3.visible = true
+	$Tutorial.visible = true
 
 func end_wave() -> void:
 	LevelManager.apeend_new_balls()

@@ -26,7 +26,7 @@ var hit_player : bool = false
 var somebody_move_on_this_wave : bool = false
 var player_skills : Array = []
 var first_level_spawn : Array = [[null, null, 1, 1, -1, null],
-								[-2, 1, 1, 1, null, null],
+								[1, -2, 1, 1, null, null],
 								[1, 1, 1, null, -1, 1],
 								[1, null, -2, 1, 1, null],
 								[-1, 1, 1, null, 1, null],

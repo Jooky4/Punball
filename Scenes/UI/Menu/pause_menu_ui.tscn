@@ -41,6 +41,7 @@ font_size = 50
 process_mode = 3
 visible = false
 z_index = 7
+custom_minimum_size = Vector2(720, 1280)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -148,11 +148,12 @@ func arabic_to_roman(num: int) -> String:
 	return roman_num
 
 func player_date_loaded(data) -> void:
+	update_cuurent_location_texture()
+	check_tutorial()
 	update_coins_label()
 	update_crystal_label()
 	update_characte_UI()
 	update_level_label_and_bar()
-	update_cuurent_location_texture()
 	talents_UI.update_skill()
 	talents_UI.update_player_indicator_talant_for_coins()
 	chests.update_label_chests()
@@ -161,6 +162,32 @@ func player_date_loaded(data) -> void:
 	if load_not_buy == false:
 		load_not_buy = true
 		YandexSDK.check_unprocessed_purchases()
+
+func check_tutorial() -> void:
+	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and current_location == 1:
+		PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+		WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+		LevelManager.restert()
+		LevelManager.player_balls = [1, 1, 1, 1]
+		get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	elif PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
+		$Tutorial_talants.visible = true
+		$"Tutorial_talants/1_step".visible = true
+	elif PlayerIndicatorsManager.TALANTS_TUTORIL == 1:
+		$Tutorial_talants.visible = false
+
+func step_2_tutorial() -> void:
+	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
+		$"Tutorial_talants/1_step".visible = false
+
+func step_3_tutorial() -> void:
+	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
+		$"Tutorial_talants/1_step".visible = false
+
+func end_tutorial() -> void:
+	$Tutorial_talants.visible = false
+	PlayerIndicatorsManager.TALANTS_TUTORIL = 1
+	PlayerIndicatorsManager.update_player_date_on_server()
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
@@ -241,6 +268,8 @@ func _on_talesnts_button_pressed() -> void:
 	if talents_UI.visible == false:
 		return_norm_scale()
 		update_button_scale(3)
+	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
+		$"Tutorial_talants/1_step".visible = false
 	talents_UI.visible = true
 	player_leve_UI.visible = true
 	main_menu_UI.visible = false
@@ -275,6 +304,8 @@ func _on_mainmenu_button_pressed() -> void:
 	if main_menu_UI.visible == false:
 		return_norm_scale()
 		update_button_scale(2)
+	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
+		$"Tutorial_talants/1_step".visible = true
 	main_menu_UI.visible = true
 	player_leve_UI.visible = true
 	shop_UI.visible = false

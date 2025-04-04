@@ -84,6 +84,8 @@ func erase_for_crystal() -> void:
 
 func for_coins_update_texture_and_discriotion(skill, count_skills, discription, texture) -> void:
 	count_skill_for_coins = count_skills
+	if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0 and PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS == 0:
+		$"For_coins/2_step".visible = true
 	skill_for_coins_cost = 500 + (1250 * ((count_skill_for_coins - 1) / 5))
 	for_coins_texture.texture = texture
 	if count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS:
@@ -197,6 +199,10 @@ func _on_button_for_coins_pressed() -> void:
 		if PlayerIndicatorsManager.COINS_COUNT < skill_for_coins_cost:
 			$For_coins/Information/Bye_skill.disabled = true
 			$For_coins/Information/Bye_skill.texture_normal = load("res://Texture/UI/Talents_UI/плашка цены не активна.png")
+		if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0 and PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS == 0:
+			$"For_coins/2_step".visible = false
+			$"For_coins/Information/3_step".visible = true
+			get_parent().get_parent().get_parent().get_parent().call("step_3_tutorial")
 		$For_coins/Information/Bye_skill.visible = true
 		$For_coins/Information/Skill_name.visible = true
 		$For_coins/Information/Discription.visible = true
@@ -241,6 +247,9 @@ func information_close() -> void:
 	if can_close_information:
 		$For_crystal/Information.visible = false
 		$For_coins/Information.visible = false
+	if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0 and PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS == 0:
+		if $"For_coins/Information/3_step".visible == false:
+			$"For_coins/2_step".visible = true
 
 func _on_timer_can_close_timeout() -> void:
 	can_close_information = true
@@ -262,6 +271,10 @@ func _on_bye_for_crystal_pressed() -> void:
 func _on_bye_for_cois_pressed() -> void:
 	AudioManager.click()
 	if PlayerIndicatorsManager.COINS_COUNT >= skill_for_coins_cost:
+		if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
+			$"For_coins/2_step".visible = false
+			$"For_coins/Information/3_step".visible = false
+			get_parent().get_parent().get_parent().get_parent().call("end_tutorial")
 		$For_crystal/Information.visible = false
 		$For_coins/Information.visible = false
 		AudioManager.bye_talant_sound()
