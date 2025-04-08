@@ -442,6 +442,7 @@ func updete_last_line() -> void:
 			AudioManager.enemy_spawn()
 			check_traps()
 		else:
+			check_traps()
 			count_level += 1
 	else:
 		if WaveGeneration.current_location == 1:
@@ -468,6 +469,8 @@ func updete_last_line() -> void:
 						AudioManager.enemy_spawn()
 						check_traps()
 						break
+		else:
+			check_traps()
 
 func can_boss_spawn() -> bool:
 	if first_level_links_on_objects[1][2] != null:

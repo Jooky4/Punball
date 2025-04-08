@@ -186,8 +186,8 @@ outline_color = Color(0.054902, 0.113725, 0.341176, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbi4k"]
 shader = ExtResource("89_tcnwh")
-shader_parameter/center = Vector2(0.5, 1)
-shader_parameter/size = Vector2(0.035, 0.45)
+shader_parameter/center = Vector2(0.48, 1)
+shader_parameter/size = Vector2(0.14, 0.65)
 shader_parameter/gradient_width = 0.05
 shader_parameter/gradient_color = Vector4(0, 0, 0, 0.01)
 

@@ -199,6 +199,10 @@ func _on_button_for_coins_pressed() -> void:
 		if PlayerIndicatorsManager.COINS_COUNT < skill_for_coins_cost:
 			$For_coins/Information/Bye_skill.disabled = true
 			$For_coins/Information/Bye_skill.texture_normal = load("res://Texture/UI/Talents_UI/плашка цены не активна.png")
+		else:
+			$For_coins/Information/Bye_skill.disabled = false
+			$For_coins/Information/Bye_skill.texture_normal = load("res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна).png")
+
 		if count_skill_for_coins == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0 and PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS == 0:
 			$"For_coins/2_step".visible = false
 			$"For_coins/Information/3_step".visible = true
@@ -233,6 +237,10 @@ func _on_button_for_crystall_pressed() -> void:
 		if PlayerIndicatorsManager.CRYSTALS_COUNT < skill_for_crystal_cost:
 			$For_crystal/Information/Bye_skill.disabled = true
 			$For_crystal/Information/Bye_skill.texture_normal = load("res://Texture/UI/Talents_UI/плашка цены не активна.png")
+		else:
+			$For_crystal/Information/Bye_skill.disabled = false
+			$For_crystal/Information/Bye_skill.texture_normal = load("res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна)2.png")
+
 		$For_crystal/Information/Bye_skill.visible = true
 		$For_crystal/Information/Discription.visible = true
 		$For_crystal/Information/Bye_skill/Label.text = str(skill_for_crystal_cost)
