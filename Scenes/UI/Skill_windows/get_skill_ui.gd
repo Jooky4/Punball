@@ -202,9 +202,9 @@ func create_skill():
 	else:
 		$Update_skill_button.texture_normal = BUTTON_UPDATE_SKILL_NOT_PRESS_TEXTURE
 
-	for i in bye_button.get_children():
-		i.visible = false
+	for i in button_arr:
 		i.disabled = true
+		i.visible = false
 		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
 		for j in i.get_children():
 			if "AD" in j.name:
@@ -540,8 +540,8 @@ func rew_ad_res(result:String) -> void:
 		AudioServer.set_bus_mute(0, false)
 		YandexSDK.gameplay_started()
 	elif result == "rewarded":
-		add_skill(skills[skil_for_ad][0])
 		LevelManager.buy_skill(LevelManager.count_experiance)
+		add_skill(skills[skil_for_ad][0])
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)
 
