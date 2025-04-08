@@ -186,8 +186,10 @@ outline_color = Color(0.054902, 0.113725, 0.341176, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbi4k"]
 shader = ExtResource("89_tcnwh")
-shader_parameter/center = Vector2(0.5, 0)
-shader_parameter/size = Vector2(0.045, 0.45)
+shader_parameter/center = Vector2(0.5, 1)
+shader_parameter/size = Vector2(0.035, 0.45)
+shader_parameter/gradient_width = 0.05
+shader_parameter/gradient_color = Vector4(0, 0, 0, 0.01)
 
 [node name="Menu" type="Control"]
 z_index = 8
@@ -3613,6 +3615,24 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="ColorRect" type="ColorRect" parent="Tutorial_talants"]
+z_index = 11
+material = SubResource("ShaderMaterial_fbi4k")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2269.0
+offset_top = -971.0
+offset_right = 2359.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.509804)
+
 [node name="1_step" type="TextureRect" parent="Tutorial_talants"]
 layout_mode = 1
 anchors_preset = 8
@@ -3633,17 +3653,6 @@ texture = ExtResource("87_2lo32")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("88_u3omx")
-
-[node name="ColorRect" type="ColorRect" parent="Tutorial_talants/1_step"]
-z_index = 11
-material = SubResource("ShaderMaterial_fbi4k")
-layout_mode = 0
-offset_left = -2229.0
-offset_top = -88.0
-offset_right = 2477.0
-offset_bottom = 1524.0
-mouse_filter = 2
-color = Color(0, 0, 0, 0.509804)
 
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]

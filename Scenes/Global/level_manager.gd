@@ -89,7 +89,8 @@ func restert() -> void:
 	hit_player = false
 	kill_on_whis_wave = 0
 	win_or_lose = ""
-	first_level_links_on_objects = [[null, null, null, null, null, null],
+	if WaveGeneration.current_location == 1:
+		first_level_links_on_objects = [[null, null, null, null, null, null],
  									[null, 1, 1, 1, 1, 1],
  									[null, null, null, null, null, null],
  									[1, 1, 1, 1, 1, null],
@@ -97,6 +98,8 @@ func restert() -> void:
  									[null, null, null, null, null, null],
  									[null, null, null, null, null, null],
  									[null, null, null, null, null, null]]
+	else:
+		start_random_spawn_enemy()
 	trap_on_map_links = [[null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
@@ -105,6 +108,23 @@ func restert() -> void:
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null]]
+
+func start_random_spawn_enemy() -> void:
+	first_level_links_on_objects = [[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null]]
+	var count : int = 0
+	while count != 10:
+		var first_random_index = (randi() % 3 + 1)
+		var two_random_index = (randi() % 6)
+		if first_level_links_on_objects[first_random_index][two_random_index] == null:
+			first_level_links_on_objects[first_random_index][two_random_index] = 1
+			count += 1
 
 func add_ball(num_ball) -> void:
 	player_balls_after_wave.append(num_ball)
