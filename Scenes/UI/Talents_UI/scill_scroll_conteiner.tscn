@@ -216,6 +216,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -2.0944
 pivot_offset = Vector2(107.05, 44.8782)
+mouse_filter = 2
 texture = ExtResource("9_2hx3b")
 expand_mode = 1
 stretch_mode = 5

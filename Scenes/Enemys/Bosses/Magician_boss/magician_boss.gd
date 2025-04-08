@@ -1,6 +1,7 @@
 extends "res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.gd"
 
 @onready var spawn_enemy_sound = $Spawn_enemy
+@onready var boss_move = $Boss_move
 var ENEMY_SPAWN = preload("res://Scenes/Enemys/Dops/magicaian_spawn_enemy.tscn")
 
 func spawn_new_enemy() -> void:
@@ -50,6 +51,18 @@ func create_label_damage(damage_ball, color_label) -> void:
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)
 	label.show_label(125)
+
+func moving(direction_object) -> void:
+	if alive:
+		on_last_line = false
+		animation_enemy.play("Move")
+		boss_move.play()
+		create_tween().tween_property(self, "position", Vector2(103, 103) * Vector2(direction_object.y, direction_object.x), 1).as_relative().set_trans(Tween.TRANS_QUAD)
+		await get_tree().create_timer(1).timeout
+		if on_last_line:
+			animation_enemy.play("Preparation")
+		else:
+			animation_enemy.play("Idle")
 
 func play_animation_hit_player(player_position):
 	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ

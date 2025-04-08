@@ -130,8 +130,8 @@ func _input(event: InputEvent) -> void:
 func update_scroll() -> void:
 	level_scroll.scroll_vertical = 1000000
 	skill_scroll.scroll_vertical = 1000000
-	level_scroll.scroll_vertical = level_scroll.scroll_vertical - (612 * (PlayerIndicatorsManager.LEVEL_PLAYER - 1))
-	skill_scroll.scroll_vertical = skill_scroll.scroll_vertical - (612 * (PlayerIndicatorsManager.LEVEL_PLAYER - 1))
+	level_scroll.scroll_vertical = level_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
+	skill_scroll.scroll_vertical = skill_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
 
 func update_player_indicator_talant_for_coins() -> void:
 	PlayerIndicatorsManager.defalt_for_talant()

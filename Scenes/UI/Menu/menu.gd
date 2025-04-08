@@ -127,6 +127,7 @@ func _process_purchase(id_buy, token) -> void:
 
 	update_coins_label()
 	update_crystal_label()
+	update_visible_texture_can_update()
 
 	YandexSDK.consume_purchase(token)
 	print("Purchase consumed:", id_buy)
@@ -185,9 +186,15 @@ func step_3_tutorial() -> void:
 		$"Tutorial_talants/1_step".visible = false
 
 func end_tutorial() -> void:
+	$Tutorial_talants/ColorRect.visible = false
+	$"Tutorial_talants/1_step".visible = false
 	$Tutorial_talants.visible = false
 	PlayerIndicatorsManager.TALANTS_TUTORIL = 1
 	PlayerIndicatorsManager.update_player_date_on_server()
+
+func update_visible_texture_can_update() -> void:
+	can_by_new_talant()
+	characters_UI.can_or_not_update()
 
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])

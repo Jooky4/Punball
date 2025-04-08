@@ -58,6 +58,7 @@ func _on_level_up_character_1_button_pressed() -> void:
 		PlayerIndicatorsManager.update_rune_count(-need_runes)
 		$"../..".update_coins_label()
 		$"../..".update_rune_label()
+		$"../..".update_visible_texture_can_update()
 		tween.tween_property($VBoxContainer/Attack_character/Attack_label, "scale", Vector2(1.4, 1.4), 0.5).set_trans(Tween.TRANS_BACK)
 		tween.chain().tween_property($VBoxContainer/Attack_character/Attack_label, "scale", Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_BACK)
 

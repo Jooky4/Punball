@@ -89,7 +89,8 @@ func restert() -> void:
 	hit_player = false
 	kill_on_whis_wave = 0
 	win_or_lose = ""
-	first_level_links_on_objects = [[null, null, null, null, null, null],
+	if WaveGeneration.current_location == 1:
+		first_level_links_on_objects = [[null, null, null, null, null, null],
  									[null, 1, 1, 1, 1, 1],
  									[null, null, null, null, null, null],
  									[1, 1, 1, 1, 1, null],
@@ -97,6 +98,8 @@ func restert() -> void:
  									[null, null, null, null, null, null],
  									[null, null, null, null, null, null],
  									[null, null, null, null, null, null]]
+	else:
+		start_random_spawn_enemy()
 	trap_on_map_links = [[null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
@@ -105,6 +108,23 @@ func restert() -> void:
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null],
 						 [null, null, null, null, null, null]]
+
+func start_random_spawn_enemy() -> void:
+	first_level_links_on_objects = [[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null],
+	 								[null, null, null, null, null, null]]
+	var count : int = 0
+	while count != 10:
+		var first_random_index = (randi() % 3 + 1)
+		var two_random_index = (randi() % 6)
+		if first_level_links_on_objects[first_random_index][two_random_index] == null:
+			first_level_links_on_objects[first_random_index][two_random_index] = 1
+			count += 1
 
 func add_ball(num_ball) -> void:
 	player_balls_after_wave.append(num_ball)
@@ -233,6 +253,7 @@ func moving_object(player_position) -> void:
 	somebody_move_on_this_wave = false
 	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
 		if (((WaveGeneration.current_location % 10) - 1) == 0 or ((WaveGeneration.current_location % 10) - 1) == 1 or
+		((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5 or
 		((WaveGeneration.current_location % 10) - 1) == 6 or ((WaveGeneration.current_location % 10) - 1) == 7):
 			move_boss()
 	for i in first_level_links_on_objects: # СНАЧАЛА ПРЫГАЮТ ВСЕ ПРЫГУНЫ
@@ -273,7 +294,6 @@ func moving_object(player_position) -> void:
 									move_left_or_right(i, j)
 	if boss_on_map:  # ДВИГАЕМ БОССА ЕСЛИ ОН НА КАРТЕ
 		if (((WaveGeneration.current_location % 10) - 1) == 2 or ((WaveGeneration.current_location % 10) - 1) == 3 or
-		((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5 or
 		((WaveGeneration.current_location % 10) - 1) == 8 or ((WaveGeneration.current_location % 10) - 1) == -1):
 			move_boss_forward_only(player_position)
 	for i in range(first_level_links_on_objects[7].size()): # ЗАПУСКАЕМ АНИМАЦИЮ У ИГРОКОВ НА ПОСЛЕДНЕЙ СТРОКЕ
@@ -422,6 +442,7 @@ func updete_last_line() -> void:
 			AudioManager.enemy_spawn()
 			check_traps()
 		else:
+			check_traps()
 			count_level += 1
 	else:
 		if WaveGeneration.current_location == 1:
@@ -448,6 +469,8 @@ func updete_last_line() -> void:
 						AudioManager.enemy_spawn()
 						check_traps()
 						break
+		else:
+			check_traps()
 
 func can_boss_spawn() -> bool:
 	if first_level_links_on_objects[1][2] != null:
