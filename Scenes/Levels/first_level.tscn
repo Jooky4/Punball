@@ -100,6 +100,7 @@ shadow_offset = Vector2(-4, 6)
 font = ExtResource("10_fo6nb")
 font_size = 60
 font_color = Color(0.266072, 0.269531, 0.245316, 1)
+outline_size = 15
 shadow_color = Color(0.167969, 0.167969, 0.167969, 1)
 shadow_offset = Vector2(-1, 1)
 
@@ -128,6 +129,7 @@ shadow_offset = Vector2(-1, 1)
 font = ExtResource("10_fo6nb")
 font_size = 60
 font_color = Color(0.27451, 0.278431, 0.25098, 1)
+outline_size = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_2dum8"]
 font = ExtResource("10_fo6nb")

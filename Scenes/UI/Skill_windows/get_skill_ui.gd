@@ -203,6 +203,7 @@ func create_skill():
 		$Update_skill_button.texture_normal = BUTTON_UPDATE_SKILL_NOT_PRESS_TEXTURE
 
 	for i in bye_button.get_children():
+		i.visible = false
 		i.disabled = true
 		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
 		for j in i.get_children():
@@ -327,6 +328,7 @@ func create_skill():
 	sound_scroll.playing = false
 	await get_tree().create_timer(0.25).timeout
 	for i in range(skills.size()):
+		button_arr[i].visible = true
 		if skills[i][1] > LevelManager.count_experiance:
 			for j in button_arr[i].get_children():
 				if "AD" in j.name:

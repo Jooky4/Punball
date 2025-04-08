@@ -40,12 +40,12 @@ func plus_expiriance_level_player() -> void:
 	PlayerIndicatorsManager.update_coins_count(round(count_coins))
 
 	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
+		$TextureRect8/MarginContainer/GridContainer/Runes.visible = true
 		count_rune = round(max_wave * 5)
 		PlayerIndicatorsManager.update_rune_count(+count_rune)
 		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.text = "x" + str(count_rune)
 	else:
-		$TextureRect8/MarginContainer/GridContainer/Runes/TextureRect.visible = false
-		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.visible = false
+		$TextureRect8/MarginContainer/GridContainer/Runes.visible = false
 
 	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	if new_level > current_level:
@@ -73,11 +73,11 @@ func bonus_for_AD() -> void:
 	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins * 1.5))
 
 	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
+		$TextureRect8/MarginContainer/GridContainer/Runes.visible = true
 		PlayerIndicatorsManager.update_rune_count(round(count_rune * 0.5))
 		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.text = "x" + str(round(count_rune * 1.5))
 	else:
-		$TextureRect8/MarginContainer/GridContainer/Runes/TextureRect.visible = false
-		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.visible = false
+		$TextureRect8/MarginContainer/GridContainer/Runes.visible = false
 
 	var new_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	if new_level > current_level:
@@ -118,7 +118,7 @@ func rew_ad_res(result:String) -> void:
 		AudioServer.set_bus_mute(0, false)
 	elif result == "rewarded":
 		$Button_AD.disabled = true
-		$Button_AD.texture_normal = bitton_AD_not_can_press_texture
+		$Button_AD.visible = false
 		bonus_for_AD()
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)

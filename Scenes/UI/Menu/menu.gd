@@ -189,6 +189,10 @@ func end_tutorial() -> void:
 	PlayerIndicatorsManager.TALANTS_TUTORIL = 1
 	PlayerIndicatorsManager.update_player_date_on_server()
 
+func update_visible_texture_can_update() -> void:
+	can_by_new_talant()
+	characters_UI.can_or_not_update()
+
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.get_player_indicators()["coins"])
 
