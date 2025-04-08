@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dpunvy5nlg1qs"]
+[gd_scene load_steps=39 format=3 uid="uid://dpunvy5nlg1qs"]
 
 [ext_resource type="Script" path="res://Scenes/Enemys/Bosses/Magician_boss/magician_boss.gd" id="1_isrgr"]
 [ext_resource type="Texture2D" uid="uid://bpu363g4yk53w" path="res://Texture/Enemys/Полоска здоровья/основа_босс.png" id="2_golxc"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="6_38swd"]
 [ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="7_bap16"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="8_i3eq7"]
+[ext_resource type="AudioStream" uid="uid://b2f8uwluae3cf" path="res://Resources/Sounds/прыжок_БОСС.mp3" id="8_xp767"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="9_mg1ug"]
 [ext_resource type="Texture2D" uid="uid://byw8bw6py5e7c" path="res://Texture/Enemys/Magician_enemy/тело.png" id="10_tjwwq"]
 [ext_resource type="Texture2D" uid="uid://kqhk34itgkug" path="res://Texture/Enemys/Magician_enemy/голова.png" id="11_bl5wa"]
@@ -737,7 +738,6 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_mg6hj"]
 resource_name = "Move"
-loop_mode = 1
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1363,6 +1363,11 @@ stream = ExtResource("6_38swd")
 stream = ExtResource("7_bap16")
 volume_db = -22.0
 pitch_scale = 1.3
+
+[node name="Boss_move" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xp767")
+volume_db = -14.0
+bus = &"SFX"
 
 [node name="Effects" type="Node2D" parent="."]
 
