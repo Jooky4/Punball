@@ -381,7 +381,7 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	LevelManager.kill_on_whis_wave = 0
 	await get_tree().create_timer(0.05).timeout
 	end_game_UI_lose.visible = false
-	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
+	if LevelManager.spin_skill > 0:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
@@ -721,7 +721,7 @@ func end_wave() -> void:
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
 	LevelManager.kill_on_whis_wave = 0
-	if LevelManager.spin_skill > 0 and !LevelManager.boss_on_map:
+	if LevelManager.spin_skill > 0:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
