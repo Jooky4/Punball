@@ -1589,11 +1589,13 @@ vertical_alignment = 1
 [node name="Can_update" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_1/TextureRect"]
 visible = false
 layout_mode = 0
-offset_left = 44.0
-offset_top = -16.0
-offset_right = 86.0
-offset_bottom = 31.0
+offset_left = 25.0
+offset_top = -32.0
+offset_right = 87.0
+offset_bottom = 38.0
+pivot_offset = Vector2(30, 37)
 texture = ExtResource("27_c31n5")
+script = ExtResource("88_u3omx")
 
 [node name="Button_1_character" type="Button" parent="Characters/All_characters/HBoxContainer/Character_1"]
 z_index = -1
@@ -1673,11 +1675,13 @@ vertical_alignment = 1
 [node name="Can_update" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_2/TextureRect"]
 visible = false
 layout_mode = 0
-offset_left = 44.0
-offset_top = -16.0
-offset_right = 86.0
-offset_bottom = 31.0
+offset_left = 25.0
+offset_top = -32.0
+offset_right = 87.0
+offset_bottom = 38.0
+pivot_offset = Vector2(30, 38)
 texture = ExtResource("27_c31n5")
+script = ExtResource("88_u3omx")
 
 [node name="Button_2_character" type="Button" parent="Characters/All_characters/HBoxContainer/Character_2"]
 z_index = -1
@@ -1757,11 +1761,13 @@ vertical_alignment = 1
 [node name="Can_update" type="TextureRect" parent="Characters/All_characters/HBoxContainer/Character_3/TextureRect"]
 visible = false
 layout_mode = 0
-offset_left = 44.0
-offset_top = -16.0
-offset_right = 86.0
-offset_bottom = 31.0
+offset_left = 25.0
+offset_top = -32.0
+offset_right = 87.0
+offset_bottom = 38.0
+pivot_offset = Vector2(30, 37)
 texture = ExtResource("27_c31n5")
+script = ExtResource("88_u3omx")
 
 [node name="Button_3_character" type="Button" parent="Characters/All_characters/HBoxContainer/Character_3"]
 z_index = -1
@@ -3012,7 +3018,7 @@ offset_bottom = -133.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Обычные шары имеют 1% 
-шанс распаться на 2 таких 
+шанс распасться на 2 таких 
 же шара"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
@@ -3457,13 +3463,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.0
+offset_left = -68.0
 offset_top = 7.0
 offset_right = -6.0
-offset_bottom = 54.0
+offset_bottom = 77.0
 grow_horizontal = 0
+pivot_offset = Vector2(31.1176, 36.5297)
 texture = ExtResource("27_c31n5")
 stretch_mode = 5
+script = ExtResource("88_u3omx")
 
 [node name="Label" type="Label" parent="Select_buttons/Talesnts_button"]
 visible = false
@@ -3555,13 +3563,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.0
+offset_left = -68.0
 offset_top = 7.0
 offset_right = -6.0
-offset_bottom = 54.0
+offset_bottom = 77.0
 grow_horizontal = 0
+pivot_offset = Vector2(30.7646, 35.3531)
 texture = ExtResource("27_c31n5")
 stretch_mode = 5
+script = ExtResource("88_u3omx")
 
 [node name="Label" type="Label" parent="Select_buttons/Character_button"]
 visible = false
