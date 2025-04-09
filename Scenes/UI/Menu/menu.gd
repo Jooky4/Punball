@@ -60,6 +60,7 @@ func _ready() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
 	YandexSDK.connect('purchased', _process_purchase_with_token)
 	YandexSDK.connect("unprocessed_purchases_loaded", _process_uncompleted_purchases)
+	YandexSDK.connect("catalog_loaded", _on_catalog_loaded)
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
@@ -132,6 +133,12 @@ func _process_purchase(id_buy, token) -> void:
 	YandexSDK.consume_purchase(token)
 	print("Purchase consumed:", id_buy)
 
+func _on_catalog_loaded(catalog):
+	print("Получен каталог товаров:", catalog)
+	for item in catalog:
+		print("Товар: ", item["title"], " Цена: ", item["price"])
+	shop_UI.update_price(catalog)
+
 func update_player_indicators() -> void:
 	PlayerIndicatorsManager.update_player_date_in_game()
 
@@ -161,6 +168,7 @@ func player_date_loaded(data) -> void:
 	$Select_buttons/Talesnts_button.disabled = false
 	if load_not_buy == false:
 		load_not_buy = true
+		YandexSDK.get_catalog()
 		YandexSDK.check_unprocessed_purchases()
 	AudioManager.music_start()
 

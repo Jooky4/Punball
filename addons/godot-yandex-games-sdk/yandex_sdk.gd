@@ -52,6 +52,9 @@ signal purchase_consumed(result)
 var callback_check_purchases = JavaScriptBridge.create_callback(_on_unprocessed_purchases)
 var callback_consume = JavaScriptBridge.create_callback(_on_consume_result)
 
+signal catalog_loaded(catalog)
+var callback_catalog_loaded = JavaScriptBridge.create_callback(_on_catalog_loaded)
+
 @onready var window = JavaScriptBridge.get_interface("window")
 
 
@@ -62,6 +65,21 @@ var callback_consume = JavaScriptBridge.create_callback(_on_consume_result)
 # 	elif what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
 # 		print("focus out notification")
 # 		pass
+
+func get_catalog():
+	if not OS.has_feature("yandex"): 
+		return
+	if not is_payments_initialized:
+		await game_initialized
+	window.GetCatalog(callback_catalog_loaded)
+
+func _on_catalog_loaded(args):
+	var json_string = args[0]
+	var parsed_catalog = JSON.parse_string(json_string)
+	if parsed_catalog == null:
+		printerr("Failed to parse catalog JSON")
+		return
+	emit_signal("catalog_loaded", parsed_catalog)
 
 func check_unprocessed_purchases():
 	if not OS.has_feature("yandex") or !is_payments_initialized: 

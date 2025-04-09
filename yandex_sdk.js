@@ -309,3 +309,32 @@ function ConsumePurchase(purchaseToken, callback) {
             callback("error");
         });
 }
+
+function GetCatalog(callback) {
+    if (!payments) {
+        console.error("Payments not initialized.");
+        callback("[]"); // Пустой JSON-массив
+        return;
+    }
+    
+    payments.getCatalog()
+        .then(catalog => {
+            console.log("Raw catalog:", catalog);
+            
+            // Преобразуем в простые объекты и затем в JSON строку
+            const simpleCatalog = catalog.map(item => ({
+                id: item.id,
+                title: item.title,
+                price: item.price,
+                priceValue: item.priceValue,
+            }));
+            
+            const jsonCatalog = JSON.stringify(simpleCatalog);
+            console.log("JSON catalog:", jsonCatalog);
+            callback(jsonCatalog);
+        })
+        .catch(err => {
+            console.error("Error loading catalog:", err);
+            callback("[]"); // Пустой JSON-массив при ошибке
+        });
+}

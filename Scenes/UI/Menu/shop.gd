@@ -1,5 +1,34 @@
 extends Control
 
+func update_price(catalog_items) -> void:
+	for i in catalog_items:
+		match i["id"]:
+			"coins_500":
+				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1/Label.text = i.price
+			"coins_2500":
+				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2/Label.text = i.price
+			"coins_7000":
+				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3/Label.text = i.price
+			"coins_16000":
+				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4/Label.text = i.price
+			"coins_35000":
+				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5/Label.text = i.price
+			"coins_80000":
+				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6/Label.text = i.price
+
+			"crystal_100":
+				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1/Label.text = i.price
+			"crystal_500":
+				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2/Label.text = i.price
+			"crystal_1200":
+				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3/Label.text = i.price
+			"crystal_2500":
+				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4/Label.text = i.price
+			"crystal_6000":
+				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5/Label.text = i.price
+			"crystal_14000":
+				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6/Label.text = i.price
+
 func _on_coins_1_pressed() -> void:
 	AudioManager.click()
 	YandexSDK.purchase_item("coins_500")
