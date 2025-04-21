@@ -13,7 +13,7 @@ config_version=5
 config/name="Punball"
 run/main_scene="res://Scenes/UI/Menu/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-boot_splash/image="res://index.icon.png"
+boot_splash/image="res://Texture/icon.png"
 boot_splash/fullsize=false
 config/icon="res://Texture/icon.png"
 
