@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cxkkmslaoo4dl"]
 
-[ext_resource type="Texture2D" uid="uid://jf0twirv5n7s" path="res://Texture/For Skills/ловушка.png" id="1_sg8b0"]
+[ext_resource type="Texture2D" uid="uid://jf0twirv5n7s" path="res://Texture/For_Skills/ловушка.png" id="1_sg8b0"]
 [ext_resource type="Script" path="res://Scenes/For skills/trap.gd" id="2_3r23j"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="3_0dhuv"]
 [ext_resource type="AudioStream" uid="uid://i4xu4a8de8sd" path="res://Resources/Sounds/ловушка.mp3" id="4_ckgc4"]

@@ -8,7 +8,7 @@ var texture_skill = {
 	"Шар-бомба": preload("res://Texture/UI/Texture_skills/шар бомба.png"),
 	"Усиление особого шара": preload("res://Texture/UI/Texture_skills/усиление особенного шара.png"),
 	"Прибавка ОЗ": preload("res://Texture/UI/Texture_skills/прибавка 03.png"),
-	"Шар молний": preload("res://Texture/UI/Texture_skills/шар молния.png"),
+	"Шар молний": preload("res://Texture/For_Skills/шар молния-min.svg"),
 	"Бомба-заморозка": preload("res://Texture/UI/Texture_skills/бомба заморозки.png"),
 	"Огненный шар": preload("res://Texture/UI/Texture_skills/огненный шар2.png"),
 	"Усиление атаки": preload("res://Texture/UI/Texture_skills/усиление атаки.png"),

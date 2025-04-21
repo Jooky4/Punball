@@ -91,7 +91,7 @@ func how_many_hp_plus_enemy(number_wave) -> float:
 	number_wave += 1
 	if number_wave > count_wave_on_locations[(current_location % 10) - 1]:
 		number_wave = count_wave_on_locations[(current_location % 10) - 1]
-	var hp_enemy = 400
+	var hp_enemy = 300
 	var step = 0
 	var start_plus_hp = 0
 	for i in range(1, current_location + 1):
@@ -109,7 +109,7 @@ func how_many_hp_plus_enemy(number_wave) -> float:
 	return float(hp_enemy)
 
 func how_many_damage_player(num_enemy) -> int:
-	var enemy_damage = 100
+	var enemy_damage = 50
 	var step = 0
 	var start_plus_damage = 0
 	for i in range(1, current_location + 1):

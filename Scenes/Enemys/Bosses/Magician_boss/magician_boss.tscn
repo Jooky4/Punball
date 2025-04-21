@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c7atijc7raj8w" path="res://Texture/Enemys/Magician_enemy/посох с рукой.png" id="13_olfnf"]
 [ext_resource type="Texture2D" uid="uid://cipdihpfh6vkn" path="res://Texture/Enemys/Magician_enemy/свечение.png" id="14_0lp6x"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="15_tu0va"]
-[ext_resource type="AudioStream" uid="uid://d2sga7kut17j7" path="res://Resources/Sounds/колдун_3.mp3" id="16_00e20"]
+[ext_resource type="AudioStream" uid="uid://dp1inubl6ixoj" path="res://Resources/Sounds/колдун_3.ogg" id="17_75amy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8ci2"]
 size = Vector2(174, 172)
@@ -1511,8 +1511,8 @@ next/Spawn = &"Idle"
 blend_times = [&"Hit", &"Hit", 0.15, &"Hit", &"Idle", 0.3, &"Hit", &"Move", 0.3, &"Hit", &"Preparation", 0.3, &"Idle", &"Hit", 0.15, &"Idle", &"Idle", 0.3, &"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.3, &"Move", &"Hit", 0.2, &"Move", &"Idle", 0.3, &"Move", &"Move", 0.3, &"Move", &"Preparation", 0.3, &"Preparation", &"Hit", 0.2, &"Preparation", &"Idle", 0.3, &"Preparation", &"Move", 0.3, &"Preparation", &"Preparation", 0.3, &"Spawn", &"Idle", 0.6]
 
 [node name="Spawn_enemy" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_00e20")
-volume_db = -25.0
+stream = ExtResource("17_75amy")
+volume_db = -20.0
 pitch_scale = 1.2
 
 [connection signal="finished" from="Death_sound" to="." method="_on_death_sound_finished"]

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="5_0rskg"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="6_2g2cs"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="6_v3cyc"]
-[ext_resource type="AudioStream" uid="uid://cajsdg3yjdd2d" path="res://Resources/Sounds/сундук_меню.mp3" id="7_bx0un"]
+[ext_resource type="AudioStream" uid="uid://6o4wi3g1c43w" path="res://Resources/Sounds/сундук_меню.ogg" id="7_mtja2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_idc36"]
 font = ExtResource("2_7w5p8")
@@ -170,7 +170,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Chest_open_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_bx0un")
+stream = ExtResource("7_mtja2")
 volume_db = -12.0
 bus = &"SFX"
 
