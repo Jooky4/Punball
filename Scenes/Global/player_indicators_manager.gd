@@ -57,13 +57,13 @@ func _ready() -> void:
 	YandexSDK.connect("data_loaded", player_date_loaded)
 
 func update_player_date_in_game() -> void:
-	YandexSDK.load_data(["coins", 
-						 "crystals", 
+	YandexSDK.load_data(["coins",
+						 "crystals",
 						 "rune",
 						 "level_player",
-						 "level_experiance_player", 
-						 "level_experiance_for_next_level", 
-						 "current_locations", 
+						 "level_experiance_player",
+						 "level_experiance_for_next_level",
+						 "current_locations",
 						 "max_wave_on_current_locations",
 						 "count_bye_talants_for_coins",
 						 "count_bye_talants_for_crystal",
@@ -87,7 +87,7 @@ func update_player_date_in_game() -> void:
 						 "talants_tutoril"])
 
 func get_player_indicators() -> Dictionary:
-	return {"coins" : COINS_COUNT, 
+	return {"coins" : COINS_COUNT,
 			"crystals": CRYSTALS_COUNT,
 			"rune" : COUNT_RUNE,
 			"level_player" : LEVEL_PLAYER,

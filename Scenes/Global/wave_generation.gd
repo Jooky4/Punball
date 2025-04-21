@@ -20,7 +20,7 @@ var count_wave_on_locations = {
 	-1: 40
 }
 
-var enemy_for_locations = [[1, 2, 3, null], 
+var enemy_for_locations = [[1, 2, 3, null],
 						   [1, 2, 6, null],
 						   [1, 2, 5, 8],
 						   [1, 2, 3, 9],

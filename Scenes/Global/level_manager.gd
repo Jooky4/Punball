@@ -275,7 +275,7 @@ func moving_object(player_position) -> void:
 							move_forward(i, j)
 	for i in range(first_level_links_on_objects.size() - 2, -1, -1): # ПОТОМ ДВИГАЕМ ВПРАВО, ВЛЕВО ТЕХ У КОГО ПРЕПЯТСВИЕ СПЕРЕДИ
 		for j in range(first_level_links_on_objects[i].size()):
-			if first_level_links_on_objects[i][j] != null: 
+			if first_level_links_on_objects[i][j] != null:
 				if first_level_links_on_objects[i+1][j] != null:
 					if first_level_links_on_objects[i+1][j].has_method("enemy"):
 						if first_level_links_on_objects[i+1][j].freezen:
@@ -404,7 +404,7 @@ func find_boss_position() -> Vector2:
 		for j in range(first_level_links_on_objects[i].size() - 1):
 			if first_level_links_on_objects[i][j] != null and first_level_links_on_objects[i][j].has_method("boss"):
 				return Vector2(i, j)
-	return Vector2(-1, -1) 
+	return Vector2(-1, -1)
 
 func boss_hit_player(player_position) -> void:
 	var boss_pos = find_boss_position()
@@ -424,7 +424,7 @@ func check_traps() -> void:
 
 func updete_last_line() -> void:
 	var new_line_spawn
-	var slot_for_new_enemy 
+	var slot_for_new_enemy
 	var free_slots = []
 	if boss_on_map and WaveGeneration.get_count_wave_on_location() - 1 >= 19:
 		if count_level % 2 == 1:
@@ -513,7 +513,7 @@ func ball_explosion(enemy, damage_ball, color_ball, create_sound : bool = false)
 									first_level_links_on_objects[target_x][target_y].deal_freezing_damage(damage_ball, color_ball)
 									if create_sound:
 										AudioManager.freezing_bomb_sound()
-								combo_count += 1 
+								combo_count += 1
 								check_count_combo(first_level_links_on_objects[target_x][target_y])
 
 func lighthing_ball_damage(enemy, damage_ball, color_ball, create_sound : bool = false) -> void:
@@ -541,7 +541,7 @@ func lighthing_ball_damage(enemy, damage_ball, color_ball, create_sound : bool =
 func laser_ball_damage(enemy, damage_ball, color_ball, line_damage) -> void:
 	var horizontal
 	var vertical
-	var pos_enemy 
+	var pos_enemy
 	for i in range(first_level_links_on_objects.size()):
 		for j in range(first_level_links_on_objects[i].size()):
 			if first_level_links_on_objects[i][j] != null:

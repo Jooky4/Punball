@@ -44,17 +44,17 @@ func enemy_move() -> void:
 	$Enemy_move.stop()
 
 func lightning_sound() -> void:
-	$Lightning.stop() 
+	$Lightning.stop()
 	$Lightning.pitch_scale += get_random_pitch()
 	$Lightning.play()
 
 func bomb_sound() -> void:
-	$Bomb_explosion.stop() 
+	$Bomb_explosion.stop()
 	$Bomb_explosion.pitch_scale += get_random_pitch()
 	$Bomb_explosion.play()
 
 func freezing_bomb_sound() -> void:
-	$Bomb_explosion_var_2.stop() 
+	$Bomb_explosion_var_2.stop()
 	$Bomb_explosion_var_2.pitch_scale += get_random_pitch()
 	$Bomb_explosion_var_2.play()
 
@@ -83,7 +83,7 @@ func _on_music_finished() -> void:
 	$Music.playing = true
 
 func bomb_ball_hit_sound() -> void:
-	$Bomb_explosion_var_2.stop() 
+	$Bomb_explosion_var_2.stop()
 	$Bomb_ball_hit_sound.pitch_scale += get_random_pitch()
 	$Bomb_ball_hit_sound.play()
 

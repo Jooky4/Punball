@@ -536,23 +536,23 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 					show_skill_tutorial()
 					PlayerIndicatorsManager.GAMEPLAY_TUTORIL = 1
 					PlayerIndicatorsManager.update_player_date_on_server()
-			-1: 
+			-1:
 				buff = BONUS_BALL.instantiate()
 				if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
 					show_ball_tutorial()
-			1: 
+			1:
 				buff = DEFALT_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(1)
-			2: 
+			2:
 				buff = BLUEBERRIES_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8
 				buff.player_damage = WaveGeneration.how_many_damage_player(2)
-			3: 
+			3:
 				buff = BOMB_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(3)
-			4: 
+			4:
 				buff = preload("res://Scenes/Enemys/Bosses/Blieberries_boss/boss_first_location.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
@@ -563,15 +563,15 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				$UI/Boss_label.visible = true
 				count_level_label.visible = false
 				notification_about_boss_here()
-			5: 
+			5:
 				buff = MEDIC_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.6
 				buff.player_damage = WaveGeneration.how_many_damage_player(5)
-			6: 
+			6:
 				buff = SLIME_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(6)
-			7: 
+			7:
 				buff = SMALL_SLIME_ENEMY.instantiate()
 				buff.alive = false
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) / 2
@@ -604,7 +604,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff = FIRE_ELEMENTAL_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8
 				buff.player_damage = WaveGeneration.how_many_damage_player(14)
-			15: 
+			15:
 				buff = preload("res://Scenes/Enemys/Bosses/Shield_boss/shield_boss.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff

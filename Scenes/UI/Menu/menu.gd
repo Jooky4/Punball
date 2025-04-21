@@ -65,7 +65,7 @@ func _ready() -> void:
 		rim_num_location.append(arabic_to_roman(i))
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
 		YandexSDK.init_game()
-		YandexSDK.init_player() 
+		YandexSDK.init_player()
 		YandexSDK.game_ready()
 		AudioManager.music_start()
 
