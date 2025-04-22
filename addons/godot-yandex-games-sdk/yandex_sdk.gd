@@ -67,7 +67,7 @@ var callback_catalog_loaded = JavaScriptBridge.create_callback(_on_catalog_loade
 # 		pass
 
 func get_catalog():
-	if not OS.has_feature("yandex"): 
+	if not OS.has_feature("yandex"):
 		return
 	if not is_payments_initialized:
 		await game_initialized
@@ -82,7 +82,7 @@ func _on_catalog_loaded(args):
 	emit_signal("catalog_loaded", parsed_catalog)
 
 func check_unprocessed_purchases():
-	if not OS.has_feature("yandex") or !is_payments_initialized: 
+	if not OS.has_feature("yandex") or !is_payments_initialized:
 		return
 	window.CheckUnprocessedPurchases(callback_check_purchases)
 
@@ -91,13 +91,13 @@ func consume_purchase(token: String):
 	window.ConsumePurchase(token, callback_consume)
 
 func _on_unprocessed_purchases(json_data):
-	print("Raw JSON:", json_data)
-	var parsed_data = JSON.parse_string(json_data)
+	prints("Raw JSON:", json_data, typeof(json_data[0]))
+	var parsed_data = JSON.parse_string(json_data[0])
 	if typeof(parsed_data) != TYPE_ARRAY:
 		push_error("Invalid top-level data format")
 		return
 	print("First parse:", parsed_data)
-	if typeof(parsed_data[0]) == TYPE_STRING:
+	if typeof(parsed_data) == TYPE_STRING:
 		parsed_data = JSON.parse_string(parsed_data[0])
 		if typeof(parsed_data) != TYPE_ARRAY:
 			push_error("Invalid nested data format")
@@ -373,7 +373,9 @@ func _game_initialized(args) -> void:
 	app_id = args[0].app.id
 	lang = args[0].i18n.lang
 	tld = args[0].i18n.tld
-	payload = args[0].payload
+	if args[0].payload:
+		payload = args[0].payload
+
 	is_game_initialized = true
 	TranslationServer.set_locale(lang)
 	game_initialized.emit()
@@ -399,7 +401,7 @@ func purchase_item(item_id: String):
 
 func _onPurchaseItem(args):
 	var purchase_data = args[0]
-	emit_signal('purchased', 
-		purchase_data.productID, 
+	emit_signal('purchased',
+		purchase_data.productID,
 		purchase_data.purchaseToken
 	)
