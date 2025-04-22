@@ -51,7 +51,7 @@ var legendary = [["Молния смерти", 1220],
 				 ["Лазер смерти", 1220],
 				 ["Ракета смерти", 1220],
 				 ["Повелитель технологий", 1380],
-				 ["Оживление", 1820], 
+				 ["Оживление", 1820],
 				 ["Последний рывок", 1320]]
 var skill_discription = {
 	"Шар-заморозка" : "Шар холода: имеет 10% шанс заморозить врага",
@@ -227,7 +227,7 @@ func create_skill():
 	var skill_max_cost = -1
 	for i in all_skills:
 		if i[0] in skills_once:
-			if i[0] not in LevelManager.player_skills: 
+			if i[0] not in LevelManager.player_skills:
 				if min_cost <= i[1] and i[1] <= max_cost:
 					skill_can_drop.append(i)
 					if i[1] > skill_max_cost:
@@ -298,7 +298,7 @@ func create_skill():
 			if j.name == "Label":
 				j.text = str(skills[i][1])
 
-	var time_wait = 0 
+	var time_wait = 0
 	if 4 in rare_skills:
 		time_wait = 4
 	elif 3 in rare_skills:
@@ -592,7 +592,7 @@ func create_free_skill() -> void:
 			if j.name == "Label":
 				j.text = str("БЕСПЛАТНО")
 
-	var time_wait = 0 
+	var time_wait = 0
 	if 2 in rare_skills:
 		time_wait = 1.7
 	elif 1 in rare_skills:

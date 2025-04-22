@@ -173,7 +173,7 @@ func update_player_indicator_talant_for_crystal() -> void:
 	var count_up_damage_to_boss : int = 1
 	var count_up_damage : int = 1
 	var count_up_OZ : int = 1
-	var count_shanse_dop_ball : int = 1 
+	var count_shanse_dop_ball : int = 1
 	for i in range(PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL):
 		if i != 0 and i != 1:
 			match skills_for_crystall[(i - 2) % 6]:

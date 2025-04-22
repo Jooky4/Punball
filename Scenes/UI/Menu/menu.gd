@@ -65,7 +65,7 @@ func _ready() -> void:
 		rim_num_location.append(arabic_to_roman(i))
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
 		YandexSDK.init_game()
-		YandexSDK.init_player() 
+		YandexSDK.init_player()
 		YandexSDK.game_ready()
 		AudioManager.music_start()
 
@@ -241,18 +241,18 @@ func update_rune_label() -> void:
 	rune_label.text = str(PlayerIndicatorsManager.COUNT_RUNE)
 
 func _on_button_pressed() -> void:
-	#AudioManager.click()
-	#ChangeScene.black_screen()
-	#PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
-	#WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
-	#LevelManager.restert()
-	#LevelManager.player_balls = [1, 1, 1, 1]
-	#AudioServer.set_bus_mute(0, false)
-	#await get_tree().create_timer(0.35).timeout
-	#get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 	AudioManager.click()
-	YandexSDK.show_interstitial_ad()
-	YandexSDK.connect("interstitial_ad", star_location)
+	ChangeScene.black_screen()
+	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
+	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
+	LevelManager.restert()
+	LevelManager.player_balls = [1, 1, 1, 1]
+	AudioServer.set_bus_mute(0, false)
+	await get_tree().create_timer(0.35).timeout
+	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	AudioManager.click()
+	#YandexSDK.show_interstitial_ad()
+	#YandexSDK.connect("interstitial_ad", star_location)
 
 func star_location(result) -> void:
 	if result == "closed" or result == "error":
