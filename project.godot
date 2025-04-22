@@ -30,6 +30,7 @@ ElementsManager="*res://Scenes/Global/elements_manager.gd"
 AudioManager="*res://Scenes/Global/audio_manager.tscn"
 PlayerIndicatorsManager="*res://Scenes/Global/player_indicators_manager.gd"
 ChangeScene="*res://Scenes/Global/change_scene.tscn"
+YandexMetrika="*res://addons/yandex-metrika/yandex_metrikab.gd"
 
 [display]
 
@@ -42,7 +43,7 @@ window/main_scene="res://Scenes/first_level.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-yandex-games-sdk/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-yandex-games-sdk/plugin.cfg", "res://addons/yandex-metrika/plugin.cfg")
 
 [file_customization]
 
