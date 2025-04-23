@@ -1,22 +1,20 @@
-[gd_scene load_steps=31 format=3 uid="uid://b5qxmagbaw24c"]
+[gd_scene load_steps=30 format=3 uid="uid://b5qxmagbaw24c"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/win_lose_UI.gd" id="1_syo30"]
-[ext_resource type="Texture2D" uid="uid://beiknpx7eyqi" path="res://Texture/UI/Win_Lose_UI/фон общий.png" id="2_yyvh5"]
-[ext_resource type="Texture2D" uid="uid://bvcmpaxjnq4lb" path="res://Texture/UI/Win_Lose_UI/фон ЗВЕЗДЫ.png" id="3_b233y"]
-[ext_resource type="Texture2D" uid="uid://rhbme4wegha3" path="res://Texture/UI/Win_Lose_UI/звезды победы.png" id="4_kgk1i"]
-[ext_resource type="Texture2D" uid="uid://b4sni88d62lt7" path="res://Texture/UI/Win_Lose_UI/Лента.png" id="5_7lhik"]
+[ext_resource type="Texture2D" uid="uid://bw113kxl2ky06" path="res://Texture/UI/Win_Lose_UI/background.svg" id="2_8uv6t"]
+[ext_resource type="Texture2D" uid="uid://b7se720nt1bl0" path="res://Texture/UI/Win_Lose_UI/background_Stars.svg" id="3_rgarc"]
+[ext_resource type="Texture2D" uid="uid://b4sni88d62lt7" path="res://Texture/UI/Win_Lose_UI/title.png" id="5_7lhik"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="6_amvnp"]
 [ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="7_2n7q4"]
-[ext_resource type="Texture2D" uid="uid://rb1vl8noii34" path="res://Texture/UI/Win_Lose_UI/свечение.png" id="8_mjar5"]
-[ext_resource type="Texture2D" uid="uid://vyubf43yvssi" path="res://Texture/UI/Win_Lose_UI/Этап.png" id="9_chk8q"]
-[ext_resource type="Texture2D" uid="uid://36gxn3svqfhg" path="res://Texture/UI/Win_Lose_UI/прогресс бар (круг).png" id="10_himc1"]
-[ext_resource type="Texture2D" uid="uid://dvhi5ccp4uix2" path="res://Texture/UI/Win_Lose_UI/прогресс бар.png" id="11_il720"]
-[ext_resource type="Texture2D" uid="uid://bcw45dakn580r" path="res://Texture/UI/Win_Lose_UI/прогресс бар (зеленый прогресс).png" id="12_1bfgs"]
-[ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА2.png" id="13_4jw3x"]
-[ext_resource type="Texture2D" uid="uid://etsa0ge3lfli" path="res://Texture/UI/Win_Lose_UI/место под награды2.png" id="14_3wtvt"]
-[ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/палшка под награды2.png" id="15_3j35c"]
+[ext_resource type="Texture2D" uid="uid://rb1vl8noii34" path="res://Texture/UI/Win_Lose_UI/lighting.png" id="8_mjar5"]
+[ext_resource type="Texture2D" uid="uid://vyubf43yvssi" path="res://Texture/UI/Win_Lose_UI/title_2.png" id="9_chk8q"]
+[ext_resource type="Texture2D" uid="uid://36gxn3svqfhg" path="res://Texture/UI/Win_Lose_UI/bar_Level_Count.png" id="10_himc1"]
+[ext_resource type="Texture2D" uid="uid://dvhi5ccp4uix2" path="res://Texture/UI/Win_Lose_UI/bar_Level.png" id="11_il720"]
+[ext_resource type="Texture2D" uid="uid://bcw45dakn580r" path="res://Texture/UI/Win_Lose_UI/bar_Level_2.png" id="12_1bfgs"]
+[ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/line.png" id="13_4jw3x"]
+[ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/platform_Reward.png" id="15_3j35c"]
 [ext_resource type="Texture2D" uid="uid://dnpvlc31yn0vv" path="res://Texture/UI/Win_Lose_UI/награда руна.png" id="18_aseoo"]
-[ext_resource type="Texture2D" uid="uid://chdb4t0j8j58e" path="res://Texture/UI/Win_Lose_UI/текст ADS2.png" id="20_babvq"]
+[ext_resource type="Texture2D" uid="uid://8tdva52b5xn3" path="res://Texture/UI/Revival_UI/icon_ADS.png" id="19_jv7wr"]
 [ext_resource type="Texture2D" uid="uid://dkyjb1bc4omcq" path="res://Texture/UI/Win_Lose_UI/награда опыта.png" id="21_q335r"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="22_iqx7g"]
 [ext_resource type="Texture2D" uid="uid://bohwhq1oy2bm4" path="res://Texture/UI/Win_Lose_UI/кнопка ADS.png" id="23_8dhcs"]
@@ -25,7 +23,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_dewbw"]
 font = ExtResource("6_amvnp")
-font_size = 85
+font_size = 75
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jk7fe"]
 shader = ExtResource("7_2n7q4")
@@ -53,6 +51,11 @@ font_size = 25
 shadow_color = Color(0.574219, 0.381213, 0.163742, 1)
 shadow_offset = Vector2(-1, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_t4pvo"]
+font = ExtResource("6_amvnp")
+font_size = 40
+font_color = Color(0.32549, 0.137255, 0.0196078, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_f07na"]
 font = ExtResource("6_amvnp")
 font_size = 40
@@ -73,31 +76,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_yyvh5")
+texture = ExtResource("2_8uv6t")
 expand_mode = 1
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_b233y")
-expand_mode = 1
-stretch_mode = 6
-
-[node name="TextureRect5" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -377.5
-offset_right = 377.5
-offset_bottom = 349.0
-grow_horizontal = 2
-texture = ExtResource("4_kgk1i")
+layout_mode = 0
+offset_left = -159.0
+offset_top = 4.0
+offset_right = 830.0
+offset_bottom = 330.0
+texture = ExtResource("3_rgarc")
 
 [node name="Win_Lose_Label" type="TextureRect" parent="."]
 z_index = 1
@@ -276,7 +265,6 @@ offset_right = 209.0
 offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_3wtvt")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect8"]
@@ -420,20 +408,30 @@ grow_vertical = 0
 disabled = true
 texture_normal = ExtResource("23_8dhcs")
 
-[node name="Sprite2D" type="TextureRect" parent="Button_AD"]
+[node name="TextureRect" type="TextureRect" parent="Button_AD"]
+modulate = Color(0.32549, 0.137255, 0.0196078, 1)
+layout_mode = 0
+offset_left = 33.0
+offset_top = 27.0
+offset_right = 97.0
+offset_bottom = 70.0
+texture = ExtResource("19_jv7wr")
+
+[node name="Label2" type="Label" parent="Button_AD"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -77.5
-offset_top = -21.5
-offset_right = 77.5
-offset_bottom = 21.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 106.0
+offset_top = 2.0
+offset_right = -29.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("20_babvq")
+text = "+50%"
+label_settings = SubResource("LabelSettings_t4pvo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Go_to_menu" type="TextureButton" parent="."]
 layout_mode = 1

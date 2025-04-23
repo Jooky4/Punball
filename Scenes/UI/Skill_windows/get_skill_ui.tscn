@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
-[ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/background.png" id="2_guy50"]
+[ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/Fight/background.png" id="2_guy50"]
 [ext_resource type="Texture2D" uid="uid://7cjj53ffct7k" path="res://Texture/UI/Skills_UI/кнопка покупки активная (кнопка рекламы).png" id="5_b6die"]
-[ext_resource type="Texture2D" uid="uid://di2ih4646tj0g" path="res://Texture/UI/Skills_UI/иконка кнопки покупки.png" id="6_kc041"]
-[ext_resource type="Texture2D" uid="uid://dnrlesu4tygyc" path="res://Texture/UI/Skills_UI/иконка кнопки ADS.png" id="7_lujy0"]
+[ext_resource type="Texture2D" uid="uid://cq5bj185114sr" path="res://Texture/UI/Fight/icon_Exp.png" id="5_o4fkv"]
+[ext_resource type="Texture2D" uid="uid://8tdva52b5xn3" path="res://Texture/UI/Revival_UI/icon_ADS.png" id="6_57dh5"]
 [ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="7_mbj7w"]
-[ext_resource type="Texture2D" uid="uid://bs5vkbj2ijdcf" path="res://Texture/UI/Skills_UI/текстк кнопки обновить.png" id="8_j6pi7"]
-[ext_resource type="Texture2D" uid="uid://cxk3lp3iqgprs" path="res://Texture/UI/Skills_UI/стрелки кнопки обновить.png" id="9_wywd0"]
+[ext_resource type="Texture2D" uid="uid://cxk3lp3iqgprs" path="res://Texture/UI/Skills_UI/restart_Arrow.png" id="9_wywd0"]
 [ext_resource type="AudioStream" uid="uid://biy8w38m71sov" path="res://Resources/Sounds/прокрутка.mp3" id="10_hiegy"]
 [ext_resource type="AudioStream" uid="uid://c1wsr6h4t3367" path="res://Resources/Sounds/скилл_легенд.ogg" id="13_63lcq"]
 [ext_resource type="AudioStream" uid="uid://8ikyddi0hl8o" path="res://Resources/Sounds/скилл_обычный.ogg" id="14_chdng"]
@@ -28,6 +27,11 @@ font_color = Color(0.133333, 0.266667, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_w0edh"]
 font = ExtResource("1_42rjm")
 font_size = 22
+font_color = Color(0.133333, 0.266667, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ocab"]
+font = ExtResource("1_42rjm")
+font_size = 30
 font_color = Color(0.133333, 0.266667, 0, 1)
 
 [sub_resource type="Animation" id="Animation_g87ib"]
@@ -153,9 +157,11 @@ label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_1/Label"]
-position = Vector2(49, 25)
-texture = ExtResource("6_kc041")
+[node name="icon_Exp3" type="Sprite2D" parent="Bye_button/Skill_1/Label"]
+position = Vector2(15, 31)
+rotation = 0.203139
+scale = Vector2(0.519337, 0.519337)
+texture = ExtResource("5_o4fkv")
 
 [node name="Button" type="Button" parent="Bye_button/Skill_1"]
 modulate = Color(1, 1, 1, 0)
@@ -192,9 +198,11 @@ label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_2/Label"]
-position = Vector2(49, 25)
-texture = ExtResource("6_kc041")
+[node name="icon_Exp2" type="Sprite2D" parent="Bye_button/Skill_2/Label"]
+position = Vector2(15, 31)
+rotation = 0.203139
+scale = Vector2(0.519337, 0.519337)
+texture = ExtResource("5_o4fkv")
 
 [node name="Button" type="Button" parent="Bye_button/Skill_2"]
 modulate = Color(1, 1, 1, 0)
@@ -231,9 +239,11 @@ label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Bye_button/Skill_3/Label"]
-position = Vector2(49, 25)
-texture = ExtResource("6_kc041")
+[node name="icon_Exp4" type="Sprite2D" parent="Bye_button/Skill_3/Label"]
+position = Vector2(16, 32)
+rotation = 0.203139
+scale = Vector2(0.519337, 0.519337)
+texture = ExtResource("5_o4fkv")
 
 [node name="Button" type="Button" parent="Bye_button/Skill_3"]
 modulate = Color(1, 1, 1, 0)
@@ -262,9 +272,11 @@ label_settings = SubResource("LabelSettings_w0edh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Bye_button/Skill_3/Skill_3_for_AD"]
-position = Vector2(78, 38)
-texture = ExtResource("7_lujy0")
+[node name="IconAds" type="Sprite2D" parent="Bye_button/Skill_3/Skill_3_for_AD"]
+modulate = Color(0.133333, 0.266667, 0, 1)
+position = Vector2(40, 38)
+scale = Vector2(0.81468, 0.883721)
+texture = ExtResource("6_57dh5")
 
 [node name="Update_skill_button" type="TextureButton" parent="."]
 layout_mode = 1
@@ -282,9 +294,11 @@ grow_vertical = 0
 disabled = true
 texture_normal = ExtResource("7_mbj7w")
 
-[node name="ИконкаКнопкиПокупки" type="Sprite2D" parent="Update_skill_button"]
-position = Vector2(274, 42)
-texture = ExtResource("6_kc041")
+[node name="icon_Exp" type="Sprite2D" parent="Update_skill_button"]
+position = Vector2(240, 49)
+rotation = 0.203139
+scale = Vector2(0.519337, 0.519337)
+texture = ExtResource("5_o4fkv")
 
 [node name="Label2" type="Label" parent="Update_skill_button"]
 layout_mode = 0
@@ -298,9 +312,17 @@ label_settings = SubResource("LabelSettings_fibwp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ТексткКнопкиОбновить2" type="Sprite2D" parent="Update_skill_button"]
-position = Vector2(180.5, 44)
-texture = ExtResource("8_j6pi7")
+[node name="Label3" type="Label" parent="Update_skill_button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 70.0
+text = "Обновить
+"
+label_settings = SubResource("LabelSettings_0ocab")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ТексткКнопкиОбновить" type="Sprite2D" parent="Update_skill_button"]
 position = Vector2(173.5, 49)

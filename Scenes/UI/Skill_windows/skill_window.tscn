@@ -1,35 +1,34 @@
-[gd_scene load_steps=47 format=3 uid="uid://btt53uxq2a182"]
+[gd_scene load_steps=46 format=3 uid="uid://btt53uxq2a182"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
-[ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/UI/ligting.png" id="2_ii2ha"]
-[ext_resource type="Texture2D" uid="uid://dc4bosyi510a1" path="res://Texture/UI/Skills_UI/Regular/обычныйВерх.png" id="2_tl1jo"]
-[ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 3.png" id="3_8n6dk"]
-[ext_resource type="Texture2D" uid="uid://dxluksimoc10k" path="res://Texture/UI/Skills_UI/Regular/обычныйНиз.png" id="3_f8gh8"]
+[ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/Effects/ligting.png" id="2_ii2ha"]
+[ext_resource type="Texture2D" uid="uid://dc4bosyi510a1" path="res://Texture/UI/Skills_UI/Regular/WindowUp.png" id="2_tl1jo"]
+[ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/platform_Icon.png" id="3_8n6dk"]
+[ext_resource type="Texture2D" uid="uid://dxluksimoc10k" path="res://Texture/UI/Skills_UI/Regular/WindowDown.png" id="3_f8gh8"]
 [ext_resource type="Texture2D" uid="uid://131mekxb47s1" path="res://Texture/Level_environment/particleStar_2.png" id="3_trmed"]
 [ext_resource type="Texture2D" uid="uid://bfloruavj3vov" path="res://Texture/Level_environment/звездочка.png" id="4_t0bp5"]
-[ext_resource type="Texture2D" uid="uid://defyku3t56jyi" path="res://Texture/UI/Skills_UI/Regular/окно скилл обычный 2.png" id="4_uo73p"]
-[ext_resource type="Texture2D" uid="uid://db6hskxypvv6v" path="res://Texture/UI/Skills_UI/Regular/текст (обычный).png" id="5_d6d1w"]
+[ext_resource type="Texture2D" uid="uid://defyku3t56jyi" path="res://Texture/UI/Skills_UI/Regular/platform_Header.png" id="4_uo73p"]
+[ext_resource type="Texture2D" uid="uid://db6hskxypvv6v" path="res://Texture/UI/Skills_UI/Regular/text.png" id="5_d6d1w"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="5_tjaaj"]
-[ext_resource type="Texture2D" uid="uid://bpqapqkxxbs35" path="res://Texture/UI/Skills_UI/Regular/окно описания скилл обычный.png" id="6_8xcjj"]
+[ext_resource type="Texture2D" uid="uid://bpqapqkxxbs35" path="res://Texture/UI/Skills_UI/Regular/platform_Description.png" id="6_8xcjj"]
 [ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="6_uhrnc"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_gbsxi"]
 [ext_resource type="Texture2D" uid="uid://bi4tqxqkq2sb4" path="res://Texture/UI/Skills_UI/Rare/WindowUp.png" id="8_iux2o"]
-[ext_resource type="Texture2D" uid="uid://c7rgmnk02u5so" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 3.png" id="8_q1tj2"]
+[ext_resource type="Texture2D" uid="uid://c7rgmnk02u5so" path="res://Texture/UI/Skills_UI/Rare/platform_Icon.png" id="8_q1tj2"]
 [ext_resource type="Texture2D" uid="uid://bo56obau42g" path="res://Texture/UI/Skills_UI/Rare/WindowDown.png" id="9_agc3n"]
-[ext_resource type="Texture2D" uid="uid://b2ph31ui45e8k" path="res://Texture/UI/Skills_UI/Rare/окно скилл редкий 2.png" id="9_fb3gg"]
-[ext_resource type="Texture2D" uid="uid://dd0ey430wm6my" path="res://Texture/UI/Skills_UI/Rare/текст (редкий).png" id="10_4ma2s"]
-[ext_resource type="Texture2D" uid="uid://bxdk37w6n4sk1" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 1.png" id="11_m2a58"]
-[ext_resource type="Texture2D" uid="uid://cyu041yjo1m4u" path="res://Texture/UI/Skills_UI/Rare/окно описания скилл редкий.png" id="11_qe26v"]
-[ext_resource type="Texture2D" uid="uid://dc305exjgbnpd" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 3.png" id="12_owfot"]
-[ext_resource type="Texture2D" uid="uid://cah1rsombgb3r" path="res://Texture/UI/Skills_UI/Epic/окно скилл эпический 2.png" id="13_0ux25"]
+[ext_resource type="Texture2D" uid="uid://b2ph31ui45e8k" path="res://Texture/UI/Skills_UI/Rare/platform_Header.png" id="9_fb3gg"]
+[ext_resource type="Texture2D" uid="uid://dd0ey430wm6my" path="res://Texture/UI/Skills_UI/Rare/text.png" id="10_4ma2s"]
+[ext_resource type="Texture2D" uid="uid://cyu041yjo1m4u" path="res://Texture/UI/Skills_UI/Rare/platform_Description.png" id="11_qe26v"]
+[ext_resource type="Texture2D" uid="uid://dc305exjgbnpd" path="res://Texture/UI/Skills_UI/Epic/platform_Icon.png" id="12_owfot"]
+[ext_resource type="Texture2D" uid="uid://cah1rsombgb3r" path="res://Texture/UI/Skills_UI/Epic/platform_Header.png" id="13_0ux25"]
 [ext_resource type="Texture2D" uid="uid://dkd7onksnqokq" path="res://Texture/UI/Skills_UI/Epic/WindowUp.png" id="14_epayt"]
-[ext_resource type="Texture2D" uid="uid://nnlu5myf7rtw" path="res://Texture/UI/Skills_UI/Epic/текст (эпический).png" id="14_y3k8o"]
+[ext_resource type="Texture2D" uid="uid://nnlu5myf7rtw" path="res://Texture/UI/Skills_UI/Epic/text.png" id="14_y3k8o"]
 [ext_resource type="Texture2D" uid="uid://de3ej5o1cgsjf" path="res://Texture/UI/Skills_UI/Epic/WindowDown.png" id="15_ba1aw"]
-[ext_resource type="Texture2D" uid="uid://da8rnv1e444v7" path="res://Texture/UI/Skills_UI/Epic/окно описания скилл эпический.png" id="15_c4ml1"]
-[ext_resource type="Texture2D" uid="uid://7ro0ll0n0n3g" path="res://Texture/UI/Skills_UI/Legendary/окно скилл легендарный 3.png" id="17_6abxv"]
-[ext_resource type="Texture2D" uid="uid://1kgp7cfrut0s" path="res://Texture/UI/Skills_UI/Legendary/окно скилл легендарный 2.png" id="18_tsnwy"]
-[ext_resource type="Texture2D" uid="uid://dho6bt7l2eeuh" path="res://Texture/UI/Skills_UI/Legendary/текст (легендарный).png" id="19_yrvc4"]
-[ext_resource type="Texture2D" uid="uid://dpy0iskpmsq8e" path="res://Texture/UI/Skills_UI/Legendary/окно описания скилл легендарный.png" id="20_u3v3r"]
+[ext_resource type="Texture2D" uid="uid://da8rnv1e444v7" path="res://Texture/UI/Skills_UI/Epic/platform_Description.png" id="15_c4ml1"]
+[ext_resource type="Texture2D" uid="uid://7ro0ll0n0n3g" path="res://Texture/UI/Skills_UI/Legendary/platform_Icon.png" id="17_6abxv"]
+[ext_resource type="Texture2D" uid="uid://1kgp7cfrut0s" path="res://Texture/UI/Skills_UI/Legendary/platform_Header.png" id="18_tsnwy"]
+[ext_resource type="Texture2D" uid="uid://dho6bt7l2eeuh" path="res://Texture/UI/Skills_UI/Legendary/text.png" id="19_yrvc4"]
+[ext_resource type="Texture2D" uid="uid://dpy0iskpmsq8e" path="res://Texture/UI/Skills_UI/Legendary/platform_Description.png" id="20_u3v3r"]
 [ext_resource type="Texture2D" uid="uid://bddsbdwsqnnqh" path="res://Texture/UI/Skills_UI/Legendary/WindowUp.png" id="21_kd1mb"]
 [ext_resource type="Texture2D" uid="uid://c7nj0p05fcbp2" path="res://Texture/UI/Skills_UI/Legendary/WindowDown.png" id="22_ryi60"]
 
@@ -1381,8 +1380,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2000.0
-offset_bottom = -2000.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 150)
@@ -1484,12 +1481,6 @@ position = Vector2(103, 147)
 scale = Vector2(1.1, 1)
 texture = ExtResource("15_c4ml1")
 
-[node name="Backgroung" type="Sprite2D" parent="epic_window"]
-visible = false
-position = Vector2(103, 209)
-scale = Vector2(1.1, 1)
-texture = ExtResource("11_m2a58")
-
 [node name="Texture_skill" type="Sprite2D" parent="epic_window"]
 position = Vector2(103, 117)
 scale = Vector2(1.1, 1)
@@ -1568,9 +1559,9 @@ libraries = {
 [node name="VScrollBar" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_left = 34.0
-offset_top = -1917.0
+offset_top = 83.0
 offset_right = 546.0
-offset_bottom = -1405.0
+offset_bottom = 595.0
 scale = Vector2(0.27, 0.27)
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://db5f27epdvkn8"]
 
-[ext_resource type="Texture2D" uid="uid://c45d0wb078w46" path="res://Texture/UI/Talents_UI/серая полоска.png" id="1_rx2c1"]
+[ext_resource type="Texture2D" uid="uid://c45d0wb078w46" path="res://Texture/UI/Talents_UI/line_Gray.png" id="1_rx2c1"]
 
 [node name="Buff" type="Control"]
 custom_minimum_size = Vector2(720, 184)

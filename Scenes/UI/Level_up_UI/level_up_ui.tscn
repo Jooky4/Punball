@@ -1,15 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://360y0xs402w7"]
+[gd_scene load_steps=20 format=3 uid="uid://360y0xs402w7"]
 
-[ext_resource type="Texture2D" uid="uid://beiknpx7eyqi" path="res://Texture/UI/Win_Lose_UI/фон общий.png" id="1_3w6k7"]
 [ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="1_8vny0"]
 [ext_resource type="Script" path="res://Scenes/UI/Level_up_UI/level_up_ui.gd" id="1_fculq"]
-[ext_resource type="Texture2D" uid="uid://rb1vl8noii34" path="res://Texture/UI/Win_Lose_UI/свечение.png" id="2_5arqq"]
-[ext_resource type="Texture2D" uid="uid://bvcmpaxjnq4lb" path="res://Texture/UI/Win_Lose_UI/фон ЗВЕЗДЫ.png" id="2_5txeg"]
+[ext_resource type="Texture2D" uid="uid://rb1vl8noii34" path="res://Texture/UI/Win_Lose_UI/lighting.png" id="2_5arqq"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="2_kxf6h"]
-[ext_resource type="Texture2D" uid="uid://rhbme4wegha3" path="res://Texture/UI/Win_Lose_UI/звезды победы.png" id="3_udkcu"]
-[ext_resource type="Texture2D" uid="uid://6fg3lefix413" path="res://Texture/UI/Win_Lose_UI/прогресс бар (круг)2.png" id="5_jwtkq"]
-[ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА2.png" id="9_vi1i7"]
-[ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/палшка под награды2.png" id="10_s6w5n"]
+[ext_resource type="Texture2D" uid="uid://bw113kxl2ky06" path="res://Texture/UI/Win_Lose_UI/background.svg" id="2_uuhte"]
+[ext_resource type="Texture2D" uid="uid://b7se720nt1bl0" path="res://Texture/UI/Win_Lose_UI/background_Stars.svg" id="3_xqe65"]
+[ext_resource type="Texture2D" uid="uid://6fg3lefix413" path="res://Texture/UI/Win_Lose_UI/level_Up.png" id="5_jwtkq"]
+[ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/line.png" id="9_vi1i7"]
+[ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/platform_Reward.png" id="10_s6w5n"]
 [ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="11_djw8g"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="12_fqfi0"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="12_vfje2"]
@@ -59,47 +58,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_3w6k7")
+texture = ExtResource("2_uuhte")
 expand_mode = 1
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_5txeg")
-expand_mode = 1
-stretch_mode = 6
-
-[node name="TextureRect5" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -377.5
-offset_right = 377.5
-offset_bottom = 349.0
-grow_horizontal = 2
-texture = ExtResource("3_udkcu")
-
-[node name="TextureRect6" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -377.5
-offset_top = 1.0
-offset_right = 377.5
-offset_bottom = 350.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1, -1)
-texture = ExtResource("3_udkcu")
+layout_mode = 0
+offset_left = -156.0
+offset_top = 176.0
+offset_right = 833.0
+offset_bottom = 502.0
+texture = ExtResource("3_xqe65")
 
 [node name="Player_level" type="TextureRect" parent="."]
 z_index = 1
@@ -375,6 +344,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "ПРОДОЛЖИТЬ"

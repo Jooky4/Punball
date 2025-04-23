@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chest_reward.gd" id="1_ppeti"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="2_7w5p8"]
-[ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/полоска для текста НАГРАДА2.png" id="2_veeuj"]
-[ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/палшка под награды2.png" id="4_02akc"]
+[ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/line.png" id="2_veeuj"]
+[ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/platform_Reward.png" id="4_02akc"]
 [ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="5_0rskg"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="6_2g2cs"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="6_v3cyc"]

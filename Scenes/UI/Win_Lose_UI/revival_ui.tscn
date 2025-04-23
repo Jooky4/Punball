@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://ciuhn6dg5mwdo"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
-[ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/background.png" id="2_bhn41"]
+[ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/Fight/background.png" id="2_bhn41"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_yc3ln"]
 [ext_resource type="Shader" path="res://Resources/Shaders/outline.gdshader" id="7_tl6s8"]
 [ext_resource type="Texture2D" uid="uid://bxqyq6ikvha7n" path="res://Texture/UI/Main_menu/кристаллБезОбв.png" id="7_w1lx4"]
@@ -16,7 +16,7 @@
 [ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="14_foy0a"]
 [ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/bar_Level_Count.png" id="15_402ae"]
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/bar_Level_Menu.png" id="16_ghtno"]
-[ext_resource type="Texture2D" uid="uid://bw6xyapc0da5g" path="res://Texture/UI/Main_menu/прогресс мира шкала.png" id="17_bspsp"]
+[ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/bar_Level_Menu_2.png" id="17_kwcyw"]
 [ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/bar_Count.png" id="18_37g3u"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="19_vb275"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="20_masc1"]
@@ -342,13 +342,13 @@ vertical_alignment = 1
 [node name="Player_level_bar" type="TextureProgressBar" parent="Player_state/Player_level"]
 z_index = -1
 layout_mode = 0
-offset_left = 39.0
+offset_left = 29.0
 offset_top = 5.0
-offset_right = 173.0
+offset_right = 163.0
 offset_bottom = 44.0
 texture_under = ExtResource("16_ghtno")
-texture_progress = ExtResource("17_bspsp")
-texture_progress_offset = Vector2(10, 11)
+texture_progress = ExtResource("17_kwcyw")
+texture_progress_offset = Vector2(10, 9.805)
 
 [node name="Coins" type="TextureRect" parent="Player_state"]
 z_index = 2

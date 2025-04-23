@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=109 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://82bdpa1kdble" path="res://Texture/UI/Main_menu/background.svg" id="2_24mdw"]
@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://2iny41pxjg20" path="res://Texture/UI/Character_UI/Character_window/platform_Icons.png" id="25_rjbq8"]
 [ext_resource type="Texture2D" uid="uid://b6r20b2owmufa" path="res://Texture/UI/Character_UI/Character_window/icon_Attack.png" id="26_ei0qc"]
 [ext_resource type="Texture2D" uid="uid://cn1jsdr3evt7x" path="res://Texture/UI/Shop_UI/монета 3.png" id="26_wvchi"]
-[ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
+[ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/upgrade_Arrow.png" id="27_c31n5"]
 [ext_resource type="Texture2D" uid="uid://b3c8d7ow373q6" path="res://Texture/UI/Shop_UI/монета 4.png" id="27_jjtc7"]
 [ext_resource type="Texture2D" uid="uid://j11yp4115jic" path="res://Texture/UI/Character_UI/Character_window/upgrade_Arrow.png" id="27_p4vig"]
 [ext_resource type="PackedScene" uid="uid://bfq4lhxqp2x0" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
@@ -80,8 +80,9 @@
 [ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="66_718i0"]
 [ext_resource type="Texture2D" uid="uid://cbuil3v7kak7b" path="res://Texture/Heroes/Busya/буся_магазин.png" id="67_vcgdb"]
 [ext_resource type="Texture2D" uid="uid://cparg72oyf74n" path="res://Texture/UI/Main_menu/nav_Empty.png" id="79_57kj7"]
+[ext_resource type="Shader" path="res://Resources/Shaders/outline.gdshader" id="81_mwm4l"]
+[ext_resource type="Texture2D" uid="uid://cl5c1073l1ns3" path="res://Texture/UI/Talents_UI/lock.png" id="82_det8i"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/StepAnimation.gd" id="88_u3omx"]
-[ext_resource type="Texture2D" uid="uid://d1foqy2pkn8et" path="res://Texture/UI/Talents_UI/замок2.png" id="89_usdmv"]
 
 [sub_resource type="Gradient" id="Gradient_ochel"]
 offsets = PackedFloat32Array(0.834846, 1)
@@ -178,6 +179,12 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_gcvxd"]
 font = ExtResource("3_cjc1q")
 font_size = 35
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8c4k"]
+shader = ExtResource("81_mwm4l")
+shader_parameter/outline_color = Color(0.054902, 0.113725, 0.341176, 1)
+shader_parameter/outline_width = 2.209
+shader_parameter/outline_smoothness = 0.025
 
 [sub_resource type="LabelSettings" id="LabelSettings_ayrqo"]
 font = ExtResource("3_cjc1q")
@@ -3523,6 +3530,7 @@ stretch_mode = 5
 
 [node name="Not_can_press" type="TextureRect" parent="Select_buttons/Character_button"]
 visible = false
+material = SubResource("ShaderMaterial_u8c4k")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3536,7 +3544,7 @@ offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("89_usdmv")
+texture = ExtResource("82_det8i")
 expand_mode = 1
 stretch_mode = 5
 

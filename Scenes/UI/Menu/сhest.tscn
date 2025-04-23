@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dns2hgt1vo7uq" path="res://Texture/UI/Main_menu/Сhest/open_Chest.png" id="3_r7s00"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_htxkf"]
 [ext_resource type="Texture2D" uid="uid://131mekxb47s1" path="res://Texture/Level_environment/particleStar_2.png" id="4_vj1t0"]
-[ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/UI/ligting.png" id="7_pdda6"]
+[ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/Effects/ligting.png" id="7_pdda6"]
 
 [sub_resource type="Curve" id="Curve_rovx4"]
 _data = [Vector2(0, 0), 0.0, 13.8, 0, 0, Vector2(0.159091, 0.986364), 0.0, 0.0, 0, 0, Vector2(0.503788, 0.995455), 0.0, 0.0, 0, 0, Vector2(0.837121, 0.990909), 0.0, 0.0, 0, 0, Vector2(1, 0), -16.32, 0.0, 0, 0]
