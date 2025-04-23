@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d237q620rwapy"
-path="res://.godot/imported/текст 50 проц. ХР.png-801d1968e72e2b0f558cc9ba62125783.ctex"
+uid="uid://dr8bphursbhnu"
+path="res://.godot/imported/platform.png-221ddd0883d5afffb1c7c51fe252527a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Revival_UI/текст 50 проц. ХР.png"
-dest_files=["res://.godot/imported/текст 50 проц. ХР.png-801d1968e72e2b0f558cc9ba62125783.ctex"]
+source_file="res://Texture/UI/Revival_UI/platform.png"
+dest_files=["res://.godot/imported/platform.png-221ddd0883d5afffb1c7c51fe252527a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djiv5hip3kul0"
-path="res://.godot/imported/i2.png-e081a15bb2657883abdbc1f6f0b228be.ctex"
+uid="uid://dhm02xx8vkesu"
+path="res://.godot/imported/icon_Monster.png-41cbfe8168ed0a359a817366699f57bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Revival_UI/i2.png"
-dest_files=["res://.godot/imported/i2.png-e081a15bb2657883abdbc1f6f0b228be.ctex"]
+source_file="res://Texture/UI/Revival_UI/icon_Monster.png"
+dest_files=["res://.godot/imported/icon_Monster.png-41cbfe8168ed0a359a817366699f57bb.ctex"]
 
 [params]
 

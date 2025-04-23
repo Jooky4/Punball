@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr8bphursbhnu"
-path="res://.godot/imported/основная плашка.png-5d3578fcb8c6130fdfa07eb9848a5d55.ctex"
+uid="uid://djiv5hip3kul0"
+path="res://.godot/imported/loading.png-6d6985c0d0b10fcf11b76ed4327a226a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Revival_UI/основная плашка.png"
-dest_files=["res://.godot/imported/основная плашка.png-5d3578fcb8c6130fdfa07eb9848a5d55.ctex"]
+source_file="res://Texture/UI/Revival_UI/loading.png"
+dest_files=["res://.godot/imported/loading.png-6d6985c0d0b10fcf11b76ed4327a226a.ctex"]
 
 [params]
 

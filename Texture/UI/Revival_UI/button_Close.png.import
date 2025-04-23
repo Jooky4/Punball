@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://br1jvi21pc6nb"
-path="res://.godot/imported/кнопка закрыть.png-5de2825a233551c2a1a91d1289a9d034.ctex"
+path="res://.godot/imported/button_Close.png-5bd846d0e7ae5bf83d519893051904d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Revival_UI/кнопка закрыть.png"
-dest_files=["res://.godot/imported/кнопка закрыть.png-5de2825a233551c2a1a91d1289a9d034.ctex"]
+source_file="res://Texture/UI/Revival_UI/button_Close.png"
+dest_files=["res://.godot/imported/button_Close.png-5bd846d0e7ae5bf83d519893051904d9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3qbdnmbn82w7"
-path="res://.godot/imported/100 проц. ХР 3 ряда.png-993df9b97d96e320e033f86abff9c2d0.ctex"
+uid="uid://n8bry8goqai7"
+path="res://.godot/imported/icon_HP.png-f1fb553dd375a413cc5c999d4436ba34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Revival_UI/100 проц. ХР 3 ряда.png"
-dest_files=["res://.godot/imported/100 проц. ХР 3 ряда.png-993df9b97d96e320e033f86abff9c2d0.ctex"]
+source_file="res://Texture/UI/Revival_UI/icon_HP.png"
+dest_files=["res://.godot/imported/icon_HP.png-f1fb553dd375a413cc5c999d4436ba34.ctex"]
 
 [params]
 
