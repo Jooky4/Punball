@@ -57,7 +57,7 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 		damage_ball = round(scale_damage_for_talant_and_character(damage_ball))
 		hp_enemy -= damage_ball
 		if hp_enemy <= 0 and alive:
-			alive = false 
+			alive = false
 			die()
 		if killer_ball:
 			create_label_damage("УБИЙЦА", color_label)
@@ -231,8 +231,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				self.z_index = 0
 		elif anim_name == "Damage":
 			if alive:
-				if self.has_method("berserker_enemy"): 
-					math_damage_player() # ПОСЛЕ УРОНА ЕСЛИ ЭТО БЕРСЕРК РАСЧИТЫВАЕИ УРОН ПО ИГРОКУ 
+				if self.has_method("berserker_enemy"):
+					math_damage_player() # ПОСЛЕ УРОНА ЕСЛИ ЭТО БЕРСЕРК РАСЧИТЫВАЕИ УРОН ПО ИГРОКУ
 				if on_last_line:
 					animation_enemy.play("Preparation")
 				else:

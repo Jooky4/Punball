@@ -102,6 +102,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_qt4ju")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 position = Vector2(-4, 9)
 amount = 4
 process_material = SubResource("ParticleProcessMaterial_cb0dl")

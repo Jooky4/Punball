@@ -13,8 +13,8 @@ enum {
 var color_elements = {
 	"NORMAL" : Color.WHITE,
 	"FIRE" : Color.RED,
-	"FROST": Color.BLUE, 
-	"LASER": Color.YELLOW, 
+	"FROST": Color.BLUE,
+	"LASER": Color.YELLOW,
 	"LIGHTNING": Color.BLUE_VIOLET,
 	"NUCLEAR" : Color.NAVY_BLUE,
 	"TECHNOLOGIES": Color.DIM_GRAY,
