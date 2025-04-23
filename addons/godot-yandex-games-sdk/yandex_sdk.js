@@ -2,14 +2,11 @@ let ysdk;
 let payments = null;
 function InitGame(params, callback) {
     YaGames.init(params)
-        .then((_sdk) => {
+        .then(async (_sdk) => {
             ysdk = _sdk;
-            
+
             // Ожидаем инициализацию payments перед callback
-            return ysdk.getPayments({ signed: true });
-        })
-        .then((_payments) => {
-            payments = _payments;
+            payments = await ysdk.getPayments({signed: true});
             callback(ysdk.environment); // Только теперь инициализация завершена
         })
         .catch((err) => {
@@ -273,7 +270,7 @@ function purchaseItem(item_id, callback) {
     }
     else {
         payments.purchase({ id: item_id }).then(purchase => {
-			console.log("Purchase successful: ", purchase); 
+			console.log("Purchase successful: ", purchase);
 			callback(purchase);
         }).catch(err => {
             console.log("Purchase failed: ", err);
@@ -289,7 +286,7 @@ function CheckUnprocessedPurchases(callback) {
     }
     payments.getPurchases().then(purchases => {
         const data = purchases.map(p => ({
-            product_id: p.productID, 
+            product_id: p.productID,
             purchase_token: p.purchaseToken
         }));
         callback(JSON.stringify(data));
@@ -316,11 +313,11 @@ function GetCatalog(callback) {
         callback("[]"); // Пустой JSON-массив
         return;
     }
-    
+
     payments.getCatalog()
         .then(catalog => {
             console.log("Raw catalog:", catalog);
-            
+
             // Преобразуем в простые объекты и затем в JSON строку
             const simpleCatalog = catalog.map(item => ({
                 id: item.id,
@@ -328,7 +325,7 @@ function GetCatalog(callback) {
                 price: item.price,
                 priceValue: item.priceValue,
             }));
-            
+
             const jsonCatalog = JSON.stringify(simpleCatalog);
             console.log("JSON catalog:", jsonCatalog);
             callback(jsonCatalog);

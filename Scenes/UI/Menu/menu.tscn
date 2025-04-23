@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=110 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
@@ -85,9 +85,7 @@
 [ext_resource type="Texture2D" uid="uid://dsop05wjy0dm1" path="res://Texture/UI/Main_menu/перегородка.png" id="83_qc3mg"]
 [ext_resource type="Texture2D" uid="uid://msycuupxkw1x" path="res://Texture/UI/Main_menu/подложка_2.png" id="84_siqir"]
 [ext_resource type="Texture2D" uid="uid://c3mx4k6pd50ab" path="res://Texture/UI/Main_menu/подложка_4.png" id="86_0cxs1"]
-[ext_resource type="Texture2D" uid="uid://wno3dh4o5lom" path="res://Texture/For_tutorial/палец с обводкой.png" id="87_2lo32"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/StepAnimation.gd" id="88_u3omx"]
-[ext_resource type="Shader" path="res://Resources/Shaders/talant_tutorial.gdshader" id="89_tcnwh"]
 [ext_resource type="Texture2D" uid="uid://d1foqy2pkn8et" path="res://Texture/UI/Talents_UI/замок2.png" id="89_usdmv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
@@ -183,13 +181,6 @@ font = ExtResource("3_cjc1q")
 font_size = 20
 outline_size = 15
 outline_color = Color(0.054902, 0.113725, 0.341176, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbi4k"]
-shader = ExtResource("89_tcnwh")
-shader_parameter/center = Vector2(0.48, 1)
-shader_parameter/size = Vector2(0.14, 0.65)
-shader_parameter/gradient_width = 0.05
-shader_parameter/gradient_color = Vector4(0, 0, 0, 0.01)
 
 [node name="Menu" type="Control"]
 z_index = 8
@@ -3604,56 +3595,6 @@ vertical_alignment = 1
 [node name="Chest_reward" parent="." instance=ExtResource("27_temh2")]
 visible = false
 layout_mode = 1
-
-[node name="Tutorial_talants" type="Control" parent="."]
-visible = false
-z_index = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="Tutorial_talants"]
-z_index = 11
-material = SubResource("ShaderMaterial_fbi4k")
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2269.0
-offset_top = -971.0
-offset_right = 2359.0
-offset_bottom = 640.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.509804)
-
-[node name="1_step" type="TextureRect" parent="Tutorial_talants"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.474
-offset_top = 459.189
-offset_right = 230.526
-offset_bottom = 735.189
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 3.14159
-pivot_offset = Vector2(105.737, 46.9055)
-mouse_filter = 2
-texture = ExtResource("87_2lo32")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("88_u3omx")
 
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]

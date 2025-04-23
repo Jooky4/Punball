@@ -179,26 +179,6 @@ func check_tutorial() -> void:
 		LevelManager.restert()
 		LevelManager.player_balls = [1, 1, 1, 1]
 		get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
-	elif PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
-		$Tutorial_talants.visible = true
-		$"Tutorial_talants/1_step".visible = true
-	elif PlayerIndicatorsManager.TALANTS_TUTORIL == 1:
-		$Tutorial_talants.visible = false
-
-func step_2_tutorial() -> void:
-	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
-		$"Tutorial_talants/1_step".visible = false
-
-func step_3_tutorial() -> void:
-	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
-		$"Tutorial_talants/1_step".visible = false
-
-func end_tutorial() -> void:
-	$Tutorial_talants/ColorRect.visible = false
-	$"Tutorial_talants/1_step".visible = false
-	$Tutorial_talants.visible = false
-	PlayerIndicatorsManager.TALANTS_TUTORIL = 1
-	PlayerIndicatorsManager.update_player_date_on_server()
 
 func update_visible_texture_can_update() -> void:
 	can_by_new_talant()
@@ -272,8 +252,6 @@ func _on_shop_button_pressed() -> void:
 	if shop_UI.visible == false:
 		return_norm_scale()
 		update_button_scale(1)
-	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
-		$"Tutorial_talants/1_step".visible = true
 	shop_UI.visible = true
 	player_leve_UI.visible = true
 	main_menu_UI.visible = false
@@ -285,8 +263,6 @@ func _on_talesnts_button_pressed() -> void:
 	if talents_UI.visible == false:
 		return_norm_scale()
 		update_button_scale(3)
-	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
-		$"Tutorial_talants/1_step".visible = false
 	talents_UI.visible = true
 	player_leve_UI.visible = true
 	main_menu_UI.visible = false
@@ -321,8 +297,6 @@ func _on_mainmenu_button_pressed() -> void:
 	if main_menu_UI.visible == false:
 		return_norm_scale()
 		update_button_scale(2)
-	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 1 and PlayerIndicatorsManager.TALANTS_TUTORIL == 0:
-		$"Tutorial_talants/1_step".visible = true
 	main_menu_UI.visible = true
 	player_leve_UI.visible = true
 	shop_UI.visible = false
