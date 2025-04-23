@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://djiv5hip3kul0" path="res://Texture/UI/Revival_UI/i2.png" id="13_vx2gc"]
 [ext_resource type="Texture2D" uid="uid://d237q620rwapy" path="res://Texture/UI/Revival_UI/текст 50 проц. ХР.png" id="14_54frb"]
 [ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="14_foy0a"]
-[ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/уровень мира.png" id="15_402ae"]
-[ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/бар прогресс мира.png" id="16_ghtno"]
+[ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/bar_Level_Count.png" id="15_402ae"]
+[ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/bar_Level_Menu.png" id="16_ghtno"]
 [ext_resource type="Texture2D" uid="uid://bw6xyapc0da5g" path="res://Texture/UI/Main_menu/прогресс мира шкала.png" id="17_bspsp"]
-[ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/бар для кристалла 182-800.png" id="18_37g3u"]
+[ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/bar_Count.png" id="18_37g3u"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="19_vb275"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="20_masc1"]
 

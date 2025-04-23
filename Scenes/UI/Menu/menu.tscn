@@ -1,92 +1,95 @@
-[gd_scene load_steps=110 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=107 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
-[ext_resource type="Texture2D" uid="uid://xk2lu7vnlyjl" path="res://Texture/UI/Main_menu/фон.png" id="2_vxxsk"]
+[ext_resource type="Texture2D" uid="uid://82bdpa1kdble" path="res://Texture/UI/Main_menu/background.svg" id="2_24mdw"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_cjc1q"]
-[ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/уровень мира.png" id="3_cw7m0"]
-[ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/бар для кристалла 182-800.png" id="3_e5vte"]
-[ext_resource type="Texture2D" uid="uid://b4pq3hbwd3e7f" path="res://Texture/UI/Main_menu/меню_подложка.png" id="3_ef1jr"]
+[ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/bar_Level_Count.png" id="3_cw7m0"]
+[ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/bar_Count.png" id="3_e5vte"]
 [ext_resource type="Texture2D" uid="uid://budqgveapxyg0" path="res://Texture/UI/Main_menu/кнопка Играть.png" id="3_qeymi"]
-[ext_resource type="Texture2D" uid="uid://doh6rbwv7nhx2" path="res://Texture/UI/Main_menu/ограничение поля UI.png" id="4_h3cqw"]
-[ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/бар прогресс мира.png" id="5_fbwen"]
+[ext_resource type="Texture2D" uid="uid://cb05wrfawuqan" path="res://Texture/UI/Main_menu/backgrounnd_Flags.png" id="3_xvp7n"]
+[ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/bar_Level_Menu.png" id="5_fbwen"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="5_h3ti1"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_uun7o"]
-[ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/прогресс мира шкала2.png" id="7_usr1m"]
-[ext_resource type="Texture2D" uid="uid://bptuq68epuon6" path="res://Texture/UI/Main_menu/линия для разделения2.png" id="11_p4754"]
-[ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/настройки.png" id="12_aoauw"]
+[ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/bar_Level_Menu_2.png" id="7_usr1m"]
+[ext_resource type="Texture2D" uid="uid://bptuq68epuon6" path="res://Texture/UI/Main_menu/line_Menu.png" id="11_p4754"]
+[ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/settings.png" id="12_aoauw"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
 [ext_resource type="PackedScene" uid="uid://1ilhlj1qeg8s" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
-[ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/иконка магазин.png" id="18_m36hl"]
+[ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/nav_Shop.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
-[ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/иконка мечи.png" id="19_q5oq5"]
+[ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/nav_World.png" id="19_q5oq5"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/characters_UI.gd" id="20_1y5uy"]
-[ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/иконка книга.png" id="20_bdbvx"]
+[ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/nav_Book.png" id="20_bdbvx"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/shop.gd" id="20_gcgux"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
-[ext_resource type="Texture2D" uid="uid://bo7sf7mnakgq1" path="res://Texture/UI/Character_UI/Character_window/иконка руна.png" id="21_nwckc"]
+[ext_resource type="Texture2D" uid="uid://bo7sf7mnakgq1" path="res://Texture/UI/Character_UI/Character_window/icon_Rune.png" id="21_nwckc"]
 [ext_resource type="Texture2D" uid="uid://cr8nvoy2b67ys" path="res://Texture/UI/Shop_UI/монеты подрожка.png" id="21_skdl8"]
 [ext_resource type="Texture2D" uid="uid://kk8ljg172upi" path="res://Texture/UI/Shop_UI/синяя подложка для окон монет-кристаллов.png" id="22_hq88r"]
-[ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/точки для сундуков.png" id="22_rdsba"]
+[ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/Сhest/points_Chest.png" id="22_rdsba"]
 [ext_resource type="Texture2D" uid="uid://c27j04flqk5yi" path="res://Texture/UI/Shop_UI/окно для монет.png" id="23_0d0bh"]
 [ext_resource type="Script" path="res://Scenes/UI/Characters/character_1_window.gd" id="23_6x0rm"]
-[ext_resource type="Texture2D" uid="uid://cfy3yh6mgo2qu" path="res://Texture/UI/Character_UI/Character_window/прогресс бар уровня персонажа.png" id="23_g0yqi"]
+[ext_resource type="Texture2D" uid="uid://cfy3yh6mgo2qu" path="res://Texture/UI/Character_UI/Character_window/bar_Level_Character_2.png" id="23_g0yqi"]
 [ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="23_moodm"]
 [ext_resource type="Texture2D" uid="uid://crnbctqhjowll" path="res://Texture/UI/Shop_UI/кристаллы подрожка.png" id="23_wpccf"]
 [ext_resource type="Texture2D" uid="uid://cj2voext6rg6i" path="res://Texture/UI/Shop_UI/монета 1.png" id="24_nehew"]
-[ext_resource type="Texture2D" uid="uid://bdsgv1droqrif" path="res://Texture/UI/Character_UI/Character_window/зеленый уровнь персонажа для прогресса.png" id="24_ykvw2"]
+[ext_resource type="Texture2D" uid="uid://bdsgv1droqrif" path="res://Texture/UI/Character_UI/Character_window/bar_Level_Character.png" id="24_ykvw2"]
 [ext_resource type="Texture2D" uid="uid://gq0f75y2oogd" path="res://Texture/UI/Shop_UI/монета 2.png" id="25_21de7"]
-[ext_resource type="Texture2D" uid="uid://2iny41pxjg20" path="res://Texture/UI/Character_UI/Character_window/плашка под иконку.png" id="25_rjbq8"]
-[ext_resource type="Texture2D" uid="uid://b6r20b2owmufa" path="res://Texture/UI/Character_UI/Character_window/меч.png" id="26_ei0qc"]
+[ext_resource type="Texture2D" uid="uid://2iny41pxjg20" path="res://Texture/UI/Character_UI/Character_window/platform_Icons.png" id="25_rjbq8"]
+[ext_resource type="Texture2D" uid="uid://b6r20b2owmufa" path="res://Texture/UI/Character_UI/Character_window/icon_Attack.png" id="26_ei0qc"]
 [ext_resource type="Texture2D" uid="uid://cn1jsdr3evt7x" path="res://Texture/UI/Shop_UI/монета 3.png" id="26_wvchi"]
 [ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/красная стрелка для улучшения таланта.png" id="27_c31n5"]
 [ext_resource type="Texture2D" uid="uid://b3c8d7ow373q6" path="res://Texture/UI/Shop_UI/монета 4.png" id="27_jjtc7"]
-[ext_resource type="Texture2D" uid="uid://j11yp4115jic" path="res://Texture/UI/Character_UI/Character_window/стрелка улучшения.png" id="27_p4vig"]
+[ext_resource type="Texture2D" uid="uid://j11yp4115jic" path="res://Texture/UI/Character_UI/Character_window/upgrade_Arrow.png" id="27_p4vig"]
 [ext_resource type="PackedScene" uid="uid://bfq4lhxqp2x0" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
-[ext_resource type="Texture2D" uid="uid://6m4xmt8olxn4" path="res://Texture/UI/Character_UI/Character_window/сердце база.png" id="28_5xtva"]
-[ext_resource type="Texture2D" uid="uid://cbjdufopv0pmk" path="res://Texture/UI/Character_UI/плашка персонажа активная.png" id="28_30gul"]
+[ext_resource type="Texture2D" uid="uid://6m4xmt8olxn4" path="res://Texture/UI/Character_UI/Character_window/icon_HP.png" id="28_5xtva"]
+[ext_resource type="Texture2D" uid="uid://cbjdufopv0pmk" path="res://Texture/UI/Character_UI/platform_Character.png" id="28_30gul"]
 [ext_resource type="Texture2D" uid="uid://lin3afhbskvv" path="res://Texture/UI/Shop_UI/монета 5.png" id="28_lceg1"]
 [ext_resource type="Texture2D" uid="uid://1lmkgscpmf2q" path="res://Texture/UI/Shop_UI/монета 6.png" id="29_d1w7v"]
 [ext_resource type="Texture2D" uid="uid://cc53ex5bd746r" path="res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png" id="29_dv1yp"]
-[ext_resource type="Texture2D" uid="uid://qqfohh4ohbyu" path="res://Texture/UI/Character_UI/Character_window/фон вертикальный.png" id="29_ke4g2"]
-[ext_resource type="Texture2D" uid="uid://jcy8balgn8ur" path="res://Texture/UI/Character_UI/уровень перса.png" id="29_lxmlr"]
-[ext_resource type="Texture2D" uid="uid://bmtxu0eqj1ssr" path="res://Texture/UI/Character_UI/полоска разделитель.png" id="30_g1evk"]
-[ext_resource type="Texture2D" uid="uid://ckgv7detkwio1" path="res://Texture/UI/Character_UI/Character_window/плашка для материалов покупки.png" id="30_qcdih"]
+[ext_resource type="Texture2D" uid="uid://qqfohh4ohbyu" path="res://Texture/UI/Character_UI/Character_window/background.png" id="29_ke4g2"]
+[ext_resource type="Texture2D" uid="uid://jcy8balgn8ur" path="res://Texture/UI/Character_UI/level_Character.png" id="29_lxmlr"]
+[ext_resource type="Texture2D" uid="uid://bmtxu0eqj1ssr" path="res://Texture/UI/Character_UI/line_Border.png" id="30_g1evk"]
+[ext_resource type="Texture2D" uid="uid://ckgv7detkwio1" path="res://Texture/UI/Character_UI/Character_window/platform_Materials.png" id="30_qcdih"]
 [ext_resource type="Texture2D" uid="uid://d01f1hwel8jg4" path="res://Texture/UI/Shop_UI/окно для кристаллов.png" id="31_1qtya"]
-[ext_resource type="Texture2D" uid="uid://8ecjqcdbb4a" path="res://Texture/UI/Character_UI/плашка персонажа неактивная.png" id="31_5u4xa"]
+[ext_resource type="Texture2D" uid="uid://8ecjqcdbb4a" path="res://Texture/UI/Character_UI/platform_Character_Gray.png" id="31_5u4xa"]
 [ext_resource type="Texture2D" uid="uid://b5uosa6inw6tq" path="res://Texture/UI/Shop_UI/кристалл 1.png" id="32_0mmh1"]
-[ext_resource type="Texture2D" uid="uid://dsh2mk3uxj0ap" path="res://Texture/UI/Character_UI/кнопка выбран.png" id="32_sva66"]
+[ext_resource type="Texture2D" uid="uid://dsh2mk3uxj0ap" path="res://Texture/UI/Character_UI/button_Select_Shop.png" id="32_sva66"]
 [ext_resource type="Texture2D" uid="uid://by1ysutk6o7tf" path="res://Texture/UI/Shop_UI/кристалл 2.png" id="33_lr1uh"]
 [ext_resource type="Texture2D" uid="uid://do65vkjck28pi" path="res://Texture/UI/Shop_UI/кристалл 3.png" id="34_3ixuv"]
 [ext_resource type="Texture2D" uid="uid://bs4qmb742an6q" path="res://Texture/UI/Shop_UI/кристалл 4.png" id="35_aktnb"]
-[ext_resource type="Texture2D" uid="uid://dp6g21b77mmvu" path="res://Texture/UI/Character_UI/Character_window/кнопка ВЫБРАТь.png" id="35_yveks"]
+[ext_resource type="Texture2D" uid="uid://dp6g21b77mmvu" path="res://Texture/UI/Character_UI/Character_window/button_Select.png" id="35_yveks"]
 [ext_resource type="Texture2D" uid="uid://pmcgodh3ehj0" path="res://Texture/UI/Character_UI/Character_window/кнопка КУПИТЬ за кристаллы.png" id="36_0hnwo"]
-[ext_resource type="Texture2D" uid="uid://b6e103x27c8je" path="res://Texture/UI/Character_UI/Character_window/шанс заморозить врага.png" id="36_cqs0r"]
+[ext_resource type="Texture2D" uid="uid://b6e103x27c8je" path="res://Texture/UI/Character_UI/Character_window/skill_4.png" id="36_cqs0r"]
 [ext_resource type="Texture2D" uid="uid://dbas0a7qifn8x" path="res://Texture/UI/Shop_UI/кристалл 5..png" id="36_hq60e"]
 [ext_resource type="Texture2D" uid="uid://dyomqh0hueksa" path="res://Texture/UI/Shop_UI/кристалл 6.png" id="37_142ex"]
-[ext_resource type="Texture2D" uid="uid://ckjtkyvasjni8" path="res://Texture/UI/Character_UI/Character_window/усиление стихии холода.png" id="37_ovsro"]
-[ext_resource type="Texture2D" uid="uid://c8f717ql3qobr" path="res://Texture/UI/Character_UI/Character_window/шанс восстановления.png" id="38_lotfc"]
-[ext_resource type="Texture2D" uid="uid://cdnp7wqrqoaui" path="res://Texture/UI/Character_UI/Character_window/иконка 4.png" id="39_ys04g"]
-[ext_resource type="Texture2D" uid="uid://dioy3jxbwas2r" path="res://Texture/UI/Character_UI/Character_window/шанс распасться на 2 таких же.png" id="40_0kfjt"]
+[ext_resource type="Texture2D" uid="uid://ckjtkyvasjni8" path="res://Texture/UI/Character_UI/Character_window/skill_2.png" id="37_ovsro"]
+[ext_resource type="Texture2D" uid="uid://c8f717ql3qobr" path="res://Texture/UI/Character_UI/Character_window/skill_3.png" id="38_lotfc"]
+[ext_resource type="Texture2D" uid="uid://cdnp7wqrqoaui" path="res://Texture/UI/Main_menu/nav_Character.png" id="39_ys04g"]
+[ext_resource type="Texture2D" uid="uid://dioy3jxbwas2r" path="res://Texture/UI/Character_UI/Character_window/skill_5.png" id="40_0kfjt"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/character_2_window.gd" id="41_58n8s"]
-[ext_resource type="Texture2D" uid="uid://2qrb78wuvipj" path="res://Texture/UI/Character_UI/Character_window/шанс уклонения от атаки.png" id="41_bykgj"]
+[ext_resource type="Texture2D" uid="uid://2qrb78wuvipj" path="res://Texture/UI/Character_UI/Character_window/skill_6.png" id="41_bykgj"]
 [ext_resource type="Texture2D" uid="uid://dorb0t7geir8b" path="res://Texture/Heroes/Alisa/алиса_плашка.png" id="41_iuttr"]
-[ext_resource type="Texture2D" uid="uid://bg6wp5fbqpob7" path="res://Texture/UI/Character_UI/Character_window/меньше оз выше урон.png" id="42_efscd"]
+[ext_resource type="Texture2D" uid="uid://bg6wp5fbqpob7" path="res://Texture/UI/Character_UI/Character_window/skill_1.png" id="42_efscd"]
 [ext_resource type="Texture2D" uid="uid://dndb6rlx1byxj" path="res://Texture/Heroes/Merlin/мерлин_плашка.png" id="43_0ggey"]
 [ext_resource type="Texture2D" uid="uid://bn838whrwihar" path="res://Texture/Heroes/Busya/буся_плашка.png" id="44_v2iii"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/character_3_window.gd" id="46_8my5a"]
-[ext_resource type="Texture2D" uid="uid://cwtdxveax7eyd" path="res://Texture/UI/Character_UI/Character_window/кнопка назад.png" id="48_4n6dk"]
+[ext_resource type="Texture2D" uid="uid://cwtdxveax7eyd" path="res://Texture/UI/Character_UI/Character_window/button_Back.png" id="48_4n6dk"]
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="49_hcn8h"]
 [ext_resource type="Texture2D" uid="uid://bgxcaqhpaxogt" path="res://Texture/Heroes/Alisa/алиса_окно.png" id="50_q4tux"]
 [ext_resource type="Texture2D" uid="uid://c3lcc18w7q4ev" path="res://Texture/Heroes/Merlin/мерлин_магазин.png" id="61_jx5ik"]
 [ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="66_718i0"]
 [ext_resource type="Texture2D" uid="uid://cbuil3v7kak7b" path="res://Texture/Heroes/Busya/буся_магазин.png" id="67_vcgdb"]
-[ext_resource type="Texture2D" uid="uid://cparg72oyf74n" path="res://Texture/UI/Main_menu/подложка_1.png" id="79_57kj7"]
-[ext_resource type="Texture2D" uid="uid://bkggowhuq70ko" path="res://Texture/UI/Main_menu/подложка_3.png" id="81_exjnj"]
-[ext_resource type="Texture2D" uid="uid://dsop05wjy0dm1" path="res://Texture/UI/Main_menu/перегородка.png" id="83_qc3mg"]
-[ext_resource type="Texture2D" uid="uid://msycuupxkw1x" path="res://Texture/UI/Main_menu/подложка_2.png" id="84_siqir"]
-[ext_resource type="Texture2D" uid="uid://c3mx4k6pd50ab" path="res://Texture/UI/Main_menu/подложка_4.png" id="86_0cxs1"]
+[ext_resource type="Texture2D" uid="uid://cparg72oyf74n" path="res://Texture/UI/Main_menu/nav_Empty.png" id="79_57kj7"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/StepAnimation.gd" id="88_u3omx"]
 [ext_resource type="Texture2D" uid="uid://d1foqy2pkn8et" path="res://Texture/UI/Talents_UI/замок2.png" id="89_usdmv"]
+
+[sub_resource type="Gradient" id="Gradient_ochel"]
+offsets = PackedFloat32Array(0.834846, 1)
+colors = PackedColorArray(0.0431373, 0.12549, 0.482353, 1, 0.0392157, 0.109804, 0.427451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7qkr8"]
+gradient = SubResource("Gradient_ochel")
+fill_from = Vector2(1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8rve7"]
 font = ExtResource("3_cjc1q")
@@ -209,7 +212,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vxxsk")
+texture = ExtResource("2_24mdw")
 expand_mode = 1
 stretch_mode = 6
 
@@ -223,25 +226,22 @@ anchor_bottom = 1.0
 offset_top = -155.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("3_ef1jr")
+texture = SubResource("GradientTexture2D_7qkr8")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Backgroung"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -989.0
-offset_top = -797.0
+offset_top = -77.0
 offset_right = 989.0
-offset_bottom = 531.0
+offset_bottom = 1192.0
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_h3cqw")
-expand_mode = 1
+pivot_offset = Vector2(0, 100)
+texture = ExtResource("3_xvp7n")
 
 [node name="Player_state" type="Control" parent="."]
 z_index = 10
@@ -2062,6 +2062,7 @@ theme_override_constants/separation = 20
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Characters/Character_1_window/VBoxContainer"]
 layout_mode = 2
+min_value = 1.0
 max_value = 20.0
 value = 1.0
 texture_under = ExtResource("23_g0yqi")
@@ -2367,7 +2368,9 @@ theme_override_constants/separation = 20
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Characters/Character_2_window/VBoxContainer"]
 layout_mode = 2
+min_value = 1.0
 max_value = 20.0
+value = 1.0
 texture_under = ExtResource("23_g0yqi")
 texture_progress = ExtResource("24_ykvw2")
 texture_progress_offset = Vector2(13, 14)
@@ -2834,7 +2837,9 @@ theme_override_constants/separation = 20
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Characters/Character_3_window/VBoxContainer"]
 layout_mode = 2
+min_value = 1.0
 max_value = 20.0
+value = 1.0
 texture_under = ExtResource("23_g0yqi")
 texture_progress = ExtResource("24_ykvw2")
 texture_progress_offset = Vector2(13, 14)
@@ -3348,7 +3353,6 @@ alignment = 1
 [node name="Shop_button" type="TextureButton" parent="Select_buttons"]
 layout_mode = 2
 texture_normal = ExtResource("79_57kj7")
-texture_hover = ExtResource("81_exjnj")
 
 [node name="TextureRect" type="TextureRect" parent="Select_buttons/Shop_button"]
 layout_mode = 1
@@ -3383,15 +3387,14 @@ grow_vertical = 0
 text = "МАГАЗИН"
 label_settings = SubResource("LabelSettings_gcvxd")
 
-[node name="TextureRect" type="TextureRect" parent="Select_buttons"]
-modulate = Color(0, 0, 0, 0.117647)
+[node name="ColorRect" type="ColorRect" parent="Select_buttons"]
+custom_minimum_size = Vector2(6, 0)
 layout_mode = 2
-texture = ExtResource("83_qc3mg")
+color = Color(0.0392157, 0.109804, 0.423529, 1)
 
 [node name="Main_menu_button" type="TextureButton" parent="Select_buttons"]
 layout_mode = 2
 texture_normal = ExtResource("79_57kj7")
-texture_hover = ExtResource("84_siqir")
 
 [node name="TextureRect" type="TextureRect" parent="Select_buttons/Main_menu_button"]
 layout_mode = 1
@@ -3428,16 +3431,15 @@ label_settings = SubResource("LabelSettings_gcvxd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="Select_buttons"]
-modulate = Color(0, 0, 0, 0.117647)
+[node name="ColorRect2" type="ColorRect" parent="Select_buttons"]
+custom_minimum_size = Vector2(6, 0)
 layout_mode = 2
-texture = ExtResource("83_qc3mg")
+color = Color(0.0392157, 0.109804, 0.423529, 1)
 
 [node name="Talesnts_button" type="TextureButton" parent="Select_buttons"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("79_57kj7")
-texture_hover = ExtResource("86_0cxs1")
 
 [node name="TextureRect" type="TextureRect" parent="Select_buttons/Talesnts_button"]
 layout_mode = 1
@@ -3492,15 +3494,14 @@ label_settings = SubResource("LabelSettings_gcvxd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect3" type="TextureRect" parent="Select_buttons"]
-modulate = Color(0, 0, 0, 0.117647)
+[node name="ColorRect3" type="ColorRect" parent="Select_buttons"]
+custom_minimum_size = Vector2(6, 0)
 layout_mode = 2
-texture = ExtResource("83_qc3mg")
+color = Color(0.0392157, 0.109804, 0.423529, 1)
 
 [node name="Character_button" type="TextureButton" parent="Select_buttons"]
 layout_mode = 2
 texture_normal = ExtResource("79_57kj7")
-texture_hover = ExtResource("81_exjnj")
 
 [node name="Can_press" type="TextureRect" parent="Select_buttons/Character_button"]
 layout_mode = 1

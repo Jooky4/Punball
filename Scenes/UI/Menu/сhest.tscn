@@ -1,15 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://1ilhlj1qeg8s"]
+[gd_scene load_steps=10 format=3 uid="uid://1ilhlj1qeg8s"]
 
-[ext_resource type="Texture2D" uid="uid://bqnc0pms7nde4" path="res://Texture/UI/Main_menu/Сhest/1.png" id="1_w5dqr"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/сhest.gd" id="2_dofgi"]
-[ext_resource type="Texture2D" uid="uid://dikogjsucwvft" path="res://Texture/UI/Main_menu/Сhest/3.png" id="2_mn5ak"]
-[ext_resource type="Texture2D" uid="uid://dw1wobtt2xah0" path="res://Texture/UI/Main_menu/Сhest/2.png" id="3_dwi27"]
+[ext_resource type="Texture2D" uid="uid://dp8tdk5ltvnic" path="res://Texture/UI/Main_menu/Сhest/close_Chest.png" id="2_rgsbb"]
+[ext_resource type="Texture2D" uid="uid://dns2hgt1vo7uq" path="res://Texture/UI/Main_menu/Сhest/open_Chest.png" id="3_r7s00"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_htxkf"]
-[ext_resource type="Texture2D" uid="uid://ckrsdh4wc4yhw" path="res://Texture/UI/Main_menu/Сhest/border.png" id="4_jvceo"]
 [ext_resource type="Texture2D" uid="uid://131mekxb47s1" path="res://Texture/Level_environment/particleStar_2.png" id="4_vj1t0"]
-[ext_resource type="Texture2D" uid="uid://2611koe6ctuk" path="res://Texture/UI/Main_menu/Сhest/gold.png" id="6_mn1i2"]
 [ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/UI/ligting.png" id="7_pdda6"]
-[ext_resource type="Texture2D" uid="uid://c8hlxsjyl2x4d" path="res://Texture/UI/Main_menu/Сhest/border2.png" id="8_1m53s"]
 
 [sub_resource type="Curve" id="Curve_rovx4"]
 _data = [Vector2(0, 0), 0.0, 13.8, 0, 0, Vector2(0.159091, 0.986364), 0.0, 0.0, 0, 0, Vector2(0.503788, 0.995455), 0.0, 0.0, 0, 0, Vector2(0.837121, 0.990909), 0.0, 0.0, 0, 0, Vector2(1, 0), -16.32, 0.0, 0, 0]
@@ -33,127 +29,38 @@ script = ExtResource("2_dofgi")
 [node name="Close" type="TextureRect" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 1.0
-offset_top = 6.0
-offset_right = 91.0
-offset_bottom = 106.0
+offset_left = -7.0
+offset_top = -25.0
+offset_right = 109.0
+offset_bottom = 104.0
 mouse_filter = 2
-texture = ExtResource("1_w5dqr")
+texture = ExtResource("2_rgsbb")
 expand_mode = 1
-
-[node name="Border" type="Sprite2D" parent="Close"]
-modulate = Color(0.0509804, 0.133333, 0.305882, 1)
-z_index = 10
-z_as_relative = false
-position = Vector2(50, 44)
-scale = Vector2(0.54023, 0.54023)
-texture = ExtResource("4_jvceo")
-
-[node name="Up" type="TextureRect" parent="Close"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -53.0
-offset_right = 51.0
-offset_bottom = 38.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_dwi27")
-expand_mode = 2
 
 [node name="Open" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 1.0
-offset_top = 6.0
-offset_right = 91.0
-offset_bottom = 106.0
+offset_left = -9.0
+offset_top = -28.0
+offset_right = 109.0
+offset_bottom = 103.0
 mouse_filter = 2
-texture = ExtResource("1_w5dqr")
+texture = ExtResource("3_r7s00")
 expand_mode = 1
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Open"]
-position = Vector2(50, 14)
-amount = 7
-lifetime = 7.0
-texture = ExtResource("4_vj1t0")
-emission_shape = 3
-emission_rect_extents = Vector2(30, 20)
-direction = Vector2(0, -1)
-spread = 0.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 10.0
-scale_amount_min = 0.07
-scale_amount_max = 0.1
-scale_amount_curve = SubResource("Curve_rovx4")
-color = Color(1, 0.892271, 0.371094, 1)
-color_ramp = SubResource("Gradient_6p5ln")
-
-[node name="Up" type="TextureRect" parent="Open"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -106.0
-offset_right = 56.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.0389261
-pivot_offset = Vector2(81, 94)
-mouse_filter = 2
-texture = ExtResource("2_mn5ak")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Gold" type="TextureRect" parent="Open"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -75.5
-offset_right = 55.5
-offset_bottom = 39.5
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(81, 94)
-mouse_filter = 2
-texture = ExtResource("6_mn1i2")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Border2" type="Sprite2D" parent="Open"]
-modulate = Color(0.0509804, 0.133333, 0.305882, 1)
-position = Vector2(53, 36)
-scale = Vector2(0.482927, 0.482927)
-texture = ExtResource("8_1m53s")
 
 [node name="Ligting" type="Sprite2D" parent="Open"]
-modulate = Color(1, 1, 1, 0.176471)
-position = Vector2(50, -9)
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(60, 25)
 scale = Vector2(0.391565, 0.271021)
 texture = ExtResource("7_pdda6")
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="Open"]
-position = Vector2(47, 34)
-amount = 4
-lifetime = 10.0
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Open"]
+position = Vector2(60, 48)
+amount = 9
+lifetime = 7.0
 texture = ExtResource("4_vj1t0")
 emission_shape = 3
-emission_rect_extents = Vector2(30, 20)
+emission_rect_extents = Vector2(35, 20)
 direction = Vector2(0, -1)
 spread = 0.0
 gravity = Vector2(0, 0)
