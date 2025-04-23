@@ -61,8 +61,10 @@ func _ready() -> void:
 	YandexSDK.connect('purchased', _process_purchase_with_token)
 	YandexSDK.connect("unprocessed_purchases_loaded", _process_uncompleted_purchases)
 	YandexSDK.connect("catalog_loaded", _on_catalog_loaded)
+
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
+
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
 		YandexSDK.init_game()
 		YandexSDK.init_player()
@@ -156,7 +158,7 @@ func arabic_to_roman(num: int) -> String:
 
 func player_date_loaded(data) -> void:
 	update_cuurent_location_texture()
-	check_tutorial()
+	#check_tutorial()
 	update_coins_label()
 	update_crystal_label()
 	update_characte_UI()
