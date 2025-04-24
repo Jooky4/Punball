@@ -6,8 +6,8 @@ extends MarginContainer
 @onready var for_coins_texture = $For_coins/Skill_texture
 @onready var for_crystal_texture = $For_crystal/Skill_texture
 
-@onready var have_for_coins_talant_texture_line = preload("res://Texture/UI/Talents_UI/синяя полоса.png")
-@onready var have_for_crystal_talant_texture_line = preload("res://Texture/UI/Talents_UI/золотая полоса.png")
+@onready var have_for_coins_talant_texture_line = preload("res://Texture/UI/Talents_UI/line_Blue.png")
+@onready var have_for_crystal_talant_texture_line = preload("res://Texture/UI/Talents_UI/line_Gold.png")
 
 var can_bye : bool = true
 var bye : bool = false

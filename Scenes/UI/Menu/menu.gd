@@ -18,7 +18,7 @@ extends Control
 @onready var player_level_bar = $Player_state/Player_level/Player_level_bar
 
 @onready var play_button = $Main_menu/PLay_button
-var button_play_disabled = preload("res://Texture/UI/Main_menu/кнопка Играть не активна.png")
+#var button_play_disabled = preload("res://Texture/UI/Main_menu/кнопка Играть не активна.png")
 var button_play_can_press = preload("res://Texture/UI/Main_menu/кнопка Играть.png")
 
 var location = {
