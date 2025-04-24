@@ -1,11 +1,10 @@
-[gd_scene load_steps=111 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=106 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://82bdpa1kdble" path="res://Texture/UI/Main_menu/background.svg" id="2_24mdw"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_cjc1q"]
 [ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/bar_Level_Count.png" id="3_cw7m0"]
 [ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/bar_Count.png" id="3_e5vte"]
-[ext_resource type="Texture2D" uid="uid://budqgveapxyg0" path="res://Texture/UI/Main_menu/кнопка Играть.png" id="3_qeymi"]
 [ext_resource type="Texture2D" uid="uid://cb05wrfawuqan" path="res://Texture/UI/Main_menu/backgrounnd_Flags.png" id="3_xvp7n"]
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/bar_Level_Menu.png" id="5_fbwen"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="5_h3ti1"]
@@ -16,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/settings.png" id="12_aoauw"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
 [ext_resource type="PackedScene" uid="uid://1ilhlj1qeg8s" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
-[ext_resource type="Texture2D" uid="uid://d1iev4ba7ncbt" path="res://Texture/UI/Main_menu/кнопка Играть2.png" id="18_8nr4f"]
+[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button_theme.tres" id="17_quxdn"]
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/nav_Shop.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/nav_World.png" id="19_q5oq5"]
@@ -46,7 +45,6 @@
 [ext_resource type="Texture2D" uid="uid://cbjdufopv0pmk" path="res://Texture/UI/Character_UI/platform_Character.png" id="28_30gul"]
 [ext_resource type="Texture2D" uid="uid://lin3afhbskvv" path="res://Texture/UI/Shop_UI/монета 5.png" id="28_lceg1"]
 [ext_resource type="Texture2D" uid="uid://1lmkgscpmf2q" path="res://Texture/UI/Shop_UI/монета 6.png" id="29_d1w7v"]
-[ext_resource type="Texture2D" uid="uid://cc53ex5bd746r" path="res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png" id="29_dv1yp"]
 [ext_resource type="Texture2D" uid="uid://qqfohh4ohbyu" path="res://Texture/UI/Character_UI/Character_window/background.png" id="29_ke4g2"]
 [ext_resource type="Texture2D" uid="uid://jcy8balgn8ur" path="res://Texture/UI/Character_UI/level_Character.png" id="29_lxmlr"]
 [ext_resource type="Texture2D" uid="uid://bmtxu0eqj1ssr" path="res://Texture/UI/Character_UI/line_Border.png" id="30_g1evk"]
@@ -59,7 +57,6 @@
 [ext_resource type="Texture2D" uid="uid://do65vkjck28pi" path="res://Texture/UI/Shop_UI/кристалл 3.png" id="34_3ixuv"]
 [ext_resource type="Texture2D" uid="uid://bs4qmb742an6q" path="res://Texture/UI/Shop_UI/кристалл 4.png" id="35_aktnb"]
 [ext_resource type="Texture2D" uid="uid://dp6g21b77mmvu" path="res://Texture/UI/Character_UI/Character_window/button_Select.png" id="35_yveks"]
-[ext_resource type="Texture2D" uid="uid://pmcgodh3ehj0" path="res://Texture/UI/Character_UI/Character_window/кнопка КУПИТЬ за кристаллы.png" id="36_0hnwo"]
 [ext_resource type="Texture2D" uid="uid://b6e103x27c8je" path="res://Texture/UI/Character_UI/Character_window/skill_4.png" id="36_cqs0r"]
 [ext_resource type="Texture2D" uid="uid://dbas0a7qifn8x" path="res://Texture/UI/Shop_UI/кристалл 5..png" id="36_hq60e"]
 [ext_resource type="Texture2D" uid="uid://dyomqh0hueksa" path="res://Texture/UI/Shop_UI/кристалл 6.png" id="37_142ex"]
@@ -111,12 +108,6 @@ font_size = 70
 [sub_resource type="LabelSettings" id="LabelSettings_a3p3v"]
 font = ExtResource("3_cjc1q")
 font_size = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lpl"]
-bg_color = Color(0.762009, 0.53941, 0.460928, 1)
-
-[sub_resource type="Theme" id="Theme_kmt4p"]
-Button/styles/normal = SubResource("StyleBoxFlat_m6lpl")
 
 [sub_resource type="LabelSettings" id="LabelSettings_3n0kt"]
 font = ExtResource("3_cjc1q")
@@ -517,61 +508,33 @@ grow_horizontal = 2
 grow_vertical = 2
 text = ">"
 
-[node name="PLay_button" type="TextureButton" parent="Main_menu"]
+[node name="PlayButton" type="Button" parent="Main_menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -220.0
+offset_left = -218.0
 offset_top = 281.0
-offset_right = 157.0
+offset_right = 158.0
 offset_bottom = 414.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
-theme = SubResource("Theme_kmt4p")
-texture_normal = ExtResource("3_qeymi")
+theme = ExtResource("17_quxdn")
 
-[node name="Label" type="Label" parent="Main_menu/PLay_button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "ИГРАТЬ"
-label_settings = SubResource("LabelSettings_njq23")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PLay_button_RectButton" type="NinePatchRect" parent="Main_menu"]
-self_modulate = Color(0.533565, 1, 0.1875, 1)
+[node name="Label" type="Label" parent="Main_menu/PlayButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = 281.0
-offset_right = 156.0
-offset_bottom = 414.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("18_8nr4f")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
-
-[node name="Label" type="Label" parent="Main_menu/PLay_button_RectButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -40.5
+offset_right = 120.0
+offset_bottom = 40.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "ИГРАТЬ"
@@ -2219,55 +2182,15 @@ layout_mode = 2
 text = "525"
 label_settings = SubResource("LabelSettings_x4hat")
 
-[node name="Level_UP_character_1_button" type="TextureButton" parent="Characters/Character_1_window"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = 355.0
-offset_right = 183.0
-offset_bottom = 468.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("29_dv1yp")
-stretch_mode = 0
+[node name="Level_UP_character_1_button" type="Button" parent="Characters/Character_1_window"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 982.0
+offset_right = 541.0
+offset_bottom = 1108.0
+theme = ExtResource("17_quxdn")
 
-[node name="Label" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Улучшить"
-label_settings = SubResource("LabelSettings_ghhbb")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level_UP_character_1_button_RectButton" type="NinePatchRect" parent="Characters/Character_1_window"]
-self_modulate = Color(0.533565, 1, 0.1875, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -157.0
-offset_top = 342.0
-offset_right = 183.0
-offset_bottom = 468.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_8nr4f")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
-
-[node name="Label2" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button_RectButton"]
+[node name="Label2" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2650,8 +2573,8 @@ offset_right = 320.0
 offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Обычные шары становятся 
-ледяными глыбами 
+text = "Обычные шары становятся
+ледяными глыбами
 1% заморозить врага"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
@@ -2669,7 +2592,7 @@ offset_right = 317.0
 offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Усиление стихии холода 
+text = "Усиление стихии холода
 на 10%"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
@@ -2687,43 +2610,12 @@ offset_right = 332.0
 offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "+5% шанс выпадения бонуса 
+text = "+5% шанс выпадения бонуса
 восстановления"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
 
-[node name="Level_UP_character_2_button" type="TextureButton" parent="Characters/Character_2_window"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = 355.0
-offset_right = 183.0
-offset_bottom = 468.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("29_dv1yp")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="Characters/Character_2_window/Level_UP_character_2_button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Улучшить"
-label_settings = SubResource("LabelSettings_ghhbb")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level_UP_character_2_button_RectButton" type="NinePatchRect" parent="Characters/Character_2_window"]
-visible = false
-self_modulate = Color(0.533565, 1, 0.1875, 1)
+[node name="Level_UP_character_2_button" type="Button" parent="Characters/Character_2_window"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2736,13 +2628,9 @@ offset_right = 183.0
 offset_bottom = 468.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_8nr4f")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
+theme = ExtResource("17_quxdn")
 
-[node name="Label2" type="Label" parent="Characters/Character_2_window/Level_UP_character_2_button_RectButton"]
+[node name="Label2" type="Label" parent="Characters/Character_2_window/Level_UP_character_2_button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2882,60 +2770,15 @@ label_settings = SubResource("LabelSettings_f7jfj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buy_button" type="TextureButton" parent="Characters/Character_2_window"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -194.0
-offset_top = 276.0
-offset_right = 195.0
-offset_bottom = 389.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("36_0hnwo")
-
-[node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/Buy_button"]
-material = ExtResource("70_myffq")
+[node name="BuyButton" type="Button" parent="Characters/Character_2_window"]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 26.5
-offset_right = 158.0
-offset_bottom = 82.5
-texture = ExtResource("5_h3ti1")
+offset_left = 164.0
+offset_top = 910.0
+offset_right = 555.0
+offset_bottom = 1036.0
+theme = ExtResource("17_quxdn")
 
-[node name="Label" type="Label" parent="Characters/Character_2_window/Buy_button"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 32.5
-offset_right = 256.0
-offset_bottom = 78.5
-text = "1000"
-label_settings = SubResource("LabelSettings_eqhan")
-
-[node name="Buy_button_RectButton" type="NinePatchRect" parent="Characters/Character_2_window"]
-self_modulate = Color(0.533565, 1, 0.1875, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -196.0
-offset_top = 270.0
-offset_right = 195.0
-offset_bottom = 396.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_8nr4f")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
-
-[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/Buy_button_RectButton"]
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/BuyButton"]
 material = ExtResource("70_myffq")
 layout_mode = 0
 offset_left = 122.0
@@ -2944,7 +2787,7 @@ offset_right = 177.0
 offset_bottom = 91.0
 texture = ExtResource("5_h3ti1")
 
-[node name="Label2" type="Label" parent="Characters/Character_2_window/Buy_button_RectButton"]
+[node name="Label2" type="Label" parent="Characters/Character_2_window/BuyButton"]
 layout_mode = 0
 offset_left = 182.0
 offset_top = 41.0
@@ -3198,8 +3041,8 @@ offset_right = 320.0
 offset_bottom = -133.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Обычные шары имеют 1% 
-шанс распасться на 2 таких 
+text = "Обычные шары имеют 1%
+шанс распасться на 2 таких
 же шара"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
@@ -3234,43 +3077,12 @@ offset_right = 331.0
 offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Чем меньше ОЗ, тем больше 
+text = "Чем меньше ОЗ, тем больше
 становится урон"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
 
-[node name="Level_UP_character_3_button" type="TextureButton" parent="Characters/Character_3_window"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = 355.0
-offset_right = 183.0
-offset_bottom = 468.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("29_dv1yp")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="Characters/Character_3_window/Level_UP_character_3_button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Улучшить"
-label_settings = SubResource("LabelSettings_ghhbb")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level_UP_character_3_button_RectButton" type="NinePatchRect" parent="Characters/Character_3_window"]
-visible = false
-self_modulate = Color(0.533565, 1, 0.1875, 1)
+[node name="Level_UP_character_3_button" type="Button" parent="Characters/Character_3_window"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3278,18 +3090,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -157.0
-offset_top = 342.0
-offset_right = 183.0
-offset_bottom = 468.0
+offset_top = 341.5
+offset_right = 182.0
+offset_bottom = 467.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_8nr4f")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
+theme = ExtResource("17_quxdn")
 
-[node name="Label2" type="Label" parent="Characters/Character_3_window/Level_UP_character_3_button_RectButton"]
+[node name="Label2" type="Label" parent="Characters/Character_3_window/Level_UP_character_3_button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3429,7 +3237,7 @@ label_settings = SubResource("LabelSettings_f7jfj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buy_button" type="TextureButton" parent="Characters/Character_3_window"]
+[node name="Buy_button" type="Button" parent="Characters/Character_3_window"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3442,47 +3250,9 @@ offset_right = 195.0
 offset_bottom = 389.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("36_0hnwo")
+theme = ExtResource("17_quxdn")
 
-[node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/Buy_button"]
-material = ExtResource("70_myffq")
-layout_mode = 0
-offset_left = 108.0
-offset_top = 26.5
-offset_right = 163.0
-offset_bottom = 82.5
-texture = ExtResource("5_h3ti1")
-
-[node name="Label" type="Label" parent="Characters/Character_3_window/Buy_button"]
-layout_mode = 0
-offset_left = 168.0
-offset_top = 32.5
-offset_right = 266.0
-offset_bottom = 78.5
-text = "1500"
-label_settings = SubResource("LabelSettings_eqhan")
-
-[node name="Buy_button_RectButton" type="NinePatchRect" parent="Characters/Character_3_window"]
-self_modulate = Color(0.533565, 1, 0.1875, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -196.0
-offset_top = 270.0
-offset_right = 195.0
-offset_bottom = 396.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_8nr4f")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
-
-[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/Buy_button_RectButton"]
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/Buy_button"]
 material = ExtResource("70_myffq")
 layout_mode = 0
 offset_left = 122.0
@@ -3491,7 +3261,7 @@ offset_right = 177.0
 offset_bottom = 91.0
 texture = ExtResource("5_h3ti1")
 
-[node name="Label2" type="Label" parent="Characters/Character_3_window/Buy_button_RectButton"]
+[node name="Label2" type="Label" parent="Characters/Character_3_window/Buy_button"]
 layout_mode = 0
 offset_left = 182.0
 offset_top = 41.0
@@ -3856,7 +3626,7 @@ layout_mode = 1
 
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
-[connection signal="pressed" from="Main_menu/PLay_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Main_menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1" to="Shop" method="_on_coins_1_pressed"]
 [connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2" to="Shop" method="_on_coins_2_pressed"]
 [connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3" to="Shop" method="_on_coins_3_pressed"]
@@ -3878,7 +3648,7 @@ layout_mode = 1
 [connection signal="pressed" from="Characters/Character_1_window/Select_character" to="Characters/Character_1_window" method="_on_select_character_pressed"]
 [connection signal="pressed" from="Characters/Character_2_window/Level_UP_character_2_button" to="Characters/Character_2_window" method="_on_level_up_character_2_button_pressed"]
 [connection signal="pressed" from="Characters/Character_2_window/Select_character" to="Characters/Character_2_window" method="_on_select_character_pressed"]
-[connection signal="pressed" from="Characters/Character_2_window/Buy_button" to="Characters" method="_on_buy_2_hero_button_pressed"]
+[connection signal="pressed" from="Characters/Character_2_window/BuyButton" to="Characters" method="_on_buy_2_hero_button_pressed"]
 [connection signal="pressed" from="Characters/Character_3_window/Level_UP_character_3_button" to="Characters/Character_3_window" method="_on_level_up_character_3_button_pressed"]
 [connection signal="pressed" from="Characters/Character_3_window/Select_character" to="Characters/Character_3_window" method="_on_select_character_pressed"]
 [connection signal="pressed" from="Characters/Character_3_window/Buy_button" to="Characters" method="_on_buy_button_pressed"]

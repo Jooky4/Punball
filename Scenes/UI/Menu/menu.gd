@@ -17,9 +17,9 @@ extends Control
 @onready var player_level_label = $Player_state/Player_level/Player_level_label
 @onready var player_level_bar = $Player_state/Player_level/Player_level_bar
 
-@onready var play_button = $Main_menu/PLay_button
+@onready var play_button = $Main_menu/PlayButton
 #var button_play_disabled = preload("res://Texture/UI/Main_menu/кнопка Играть не активна.png")
-var button_play_can_press = preload("res://Texture/UI/Main_menu/кнопка Играть.png")
+#var button_play_can_press = preload("res://Texture/UI/Main_menu/кнопка Играть.png")
 
 var location = {
 	0 : [preload("res://Texture/UI/Main_menu/Location/1.png"), "Лихолесье"],
@@ -222,7 +222,7 @@ func update_characte_UI() -> void:
 func update_rune_label() -> void:
 	rune_label.text = str(PlayerIndicatorsManager.COUNT_RUNE)
 
-func _on_button_pressed() -> void:
+func _on_play_button_pressed() -> void:
 	AudioManager.click()
 	ChangeScene.black_screen()
 	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location

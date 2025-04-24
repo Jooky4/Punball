@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://1v567n6sn7v1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4glst"]
+load_path = "res://.godot/imported/кнопка Играть2.png-bb48f0ee267a254b1e1e8c30c34d69f5.ctex"
+
+[resource]
+content_margin_left = 0.0
+content_margin_right = 0.0
+texture = SubResource("CompressedTexture2D_4glst")
+texture_margin_left = 100.0
+texture_margin_top = 63.0
+texture_margin_right = 100.0
+texture_margin_bottom = 63.0
+modulate_color = Color(0.712129, 0.712129, 0.712129, 1)
