@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=111 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://82bdpa1kdble" path="res://Texture/UI/Main_menu/background.svg" id="2_24mdw"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/settings.png" id="12_aoauw"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
 [ext_resource type="PackedScene" uid="uid://1ilhlj1qeg8s" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
+[ext_resource type="Texture2D" uid="uid://d1iev4ba7ncbt" path="res://Texture/UI/Main_menu/кнопка Играть2.png" id="18_8nr4f"]
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/nav_Shop.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/nav_World.png" id="19_q5oq5"]
@@ -149,7 +150,7 @@ font_color = Color(0.341176, 0.835294, 0.101961, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ghhbb"]
 font = ExtResource("3_cjc1q")
-font_size = 50
+font_size = 47
 
 [sub_resource type="LabelSettings" id="LabelSettings_uqh6h"]
 font = ExtResource("3_cjc1q")
@@ -534,6 +535,39 @@ theme = SubResource("Theme_kmt4p")
 texture_normal = ExtResource("3_qeymi")
 
 [node name="Label" type="Label" parent="Main_menu/PLay_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ИГРАТЬ"
+label_settings = SubResource("LabelSettings_njq23")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PLay_button_RectButton" type="NinePatchRect" parent="Main_menu"]
+self_modulate = Color(0.533565, 1, 0.1875, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = 281.0
+offset_right = 156.0
+offset_bottom = 414.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_8nr4f")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="Label" type="Label" parent="Main_menu/PLay_button_RectButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2213,6 +2247,43 @@ label_settings = SubResource("LabelSettings_ghhbb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Level_UP_character_1_button_RectButton" type="NinePatchRect" parent="Characters/Character_1_window"]
+self_modulate = Color(0.533565, 1, 0.1875, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = 342.0
+offset_right = 183.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_8nr4f")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="Label2" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button_RectButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Улучшить"
+label_settings = SubResource("LabelSettings_ghhbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="Need_matirial" type="TextureRect" parent="Characters/Character_1_window"]
 layout_mode = 1
 anchors_preset = 8
@@ -2650,6 +2721,44 @@ label_settings = SubResource("LabelSettings_ghhbb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Level_UP_character_2_button_RectButton" type="NinePatchRect" parent="Characters/Character_2_window"]
+visible = false
+self_modulate = Color(0.533565, 1, 0.1875, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = 342.0
+offset_right = 183.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_8nr4f")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="Label2" type="Label" parent="Characters/Character_2_window/Level_UP_character_2_button_RectButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Улучшить"
+label_settings = SubResource("LabelSettings_ghhbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="Need_matirial" type="TextureRect" parent="Characters/Character_2_window"]
 visible = false
 layout_mode = 1
@@ -2803,6 +2912,44 @@ offset_left = 163.0
 offset_top = 32.5
 offset_right = 256.0
 offset_bottom = 78.5
+text = "1000"
+label_settings = SubResource("LabelSettings_eqhan")
+
+[node name="Buy_button_RectButton" type="NinePatchRect" parent="Characters/Character_2_window"]
+self_modulate = Color(0.533565, 1, 0.1875, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = 270.0
+offset_right = 195.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_8nr4f")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/Buy_button_RectButton"]
+material = ExtResource("70_myffq")
+layout_mode = 0
+offset_left = 122.0
+offset_top = 35.0
+offset_right = 177.0
+offset_bottom = 91.0
+texture = ExtResource("5_h3ti1")
+
+[node name="Label2" type="Label" parent="Characters/Character_2_window/Buy_button_RectButton"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 41.0
+offset_right = 275.0
+offset_bottom = 87.0
 text = "1000"
 label_settings = SubResource("LabelSettings_eqhan")
 
@@ -3121,6 +3268,44 @@ label_settings = SubResource("LabelSettings_ghhbb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Level_UP_character_3_button_RectButton" type="NinePatchRect" parent="Characters/Character_3_window"]
+visible = false
+self_modulate = Color(0.533565, 1, 0.1875, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = 342.0
+offset_right = 183.0
+offset_bottom = 468.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_8nr4f")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="Label2" type="Label" parent="Characters/Character_3_window/Level_UP_character_3_button_RectButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Улучшить"
+label_settings = SubResource("LabelSettings_ghhbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="Need_matirial" type="TextureRect" parent="Characters/Character_3_window"]
 visible = false
 layout_mode = 1
@@ -3275,6 +3460,44 @@ offset_top = 32.5
 offset_right = 266.0
 offset_bottom = 78.5
 text = "1500"
+label_settings = SubResource("LabelSettings_eqhan")
+
+[node name="Buy_button_RectButton" type="NinePatchRect" parent="Characters/Character_3_window"]
+self_modulate = Color(0.533565, 1, 0.1875, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = 270.0
+offset_right = 195.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_8nr4f")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/Buy_button_RectButton"]
+material = ExtResource("70_myffq")
+layout_mode = 0
+offset_left = 122.0
+offset_top = 35.0
+offset_right = 177.0
+offset_bottom = 91.0
+texture = ExtResource("5_h3ti1")
+
+[node name="Label2" type="Label" parent="Characters/Character_3_window/Buy_button_RectButton"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 41.0
+offset_right = 275.0
+offset_bottom = 87.0
+text = "1000"
 label_settings = SubResource("LabelSettings_eqhan")
 
 [node name="Back_button" type="TextureButton" parent="Characters"]

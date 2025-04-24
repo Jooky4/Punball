@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpxwnyyvl6vo5"
-path="res://.godot/imported/плашка цены (для всплывающего окна)2.png-d099bf2140ece6d0e3257bb36a748788.ctex"
+uid="uid://caro7dgmesiw8"
+path="res://.godot/imported/play.png-42066db49aefe0e342df59a415e6089f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна)2.png"
-dest_files=["res://.godot/imported/плашка цены (для всплывающего окна)2.png-d099bf2140ece6d0e3257bb36a748788.ctex"]
+source_file="res://Texture/UI/Pause_UI/play.png"
+dest_files=["res://.godot/imported/play.png-42066db49aefe0e342df59a415e6089f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctt28ek36vja4"
-path="res://.godot/imported/плашка цены не активна.png-3522766439d681ef60e7e5e41157a2ab.ctex"
+uid="uid://b8eyv0rhqtsu0"
+path="res://.godot/imported/button_Buy.png-a6aa64ba011df4101c43736c4c10e2d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Talents_UI/плашка цены не активна.png"
-dest_files=["res://.godot/imported/плашка цены не активна.png-3522766439d681ef60e7e5e41157a2ab.ctex"]
+source_file="res://Texture/UI/Talents_UI/button_Buy.png"
+dest_files=["res://.godot/imported/button_Buy.png-a6aa64ba011df4101c43736c4c10e2d2.ctex"]
 
 [params]
 

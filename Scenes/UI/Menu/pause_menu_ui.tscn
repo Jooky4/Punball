@@ -1,11 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://bb7y7v4mnb42k"]
+[gd_scene load_steps=19 format=3 uid="uid://bb7y7v4mnb42k"]
 
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_4odon"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/pause_menu_ui.gd" id="1_ydatq"]
 [ext_resource type="Texture2D" uid="uid://kgfj4e3eobcc" path="res://Texture/UI/Pause_UI/кнопка плей.png" id="2_37hnf"]
 [ext_resource type="Texture2D" uid="uid://pccwegq6jk05" path="res://Texture/UI/Pause_UI/кнопка домой.png" id="3_25qqy"]
+[ext_resource type="Texture2D" uid="uid://d1iev4ba7ncbt" path="res://Texture/UI/Main_menu/кнопка Играть2.png" id="3_i8qba"]
+[ext_resource type="Texture2D" uid="uid://caro7dgmesiw8" path="res://Texture/UI/Pause_UI/play.png" id="4_hk70u"]
 [ext_resource type="Texture2D" uid="uid://chxx7cvr3jfhs" path="res://Texture/UI/Pause_UI/кнопка громкость.png" id="4_sf8p2"]
 [ext_resource type="Texture2D" uid="uid://b6bi1pn1lata6" path="res://Texture/UI/Pause_UI/легенда.png" id="6_cui5p"]
+[ext_resource type="Texture2D" uid="uid://48d218bklb62" path="res://Texture/UI/Pause_UI/sound_ON.png" id="6_q0iqf"]
+[ext_resource type="Texture2D" uid="uid://drf27o74lp0s5" path="res://Texture/UI/Pause_UI/home.png" id="8_kp7vd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
 bg_color = Color(0.478007, 0.618938, 0.736741, 1)
@@ -39,7 +43,6 @@ font_size = 50
 
 [node name="Pause_menu_UI" type="Control"]
 process_mode = 3
-visible = false
 z_index = 7
 custom_minimum_size = Vector2(720, 1280)
 layout_mode = 3
@@ -69,6 +72,43 @@ texture_pressed = ExtResource("2_37hnf")
 texture_disabled = ExtResource("2_37hnf")
 texture_focused = ExtResource("2_37hnf")
 
+[node name="Continue_RectButton" type="NinePatchRect" parent="."]
+self_modulate = Color(0.533565, 1, 0.1875, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = 280.0
+offset_right = 129.0
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_i8qba")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="TextureRect" type="TextureRect" parent="Continue_RectButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6, 1.6)
+pivot_offset = Vector2(26.0572, 32.6734)
+texture = ExtResource("4_hk70u")
+
 [node name="Home" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 188.0
@@ -81,6 +121,44 @@ texture_pressed = ExtResource("3_25qqy")
 texture_disabled = ExtResource("3_25qqy")
 texture_focused = ExtResource("3_25qqy")
 
+[node name="Home_RectButton" type="NinePatchRect" parent="."]
+self_modulate = Color(0.523438, 0.804152, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = 465.0
+offset_right = 10.0
+offset_bottom = 591.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_i8qba")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="TextureRect" type="TextureRect" parent="Home_RectButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -33.0
+offset_right = 32.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(26.0572, 32.6734)
+texture = ExtResource("6_q0iqf")
+
 [node name="Off_volume" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 388.0
@@ -89,6 +167,44 @@ offset_right = 543.0
 offset_bottom = 1207.0
 theme = SubResource("Theme_5m7jc")
 texture_normal = ExtResource("4_sf8p2")
+
+[node name="Off_Volume_RectButton" type="NinePatchRect" parent="."]
+self_modulate = Color(0.523438, 0.804152, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = 465.0
+offset_right = 219.0
+offset_bottom = 591.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_i8qba")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
+[node name="TextureRect" type="TextureRect" parent="Off_Volume_RectButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -33.0
+offset_right = 32.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(26.0572, 32.6734)
+texture = ExtResource("8_kp7vd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1

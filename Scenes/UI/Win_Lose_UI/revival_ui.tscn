@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://ciuhn6dg5mwdo"]
+[gd_scene load_steps=31 format=3 uid="uid://ciuhn6dg5mwdo"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
 [ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/Fight/background.png" id="2_bhn41"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_yc3ln"]
+[ext_resource type="Texture2D" uid="uid://d1iev4ba7ncbt" path="res://Texture/UI/Main_menu/кнопка Играть2.png" id="7_w57t5"]
 [ext_resource type="Material" uid="uid://ckjxd4tuk7qo7" path="res://Resources/Materials/green_outline_material.tres" id="7_wuhms"]
 [ext_resource type="Texture2D" uid="uid://n8bry8goqai7" path="res://Texture/UI/Revival_UI/icon_HP.png" id="8_bh34m"]
 [ext_resource type="Texture2D" uid="uid://uit2cj333elo" path="res://Texture/UI/Revival_UI/кнопка супероживление.png" id="8_sjjra"]
@@ -157,12 +158,25 @@ offset_bottom = 396.5
 texture_normal = ExtResource("8_sjjra")
 stretch_mode = 5
 
+[node name="CRYSTALS_RectButton" type="NinePatchRect" parent="TextureRect4/CRYSTALS"]
+self_modulate = Color(0.533565, 1, 0.1875, 1)
+layout_mode = 0
+offset_top = 7.0
+offset_right = 310.0
+offset_bottom = 133.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_w57t5")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
 [node name="Label" type="Label" parent="TextureRect4/CRYSTALS"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 199.0
-offset_bottom = 76.0
+offset_left = 18.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 86.0
 text = "возрождение
 100        "
 label_settings = SubResource("LabelSettings_werv1")
@@ -221,6 +235,20 @@ offset_bottom = 396.5
 texture_normal = ExtResource("12_wkuqu")
 stretch_mode = 5
 
+[node name="AD_RectButton" type="NinePatchRect" parent="TextureRect4/AD"]
+self_modulate = Color(1, 0.670588, 0, 1)
+layout_mode = 0
+offset_left = -10.0
+offset_top = 7.0
+offset_right = 300.0
+offset_bottom = 133.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_w57t5")
+patch_margin_left = 100
+patch_margin_top = 63
+patch_margin_right = 100
+patch_margin_bottom = 63
+
 [node name="ТекстКнопкиAds" type="TextureRect" parent="TextureRect4/AD"]
 modulate = Color(0.32549, 0.137255, 0.0196078, 1)
 layout_mode = 1
@@ -230,9 +258,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -85.5
-offset_top = -22.0
+offset_top = -16.0
 offset_right = -21.5
-offset_bottom = 21.0
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_ve426")
@@ -240,9 +268,9 @@ texture = ExtResource("10_ve426")
 [node name="Label2" type="Label" parent="TextureRect4/AD"]
 layout_mode = 0
 offset_left = 72.0
-offset_top = 14.0
+offset_top = 20.0
 offset_right = 183.0
-offset_bottom = 76.0
+offset_bottom = 82.0
 text = "Реклама"
 label_settings = SubResource("LabelSettings_yskpe")
 horizontal_alignment = 1
