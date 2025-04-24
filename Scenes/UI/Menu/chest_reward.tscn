@@ -1,16 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfq4lhxqp2x0"]
+[gd_scene load_steps=14 format=3 uid="uid://bfq4lhxqp2x0"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chest_reward.gd" id="1_ppeti"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="2_7w5p8"]
 [ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/line.png" id="2_veeuj"]
 [ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/platform_Reward.png" id="4_02akc"]
 [ext_resource type="Material" uid="uid://ckjxd4tuk7qo7" path="res://Resources/Materials/green_outline_material.tres" id="5_41mhp"]
-[ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="6_2g2cs"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="6_kryl6"]
 [ext_resource type="Material" uid="uid://dwslfhmpwqnea" path="res://Resources/Materials/red_outline_material.tres" id="7_jlmxm"]
 [ext_resource type="AudioStream" uid="uid://6o4wi3g1c43w" path="res://Resources/Sounds/сундук_меню.ogg" id="7_mtja2"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="8_4hyu3"]
-[ext_resource type="Texture2D" uid="uid://d1iev4ba7ncbt" path="res://Texture/UI/Main_menu/кнопка Играть2.png" id="11_mw0c8"]
+[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button_theme.tres" id="10_xxnlv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_idc36"]
 font = ExtResource("2_7w5p8")
@@ -23,10 +22,6 @@ shadow_color = Color(0.572549, 0.380392, 0.164706, 1)
 shadow_offset = Vector2(-2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2up7a"]
-font = ExtResource("2_7w5p8")
-font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_06jl0"]
 font = ExtResource("2_7w5p8")
 font_size = 45
 
@@ -183,7 +178,7 @@ stream = ExtResource("7_mtja2")
 volume_db = -12.0
 bus = &"SFX"
 
-[node name="Continue_Button" type="TextureButton" parent="."]
+[node name="Continue_Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -191,12 +186,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -176.0
-offset_top = -189.0
-offset_right = 177.0
-offset_bottom = -100.0
+offset_top = -209.0
+offset_right = 214.0
+offset_bottom = -83.0
 grow_horizontal = 2
 grow_vertical = 0
-texture_normal = ExtResource("6_2g2cs")
+scale = Vector2(0.9, 0.9)
+theme = ExtResource("10_xxnlv")
 
 [node name="Label" type="Label" parent="Continue_Button"]
 layout_mode = 1
@@ -207,43 +203,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "ПРОДОЛЖИТЬ"
 label_settings = SubResource("LabelSettings_2up7a")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Continue_RectButton" type="NinePatchRect" parent="."]
-self_modulate = Color(0.533565, 1, 0.1875, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -179.0
-offset_top = 431.0
-offset_right = 215.0
-offset_bottom = 557.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("11_mw0c8")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
-
-[node name="Label2" type="Label" parent="Continue_RectButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.11111
-offset_top = 1.11114
-offset_right = 1.11111
-offset_bottom = 1.11114
-grow_horizontal = 2
-grow_vertical = 2
-text = "ПРОДОЛЖИТЬ"
-label_settings = SubResource("LabelSettings_06jl0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
