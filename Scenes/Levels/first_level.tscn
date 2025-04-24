@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=114 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://ceenrnncdnwrv" path="res://Scenes/Heroes/Busya.tscn" id="12_crapm"]
 [ext_resource type="PackedScene" uid="uid://ciuhn6dg5mwdo" path="res://Scenes/UI/Win_Lose_UI/revival_ui.tscn" id="12_tjpvy"]
 [ext_resource type="PackedScene" uid="uid://xxprkydai7iy" path="res://Scenes/UI/Skill_windows/get_skill_ui.tscn" id="13_1g2hj"]
-[ext_resource type="PackedScene" uid="uid://03cucs0teyc1" path="res://Scenes/UI/For test/chose_ball.tscn" id="13_31ajf"]
 [ext_resource type="Texture2D" uid="uid://bjo207pgwvdxv" path="res://Texture/UI/Fight/platform_Exp.png" id="14_wmonb"]
 [ext_resource type="Texture2D" uid="uid://cq5bj185114sr" path="res://Texture/UI/Fight/icon_Exp.png" id="15_yu5pj"]
 [ext_resource type="Texture2D" uid="uid://doiu3jp8f4ygl" path="res://Texture/UI/Fight/button_Back_Balls.png" id="17_dobv8"]
@@ -774,20 +773,6 @@ theme_override_fonts/font = ExtResource("10_fo6nb")
 theme_override_font_sizes/font_size = 35
 disabled = true
 text = "СКИЛЛЫ"
-
-[node name="Chose_ball" parent="UI" instance=ExtResource("13_31ajf")]
-process_mode = 3
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1707.0
-offset_top = -779.5
-offset_right = 1707.0
-offset_bottom = 779.5
 
 [node name="Уровень текст" type="Label" parent="UI"]
 layout_mode = 0
