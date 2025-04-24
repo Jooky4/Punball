@@ -11,9 +11,9 @@ extends Control
 @onready var skills_container = $Scill_ScrollContainer/Skills_container
 @onready var level_container = $Lvl_ScrollContainer/Level_container
 
-@onready var skill_for_coins_close_texture = preload("res://Texture/UI/Talents_UI/ячейка неактивная для талантов за монеты.png")
-@onready var skill_for_crystal_close_texture = preload("res://Texture/UI/Talents_UI/серая ячейка (для золотой).png")
-@onready var close_texture = preload("res://Texture/UI/Talents_UI/замок.png")
+@onready var skill_for_coins_close_texture = preload("res://Texture/UI/Talents_UI/platform_Gray.png")
+@onready var skill_for_crystal_close_texture = preload("res://Texture/UI/Talents_UI/platform_Big_Gray.png")
+@onready var close_texture = preload("res://Texture/UI/Talents_UI/lock.png")
 
 var for_coins_talent_texture = {
 	"Увеличение атаки": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение Атаки.png"),
