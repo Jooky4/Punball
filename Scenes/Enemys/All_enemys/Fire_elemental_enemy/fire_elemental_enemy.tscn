@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bp0mjtyaydrm8" path="res://Scenes/Enemys/Dops/fire_elemental_bullet.tscn" id="2_a0j8s"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_xal5d"]
 [ext_resource type="Texture2D" uid="uid://d4bkr4esi8if8" path="res://Texture/Enemys/Fire_elemental_enemy/тело.png" id="5_vc6xx"]
-[ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Balls/Circle_2.png" id="6_kuqcw"]
+[ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Effects/Circle_2.png" id="6_kuqcw"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="7_5et8y"]
 [ext_resource type="Texture2D" uid="uid://bia00tvf3k2lj" path="res://Texture/Enemys/Fire_elemental_enemy/глаза.png" id="7_5m7fa"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="8_eqfyn"]

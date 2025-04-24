@@ -1569,8 +1569,8 @@ spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 50.0
-scale_amount_min = 0.35
-scale_amount_max = 0.35
+scale_amount_min = 0.8
+scale_amount_max = 0.8
 scale_amount_curve = SubResource("Curve_tp15a")
 color_ramp = SubResource("Gradient_n2g5i")
 

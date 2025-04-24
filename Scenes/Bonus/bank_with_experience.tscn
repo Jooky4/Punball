@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Bonus/bank_with_experience.gd" id="1_hj12u"]
 [ext_resource type="Texture2D" uid="uid://g478p8fhtab0" path="res://Texture/Level_environment/банка.png" id="1_qt4ju"]
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="2_lbymt"]
-[ext_resource type="Texture2D" uid="uid://tdy2dyic0st1" path="res://Texture/Level_environment/particleStar.png" id="4_x6yxi"]
+[ext_resource type="Texture2D" uid="uid://tdy2dyic0st1" path="res://Texture/Effects/particleStar.png" id="4_x6yxi"]
 [ext_resource type="AudioStream" uid="uid://dkd2sntfiscvc" path="res://Resources/Sounds/опыт.mp3" id="5_dxb67"]
 
 [sub_resource type="Curve" id="Curve_einlg"]

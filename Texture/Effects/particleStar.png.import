@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4877n5qkjhs"
-path="res://.godot/imported/Circle_2.png-fe17c59cbb3f758d5627919f39bb4678.ctex"
+uid="uid://tdy2dyic0st1"
+path="res://.godot/imported/particleStar.png-6fd1557a29a01d93a015c631efcd406b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Balls/Circle_2.png"
-dest_files=["res://.godot/imported/Circle_2.png-fe17c59cbb3f758d5627919f39bb4678.ctex"]
+source_file="res://Texture/Effects/particleStar.png"
+dest_files=["res://.godot/imported/particleStar.png-6fd1557a29a01d93a015c631efcd406b.ctex"]
 
 [params]
 

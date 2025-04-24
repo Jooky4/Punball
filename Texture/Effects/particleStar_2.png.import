@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p22lolls53ln"
-path="res://.godot/imported/шар убийца.png-bb0dc12d5f5c95c3ed102e008b333102.ctex"
+uid="uid://131mekxb47s1"
+path="res://.godot/imported/particleStar_2.png-82bf96486ca79d92d212b5a34e40db25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Balls/шар убийца.png"
-dest_files=["res://.godot/imported/шар убийца.png-bb0dc12d5f5c95c3ed102e008b333102.ctex"]
+source_file="res://Texture/Effects/particleStar_2.png"
+dest_files=["res://.godot/imported/particleStar_2.png-82bf96486ca79d92d212b5a34e40db25.ctex"]
 
 [params]
 

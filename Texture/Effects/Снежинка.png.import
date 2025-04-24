@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn8t2n4w8oyob"
-path="res://.godot/imported/шар молния-min.svg-7d0b6b57cf22b60789de5016957ec00a.ctex"
+uid="uid://c711v0w13pme"
+path="res://.godot/imported/Снежинка.png-7b67436cbf9f663f58f33197099d0ca0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Effects/шар молния-min.svg"
-dest_files=["res://.godot/imported/шар молния-min.svg-7d0b6b57cf22b60789de5016957ec00a.ctex"]
+source_file="res://Texture/Effects/Снежинка.png"
+dest_files=["res://.godot/imported/Снежинка.png-7b67436cbf9f663f58f33197099d0ca0.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

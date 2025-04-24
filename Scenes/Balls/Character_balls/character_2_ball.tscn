@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Balls/Character_balls/character_2_ball.gd" id="1_jeejb"]
 [ext_resource type="Texture2D" uid="uid://c4n1ob7xqgjf4" path="res://Texture/Balls/Usual_Merlin.png" id="4_2hvkh"]
 [ext_resource type="Texture2D" uid="uid://n8riaca1ap3d" path="res://Texture/Balls/Ледышка.png" id="4_7ry7r"]
-[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="5_nujxr"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="5_nujxr"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="6_358ve"]
 [ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="7_rriko"]
 

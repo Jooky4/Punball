@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://131mekxb47s1"
-path="res://.godot/imported/particleStar_2.png-b7d635df05c1c55286e12d5e7a37050a.ctex"
+uid="uid://bfloruavj3vov"
+path="res://.godot/imported/звездочка.png-1373eca14385ac1aeaeaa51c5477fdc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Level_environment/particleStar_2.png"
-dest_files=["res://.godot/imported/particleStar_2.png-b7d635df05c1c55286e12d5e7a37050a.ctex"]
+source_file="res://Texture/Effects/звездочка.png"
+dest_files=["res://.godot/imported/звездочка.png-1373eca14385ac1aeaeaa51c5477fdc6.ctex"]
 
 [params]
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgg0ku4jygm4n"]
+[gd_scene load_steps=11 format=3 uid="uid://cgg0ku4jygm4n"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Fire_ball/fire_ball.gd" id="1_umgya"]
-[ext_resource type="Texture2D" uid="uid://dlmywwhdoglhi" path="res://Texture/Balls/огненный.png" id="3_hhhcb"]
-[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="3_uv3io"]
-[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="4_o3vxk"]
+[ext_resource type="Texture2D" uid="uid://dlmywwhdoglhi" path="res://Texture/Effects/огненный.png" id="3_hhhcb"]
+[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Effects/Дым2.png" id="3_uv3io"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_bjyig"]
 [ext_resource type="AudioStream" uid="uid://5j4eihqkxro7" path="res://Resources/Sounds/огненный_шар.mp3" id="6_3bhyw"]
 
@@ -25,10 +24,6 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_ffgf1"]
 offsets = PackedFloat32Array(0, 0.222535, 0.746479, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.933333, 0, 1, 1, 0.2, 0, 1, 0.803922, 0.156863, 0, 0)
-
-[sub_resource type="Gradient" id="Gradient_ph8tx"]
-offsets = PackedFloat32Array(0, 0.373297, 0.749319, 0.910082, 1)
-colors = PackedColorArray(0.803922, 0.156863, 0, 0, 1, 0.2, 0, 0.545098, 1, 1, 0, 0.533333, 1, 1, 1, 0.745098, 1, 1, 1, 0)
 
 [node name="fire_ball" type="CharacterBody2D"]
 z_index = -1
@@ -86,16 +81,6 @@ scale_amount_min = 0.34
 scale_amount_max = 0.34
 scale_amount_curve = SubResource("Curve_nt1k5")
 color_ramp = SubResource("Gradient_ffgf1")
-
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-show_behind_parent = true
-top_level = true
-width = 37.0
-width_curve = SubResource("Curve_nt1k5")
-gradient = SubResource("Gradient_ph8tx")
-texture = ExtResource("4_o3vxk")
-texture_mode = 2
 
 [node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_bjyig")

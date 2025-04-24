@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cthljhcjcmcpp"
-path="res://.godot/imported/uni_trail.png-9a6083a761834f1bc8ca2e713db07f3a.ctex"
+uid="uid://b42vu471uqbyb"
+path="res://.godot/imported/usual_trail.png-e68d567ed42ed4ce01ef82dde0156d9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Balls/uni_trail.png"
-dest_files=["res://.godot/imported/uni_trail.png-9a6083a761834f1bc8ca2e713db07f3a.ctex"]
+source_file="res://Texture/Effects/usual_trail.png"
+dest_files=["res://.godot/imported/usual_trail.png-e68d567ed42ed4ce01ef82dde0156d9e.ctex"]
 
 [params]
 

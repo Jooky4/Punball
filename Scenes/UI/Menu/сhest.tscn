@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dp8tdk5ltvnic" path="res://Texture/UI/Main_menu/Сhest/close_Chest.png" id="2_rgsbb"]
 [ext_resource type="Texture2D" uid="uid://dns2hgt1vo7uq" path="res://Texture/UI/Main_menu/Сhest/open_Chest.png" id="3_r7s00"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_htxkf"]
-[ext_resource type="Texture2D" uid="uid://131mekxb47s1" path="res://Texture/Level_environment/particleStar_2.png" id="4_vj1t0"]
+[ext_resource type="Texture2D" uid="uid://131mekxb47s1" path="res://Texture/Effects/particleStar_2.png" id="4_vj1t0"]
 [ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/Effects/ligting.png" id="7_pdda6"]
 
 [sub_resource type="Curve" id="Curve_rovx4"]

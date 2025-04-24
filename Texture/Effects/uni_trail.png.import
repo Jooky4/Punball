@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlmywwhdoglhi"
-path="res://.godot/imported/огненный.png-890fe0b5b7f57935896f93663958ae78.ctex"
+uid="uid://cthljhcjcmcpp"
+path="res://.godot/imported/uni_trail.png-fe22fbd96574044e52e5585d4787d472.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Balls/огненный.png"
-dest_files=["res://.godot/imported/огненный.png-890fe0b5b7f57935896f93663958ae78.ctex"]
+source_file="res://Texture/Effects/uni_trail.png"
+dest_files=["res://.godot/imported/uni_trail.png-fe22fbd96574044e52e5585d4787d472.ctex"]
 
 [params]
 

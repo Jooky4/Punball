@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Bonus/skill_box.gd" id="1_5hwwp"]
 [ext_resource type="Texture2D" uid="uid://b7dfponmp1s61" path="res://Texture/Level_environment/скилл.png" id="1_fb7cq"]
 [ext_resource type="Texture2D" uid="uid://d1iq5m7tsl75p" path="res://Texture/Level_environment/shadow_2.png" id="2_mnvrb"]
-[ext_resource type="Texture2D" uid="uid://tdy2dyic0st1" path="res://Texture/Level_environment/particleStar.png" id="3_j8ull"]
+[ext_resource type="Texture2D" uid="uid://tdy2dyic0st1" path="res://Texture/Effects/particleStar.png" id="3_j8ull"]
 
 [sub_resource type="Gradient" id="Gradient_i6isk"]
 offsets = PackedFloat32Array(0, 0.0814558, 0.908146, 1)

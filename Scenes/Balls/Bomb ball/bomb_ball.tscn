@@ -1,22 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dknt4ysvy1cq3"]
+[gd_scene load_steps=9 format=3 uid="uid://dknt4ysvy1cq3"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Bomb ball/bomb_ball.gd" id="1_0nept"]
 [ext_resource type="Texture2D" uid="uid://b7dyjob70k14n" path="res://Texture/Balls/бомба.png" id="2_4bo35"]
-[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="3_k4k2k"]
-[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="4_8ua8y"]
+[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Effects/Дым2.png" id="4_8ua8y"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_yp2qs"]
 [ext_resource type="AudioStream" uid="uid://cn6u3g3veh3hd" path="res://Resources/Sounds/взрыв_бомба.mp3" id="6_3k376"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
-
-[sub_resource type="Curve" id="Curve_0scci"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_f8hnv"]
-offsets = PackedFloat32Array(0.174528, 0.962264, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_xshca"]
 _data = [Vector2(0, 1), -3.04932, 1.93012, 0, 0, Vector2(1, 0), -1.12438, 0.370897, 0, 0]
@@ -47,16 +38,6 @@ scale = Vector2(0.6, 0.66)
 texture = ExtResource("2_4bo35")
 offset = Vector2(1, 0)
 flip_v = true
-
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-show_behind_parent = true
-top_level = true
-width = 47.0
-width_curve = SubResource("Curve_0scci")
-gradient = SubResource("Gradient_f8hnv")
-texture = ExtResource("3_k4k2k")
-texture_mode = 2
 
 [node name="Smoke" type="CPUParticles2D" parent="."]
 z_index = 4

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c711v0w13pme"
-path="res://.godot/imported/Снежинка.png-4a334e847c0bd45d3bfa341642ef3e86.ctex"
+uid="uid://dlmywwhdoglhi"
+path="res://.godot/imported/огненный.png-7c71ebaeced412bd3fdfdd4480e80c3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Balls/Снежинка.png"
-dest_files=["res://.godot/imported/Снежинка.png-4a334e847c0bd45d3bfa341642ef3e86.ctex"]
+source_file="res://Texture/Effects/огненный.png"
+dest_files=["res://.godot/imported/огненный.png-7c71ebaeced412bd3fdfdd4480e80c3f.ctex"]
 
 [params]
 

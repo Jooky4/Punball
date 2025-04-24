@@ -1,21 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgi8vc887m358"]
+[gd_scene load_steps=7 format=3 uid="uid://cgi8vc887m358"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Lightning ball/lightning_ball.gd" id="1_7gjb6"]
 [ext_resource type="Texture2D" uid="uid://dagew1skc43su" path="res://Texture/Balls/шар молния.png" id="2_iuca0"]
-[ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Balls/usual_trail.png" id="3_ymc6v"]
-[ext_resource type="Texture2D" uid="uid://c812vjdm7cuxt" path="res://Texture/Balls/Минимолния_2.png" id="4_ji8wt"]
+[ext_resource type="Texture2D" uid="uid://c812vjdm7cuxt" path="res://Texture/Effects/Минимолния_2.png" id="4_ji8wt"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_ew8ax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fr3gy"]
 radius = 16.0312
-
-[sub_resource type="Curve" id="Curve_t5vqn"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_uhqe2"]
-offsets = PackedFloat32Array(0.174528, 0.962264, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_pxcaw"]
 max_value = 2.0
@@ -36,16 +27,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_iuca0")
 offset = Vector2(1, 0)
 flip_v = true
-
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-show_behind_parent = true
-top_level = true
-width = 43.0
-width_curve = SubResource("Curve_t5vqn")
-gradient = SubResource("Gradient_uhqe2")
-texture = ExtResource("3_ymc6v")
-texture_mode = 2
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 6

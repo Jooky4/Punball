@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tdy2dyic0st1"
-path="res://.godot/imported/particleStar.png-d0e8eb6893562eb5a35b4f63e89cedf4.ctex"
+uid="uid://dma1t7gtkfelf"
+path="res://.godot/imported/Дым2.png-495c1dca35740aad002cda0e8b6937e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Level_environment/particleStar.png"
-dest_files=["res://.godot/imported/particleStar.png-d0e8eb6893562eb5a35b4f63e89cedf4.ctex"]
+source_file="res://Texture/Effects/Дым2.png"
+dest_files=["res://.godot/imported/Дым2.png-495c1dca35740aad002cda0e8b6937e8.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://dx27ccsu6arir"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Cumulative ball/cumulative_ball.gd" id="1_c1c6f"]
-[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Balls/Дым.png" id="2_gugnf"]
+[ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Effects/Дым2.png" id="2_gugnf"]
 [ext_resource type="Texture2D" uid="uid://dokxygjpekih6" path="res://Texture/Balls/кумулятивный.png" id="3_arfsy"]
-[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Balls/uni_trail.png" id="4_pl4ke"]
+[ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="4_pl4ke"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_qinfd"]
 [ext_resource type="AudioStream" uid="uid://7xkjgpib7lh1" path="res://Resources/Sounds/кумулятивный2.ogg" id="6_u374c"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dma1t7gtkfelf"
-path="res://.godot/imported/Дым.png-80e51c7c14a95412800c3bb66d2e395b.ctex"
+uid="uid://c4877n5qkjhs"
+path="res://.godot/imported/Circle_2.png-b5640f3be920f3309619da6a02522beb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Balls/Дым.png"
-dest_files=["res://.godot/imported/Дым.png-80e51c7c14a95412800c3bb66d2e395b.ctex"]
+source_file="res://Texture/Effects/Circle_2.png"
+dest_files=["res://.godot/imported/Circle_2.png-b5640f3be920f3309619da6a02522beb.ctex"]
 
 [params]
 
