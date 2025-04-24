@@ -84,7 +84,7 @@ func erase_for_crystal() -> void:
 
 func for_coins_update_texture_and_discriotion(skill, count_skills, discription, texture) -> void:
 	count_skill_for_coins = count_skills
-	skill_for_coins_cost = 500 + (1250 * ((count_skill_for_coins - 1) / 5))
+	skill_for_coins_cost = 600 + (1250 * ((count_skill_for_coins - 1) / 5))
 	for_coins_texture.texture = texture
 	if count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS:
 		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
