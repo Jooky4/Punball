@@ -1,37 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://bb7y7v4mnb42k"]
+[gd_scene load_steps=13 format=3 uid="uid://bb7y7v4mnb42k"]
 
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_4odon"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/pause_menu_ui.gd" id="1_ydatq"]
-[ext_resource type="Texture2D" uid="uid://kgfj4e3eobcc" path="res://Texture/UI/Pause_UI/кнопка плей.png" id="2_37hnf"]
-[ext_resource type="Texture2D" uid="uid://pccwegq6jk05" path="res://Texture/UI/Pause_UI/кнопка домой.png" id="3_25qqy"]
-[ext_resource type="Texture2D" uid="uid://d1iev4ba7ncbt" path="res://Texture/UI/Main_menu/кнопка Играть2.png" id="3_i8qba"]
+[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button_theme.tres" id="2_u1pop"]
 [ext_resource type="Texture2D" uid="uid://caro7dgmesiw8" path="res://Texture/UI/Pause_UI/play.png" id="4_hk70u"]
-[ext_resource type="Texture2D" uid="uid://chxx7cvr3jfhs" path="res://Texture/UI/Pause_UI/кнопка громкость.png" id="4_sf8p2"]
+[ext_resource type="Theme" uid="uid://74gs8edjlxff" path="res://Resources/UI/blue_button_theme.tres" id="5_ry07f"]
 [ext_resource type="Texture2D" uid="uid://b6bi1pn1lata6" path="res://Texture/UI/Pause_UI/легенда.png" id="6_cui5p"]
+[ext_resource type="StyleBox" uid="uid://1v567n6sn7v1" path="res://Resources/UI/button_disabled.tres" id="6_h6p2n"]
+[ext_resource type="StyleBox" uid="uid://dy7pwwcyu1yw" path="res://Resources/UI/blue_button_normal.tres" id="6_nc48b"]
 [ext_resource type="Texture2D" uid="uid://48d218bklb62" path="res://Texture/UI/Pause_UI/sound_ON.png" id="6_q0iqf"]
 [ext_resource type="Texture2D" uid="uid://drf27o74lp0s5" path="res://Texture/UI/Pause_UI/home.png" id="8_kp7vd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al670"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkoco"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny5mh"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8hou"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjevs"]
-bg_color = Color(0.478007, 0.618938, 0.736741, 1)
-
-[sub_resource type="Theme" id="Theme_5m7jc"]
-Button/styles/disabled = SubResource("StyleBoxFlat_al670")
-Button/styles/focus = SubResource("StyleBoxFlat_jkoco")
-Button/styles/hover = SubResource("StyleBoxFlat_ny5mh")
-Button/styles/normal = SubResource("StyleBoxFlat_x8hou")
-Button/styles/pressed = SubResource("StyleBoxFlat_xjevs")
 
 [sub_resource type="LabelSettings" id="LabelSettings_meo1k"]
 font = ExtResource("1_4odon")
@@ -53,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ydatq")
 
-[node name="Continue" type="TextureButton" parent="."]
+[node name="Continue" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -66,48 +44,10 @@ offset_right = 130.0
 offset_bottom = -230.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = SubResource("Theme_5m7jc")
-texture_normal = ExtResource("2_37hnf")
-texture_pressed = ExtResource("2_37hnf")
-texture_disabled = ExtResource("2_37hnf")
-texture_focused = ExtResource("2_37hnf")
+focus_mode = 0
+theme = ExtResource("2_u1pop")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1508.0
-offset_top = -114.0
-offset_right = 1490.0
-offset_bottom = 93.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.843137)
-
-[node name="Continue_RectButton" type="NinePatchRect" parent="."]
-self_modulate = Color(0.533565, 1, 0.1875, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = 280.0
-offset_right = 129.0
-offset_bottom = 410.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_i8qba")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
-
-[node name="TextureRect" type="TextureRect" parent="Continue_RectButton"]
+[node name="TextureRect" type="TextureRect" parent="Continue"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,40 +65,33 @@ pivot_offset = Vector2(26.0572, 32.6734)
 mouse_filter = 2
 texture = ExtResource("4_hk70u")
 
-[node name="Home" type="TextureButton" parent="."]
-layout_mode = 2
-offset_left = 188.0
-offset_top = 1117.0
-offset_right = 343.0
-offset_bottom = 1217.0
-theme = SubResource("Theme_5m7jc")
-texture_normal = ExtResource("3_25qqy")
-texture_pressed = ExtResource("3_25qqy")
-texture_disabled = ExtResource("3_25qqy")
-texture_focused = ExtResource("3_25qqy")
-
-[node name="Home_RectButton" type="NinePatchRect" parent="."]
-self_modulate = Color(0.523438, 0.804152, 1, 1)
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = 465.0
-offset_right = 10.0
-offset_bottom = 591.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1508.0
+offset_top = -114.0
+offset_right = 1490.0
+offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_i8qba")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
+mouse_filter = 2
+color = Color(0, 0, 0, 0.843137)
 
-[node name="TextureRect" type="TextureRect" parent="Home_RectButton"]
+[node name="Home" type="Button" parent="."]
+layout_mode = 2
+offset_left = 169.0
+offset_top = 1105.0
+offset_right = 370.0
+offset_bottom = 1231.0
+scale = Vector2(0.9, 0.9)
+focus_mode = 0
+theme = ExtResource("5_ry07f")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Home"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,37 +108,22 @@ scale = Vector2(1.2, 1.2)
 pivot_offset = Vector2(26.0572, 32.6734)
 texture = ExtResource("6_q0iqf")
 
-[node name="Off_volume" type="TextureButton" parent="."]
+[node name="Off_volume" type="Button" parent="."]
 layout_mode = 2
-offset_left = 388.0
-offset_top = 1117.0
-offset_right = 543.0
-offset_bottom = 1207.0
-theme = SubResource("Theme_5m7jc")
-texture_normal = ExtResource("4_sf8p2")
-
-[node name="Off_Volume_RectButton" type="NinePatchRect" parent="."]
-self_modulate = Color(0.523438, 0.804152, 1, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 19.0
-offset_top = 465.0
-offset_right = 219.0
-offset_bottom = 591.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 379.0
+offset_top = 1105.0
+offset_right = 579.0
+offset_bottom = 1231.0
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("3_i8qba")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
+focus_mode = 0
+theme_override_styles/disabled = ExtResource("6_h6p2n")
+theme_override_styles/hover_pressed = ExtResource("6_h6p2n")
+theme_override_styles/hover = ExtResource("6_nc48b")
+theme_override_styles/pressed = ExtResource("6_h6p2n")
+theme_override_styles/normal = ExtResource("6_nc48b")
+toggle_mode = true
 
-[node name="TextureRect" type="TextureRect" parent="Off_Volume_RectButton"]
+[node name="TextureRect" type="TextureRect" parent="Off_volume"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -571,4 +489,4 @@ scale = Vector2(0.15, 0.15)
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
-[connection signal="pressed" from="Off_volume" to="." method="_on_off_volume_pressed"]
+[connection signal="toggled" from="Off_volume" to="." method="_on_off_volume_toggled"]

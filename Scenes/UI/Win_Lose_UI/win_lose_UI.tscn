@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b5qxmagbaw24c"]
+[gd_scene load_steps=32 format=3 uid="uid://b5qxmagbaw24c"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/win_lose_UI.gd" id="1_syo30"]
 [ext_resource type="Texture2D" uid="uid://bw113kxl2ky06" path="res://Texture/UI/Win_Lose_UI/background.svg" id="2_8uv6t"]
@@ -19,9 +19,8 @@
 [ext_resource type="Material" uid="uid://colv6wm16jjuo" path="res://Resources/Materials/blue_outline_material.tres" id="17_yfpih"]
 [ext_resource type="Texture2D" uid="uid://dnpvlc31yn0vv" path="res://Texture/UI/Main_menu/v_Rune.png" id="18_aseoo"]
 [ext_resource type="Texture2D" uid="uid://8tdva52b5xn3" path="res://Texture/UI/Revival_UI/icon_ADS.png" id="19_jv7wr"]
-[ext_resource type="Texture2D" uid="uid://d1iev4ba7ncbt" path="res://Texture/UI/Main_menu/кнопка Играть2.png" id="21_f3ti2"]
-[ext_resource type="Texture2D" uid="uid://bohwhq1oy2bm4" path="res://Texture/UI/Win_Lose_UI/кнопка ADS.png" id="23_8dhcs"]
-[ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="25_bbyqq"]
+[ext_resource type="Theme" uid="uid://b1o36mt532mdi" path="res://Resources/UI/yellow_button_theme.tres" id="19_toc1v"]
+[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button_theme.tres" id="21_c2rkm"]
 [ext_resource type="PackedScene" uid="uid://360y0xs402w7" path="res://Scenes/UI/Level_up_UI/level_up_ui.tscn" id="26_sicc2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dewbw"]
@@ -58,10 +57,6 @@ shadow_offset = Vector2(-1, 1)
 font = ExtResource("6_amvnp")
 font_size = 37
 font_color = Color(0.32549, 0.137255, 0.0196078, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_f07na"]
-font = ExtResource("6_amvnp")
-font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_x04cy"]
 font = ExtResource("6_amvnp")
@@ -402,78 +397,33 @@ text = "x0"
 label_settings = SubResource("LabelSettings_fc05t")
 horizontal_alignment = 2
 
-[node name="Button_AD" type="TextureButton" parent="."]
+[node name="Button_AD" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -118.0
-offset_top = -270.0
-offset_right = 119.0
-offset_bottom = -174.0
+offset_left = -180.0
+offset_top = -287.0
+offset_right = 213.0
+offset_bottom = -161.0
 grow_horizontal = 2
 grow_vertical = 0
-disabled = true
-texture_normal = ExtResource("23_8dhcs")
-
-[node name="TextureRect" type="TextureRect" parent="Button_AD"]
-modulate = Color(0.32549, 0.137255, 0.0196078, 1)
-layout_mode = 0
-offset_left = 33.0
-offset_top = 27.0
-offset_right = 97.0
-offset_bottom = 70.0
-texture = ExtResource("19_jv7wr")
-
-[node name="Label2" type="Label" parent="Button_AD"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 106.0
-offset_top = 2.0
-offset_right = -29.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "+50%"
-label_settings = SubResource("LabelSettings_t4pvo")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button_AD_RectButton" type="NinePatchRect" parent="."]
-self_modulate = Color(1, 0.670588, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -181.0
-offset_top = 353.0
-offset_right = 213.0
-offset_bottom = 479.0
-grow_horizontal = 2
-grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("21_f3ti2")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
+theme = ExtResource("19_toc1v")
+disabled = true
 
-[node name="TextureRect2" type="TextureRect" parent="Button_AD_RectButton"]
+[node name="TextureRect2" type="TextureRect" parent="Button_AD"]
 modulate = Color(0.32549, 0.137255, 0.0196078, 1)
-layout_mode = 0
 offset_left = 24.4444
 offset_top = 37.0
 offset_right = 103.444
 offset_bottom = 90.0
+mouse_filter = 2
 texture = ExtResource("19_jv7wr")
 
-[node name="Label3" type="Label" parent="Button_AD_RectButton"]
+[node name="Label3" type="Label" parent="Button_AD"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -489,7 +439,7 @@ label_settings = SubResource("LabelSettings_t4pvo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Go_to_menu" type="TextureButton" parent="."]
+[node name="Go_to_menu" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -497,50 +447,16 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -180.0
-offset_top = -144.0
-offset_right = 173.0
-offset_bottom = -48.0
+offset_top = -161.0
+offset_right = 214.0
+offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 0
-disabled = true
-texture_normal = ExtResource("25_bbyqq")
-
-[node name="Label" type="Label" parent="Go_to_menu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -3.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "ПРОДОЛЖИТЬ"
-label_settings = SubResource("LabelSettings_f07na")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Go_to_menu_RectButton" type="NinePatchRect" parent="."]
-self_modulate = Color(0.533565, 1, 0.1875, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -181.0
-offset_top = 479.0
-offset_right = 213.0
-offset_bottom = 605.0
-grow_horizontal = 2
-grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("21_f3ti2")
-patch_margin_left = 100
-patch_margin_top = 63
-patch_margin_right = 100
-patch_margin_bottom = 63
+theme = ExtResource("21_c2rkm")
+disabled = true
 
-[node name="Label2" type="Label" parent="Go_to_menu_RectButton"]
+[node name="Label2" type="Label" parent="Go_to_menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
