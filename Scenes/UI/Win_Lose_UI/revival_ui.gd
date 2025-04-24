@@ -10,26 +10,32 @@ extends Control
 @onready var timer_2 = $Timer2
 @onready var label_time = $TextureRect4/Label_time
 
+
 func update_player_state() -> void:
 	update_coins_label()
 	update_crystal_label()
 	update_level_label_and_bar()
+
 
 func start_timer() -> void:
 	YandexSDK.gameplay_stopped()
 	timer.start()
 	timer_2.start()
 
+
 func update_coins_label() -> void:
 	coins_label.text = str(PlayerIndicatorsManager.COINS_COUNT)
 
+
 func update_crystal_label() -> void:
 	crystals_label.text = str(PlayerIndicatorsManager.CRYSTALS_COUNT)
+
 
 func update_level_label_and_bar() -> void:
 	player_level_label.text = str(PlayerIndicatorsManager.LEVEL_PLAYER)
 	player_level_bar.max_value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_FOR_NEXT_LEVEL
 	player_level_bar.value = PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER
+
 
 func _on_ad_pressed() -> void:
 	AudioManager.click()
@@ -39,6 +45,7 @@ func _on_ad_pressed() -> void:
 	AudioServer.set_bus_mute(0, true)
 	timer.set_paused(true)
 	timer_2.set_paused(true)
+
 
 func _on_crystals_pressed() -> void:
 	AudioManager.click()
@@ -51,6 +58,7 @@ func _on_crystals_pressed() -> void:
 			get_tree().get_current_scene().call("revavil_player", true)
 		self.visible = false
 		YandexSDK.gameplay_started()
+
 
 func rew_ad_res(result:String) -> void:
 	if result == "closed" or result == "error":
@@ -68,6 +76,7 @@ func rew_ad_res(result:String) -> void:
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)
 
+
 func _on_timer_timeout() -> void:
 	timer.stop()
 	timer_2.stop()
@@ -78,8 +87,10 @@ func _on_timer_timeout() -> void:
 	YandexSDK.gameplay_stopped()
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
 
+
 func _on_timer_2_timeout() -> void:
 	label_time.text = str(int(label_time.text) - 1)
+
 
 func _on_texture_button_pressed() -> void:
 	timer.stop()
