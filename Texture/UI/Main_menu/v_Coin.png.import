@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kp41ah4lio7c"
-path="res://.godot/imported/монетка (для всплывающего окна).png-3607f498153e0dca9a53e785b539135a.ctex"
+uid="uid://w30a0545wa65"
+path="res://.godot/imported/v_Coin.png-26ce2728f9950be4fe2c8da24deb34d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Talents_UI/монетка (для всплывающего окна).png"
-dest_files=["res://.godot/imported/монетка (для всплывающего окна).png-3607f498153e0dca9a53e785b539135a.ctex"]
+source_file="res://Texture/UI/Main_menu/v_Coin.png"
+dest_files=["res://.godot/imported/v_Coin.png-26ce2728f9950be4fe2c8da24deb34d0.ctex"]
 
 [params]
 

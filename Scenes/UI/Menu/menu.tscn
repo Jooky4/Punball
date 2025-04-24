@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=110 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://82bdpa1kdble" path="res://Texture/UI/Main_menu/background.svg" id="2_24mdw"]
@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://budqgveapxyg0" path="res://Texture/UI/Main_menu/кнопка Играть.png" id="3_qeymi"]
 [ext_resource type="Texture2D" uid="uid://cb05wrfawuqan" path="res://Texture/UI/Main_menu/backgrounnd_Flags.png" id="3_xvp7n"]
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/bar_Level_Menu.png" id="5_fbwen"]
-[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="5_h3ti1"]
-[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="6_uun7o"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="5_h3ti1"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="6_uun7o"]
 [ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/bar_Level_Menu_2.png" id="7_usr1m"]
+[ext_resource type="Material" uid="uid://colv6wm16jjuo" path="res://Resources/Materials/blue_outline_material.tres" id="9_l0r7p"]
 [ext_resource type="Texture2D" uid="uid://bptuq68epuon6" path="res://Texture/UI/Main_menu/line_Menu.png" id="11_p4754"]
 [ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/settings.png" id="12_aoauw"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
@@ -22,15 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/nav_Book.png" id="20_bdbvx"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/shop.gd" id="20_gcgux"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
-[ext_resource type="Texture2D" uid="uid://bo7sf7mnakgq1" path="res://Texture/UI/Character_UI/Character_window/icon_Rune.png" id="21_nwckc"]
 [ext_resource type="Texture2D" uid="uid://cr8nvoy2b67ys" path="res://Texture/UI/Shop_UI/монеты подрожка.png" id="21_skdl8"]
 [ext_resource type="Texture2D" uid="uid://kk8ljg172upi" path="res://Texture/UI/Shop_UI/синяя подложка для окон монет-кристаллов.png" id="22_hq88r"]
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/Сhest/points_Chest.png" id="22_rdsba"]
 [ext_resource type="Texture2D" uid="uid://c27j04flqk5yi" path="res://Texture/UI/Shop_UI/окно для монет.png" id="23_0d0bh"]
 [ext_resource type="Script" path="res://Scenes/UI/Characters/character_1_window.gd" id="23_6x0rm"]
 [ext_resource type="Texture2D" uid="uid://cfy3yh6mgo2qu" path="res://Texture/UI/Character_UI/Character_window/bar_Level_Character_2.png" id="23_g0yqi"]
-[ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="23_moodm"]
 [ext_resource type="Texture2D" uid="uid://crnbctqhjowll" path="res://Texture/UI/Shop_UI/кристаллы подрожка.png" id="23_wpccf"]
+[ext_resource type="Material" uid="uid://dwslfhmpwqnea" path="res://Resources/Materials/red_outline_material.tres" id="23_xrh8c"]
 [ext_resource type="Texture2D" uid="uid://cj2voext6rg6i" path="res://Texture/UI/Shop_UI/монета 1.png" id="24_nehew"]
 [ext_resource type="Texture2D" uid="uid://bdsgv1droqrif" path="res://Texture/UI/Character_UI/Character_window/bar_Level_Character.png" id="24_ykvw2"]
 [ext_resource type="Texture2D" uid="uid://gq0f75y2oogd" path="res://Texture/UI/Shop_UI/монета 2.png" id="25_21de7"]
@@ -77,8 +77,9 @@
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="49_hcn8h"]
 [ext_resource type="Texture2D" uid="uid://bgxcaqhpaxogt" path="res://Texture/Heroes/Alisa/алиса_окно.png" id="50_q4tux"]
 [ext_resource type="Texture2D" uid="uid://c3lcc18w7q4ev" path="res://Texture/Heroes/Merlin/мерлин_магазин.png" id="61_jx5ik"]
-[ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="66_718i0"]
+[ext_resource type="Texture2D" uid="uid://dnpvlc31yn0vv" path="res://Texture/UI/Main_menu/v_Rune.png" id="62_b0p4x"]
 [ext_resource type="Texture2D" uid="uid://cbuil3v7kak7b" path="res://Texture/Heroes/Busya/буся_магазин.png" id="67_vcgdb"]
+[ext_resource type="Material" uid="uid://ckjxd4tuk7qo7" path="res://Resources/Materials/green_outline_material.tres" id="70_myffq"]
 [ext_resource type="Texture2D" uid="uid://cparg72oyf74n" path="res://Texture/UI/Main_menu/nav_Empty.png" id="79_57kj7"]
 [ext_resource type="Shader" path="res://Resources/Shaders/outline.gdshader" id="81_mwm4l"]
 [ext_resource type="Texture2D" uid="uid://cl5c1073l1ns3" path="res://Texture/UI/Talents_UI/lock.png" id="82_det8i"]
@@ -329,6 +330,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Player_state/Coins"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = -30.0
 offset_top = -8.0
@@ -364,6 +366,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Player_state/Crystals"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = -30.0
 offset_top = -8.0
@@ -642,6 +645,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1"]
+material = ExtResource("23_xrh8c")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -654,7 +658,7 @@ offset_right = -13.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_moodm")
+texture = ExtResource("6_uun7o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -715,6 +719,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2"]
+material = ExtResource("23_xrh8c")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -727,7 +732,7 @@ offset_right = -20.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_moodm")
+texture = ExtResource("6_uun7o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -788,6 +793,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3"]
+material = ExtResource("23_xrh8c")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -800,7 +806,7 @@ offset_right = -20.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_moodm")
+texture = ExtResource("6_uun7o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -861,6 +867,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4"]
+material = ExtResource("23_xrh8c")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -873,7 +880,7 @@ offset_right = -33.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_moodm")
+texture = ExtResource("6_uun7o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -934,6 +941,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5"]
+material = ExtResource("23_xrh8c")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -946,7 +954,7 @@ offset_right = -33.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_moodm")
+texture = ExtResource("6_uun7o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1007,6 +1015,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6"]
+material = ExtResource("23_xrh8c")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1019,7 +1028,7 @@ offset_right = -33.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("23_moodm")
+texture = ExtResource("6_uun7o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1105,6 +1114,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1"]
+material = ExtResource("70_myffq")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1117,7 +1127,7 @@ offset_right = -13.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("66_718i0")
+texture = ExtResource("5_h3ti1")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1178,6 +1188,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2"]
+material = ExtResource("70_myffq")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1190,7 +1201,7 @@ offset_right = -13.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("66_718i0")
+texture = ExtResource("5_h3ti1")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1251,6 +1262,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3"]
+material = ExtResource("70_myffq")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1263,7 +1275,7 @@ offset_right = -19.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("66_718i0")
+texture = ExtResource("5_h3ti1")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1324,6 +1336,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4"]
+material = ExtResource("70_myffq")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1336,7 +1349,7 @@ offset_right = -19.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("66_718i0")
+texture = ExtResource("5_h3ti1")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1397,6 +1410,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5"]
+material = ExtResource("70_myffq")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1409,7 +1423,7 @@ offset_right = -19.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("66_718i0")
+texture = ExtResource("5_h3ti1")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1470,6 +1484,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6"]
+material = ExtResource("70_myffq")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1482,7 +1497,7 @@ offset_right = -27.5
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("66_718i0")
+texture = ExtResource("5_h3ti1")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1882,6 +1897,7 @@ grow_vertical = 0
 texture = ExtResource("32_sva66")
 
 [node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer2/Character_2/TextureRect"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = 12.0
 offset_top = 11.0
@@ -1942,6 +1958,7 @@ grow_vertical = 0
 texture = ExtResource("32_sva66")
 
 [node name="TextureRect" type="TextureRect" parent="Characters/All_characters/HBoxContainer2/Character_3/TextureRect"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = 12.0
 offset_top = 11.0
@@ -1999,12 +2016,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Characters/Runes_count"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = -30.0
 offset_top = -9.0
 offset_right = 31.0
 offset_bottom = 48.0
-texture = ExtResource("21_nwckc")
+texture = ExtResource("62_b0p4x")
 expand_mode = 1
 stretch_mode = 5
 
@@ -2221,6 +2239,7 @@ text = "Материалы:"
 label_settings = SubResource("LabelSettings_uqh6h")
 
 [node name="Coins" type="TextureRect" parent="Characters/Character_1_window/Need_matirial"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = 96.0
 offset_top = 91.0
@@ -2245,12 +2264,13 @@ text = "1000"
 label_settings = SubResource("LabelSettings_edc2c")
 
 [node name="Runes" type="TextureRect" parent="Characters/Character_1_window/Need_matirial"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = 326.0
 offset_top = 87.0
 offset_right = 380.0
 offset_bottom = 151.0
-texture = ExtResource("21_nwckc")
+texture = ExtResource("62_b0p4x")
 stretch_mode = 5
 
 [node name="Runes_Label" type="Label" parent="Characters/Character_1_window/Need_matirial/Runes"]
@@ -2657,6 +2677,7 @@ text = "Материалы:"
 label_settings = SubResource("LabelSettings_uqh6h")
 
 [node name="Coins" type="TextureRect" parent="Characters/Character_2_window/Need_matirial"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = 96.0
 offset_top = 91.0
@@ -2681,12 +2702,13 @@ text = "1000"
 label_settings = SubResource("LabelSettings_edc2c")
 
 [node name="Runes" type="TextureRect" parent="Characters/Character_2_window/Need_matirial"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = 326.0
 offset_top = 87.0
 offset_right = 380.0
 offset_bottom = 151.0
-texture = ExtResource("21_nwckc")
+texture = ExtResource("62_b0p4x")
 stretch_mode = 5
 
 [node name="Runes_Label" type="Label" parent="Characters/Character_2_window/Need_matirial/Runes"]
@@ -2767,12 +2789,13 @@ grow_vertical = 2
 texture_normal = ExtResource("36_0hnwo")
 
 [node name="TextureRect" type="TextureRect" parent="Characters/Character_2_window/Buy_button"]
+material = ExtResource("70_myffq")
 layout_mode = 0
 offset_left = 103.0
 offset_top = 26.5
 offset_right = 158.0
 offset_bottom = 82.5
-texture = ExtResource("66_718i0")
+texture = ExtResource("5_h3ti1")
 
 [node name="Label" type="Label" parent="Characters/Character_2_window/Buy_button"]
 layout_mode = 0
@@ -3125,6 +3148,7 @@ text = "Материалы:"
 label_settings = SubResource("LabelSettings_uqh6h")
 
 [node name="Coins" type="TextureRect" parent="Characters/Character_3_window/Need_matirial"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = 96.0
 offset_top = 91.0
@@ -3149,12 +3173,13 @@ text = "1000"
 label_settings = SubResource("LabelSettings_edc2c")
 
 [node name="Runes" type="TextureRect" parent="Characters/Character_3_window/Need_matirial"]
+material = ExtResource("9_l0r7p")
 layout_mode = 0
 offset_left = 326.0
 offset_top = 87.0
 offset_right = 380.0
 offset_bottom = 151.0
-texture = ExtResource("21_nwckc")
+texture = ExtResource("62_b0p4x")
 stretch_mode = 5
 
 [node name="Runes_Label" type="Label" parent="Characters/Character_3_window/Need_matirial/Runes"]
@@ -3235,12 +3260,13 @@ grow_vertical = 2
 texture_normal = ExtResource("36_0hnwo")
 
 [node name="TextureRect" type="TextureRect" parent="Characters/Character_3_window/Buy_button"]
+material = ExtResource("70_myffq")
 layout_mode = 0
 offset_left = 108.0
 offset_top = 26.5
 offset_right = 163.0
 offset_bottom = 82.5
-texture = ExtResource("66_718i0")
+texture = ExtResource("5_h3ti1")
 
 [node name="Label" type="Label" parent="Characters/Character_3_window/Buy_button"]
 layout_mode = 0

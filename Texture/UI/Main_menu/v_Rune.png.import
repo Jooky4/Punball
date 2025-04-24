@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w30a0545wa65"
-path="res://.godot/imported/монетка.png-b06eb844bc9c37034347d0513798050b.ctex"
+uid="uid://dnpvlc31yn0vv"
+path="res://.godot/imported/v_Rune.png-99c635c6a351959153816b26bc5accc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Main_menu/монетка.png"
-dest_files=["res://.godot/imported/монетка.png-b06eb844bc9c37034347d0513798050b.ctex"]
+source_file="res://Texture/UI/Main_menu/v_Rune.png"
+dest_files=["res://.godot/imported/v_Rune.png-99c635c6a351959153816b26bc5accc8.ctex"]
 
 [params]
 

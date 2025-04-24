@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://dtpqw0kjhm278" path="res://Texture/UI/Talents_UI/talant_Window.png" id="3_pv7q1"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_tylve"]
 [ext_resource type="Texture2D" uid="uid://ck04ttpiwx5hx" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна).png" id="5_pjx38"]
-[ext_resource type="Texture2D" uid="uid://kp41ah4lio7c" path="res://Texture/UI/Talents_UI/монетка (для всплывающего окна).png" id="6_21xj4"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="6_h74k6"]
 [ext_resource type="Texture2D" uid="uid://dg4tm5hm7o1r0" path="res://Texture/UI/Talents_UI/talant_Buy.png" id="7_w7t02"]
 [ext_resource type="Texture2D" uid="uid://c45d0wb078w46" path="res://Texture/UI/Talents_UI/line_Gray.png" id="8_rfvt8"]
 [ext_resource type="Texture2D" uid="uid://da7nwj1s8ivou" path="res://Texture/UI/Talents_UI/platform_Big_Gold.png" id="9_en243"]
 [ext_resource type="Texture2D" uid="uid://cpxwnyyvl6vo5" path="res://Texture/UI/Talents_UI/плашка цены (для всплывающего окна)2.png" id="10_aeudc"]
-[ext_resource type="Texture2D" uid="uid://bxqyq6ikvha7n" path="res://Texture/UI/Main_menu/кристаллБезОбв.png" id="11_841kq"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="11_mvbaq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkcps"]
 font = ExtResource("4_tylve")
@@ -111,13 +111,14 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 67.0
-offset_top = -12.0
-offset_right = 107.0
-offset_bottom = 28.0
+offset_left = 60.2778
+offset_top = -16.0833
+offset_right = 115.278
+offset_bottom = 37.9167
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_21xj4")
+texture = ExtResource("6_h74k6")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="For_coins/Information/Bye_skill"]
 layout_mode = 0
@@ -308,7 +309,7 @@ offset_right = 127.667
 offset_bottom = 50.0
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_841kq")
+texture = ExtResource("11_mvbaq")
 
 [node name="Label" type="Label" parent="For_crystal/Information/Bye_skill"]
 layout_mode = 0

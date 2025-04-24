@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://colv6wm16jjuo"]
+
+[ext_resource type="Shader" path="res://Resources/Shaders/outline.gdshader" id="1_vsjnc"]
+
+[resource]
+shader = ExtResource("1_vsjnc")
+shader_parameter/outline_color = Color(0.054902, 0.113725, 0.341176, 1)
+shader_parameter/outline_width = 3.6
+shader_parameter/outline_smoothness = 0.1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo7sf7mnakgq1"
-path="res://.godot/imported/icon_Rune.png-98eb4ae012e120351b3b536a25652e91.ctex"
+uid="uid://yu3xjqo28xm5"
+path="res://.godot/imported/v_Star.png-edaaa2c7c0580d87092002875cb82872.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Character_UI/Character_window/icon_Rune.png"
-dest_files=["res://.godot/imported/icon_Rune.png-98eb4ae012e120351b3b536a25652e91.ctex"]
+source_file="res://Texture/UI/Main_menu/v_Star.png"
+dest_files=["res://.godot/imported/v_Star.png-edaaa2c7c0580d87092002875cb82872.ctex"]
 
 [params]
 

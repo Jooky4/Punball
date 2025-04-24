@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://360y0xs402w7"]
+[gd_scene load_steps=22 format=3 uid="uid://360y0xs402w7"]
 
 [ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="1_8vny0"]
 [ext_resource type="Script" path="res://Scenes/UI/Level_up_UI/level_up_ui.gd" id="1_fculq"]
@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://b7se720nt1bl0" path="res://Texture/UI/Win_Lose_UI/background_Stars.svg" id="3_xqe65"]
 [ext_resource type="Texture2D" uid="uid://6fg3lefix413" path="res://Texture/UI/Win_Lose_UI/level_Up.png" id="5_jwtkq"]
 [ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/line.png" id="9_vi1i7"]
+[ext_resource type="Material" uid="uid://ckjxd4tuk7qo7" path="res://Resources/Materials/green_outline_material.tres" id="10_4uwmm"]
 [ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/platform_Reward.png" id="10_s6w5n"]
-[ext_resource type="Texture2D" uid="uid://cx2c3j2dd6gls" path="res://Texture/UI/Win_Lose_UI/награда_кристалл.png" id="11_djw8g"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="11_5v8h2"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="12_fqfi0"]
-[ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="12_vfje2"]
+[ext_resource type="Material" uid="uid://dwslfhmpwqnea" path="res://Resources/Materials/red_outline_material.tres" id="12_hb5sf"]
 [ext_resource type="AudioStream" uid="uid://t3t68dif710b" path="res://Resources/Sounds/увеличение_уровня.ogg" id="13_1smex"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="13_84sap"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ocma"]
 font = ExtResource("2_kxf6h")
@@ -187,6 +189,7 @@ layout_mode = 2
 texture = ExtResource("10_s6w5n")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect2"]
+material = ExtResource("10_4uwmm")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -194,12 +197,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -29.5
-offset_top = -34.0
+offset_top = -34.5
 offset_right = 29.5
-offset_bottom = 21.0
+offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_djw8g")
+texture = ExtResource("11_5v8h2")
 
 [node name="Label" type="Label" parent="GridContainer/TextureRect2"]
 layout_mode = 1
@@ -225,6 +228,7 @@ layout_mode = 2
 texture = ExtResource("10_s6w5n")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/TextureRect3"]
+material = ExtResource("12_hb5sf")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -237,7 +241,7 @@ offset_right = 29.5
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_vfje2")
+texture = ExtResource("13_84sap")
 
 [node name="Coins_label" type="Label" parent="GridContainer/TextureRect3"]
 layout_mode = 1

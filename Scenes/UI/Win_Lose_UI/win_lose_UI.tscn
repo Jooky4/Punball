@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b5qxmagbaw24c"]
+[gd_scene load_steps=32 format=3 uid="uid://b5qxmagbaw24c"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/win_lose_UI.gd" id="1_syo30"]
 [ext_resource type="Texture2D" uid="uid://bw113kxl2ky06" path="res://Texture/UI/Win_Lose_UI/background.svg" id="2_8uv6t"]
@@ -12,11 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://dvhi5ccp4uix2" path="res://Texture/UI/Win_Lose_UI/bar_Level.png" id="11_il720"]
 [ext_resource type="Texture2D" uid="uid://bcw45dakn580r" path="res://Texture/UI/Win_Lose_UI/bar_Level_2.png" id="12_1bfgs"]
 [ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/line.png" id="13_4jw3x"]
+[ext_resource type="Material" uid="uid://dwslfhmpwqnea" path="res://Resources/Materials/red_outline_material.tres" id="14_m17q0"]
 [ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/platform_Reward.png" id="15_3j35c"]
-[ext_resource type="Texture2D" uid="uid://dnpvlc31yn0vv" path="res://Texture/UI/Win_Lose_UI/награда руна.png" id="18_aseoo"]
+[ext_resource type="Texture2D" uid="uid://yu3xjqo28xm5" path="res://Texture/UI/Main_menu/v_Star.png" id="15_qq1q4"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="16_7uwku"]
+[ext_resource type="Material" uid="uid://colv6wm16jjuo" path="res://Resources/Materials/blue_outline_material.tres" id="17_yfpih"]
+[ext_resource type="Texture2D" uid="uid://dnpvlc31yn0vv" path="res://Texture/UI/Main_menu/v_Rune.png" id="18_aseoo"]
 [ext_resource type="Texture2D" uid="uid://8tdva52b5xn3" path="res://Texture/UI/Revival_UI/icon_ADS.png" id="19_jv7wr"]
-[ext_resource type="Texture2D" uid="uid://dkyjb1bc4omcq" path="res://Texture/UI/Win_Lose_UI/награда опыта.png" id="21_q335r"]
-[ext_resource type="Texture2D" uid="uid://p2lbdk26mnkm" path="res://Texture/UI/Win_Lose_UI/награда монетка.png" id="22_iqx7g"]
 [ext_resource type="Texture2D" uid="uid://bohwhq1oy2bm4" path="res://Texture/UI/Win_Lose_UI/кнопка ADS.png" id="23_8dhcs"]
 [ext_resource type="Texture2D" uid="uid://3ucoujjrp85k" path="res://Texture/UI/Win_Lose_UI/кнопка ПРОДОЛЖИТЬ.png" id="25_bbyqq"]
 [ext_resource type="PackedScene" uid="uid://360y0xs402w7" path="res://Scenes/UI/Level_up_UI/level_up_ui.tscn" id="26_sicc2"]
@@ -290,6 +292,7 @@ layout_mode = 2
 texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Experiance"]
+material = ExtResource("14_m17q0")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -302,7 +305,7 @@ offset_right = 34.5
 offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("21_q335r")
+texture = ExtResource("15_qq1q4")
 
 [node name="Experiance_label" type="Label" parent="TextureRect8/MarginContainer/GridContainer/Experiance"]
 layout_mode = 1
@@ -325,6 +328,7 @@ layout_mode = 2
 texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Coins"]
+material = ExtResource("14_m17q0")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -337,7 +341,7 @@ offset_right = 32.5
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("22_iqx7g")
+texture = ExtResource("16_7uwku")
 
 [node name="Coins" type="Label" parent="TextureRect8/MarginContainer/GridContainer/Coins"]
 layout_mode = 1
@@ -360,6 +364,7 @@ layout_mode = 2
 texture = ExtResource("15_3j35c")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect8/MarginContainer/GridContainer/Runes"]
+material = ExtResource("17_yfpih")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

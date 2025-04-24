@@ -1,10 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://ciuhn6dg5mwdo"]
+[gd_scene load_steps=30 format=3 uid="uid://ciuhn6dg5mwdo"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
 [ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/Fight/background.png" id="2_bhn41"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_yc3ln"]
-[ext_resource type="Shader" path="res://Resources/Shaders/outline.gdshader" id="7_tl6s8"]
-[ext_resource type="Texture2D" uid="uid://bxqyq6ikvha7n" path="res://Texture/UI/Main_menu/кристаллБезОбв.png" id="7_w1lx4"]
+[ext_resource type="Material" uid="uid://ckjxd4tuk7qo7" path="res://Resources/Materials/green_outline_material.tres" id="7_wuhms"]
 [ext_resource type="Texture2D" uid="uid://n8bry8goqai7" path="res://Texture/UI/Revival_UI/icon_HP.png" id="8_bh34m"]
 [ext_resource type="Texture2D" uid="uid://uit2cj333elo" path="res://Texture/UI/Revival_UI/кнопка супероживление.png" id="8_sjjra"]
 [ext_resource type="Texture2D" uid="uid://dr8bphursbhnu" path="res://Texture/UI/Revival_UI/platform.png" id="9_emg5l"]
@@ -18,8 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/bar_Level_Menu.png" id="16_ghtno"]
 [ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/bar_Level_Menu_2.png" id="17_kwcyw"]
 [ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/bar_Count.png" id="18_37g3u"]
-[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/монетка.png" id="19_vb275"]
-[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/кристалл.png" id="20_masc1"]
+[ext_resource type="Material" uid="uid://colv6wm16jjuo" path="res://Resources/Materials/blue_outline_material.tres" id="19_s78am"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="19_vb275"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="20_masc1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7osg2"]
 font = ExtResource("4_yc3ln")
@@ -34,13 +34,6 @@ font_color = Color(0.266667, 0.266667, 0.27451, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_werv1"]
 font = ExtResource("4_yc3ln")
 font_size = 20
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_13jjj"]
-resource_local_to_scene = true
-shader = ExtResource("7_tl6s8")
-shader_parameter/outline_color = Color(0.162782, 0.339844, 0.0278778, 1)
-shader_parameter/outline_width = 3.695
-shader_parameter/outline_smoothness = 0.025
 
 [sub_resource type="LabelSettings" id="LabelSettings_d1pbo"]
 font = ExtResource("4_yc3ln")
@@ -179,13 +172,13 @@ autowrap_mode = 3
 uppercase = true
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect4/CRYSTALS/Label"]
-material = SubResource("ShaderMaterial_13jjj")
+material = ExtResource("7_wuhms")
 layout_mode = 0
 offset_left = 95.0
 offset_top = 28.0
 offset_right = 126.0
 offset_bottom = 59.0
-texture = ExtResource("7_w1lx4")
+texture = ExtResource("20_masc1")
 expand_mode = 1
 stretch_mode = 5
 
@@ -377,6 +370,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Player_state/Coins"]
+material = ExtResource("19_s78am")
 layout_mode = 0
 offset_left = -30.0
 offset_top = -8.0
@@ -411,6 +405,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Player_state/Crystals"]
+material = ExtResource("19_s78am")
 layout_mode = 0
 offset_left = -30.0
 offset_top = -8.0
