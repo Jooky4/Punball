@@ -2,7 +2,7 @@ extends Node
 
 
 static func ym(code: int, type: String, target_name: String):
-	var DEBUG: bool = true
+	var DEBUG: bool = false
 
 	if OS.get_name() == "Web":
 		var js_window: JavaScriptObject = JavaScriptBridge.get_interface("window")
