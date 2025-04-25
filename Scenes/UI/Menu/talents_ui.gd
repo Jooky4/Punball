@@ -72,7 +72,14 @@ var skills_for_crystall = [
 
 func update_skill() -> void:
 	if load_data_talant == false:
+		for i in skills_container.get_children():
+			i.queue_free()
+
+		for i in level_container.get_children():
+			i.queue_free()
+
 		var count_skills = 1
+		prints("update skill add_child")
 		for i in range(1, PlayerIndicatorsManager.LEVEL_PLAYER + 20, 1):
 			for j in range(3):
 				var level_conteiner_buff = level_scroll_conteiner.instantiate()
@@ -135,12 +142,6 @@ func update_scroll() -> void:
 
 	level_scroll.scroll_vertical = level_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
 	skill_scroll.scroll_vertical = skill_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
-
-	var level_dest_scroll = level_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
-	var skill_dest_scroll = skill_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
-
-	level_scroll.scroll_vertical = level_dest_scroll
-	skill_scroll.scroll_vertical = skill_dest_scroll
 
 
 func update_player_indicator_talant_for_coins() -> void:
