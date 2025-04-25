@@ -2183,11 +2183,19 @@ text = "525"
 label_settings = SubResource("LabelSettings_x4hat")
 
 [node name="Level_UP_character_1_button" type="Button" parent="Characters/Character_1_window"]
-layout_mode = 0
-offset_left = 204.0
-offset_top = 982.0
-offset_right = 541.0
-offset_bottom = 1108.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = 332.0
+offset_right = 168.5
+offset_bottom = 458.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
 theme = ExtResource("17_quxdn")
 
 [node name="Label2" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button"]
@@ -2622,12 +2630,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -157.0
-offset_top = 342.0
-offset_right = 183.0
-offset_bottom = 468.0
+offset_left = -170.0
+offset_top = 346.0
+offset_right = 170.0
+offset_bottom = 472.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme = ExtResource("17_quxdn")
 
 [node name="Label2" type="Label" parent="Characters/Character_2_window/Level_UP_character_2_button"]
@@ -3089,12 +3098,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -157.0
-offset_top = 341.5
-offset_right = 182.0
-offset_bottom = 467.5
+offset_left = -169.5
+offset_top = 341.0
+offset_right = 169.5
+offset_bottom = 467.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme = ExtResource("17_quxdn")
 
 [node name="Label2" type="Label" parent="Characters/Character_3_window/Level_UP_character_3_button"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b5qxmagbaw24c"]
+[gd_scene load_steps=33 format=3 uid="uid://b5qxmagbaw24c"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/win_lose_UI.gd" id="1_syo30"]
 [ext_resource type="Texture2D" uid="uid://bw113kxl2ky06" path="res://Texture/UI/Win_Lose_UI/background.svg" id="2_8uv6t"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://8tdva52b5xn3" path="res://Texture/UI/Revival_UI/icon_ADS.png" id="19_jv7wr"]
 [ext_resource type="Theme" uid="uid://b1o36mt532mdi" path="res://Resources/UI/yellow_button/yellow_button_theme.tres" id="19_toc1v"]
 [ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button/green_button_theme.tres" id="21_c2rkm"]
+[ext_resource type="StyleBox" uid="uid://nudiupjutn7e" path="res://Resources/UI/green_button/green_button_normal.tres" id="22_v14x7"]
 [ext_resource type="PackedScene" uid="uid://360y0xs402w7" path="res://Scenes/UI/Level_up_UI/level_up_ui.tscn" id="26_sicc2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dewbw"]
@@ -83,11 +84,14 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -159.0
-offset_top = 4.0
-offset_right = 830.0
-offset_bottom = 330.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -494.5
+offset_right = 494.5
+offset_bottom = 326.0
+grow_horizontal = 2
 texture = ExtResource("3_rgarc")
 
 [node name="Win_Lose_Label" type="TextureRect" parent="."]
@@ -411,11 +415,13 @@ offset_bottom = -161.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.9, 0.9)
+focus_mode = 0
 theme = ExtResource("19_toc1v")
 disabled = true
 
 [node name="TextureRect2" type="TextureRect" parent="Button_AD"]
 modulate = Color(0.32549, 0.137255, 0.0196078, 1)
+layout_mode = 0
 offset_left = 24.4444
 offset_top = 37.0
 offset_right = 103.444
@@ -453,7 +459,9 @@ offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.9, 0.9)
+focus_mode = 0
 theme = ExtResource("21_c2rkm")
+theme_override_styles/disabled = ExtResource("22_v14x7")
 disabled = true
 
 [node name="Label2" type="Label" parent="Go_to_menu"]

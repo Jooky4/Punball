@@ -325,10 +325,10 @@ func can_by_new_talant() -> void:
 	$Select_buttons/Talesnts_button/Can_by.visible = false
 	for i in range(1, PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 2):
 		if i == 1:
-			crystal_cost = 200
+			crystal_cost = Constants.TALENT_BASE_COST.CRYSTAL
 			need_lvl_to_by_crystal = 1
 		elif i == 2:
-			crystal_cost = 200
+			crystal_cost = Constants.TALENT_BASE_COST.CRYSTAL
 			need_lvl_to_by_crystal = 2
 		else:
 			need_lvl_to_by_crystal = (i - 1) * 2
@@ -339,7 +339,7 @@ func can_by_new_talant() -> void:
 	var coins_cost = 0
 	var need_lvl_to_by_coins : int = 0
 	for i in range(1, PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS + 2):
-		coins_cost = 500 + (1250 * ((i - 1) / 5))
+		coins_cost = Constants.TALENT_BASE_COST.COIN + (1250 * ((i - 1) / 5))
 		need_lvl_to_by_coins = ((i - 1) / 3) + 1
 	if PlayerIndicatorsManager.COINS_COUNT >= coins_cost and need_lvl_to_by_coins <= PlayerIndicatorsManager.LEVEL_PLAYER:
 		$Select_buttons/Talesnts_button/Can_by.visible = true

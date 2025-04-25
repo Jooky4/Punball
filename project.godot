@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Resources/Music/default_bus_layout.tres"
 
 [autoload]
 
+Constants="*res://Scenes/Global/constants.gd"
 YandexSDK="*res://addons/godot-yandex-games-sdk/yandex_sdk.gd"
 LevelManager="*res://Scenes/Global/level_manager.gd"
 WaveGeneration="*res://Scenes/Global/wave_generation.gd"

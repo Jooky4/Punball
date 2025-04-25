@@ -114,10 +114,12 @@ func update_skill() -> void:
 	else:
 		update_scroll()
 
+
 func _process(delta):
 	if self.visible and load_data_talant:
 		if skill_scroll.scroll_vertical != level_scroll.scroll_vertical:
 			level_scroll.scroll_vertical = skill_scroll.scroll_vertical
+
 
 func _input(event: InputEvent) -> void:
 	if self.visible and load_data_talant:

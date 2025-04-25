@@ -84,7 +84,7 @@ func erase_for_crystal() -> void:
 
 func for_coins_update_texture_and_discriotion(skill, count_skills, discription, texture) -> void:
 	count_skill_for_coins = count_skills
-	skill_for_coins_cost = 600 + (1250 * ((count_skill_for_coins - 1) / 5))
+	skill_for_coins_cost = Constants.TALENT_BASE_COST.COIN + (1250 * ((count_skill_for_coins - 1) / 5))
 	for_coins_texture.texture = texture
 	if count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS:
 		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
@@ -96,12 +96,12 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		count_skill_for_crystal = 1
 		for_crystal_texture.texture = for_crystal_talent_texture["Дополнительный навык при старте боя"]
 		talant = "Дополнительный навык при старте боя"
-		skill_for_crystal_cost = 200
+		skill_for_crystal_cost = Constants.TALENT_BASE_COST.CRYSTAL
 		$For_crystal/TextureRect.scale = Vector2(1, 0.8)
 	elif count == 6:
 		count_skill_for_crystal = 2
 		for_crystal_texture.texture = for_crystal_talent_texture["Дополнительные монеты в начале боя"]
-		skill_for_crystal_cost = 200
+		skill_for_crystal_cost = Constants.TALENT_BASE_COST.CRYSTAL
 		talant = "Дополнительные монеты в начале боя"
 	else:
 		count = count / 6
@@ -109,7 +109,7 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		count -= 2
 		for_crystal_texture.texture = for_crystal_talent_texture[skills_for_crystall[count % 6]]
 		talant = skills_for_crystall[count % 6]
-		skill_for_crystal_cost = 300 * (((count_skill_for_crystal - 3) / 6) + 1)
+		skill_for_crystal_cost = Constants.TALENT_BASE_COST.CRYSTAL2 * (((count_skill_for_crystal - 3) / 6) + 1)
 	if count_skill_for_crystal <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL:
 		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
 	update_discription_for_crystal(talant)
