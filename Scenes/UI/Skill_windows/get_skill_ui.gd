@@ -182,10 +182,14 @@ func get_number_skill(number:int) -> void:
 	for i in windows_skill.get_children():
 		i.queue_free()
 	skills.clear()
+
+	YandexMetrika.ym(101336789,'reachGoal','skill_start_roll')
+
 	if number == -1:
 		create_free_skill()
 	else:
 		create_skill()
+
 
 func create_skill():
 	for i in windows_skill.get_children():
@@ -370,24 +374,36 @@ func regular_sound() -> void:
 	await get_tree().create_timer(0).timeout
 	$Regular_skill.play()
 
+
 func _on_skill_1_pressed() -> void:
 	AudioManager.click()
+
+	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
+
 	if $Bye_button/Skill_1/FREE.visible:
 		add_skill(skills[0][0])
 	else:
 		LevelManager.buy_skill(skills[0][1])
 		add_skill(skills[0][0])
 
+
 func _on_skill_2_pressed() -> void:
 	AudioManager.click()
+
+	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
+
 	if $Bye_button/Skill_2/FREE.visible:
 		add_skill(skills[1][0])
 	else:
 		LevelManager.buy_skill(skills[1][1])
 		add_skill(skills[1][0])
 
+
 func _on_skill_3_pressed() -> void:
 	AudioManager.click()
+
+	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
+
 	if $Bye_button/Skill_3/FREE.visible:
 		add_skill(skills[2][0])
 	else:

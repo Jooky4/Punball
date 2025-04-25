@@ -107,11 +107,12 @@ func update_skill() -> void:
 		level_container.add_child(buff1)
 		level_container.move_child(buff1, 0)
 
-		await get_tree().create_timer(0.05).timeout
+		await get_tree().create_timer(0.15).timeout
 		update_scroll()
 		self.visible = false
 		load_data_talant = true
 	else:
+		await get_tree().create_timer(0.15).timeout
 		update_scroll()
 
 
@@ -131,8 +132,16 @@ func _input(event: InputEvent) -> void:
 func update_scroll() -> void:
 	level_scroll.scroll_vertical = 1000000
 	skill_scroll.scroll_vertical = 1000000
+
 	level_scroll.scroll_vertical = level_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
 	skill_scroll.scroll_vertical = skill_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
+
+	var level_dest_scroll = level_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
+	var skill_dest_scroll = skill_scroll.scroll_vertical - (204 * (PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS - 1))
+
+	level_scroll.scroll_vertical = level_dest_scroll
+	skill_scroll.scroll_vertical = skill_dest_scroll
+
 
 func update_player_indicator_talant_for_coins() -> void:
 	PlayerIndicatorsManager.defalt_for_talant()
