@@ -237,13 +237,25 @@ func defalt_for_talant() -> void:
 	FOR_CRYSTAL_UP_OZ = 0
 	FOR_CRYSTAL_SHANSE_DOP_BALL = 0
 
+
 func buy_crystal_talant() -> void:
+	YandexMetrika.ym(101336789,'reachGoal','upgraded_super_talent')
+
 	COUNT_BYE_TALANTS_FOR_CRYSTAL += 1
 	update_player_date_on_server()
 
+
 func buy_coins_talant() -> void:
 	COUNT_BYE_TALANTS_FOR_COINS += 1
+
+	# Metrika
+	YandexMetrika.ym(101336789,'reachGoal','upgraded_talent')
+
+	if COUNT_BYE_TALANTS_FOR_COINS == 1:
+		YandexMetrika.ym(101336789,'reachGoal','upgraded_talent_1')
+
 	update_player_date_on_server()
+
 
 func enemy_firs_time_spawn(num_enemy) -> void:
 	match num_enemy:
@@ -280,6 +292,7 @@ func enemy_firs_time_spawn(num_enemy) -> void:
 		14:
 			PlayerIndicatorsManager.ENEMY_14_FIRST_TIME = 1
 			update_player_date_on_server()
+
 
 func character_1_up_lvl() -> void:
 	if CHARACTER_1_LVL < 20:

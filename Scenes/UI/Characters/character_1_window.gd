@@ -48,7 +48,10 @@ func update_characyer_1_UI() -> void:
 		$Level_UP_character_1_button.texture_normal = load("res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png")
 		$Level_UP_character_1_button.disabled = true
 
+
 func _on_level_up_character_1_button_pressed() -> void:
+	YandexMetrika.ym(101336789,'reachGoal','upgraded_hero')
+
 	if PlayerIndicatorsManager.CHARACTER_1_LVL < 20 and PlayerIndicatorsManager.COINS_COUNT >= need_cois and PlayerIndicatorsManager.COUNT_RUNE >= need_runes:
 		AudioManager.click()
 		$Level_UP_character_1_button.disabled = true
@@ -69,6 +72,7 @@ func _on_level_up_character_1_button_pressed() -> void:
 		PlayerIndicatorsManager.character_1_up_lvl()
 		$"..".can_or_not_update()
 		$Level_UP_character_1_button.disabled = false
+
 
 func _on_select_character_pressed() -> void:
 	AudioManager.click()

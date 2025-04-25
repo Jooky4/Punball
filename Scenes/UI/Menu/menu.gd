@@ -226,7 +226,6 @@ func _on_play_button_pressed() -> void:
 	if PIM.GAMEPLAY_TUTORIL == 0 and current_location == 1:
 		YandexMetrika.ym(101336789,'reachGoal','run_first_level_for_new_player')
 
-	AudioManager.click()
 	ChangeScene.black_screen()
 	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
 	WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS

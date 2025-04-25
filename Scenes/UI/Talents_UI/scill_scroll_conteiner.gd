@@ -184,7 +184,7 @@ func _on_button_for_coins_pressed() -> void:
 	$Timer_can_close.start()
 	$For_coins/Information.visible = true
 	$For_coins/Information/Need_level.visible = false
-	$For_coins/Information/Bye_skill.visible = false
+	$For_coins/Information/Buy_skill.visible = false
 	$For_coins/Information/Have_this_skill.visible = false
 	$For_coins/Information/Need_previous_skill.visible = false
 	$For_coins/Information/Skill_name.visible = false
@@ -195,14 +195,14 @@ func _on_button_for_coins_pressed() -> void:
 		$For_coins/Information/Discription.visible = true
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins == PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS + 1:
 		if PlayerIndicatorsManager.COINS_COUNT < skill_for_coins_cost:
-			$For_coins/Information/Bye_skill.disabled = true
+			$For_coins/Information/Buy_skill.disabled = true
 		else:
-			$For_coins/Information/Bye_skill.disabled = false
+			$For_coins/Information/Buy_skill.disabled = false
 
-		$For_coins/Information/Bye_skill.visible = true
+		$For_coins/Information/Buy_skill.visible = true
 		$For_coins/Information/Skill_name.visible = true
 		$For_coins/Information/Discription.visible = true
-		$For_coins/Information/Bye_skill/Label.text = str(skill_for_coins_cost)
+		$For_coins/Information/Buy_skill/Label.text = str(skill_for_coins_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_coins >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS + 2:
 		$For_coins/Information/Need_previous_skill.visible = true
 		$For_coins/Information/Discription.visible = true
@@ -217,7 +217,7 @@ func _on_button_for_crystall_pressed() -> void:
 	$Timer_can_close.start()
 	$For_crystal/Information.visible = true
 	$For_crystal/Information/Need_level.visible = false
-	$For_crystal/Information/Bye_skill.visible = false
+	$For_crystal/Information/Buy_skill.visible = false
 	$For_crystal/Information/Have_this_skill.visible = false
 	$For_crystal/Information/Need_previous_skill.visible = false
 	$For_crystal/Information/Skill_name.visible = false
@@ -227,13 +227,13 @@ func _on_button_for_crystall_pressed() -> void:
 		$For_crystal/Information/Discription.visible = true
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_crystal == PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 1:
 		if PlayerIndicatorsManager.CRYSTALS_COUNT < skill_for_crystal_cost:
-			$For_crystal/Information/Bye_skill.disabled = true
+			$For_crystal/Information/Buy_skill.disabled = true
 		else:
-			$For_crystal/Information/Bye_skill.disabled = false
+			$For_crystal/Information/Buy_skill.disabled = false
 
-		$For_crystal/Information/Bye_skill.visible = true
+		$For_crystal/Information/Buy_skill.visible = true
 		$For_crystal/Information/Discription.visible = true
-		$For_crystal/Information/Bye_skill/Label.text = str(skill_for_crystal_cost)
+		$For_crystal/Information/Buy_skill/Label.text = str(skill_for_crystal_cost)
 	elif PlayerIndicatorsManager.LEVEL_PLAYER >= need_level_to_by and count_skill_for_crystal >= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL + 2:
 		$For_crystal/Information/Need_previous_skill.visible = true
 		$For_crystal/Information/Discription.visible = true
@@ -241,16 +241,20 @@ func _on_button_for_crystall_pressed() -> void:
 		$For_crystal/Information/Need_level.visible = true
 		$For_crystal/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)
 
+
 func information_close() -> void:
 	if can_close_information:
 		$For_crystal/Information.visible = false
 		$For_coins/Information.visible = false
 
+
 func _on_timer_can_close_timeout() -> void:
 	can_close_information = true
 
+
 func _on_bye_for_crystal_pressed() -> void:
 	AudioManager.click()
+
 	if PlayerIndicatorsManager.CRYSTALS_COUNT >= skill_for_crystal_cost:
 		$For_crystal/Information.visible = false
 		$For_coins/Information.visible = false
@@ -262,6 +266,7 @@ func _on_bye_for_crystal_pressed() -> void:
 		get_parent().get_parent().get_parent().call("update_player_indicator_talant_for_coins")
 		get_parent().get_parent().get_parent().get_parent().call("update_crystal_label")
 		get_parent().get_parent().get_parent().get_parent().call("update_visible_texture_can_update")
+
 
 func _on_bye_for_cois_pressed() -> void:
 	AudioManager.click()
@@ -276,8 +281,10 @@ func _on_bye_for_cois_pressed() -> void:
 		get_parent().get_parent().get_parent().get_parent().call("update_coins_label")
 		get_parent().get_parent().get_parent().get_parent().call("update_visible_texture_can_update")
 
+
 func _on_bye_button_mouse_entered() -> void:
 	can_close_information = false
+
 
 func _on_bye_button_mouse_exited() -> void:
 	can_close_information = true
