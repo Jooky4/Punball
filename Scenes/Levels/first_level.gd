@@ -9,6 +9,7 @@ enum {
 }
 
 var game_state = PLAY
+var PIM = PlayerIndicatorsManager
 
 @onready var hp_player_bar = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_bar
 @onready var hp_player_label = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_label
@@ -547,6 +548,8 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 					show_skill_tutorial()
 					PlayerIndicatorsManager.GAMEPLAY_TUTORIL = 1
 					PlayerIndicatorsManager.update_player_date_on_server()
+
+					YandexMetrika.ym(101336789,'reachGoal','complete_level_2_with_additional_ball_tutorial')
 			-1:
 				buff = BONUS_BALL.instantiate()
 				if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
@@ -730,6 +733,10 @@ func end_wave() -> void:
 		if current_location == 1:
 			var target_name = 'completed_loc_%d_level_%d' % [current_location, completed_level]
 			YandexMetrika.ym(101336789,'reachGoal',target_name)
+
+			if completed_level == 1:
+				if PIM.GAMEPLAY_TUTORIL == 0:
+					YandexMetrika.ym(101336789,'reachGoal','complete_level_1_with_shot_tutorial')
 
 	LevelManager.delete_freezing_and_fire_on_enemy()
 	check_boss_alive()
