@@ -18,8 +18,6 @@ extends Control
 @onready var player_level_bar = $Player_state/Player_level/Player_level_bar
 
 @onready var play_button = $Main_menu/PlayButton
-#var button_play_disabled = preload("res://Texture/UI/Main_menu/кнопка Играть не активна.png")
-#var button_play_can_press = preload("res://Texture/UI/Main_menu/кнопка Играть.png")
 
 var location = {
 	0 : [preload("res://Texture/UI/Main_menu/Location/1.png"), "Лихолесье"],
@@ -223,6 +221,11 @@ func update_rune_label() -> void:
 	rune_label.text = str(PlayerIndicatorsManager.COUNT_RUNE)
 
 func _on_play_button_pressed() -> void:
+	var PIM = PlayerIndicatorsManager
+
+	if PIM.GAMEPLAY_TUTORIL == 0 and current_location == 1:
+		YandexMetrika.ym(101336789,'reachGoal','run_first_level_for_new_player')
+
 	AudioManager.click()
 	ChangeScene.black_screen()
 	PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location

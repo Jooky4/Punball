@@ -24,6 +24,10 @@ func open_chest() -> void:
 
 func _on_open_chest_pressed() -> void:
 	texture_open.visible = false #добавил Дима
+
+	# Metrika
+	YandexMetrika.ym(101336789,'reachGoal','opened_chest_for_location')
+
 	emit_signal("chest_opened")
 
 func can_open_or_not(arr) -> void:

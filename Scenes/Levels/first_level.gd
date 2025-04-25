@@ -93,6 +93,13 @@ func _ready() -> void:
 	Engine.time_scale = 1
 	get_tree().paused = false
 	update_location_image()
+
+	# Metrika
+	var current_level = LevelManager.count_level
+	var current_location = 1 + WaveGeneration.get_current_location()
+	if current_location > 1:
+		YandexMetrika.ym(101336789,'reachGoal','started_location_%d' % current_location)
+
 	update_character()
 	check_tutorial()
 	await get_tree().create_timer(0.05).timeout
@@ -339,6 +346,10 @@ func show_hit_effect():
 	tween.tween_property($UI/Damage, "color:a", 0.0, 0.7)
 
 func win() -> void:
+	# Metrika
+	var current_location = 1 + WaveGeneration.get_current_location()
+	YandexMetrika.ym(101336789,'reachGoal','completed_location_%d' % current_location)
+
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
 	LevelManager.win_or_lose = "win"
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
@@ -712,6 +723,14 @@ func end_wave() -> void:
 	else:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
+
+		# Metrika
+		var completed_level = LevelManager.count_level
+		var current_location = 1 + WaveGeneration.get_current_location()
+		if current_location == 1:
+			var target_name = 'completed_loc_%d_level_%d' % [current_location, completed_level]
+			YandexMetrika.ym(101336789,'reachGoal',target_name)
+
 	LevelManager.delete_freezing_and_fire_on_enemy()
 	check_boss_alive()
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible and notification_about_boss_close == false:

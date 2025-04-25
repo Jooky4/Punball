@@ -164,6 +164,7 @@ func _on_continue_game_pressed() -> void:
 	else:
 		get_number_skill(LevelManager.spin_skill)
 
+
 func close_ad(result) -> void:
 	if show_AD:
 		if result == "closed" or result == "error":
@@ -173,6 +174,7 @@ func close_ad(result) -> void:
 			animation.play("windows_output")
 		elif result == "opened":
 			AudioServer.set_bus_mute(0, true)
+
 
 func get_number_skill(number:int) -> void:
 	animation.play("window_input")
