@@ -2198,7 +2198,7 @@ grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_quxdn")
 
-[node name="Label2" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button"]
+[node name="Label" type="Label" parent="Characters/Character_1_window/Level_UP_character_1_button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2624,6 +2624,7 @@ label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
 
 [node name="Level_UP_character_2_button" type="Button" parent="Characters/Character_2_window"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2631,15 +2632,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -170.0
-offset_top = 346.0
+offset_top = 342.0
 offset_right = 170.0
-offset_bottom = 472.0
+offset_bottom = 468.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_quxdn")
+disabled = true
 
-[node name="Label2" type="Label" parent="Characters/Character_2_window/Level_UP_character_2_button"]
+[node name="Label" type="Label" parent="Characters/Character_2_window/Level_UP_character_2_button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2780,11 +2782,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BuyButton" type="Button" parent="Characters/Character_2_window"]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 910.0
-offset_right = 555.0
-offset_bottom = 1036.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = 270.0
+offset_right = 195.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("17_quxdn")
 
 [node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/BuyButton"]
@@ -3092,6 +3101,7 @@ label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
 
 [node name="Level_UP_character_3_button" type="Button" parent="Characters/Character_3_window"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3107,7 +3117,7 @@ grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_quxdn")
 
-[node name="Label2" type="Label" parent="Characters/Character_3_window/Level_UP_character_3_button"]
+[node name="Label" type="Label" parent="Characters/Character_3_window/Level_UP_character_3_button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3277,7 +3287,7 @@ offset_left = 182.0
 offset_top = 41.0
 offset_right = 275.0
 offset_bottom = 87.0
-text = "1000"
+text = "1500"
 label_settings = SubResource("LabelSettings_eqhan")
 
 [node name="Back_button" type="TextureButton" parent="Characters"]

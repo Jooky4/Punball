@@ -45,7 +45,6 @@ func update_characyer_1_UI() -> void:
 		$VBoxContainer/HP_character/HP_UP.visible = false
 		$Need_matirial.visible = false
 		$Level_UP_character_1_button/Label.text = "МАКС."
-		$Level_UP_character_1_button.texture_normal = load("res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png")
 		$Level_UP_character_1_button.disabled = true
 
 

@@ -79,7 +79,6 @@ func update_skill() -> void:
 			i.queue_free()
 
 		var count_skills = 1
-		prints("update skill add_child")
 		for i in range(1, PlayerIndicatorsManager.LEVEL_PLAYER + 20, 1):
 			for j in range(3):
 				var level_conteiner_buff = level_scroll_conteiner.instantiate()

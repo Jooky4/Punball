@@ -30,23 +30,23 @@ func update_characyer_3_UI() -> void:
 		$Need_matirial/Runes/Runes_Label.text = str(100 + (PlayerIndicatorsManager.CHARACTER_3_LVL - 1) * 20)
 		need_runes = (100 + (PlayerIndicatorsManager.CHARACTER_3_LVL - 1) * 20)
 		if 1 <= PlayerIndicatorsManager.CHARACTER_3_LVL and PlayerIndicatorsManager.CHARACTER_3_LVL <= 5:
-			$Need_matirial/Coins/Coins_Label.text = "1000"
-			need_cois = 1000
+			need_cois = Constants.HERO_UPGRADE_COST.STAGE_1
+			$Need_matirial/Coins/Coins_Label.text = str(need_cois)
 		elif 6 <= PlayerIndicatorsManager.CHARACTER_3_LVL and PlayerIndicatorsManager.CHARACTER_3_LVL <= 10:
-			$Need_matirial/Coins/Coins_Label.text = "2000"
-			need_cois = 2000 
+			need_cois = Constants.HERO_UPGRADE_COST.STAGE_2
+			$Need_matirial/Coins/Coins_Label.text = str(need_cois)
 		elif 11 <= PlayerIndicatorsManager.CHARACTER_3_LVL and PlayerIndicatorsManager.CHARACTER_3_LVL <= 15:
-			$Need_matirial/Coins/Coins_Label.text = "3000"
-			need_cois = 3000
+			need_cois = Constants.HERO_UPGRADE_COST.STAGE_3
+			$Need_matirial/Coins/Coins_Label.text = str(need_cois)
 		elif 16 <= PlayerIndicatorsManager.CHARACTER_3_LVL and PlayerIndicatorsManager.CHARACTER_3_LVL <= 19:
-			$Need_matirial/Coins/Coins_Label.text = "4000"
-			need_cois = 4000
+			need_cois = Constants.HERO_UPGRADE_COST.STAGE_4
+			$Need_matirial/Coins/Coins_Label.text = str(need_cois)
 
 		if PlayerIndicatorsManager.CHARACTER_3_LVL < 20:
 			if PlayerIndicatorsManager.COINS_COUNT >= need_cois and PlayerIndicatorsManager.COUNT_RUNE >= need_runes:
-				$Level_UP_character_3_button.texture_normal = load("res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png")
+				$Level_UP_character_3_button.disabled = false
 			else:
-				$Level_UP_character_3_button.texture_normal = load("res://Texture/UI/Character_UI/Character_window/серая кнопка улучшения.png")
+				$Level_UP_character_3_button.disabled = true
 		else:
 			$VBoxContainer/Attack_character/TextureRect.visible = false
 			$VBoxContainer/HP_character/TextureRect3.visible = false
@@ -54,7 +54,6 @@ func update_characyer_3_UI() -> void:
 			$VBoxContainer/HP_character/HP_UP.visible = false
 			$Need_matirial.visible = false
 			$Level_UP_character_3_button/Label.text = "МАКС."
-			$Level_UP_character_3_button.texture_normal = load("res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png")
 			$Level_UP_character_3_button.disabled = true
 
 func _on_level_up_character_3_button_pressed() -> void:
