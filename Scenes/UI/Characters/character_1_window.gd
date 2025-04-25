@@ -35,9 +35,9 @@ func update_characyer_1_UI() -> void:
 
 	if PlayerIndicatorsManager.CHARACTER_1_LVL < 20:
 		if PlayerIndicatorsManager.COINS_COUNT >= need_cois and PlayerIndicatorsManager.COUNT_RUNE >= need_runes:
-			$Level_UP_character_1_button.texture_normal = load("res://Texture/UI/Character_UI/Character_window/АКТИВНАЯ кнопка улучшения.png")
+			$Level_UP_character_1_button.disabled = false
 		else:
-			$Level_UP_character_1_button.texture_normal = load("res://Texture/UI/Character_UI/Character_window/серая кнопка улучшения.png")
+			$Level_UP_character_1_button.disabled = true
 	else:
 		$VBoxContainer/Attack_character/TextureRect.visible = false
 		$VBoxContainer/HP_character/TextureRect3.visible = false

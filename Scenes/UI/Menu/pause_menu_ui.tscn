@@ -2,12 +2,12 @@
 
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_4odon"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/pause_menu_ui.gd" id="1_ydatq"]
-[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button_theme.tres" id="2_u1pop"]
+[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button/green_button_theme.tres" id="2_u1pop"]
 [ext_resource type="Texture2D" uid="uid://caro7dgmesiw8" path="res://Texture/UI/Pause_UI/play.png" id="4_hk70u"]
-[ext_resource type="Theme" uid="uid://74gs8edjlxff" path="res://Resources/UI/blue_button_theme.tres" id="5_ry07f"]
+[ext_resource type="Theme" uid="uid://74gs8edjlxff" path="res://Resources/UI/blue_button/blue_button_theme.tres" id="5_ry07f"]
 [ext_resource type="Texture2D" uid="uid://b6bi1pn1lata6" path="res://Texture/UI/Pause_UI/легенда.png" id="6_cui5p"]
-[ext_resource type="StyleBox" uid="uid://1v567n6sn7v1" path="res://Resources/UI/button_disabled.tres" id="6_h6p2n"]
-[ext_resource type="StyleBox" uid="uid://dy7pwwcyu1yw" path="res://Resources/UI/blue_button_normal.tres" id="6_nc48b"]
+[ext_resource type="StyleBox" uid="uid://1v567n6sn7v1" path="res://Resources/UI/green_button/green_button_disabled.tres" id="6_h6p2n"]
+[ext_resource type="StyleBox" uid="uid://dy7pwwcyu1yw" path="res://Resources/UI/blue_button/blue_button_normal.tres" id="6_nc48b"]
 [ext_resource type="Texture2D" uid="uid://48d218bklb62" path="res://Texture/UI/Pause_UI/sound_ON.png" id="6_q0iqf"]
 [ext_resource type="Texture2D" uid="uid://drf27o74lp0s5" path="res://Texture/UI/Pause_UI/home.png" id="8_kp7vd"]
 

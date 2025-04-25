@@ -1,8 +1,8 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://74gs8edjlxff"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ca80p46te5d5g"]
 
-[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_pq5xs"]
-[ext_resource type="StyleBox" uid="uid://1v567n6sn7v1" path="res://Resources/UI/button_disabled.tres" id="2_6kcpm"]
-[ext_resource type="StyleBox" uid="uid://dy7pwwcyu1yw" path="res://Resources/UI/blue_button_normal.tres" id="3_gkrv7"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_k1iwi"]
+[ext_resource type="StyleBox" uid="uid://1v567n6sn7v1" path="res://Resources/UI/green_button/green_button_disabled.tres" id="2_bih0a"]
+[ext_resource type="StyleBox" uid="uid://nudiupjutn7e" path="res://Resources/UI/green_button/green_button_normal.tres" id="3_ja662"]
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -23,9 +23,9 @@ Button/constants/h_separation = 0
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 45
-Button/fonts/font = ExtResource("1_pq5xs")
-Button/styles/disabled = ExtResource("2_6kcpm")
-Button/styles/focus = ExtResource("3_gkrv7")
-Button/styles/hover = ExtResource("3_gkrv7")
-Button/styles/normal = ExtResource("3_gkrv7")
-Button/styles/pressed = ExtResource("3_gkrv7")
+Button/fonts/font = ExtResource("1_k1iwi")
+Button/styles/disabled = ExtResource("2_bih0a")
+Button/styles/focus = ExtResource("3_ja662")
+Button/styles/hover = ExtResource("3_ja662")
+Button/styles/normal = ExtResource("3_ja662")
+Button/styles/pressed = ExtResource("3_ja662")

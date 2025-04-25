@@ -19,8 +19,8 @@
 [ext_resource type="Material" uid="uid://colv6wm16jjuo" path="res://Resources/Materials/blue_outline_material.tres" id="17_yfpih"]
 [ext_resource type="Texture2D" uid="uid://dnpvlc31yn0vv" path="res://Texture/UI/Main_menu/v_Rune.png" id="18_aseoo"]
 [ext_resource type="Texture2D" uid="uid://8tdva52b5xn3" path="res://Texture/UI/Revival_UI/icon_ADS.png" id="19_jv7wr"]
-[ext_resource type="Theme" uid="uid://b1o36mt532mdi" path="res://Resources/UI/yellow_button_theme.tres" id="19_toc1v"]
-[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button_theme.tres" id="21_c2rkm"]
+[ext_resource type="Theme" uid="uid://b1o36mt532mdi" path="res://Resources/UI/yellow_button/yellow_button_theme.tres" id="19_toc1v"]
+[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button/green_button_theme.tres" id="21_c2rkm"]
 [ext_resource type="PackedScene" uid="uid://360y0xs402w7" path="res://Scenes/UI/Level_up_UI/level_up_ui.tscn" id="26_sicc2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dewbw"]

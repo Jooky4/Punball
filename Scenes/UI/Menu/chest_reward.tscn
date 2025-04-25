@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://dwslfhmpwqnea" path="res://Resources/Materials/red_outline_material.tres" id="7_jlmxm"]
 [ext_resource type="AudioStream" uid="uid://6o4wi3g1c43w" path="res://Resources/Sounds/сундук_меню.ogg" id="7_mtja2"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="8_4hyu3"]
-[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button_theme.tres" id="10_xxnlv"]
+[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button/green_button_theme.tres" id="10_xxnlv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_idc36"]
 font = ExtResource("2_7w5p8")

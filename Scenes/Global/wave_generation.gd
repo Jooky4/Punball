@@ -31,6 +31,7 @@ var enemy_for_locations = [[1, 2, 3, null],
 						   [1, 2, 5, 9],
 						   [1, 2, 3, 10]]
 
+
 func generetion_new_wave(number_wave):
 	var finish_array = [null,null,null,null,null,null]
 	if number_wave == count_wave_on_locations[(current_location % 10) - 1]:
@@ -87,6 +88,7 @@ func generetion_new_wave(number_wave):
 	finish_array.shuffle()
 	return finish_array
 
+
 func how_many_hp_plus_enemy(number_wave) -> float:
 	number_wave += 1
 	if number_wave > count_wave_on_locations[(current_location % 10) - 1]:
@@ -108,6 +110,7 @@ func how_many_hp_plus_enemy(number_wave) -> float:
 			count_wave += 1
 	return float(hp_enemy)
 
+
 func how_many_damage_player(num_enemy) -> int:
 	var enemy_damage = 50
 	var step = 0
@@ -122,8 +125,10 @@ func how_many_damage_player(num_enemy) -> int:
 	else:
 		return enemy_damage
 
+
 func get_count_wave_on_location() -> float:
 	return count_wave_on_locations[(current_location % 10) - 1]
+
 
 func get_coef_hp_enemy_when_boss_on_map():
 	match count_wave_on_locations[(current_location % 10) - 1]:
@@ -133,3 +138,7 @@ func get_coef_hp_enemy_when_boss_on_map():
 			return 1.2
 		40:
 			return 1.1
+
+
+func get_current_location() -> int:
+	return (current_location % 10) - 1

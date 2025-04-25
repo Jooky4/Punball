@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://yyaaa22gcxnk" path="res://Texture/UI/Main_menu/settings.png" id="12_aoauw"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/chests_menu_UI.gd" id="15_83luh"]
 [ext_resource type="PackedScene" uid="uid://1ilhlj1qeg8s" path="res://Scenes/UI/Menu/сhest.tscn" id="16_jxu4w"]
-[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button_theme.tres" id="17_quxdn"]
+[ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button/green_button_theme.tres" id="17_quxdn"]
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/nav_Shop.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/nav_World.png" id="19_q5oq5"]

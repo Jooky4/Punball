@@ -1,15 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://caf0ebk5ttcbn"]
+[gd_scene load_steps=17 format=3 uid="uid://caf0ebk5ttcbn"]
 
 [ext_resource type="Texture2D" uid="uid://dnvg0ncyk7tc2" path="res://Texture/UI/Talents_UI/platform_Blue.png" id="1_0phtb"]
 [ext_resource type="Script" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
 [ext_resource type="Texture2D" uid="uid://dtpqw0kjhm278" path="res://Texture/UI/Talents_UI/talant_Window.png" id="3_pv7q1"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_tylve"]
-[ext_resource type="Texture2D" uid="uid://b8eyv0rhqtsu0" path="res://Texture/UI/Talents_UI/button_Buy.png" id="5_eitxs"]
+[ext_resource type="StyleBox" uid="uid://cuyinctsf6vtf" path="res://Resources/UI/buy_skill_for_coins_button/buy_button_disabled.tres" id="5_hch65"]
+[ext_resource type="StyleBox" uid="uid://dmbr3q36f12uv" path="res://Resources/UI/buy_skill_for_coins_button/buy_button_normal.tres" id="6_c7nw4"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="6_h74k6"]
 [ext_resource type="Texture2D" uid="uid://dg4tm5hm7o1r0" path="res://Texture/UI/Talents_UI/talant_Buy.png" id="7_w7t02"]
 [ext_resource type="Texture2D" uid="uid://c45d0wb078w46" path="res://Texture/UI/Talents_UI/line_Gray.png" id="8_rfvt8"]
 [ext_resource type="Texture2D" uid="uid://da7nwj1s8ivou" path="res://Texture/UI/Talents_UI/platform_Big_Gold.png" id="9_en243"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="11_mvbaq"]
+[ext_resource type="Theme" uid="uid://b7dwaua4mdwdb" path="res://Resources/UI/buy_skill_for_crystals_button/buy_button_theme.tres" id="11_qmktp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qkcps"]
 font = ExtResource("4_tylve")
@@ -88,9 +90,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Bye_skill" type="TextureButton" parent="For_coins/Information"]
-visible = false
-self_modulate = Color(0.550992, 0.835938, 0.117554, 1)
+[node name="Bye_skill" type="Button" parent="For_coins/Information"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -104,7 +104,11 @@ offset_bottom = -64.8333
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.2, 1.2)
-texture_normal = ExtResource("5_eitxs")
+focus_mode = 0
+theme_override_styles/disabled = ExtResource("5_hch65")
+theme_override_styles/hover = ExtResource("6_c7nw4")
+theme_override_styles/pressed = ExtResource("6_c7nw4")
+theme_override_styles/normal = ExtResource("6_c7nw4")
 
 [node name="TextureRect" type="TextureRect" parent="For_coins/Information/Bye_skill"]
 layout_mode = 1
@@ -281,9 +285,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Bye_skill" type="TextureButton" parent="For_crystal/Information"]
+[node name="Bye_skill" type="Button" parent="For_crystal/Information"]
 visible = false
-self_modulate = Color(0.013916, 0.602392, 0.890625, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -297,7 +300,8 @@ offset_bottom = -64.8333
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.2, 1.2)
-texture_normal = ExtResource("5_eitxs")
+focus_mode = 0
+theme = ExtResource("11_qmktp")
 
 [node name="TextureRect" type="TextureRect" parent="For_crystal/Information/Bye_skill"]
 layout_mode = 1

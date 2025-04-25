@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dkskpak13y21q"]
+
+[ext_resource type="Texture2D" uid="uid://b8eyv0rhqtsu0" path="res://Texture/UI/Talents_UI/button_Buy.png" id="1_haad3"]
+
+[resource]
+texture = ExtResource("1_haad3")
+texture_margin_left = 18.0
+texture_margin_top = 15.0
+texture_margin_right = 18.0
+texture_margin_bottom = 15.0
+modulate_color = Color(0.0156863, 0.603922, 0.890196, 1)
