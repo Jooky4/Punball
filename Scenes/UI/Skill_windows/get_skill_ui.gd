@@ -339,6 +339,7 @@ func create_skill():
 			for j in button_arr[i].get_children():
 				if "AD" in j.name:
 					j.visible = true
+					prints("dis", j.name, j.disabled)
 		else:
 			button_arr[i].disabled = false
 			for j in button_arr[i].get_children():

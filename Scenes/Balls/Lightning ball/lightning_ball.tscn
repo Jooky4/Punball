@@ -46,3 +46,6 @@ stream = ExtResource("5_ew8ax")
 volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false

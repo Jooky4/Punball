@@ -61,3 +61,6 @@ volume_db = -14.0
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_komye")
 volume_db = -5.0
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false

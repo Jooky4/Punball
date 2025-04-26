@@ -15,7 +15,7 @@ func collide_with_enemy(collider) -> void:
 		position_enemy.y += cell_size * 0.5
 	var self_position = self.get_global_position()
 	var delta_x = position_enemy.x - self_position.x
-	var delta_y = position_enemy.y - self_position.y 
+	var delta_y = position_enemy.y - self_position.y
 	var damage_ball_plus = 0
 	if "Усиление особого шара" in LevelManager.player_skills:
 		damage_ball_plus = round(damage_ball * 0.05)

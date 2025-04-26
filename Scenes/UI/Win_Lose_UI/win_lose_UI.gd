@@ -5,8 +5,6 @@ extends Control
 @onready var player_level_bar = $Player_level/Player_level_bar
 @onready var level_up_UI = $Level_up_UI
 
-var bitton_AD_not_can_press_texture = preload("res://Texture/UI/Win_Lose_UI/кнопка ADS не активна.png")
-
 var count_coins = 0
 var count_exp = 0
 var count_rune = 0
