@@ -89,6 +89,11 @@ var mouse_in_pause_button_area = false
 var revavil_for_AD_or_crystal : bool = false
 var kill_on_wave : int = 0
 
+# нужно для проверки был ли показан туториал со скилом (для вызова метрики)
+var skill_tutorial_was_shown: bool = false
+var skill_tutorial_was_shown_on_level: int = -1
+
+
 func _ready() -> void:
 	YandexSDK.connect("interstitial_ad", star_location)
 	Engine.time_scale = 1
@@ -546,6 +551,8 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff = SKILL_BOX.instantiate()
 				if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
 					show_skill_tutorial()
+					skill_tutorial_was_shown = true
+					skill_tutorial_was_shown_on_level = LevelManager.count_level
 					PlayerIndicatorsManager.GAMEPLAY_TUTORIL = 1
 					PlayerIndicatorsManager.update_player_date_on_server()
 
@@ -554,6 +561,8 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff = BONUS_BALL.instantiate()
 				if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
 					show_ball_tutorial()
+
+					YandexMetrika.ym(101336789,'reachGoal','complete_level_1_with_shot_tutorial')
 			1:
 				buff = DEFALT_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
@@ -723,20 +732,22 @@ func end_wave() -> void:
 	if LevelManager.boss_on_map:
 		$UI/Boss_label.visible = true
 		count_level_label.visible = false
+
 	else:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
 
-		# Metrika
-		var completed_level = LevelManager.count_level
-		var current_location = 1 + WaveGeneration.get_current_location()
-		if current_location == 1:
-			var target_name = 'completed_loc_%d_level_%d' % [current_location, completed_level]
-			YandexMetrika.ym(101336789,'reachGoal',target_name)
+	# Metrika
+	var completed_level = LevelManager.count_level
+	var current_location = 1 + WaveGeneration.get_current_location()
+	if current_location == 1 and LevelManager.count_level < 21:
+		var target_name = 'completed_loc_%d_level_%d' % [current_location, completed_level]
+		YandexMetrika.ym(101336789,'reachGoal',target_name)
 
-			if completed_level == 1:
-				if PIM.GAMEPLAY_TUTORIL == 0:
-					YandexMetrika.ym(101336789,'reachGoal','complete_level_1_with_shot_tutorial')
+		if skill_tutorial_was_shown and skill_tutorial_was_shown_on_level + 1 == completed_level:
+			YandexMetrika.ym(101336789,'reachGoal','complete_level_3_with_skill_tutorial')
+			skill_tutorial_was_shown = false
+			skill_tutorial_was_shown_on_level = -1
 
 	LevelManager.delete_freezing_and_fire_on_enemy()
 	check_boss_alive()
