@@ -1684,7 +1684,6 @@ libraries = {
 }
 
 [node name="VScrollBar" type="ScrollContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 34.0
 offset_top = 83.0
