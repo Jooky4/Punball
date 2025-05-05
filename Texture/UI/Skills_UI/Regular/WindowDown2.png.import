@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi4tqxqkq2sb4"
-path="res://.godot/imported/WindowUp.png-8e424f2f069765a476b83ba04934d17d.ctex"
+uid="uid://j17v63xavluo"
+path="res://.godot/imported/WindowDown2.png-3ab81fa0d0a7b3fb5ffaf240a4f2d284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Skills_UI/Rare/WindowUp.png"
-dest_files=["res://.godot/imported/WindowUp.png-8e424f2f069765a476b83ba04934d17d.ctex"]
+source_file="res://Texture/UI/Skills_UI/Regular/WindowDown2.png"
+dest_files=["res://.godot/imported/WindowDown2.png-3ab81fa0d0a7b3fb5ffaf240a4f2d284.ctex"]
 
 [params]
 

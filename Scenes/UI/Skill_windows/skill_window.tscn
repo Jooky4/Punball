@@ -1,36 +1,27 @@
-[gd_scene load_steps=46 format=3 uid="uid://btt53uxq2a182"]
+[gd_scene load_steps=49 format=3 uid="uid://btt53uxq2a182"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
 [ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/Effects/ligting.png" id="2_ii2ha"]
-[ext_resource type="Texture2D" uid="uid://dc4bosyi510a1" path="res://Texture/UI/Skills_UI/Regular/WindowUp.png" id="2_tl1jo"]
 [ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/platform_Icon.png" id="3_8n6dk"]
-[ext_resource type="Texture2D" uid="uid://dxluksimoc10k" path="res://Texture/UI/Skills_UI/Regular/WindowDown.png" id="3_f8gh8"]
 [ext_resource type="Texture2D" uid="uid://131mekxb47s1" path="res://Texture/Effects/particleStar_2.png" id="3_trmed"]
 [ext_resource type="Texture2D" uid="uid://bfloruavj3vov" path="res://Texture/Effects/звездочка.png" id="4_t0bp5"]
 [ext_resource type="Texture2D" uid="uid://defyku3t56jyi" path="res://Texture/UI/Skills_UI/Regular/platform_Header.png" id="4_uo73p"]
-[ext_resource type="Texture2D" uid="uid://db6hskxypvv6v" path="res://Texture/UI/Skills_UI/Regular/text.png" id="5_d6d1w"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="5_tjaaj"]
 [ext_resource type="Texture2D" uid="uid://bpqapqkxxbs35" path="res://Texture/UI/Skills_UI/Regular/platform_Description.png" id="6_8xcjj"]
 [ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="6_uhrnc"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_gbsxi"]
-[ext_resource type="Texture2D" uid="uid://bi4tqxqkq2sb4" path="res://Texture/UI/Skills_UI/Rare/WindowUp.png" id="8_iux2o"]
+[ext_resource type="Shader" path="res://Resources/Shaders/outline.gdshader" id="7_kr6fg"]
+[ext_resource type="Texture2D" uid="uid://c5qlv072e3adt" path="res://Texture/UI/Skills_UI/Regular/WindowUp2.png" id="8_bpmi1"]
+[ext_resource type="Texture2D" uid="uid://j17v63xavluo" path="res://Texture/UI/Skills_UI/Regular/WindowDown2.png" id="8_jh30l"]
 [ext_resource type="Texture2D" uid="uid://c7rgmnk02u5so" path="res://Texture/UI/Skills_UI/Rare/platform_Icon.png" id="8_q1tj2"]
-[ext_resource type="Texture2D" uid="uid://bo56obau42g" path="res://Texture/UI/Skills_UI/Rare/WindowDown.png" id="9_agc3n"]
 [ext_resource type="Texture2D" uid="uid://b2ph31ui45e8k" path="res://Texture/UI/Skills_UI/Rare/platform_Header.png" id="9_fb3gg"]
-[ext_resource type="Texture2D" uid="uid://dd0ey430wm6my" path="res://Texture/UI/Skills_UI/Rare/text.png" id="10_4ma2s"]
 [ext_resource type="Texture2D" uid="uid://cyu041yjo1m4u" path="res://Texture/UI/Skills_UI/Rare/platform_Description.png" id="11_qe26v"]
 [ext_resource type="Texture2D" uid="uid://dc305exjgbnpd" path="res://Texture/UI/Skills_UI/Epic/platform_Icon.png" id="12_owfot"]
 [ext_resource type="Texture2D" uid="uid://cah1rsombgb3r" path="res://Texture/UI/Skills_UI/Epic/platform_Header.png" id="13_0ux25"]
-[ext_resource type="Texture2D" uid="uid://dkd7onksnqokq" path="res://Texture/UI/Skills_UI/Epic/WindowUp.png" id="14_epayt"]
-[ext_resource type="Texture2D" uid="uid://nnlu5myf7rtw" path="res://Texture/UI/Skills_UI/Epic/text.png" id="14_y3k8o"]
-[ext_resource type="Texture2D" uid="uid://de3ej5o1cgsjf" path="res://Texture/UI/Skills_UI/Epic/WindowDown.png" id="15_ba1aw"]
 [ext_resource type="Texture2D" uid="uid://da8rnv1e444v7" path="res://Texture/UI/Skills_UI/Epic/platform_Description.png" id="15_c4ml1"]
 [ext_resource type="Texture2D" uid="uid://7ro0ll0n0n3g" path="res://Texture/UI/Skills_UI/Legendary/platform_Icon.png" id="17_6abxv"]
 [ext_resource type="Texture2D" uid="uid://1kgp7cfrut0s" path="res://Texture/UI/Skills_UI/Legendary/platform_Header.png" id="18_tsnwy"]
-[ext_resource type="Texture2D" uid="uid://dho6bt7l2eeuh" path="res://Texture/UI/Skills_UI/Legendary/text.png" id="19_yrvc4"]
 [ext_resource type="Texture2D" uid="uid://dpy0iskpmsq8e" path="res://Texture/UI/Skills_UI/Legendary/platform_Description.png" id="20_u3v3r"]
-[ext_resource type="Texture2D" uid="uid://bddsbdwsqnnqh" path="res://Texture/UI/Skills_UI/Legendary/WindowUp.png" id="21_kd1mb"]
-[ext_resource type="Texture2D" uid="uid://c7nj0p05fcbp2" path="res://Texture/UI/Skills_UI/Legendary/WindowDown.png" id="22_ryi60"]
 
 [sub_resource type="Gradient" id="Gradient_wcxfe"]
 offsets = PackedFloat32Array(0.064, 0.176, 0.862, 0.974)
@@ -60,6 +51,106 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 0.823498, 0.304688, 1, 1, 0
 [sub_resource type="Gradient" id="Gradient_uyurs"]
 offsets = PackedFloat32Array(0.396, 0.534, 0.72, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.996078, 0.670588, 0.94902, 1, 1, 0.435294, 0.913725, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tn4jg"]
+resource_local_to_scene = true
+shader = ExtResource("7_kr6fg")
+shader_parameter/outline_color = Color(0.447059, 0.247059, 0.0313726, 1)
+shader_parameter/outline_width = 3.692
+shader_parameter/outline_smoothness = 0.05
+shader_parameter/top_bound = 0.0
+shader_parameter/bottom_bound = 0.528
+shader_parameter/modulate_color = Color(1, 0.752941, 0.45098, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p5em2"]
+resource_local_to_scene = true
+shader = ExtResource("7_kr6fg")
+shader_parameter/outline_color = Color(0.447059, 0.247059, 0.0313726, 1)
+shader_parameter/outline_width = 3.692
+shader_parameter/outline_smoothness = 0.05
+shader_parameter/top_bound = 0.474
+shader_parameter/bottom_bound = 1.0
+shader_parameter/modulate_color = Color(1, 0.752362, 0.449219, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ve7ff"]
+font = ExtResource("7_gbsxi")
+font_size = 25
+font_color = Color(0.803922, 0.937255, 0.67451, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2q4ge"]
+resource_local_to_scene = true
+shader = ExtResource("7_kr6fg")
+shader_parameter/outline_color = Color(0, 0.2, 0.368627, 1)
+shader_parameter/outline_width = 3.692
+shader_parameter/outline_smoothness = 0.05
+shader_parameter/top_bound = 0.0
+shader_parameter/bottom_bound = 0.528
+shader_parameter/modulate_color = Color(1, 0.752941, 0.45098, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nbn1"]
+resource_local_to_scene = true
+shader = ExtResource("7_kr6fg")
+shader_parameter/outline_color = Color(0, 0.2, 0.368627, 1)
+shader_parameter/outline_width = 3.692
+shader_parameter/outline_smoothness = 0.05
+shader_parameter/top_bound = 0.474
+shader_parameter/bottom_bound = 1.0
+shader_parameter/modulate_color = Color(1, 0.752941, 0.45098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ur3r"]
+font = ExtResource("7_gbsxi")
+font_size = 25
+font_color = Color(0.815686, 0.964706, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c1ilf"]
+shader = ExtResource("7_kr6fg")
+shader_parameter/outline_color = Color(0.392157, 0, 0.333333, 1)
+shader_parameter/outline_width = 3.188
+shader_parameter/outline_smoothness = 0.05
+shader_parameter/top_bound = 0.0
+shader_parameter/bottom_bound = 0.529
+shader_parameter/modulate_color = Color(1, 0.666667, 0.94902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dyckr"]
+shader = ExtResource("7_kr6fg")
+shader_parameter/outline_color = Color(0.392157, 0, 0.333333, 1)
+shader_parameter/outline_width = 3.188
+shader_parameter/outline_smoothness = 0.05
+shader_parameter/top_bound = 0.502
+shader_parameter/bottom_bound = 1.0
+shader_parameter/modulate_color = Color(1, 0.667969, 0.950048, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3yi7m"]
+font = ExtResource("7_gbsxi")
+font_size = 25
+font_color = Color(0.967194, 0.902344, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiv1c"]
+shader = ExtResource("7_kr6fg")
+shader_parameter/outline_color = Color(0.572549, 0.203922, 0, 1)
+shader_parameter/outline_width = 3.188
+shader_parameter/outline_smoothness = 0.05
+shader_parameter/top_bound = 0.0
+shader_parameter/bottom_bound = 0.529
+shader_parameter/modulate_color = Color(1, 0.777043, 0.507813, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4qg3"]
+shader = ExtResource("7_kr6fg")
+shader_parameter/outline_color = Color(0.572549, 0.203922, 0, 1)
+shader_parameter/outline_width = 3.188
+shader_parameter/outline_smoothness = 0.05
+shader_parameter/top_bound = 0.502
+shader_parameter/bottom_bound = 1.0
+shader_parameter/modulate_color = Color(1, 0.777043, 0.507813, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u0yk6"]
+font = ExtResource("7_gbsxi")
+font_size = 25
+font_color = Color(1, 0.966146, 0.933333, 1)
+outline_size = 2
+outline_color = Color(0.572549, 0.203922, 0, 1)
+shadow_size = 5
+shadow_color = Color(0.572549, 0.203922, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yme44"]
 resource_local_to_scene = true
@@ -1385,14 +1476,16 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp" type="Sprite2D" parent="regular_window"]
+material = SubResource("ShaderMaterial_tn4jg")
 position = Vector2(103.5, 209)
 scale = Vector2(1.1, 1)
-texture = ExtResource("2_tl1jo")
+texture = ExtResource("8_bpmi1")
 
 [node name="WindowDown" type="Sprite2D" parent="regular_window"]
+material = SubResource("ShaderMaterial_p5em2")
 position = Vector2(103.5, 61)
 scale = Vector2(1.1, 1)
-texture = ExtResource("3_f8gh8")
+texture = ExtResource("8_jh30l")
 
 [node name="Discription" type="Sprite2D" parent="regular_window"]
 position = Vector2(102.5, 182)
@@ -1409,10 +1502,17 @@ position = Vector2(102.5, 17)
 scale = Vector2(1.1, 1)
 texture = ExtResource("4_uo73p")
 
-[node name="Rarity_text" type="Sprite2D" parent="regular_window"]
-position = Vector2(102.5, 18)
-scale = Vector2(1.1, 1)
-texture = ExtResource("5_d6d1w")
+[node name="Label" type="Label" parent="regular_window"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = -4.0
+offset_right = 170.0
+offset_bottom = 39.0
+text = "Обычный"
+label_settings = SubResource("LabelSettings_ve7ff")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="rare_window" type="Control" parent="."]
 visible = false
@@ -1426,14 +1526,16 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp2" type="Sprite2D" parent="rare_window"]
+material = SubResource("ShaderMaterial_2q4ge")
 position = Vector2(103.5, 204)
 scale = Vector2(1.1, 1)
-texture = ExtResource("8_iux2o")
+texture = ExtResource("8_bpmi1")
 
 [node name="WindowDown2" type="Sprite2D" parent="rare_window"]
+material = SubResource("ShaderMaterial_2nbn1")
 position = Vector2(103.5, 61)
 scale = Vector2(1.1, 1)
-texture = ExtResource("9_agc3n")
+texture = ExtResource("8_jh30l")
 
 [node name="Discription" type="Sprite2D" parent="rare_window"]
 position = Vector2(102.5, 180)
@@ -1450,10 +1552,17 @@ position = Vector2(102.5, 12)
 scale = Vector2(1.1, 1)
 texture = ExtResource("9_fb3gg")
 
-[node name="Rarity_text" type="Sprite2D" parent="rare_window"]
-position = Vector2(102.5, 13)
-scale = Vector2(1.1, 1)
-texture = ExtResource("10_4ma2s")
+[node name="Label" type="Label" parent="rare_window"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = -28.0
+offset_right = 170.0
+offset_bottom = 15.0
+text = "Редкий"
+label_settings = SubResource("LabelSettings_3ur3r")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="epic_window" type="Control" parent="."]
 visible = false
@@ -1467,14 +1576,16 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp" type="Sprite2D" parent="epic_window"]
+material = SubResource("ShaderMaterial_c1ilf")
 position = Vector2(103.5, 209)
 scale = Vector2(1.1, 1)
-texture = ExtResource("14_epayt")
+texture = ExtResource("8_bpmi1")
 
 [node name="WindowDown" type="Sprite2D" parent="epic_window"]
+material = SubResource("ShaderMaterial_dyckr")
 position = Vector2(103.5, 62)
 scale = Vector2(1.1, 1)
-texture = ExtResource("15_ba1aw")
+texture = ExtResource("8_jh30l")
 
 [node name="Discription" type="Sprite2D" parent="epic_window"]
 position = Vector2(103, 147)
@@ -1491,10 +1602,17 @@ position = Vector2(102.55, -17)
 scale = Vector2(1.1, 1)
 texture = ExtResource("13_0ux25")
 
-[node name="Rarity_text" type="Sprite2D" parent="epic_window"]
-position = Vector2(103.05, -30)
-scale = Vector2(1.1, 1)
-texture = ExtResource("14_y3k8o")
+[node name="Label" type="Label" parent="epic_window"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -18.0
+offset_right = 173.0
+offset_bottom = 25.0
+text = "Эпический"
+label_settings = SubResource("LabelSettings_3yi7m")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="legendary_window" type="Control" parent="."]
 visible = false
@@ -1508,14 +1626,16 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp" type="Sprite2D" parent="legendary_window"]
+material = SubResource("ShaderMaterial_xiv1c")
 position = Vector2(103.5, 209)
 scale = Vector2(1.1, 1)
-texture = ExtResource("21_kd1mb")
+texture = ExtResource("8_bpmi1")
 
 [node name="WindowDown" type="Sprite2D" parent="legendary_window"]
+material = SubResource("ShaderMaterial_m4qg3")
 position = Vector2(103.5, 61)
 scale = Vector2(1.1, 1)
-texture = ExtResource("22_ryi60")
+texture = ExtResource("8_jh30l")
 
 [node name="Discription" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103, 180)
@@ -1532,10 +1652,17 @@ position = Vector2(102.5, -19)
 scale = Vector2(1.1, 1)
 texture = ExtResource("18_tsnwy")
 
-[node name="Rarity_text" type="Sprite2D" parent="legendary_window"]
-position = Vector2(35, 8)
-scale = Vector2(1.1, 1)
-texture = ExtResource("19_yrvc4")
+[node name="Label" type="Label" parent="legendary_window"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -13.0
+offset_right = 194.0
+offset_bottom = 30.0
+text = "ЛЕГЕНДАРНЫЙ"
+label_settings = SubResource("LabelSettings_u0yk6")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="Discription_skill" type="Label" parent="."]
 visible = false
@@ -1557,6 +1684,7 @@ libraries = {
 }
 
 [node name="VScrollBar" type="ScrollContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 34.0
 offset_top = 83.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bddsbdwsqnnqh"
-path="res://.godot/imported/WindowUp.png-d0b1ec60b04a795f76d3e62565110099.ctex"
+uid="uid://c5qlv072e3adt"
+path="res://.godot/imported/WindowUp2.png-0b2e22164bef1001d2498db3bfe1772d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Skills_UI/Legendary/WindowUp.png"
-dest_files=["res://.godot/imported/WindowUp.png-d0b1ec60b04a795f76d3e62565110099.ctex"]
+source_file="res://Texture/UI/Skills_UI/Regular/WindowUp2.png"
+dest_files=["res://.godot/imported/WindowUp2.png-0b2e22164bef1001d2498db3bfe1772d.ctex"]
 
 [params]
 
