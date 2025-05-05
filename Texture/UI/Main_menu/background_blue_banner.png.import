@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb05wrfawuqan"
-path="res://.godot/imported/backgrounnd_Flags.png-7a2d91ddd64de4202df6c7d2a6343e59.ctex"
+uid="uid://17j0cyx0clw"
+path="res://.godot/imported/background_blue_banner.png-fb4768c001efc52bfb580cc36206d33e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Main_menu/backgrounnd_Flags.png"
-dest_files=["res://.godot/imported/backgrounnd_Flags.png-7a2d91ddd64de4202df6c7d2a6343e59.ctex"]
+source_file="res://Texture/UI/Main_menu/background_blue_banner.png"
+dest_files=["res://.godot/imported/background_blue_banner.png-fb4768c001efc52bfb580cc36206d33e.ctex"]
 
 [params]
 
