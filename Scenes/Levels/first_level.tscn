@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/локация 1.png" id="3_8luqf"]
-[ext_resource type="PackedScene" uid="uid://dfp1wo6osat1f" path="res://Scenes/Levels/level_background.tscn" id="3_lybt0"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/level_background.tscn" id="3_lybt0"]
 [ext_resource type="Texture2D" uid="uid://cxar1nlannfhm" path="res://Texture/Bacgrounds/локация 2.png" id="4_pc1xq"]
 [ext_resource type="Texture2D" uid="uid://b4c3y2h4jvdlo" path="res://Texture/Bacgrounds/локация 3.png" id="5_6dwtn"]
 [ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/Fight/line_Target.png" id="5_7ui2n"]
@@ -636,6 +636,7 @@ shape = SubResource("RectangleShape2D_b0xly")
 
 [node name="LevelBackground" parent="Dicariations" instance=ExtResource("3_lybt0")]
 unique_name_in_owner = true
+z_index = -1
 position = Vector2(360, 640)
 backgrounds = Array[Texture2D]([ExtResource("3_8luqf"), ExtResource("4_pc1xq"), ExtResource("5_6dwtn"), ExtResource("6_a68p5"), ExtResource("7_pkh6p"), ExtResource("8_h3aim"), ExtResource("9_nssn1"), ExtResource("10_584ha"), ExtResource("11_b2yhh"), ExtResource("12_j5dn1")])
 
