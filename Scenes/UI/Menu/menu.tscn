@@ -1,11 +1,10 @@
-[gd_scene load_steps=107 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=106 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://82bdpa1kdble" path="res://Texture/UI/Main_menu/background.svg" id="2_24mdw"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_cjc1q"]
 [ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/bar_Level_Count.png" id="3_cw7m0"]
 [ext_resource type="Texture2D" uid="uid://bm524ed04336w" path="res://Texture/UI/Main_menu/bar_Count.png" id="3_e5vte"]
-[ext_resource type="Texture2D" uid="uid://cb05wrfawuqan" path="res://Texture/UI/Main_menu/backgrounnd_Flags.png" id="3_xvp7n"]
 [ext_resource type="Texture2D" uid="uid://17j0cyx0clw" path="res://Texture/UI/Main_menu/background_blue_banner.png" id="4_55sxv"]
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/bar_Level_Menu.png" id="5_fbwen"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="5_h3ti1"]
@@ -229,21 +228,6 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = SubResource("GradientTexture2D_7qkr8")
 expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="Backgroung"]
-self_modulate = Color(1, 0.59, 0.59, 0.27451)
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -989.0
-offset_top = -77.0
-offset_right = 989.0
-offset_bottom = 1192.0
-grow_horizontal = 2
-pivot_offset = Vector2(0, 100)
-texture = ExtResource("3_xvp7n")
 
 [node name="BlueBanners" type="HBoxContainer" parent="Backgroung"]
 z_index = 1
