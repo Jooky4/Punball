@@ -149,28 +149,15 @@ func check_tutorial() -> void:
 	else:
 		$Tutorial.visible = false
 
+
 func update_location_image() -> void:
-	match ((WaveGeneration.current_location % 10) - 1):
-		0:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 1.png")
-		1:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 2.png")
-		2:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 3.png")
-		3:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 4.png")
-		4:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 5.png")
-		5:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 6.png")
-		6:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 7.png")
-		7:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 8.png")
-		8:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 9.png")
-		-1:
-			$Dicariations/Fon.texture = load("res://Texture/Bacgrounds/локация 10.png")
+	var location = (WaveGeneration.current_location % 10) - 1
+
+	if location == -1:
+		%LevelBackground.set_background(10)
+	else:
+		%LevelBackground.set_background(location)
+
 
 func update_character() -> void:
 	match PlayerIndicatorsManager.CURRENT_CHARACTER:

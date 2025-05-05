@@ -1,7 +1,8 @@
-[gd_scene load_steps=114 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=115 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
+[ext_resource type="PackedScene" uid="uid://dfp1wo6osat1f" path="res://Scenes/Levels/level_background.tscn" id="3_lybt0"]
 [ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/Fight/line_Target.png" id="5_7ui2n"]
 [ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
 [ext_resource type="Texture2D" uid="uid://d3iosktj0epje" path="res://Texture/UI/Fight/bar_Player_HP.png" id="7_tv3do"]
@@ -625,9 +626,14 @@ position = Vector2(351, 1202)
 shape = SubResource("RectangleShape2D_b0xly")
 
 [node name="Fon" type="Sprite2D" parent="Dicariations"]
+visible = false
 z_index = -1
-position = Vector2(363, 640.5)
+position = Vector2(363, 640)
 texture = ExtResource("10_t5r1o")
+
+[node name="LevelBackground" parent="Dicariations" instance=ExtResource("3_lybt0")]
+unique_name_in_owner = true
+position = Vector2(360, 640)
 
 [node name="Walls" type="Node2D" parent="Dicariations"]
 visible = false
