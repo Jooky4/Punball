@@ -301,8 +301,14 @@ func create_skill():
 
 	for i in range(button_arr.size()):
 		for j in button_arr[i].get_children():
+			if j.name == "FREE" and skills[i][1] == 0:
+				j.visible = true
+
 			if j.name == "Label":
 				j.text = str(skills[i][1])
+
+				if skills[i][1] == 0:
+					j.visible = false
 
 	var time_wait = 0
 	if 4 in rare_skills:
