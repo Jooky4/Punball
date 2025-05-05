@@ -1,19 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfp1wo6osat1f"]
+[gd_scene load_steps=2 format=3 uid="uid://dfp1wo6osat1f"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_background.gd" id="1_2qlpp"]
-[ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Bacgrounds/локация 1.png" id="2_8ctr2"]
-[ext_resource type="Texture2D" uid="uid://cxar1nlannfhm" path="res://Texture/Bacgrounds/локация 2.png" id="3_nei3j"]
-[ext_resource type="Texture2D" uid="uid://b4c3y2h4jvdlo" path="res://Texture/Bacgrounds/локация 3.png" id="4_w3nrc"]
-[ext_resource type="Texture2D" uid="uid://cxdu5w2w28gg6" path="res://Texture/Bacgrounds/локация 4.png" id="5_bx5d8"]
-[ext_resource type="Texture2D" uid="uid://bah86g8dqhwb8" path="res://Texture/Bacgrounds/локация 5.png" id="6_jwmda"]
-[ext_resource type="Texture2D" uid="uid://crwe801m6i6ha" path="res://Texture/Bacgrounds/локация 6.png" id="7_tlami"]
-[ext_resource type="Texture2D" uid="uid://bqhirdus3gt2o" path="res://Texture/Bacgrounds/локация 7.png" id="8_3t7rl"]
-[ext_resource type="Texture2D" uid="uid://d1r68caq6lp5o" path="res://Texture/Bacgrounds/локация 8.png" id="9_qp6ip"]
-[ext_resource type="Texture2D" uid="uid://cadh1dpaq6yg2" path="res://Texture/Bacgrounds/локация 9.png" id="10_wl65f"]
-[ext_resource type="Texture2D" uid="uid://dh3l00dtrf63u" path="res://Texture/Bacgrounds/локация 10.png" id="11_dmk6l"]
 
 [node name="LevelBackground" type="Node2D"]
 script = ExtResource("1_2qlpp")
-backgrounds = Array[Texture2D]([ExtResource("2_8ctr2"), ExtResource("3_nei3j"), ExtResource("4_w3nrc"), ExtResource("5_bx5d8"), ExtResource("6_jwmda"), ExtResource("7_tlami"), ExtResource("8_3t7rl"), ExtResource("9_qp6ip"), ExtResource("10_wl65f"), ExtResource("11_dmk6l")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
