@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cadh1dpaq6yg2"
-path="res://.godot/imported/локация 9.png-3f0aa8cf2deb1221259ded4321e50253.ctex"
+uid="uid://d1r68caq6lp5o"
+path="res://.godot/imported/локация 8.png-0b7f7ee011d0618e5d28f5171896fcaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Bacgrounds/локация 9.png"
-dest_files=["res://.godot/imported/локация 9.png-3f0aa8cf2deb1221259ded4321e50253.ctex"]
+source_file="res://Texture/Backgrounds/локация 8.png"
+dest_files=["res://.godot/imported/локация 8.png-0b7f7ee011d0618e5d28f5171896fcaa.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
