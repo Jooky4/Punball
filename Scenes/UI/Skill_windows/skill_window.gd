@@ -52,21 +52,6 @@ var texture_skill: Dictionary = { # Название : координаты та
 }
 
 
-# Функция для получения текстуры из атласа по координатам сетки
-func _get_atlas_texture(grid_pos: Vector2i) -> AtlasTexture:
-	var atlas_source: TileSetAtlasSource = skills_tileset.get_source(0)
-	var atlas_texture = AtlasTexture.new()
-
-	if atlas_source:
-		atlas_texture.atlas = atlas_source.get_texture()
-		atlas_texture.region = atlas_source.get_tile_texture_region(grid_pos)
-
-	else:
-		print("Ошибка: atlas_source не инициализирован!")
-
-	return atlas_texture
-
-
 func update_discription(new_discription) -> void:
 	discription = new_discription
 
@@ -121,8 +106,15 @@ func scroll_skill_animation(skill, rarity):
 		var random_skill = texture_skill.keys()[
 			randi() % texture_skill.keys().size()
 		]
-		i.texture = _get_atlas_texture(texture_skill[random_skill])
 
-	last_skill_texture.texture = _get_atlas_texture(texture_skill[skill])
+		i.texture = Utils.get_tileset_atlas_texture(
+			skills_tileset.get_source(0),
+			texture_skill[random_skill]
+		)
+
+	last_skill_texture.texture = Utils.get_tileset_atlas_texture(
+		skills_tileset.get_source(0),
+		texture_skill[skill]
+	)
 
 	create_tween().tween_property($VScrollBar, "scroll_vertical", 512*25, time_animation).set_trans(Tween.TRANS_QUAD)
