@@ -1,23 +1,18 @@
-[gd_scene load_steps=29 format=3 uid="uid://4mtxd0nc2dg1"]
+[gd_scene load_steps=21 format=3 uid="uid://4mtxd0nc2dg1"]
 
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="1_5gowa"]
 [ext_resource type="Script" path="res://Scenes/Heroes/character_call_anim.gd" id="1_ar3u1"]
-[ext_resource type="Texture2D" uid="uid://boytwpg07b51f" path="res://Texture/Heroes/Alisa/3_4 анфас/туловище.png" id="1_tfv2x"]
-[ext_resource type="Texture2D" uid="uid://ccfgovp0ia2qf" path="res://Texture/Heroes/Alisa/3_4 анфас/воскрес.png" id="2_gbdxn"]
-[ext_resource type="Texture2D" uid="uid://tl6d1j151n1k" path="res://Texture/Heroes/Alisa/3_4 анфас/рука с посохом.png" id="2_uvcs5"]
-[ext_resource type="Texture2D" uid="uid://7re5qk7w6cgm" path="res://Texture/Heroes/Alisa/3_4 анфас/рука 2.png" id="3_ib1xj"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="3_xxr0j"]
-[ext_resource type="Texture2D" uid="uid://dj0mdg2cyqpsk" path="res://Texture/Heroes/Alisa/3_4 анфас/голова 2.png" id="4_nuvdi"]
-[ext_resource type="Texture2D" uid="uid://chh5y3behcdby" path="res://Texture/Heroes/Alisa/спина 3-4/туловище.png" id="5_re63j"]
-[ext_resource type="Texture2D" uid="uid://dt6kgkilh6jnd" path="res://Texture/Heroes/Alisa/спина 3-4/рука с посохом.png" id="6_1ae24"]
-[ext_resource type="Texture2D" uid="uid://cjcvs3nux32rj" path="res://Texture/Heroes/Alisa/спина 3-4/рука 2.png" id="7_536f1"]
-[ext_resource type="Texture2D" uid="uid://dcax7h4rfmhpv" path="res://Texture/Heroes/Alisa/спина 3-4/голова.png" id="8_yc80l"]
-[ext_resource type="Texture2D" uid="uid://tc5gl2wgbp6v" path="res://Texture/Heroes/Alisa/3_4 анфас/голова 3.png" id="11_7vsh5"]
+[ext_resource type="Texture2D" uid="uid://lgri6d38g4me" path="res://Texture/Heroes/герои.png" id="5_gatai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgpfc"]
 resource_local_to_scene = true
 shader = ExtResource("1_5gowa")
 shader_parameter/lightness = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_506eq"]
+atlas = ExtResource("5_gatai")
+region = Rect2(4, 6, 132, 94)
 
 [sub_resource type="Curve" id="Curve_rw22a"]
 _data = [Vector2(0, 0.836364), 0.0, 0.342857, 0, 0, Vector2(1, 0.918182), -0.857143, 0.0, 0, 0]
@@ -120,7 +115,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -144,7 +139,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.45, 1),
 "transitions": PackedFloat32Array(0.5, -2, -2),
 "update": 0,
-"values": [0.0, -0.314601, 0.0]
+"values": [2.02633, 1.5865, 2.02633]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -156,7 +151,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(0.5),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -192,7 +187,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -228,7 +223,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -384,7 +379,7 @@ tracks/28/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_nuvdi")]
+"values": [ExtResource("5_gatai")]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
@@ -485,7 +480,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -629,7 +624,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -662,10 +657,10 @@ tracks/21/path = NodePath("Весь физуал/Тыл/РукаСПосохом
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.325, 0.55, 0.775, 1.45, 1.725),
-"transitions": PackedFloat32Array(-2, -2, -2, 0.5, 0.5, 0.5, -2),
+"times": PackedFloat32Array(0, 0.325, 0.55, 0.775, 1.45, 1.725),
+"transitions": PackedFloat32Array(-2, -2, 0.5, 0.5, 0.5, -2),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1.15, 1.15), Vector2(1.15, 1.15), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96), Vector2(3.96, 3.96), Vector2(5, 5), Vector2(4.1, 4.1), Vector2(4.1, 4.1), Vector2(3.96, 3.96)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -701,7 +696,7 @@ tracks/24/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
@@ -737,7 +732,7 @@ tracks/27/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 
 [sub_resource type="Animation" id="Animation_md0an"]
@@ -826,7 +821,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -847,10 +842,10 @@ tracks/8/path = NodePath("Весь физуал/Фронт/РукаСПосох�
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [0.0, -0.201774, 0.0]
+"values": [1.82387]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -862,7 +857,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -898,7 +893,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -934,7 +929,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.985, 3.985)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1167,7 +1162,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1191,7 +1186,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.45),
 "transitions": PackedFloat32Array(2, 2),
 "update": 0,
-"values": [0.0, -2.59739]
+"values": [1.65283, 0.750492]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -1203,7 +1198,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1239,7 +1234,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1275,7 +1270,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1287,7 +1282,7 @@ tracks/16/keys = {
 "times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_7vsh5")]
+"values": [ExtResource("5_gatai")]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -1521,7 +1516,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1545,7 +1540,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0.6, 1.6, 2.6),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [0.0, -0.209144, 0.0]
+"values": [2.1293, 1.92335, 2.1293]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -1557,7 +1552,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1593,7 +1588,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1629,7 +1624,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1863,7 +1858,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1887,7 +1882,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.35, 0.7),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [0.0, -0.0780816, 0.0]
+"values": [1.85005, 1.98968, 1.85005]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -1899,7 +1894,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1935,7 +1930,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1971,7 +1966,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -2205,7 +2200,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2229,7 +2224,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.35, 0.7),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [0.0, -0.0780816, 0.0]
+"values": [2.06822, 2.27765, 2.06822]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -2241,7 +2236,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -2277,7 +2272,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -2313,7 +2308,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -2546,7 +2541,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2570,7 +2565,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [2.0368]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -2582,7 +2577,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -2618,7 +2613,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -2630,7 +2625,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(20, 74)]
+"values": [Vector2(22.8571, 74.2857)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -2654,7 +2649,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.9599, 3.9599)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -2810,7 +2805,7 @@ tracks/28/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_nuvdi")]
+"values": [ExtResource("5_gatai")]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
@@ -2920,10 +2915,10 @@ tracks/6/path = NodePath("Весь физуал/Фронт/Туловище:scal
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2947,7 +2942,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.65, 0.8),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [0.893214, 0.893214, -0.217335, 0.0]
+"values": [2.0909, 2.09265, 2.08567, 2.05949]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -2956,10 +2951,10 @@ tracks/9/path = NodePath("Весь физуал/Фронт/РукаСПосох�
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -2992,10 +2987,10 @@ tracks/12/path = NodePath("Весь физуал/Фронт/Рука2:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -3028,10 +3023,10 @@ tracks/15/path = NodePath("Весь физуал/Фронт/Голова2:scale"
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -3220,14 +3215,14 @@ lifetime = 0.8
 one_shot = true
 speed_scale = 0.8
 local_coords = true
-texture = ExtResource("2_gbdxn")
+texture = SubResource("AtlasTexture_506eq")
 direction = Vector2(0, -1)
 spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 350.0
 initial_velocity_max = 350.0
-scale_amount_min = 0.9
-scale_amount_max = 0.9
+scale_amount_min = 4.0
+scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_rw22a")
 color_ramp = SubResource("Gradient_a1tme")
 
@@ -3264,26 +3259,39 @@ use_parent_material = true
 use_parent_material = true
 position = Vector2(29, 105)
 rotation = -0.0240405
-texture = ExtResource("1_tfv2x")
-offset = Vector2(-29, -105)
+scale = Vector2(3.96, 3.96)
+texture = ExtResource("5_gatai")
+offset = Vector2(-1.66385, 8.36352)
+region_enabled = true
+region_rect = Rect2(247, 324, 61, 52)
 
 [node name="РукаСПосохом" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(-71, 107)
-texture = ExtResource("2_uvcs5")
-offset = Vector2(71, -107)
+rotation = 2.0368
+scale = Vector2(3.96, 3.96)
+texture = ExtResource("5_gatai")
+offset = Vector2(14.2726, 3.43298)
+region_enabled = true
+region_rect = Rect2(62, 452, 44, 43)
 
 [node name="Рука2" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(113, 71)
-texture = ExtResource("3_ib1xj")
-offset = Vector2(-113, -71)
+scale = Vector2(3.96, 3.96)
+texture = ExtResource("5_gatai")
+offset = Vector2(7.49062, 1.15006)
+region_enabled = true
+region_rect = Rect2(114, 402, 28, 24)
 
 [node name="Голова2" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
-position = Vector2(20, 74)
-texture = ExtResource("4_nuvdi")
-offset = Vector2(-20, -74)
+position = Vector2(22.8571, 74.2857)
+scale = Vector2(3.9599, 3.9599)
+texture = ExtResource("5_gatai")
+offset = Vector2(-6.389, -33.8834)
+region_enabled = true
+region_rect = Rect2(6, 217, 86, 98)
 
 [node name="Тыл" type="Node2D" parent="Весь физуал"]
 visible = false
@@ -3292,26 +3300,34 @@ use_parent_material = true
 [node name="Туловище2" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-28, 113)
-texture = ExtResource("5_re63j")
-offset = Vector2(28, -113)
+texture = ExtResource("5_gatai")
+offset = Vector2(1.61, 8.435)
+region_enabled = true
+region_rect = Rect2(313, 320, 62, 53)
 
 [node name="РукаСПосохом2" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(102, 109)
-texture = ExtResource("6_1ae24")
-offset = Vector2(-102, -109)
+texture = ExtResource("5_gatai")
+offset = Vector2(15.94, 3.675)
+region_enabled = true
+region_rect = Rect2(62, 452, 44, 43)
 
 [node name="Рука3" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-119, 68)
-texture = ExtResource("7_536f1")
-offset = Vector2(119, -68)
+texture = ExtResource("5_gatai")
+offset = Vector2(-9.285, -3.105)
+region_enabled = true
+region_rect = Rect2(150, 401, 30, 25)
 
 [node name="Голова" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-2, 34)
-texture = ExtResource("8_yc80l")
-offset = Vector2(2, -34)
+texture = ExtResource("5_gatai")
+offset = Vector2(2.785, -17.11)
+region_enabled = true
+region_rect = Rect2(3, 104, 92, 110)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbq6arjpxghb5"
-path="res://.godot/imported/голова 1.png-e6143126fd73da97c86163a75c116d41.ctex"
+uid="uid://lgri6d38g4me"
+path="res://.godot/imported/герои.png-49e37d00aea99c5f24635ba8e21bfce9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Heroes/Busya/голова 1.png"
-dest_files=["res://.godot/imported/голова 1.png-e6143126fd73da97c86163a75c116d41.ctex"]
+source_file="res://Texture/Heroes/герои.png"
+dest_files=["res://.godot/imported/герои.png-49e37d00aea99c5f24635ba8e21bfce9.ctex"]
 
 [params]
 

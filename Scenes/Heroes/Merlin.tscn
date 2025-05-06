@@ -1,23 +1,18 @@
-[gd_scene load_steps=29 format=3 uid="uid://c0w45guoh4c23"]
+[gd_scene load_steps=21 format=3 uid="uid://c0w45guoh4c23"]
 
 [ext_resource type="Script" path="res://Scenes/Heroes/character_call_anim.gd" id="1_1t5gy"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_b6aki"]
-[ext_resource type="Texture2D" uid="uid://ccfgovp0ia2qf" path="res://Texture/Heroes/Alisa/3_4 анфас/воскрес.png" id="3_psw05"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="4_nmlm0"]
-[ext_resource type="Texture2D" uid="uid://c3q7qsua5mhg6" path="res://Texture/Heroes/Merlin/туловище 1.png" id="5_gtig4"]
-[ext_resource type="Texture2D" uid="uid://5o0c0mkghnp0" path="res://Texture/Heroes/Merlin/рука с посохом 1.png" id="6_u4xob"]
-[ext_resource type="Texture2D" uid="uid://cy3s6ygutmtpe" path="res://Texture/Heroes/Merlin/рука 1.png" id="7_uesgk"]
-[ext_resource type="Texture2D" uid="uid://ppnayrtmqj3e" path="res://Texture/Heroes/Merlin/голова 1.png" id="8_qbvln"]
-[ext_resource type="Texture2D" uid="uid://ctijovpg7d06f" path="res://Texture/Heroes/Merlin/рука с посохом 2.png" id="9_t7258"]
-[ext_resource type="Texture2D" uid="uid://yehlignbe00e" path="res://Texture/Heroes/Merlin/рука 2.png" id="10_q5nji"]
-[ext_resource type="Texture2D" uid="uid://c0nlp8v7bo5yj" path="res://Texture/Heroes/Merlin/туловище 2.png" id="11_3hsvw"]
-[ext_resource type="Texture2D" uid="uid://bu86k0a8k0aa6" path="res://Texture/Heroes/Merlin/голова 2.png" id="12_k8vyo"]
-[ext_resource type="Texture2D" uid="uid://c6u68k5ivpsho" path="res://Texture/Heroes/Merlin/голова 1м.png" id="13_dcw0c"]
+[ext_resource type="Texture2D" uid="uid://lgri6d38g4me" path="res://Texture/Heroes/герои.png" id="5_8y1lv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgpfc"]
 resource_local_to_scene = true
 shader = ExtResource("2_b6aki")
 shader_parameter/lightness = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23pbx"]
+atlas = ExtResource("5_8y1lv")
+region = Rect2(4, 6, 132, 94)
 
 [sub_resource type="Curve" id="Curve_rw22a"]
 _data = [Vector2(0, 0.836364), 0.0, 0.342857, 0, 0, Vector2(1, 0.918182), -0.857143, 0.0, 0, 0]
@@ -120,7 +115,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -156,7 +151,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(0.5),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -192,7 +187,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -228,7 +223,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -396,7 +391,7 @@ tracks/29/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_qbvln")]
+"values": [ExtResource("5_8y1lv")]
 }
 
 [sub_resource type="Animation" id="Animation_qpkd4"]
@@ -629,7 +624,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -662,10 +657,10 @@ tracks/21/path = NodePath("Весь физуал/Тыл/РукаСПосохом
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.325, 0.55, 0.775, 1.45, 1.725),
-"transitions": PackedFloat32Array(-2, -2, -2, 0.5, 0.5, 0.5, -2),
+"times": PackedFloat32Array(0, 0.325, 0.55, 0.775, 1.45, 1.725),
+"transitions": PackedFloat32Array(-2, -2, 0.5, 0.5, 0.5, -2),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1.15, 1.15), Vector2(1.15, 1.15), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96), Vector2(3.96, 3.96), Vector2(5, 5), Vector2(4.5, 4.5), Vector2(4.5, 4.5), Vector2(3.96, 3.96)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -701,7 +696,7 @@ tracks/24/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
@@ -737,7 +732,7 @@ tracks/27/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 
 [sub_resource type="Animation" id="Animation_md0an"]
@@ -826,7 +821,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -862,7 +857,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -898,7 +893,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -934,7 +929,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1167,7 +1162,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1203,7 +1198,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1239,7 +1234,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1275,7 +1270,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1431,7 +1426,7 @@ tracks/28/keys = {
 "times": PackedFloat32Array(0.525),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_dcw0c")]
+"values": [ExtResource("5_8y1lv")]
 }
 
 [sub_resource type="Animation" id="Animation_iokrd"]
@@ -1521,7 +1516,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1557,7 +1552,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1593,7 +1588,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1629,7 +1624,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1863,7 +1858,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1899,7 +1894,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1935,7 +1930,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -1971,7 +1966,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -2205,7 +2200,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2241,7 +2236,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -2277,7 +2272,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -2313,7 +2308,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -2546,7 +2541,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2582,7 +2577,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -2618,7 +2613,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -2654,7 +2649,7 @@ tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -2834,7 +2829,7 @@ tracks/30/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_qbvln")]
+"values": [ExtResource("5_8y1lv")]
 }
 
 [sub_resource type="Animation" id="Animation_6ecps"]
@@ -2920,10 +2915,10 @@ tracks/6/path = NodePath("Весь физуал/Фронт/Туловище:scal
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2956,10 +2951,10 @@ tracks/9/path = NodePath("Весь физуал/Фронт/РукаСПосох�
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -2992,10 +2987,10 @@ tracks/12/path = NodePath("Весь физуал/Фронт/Рука2:scale")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -3028,10 +3023,10 @@ tracks/15/path = NodePath("Весь физуал/Фронт/Голова2:scale"
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(3.96, 3.96)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -3064,10 +3059,10 @@ tracks/18/path = NodePath("Весь физуал/Тыл/Туловище2:scale"
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -3100,10 +3095,10 @@ tracks/21/path = NodePath("Весь физуал/Тыл/РукаСПосохом
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -3136,10 +3131,10 @@ tracks/24/path = NodePath("Весь физуал/Тыл/Рука3:scale")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
@@ -3172,10 +3167,10 @@ tracks/27/path = NodePath("Весь физуал/Тыл/Голова:scale")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
@@ -3220,14 +3215,14 @@ lifetime = 0.8
 one_shot = true
 speed_scale = 0.8
 local_coords = true
-texture = ExtResource("3_psw05")
+texture = SubResource("AtlasTexture_23pbx")
 direction = Vector2(0, -1)
 spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 350.0
 initial_velocity_max = 350.0
-scale_amount_min = 0.9
-scale_amount_max = 0.9
+scale_amount_min = 4.0
+scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_rw22a")
 color_ramp = SubResource("Gradient_a1tme")
 
@@ -3263,27 +3258,39 @@ use_parent_material = true
 [node name="РукаСПосохом" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(-120, 45.7143)
-texture = ExtResource("6_u4xob")
-offset = Vector2(97.1429, 31.4286)
+scale = Vector2(3.96, 3.96)
+texture = ExtResource("5_8y1lv")
+offset = Vector2(-11.69, 21.415)
+region_enabled = true
+region_rect = Rect2(356, 3, 52, 78)
 
 [node name="Рука2" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(102.857, -31.4286)
-texture = ExtResource("7_uesgk")
-offset = Vector2(-100, 100)
+scale = Vector2(3.96, 3.96)
+texture = ExtResource("5_8y1lv")
+offset = Vector2(11.645, 1.515)
+region_enabled = true
+region_rect = Rect2(8, 404, 49, 39)
 
 [node name="Туловище" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(29, 105)
 rotation = -0.0240405
-texture = ExtResource("5_gtig4")
-offset = Vector2(-45.861, -39.6721)
+scale = Vector2(3.96, 3.96)
+texture = ExtResource("5_8y1lv")
+offset = Vector2(-9.605, -17.765)
+region_enabled = true
+region_rect = Rect2(195, 222, 91, 90)
 
 [node name="Голова2" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(14.2857, 80)
-texture = ExtResource("8_qbvln")
-offset = Vector2(-37.1429, -17.1429)
+scale = Vector2(3.96, 3.96)
+texture = ExtResource("5_8y1lv")
+offset = Vector2(-7.143, -15.963)
+region_enabled = true
+region_rect = Rect2(290, 219, 63, 76)
 
 [node name="Тыл" type="Node2D" parent="Весь физуал"]
 visible = false
@@ -3292,26 +3299,34 @@ use_parent_material = true
 [node name="РукаСПосохом2" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(102, 109)
-texture = ExtResource("9_t7258")
-offset = Vector2(-63.7669, 17.6427)
+texture = ExtResource("5_8y1lv")
+offset = Vector2(20.04, 6.545)
+region_enabled = true
+region_rect = Rect2(80, 327, 55, 61)
 
 [node name="Рука3" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-119, 68)
-texture = ExtResource("10_q5nji")
-offset = Vector2(109.243, 120.694)
+texture = ExtResource("5_8y1lv")
+offset = Vector2(-14.305, 2.805)
+region_enabled = true
+region_rect = Rect2(61, 399, 44, 33)
 
 [node name="Туловище2" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-28, 113)
-texture = ExtResource("11_3hsvw")
-offset = Vector2(31.4954, 46.6992)
+texture = ExtResource("5_8y1lv")
+offset = Vector2(4.165, 5.245)
+region_enabled = true
+region_rect = Rect2(208, 108, 93, 83)
 
 [node name="Голова" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-2, 34)
-texture = ExtResource("12_k8vyo")
-offset = Vector2(17.7816, 62.1)
+texture = ExtResource("5_8y1lv")
+offset = Vector2(1.7, -1.4)
+region_enabled = true
+region_rect = Rect2(185, 323, 55, 63)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

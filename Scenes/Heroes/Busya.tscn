@@ -1,23 +1,18 @@
-[gd_scene load_steps=29 format=3 uid="uid://ceenrnncdnwrv"]
+[gd_scene load_steps=21 format=3 uid="uid://ceenrnncdnwrv"]
 
 [ext_resource type="Script" path="res://Scenes/Heroes/character_call_anim.gd" id="1_ejh2c"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_tfy5y"]
-[ext_resource type="Texture2D" uid="uid://ccfgovp0ia2qf" path="res://Texture/Heroes/Alisa/3_4 анфас/воскрес.png" id="3_0kpi1"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="4_gkncv"]
-[ext_resource type="Texture2D" uid="uid://bvbknmf3c7f1v" path="res://Texture/Heroes/Busya/туловище 1.png" id="5_1xkqk"]
-[ext_resource type="Texture2D" uid="uid://ck1hg1r3dddeu" path="res://Texture/Heroes/Busya/рука 1.png" id="6_ht4hd"]
-[ext_resource type="Texture2D" uid="uid://42mgcv17tc7f" path="res://Texture/Heroes/Busya/рука с посохом 1.png" id="7_41bfn"]
-[ext_resource type="Texture2D" uid="uid://dbq6arjpxghb5" path="res://Texture/Heroes/Busya/голова 1.png" id="8_pbsdo"]
-[ext_resource type="Texture2D" uid="uid://ceq571437n6vw" path="res://Texture/Heroes/Busya/туловище 2.png" id="9_vbdbt"]
-[ext_resource type="Texture2D" uid="uid://eg38um0bpr8g" path="res://Texture/Heroes/Busya/рука 2.png" id="10_so621"]
-[ext_resource type="Texture2D" uid="uid://buxehprw2a5ia" path="res://Texture/Heroes/Busya/рука с посохом 2.png" id="11_fo6dd"]
-[ext_resource type="Texture2D" uid="uid://jdvfn43ywouv" path="res://Texture/Heroes/Busya/голова 2.png" id="12_jp4us"]
-[ext_resource type="Texture2D" uid="uid://u8dbdceo36ei" path="res://Texture/Heroes/Busya/голова 1м.png" id="13_o0m24"]
+[ext_resource type="Texture2D" uid="uid://lgri6d38g4me" path="res://Texture/Heroes/герои.png" id="5_lyo1n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgpfc"]
 resource_local_to_scene = true
 shader = ExtResource("2_tfy5y")
 shader_parameter/lightness = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p4sx"]
+atlas = ExtResource("5_lyo1n")
+region = Rect2(4, 6, 132, 94)
 
 [sub_resource type="Curve" id="Curve_rw22a"]
 _data = [Vector2(0, 0.836364), 0.0, 0.342857, 0, 0, Vector2(1, 0.918182), -0.857143, 0.0, 0, 0]
@@ -204,7 +199,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_pbsdo")]
+"values": [ExtResource("5_lyo1n")]
 }
 
 [sub_resource type="Animation" id="Animation_qpkd4"]
@@ -365,7 +360,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0, 0.325, 0.55, 0.7),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(0.862, 0.862), Vector2(0.862, 0.862), Vector2(0.95, 0.95), Vector2(0.862, 0.862)]
+"values": [Vector2(3.414, 3.414), Vector2(3.414, 3.414), Vector2(4, 4), Vector2(3.414, 3.414)]
 }
 
 [sub_resource type="Animation" id="Animation_md0an"]
@@ -579,7 +574,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0.45),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_o0m24")]
+"values": [ExtResource("5_lyo1n")]
 }
 
 [sub_resource type="Animation" id="Animation_iokrd"]
@@ -1504,14 +1499,14 @@ lifetime = 0.8
 one_shot = true
 speed_scale = 0.8
 local_coords = true
-texture = ExtResource("3_0kpi1")
+texture = SubResource("AtlasTexture_3p4sx")
 direction = Vector2(0, -1)
 spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 350.0
 initial_velocity_max = 350.0
-scale_amount_min = 0.9
-scale_amount_max = 0.9
+scale_amount_min = 4.0
+scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_rw22a")
 color_ramp = SubResource("Gradient_a1tme")
 
@@ -1547,30 +1542,38 @@ use_parent_material = true
 [node name="Туловище1" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(20, 40)
-scale = Vector2(0.862, 0.862)
-texture = ExtResource("5_1xkqk")
-offset = Vector2(-23.2019, -46.4037)
+scale = Vector2(3.414, 3.414)
+texture = ExtResource("5_lyo1n")
+offset = Vector2(-2.205, -7.005)
+region_enabled = true
+region_rect = Rect2(307, 112, 76, 79)
 
 [node name="Рука1" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(94.2857, -54.2857)
-scale = Vector2(0.862, 0.862)
-texture = ExtResource("6_ht4hd")
-offset = Vector2(-109.38, 62.9765)
+scale = Vector2(3.414, 3.414)
+texture = ExtResource("5_lyo1n")
+offset = Vector2(14.745, 2.41)
+region_enabled = true
+region_rect = Rect2(110, 451, 42, 40)
 
 [node name="РукаСПосохом1" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(-97.1429, 31.4286)
-scale = Vector2(0.862, 0.862)
-texture = ExtResource("7_41bfn")
-offset = Vector2(112.695, -36.4601)
+scale = Vector2(3.414, 3.414)
+texture = ExtResource("5_lyo1n")
+offset = Vector2(-12.82, 19.94)
+region_enabled = true
+region_rect = Rect2(137, 322, 44, 68)
 
 [node name="Голова1" type="Sprite2D" parent="Весь физуал/Фронт"]
 use_parent_material = true
 position = Vector2(17.1429, 14.2857)
-scale = Vector2(0.862, 0.862)
-texture = ExtResource("8_pbsdo")
-offset = Vector2(-19.8873, -16.5728)
+scale = Vector2(3.414, 3.414)
+texture = ExtResource("5_lyo1n")
+offset = Vector2(-11.052, -22.143)
+region_enabled = true
+region_rect = Rect2(100, 106, 93, 88)
 
 [node name="Тыл" type="Node2D" parent="Весь физуал"]
 visible = false
@@ -1579,30 +1582,38 @@ use_parent_material = true
 [node name="Туловище2" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-28.5714, 48.5714)
-scale = Vector2(0.862, 0.862)
-texture = ExtResource("9_vbdbt")
-offset = Vector2(33.1455, -56.3474)
+scale = Vector2(3.414, 3.414)
+texture = ExtResource("5_lyo1n")
+offset = Vector2(1.875, 2.775)
+region_enabled = true
+region_rect = Rect2(6, 323, 67, 69)
 
 [node name="Рука2" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-117.143, -8.57143)
-scale = Vector2(0.862, 0.862)
-texture = ExtResource("10_so621")
-offset = Vector2(135.897, 9.94365)
+scale = Vector2(3.414, 3.414)
+texture = ExtResource("5_lyo1n")
+offset = Vector2(-10.765, -9.91)
+region_enabled = true
+region_rect = Rect2(376, 323, 39, 40)
 
 [node name="РукаСПосохом2" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(62.8571, 62.8571)
 scale = Vector2(0.862, 0.862)
-texture = ExtResource("11_fo6dd")
-offset = Vector2(-72.9201, -72.9201)
+texture = ExtResource("5_lyo1n")
+offset = Vector2(17.435, 4.355)
+region_enabled = true
+region_rect = Rect2(4, 451, 54, 48)
 
 [node name="Голова2" type="Sprite2D" parent="Весь физуал/Тыл"]
 use_parent_material = true
 position = Vector2(-14.2857, 0)
-scale = Vector2(0.862, 0.862)
-texture = ExtResource("12_jp4us")
-offset = Vector2(16.5728, 0)
+scale = Vector2(3.414, 3.414)
+texture = ExtResource("5_lyo1n")
+offset = Vector2(10.653, -12.475)
+region_enabled = true
+region_rect = Rect2(265, 14, 85, 75)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
