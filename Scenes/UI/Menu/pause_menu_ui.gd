@@ -1,5 +1,7 @@
 extends Control
 
+@export var skills_tileset: TileSet
+
 var regular = ["Шар-заморозка","Лед: комбо", "Ядерная: комбо", "Прибавка к восстановлению","Прибавка ОЗ", "Усиление обычного шара"]
 var rare = ["Огненный шар", "Шар-бомба", "Бомба-заморозка", "Молния: комбо", "Лазер: комбо", "Огонь: комбо", "Кумулятивный шар", "Шар удара в спину", "Шар убийца", "Технология: комбо с тыла", "Технология: комбо с фронта", "Усиление особого шара", "Усиление атаки", "Комбо: скидка", "Суперначало"]
 var epic = ["Шар молний", "Повелитель льда", "Повелитель огня", "Рассыпающийся шар","Вертикальный лазерный шар","Горизонтальный лазерный шар","Повелитель лазера", "Шар ракета","Повелитель атома","Бурящий шар", "Ловушка", "Холод смерти", "Повелитель молний"]
@@ -10,52 +12,55 @@ var rare_ramk = preload("res://Texture/UI/Pause_UI/редкая.png")
 var epic_ramk = preload("res://Texture/UI/Pause_UI/эпическая.png")
 var legendary_ramk = preload("res://Texture/UI/Pause_UI/легенда.png")
 
-var texture_skill = {
-	"Шар-заморозка": preload("res://Texture/UI/Texture_skills/шар заморозка.png"),
-	"Усиление обычного шара": preload("res://Texture/UI/Texture_skills/усиление обычного шара.png"),
-	"Рассыпающийся шар": preload("res://Texture/UI/Texture_skills/рассыпающийся шар.png"),
-	"Шар-бомба": preload("res://Texture/UI/Texture_skills/шар бомба.png"),
-	"Усиление особого шара": preload("res://Texture/UI/Texture_skills/усиление особенного шара.png"),
-	"Прибавка ОЗ": preload("res://Texture/UI/Texture_skills/прибавка 03.png"),
-	"Шар молний": preload("res://Texture/UI/Texture_skills/шар молния.png"),
-	"Бомба-заморозка": preload("res://Texture/UI/Texture_skills/бомба заморозки.png"),
-	"Огненный шар": preload("res://Texture/UI/Texture_skills/огненный шар2.png"),
-	"Усиление атаки": preload("res://Texture/UI/Texture_skills/усиление атаки.png"),
-	"Молния смерти": preload("res://Texture/UI/Texture_skills/молния смерти.png"),
-	"Холод смерти": preload("res://Texture/UI/Texture_skills/холод смерти.png"),
-	"Бомба смерти": preload("res://Texture/UI/Texture_skills/бомба смерти.png"),
-	"Повелитель молний": preload("res://Texture/UI/Texture_skills/повелитель молний.png"),
-	"Повелитель льда": preload("res://Texture/UI/Texture_skills/повелитель холода.png"),
-	"Повелитель огня": preload("res://Texture/UI/Texture_skills/повелитель огня.png"),
-	"Молния: комбо": preload("res://Texture/UI/Texture_skills/молния комбо.png"),
-	"Лед: комбо": preload("res://Texture/UI/Texture_skills/комбо лёд.png"),
-	"Огонь: комбо": preload("res://Texture/UI/Texture_skills/огонь комбо.png"),
-	"Вертикальный лазерный шар": preload("res://Texture/UI/Texture_skills/шар верт. лазер.png"),
-	"Горизонтальный лазерный шар": preload("res://Texture/UI/Texture_skills/шар горизонт. лазер.png"),
-	"Лазер смерти": preload("res://Texture/UI/Texture_skills/лазер смерти.png"),
-	"Повелитель лазера": preload("res://Texture/UI/Texture_skills/повелитель лазера.png"),
-	"Лазер: комбо": preload("res://Texture/UI/Texture_skills/лазер комбл.png"),
-	"Суперначало": preload("res://Texture/UI/Texture_skills/суперначало.png"),
-	"Последний рывок": preload("res://Texture/UI/Texture_skills/последний рывок.png"),
-	"Шар ракета": preload("res://Texture/UI/Texture_skills/шар ракета (ядерная).png"),
-	"Кумулятивный шар": preload("res://Texture/UI/Texture_skills/кумулятивный шар.png"),
-	"Ракета смерти": preload("res://Texture/UI/Texture_skills/ракета смерти.png"),
-	"Повелитель атома": preload("res://Texture/UI/Texture_skills/повелитель атома.png"),
-	"Ядерная: комбо": preload("res://Texture/UI/Texture_skills/комбо ядерное.png"),
-	"Шар удара в спину": preload("res://Texture/UI/Texture_skills/шар удара в спину.png"),
-	"Шар убийца": preload("res://Texture/UI/Texture_skills/шар убийца (технологии).png"),
-	"Бурящий шар": preload("res://Texture/UI/Texture_skills/бурящий шар.png"),
-	"Ловушка": preload("res://Texture/UI/Texture_skills/ловушка.png"),
-	"Повелитель технологий": preload("res://Texture/UI/Texture_skills/повелитель технологий.png"),
-	"Технология: комбо с тыла": preload("res://Texture/UI/Texture_skills/технология шипы тыл.png"),
-	"Технология: комбо с фронта": preload("res://Texture/UI/Texture_skills/технология шипы фронт.png"),
-	"Комбо: скидка": preload("res://Texture/UI/Texture_skills/скидка комбо.png"),
-	"Прибавка к восстановлению": preload("res://Texture/UI/Texture_skills/прибавка к восстановлению.png"),
-	"Оживление": preload("res://Texture/UI/Texture_skills/оживление.png")
-	}
+
+var texture_skill: Dictionary = { # Название : координаты тайла в сетке TileSet
+	"Шар-заморозка": Vector2i(2, 0),
+	"Усиление обычного шара": Vector2i(2, 5),
+	"Рассыпающийся шар": Vector2i(3, 4),
+	"Шар-бомба": Vector2i(5, 5),
+	"Усиление особого шара": Vector2i(3, 5),
+	"Прибавка ОЗ": Vector2i(0, 4),
+	"Шар молний": Vector2i(3, 0),
+	"Бомба-заморозка": Vector2i(0, 1),
+	"Огненный шар": Vector2i(4, 2),
+	"Усиление атаки": Vector2i(1, 5),
+	"Молния смерти": Vector2i(3, 2),
+	"Холод смерти": Vector2i(4, 5),
+	"Бомба смерти": Vector2i(1, 1),
+	"Повелитель молний": Vector2i(2, 3),
+	"Повелитель льда": Vector2i(5, 3),
+	"Повелитель огня": Vector2i(3, 3),
+	"Молния: комбо": Vector2i(2, 2),
+	"Лед: комбо": Vector2i(3, 1),
+	"Огонь: комбо": Vector2i(5, 2),
+	"Вертикальный лазерный шар": Vector2i(0, 0),
+	"Горизонтальный лазерный шар": Vector2i(1, 0),
+	"Лазер смерти": Vector2i(0, 2),
+	"Повелитель лазера": Vector2i(1, 3),
+	"Лазер: комбо": Vector2i(6, 1),
+	"Суперначало": Vector2i(5, 4),
+	"Последний рывок": Vector2i(6, 3),
+	"Шар ракета": Vector2i(4, 0),
+	"Кумулятивный шар": Vector2i(5, 1),
+	"Ракета смерти": Vector2i(2, 4),
+	"Повелитель атома": Vector2i(0, 3),
+	"Ядерная: комбо": Vector2i(4, 1),
+	"Шар удара в спину": Vector2i(6, 0),  # Исправлено с 6, 00 на 6, 0
+	"Шар убийца": Vector2i(5, 0),
+	"Бурящий шар": Vector2i(2, 1),
+	"Ловушка": Vector2i(1, 2),
+	"Повелитель технологий": Vector2i(4, 3),
+	"Технология: комбо с тыла": Vector2i(6, 4),
+	"Технология: комбо с фронта": Vector2i(0, 5),
+	"Комбо: скидка": Vector2i(4, 4),
+	"Прибавка к восстановлению": Vector2i(1, 4),
+	"Оживление": Vector2i(6, 2),
+}
+
 
 func _ready() -> void:
 	self.visible = false
+
 
 func _on_continue_pressed() -> void:
 	AudioManager.click()
@@ -64,6 +69,7 @@ func _on_continue_pressed() -> void:
 	get_tree().paused = false
 	self.visible = false
 	YandexSDK.gameplay_started()
+
 
 func update_texture_skill() -> void:
 	check_volume()
@@ -79,7 +85,13 @@ func update_texture_skill() -> void:
 			skills_box[i].texture = epic_ramk
 		elif skill in legendary:
 			skills_box[i].texture = legendary_ramk
-		skills_box[i].get_child(0).texture = texture_skill[skill]
+
+		var grid_pos = texture_skill[skill]
+		var skill_texture = Utils.get_tileset_atlas_texture(
+			skills_tileset.get_source(0),
+			grid_pos
+		)
+		skills_box[i].get_child(0).texture = skill_texture
 
 func _on_home_pressed() -> void:
 	AudioManager.click()

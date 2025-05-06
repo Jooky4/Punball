@@ -32,6 +32,7 @@ AudioManager="*res://Scenes/Global/audio_manager.tscn"
 PlayerIndicatorsManager="*res://Scenes/Global/player_indicators_manager.gd"
 ChangeScene="*res://Scenes/Global/change_scene.tscn"
 YandexMetrika="*res://addons/yandex-metrika/yandex_metrika.gd"
+Utils="*res://utils.gd"
 
 [display]
 
