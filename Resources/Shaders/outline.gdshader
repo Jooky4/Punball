@@ -11,7 +11,7 @@ void fragment() {
     vec4 tex_color = texture(TEXTURE, UV);
     
     // Проверяем, является ли текущий пиксель прозрачным
-    /*if (tex_color.a < 0.1) {
+    if (tex_color.a < 0.1) {
         // Выбираем максимальное значение альфа-канала из соседних пикселей
         float max_alpha = 0.0;
         float total_weight = 0.0;
@@ -27,9 +27,9 @@ void fragment() {
             vec2( 1.0, -0.5), vec2( 0.5, -1.0),
             vec2(-1.0,  0.5), vec2(-0.5,  1.0),
             vec2( 1.0,  0.5), vec2( 0.5,  1.0)
-        );*/
+        );
         
-        /*for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 16; i++) {
             vec2 sample_uv = UV + offsets[i] * TEXTURE_PIXEL_SIZE * outline_width;
             float alpha = texture(TEXTURE, sample_uv).a;
             
@@ -37,23 +37,23 @@ void fragment() {
             float weight = 1.0 - smoothstep(0.0, outline_width * 0.7, length(offsets[i]));
             max_alpha += alpha * weight;
             total_weight += weight;
-        }*/
+        }
         
         // Усредненное значение альфа-канала с учетом весов
-        //max_alpha = (total_weight > 0.0) ? (max_alpha / total_weight) : 0.0;
+        max_alpha = (total_weight > 0.0) ? (max_alpha / total_weight) : 0.0;
         
         // Плавное наложение обводки с регулируемой мягкостью
-       // float outline_strength = smoothstep(0.0, outline_smoothness, max_alpha);
+        float outline_strength = smoothstep(0.0, outline_smoothness, max_alpha);
         
         // Отключаем обводку за пределами границ
-        /*if (UV.y < top_bound || UV.y > bottom_bound) {
+        if (UV.y < top_bound || UV.y > bottom_bound) {
             outline_strength = 0.0;
-        }*/
+        }
         
         // Обводка не зависит от modulate
-        //COLOR = mix(vec4(0.0), outline_color, outline_strength);
-    //} else {
+        COLOR = mix(vec4(0.0), outline_color, outline_strength);
+    } else {
         // Применяем modulate_color к RGB текстуры, сохраняя альфа-канал
-       // COLOR = vec4(tex_color.rgb * modulate_color.rgb, tex_color.a);
-    //}
+        COLOR = vec4(tex_color.rgb * modulate_color.rgb, tex_color.a);
+    }
 }
