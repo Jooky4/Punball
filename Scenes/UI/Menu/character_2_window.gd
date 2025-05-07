@@ -3,14 +3,18 @@ extends Control
 var need_cois : int = 0
 var need_runes : int = 0
 
+func _ready() -> void:
+	$VBoxContainer/TextureProgressBar/Label.text = tr("CHR_LVL") + ": 0/20"
+
+
 func update_characyer_2_UI() -> void:
 	if PlayerIndicatorsManager.CHARACTER_2_LVL > 0:
 		if PlayerIndicatorsManager.CURRENT_CHARACTER == 2:
 			$Select_character.disabled = true
-			$Select_character/Label.text = str("Выбран")
+			$Select_character/Label.text = tr("CHR_SELECTED")
 		else:
 			$Select_character.disabled = false
-			$Select_character/Label.text = str("Выбрать")
+			$Select_character/Label.text = tr("CHR_SELECT")
 
 		$BuyButton.visible = false
 		$Level_UP_character_2_button.visible = true
@@ -21,7 +25,7 @@ func update_characyer_2_UI() -> void:
 		$VBoxContainer/HP_character/TextureRect3.visible = true
 		$VBoxContainer/HP_character/HP_UP.visible = true
 		$VBoxContainer/TextureProgressBar.value = PlayerIndicatorsManager.CHARACTER_2_LVL
-		$VBoxContainer/TextureProgressBar/Label.text = "УР: " + str(PlayerIndicatorsManager.CHARACTER_2_LVL) + "/20"
+		$VBoxContainer/TextureProgressBar/Label.text = tr("CHR_LVL") + ": " + str(PlayerIndicatorsManager.CHARACTER_2_LVL) + "/20"
 		$VBoxContainer/Attack_character/Attack_label.text = str(120 * (1 + ((PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 0.05)))
 		$VBoxContainer/Attack_character/Attack_UP.text = str(120 * (1 + (PlayerIndicatorsManager.CHARACTER_2_LVL * 0.05)))
 		$VBoxContainer/HP_character/HP_label.text = str(600 * (1 + ((PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 0.05)))
@@ -55,7 +59,7 @@ func update_characyer_2_UI() -> void:
 			$VBoxContainer/Attack_character/Attack_UP.visible = false
 			$VBoxContainer/HP_character/HP_UP.visible = false
 			$Need_matirial.visible = false
-			$Level_UP_character_2_button/Label.text = "МАКС."
+			$Level_UP_character_2_button/Label.text = tr("CHR_MAX")
 			$Level_UP_character_2_button.disabled = true
 			$Level_UP_character_2_button
 

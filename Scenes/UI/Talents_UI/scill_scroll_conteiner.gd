@@ -34,14 +34,35 @@ var for_crystal_talent_texture = {
 	"ОЗ +5%": preload("res://Texture/UI/Talents_UI/Talent_texture/ОЗ +Х_.png")}
 
 var discription_talants = {
-	"Дополнительный навык при старте боя": "Обычный или редкий скилл при старте уровня",
-	"Дополнительные монеты в начале боя": "Увеличение заработка монет",
-	"Атака +5%": "Увеличивает весь урон на 5% от текущего урона",
-	"1% нанести в 10 раз больше урона": "+1% шанс при каждом попадании нанести в 10 раз больше урона",
-	"Урон по боссу на 10% больше": "Увеличивает урон по боссу на 10%",
-	"10% шанс при взятии “+1 шар” получить 2 шара": "+10% шанс при взятии “+1 шар” получить 2 шара",
-	"0,1% нанести в 100 раз больше урона": "+0.1% шанс при каждом попадании нанести в 100 раз больше урона",
-	"ОЗ +5%": "Увеличивает ОЗ на 5%"}
+	"Дополнительный навык при старте боя": tr("TALENTS_CRYSTAL_0_DESC"),
+	"Дополнительные монеты в начале боя": tr("TALENTS_CRYSTAL_1_DESC"),
+	"Атака +5%": tr("TALENTS_CRYSTAL_2_DESC"),
+	"1% нанести в 10 раз больше урона": tr("TALENTS_CRYSTAL_3_DESC"),
+	"Урон по боссу на 10% больше": tr("TALENTS_CRYSTAL_4_DESC"),
+	"10% шанс при взятии “+1 шар” получить 2 шара": tr("TALENTS_CRYSTAL_5_DESC"),
+	"0,1% нанести в 100 раз больше урона": tr("TALENTS_CRYSTAL_6_DESC"),
+	"ОЗ +5%": tr("TALENTS_CRYSTAL_7_DESC"),
+}
+
+var skills_coins_description = {
+	"Увеличение атаки": tr("TALENTS_COINS_0_DESC"),
+	"Увеличение здоровья": tr("TALENTS_COINS_1_DESC"),
+	"Урон от врагов дальнего боя": tr("TALENTS_COINS_2_DESC"),
+	"Улучшение восстановления": tr("TALENTS_COINS_3_DESC"),
+	"Урон от врагов ближнего боя": tr("TALENTS_COINS_4_DESC"),
+	"Улучшение регенерации": tr("TALENTS_COINS_5_DESC"),
+	"Урон от БОССА": tr("TALENTS_COINS_6_DESC"),
+}
+
+var talent_names = {
+	"Увеличение атаки": tr("TALENTS_COINS_0_NAME"),
+	"Увеличение здоровья": tr("TALENTS_COINS_1_NAME"),
+	"Урон от врагов дальнего боя": tr("TALENTS_COINS_2_NAME"),
+	"Улучшение восстановления": tr("TALENTS_COINS_3_NAME"),
+	"Урон от врагов ближнего боя": tr("TALENTS_COINS_4_NAME"),
+	"Улучшение регенерации": tr("TALENTS_COINS_5_NAME"),
+	"Урон от БОССА": tr("TALENTS_COINS_6_NAME"),
+}
 
 var skills_for_crystall = [
 	"Атака +5%",
@@ -49,7 +70,8 @@ var skills_for_crystall = [
 	"Урон по боссу на 10% больше",
 	"10% шанс при взятии “+1 шар” получить 2 шара",
 	"0,1% нанести в 100 раз больше урона",
-	"ОЗ +5%"]
+	"ОЗ +5%"
+]
 
 var skills_for_coins = [
 	"Увеличение атаки",
@@ -76,7 +98,8 @@ var skills_for_coins = [
 	"Увеличение здоровья",
 	"Увеличение атаки",
 	"Увеличение здоровья",
-	"Урон от БОССА"]
+	"Урон от БОССА"
+]
 
 func erase_for_crystal() -> void:
 	for_crystal.disabled = true
@@ -114,13 +137,17 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
 	update_discription_for_crystal(talant)
 
+
 func update_discription_for_crystal(talant) -> void:
 	$For_crystal/Information/Skill_name.text = talant
 	$For_crystal/Information/Discription.text = discription_talants[talant]
 
+
 func update_discription_for_coins(talant, discription) -> void:
-	$For_coins/Information/Skill_name.text = talant
-	$For_coins/Information/Discription.text = discription + add_discription_coins(count_skill_for_coins, talant)
+	var descr = skills_coins_description[talant]
+	$For_coins/Information/Skill_name.text = talent_names[talant]
+	$For_coins/Information/Discription.text = descr + add_discription_coins(count_skill_for_coins, talant)
+
 
 func add_discription_coins(num_talant, name_talant) -> String:
 	var add_discripton = ""
@@ -209,7 +236,7 @@ func _on_button_for_coins_pressed() -> void:
 		$For_coins/Information/Skill_name.visible = true
 	elif bye == false and can_bye == false:
 		$For_coins/Information/Need_level.visible = true
-		$For_coins/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)
+		$For_coins/Information/Need_level.text = tr("TALENTS_REQUIRES_LEVEL") + " " + str(need_level_to_by)
 
 func _on_button_for_crystall_pressed() -> void:
 	AudioManager.click()
@@ -239,7 +266,7 @@ func _on_button_for_crystall_pressed() -> void:
 		$For_crystal/Information/Discription.visible = true
 	elif bye == false and can_bye == false:
 		$For_crystal/Information/Need_level.visible = true
-		$For_crystal/Information/Need_level.text = "Требуется уровень " + str(need_level_to_by)
+		$For_crystal/Information/Need_level.text = tr("TALENTS_REQUIRES_LEVEL") + " " + str(need_level_to_by)
 
 
 func information_close() -> void:

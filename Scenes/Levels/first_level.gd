@@ -758,107 +758,182 @@ func notification_about_new_enemy(num_enemy) -> void:
 	while LevelManager.spin_skill > 0:
 		await get_tree().create_timer(0.1).timeout
 	var play_anim = false
+
+	var enemies_info = {
+		1: {
+			"name": tr("ENEMY_ROGUE_NAME"),
+			"description": tr("ENEMY_ROGUE_DESCR"),
+		},
+		2: {
+			"name": tr("ENEMY_BLUEBERRY_NAME"),
+			"description": tr("ENEMY_BLUEBERRY_DESCR")
+		},
+		3: {
+			"name": tr("ENEMY_BOMB_NAME"),
+			"description": tr("ENEMY_BOMB_DESCR")
+		},
+		#4: {
+			#"name": tr("ENEMY__NAME"),
+			#"description": tr("ENEMY__DESCR")
+		#},
+		5: {
+			"name": tr("ENEMY_HEALER_NAME"),
+			"description": tr("ENEMY_HEALER_DESCR")
+		},
+		6: {
+			"name": tr("ENEMY_SLIME_NAME"),
+			"description": tr("ENEMY_SLIME_DESCR")
+		},
+		8: {
+			"name": tr("ENEMY_SHIELDBEARER_NAME"),
+			"description": tr("ENEMY_SHIELDBEARER_NAME")
+		},
+		9: {
+			"name": tr("ENEMY_JUMPER_NAME"),
+			"description": tr("ENEMY_JUMPER_DESCR")
+		},
+		10: {
+			"name": tr("ENEMY_SUMMONER_NAME"),
+			"description": tr("ENEMY_SUMMONER_DESCR")
+		},
+		12: {
+			"name": tr("ENEMY_POISON_BUG_NAME"),
+			"description": tr("ENEMY_POISON_BUG_DESCR")
+		},
+		13: {
+			"name": tr("ENEMY_BERSERKER_NAME"),
+			"description": tr("ENEMY_BERSERKER_DESCR")
+		},
+		14: {
+			"name": tr("ENEMY_ELEMENTAL_NAME"),
+			"description": tr("ENEMY_ELEMENTAL_DESCR")
+		},
+	}
 	match num_enemy:
 		1:
 			if PlayerIndicatorsManager.ENEMY_1_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/1".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Разбойник"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Все просто, не подпускай близко"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		2:
 			if PlayerIndicatorsManager.ENEMY_2_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/2".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Черника"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Стреляет ягодками, есть нельзя"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		3:
 			if PlayerIndicatorsManager.ENEMY_3_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/3".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Ходячая бомба"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "При смерти взрывается, нанося урон всем вокруг"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		5:
 			if PlayerIndicatorsManager.ENEMY_5_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/5".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Лекарь"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Лечит самого слабого врага"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		6:
 			if PlayerIndicatorsManager.ENEMY_6_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/6".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Слизь"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "При смерти делится на двух других, убивать по 3 раза"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		8:
 			if PlayerIndicatorsManager.ENEMY_8_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/8".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Щитоносец"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Неуязвим к атакам спереди"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		9:
 			if PlayerIndicatorsManager.ENEMY_9_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/9".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Прыгун"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Странно передвигается, быстрее прочих"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		10:
 			if PlayerIndicatorsManager.ENEMY_10_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/10".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Колдун"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Каждую волну призывает разбойника"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		12:
 			if PlayerIndicatorsManager.ENEMY_12_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/12".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Ядовитый бак"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "При смерти взрывается, отравляя всех вокруг"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		13:
 			if PlayerIndicatorsManager.ENEMY_13_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/13".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Берсерк"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Чем меньше здровье тем сильнее удар"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 		14:
 			if PlayerIndicatorsManager.ENEMY_14_FIRST_TIME == 0:
 				$"UI/Notification_about_enemy/For_PC/14".visible = true
-				$UI/Notification_about_enemy/For_PC/Enemy_name.text = "Элементаль огня"
-				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = "Неуязвим к урону от огня, но вдвойне уязвим для льда"
+				$UI/Notification_about_enemy/For_PC/Enemy_name.text = enemies_info[num_enemy].name
+				$UI/Notification_about_enemy/For_PC/Enemy_discription.text = enemies_info[num_enemy].description
 				play_anim = true
 	if play_anim:
 		await get_tree().create_timer(1).timeout
 		$UI/Notification_about_enemy/AnimationPlayer.play("for_pc")
 		PlayerIndicatorsManager.enemy_firs_time_spawn(num_enemy)
 
+
 func notification_about_boss_here() -> void:
+	var boss_info = {
+		"BLUEBERRY": {
+			"name": tr("BOSS_NAME_BLUEBERRY"),
+			"description": tr("BOSS_DESC_BLUEBERRY")
+		},
+		"SHIELDBEARER": {
+			"name": tr("BOSS_NAME_SHIELDBEARER"),
+			"description": tr("BOSS_DESC_SHIELDBEARER")
+		},
+		"NECROMANCER": {
+			"name": tr("BOSS_NAME_NECROMANCER"),
+			"description": tr("BOSS_DESC_NECROMANCER")
+		},
+		"LAVA_GOLEM": {
+			"name": tr("BOSS_NAME_LAVA_GOLEM"),
+			"description": tr("BOSS_DESC_LAVA_GOLEM")
+		},
+		"ODIN_WARRIOR": {
+			"name": tr("BOSS_NAME_ODIN_WARRIOR"),
+			"description": tr("BOSS_DESC_ODIN_WARRIOR")
+		},
+	}
+
 	$"UI/Reminder_boss/Boss_here/1".visible = false
 	$"UI/Reminder_boss/Boss_here/2".visible = false
 	$"UI/Reminder_boss/Boss_here/3".visible = false
 	$"UI/Reminder_boss/Boss_here/4".visible = false
 	$"UI/Reminder_boss/Boss_here/5".visible = false
 	if ((WaveGeneration.current_location % 10) - 1) == 0 or ((WaveGeneration.current_location % 10) - 1) == 1:
-		$UI/Reminder_boss/Boss_here.text = "Большая черника"
-		$UI/Reminder_boss/Boss_here/Label2.text = "Большой ствол, внушительный урон"
+		$UI/Reminder_boss/Boss_here.text = boss_info.BLUEBERRY.name
+		$UI/Reminder_boss/Boss_here/Label2.text = boss_info.BLUEBERRY.description
 		$"UI/Reminder_boss/Boss_here/1".visible = true
 		notification_about_boss_animation.play("spawn_boss")
 	elif ((WaveGeneration.current_location % 10) - 1) == 2 or ((WaveGeneration.current_location % 10) - 1) == 3:
-		$UI/Reminder_boss/Boss_here.text = "Щитоносец гвардеец"
-		$UI/Reminder_boss/Boss_here/Label2.text = "Абсолютно непробиваемый спереди"
+		$UI/Reminder_boss/Boss_here.text = boss_info.SHIELDBEARER.name
+		$UI/Reminder_boss/Boss_here/Label2.text = boss_info.SHIELDBEARER.description
 		$"UI/Reminder_boss/Boss_here/2".visible = true
 		notification_about_boss_animation.play("spawn_boss")
 	elif ((WaveGeneration.current_location % 10) - 1) == 4 or ((WaveGeneration.current_location % 10) - 1) == 5:
-		$UI/Reminder_boss/Boss_here.text = "Верховный некромант"
-		$UI/Reminder_boss/Boss_here/Label2.text = "Призывает огромные орды из 2х разбойников"
+		$UI/Reminder_boss/Boss_here.text = boss_info.NECROMANCER.name
+		$UI/Reminder_boss/Boss_here/Label2.text = boss_info.NECROMANCER.description
 		$"UI/Reminder_boss/Boss_here/3".visible = true
 		notification_about_boss_animation.play("spawn_boss")
 	elif ((WaveGeneration.current_location % 10) - 1) == 6 or ((WaveGeneration.current_location % 10) - 1) == 7:
-		$UI/Reminder_boss/Boss_here.text = "Лавовый голем"
-		$UI/Reminder_boss/Boss_here/Label2.text = "Очень горячий, жжет не по детски"
+		$UI/Reminder_boss/Boss_here.text = boss_info.LAVA_GOLEM.name
+		$UI/Reminder_boss/Boss_here/Label2.text = boss_info.LAVA_GOLEM.description
 		$"UI/Reminder_boss/Boss_here/4".visible = true
 		notification_about_boss_animation.play("spawn_boss")
 	elif ((WaveGeneration.current_location % 10) - 1) == 8 or ((WaveGeneration.current_location % 10) - 1) == -1:
-		$UI/Reminder_boss/Boss_here.text = "Воин одина"
-		$UI/Reminder_boss/Boss_here/Label2.text = "Абсолютный урон, близко не подпускать"
+		$UI/Reminder_boss/Boss_here.text = boss_info.ODIN_WARRIOR.name
+		$UI/Reminder_boss/Boss_here/Label2.text = boss_info.ODIN_WARRIOR.description
 		$"UI/Reminder_boss/Boss_here/5".visible = true
 		notification_about_boss_animation.play("spawn_boss")
 

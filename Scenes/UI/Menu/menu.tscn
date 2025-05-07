@@ -399,7 +399,7 @@ offset_top = 120.0
 offset_right = 362.0
 offset_bottom = 201.0
 grow_horizontal = 2
-text = "Лихолесье"
+text = "LVL_NAME_DARKWOOD"
 label_settings = SubResource("LabelSettings_njq23")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -551,10 +551,11 @@ offset_right = 120.0
 offset_bottom = 40.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "ИГРАТЬ"
+text = "BTN_PLAY"
 label_settings = SubResource("LabelSettings_njq23")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Shop" type="Control" parent="."]
 visible = false
@@ -595,6 +596,26 @@ alignment = 1
 layout_mode = 2
 texture = ExtResource("21_skdl8")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.350053
+anchor_top = 0.290476
+anchor_right = 0.649947
+anchor_bottom = 0.62381
+offset_left = -66.5
+offset_top = -11.5
+offset_right = 66.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_cjc1q")
+theme_override_font_sizes/font_size = 50
+text = "SHOP_DIV_COINS"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -1064,6 +1085,26 @@ vertical_alignment = 1
 layout_mode = 2
 texture = ExtResource("23_wpccf")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.323906
+anchor_top = 0.296117
+anchor_right = 0.676094
+anchor_bottom = 0.635922
+offset_left = -80.0
+offset_top = -11.5
+offset_right = 80.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_cjc1q")
+theme_override_font_sizes/font_size = 50
+text = "SHOP_DIV_CRYSTALS"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect4" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -1556,6 +1597,7 @@ texture = ExtResource("29_ke4g2")
 stretch_mode = 5
 
 [node name="All_characters" type="Control" parent="Characters"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1612,8 +1654,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1
-"
+text = "1"
 label_settings = SubResource("LabelSettings_8rve7")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1654,13 +1695,23 @@ grow_vertical = 0
 texture = ExtResource("32_sva66")
 
 [node name="Label" type="Label" parent="Characters/All_characters/HBoxContainer/Character_1/Select"]
-layout_mode = 0
-offset_right = 156.0
-offset_bottom = 58.0
-text = "Выбран"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -29.0
+offset_right = 98.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CHR_SELECTED"
 label_settings = SubResource("LabelSettings_hfpbj")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Character_2" type="TextureRect" parent="Characters/All_characters/HBoxContainer"]
 visible = false
@@ -1852,15 +1903,23 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Characters/All_characters/TextureRect"]
-layout_mode = 0
-offset_left = 214.0
-offset_top = -33.0
-offset_right = 453.0
-offset_bottom = 67.0
-text = "Все герои"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.5
+offset_top = -50.0
+offset_right = 184.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CHR_HERO_LIST"
 label_settings = SubResource("LabelSettings_vksps")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Characters/All_characters"]
 layout_mode = 1
@@ -2223,7 +2282,7 @@ offset_right = 1.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Улучшить"
+text = "CHR_BTN_UPGRADE"
 label_settings = SubResource("LabelSettings_ghhbb")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2251,7 +2310,7 @@ offset_left = 26.0
 offset_top = 22.0
 offset_right = 257.0
 offset_bottom = 68.0
-text = "Материалы:"
+text = "CHR_MATERIALS"
 label_settings = SubResource("LabelSettings_uqh6h")
 
 [node name="Coins" type="TextureRect" parent="Characters/Character_1_window/Need_matirial"]
@@ -2327,7 +2386,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Выбран"
+text = "CHR_SELECTED"
 label_settings = SubResource("LabelSettings_oites")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2345,7 +2404,7 @@ offset_right = 358.0
 offset_bottom = -491.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Алиса"
+text = "CHR_NAME_ALICE"
 label_settings = SubResource("LabelSettings_f7jfj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2426,7 +2485,7 @@ anchor_bottom = 1.0
 offset_right = -66.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "УР: 0/20"
+text = "CHR_LVL"
 label_settings = SubResource("LabelSettings_bij1h")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2591,15 +2650,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 66.0
 offset_top = -208.0
-offset_right = 320.0
+offset_right = 325.0
 offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Обычные шары становятся
-ледяными глыбами
-1% заморозить врага"
+text = "MERLIN_ICE_BALL_DESCR"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Discript2" type="Label" parent="Characters/Character_2_window"]
 layout_mode = 1
@@ -2614,10 +2672,10 @@ offset_right = 317.0
 offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Усиление стихии холода
-на 10%"
+text = "MERLIN_ICE_POWER_DESCR"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Discript3" type="Label" parent="Characters/Character_2_window"]
 layout_mode = 1
@@ -2632,10 +2690,10 @@ offset_right = 332.0
 offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "+5% шанс выпадения бонуса
-восстановления"
+text = "MERLIN_BONUS_REV_DESCR"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Level_UP_character_2_button" type="Button" parent="Characters/Character_2_window"]
 visible = false
@@ -2666,7 +2724,7 @@ offset_right = 1.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Улучшить"
+text = "CHR_BTN_UPGRADE"
 label_settings = SubResource("LabelSettings_ghhbb")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2695,7 +2753,7 @@ offset_left = 26.0
 offset_top = 22.0
 offset_right = 257.0
 offset_bottom = 68.0
-text = "Материалы:"
+text = "CHR_MATERIALS"
 label_settings = SubResource("LabelSettings_uqh6h")
 
 [node name="Coins" type="TextureRect" parent="Characters/Character_2_window/Need_matirial"]
@@ -2750,7 +2808,6 @@ text = "20"
 label_settings = SubResource("LabelSettings_edc2c")
 
 [node name="Select_character" type="TextureButton" parent="Characters/Character_2_window"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2772,7 +2829,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Выбрать"
+text = "CHR_SELECT"
 label_settings = SubResource("LabelSettings_oites")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2790,7 +2847,7 @@ offset_right = 358.0
 offset_bottom = -491.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Мерлин"
+text = "CHR_NAME_MERLIN"
 label_settings = SubResource("LabelSettings_f7jfj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -3073,11 +3130,10 @@ offset_right = 320.0
 offset_bottom = -133.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Обычные шары имеют 1%
-шанс распасться на 2 таких
-же шара"
+text = "BUSYA_PERK_1_DESCR"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Discript2" type="Label" parent="Characters/Character_3_window"]
 layout_mode = 1
@@ -3092,9 +3148,10 @@ offset_right = 343.0
 offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Шанс уклонения от атак +20%"
+text = "BUSYA_PERK_2_DESCR"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Discript3" type="Label" parent="Characters/Character_3_window"]
 layout_mode = 1
@@ -3109,10 +3166,10 @@ offset_right = 331.0
 offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Чем меньше ОЗ, тем больше
-становится урон"
+text = "BUSYA_PERK_3_DESCR"
 label_settings = SubResource("LabelSettings_pr7md")
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Level_UP_character_3_button" type="Button" parent="Characters/Character_3_window"]
 visible = false
@@ -3142,7 +3199,7 @@ offset_right = 1.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Улучшить"
+text = "CHR_BTN_UPGRADE"
 label_settings = SubResource("LabelSettings_ghhbb")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -3171,7 +3228,7 @@ offset_left = 26.0
 offset_top = 22.0
 offset_right = 257.0
 offset_bottom = 68.0
-text = "Материалы:"
+text = "CHR_MATERIALS"
 label_settings = SubResource("LabelSettings_uqh6h")
 
 [node name="Coins" type="TextureRect" parent="Characters/Character_3_window/Need_matirial"]
@@ -3248,7 +3305,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Выбрать"
+text = "CHR_SELECT"
 label_settings = SubResource("LabelSettings_oites")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -3266,7 +3323,7 @@ offset_right = 358.0
 offset_bottom = -491.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Буся"
+text = "CHR_NAME_BUSYA"
 label_settings = SubResource("LabelSettings_f7jfj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -3450,8 +3507,9 @@ offset_right = 78.0294
 offset_bottom = -5.23509
 grow_horizontal = 2
 grow_vertical = 0
-text = "МАГАЗИН"
+text = "TAB_SHOP"
 label_settings = SubResource("LabelSettings_gcvxd")
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="Select_buttons"]
 custom_minimum_size = Vector2(6, 0)
@@ -3492,7 +3550,7 @@ offset_right = 78.0294
 offset_bottom = -5.23509
 grow_horizontal = 2
 grow_vertical = 0
-text = "В БОЙ"
+text = "TAB_FIGHT"
 label_settings = SubResource("LabelSettings_gcvxd")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -3555,7 +3613,7 @@ offset_right = 78.0294
 offset_bottom = -5.23509
 grow_horizontal = 2
 grow_vertical = 0
-text = "ТАЛАНТЫ"
+text = "TAB_TALENTS"
 label_settings = SubResource("LabelSettings_gcvxd")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -3655,7 +3713,7 @@ offset_right = 104.971
 offset_bottom = -5.23509
 grow_horizontal = 2
 grow_vertical = 0
-text = "ГЕРОИ"
+text = "TAB_HEROES"
 label_settings = SubResource("LabelSettings_gcvxd")
 horizontal_alignment = 1
 vertical_alignment = 1

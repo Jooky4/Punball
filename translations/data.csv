@@ -1,0 +1,169 @@
+id;ru;en
+LVL_NAME_DARKWOOD;Лихолесье;Darkwood
+LVL_NAME_DESERT;Пустыня;Desert
+LVL_NAME_CASTLE;Замок;Castle
+LVL_NAME_FOGGRAVE;Туманграф;Foggrave
+LVL_NAME_ETHERION;Эфирион;Etherion
+LVL_NAME_RUSTHOLD;Ржавник;Rusthold
+LVL_NAME_LUNARIS;Лунарис;Lunaris
+LVL_NAME_WHISPERHOLLOW;Шептоль;Whisperhollow
+LVL_NAME_FLAMEGRAD;Пламеград;Flamegrad
+LVL_NAME_VOIDNAR;Безднария;Voidnar
+MAX_WAVE;максимальный уровень;Max wave
+BTN_PLAY;Играть;Play
+TAB_SHOP;Магазин;Shop
+TAB_FIGHT;В Бой;Fight
+TAB_TALENTS;Таланты;Talents
+TAB_HEROES;Герои;Heroes
+SHOP_DIV_COINS;Монеты;Coins
+SHOP_DIV_CRYSTALS;Кристаллы;Crystals
+CURRENCY;РУБ;YAN
+PAUSE;Пауза;Pause
+SKILL_LIST;Список навыков;Skills list
+TUT_AIM_N_SHOOT;Прицелься и стреляй;Aim and shoot
+TUT_PLUS_BALL;+1 шар;+1 ball
+TUT_GET_SKILL;Получи навык;Get skill
+BTN_CONTINUE;Продолжить;Continue
+LVL_UP_ADS;Реклама;ADS
+LVL_UP_NEW_LEVEL;Новый уровень!;New level!
+LVL_UP_REWARD;Награда;Reward
+WIN_REWARD_ADS;Награда +50%;Reward +50%
+WIN_REWARD;Награда;Reward
+WIN_DEFEAT;Поражение;Defeat
+WIN_VICTORY;Победа!;Victory!
+WIN_WAVE_COUNT;Столько волн вы прошли!;That's how many waves you've passed!
+CHEST_REWARD;Награда;Reward
+RVVL_ADS;Реклама;ADS
+RVVL_REVIVE;Оживление;Revive
+RVVL_ALMOST;Вы почти прошли этап!;You're almost through the stage!
+RVVL_50_HP;50%   ОЗ;50%   HP
+RVVL_100_HP;100%   ОЗ    3 ряда;100%   HP    3 rows
+RVVL_SUPER_REVIVE;Супер возрождение;Super Revive
+CHR_NAME_ALICE;Алиса;Alice
+CHR_NAME_MERLIN;Мерлин;Merlin
+CHR_NAME_BUSYA;Буся;Busya
+CHR_SELECT;Выбрать;Select
+CHR_SELECTED;Выбран;Selected
+CHR_BTN_UPGRADE;Улучшить;Upgrade
+CHR_MATERIALS;Материалы:;Materials:
+CHR_HERO_LIST;Все герои;All heroes
+CHR_LVL;УР;LVL
+CHR_MAX;МАКС.;MAX
+MERLIN_ICE_BALL_DESCR;Обычные шары становятся ледяными глыбами 1% заморозить врага;Regular balls turn into ice blocks with a 1% chance to freeze enemies
+MERLIN_ICE_POWER_DESCR;Усиление стихии холода на 10%;Boosts ice element power by 10%
+MERLIN_BONUS_REV_DESCR;+5% шанс выпадения бонуса восстановления;+5% chance for a recovery bonus drop
+BUSYA_PERK_1_DESCR;Обычные шары имеют 1% шанс распасться на 2 таких же шара;Regular balls have a 1% chance to split into 2 balls
+BUSYA_PERK_2_DESCR;Шанс уклонения от атак +20%;+20% chance to dodge attacks
+BUSYA_PERK_3_DESCR;Чем меньше ОЗ, тем больше становится урон;The lower the HP, the higher the damage
+MENU_MAX_WAVE;максимальный уровень;Max wave
+LEVEL_BOSS;Босс;Boss
+LEVEL_BOSS_INCOMING;Босс идёт;Boss incoming
+LEVEL_WAVE;Волна;Wave
+LEVEL_COMBO;Комбо;Combo
+ENEMY_ROGUE_NAME;Разбойник;Rogue
+ENEMY_ROGUE_DESCR;Все просто, не подпускай близко;Simple guy. Just don’t let him get close.
+ENEMY_BLUEBERRY_NAME;Черника;Blueberry
+ENEMY_BLUEBERRY_DESCR;Стреляет ягодками, есть нельзя;Shoots berries. Not edible.
+ENEMY_BOMB_NAME;Ходячая бомба;Walking Bomb
+ENEMY_BOMB_DESCR;При смерти взрывается, нанося урон всем вокруг;Explodes on death, damaging everyone nearby.
+ENEMY_HEALER_NAME;Лекарь;Healer
+ENEMY_HEALER_DESCR;Лечит самого слабого врага;Heals the weakest enemy.
+ENEMY_SLIME_NAME;Слизь;Slime
+ENEMY_SLIME_DESCR;При смерти делится на двух других, убивать по 3 раза;Splits into two on death. Kill it three times!
+ENEMY_SHIELDBEARER_NAME;Щитоносец;Shieldbearer
+ENEMY_SHIELDBEARER_DESCR;Неуязвим к атакам спереди;Immune to attacks from the front.
+ENEMY_JUMPER_NAME;Прыгун;Jumper
+ENEMY_JUMPER_DESCR;Странно передвигается, быстрее прочих;Moves weird. Faster than others.
+ENEMY_SUMMONER_NAME;Колдун;Summoner
+ENEMY_SUMMONER_DESCR;Каждую волну призывает разбойника;Summons a rogue every wave.
+ENEMY_POISON_BUG_NAME;Ядовитый бак;Poison Bug
+ENEMY_POISON_BUG_DESCR;При смерти взрывается, отравляя всех вокруг;Explodes on death, poisoning everything around.
+ENEMY_BERSERKER_NAME;Берсерк;Berserker
+ENEMY_BERSERKER_DESCR;Чем меньше здоровье тем сильнее удар;Hits harder the lower its health.
+ENEMY_FIRE_ELEMENTAL_NAME;Элементаль огня;Fire Elemental
+ENEMY_FIRE_ELEMENTAL_DESCR;Неуязвим к урону от огня, но вдвойне уязвим для льда;Immune to fire, takes double damage from ice.
+BOSS_NAME_BLUEBERRY;Большая черника;Big Blueberry
+BOSS_DESC_BLUEBERRY;Большой ствол, внушительный урон;Big barrel, big damage
+BOSS_NAME_SHIELDBEARER;Щитоносец гвардеец;Shieldbearer Guard
+BOSS_DESC_SHIELDBEARER;Абсолютно непробиваемый спереди;Completely invincible from the front
+BOSS_NAME_NECROMANCER;Верховный некромант;High Necromancer
+BOSS_DESC_NECROMANCER;Призывает огромные орды из 2х разбойников;Summons massive hordes of 2 rogues
+BOSS_NAME_LAVA_GOLEM;Лавовый голем;Lava Golem
+BOSS_DESC_LAVA_GOLEM;Очень горячий, жжет не по детски;Super hot, burns like crazy
+BOSS_NAME_ODIN_WARRIOR;Воин одина;Odin's Warrior
+BOSS_DESC_ODIN_WARRIOR;Абсолютный урон, близко не подпускать;Huge damage — don’t let him near
+BTN_FREE;Бесплатно;Free
+ADS;РЕКЛАМА;ADS
+SKILL_COMMON;Обычный;Common
+SKILL_RARE;Редкий;Rare
+SKILL_EPIC;Эпический;Epic
+SKILL_LEGENDARY;Легендарный;Legendary
+SKILL_BTN_REFRESH;Обновить;Refresh
+SKILL_DESC_FREEZE_BALL;Шар холода: имеет 10% шанс заморозить врага;Freeze Ball: has a 10% chance to freeze an enem
+SKILL_DESC_ICE_COMBO;Выпускает ледяной конус в случайного врага каждые 40 комбо;Ice Combo: shoots an ice cone at a random enemy every 40 combosSKILL_DESC_NUKE_COMBO;Выпускает ракету в самого слабого врага каждые 40 комбо;Nuke Combo: fires a missile at the weakest enemy every 40 combos
+SKILL_DESC_INC_HP_RECOVERY;ОЗ восстанавливается в большем объеме;Increased HP recovery
+SKILL_DESC_INC_MAX_HP;Максимальный ОЗ повышен;Max HP increased
+SKILL_DESC_NORMAL_BALL_BOOST;Урон, наносимый обычными шарами, повышен;Normal ball damage boosted
+SKILL_DESC_FIRE_BALL;Огненный шар: наносит урон и поджигает врагов;Fire Ball: burns and damages enemies
+SKILL_DESC_BOMB_BALL;Шар бомба: наносит урон по области;Bomb Ball: deals area damage
+SKILL_DESC_FREEZE_BOMB;Бомба холода: наносит урон по области и может заморозить врага;Freeze Bomb: area damage with a chance to freeze
+SKILL_DESC_LIGHTING_COMBO;Выпускает три молнии каждые 40 комбо;Lightning Combo: strikes three enemies every 40 combos
+SKILL_DESC_LASER_COMBO;Выпускает лазерный шар в случайного врага каждые 40 комбо;Laser Combo: shoots a laser ball at a random enemy every 40 combos
+SKILL_DESC_FIRE_COMBO;Выпускает огненный шар в случайного врага каждые 40 комбо;Fire Combo: shoots a fire ball at a random enemy every 40 combos
+SKILL_DESC_POWER_BALL;Мощный шар: наносит врагу огромный урон один раз;Power Ball: deals massive one-time damage
+SKILL_DESC_BACKSTAB_BALL;Шар сюрикен: наносит врагам больше урона при атаке со спины;Backstab Ball: deals more damage from behind
+SKILL_DESC_KILLER_BALL;Шар убийца: имеет небольшой шанс мгновенно убить врага;Killer Ball: small chance to instantly kill
+SKILL_DESC_BACKLINE_TECH;Наносит урон самому дальнему врагу каждые 40 комбо;Backline Tech: hits the farthest enemy every 40 combos
+SKILL_DESC_FRONTLINE_TECH;Наносит урон ближайшему врагу каждые 40 комбо;Frontline Tech: hits the nearest enemy every 40 combos
+SKILL_DESC_SPECIAL_BALL_BOOST;Урон, наносимый особыми шарами, повышен;Special ball damage boosted
+SKILL_DESC_DAMAGE_BOOST;Урон от всех атак повышен;All attack damage boosted
+SKILL_DESC_COMBO_SKILLS;Для комбо навыков требуется на 10% меньше комбо;Combo skills need 10% fewer combos
+SKILL_DESC_SUPER_START;Урон от первого шара Х300%;Super Start: first ball deals 300% damage
+SKILL_DESC_LIGHTING_BALL;Шар молний: поражает трех случайных врагов;Lightning Ball: strikes three random enemies
+SKILL_DESC_ICE_MASTER;Урон от льда повышен. Выше шанс заморозки;Ice Master: boosts ice damage and freeze chance
+SKILL_DESC_FIRE_MASTER;Урон от огня повышен. Горение наносит урон по области;Fire Master: boosts fire damage and area burn
+SKILL_DESC_SPLITTING_BALL;Рассыпающийся шар: распадается на 4 маленьких шарика;Splitting Ball: splits into 4 small balls
+SKILL_DESC_VERTICAL_LASER_BALL;Лазерный шар: наносит врагам урон вертикальным лазерным лучом;Vertical Laser Ball: vertical laser beam damage
+SKILL_DESC_HORIZONTAL_LASER_BALL;Лазерный шар: наносит врагам урон горизонтальным лазерным лучом;Horizontal Laser Ball: horizontal laser beam damage
+SKILL_DESC_LASER_MASTER;Урон от лазера повышается. Лазеры стреляют в 4 направлениях;Laser Master: lasers fire in 4 directions
+SKILL_DESC_ROCKET_BALL;Шар ракета: выпускает ракеты в самого слабого врага;Rocket Ball: launches rockets at the weakest enemy
+SKILL_DESC_ROCKET_MASTER;Урон от ракет повышен. +1 ракета при запуске ракет;Rocket Master: boosts rocket damage and adds +1 rocket
+SKILL_DESC_PIERCING_BALL;Бурящий шар: пронзает всех врагов;Piercing Ball: pierces through all enemies
+SKILL_DESC_TRAP;В момент смерти враги создают ловушки;Trap: enemies create traps on death
+SKILL_DESC_DEATH_CHILL;Наносит урон по области вокруг убитого врага. Может сработать заморозка;Death Chill: area damage around killed enemies, may freeze
+SKILL_DESC_LIGHTING_MASTER;Урон от молний повышен. Молнии бьют еще по 2 целям;Lightning Master: boosts lightning damage, hits 2 extra targets
+SKILL_DESC_DEATH_LIGHTING;При гибели врага три молнии бьют случайных противников;Death Lightning: strikes random enemies when one dies
+SKILL_DESC_DEATH_BOMB;Наносит урон по области вокруг убитого врага;Death Bomb: area damage around a defeated enemy
+SKILL_DESC_DEATH_LASER;При гибели врага, выпускает от него горизонтальный лазер;Death Laser: shoots a horizontal laser on enemy death
+SKILL_DESC_DEATH_ROCKETS;Создает множество самонаводящихся ракет при гибели врага;Death Rockets: launches homing rockets when an enemy dies
+SKILL_DESC_TECH_MASTER;Урон от технологий повышается. Атака технологией лечит ОЗ;Tech Master: tech attack damage boosted, heals HP
+SKILL_DESC_REVIVE;После смерти игрока восстанавливает ОЗ в полном объеме;Revive: fully restores HP after death
+SKILL_DESC_LAST_PUSH;Урон от последнего шара Х300%;Last Push: last ball deals 300% damage
+TALENTS_REQUIRES_LEVEL;Требуется уровень;Requires level
+TALENTS_ATTACK;Атака:;Attack:
+TALENTS_HP;ОЗ:;HP:
+TALENTS_NEED_LEVEL;Необходимо открыть предыдущий талант;You need to unlock the previous talent
+TALENTS_NEED_BUY_PREV_TALENT;необходимо купить предыдщий талант;You need to buy the previous talent
+TALENTS_NEED_OPEN_PREV_TALENT;необходимо открыть предыдущий талант;You need to unlock the previous talent
+TALENTS_CRYSTAL_0_DESC;Обычный или редкий скилл при старте уровня;Common or Rare skill at level start
+TALENTS_CRYSTAL_1_DESC;Увеличение заработка монет;Increased coin earnings
+TALENTS_CRYSTAL_2_DESC;Увеличивает весь урон на 5% от текущего урона;Increases all damage by 5% of current damage
+TALENTS_CRYSTAL_3_DESC;+1% шанс при каждом попадании нанести в 10 раз больше урона;+1% chance on hit to deal 10x damage
+TALENTS_CRYSTAL_4_DESC;Увеличивает урон по боссу на 10%;Increases boss damage by 10%
+TALENTS_CRYSTAL_5_DESC;+10% шанс при взятии “+1 шар” получить 2 шара;+10% chance to get 2 balls instead of +1 ball
+TALENTS_CRYSTAL_6_DESC;+0.1% шанс при каждом попадании нанести в 100 раз больше урона;+0.1% chance on hit to deal 100x damage
+TALENTS_CRYSTAL_7_DESC;Увеличивает ОЗ на 5%;Increases HP by 5%
+TALENTS_COINS_0_DESC;Атака:;Attack:
+TALENTS_COINS_1_DESC;ОЗ:;HP:
+TALENTS_COINS_2_DESC;Урон:;Damage:
+TALENTS_COINS_3_DESC;ОЗ лечения:;Heal HP:
+TALENTS_COINS_4_DESC;Урон:;Damage:
+TALENTS_COINS_5_DESC;Регенерация:;Regen:
+TALENTS_COINS_6_DESC;Урон:;Damage:
+TALENTS_COINS_0_NAME;Увеличение атаки;Attack Boost
+TALENTS_COINS_1_NAME;Увеличение здоровья;HP Boost
+TALENTS_COINS_2_NAME;Урон от врагов дальнего боя;Damage from Ranged Enemies
+TALENTS_COINS_3_NAME;Улучшение восстановления;Healing Boost
+TALENTS_COINS_4_NAME;Урон от врагов ближнего боя;Damage from Melee Enemies
+TALENTS_COINS_5_NAME;Улучшение регенерации;Regen Boost
+TALENTS_COINS_6_NAME;Урон от БОССА;Boss Damage

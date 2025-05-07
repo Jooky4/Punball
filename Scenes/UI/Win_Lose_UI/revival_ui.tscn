@@ -38,6 +38,7 @@ outline_size = 12
 outline_color = Color(0.32549, 0.137255, 0.0196078, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_werv1"]
+line_spacing = 0.0
 font = ExtResource("4_yc3ln")
 font_size = 20
 
@@ -131,7 +132,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Оживление"
+text = "RVVL_REVIVE"
 label_settings = SubResource("LabelSettings_7osg2")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -143,7 +144,7 @@ anchor_right = 1.0
 offset_top = 55.5
 offset_bottom = 113.5
 grow_horizontal = 2
-text = "Вы почти прошли этап"
+text = "RVVL_ALMOST"
 label_settings = SubResource("LabelSettings_tt6py")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -156,6 +157,7 @@ offset_right = 473.0
 offset_bottom = 323.0
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect4/RevivalForCrystalsHead"]
+layout_mode = 0
 offset_left = 61.0
 offset_top = -1.0
 offset_right = 102.0
@@ -164,6 +166,7 @@ texture = ExtResource("8_bh34m")
 expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect4/RevivalForCrystalsHead"]
+layout_mode = 0
 offset_left = 115.0
 offset_top = -1.0
 offset_right = 172.0
@@ -172,11 +175,12 @@ texture = ExtResource("9_vtsxv")
 expand_mode = 1
 
 [node name="Label4" type="Label" parent="TextureRect4/RevivalForCrystalsHead"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 220.0
 offset_bottom = 67.0
-text = "100%   ОЗ    3 ряда"
+text = "RVVL_100_HP"
 label_settings = SubResource("LabelSettings_d1pbo")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -194,13 +198,12 @@ theme = ExtResource("8_o7hym")
 
 [node name="Label" type="Label" parent="TextureRect4/CRYSTALS"]
 layout_mode = 0
-offset_left = 23.7142
-offset_top = 22.5714
-offset_right = 205.714
-offset_bottom = 84.5714
+offset_left = 24.0
+offset_top = 30.7143
+offset_right = 206.0
+offset_bottom = 54.7143
 scale = Vector2(1.45, 1.45)
-text = "возрождение
-100        "
+text = "RVVL_SUPER_REVIVE"
 label_settings = SubResource("LabelSettings_werv1")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -211,12 +214,21 @@ uppercase = true
 material = ExtResource("7_wuhms")
 layout_mode = 0
 offset_left = 95.0
-offset_top = 28.0
+offset_top = 22.6601
 offset_right = 126.0
-offset_bottom = 59.0
+offset_bottom = 53.6601
 texture = ExtResource("20_masc1")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="TextureRect4/CRYSTALS/Label"]
+layout_mode = 0
+offset_left = 56.5518
+offset_top = 26.8769
+offset_right = 96.5518
+offset_bottom = 50.8769
+text = "100"
+label_settings = SubResource("LabelSettings_werv1")
 
 [node name="RevivalForAdHead" type="Control" parent="TextureRect4"]
 anchors_preset = 0
@@ -236,11 +248,11 @@ expand_mode = 1
 
 [node name="Label3" type="Label" parent="TextureRect4/RevivalForAdHead"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 1.5
-offset_right = 145.0
-offset_bottom = 63.5
-text = "50%   ОЗ"
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 168.0
+offset_bottom = 64.0
+text = "RVVL_50_HP"
 label_settings = SubResource("LabelSettings_d1pbo")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -264,7 +276,7 @@ offset_top = 15.7145
 offset_right = 228.714
 offset_bottom = 77.7145
 scale = Vector2(1.45, 1.45)
-text = "Реклама"
+text = "RVVL_ADS"
 label_settings = SubResource("LabelSettings_yskpe")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -341,8 +353,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1
-"
+text = "1"
 label_settings = SubResource("LabelSettings_vw055")
 horizontal_alignment = 1
 vertical_alignment = 1

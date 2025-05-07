@@ -66,6 +66,11 @@ LBM={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/data.en.translation", "res://translations/data.ru.translation")
+locale/test="en"
+
 [layer_names]
 
 2d_physics/layer_1="walls"

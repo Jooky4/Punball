@@ -6,17 +6,17 @@ var need_runes : int = 0
 func update_characyer_1_UI() -> void:
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 1:
 		$Select_character.disabled = true
-		$Select_character/Label.text = str("Выбран")
+		$Select_character/Label.text = tr("CHR_SELECTED")
 	else:
 		$Select_character.disabled = false
-		$Select_character/Label.text = str("Выбрать")
+		$Select_character/Label.text = tr("CHR_SELECT")
 
 	$VBoxContainer/TextureProgressBar.value = PlayerIndicatorsManager.CHARACTER_1_LVL
-	$VBoxContainer/TextureProgressBar/Label.text = "УР: " + str(PlayerIndicatorsManager.CHARACTER_1_LVL) + "/20"
-	$VBoxContainer/Attack_character/Attack_label.text = str(100 * (1 + ((PlayerIndicatorsManager.CHARACTER_1_LVL - 1) * 0.05)))
-	$VBoxContainer/Attack_character/Attack_UP.text = str(100 * (1 + (PlayerIndicatorsManager.CHARACTER_1_LVL * 0.05)))
-	$VBoxContainer/HP_character/HP_label.text = str(500 * (1 + ((PlayerIndicatorsManager.CHARACTER_1_LVL - 1) * 0.05)))
-	$VBoxContainer/HP_character/HP_UP.text = str(500 * (1 + (PlayerIndicatorsManager.CHARACTER_1_LVL * 0.05)))
+	$VBoxContainer/TextureProgressBar/Label.text = tr("CHR_LVL") +": " + str(PlayerIndicatorsManager.CHARACTER_1_LVL) + "/20"
+	$VBoxContainer/Attack_character/Attack_label.text = str(int(100 * (1 + ((PlayerIndicatorsManager.CHARACTER_1_LVL - 1) * 0.05))))
+	$VBoxContainer/Attack_character/Attack_UP.text = str(int(100 * (1 + (PlayerIndicatorsManager.CHARACTER_1_LVL * 0.05))))
+	$VBoxContainer/HP_character/HP_label.text = str(int(500 * (1 + ((PlayerIndicatorsManager.CHARACTER_1_LVL - 1) * 0.05))))
+	$VBoxContainer/HP_character/HP_UP.text = str(int(500 * (1 + (PlayerIndicatorsManager.CHARACTER_1_LVL * 0.05))))
 
 	$Need_matirial/Runes/Runes_Label.text = str(100 + (PlayerIndicatorsManager.CHARACTER_1_LVL - 1) * 20)
 	need_runes = (100 + (PlayerIndicatorsManager.CHARACTER_1_LVL - 1) * 20)

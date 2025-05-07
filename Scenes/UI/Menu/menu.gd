@@ -20,17 +20,18 @@ extends Control
 @onready var play_button = $Main_menu/PlayButton
 
 var location = {
-	0 : [preload("res://Texture/UI/Main_menu/Location/1.png"), "Лихолесье"],
-	1 : [preload("res://Texture/UI/Main_menu/Location/2.png"), "Пустыня"],
-	2 : [preload("res://Texture/UI/Main_menu/Location/3.png"), "Замок"],
-	3 : [preload("res://Texture/UI/Main_menu/Location/4.png"), "Туманграф"],
-	4 : [preload("res://Texture/UI/Main_menu/Location/5.png"), "Эфирион"],
-	5 : [preload("res://Texture/UI/Main_menu/Location/6.png"), "Ржавник"],
-	6 : [preload("res://Texture/UI/Main_menu/Location/7.png"), "Лунарис"],
-	7 : [preload("res://Texture/UI/Main_menu/Location/8.png"), "Шептоль"],
-	8 : [preload("res://Texture/UI/Main_menu/Location/9.png"), "Пламеград"],
-	-1 : [preload("res://Texture/UI/Main_menu/Location/10.png"), "Безднария"]
+	0 : [preload("res://Texture/UI/Main_menu/Location/1.png"), tr("LVL_NAME_DARKWOOD")],
+	1 : [preload("res://Texture/UI/Main_menu/Location/2.png"), tr("LVL_NAME_DESERT")],
+	2 : [preload("res://Texture/UI/Main_menu/Location/3.png"), tr("LVL_NAME_CASTLE")],
+	3 : [preload("res://Texture/UI/Main_menu/Location/4.png"), tr("LVL_NAME_FOGGRAVE")],
+	4 : [preload("res://Texture/UI/Main_menu/Location/5.png"), tr("LVL_NAME_ETHERION")],
+	5 : [preload("res://Texture/UI/Main_menu/Location/6.png"), tr("LVL_NAME_RUSTHOLD")],
+	6 : [preload("res://Texture/UI/Main_menu/Location/7.png"), tr("LVL_NAME_LUNARIS")],
+	7 : [preload("res://Texture/UI/Main_menu/Location/8.png"), tr("LVL_NAME_WHISPERHOLLOW")],
+	8 : [preload("res://Texture/UI/Main_menu/Location/9.png"), tr("LVL_NAME_FLAMEGRAD")],
+	-1 : [preload("res://Texture/UI/Main_menu/Location/10.png"), tr("LVL_NAME_VOIDNAR")]
 }
+
 var current_location = 1
 var number_cycle = 0
 
@@ -62,6 +63,9 @@ func _ready() -> void:
 
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
+
+	# перезаписываем начальное значение с переводом
+	max_wave_on_locations_label.text = tr("MAX_WAVE") + ": 0/20"
 
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
 		YandexSDK.init_game()
@@ -203,7 +207,7 @@ func update_cuurent_location_texture() -> void:
 			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[((current_location - 1) / 10) - 1])
 		else:
 			location_name_label.text = location[(current_location % 10) - 1][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
+		max_wave_on_locations_label.text = tr("MAX_WAVE") + " " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
 func update_characte_UI() -> void:
 	if PlayerIndicatorsManager.LEVEL_PLAYER < 5:
@@ -283,7 +287,7 @@ func _on_next_location_pressed() -> void:
 			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[((current_location - 1) / 10) - 1])
 		else:
 			location_name_label.text = location[(current_location % 10) - 1][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
+		max_wave_on_locations_label.text = tr("MAX_WAVE") + " " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
 func _on_back_location_pressed() -> void:
 	AudioManager.click()
@@ -294,7 +298,7 @@ func _on_back_location_pressed() -> void:
 			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[((current_location - 1) / 10) - 1])
 		else:
 			location_name_label.text = location[(current_location % 10) - 1][1]
-		max_wave_on_locations_label.text = "максимальный уровень " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
+		max_wave_on_locations_label.text = tr("MENU_MAX_WAVE") + " " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
 func _on_mainmenu_button_pressed() -> void:
 	AudioManager.click()

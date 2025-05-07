@@ -115,10 +115,11 @@ offset_left = 58.0
 offset_top = 2.0
 offset_right = 610.0
 offset_bottom = 125.0
-text = "ПОБЕДА!"
+text = "WIN_VICTORY"
 label_settings = SubResource("LabelSettings_dewbw")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Lose" type="Label" parent="Win_Lose_Label"]
 layout_mode = 0
@@ -126,10 +127,11 @@ offset_left = 58.0
 offset_top = 2.0
 offset_right = 606.0
 offset_bottom = 126.0
-text = "ПОРАЖЕНИЕ"
+text = "WIN_DEFEAT"
 label_settings = SubResource("LabelSettings_dewbw")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="TextureRect8" type="Sprite2D" parent="Win_Lose_Label"]
 visible = false
@@ -168,17 +170,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -360.5
+offset_left = -185.5
 offset_top = 101.0
-offset_right = 360.5
+offset_right = 186.5
 offset_bottom = 186.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Столько волн 
-вы прошли!"
+text = "WIN_WAVE_COUNT"
 label_settings = SubResource("LabelSettings_spjdl")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 uppercase = true
 
 [node name="Player_level" type="TextureRect" parent="."]
@@ -250,8 +252,9 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "НАГРАДА"
+text = "WIN_REWARD"
 label_settings = SubResource("LabelSettings_2q3ig")
+uppercase = true
 
 [node name="TextureRect12" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -442,10 +445,11 @@ offset_right = -8.88892
 offset_bottom = 2.2222
 grow_horizontal = 2
 grow_vertical = 2
-text = "НАГРАДА +50%"
+text = "WIN_REWARD_ADS"
 label_settings = SubResource("LabelSettings_t4pvo")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Go_to_menu" type="Button" parent="."]
 layout_mode = 1
@@ -477,10 +481,11 @@ offset_right = 1.11111
 offset_bottom = 1.11114
 grow_horizontal = 2
 grow_vertical = 2
-text = "ПРОДОЛЖИТЬ"
+text = "BTN_CONTINUE"
 label_settings = SubResource("LabelSettings_x04cy")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Level_up_UI" parent="." instance=ExtResource("26_sicc2")]
 visible = false

@@ -68,8 +68,9 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "НАГРАДА"
+text = "CHEST_REWARD"
 label_settings = SubResource("LabelSettings_idc36")
+uppercase = true
 
 [node name="TextureRect12" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -201,9 +202,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "ПРОДОЛЖИТЬ"
+text = "BTN_CONTINUE"
 label_settings = SubResource("LabelSettings_2up7a")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [connection signal="pressed" from="Continue_Button" to="." method="_on_continue_button_pressed"]

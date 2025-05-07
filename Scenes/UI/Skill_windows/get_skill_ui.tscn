@@ -140,10 +140,11 @@ layout_mode = 0
 offset_top = -1.0
 offset_right = 185.0
 offset_bottom = 78.0
-text = "БЕСПЛАТНО"
+text = "BTN_FREE"
 label_settings = SubResource("LabelSettings_abvhf")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Label" type="Label" parent="Bye_button/Skill_1"]
 visible = false
@@ -181,10 +182,11 @@ layout_mode = 0
 offset_top = -1.0
 offset_right = 185.0
 offset_bottom = 78.0
-text = "БЕСПЛАТНО"
+text = "BTN_FREE"
 label_settings = SubResource("LabelSettings_abvhf")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Label" type="Label" parent="Bye_button/Skill_2"]
 visible = false
@@ -222,10 +224,11 @@ layout_mode = 0
 offset_top = -1.0
 offset_right = 185.0
 offset_bottom = 78.0
-text = "БЕСПЛАТНО"
+text = "BTN_FREE"
 label_settings = SubResource("LabelSettings_abvhf")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="Label" type="Label" parent="Bye_button/Skill_3"]
 visible = false
@@ -267,10 +270,11 @@ offset_left = 57.0
 offset_top = -2.0
 offset_right = 184.0
 offset_bottom = 77.0
-text = "РЕКЛАМА"
+text = "ADS"
 label_settings = SubResource("LabelSettings_w0edh")
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="IconAds" type="Sprite2D" parent="Bye_button/Skill_3/Skill_3_for_AD"]
 modulate = Color(0.133333, 0.266667, 0, 1)
@@ -318,11 +322,11 @@ offset_left = 61.0
 offset_top = 18.0
 offset_right = 227.0
 offset_bottom = 70.0
-text = "Обновить
-"
+text = "SKILL_BTN_REFRESH"
 label_settings = SubResource("LabelSettings_0ocab")
 horizontal_alignment = 1
 vertical_alignment = 1
+clip_text = true
 
 [node name="ТексткКнопкиОбновить" type="Sprite2D" parent="Update_skill_button"]
 position = Vector2(173.5, 49)
@@ -330,7 +334,7 @@ texture = ExtResource("9_wywd0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bsi4p")
+&"": SubResource("AnimationLibrary_bsi4p")
 }
 
 [node name="Get_skill_scrolling" type="AudioStreamPlayer" parent="."]
