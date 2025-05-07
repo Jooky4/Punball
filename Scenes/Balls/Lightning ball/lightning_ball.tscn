@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgi8vc887m358"]
 
-[ext_resource type="Script" path="res://Scenes/Balls/Lightning ball/lightning_ball.gd" id="1_7gjb6"]
+[ext_resource type="Script" uid="uid://dfns5vxnvjd5t" path="res://Scenes/Balls/Lightning ball/lightning_ball.gd" id="1_7gjb6"]
 [ext_resource type="Texture2D" uid="uid://dagew1skc43su" path="res://Texture/Balls/шар молния.png" id="2_iuca0"]
 [ext_resource type="Texture2D" uid="uid://c812vjdm7cuxt" path="res://Texture/Effects/Минимолния_2.png" id="4_ji8wt"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_ew8ax"]
@@ -9,7 +9,7 @@
 radius = 16.0312
 
 [sub_resource type="Curve" id="Curve_pxcaw"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 8.74667, 0, 0, Vector2(0.505682, 1.65455), 0.0, 0.0, 0, 0, Vector2(1, 0), -9.26896, 0.0, 0, 0]
 point_count = 3
 

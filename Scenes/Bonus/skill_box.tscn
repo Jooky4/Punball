@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c26a3m2emt1kg"]
 
-[ext_resource type="Script" path="res://Scenes/Bonus/skill_box.gd" id="1_5hwwp"]
+[ext_resource type="Script" uid="uid://cw85k0ff0lu13" path="res://Scenes/Bonus/skill_box.gd" id="1_5hwwp"]
 [ext_resource type="Texture2D" uid="uid://b7dfponmp1s61" path="res://Texture/Level_environment/скилл.png" id="1_fb7cq"]
 [ext_resource type="Texture2D" uid="uid://d1iq5m7tsl75p" path="res://Texture/Level_environment/shadow_2.png" id="2_mnvrb"]
 [ext_resource type="Texture2D" uid="uid://tdy2dyic0st1" path="res://Texture/Effects/particleStar.png" id="3_j8ull"]
@@ -98,9 +98,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o762w"]
 _data = {
-"Idle": SubResource("Animation_lejwj"),
-"RESET": SubResource("Animation_1sxj6"),
-"Spawn": SubResource("Animation_gveqn")
+&"Idle": SubResource("Animation_lejwj"),
+&"RESET": SubResource("Animation_1sxj6"),
+&"Spawn": SubResource("Animation_gveqn")
 }
 
 [node name="skill_box" type="StaticBody2D"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=35 format=3 uid="uid://t8v1raiur56l"]
 
 [ext_resource type="Texture2D" uid="uid://bpu363g4yk53w" path="res://Texture/Enemys/Полоска здоровья/основа_босс.png" id="1_1juq8"]
-[ext_resource type="Script" path="res://Scenes/Enemys/Bosses/Berserker_boss/berserker_boss.gd" id="1_nw7qk"]
+[ext_resource type="Script" uid="uid://ducuftkws4qkk" path="res://Scenes/Enemys/Bosses/Berserker_boss/berserker_boss.gd" id="1_nw7qk"]
 [ext_resource type="Texture2D" uid="uid://dfekb3n26yy4x" path="res://Texture/Enemys/Полоска здоровья/красная_босс.png" id="2_uxmxg"]
 [ext_resource type="Texture2D" uid="uid://266wlatwdaig" path="res://Texture/Enemys/Полоска здоровья/босс.png" id="3_v4wym"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_6erhh"]
 [ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="5_5lf56"]
 [ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="7_4qjyy"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="8_b84ju"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="9_ci8gk"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="9_ci8gk"]
 [ext_resource type="Texture2D" uid="uid://c6imped3u00i1" path="res://Texture/Enemys/Berserker_enemy/тело_2.png" id="10_y858l"]
 [ext_resource type="Texture2D" uid="uid://d4isn7j1ec833" path="res://Texture/Enemys/Berserker_enemy/голова_2.png" id="11_6vnue"]
 [ext_resource type="Texture2D" uid="uid://bmqp36us31dlh" path="res://Texture/Enemys/Berserker_enemy/топор_2.png" id="12_chhdp"]
@@ -1120,14 +1120,14 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5e4h6"]
 _data = {
-"Damage": SubResource("Animation_rruq8"),
-"Death": SubResource("Animation_jobw5"),
-"Hit": SubResource("Animation_jv2jg"),
-"Idle": SubResource("Animation_gnus7"),
-"Move": SubResource("Animation_rb5jx"),
-"Preparation": SubResource("Animation_g288k"),
-"RESET": SubResource("Animation_iclqx"),
-"Spawn": SubResource("Animation_l3m7s")
+&"Damage": SubResource("Animation_rruq8"),
+&"Death": SubResource("Animation_jobw5"),
+&"Hit": SubResource("Animation_jv2jg"),
+&"Idle": SubResource("Animation_gnus7"),
+&"Move": SubResource("Animation_rb5jx"),
+&"Preparation": SubResource("Animation_g288k"),
+&"RESET": SubResource("Animation_iclqx"),
+&"Spawn": SubResource("Animation_l3m7s")
 }
 
 [node name="Berserker_boss" type="StaticBody2D"]

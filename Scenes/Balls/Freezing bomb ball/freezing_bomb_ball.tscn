@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bah3meu24ldim"]
 
-[ext_resource type="Script" path="res://Scenes/Balls/Freezing bomb ball/freezing_bomb_ball.gd" id="1_3wlao"]
+[ext_resource type="Script" uid="uid://cxbkh44khwxcd" path="res://Scenes/Balls/Freezing bomb ball/freezing_bomb_ball.gd" id="1_3wlao"]
 [ext_resource type="Texture2D" uid="uid://ca4qi8wbaqie0" path="res://Texture/Balls/бомба заморозка.png" id="2_dl23q"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="3_6iqgv"]
 [ext_resource type="Texture2D" uid="uid://c711v0w13pme" path="res://Texture/Effects/Снежинка.png" id="3_fq4pm"]

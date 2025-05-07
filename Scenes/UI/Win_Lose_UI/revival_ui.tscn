@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://ciuhn6dg5mwdo"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
+[ext_resource type="Script" uid="uid://btrju7tni7brq" path="res://Scenes/UI/Win_Lose_UI/revival_ui.gd" id="1_c74sn"]
 [ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/Fight/background.png" id="2_bhn41"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_yc3ln"]
 [ext_resource type="Material" uid="uid://ckjxd4tuk7qo7" path="res://Resources/Materials/green_outline_material.tres" id="7_wuhms"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://8tdva52b5xn3" path="res://Texture/UI/Revival_UI/icon_ADS.png" id="10_ve426"]
 [ext_resource type="Theme" uid="uid://b1o36mt532mdi" path="res://Resources/UI/yellow_button/yellow_button_theme.tres" id="11_0bx4q"]
 [ext_resource type="Texture2D" uid="uid://djiv5hip3kul0" path="res://Texture/UI/Revival_UI/loading.png" id="13_vx2gc"]
-[ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="14_foy0a"]
+[ext_resource type="Shader" uid="uid://dlpuqiaq3a60x" path="res://Resources/Shaders/rotate_texture.gdshader" id="14_foy0a"]
 [ext_resource type="Texture2D" uid="uid://cvcmfei5qf5tc" path="res://Texture/UI/Main_menu/bar_Level_Count.png" id="15_402ae"]
 [ext_resource type="Texture2D" uid="uid://suxty8y3yl07" path="res://Texture/UI/Main_menu/bar_Level_Menu.png" id="16_ghtno"]
 [ext_resource type="Texture2D" uid="uid://c64ksym212v3l" path="res://Texture/UI/Main_menu/bar_Level_Menu_2.png" id="17_kwcyw"]

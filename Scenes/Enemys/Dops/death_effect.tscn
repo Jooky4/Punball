@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://eyxdpjnw3qaw"]
 
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="1_7awtj"]
-[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_f3nar"]
+[ext_resource type="Script" uid="uid://b0kw8objpwkjr" path="res://Scenes/Effects/ball_effect.gd" id="1_f3nar"]
 
 [sub_resource type="Curve" id="Curve_6pyj0"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]

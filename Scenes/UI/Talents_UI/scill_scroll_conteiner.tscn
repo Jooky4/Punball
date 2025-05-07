@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://caf0ebk5ttcbn"]
 
 [ext_resource type="Texture2D" uid="uid://dnvg0ncyk7tc2" path="res://Texture/UI/Talents_UI/platform_Blue.png" id="1_0phtb"]
-[ext_resource type="Script" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
+[ext_resource type="Script" uid="uid://bca6ehmb2nhmw" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
 [ext_resource type="Texture2D" uid="uid://dtpqw0kjhm278" path="res://Texture/UI/Talents_UI/talant_Window.png" id="3_pv7q1"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_tylve"]
 [ext_resource type="StyleBox" uid="uid://cuyinctsf6vtf" path="res://Resources/UI/buy_skill_for_coins_button/buy_button_disabled.tres" id="5_hch65"]

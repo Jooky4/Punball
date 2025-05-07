@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://b2usb4is2xb26"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/Bosses/Shield_boss/shield_boss.gd" id="1_kup5q"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_l2wvx"]
+[ext_resource type="Script" uid="uid://d2pkuq0xtmmuq" path="res://Scenes/Enemys/Bosses/Shield_boss/shield_boss.gd" id="1_kup5q"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_l2wvx"]
 [ext_resource type="Texture2D" uid="uid://d38i3rl1k53rm" path="res://Texture/Enemys/Shield_enemy/тело.png" id="3_ye5ui"]
 [ext_resource type="Texture2D" uid="uid://gkksgdntfek2" path="res://Texture/Enemys/Shield_enemy/голова.png" id="4_02a02"]
 [ext_resource type="Texture2D" uid="uid://1o68231vqcix" path="res://Texture/Enemys/Shield_enemy/глаза.png" id="5_2sw0a"]
@@ -1232,15 +1232,15 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s07vf"]
 _data = {
-"Block": SubResource("Animation_dx38e"),
-"Damage": SubResource("Animation_o5w71"),
-"Death": SubResource("Animation_hlsye"),
-"Hit": SubResource("Animation_e6v84"),
-"Idle": SubResource("Animation_ppxyw"),
-"Move": SubResource("Animation_3slqe"),
-"Preparation": SubResource("Animation_ql6h3"),
-"RESET": SubResource("Animation_g77v8"),
-"Spawn": SubResource("Animation_xhi3q")
+&"Block": SubResource("Animation_dx38e"),
+&"Damage": SubResource("Animation_o5w71"),
+&"Death": SubResource("Animation_hlsye"),
+&"Hit": SubResource("Animation_e6v84"),
+&"Idle": SubResource("Animation_ppxyw"),
+&"Move": SubResource("Animation_3slqe"),
+&"Preparation": SubResource("Animation_ql6h3"),
+&"RESET": SubResource("Animation_g77v8"),
+&"Spawn": SubResource("Animation_xhi3q")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_bp515"]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=124 format=3 uid="uid://df2a48ft85jww"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
+[ext_resource type="Script" uid="uid://0l8fhulqveti" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
 [ext_resource type="Texture2D" uid="uid://couua5ueetks2" path="res://Texture/Backgrounds/локация 1.png" id="3_8luqf"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/level_background.tscn" id="3_lybt0"]
+[ext_resource type="PackedScene" uid="uid://dfp1wo6osat1f" path="res://Scenes/Levels/level_background.tscn" id="3_lybt0"]
 [ext_resource type="Texture2D" uid="uid://cxar1nlannfhm" path="res://Texture/Backgrounds/локация 2.png" id="4_pc1xq"]
 [ext_resource type="Texture2D" uid="uid://b4c3y2h4jvdlo" path="res://Texture/Backgrounds/локация 3.png" id="5_6dwtn"]
 [ext_resource type="Texture2D" uid="uid://redhb1e7bdea" path="res://Texture/UI/Fight/line_Target.png" id="5_7ui2n"]
-[ext_resource type="Shader" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
+[ext_resource type="Shader" uid="uid://bnhxukn3pgf66" path="res://Resources/Shaders/repeat_texture.gdshader" id="5_ix1q1"]
 [ext_resource type="Texture2D" uid="uid://cxdu5w2w28gg6" path="res://Texture/Backgrounds/локация 4.png" id="6_a68p5"]
 [ext_resource type="Texture2D" uid="uid://bah86g8dqhwb8" path="res://Texture/Backgrounds/локация 5.png" id="7_pkh6p"]
 [ext_resource type="Texture2D" uid="uid://d3iosktj0epje" path="res://Texture/UI/Fight/bar_Player_HP.png" id="7_tv3do"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cadh1dpaq6yg2" path="res://Texture/Backgrounds/локация 9.png" id="11_b2yhh"]
 [ext_resource type="PackedScene" uid="uid://4mtxd0nc2dg1" path="res://Scenes/Heroes/Alisa.tscn" id="11_eus6s"]
 [ext_resource type="PackedScene" uid="uid://c0w45guoh4c23" path="res://Scenes/Heroes/Merlin.tscn" id="11_sdk5l"]
-[ext_resource type="Script" path="res://Scenes/Levels/camera_2d.gd" id="12_3nvo2"]
+[ext_resource type="Script" uid="uid://cpb6t1llu6aue" path="res://Scenes/Levels/camera_2d.gd" id="12_3nvo2"]
 [ext_resource type="PackedScene" uid="uid://ceenrnncdnwrv" path="res://Scenes/Heroes/Busya.tscn" id="12_crapm"]
 [ext_resource type="Texture2D" uid="uid://dh3l00dtrf63u" path="res://Texture/Backgrounds/локация 10.png" id="12_j5dn1"]
 [ext_resource type="PackedScene" uid="uid://ciuhn6dg5mwdo" path="res://Scenes/UI/Win_Lose_UI/revival_ui.tscn" id="12_tjpvy"]
@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cjxyryrovmn58" path="res://Texture/UI/Fight/button_Pause.png" id="23_t4wce"]
 [ext_resource type="PackedScene" uid="uid://bb7y7v4mnb42k" path="res://Scenes/UI/Menu/pause_menu_ui.tscn" id="24_gx84s"]
 [ext_resource type="Texture2D" uid="uid://cqgxfc4mx6whh" path="res://Texture/UI/Fight/icon_Boss.png" id="26_b0xvx"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="26_u0ss4"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="26_u0ss4"]
 [ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="27_6lrpk"]
 [ext_resource type="Texture2D" uid="uid://cavfn4g8a37dn" path="res://Texture/UI/Fight/platform_Notification.png" id="27_p64ry"]
 [ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="28_g8ck8"]
@@ -319,9 +319,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xcrrp"]
 _data = {
-"RESET": SubResource("Animation_o53b6"),
-"boss_close": SubResource("Animation_13ul0"),
-"spawn_boss": SubResource("Animation_mko01")
+&"RESET": SubResource("Animation_o53b6"),
+&"boss_close": SubResource("Animation_13ul0"),
+&"spawn_boss": SubResource("Animation_mko01")
 }
 
 [sub_resource type="Animation" id="Animation_bcbdm"]
@@ -513,8 +513,8 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r2jrs"]
 _data = {
-"RESET": SubResource("Animation_bcbdm"),
-"for_pc": SubResource("Animation_6gbx0")
+&"RESET": SubResource("Animation_bcbdm"),
+&"for_pc": SubResource("Animation_6gbx0")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_hc57q"]
@@ -614,8 +614,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_glthq"]
 _data = {
-"RESET": SubResource("Animation_pincx"),
-"anim_finger": SubResource("Animation_0oog0")
+&"RESET": SubResource("Animation_pincx"),
+&"anim_finger": SubResource("Animation_0oog0")
 }
 
 [node name="First_level" type="Node2D"]

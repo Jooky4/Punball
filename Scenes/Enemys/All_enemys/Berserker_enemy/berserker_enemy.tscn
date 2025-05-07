@@ -1,8 +1,8 @@
 [gd_scene load_steps=34 format=3 uid="uid://dkjid7v0kkfi2"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.gd" id="1_dcde1"]
+[ext_resource type="Script" uid="uid://bya25fyxh2dn1" path="res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.gd" id="1_dcde1"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="1_yfr1m"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_8pdn2"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_8pdn2"]
 [ext_resource type="Texture2D" uid="uid://c6imped3u00i1" path="res://Texture/Enemys/Berserker_enemy/тело_2.png" id="4_tindt"]
 [ext_resource type="Texture2D" uid="uid://d4isn7j1ec833" path="res://Texture/Enemys/Berserker_enemy/голова_2.png" id="5_onkpo"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="8_rvmdl"]
@@ -1214,14 +1214,14 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4grpw"]
 _data = {
-"Damage": SubResource("Animation_g8p8b"),
-"Death": SubResource("Animation_n10a2"),
-"Hit": SubResource("Animation_dhhf5"),
-"Idle": SubResource("Animation_6uk8u"),
-"Move": SubResource("Animation_lwphj"),
-"Preparation": SubResource("Animation_hg4q5"),
-"RESET": SubResource("Animation_0v5tk"),
-"Spawn": SubResource("Animation_3a7j5")
+&"Damage": SubResource("Animation_g8p8b"),
+&"Death": SubResource("Animation_n10a2"),
+&"Hit": SubResource("Animation_dhhf5"),
+&"Idle": SubResource("Animation_6uk8u"),
+&"Move": SubResource("Animation_lwphj"),
+&"Preparation": SubResource("Animation_hg4q5"),
+&"RESET": SubResource("Animation_0v5tk"),
+&"Spawn": SubResource("Animation_3a7j5")
 }
 
 [node name="berserker_enemy" type="StaticBody2D"]

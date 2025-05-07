@@ -1,9 +1,9 @@
 [gd_scene load_steps=35 format=3 uid="uid://bc3jui0e8105d"]
 
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="1_ot0bn"]
-[ext_resource type="Script" path="res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.gd" id="1_tceq3"]
+[ext_resource type="Script" uid="uid://cgrdoo3e34w6h" path="res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.gd" id="1_tceq3"]
 [ext_resource type="PackedScene" uid="uid://bp0mjtyaydrm8" path="res://Scenes/Enemys/Dops/fire_elemental_bullet.tscn" id="2_a0j8s"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_xal5d"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_xal5d"]
 [ext_resource type="Texture2D" uid="uid://d4bkr4esi8if8" path="res://Texture/Enemys/Fire_elemental_enemy/тело.png" id="5_vc6xx"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Effects/Circle_2.png" id="6_kuqcw"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="7_5et8y"]
@@ -808,14 +808,14 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-"Damage": SubResource("Animation_o5w71"),
-"Death": SubResource("Animation_hlsye"),
-"Hit": SubResource("Animation_e6v84"),
-"Idle": SubResource("Animation_ppxyw"),
-"Move": SubResource("Animation_3slqe"),
-"Preparation": SubResource("Animation_ql6h3"),
-"RESET": SubResource("Animation_g77v8"),
-"Spawn": SubResource("Animation_xhi3q")
+&"Damage": SubResource("Animation_o5w71"),
+&"Death": SubResource("Animation_hlsye"),
+&"Hit": SubResource("Animation_e6v84"),
+&"Idle": SubResource("Animation_ppxyw"),
+&"Move": SubResource("Animation_3slqe"),
+&"Preparation": SubResource("Animation_ql6h3"),
+&"RESET": SubResource("Animation_g77v8"),
+&"Spawn": SubResource("Animation_xhi3q")
 }
 
 [node name="fire_elemental_enemy" type="StaticBody2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bfq4lhxqp2x0"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Menu/chest_reward.gd" id="1_ppeti"]
+[ext_resource type="Script" uid="uid://btvtk1ssvjbfl" path="res://Scenes/UI/Menu/chest_reward.gd" id="1_ppeti"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="2_7w5p8"]
 [ext_resource type="Texture2D" uid="uid://btu4bdgghuhd2" path="res://Texture/UI/Win_Lose_UI/line.png" id="2_veeuj"]
 [ext_resource type="Texture2D" uid="uid://b0eskme0yill0" path="res://Texture/UI/Win_Lose_UI/platform_Reward.png" id="4_02akc"]

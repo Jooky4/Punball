@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://dpunvy5nlg1qs"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/Bosses/Magician_boss/magician_boss.gd" id="1_isrgr"]
+[ext_resource type="Script" uid="uid://bjr1oliyulx2" path="res://Scenes/Enemys/Bosses/Magician_boss/magician_boss.gd" id="1_isrgr"]
 [ext_resource type="Texture2D" uid="uid://bpu363g4yk53w" path="res://Texture/Enemys/Полоска здоровья/основа_босс.png" id="2_golxc"]
 [ext_resource type="Texture2D" uid="uid://dfekb3n26yy4x" path="res://Texture/Enemys/Полоска здоровья/красная_босс.png" id="3_nkk6f"]
 [ext_resource type="Texture2D" uid="uid://266wlatwdaig" path="res://Texture/Enemys/Полоска здоровья/босс.png" id="4_mhq7p"]
@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="7_bap16"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="8_i3eq7"]
 [ext_resource type="AudioStream" uid="uid://b2f8uwluae3cf" path="res://Resources/Sounds/прыжок_БОСС.mp3" id="8_xp767"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="9_mg1ug"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="9_mg1ug"]
 [ext_resource type="Texture2D" uid="uid://byw8bw6py5e7c" path="res://Texture/Enemys/Magician_enemy/тело.png" id="10_tjwwq"]
 [ext_resource type="Texture2D" uid="uid://kqhk34itgkug" path="res://Texture/Enemys/Magician_enemy/голова.png" id="11_bl5wa"]
 [ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="12_3fx2t"]
@@ -58,7 +58,7 @@ shader = ExtResource("9_mg1ug")
 shader_parameter/lightness = 0.0
 
 [sub_resource type="Curve" id="Curve_upsjv"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0.00189394, 0.0454545), 0.0, 8.88, 0, 0, Vector2(1, 0), -11.4286, 0.0, 0, 0]
 point_count = 2
 
@@ -1307,15 +1307,15 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hoyuo"]
 _data = {
-"Cast": SubResource("Animation_hsrb6"),
-"Damage": SubResource("Animation_wqisy"),
-"Death": SubResource("Animation_onnb0"),
-"Hit": SubResource("Animation_nw1oh"),
-"Idle": SubResource("Animation_g5c24"),
-"Move": SubResource("Animation_mg6hj"),
-"Preparation": SubResource("Animation_fj4ne"),
-"RESET": SubResource("Animation_ug5m1"),
-"Spawn": SubResource("Animation_fg5c2")
+&"Cast": SubResource("Animation_hsrb6"),
+&"Damage": SubResource("Animation_wqisy"),
+&"Death": SubResource("Animation_onnb0"),
+&"Hit": SubResource("Animation_nw1oh"),
+&"Idle": SubResource("Animation_g5c24"),
+&"Move": SubResource("Animation_mg6hj"),
+&"Preparation": SubResource("Animation_fj4ne"),
+&"RESET": SubResource("Animation_ug5m1"),
+&"Spawn": SubResource("Animation_fg5c2")
 }
 
 [node name="Magician_boss" type="StaticBody2D"]
