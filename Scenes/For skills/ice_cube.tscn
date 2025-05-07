@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b57ls0r1g8lr7"]
 
-[ext_resource type="Script" path="res://Scenes/For skills/ice_cube.gd" id="1_dk6s5"]
+[ext_resource type="Script" uid="uid://cd6mauxmun6h6" path="res://Scenes/For skills/ice_cube.gd" id="1_dk6s5"]
 [ext_resource type="Texture2D" uid="uid://cs6xiix7bua8s" path="res://Texture/Effects/ледяной конус1.png" id="2_jl72f"]
 
 [node name="Ice_cube" type="Node2D"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=37 format=3 uid="uid://dtgoww78o77t0"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.gd" id="1_7iw8w"]
+[ext_resource type="Script" uid="uid://cesoo0imjjh04" path="res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.gd" id="1_7iw8w"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_5286c"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_npy30"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_npy30"]
 [ext_resource type="Texture2D" uid="uid://byw8bw6py5e7c" path="res://Texture/Enemys/Magician_enemy/тело.png" id="4_yutt3"]
 [ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="6_0mdhh"]
 [ext_resource type="Texture2D" uid="uid://kqhk34itgkug" path="res://Texture/Enemys/Magician_enemy/голова.png" id="6_5aaaw"]
@@ -46,7 +46,7 @@ shader = ExtResource("3_npy30")
 shader_parameter/lightness = 0.0
 
 [sub_resource type="Curve" id="Curve_kmxss"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0.00189394, 0.0454545), 0.0, 8.88, 0, 0, Vector2(1, 0), -11.4286, 0.0, 0, 0]
 point_count = 2
 
@@ -1378,15 +1378,15 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-"Cast": SubResource("Animation_dtmic"),
-"Damage": SubResource("Animation_o5w71"),
-"Death": SubResource("Animation_hlsye"),
-"Hit": SubResource("Animation_e6v84"),
-"Idle": SubResource("Animation_ppxyw"),
-"Move": SubResource("Animation_3slqe"),
-"Preparation": SubResource("Animation_ql6h3"),
-"RESET": SubResource("Animation_g77v8"),
-"Spawn": SubResource("Animation_xhi3q")
+&"Cast": SubResource("Animation_dtmic"),
+&"Damage": SubResource("Animation_o5w71"),
+&"Death": SubResource("Animation_hlsye"),
+&"Hit": SubResource("Animation_e6v84"),
+&"Idle": SubResource("Animation_ppxyw"),
+&"Move": SubResource("Animation_3slqe"),
+&"Preparation": SubResource("Animation_ql6h3"),
+&"RESET": SubResource("Animation_g77v8"),
+&"Spawn": SubResource("Animation_xhi3q")
 }
 
 [node name="magician_enemy" type="StaticBody2D"]

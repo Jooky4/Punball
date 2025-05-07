@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://b2f8uwluae3cf" path="res://Resources/Sounds/прыжок_БОСС.mp3" id="7_c66ea"]
 [ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="8_ttvnr"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="9_utu7y"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="10_sm2sx"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="10_sm2sx"]
 [ext_resource type="Texture2D" uid="uid://d4bkr4esi8if8" path="res://Texture/Enemys/Fire_elemental_enemy/тело.png" id="11_mwyjo"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Effects/Circle_2.png" id="12_y76r3"]
 [ext_resource type="Texture2D" uid="uid://bia00tvf3k2lj" path="res://Texture/Enemys/Fire_elemental_enemy/глаза.png" id="13_igbjw"]
@@ -761,14 +761,14 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-"Damage": SubResource("Animation_o5w71"),
-"Death": SubResource("Animation_hlsye"),
-"Hit": SubResource("Animation_e6v84"),
-"Idle": SubResource("Animation_ppxyw"),
-"Move": SubResource("Animation_3slqe"),
-"Preparation": SubResource("Animation_ql6h3"),
-"RESET": SubResource("Animation_g77v8"),
-"Spawn": SubResource("Animation_xhi3q")
+&"Damage": SubResource("Animation_o5w71"),
+&"Death": SubResource("Animation_hlsye"),
+&"Hit": SubResource("Animation_e6v84"),
+&"Idle": SubResource("Animation_ppxyw"),
+&"Move": SubResource("Animation_3slqe"),
+&"Preparation": SubResource("Animation_ql6h3"),
+&"RESET": SubResource("Animation_g77v8"),
+&"Spawn": SubResource("Animation_xhi3q")
 }
 
 [node name="Fire_elemental_boss" type="StaticBody2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://74fwgrm0vlj6"]
 
-[ext_resource type="Script" path="res://Scenes/Balls/Drilling ball/drilling_ball.gd" id="1_ojqo1"]
+[ext_resource type="Script" uid="uid://bbskbqrgc2b2c" path="res://Scenes/Balls/Drilling ball/drilling_ball.gd" id="1_ojqo1"]
 [ext_resource type="Texture2D" uid="uid://bf62pmxlblbjl" path="res://Texture/Balls/бурящий шар.png" id="2_3d6ml"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="3_8s1ag"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="4_10djj"]

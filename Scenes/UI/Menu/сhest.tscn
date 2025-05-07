@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://1ilhlj1qeg8s"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Menu/сhest.gd" id="2_dofgi"]
+[ext_resource type="Script" uid="uid://dyamguiu8f0po" path="res://Scenes/UI/Menu/сhest.gd" id="2_dofgi"]
 [ext_resource type="Texture2D" uid="uid://dp8tdk5ltvnic" path="res://Texture/UI/Main_menu/Сhest/close_Chest.png" id="2_rgsbb"]
 [ext_resource type="Texture2D" uid="uid://dns2hgt1vo7uq" path="res://Texture/UI/Main_menu/Сhest/open_Chest.png" id="3_r7s00"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_htxkf"]

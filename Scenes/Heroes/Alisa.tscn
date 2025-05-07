@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://4mtxd0nc2dg1"]
 
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="1_5gowa"]
-[ext_resource type="Script" path="res://Scenes/Heroes/character_call_anim.gd" id="1_ar3u1"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="1_5gowa"]
+[ext_resource type="Script" uid="uid://ca0g21uu25s3a" path="res://Scenes/Heroes/character_call_anim.gd" id="1_ar3u1"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="3_xxr0j"]
 [ext_resource type="Texture2D" uid="uid://lgri6d38g4me" path="res://Texture/Heroes/герои.png" id="5_gatai"]
 
@@ -3187,15 +3187,15 @@ tracks/28/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3eas8"]
 _data = {
-"Alive": SubResource("Animation_vus60"),
-"Attack": SubResource("Animation_qpkd4"),
-"Damage": SubResource("Animation_md0an"),
-"Death": SubResource("Animation_eo610"),
-"Idle": SubResource("Animation_iokrd"),
-"MoveLeft": SubResource("Animation_c25w7"),
-"MoveRight": SubResource("Animation_bpqe1"),
-"RESET": SubResource("Animation_fwsbm"),
-"Spawn": SubResource("Animation_6ecps")
+&"Alive": SubResource("Animation_vus60"),
+&"Attack": SubResource("Animation_qpkd4"),
+&"Damage": SubResource("Animation_md0an"),
+&"Death": SubResource("Animation_eo610"),
+&"Idle": SubResource("Animation_iokrd"),
+&"MoveLeft": SubResource("Animation_c25w7"),
+&"MoveRight": SubResource("Animation_bpqe1"),
+&"RESET": SubResource("Animation_fwsbm"),
+&"Spawn": SubResource("Animation_6ecps")
 }
 
 [node name="Alisa" type="Node2D"]

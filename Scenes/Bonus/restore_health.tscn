@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfofwjifyogmv"]
 
-[ext_resource type="Script" path="res://Scenes/Bonus/restore_health.gd" id="1_bf4ti"]
+[ext_resource type="Script" uid="uid://chkwcqidsbn6c" path="res://Scenes/Bonus/restore_health.gd" id="1_bf4ti"]
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="2_uyp80"]
 [ext_resource type="Texture2D" uid="uid://cp31wu0v2yf1d" path="res://Texture/Level_environment/здоровье на поле_2.png" id="3_6h3e5"]
 [ext_resource type="AudioStream" uid="uid://bux3eyhwvvfns" path="res://Resources/Sounds/звукОЗ.mp3" id="4_nsjxu"]
@@ -90,8 +90,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3c8su"]
 _data = {
-"Idle": SubResource("Animation_xjev6"),
-"Spawn": SubResource("Animation_2ryok")
+&"Idle": SubResource("Animation_xjev6"),
+&"Spawn": SubResource("Animation_2ryok")
 }
 
 [node name="restore_health" type="Node2D"]

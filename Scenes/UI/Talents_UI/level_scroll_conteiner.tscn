@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cokm4dhr02ar0"]
 
-[ext_resource type="Script" path="res://Scenes/UI/Talents_UI/level_scroll_conteiner.gd" id="1_8ibic"]
+[ext_resource type="Script" uid="uid://1vuuxg66xlpx" path="res://Scenes/UI/Talents_UI/level_scroll_conteiner.gd" id="1_8ibic"]
 [ext_resource type="Texture2D" uid="uid://cvxj07n2lxclr" path="res://Texture/UI/Talents_UI/line_Level.png" id="2_1wkmt"]
 [ext_resource type="Texture2D" uid="uid://b88x0w6c604fp" path="res://Texture/UI/Talents_UI/platform_Level.png" id="3_140ib"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_tcril"]

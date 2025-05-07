@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://csdyirn2lmmyg"]
 
-[ext_resource type="Script" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
+[ext_resource type="Script" uid="uid://8j7gx1i21hlk" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
 [ext_resource type="AudioStream" uid="uid://bj0f0vi28ccmj" path="res://Resources/Sounds/взрыв_бомба_3.ogg" id="3_ojgpi"]
 [ext_resource type="AudioStream" uid="uid://cn6u3g3veh3hd" path="res://Resources/Sounds/взрыв_бомба.mp3" id="3_wj7ne"]
 [ext_resource type="AudioStream" uid="uid://bgddobi2vjm4p" path="res://Resources/Sounds/заморозка_шар.mp3" id="6_6glt2"]

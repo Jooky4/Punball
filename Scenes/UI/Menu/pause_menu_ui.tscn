@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bb7y7v4mnb42k"]
 
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_4odon"]
-[ext_resource type="Script" path="res://Scenes/UI/Menu/pause_menu_ui.gd" id="1_ydatq"]
+[ext_resource type="Script" uid="uid://cps5dd2i6ub3x" path="res://Scenes/UI/Menu/pause_menu_ui.gd" id="1_ydatq"]
 [ext_resource type="TileSet" uid="uid://bnw3ivcrwv3dc" path="res://Texture/UI/Texture_skills/icons_skills.tres" id="2_thh8c"]
 [ext_resource type="Theme" uid="uid://ca80p46te5d5g" path="res://Resources/UI/green_button/green_button_theme.tres" id="2_u1pop"]
 [ext_resource type="Texture2D" uid="uid://caro7dgmesiw8" path="res://Texture/UI/Pause_UI/play.png" id="4_hk70u"]

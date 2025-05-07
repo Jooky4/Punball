@@ -1,9 +1,9 @@
 [gd_scene load_steps=37 format=3 uid="uid://cv6rl7if0i1yl"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/All_enemys/Medic_enemy/medic_enemy.gd" id="1_o1fqo"]
+[ext_resource type="Script" uid="uid://d3bauogna4l7u" path="res://Scenes/Enemys/All_enemys/Medic_enemy/medic_enemy.gd" id="1_o1fqo"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_e67dy"]
 [ext_resource type="Texture2D" uid="uid://cw7yyw0n7pa00" path="res://Texture/Effects/лечение.png" id="2_v67j1"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_joo56"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_joo56"]
 [ext_resource type="Texture2D" uid="uid://dgmfms5a12jre" path="res://Texture/Enemys/Medic_enemy/тело.png" id="4_dej07"]
 [ext_resource type="Texture2D" uid="uid://b7yuy4jbwy6hc" path="res://Texture/Enemys/Medic_enemy/голова.png" id="5_vgggy"]
 [ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="6_urkec"]
@@ -1489,15 +1489,15 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4grpw"]
 _data = {
-"Damage": SubResource("Animation_m0vng"),
-"Death": SubResource("Animation_bumga"),
-"Hill": SubResource("Animation_5php0"),
-"Hit": SubResource("Animation_dcdqt"),
-"Idle": SubResource("Animation_rjgtl"),
-"Move": SubResource("Animation_i5bve"),
-"Preparation": SubResource("Animation_00fqt"),
-"RESET": SubResource("Animation_yea6p"),
-"Spawn": SubResource("Animation_5qqtx")
+&"Damage": SubResource("Animation_m0vng"),
+&"Death": SubResource("Animation_bumga"),
+&"Hill": SubResource("Animation_5php0"),
+&"Hit": SubResource("Animation_dcdqt"),
+&"Idle": SubResource("Animation_rjgtl"),
+&"Move": SubResource("Animation_i5bve"),
+&"Preparation": SubResource("Animation_00fqt"),
+&"RESET": SubResource("Animation_yea6p"),
+&"Spawn": SubResource("Animation_5qqtx")
 }
 
 [node name="medic_enemy" type="StaticBody2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://jwvvjl8h6kfr"]
 
-[ext_resource type="Script" path="res://Scenes/Global/change_scene.gd" id="1_v7ffh"]
+[ext_resource type="Script" uid="uid://drkylxllcesvk" path="res://Scenes/Global/change_scene.gd" id="1_v7ffh"]
 
 [sub_resource type="Animation" id="Animation_t85mf"]
 resource_name = "Black_screen"
@@ -51,9 +51,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oefeh"]
 _data = {
-"Black_screen": SubResource("Animation_t85mf"),
-"Normal_screen": SubResource("Animation_lwdvp"),
-"RESET": SubResource("Animation_5a2ve")
+&"Black_screen": SubResource("Animation_t85mf"),
+&"Normal_screen": SubResource("Animation_lwdvp"),
+&"RESET": SubResource("Animation_5a2ve")
 }
 
 [node name="Change_scene" type="CanvasLayer"]

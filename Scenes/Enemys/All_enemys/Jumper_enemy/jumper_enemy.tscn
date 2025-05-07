@@ -1,8 +1,8 @@
 [gd_scene load_steps=37 format=3 uid="uid://d01m8lplpavh6"]
 
-[ext_resource type="Script" path="res://Scenes/Enemys/All_enemys/Jumper_enemy/jumper_enemy.gd" id="1_u7uw5"]
+[ext_resource type="Script" uid="uid://dlgdx88l55jey" path="res://Scenes/Enemys/All_enemys/Jumper_enemy/jumper_enemy.gd" id="1_u7uw5"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_0wb0f"]
-[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_40e8m"]
+[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_40e8m"]
 [ext_resource type="Texture2D" uid="uid://nkt7yrr0j76n" path="res://Texture/Enemys/Jumper_enemy/тело.png" id="4_tv8u1"]
 [ext_resource type="Texture2D" uid="uid://cr1rop7re2bw2" path="res://Texture/Enemys/Jumper_enemy/лапа левая.png" id="6_vppxq"]
 [ext_resource type="Texture2D" uid="uid://bdas7bdi5vycm" path="res://Texture/Enemys/Jumper_enemy/лапа правая.png" id="7_xjrmi"]
@@ -2365,14 +2365,14 @@ tracks/24/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-"Damage": SubResource("Animation_688os"),
-"Death": SubResource("Animation_xyrox"),
-"Hit": SubResource("Animation_ojal2"),
-"Idle": SubResource("Animation_y4rl3"),
-"Move": SubResource("Animation_mjcss"),
-"Preparation": SubResource("Animation_e15uq"),
-"RESET": SubResource("Animation_g77v8"),
-"Spawn": SubResource("Animation_pl2wp")
+&"Damage": SubResource("Animation_688os"),
+&"Death": SubResource("Animation_xyrox"),
+&"Hit": SubResource("Animation_ojal2"),
+&"Idle": SubResource("Animation_y4rl3"),
+&"Move": SubResource("Animation_mjcss"),
+&"Preparation": SubResource("Animation_e15uq"),
+&"RESET": SubResource("Animation_g77v8"),
+&"Spawn": SubResource("Animation_pl2wp")
 }
 
 [node name="jumper_enemy" type="StaticBody2D"]
