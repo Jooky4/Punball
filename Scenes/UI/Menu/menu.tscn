@@ -47,7 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://1lmkgscpmf2q" path="res://Texture/UI/Shop_UI/монета 6.png" id="29_d1w7v"]
 [ext_resource type="Texture2D" uid="uid://qqfohh4ohbyu" path="res://Texture/UI/Character_UI/Character_window/background.png" id="29_ke4g2"]
 [ext_resource type="Texture2D" uid="uid://jcy8balgn8ur" path="res://Texture/UI/Character_UI/level_Character.png" id="29_lxmlr"]
-[ext_resource type="Texture2D" uid="uid://bmtxu0eqj1ssr" path="res://Texture/UI/Character_UI/line_Border.png" id="30_g1evk"]
+[ext_resource type="Texture2D" uid="uid://u12uaqx73c77" path="res://Texture/UI/Character_UI/line_Border.png" id="30_g1evk"]
 [ext_resource type="Texture2D" uid="uid://ckgv7detkwio1" path="res://Texture/UI/Character_UI/Character_window/platform_Materials.png" id="30_qcdih"]
 [ext_resource type="Texture2D" uid="uid://d01f1hwel8jg4" path="res://Texture/UI/Shop_UI/окно для кристаллов.png" id="31_1qtya"]
 [ext_resource type="Texture2D" uid="uid://8ecjqcdbb4a" path="res://Texture/UI/Character_UI/platform_Character_Gray.png" id="31_5u4xa"]
@@ -1597,7 +1597,6 @@ texture = ExtResource("29_ke4g2")
 stretch_mode = 5
 
 [node name="All_characters" type="Control" parent="Characters"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1885,41 +1884,39 @@ label_settings = SubResource("LabelSettings_hfpbj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Characters/All_characters"]
+[node name="Title" type="HBoxContainer" parent="Characters/All_characters"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -334.0
-offset_top = -193.0
-offset_right = 334.0
-offset_bottom = -153.0
+offset_left = -401.5
+offset_top = -212.0
+offset_right = 401.5
+offset_bottom = -154.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="LineLeft" type="TextureRect" parent="Characters/All_characters/Title"]
+layout_mode = 2
 texture = ExtResource("30_g1evk")
-expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Characters/All_characters/TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -184.5
-offset_top = -50.0
-offset_right = 184.5
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="Characters/All_characters/Title"]
+layout_mode = 2
 text = "CHR_HERO_LIST"
 label_settings = SubResource("LabelSettings_vksps")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="LineRight" type="TextureRect" parent="Characters/All_characters/Title"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("30_g1evk")
+stretch_mode = 5
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Characters/All_characters"]
 layout_mode = 1
@@ -2808,6 +2805,7 @@ text = "20"
 label_settings = SubResource("LabelSettings_edc2c")
 
 [node name="Select_character" type="TextureButton" parent="Characters/Character_2_window"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

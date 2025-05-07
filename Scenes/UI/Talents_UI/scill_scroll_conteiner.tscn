@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://caf0ebk5ttcbn"]
+[gd_scene load_steps=20 format=3 uid="uid://caf0ebk5ttcbn"]
 
 [ext_resource type="Texture2D" uid="uid://dnvg0ncyk7tc2" path="res://Texture/UI/Talents_UI/platform_Blue.png" id="1_0phtb"]
 [ext_resource type="Script" uid="uid://bca6ehmb2nhmw" path="res://Scenes/UI/Talents_UI/scill_scroll_conteiner.gd" id="1_jrb2a"]
+[ext_resource type="Texture2D" uid="uid://daty4f3dag8pt" path="res://Texture/UI/Talents_UI/line_Blue.png" id="2_231ii"]
 [ext_resource type="Texture2D" uid="uid://dtpqw0kjhm278" path="res://Texture/UI/Talents_UI/talant_Window.png" id="3_pv7q1"]
+[ext_resource type="Texture2D" uid="uid://68g072jntst5" path="res://Texture/UI/Talents_UI/line_Gold.png" id="3_xgmnv"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="4_tylve"]
+[ext_resource type="Texture2D" uid="uid://c51pf3r0sdiuw" path="res://Texture/UI/Talents_UI/platform_Gray.png" id="4_xgmnv"]
 [ext_resource type="StyleBox" uid="uid://cuyinctsf6vtf" path="res://Resources/UI/buy_skill_for_coins_button/buy_button_disabled.tres" id="5_hch65"]
 [ext_resource type="StyleBox" uid="uid://dmbr3q36f12uv" path="res://Resources/UI/buy_skill_for_coins_button/buy_button_normal.tres" id="6_c7nw4"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="6_h74k6"]
@@ -44,6 +47,9 @@ offset_bottom = 184.0
 theme_override_constants/margin_left = 55
 theme_override_constants/margin_right = 55
 script = ExtResource("1_jrb2a")
+active_coins_line = ExtResource("2_231ii")
+active_crystal_line = ExtResource("3_xgmnv")
+active_coin_skill = ExtResource("1_0phtb")
 
 [node name="For_coins" type="TextureButton" parent="."]
 z_index = 1
@@ -51,9 +57,10 @@ layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 1
 disabled = true
-texture_normal = ExtResource("1_0phtb")
+texture_normal = ExtResource("4_xgmnv")
 
 [node name="Information" type="TextureRect" parent="For_coins"]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 7

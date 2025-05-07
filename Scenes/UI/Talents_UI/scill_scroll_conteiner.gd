@@ -1,13 +1,17 @@
 extends MarginContainer
 
+@export var active_coins_line: Texture2D
+@export var active_crystal_line: Texture2D
+#@export var inactive_coin_skill: Texture2D
+@export var active_coin_skill: Texture2D
+
+
 @onready var for_cois = $For_coins
 @onready var for_crystal = $For_crystal
 
 @onready var for_coins_texture = $For_coins/Skill_texture
 @onready var for_crystal_texture = $For_crystal/Skill_texture
 
-@onready var have_for_coins_talant_texture_line = preload("res://Texture/UI/Talents_UI/line_Blue.png")
-@onready var have_for_crystal_talant_texture_line = preload("res://Texture/UI/Talents_UI/line_Gold.png")
 
 var can_bye : bool = true
 var bye : bool = false
@@ -101,17 +105,23 @@ var skills_for_coins = [
 	"Урон от БОССА"
 ]
 
+
 func erase_for_crystal() -> void:
 	for_crystal.disabled = true
 	for_crystal.visible = false
+
 
 func for_coins_update_texture_and_discriotion(skill, count_skills, discription, texture) -> void:
 	count_skill_for_coins = count_skills
 	skill_for_coins_cost = Constants.TALENT_BASE_COST.COIN + (1250 * ((count_skill_for_coins - 1) / 5))
 	for_coins_texture.texture = texture
+
 	if count_skill_for_coins <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_COINS:
-		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
+		$For_coins/TextureRect3.texture = active_coins_line
+		$For_coins.texture_normal = active_coin_skill
+
 	update_discription_for_coins(skill, discription)
+
 
 func for_crystal_update_texture_and_discriotion(count) -> void:
 	var talant
@@ -134,7 +144,7 @@ func for_crystal_update_texture_and_discriotion(count) -> void:
 		talant = skills_for_crystall[count % 6]
 		skill_for_crystal_cost = Constants.TALENT_BASE_COST.CRYSTAL2 * (((count_skill_for_crystal - 3) / 6) + 1)
 	if count_skill_for_crystal <= PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL:
-		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
+		$For_crystal/TextureRect.texture = active_crystal_line
 	update_discription_for_crystal(talant)
 
 
@@ -195,6 +205,7 @@ func add_discription_coins(num_talant, name_talant) -> String:
 			add_discripton = " -" + str(result_talant)
 	return add_discripton
 
+
 func skills_close(zamoc, texture_for_coins, texture_for_crystal) -> void:
 	for_cois.texture_normal = texture_for_coins
 	for_coins_texture.texture = zamoc
@@ -202,8 +213,10 @@ func skills_close(zamoc, texture_for_coins, texture_for_crystal) -> void:
 	for_crystal_texture.texture = zamoc
 	can_bye = false
 
+
 func update_need_level(lvl) -> void:
 	need_level_to_by = lvl
+
 
 func _on_button_for_coins_pressed() -> void:
 	AudioManager.click()
@@ -237,6 +250,7 @@ func _on_button_for_coins_pressed() -> void:
 	elif bye == false and can_bye == false:
 		$For_coins/Information/Need_level.visible = true
 		$For_coins/Information/Need_level.text = tr("TALENTS_REQUIRES_LEVEL") + " " + str(need_level_to_by)
+
 
 func _on_button_for_crystall_pressed() -> void:
 	AudioManager.click()
@@ -289,7 +303,7 @@ func _on_bye_for_crystal_pressed() -> void:
 		AudioManager.bye_talant_sound()
 		PlayerIndicatorsManager.buy_crystal_talant()
 		PlayerIndicatorsManager.update_crystal_count(-skill_for_crystal_cost)
-		$For_crystal/TextureRect.texture = have_for_crystal_talant_texture_line
+		$For_crystal/TextureRect.texture = active_crystal_line
 		get_parent().get_parent().get_parent().call("update_player_indicator_talant_for_coins")
 		get_parent().get_parent().get_parent().get_parent().call("update_crystal_label")
 		get_parent().get_parent().get_parent().get_parent().call("update_visible_texture_can_update")
@@ -303,7 +317,8 @@ func _on_bye_for_cois_pressed() -> void:
 		AudioManager.bye_talant_sound()
 		PlayerIndicatorsManager.buy_coins_talant()
 		PlayerIndicatorsManager.update_coins_count(-skill_for_coins_cost)
-		$For_coins/TextureRect3.texture = have_for_coins_talant_texture_line
+		$For_coins/TextureRect3.texture = active_coins_line
+		$For_coins.texture_normal = active_coin_skill
 		get_parent().get_parent().get_parent().call("update_player_indicator_talant_for_coins")
 		get_parent().get_parent().get_parent().get_parent().call("update_coins_label")
 		get_parent().get_parent().get_parent().get_parent().call("update_visible_texture_can_update")
