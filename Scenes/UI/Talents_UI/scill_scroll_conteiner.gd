@@ -190,19 +190,19 @@ func add_discription_coins(num_talant, name_talant) -> String:
 
 	match name_talant:
 		"Увеличение атаки":
-			add_discripton = " +" + str(result_talant * 100)
+			add_discripton = " +" + str(int(result_talant * 100))
 		"Увеличение здоровья":
-			add_discripton = " +" + str(result_talant)
+			add_discripton = " +" + str(int(result_talant))
 		"Урон от врагов дальнего боя":
-			add_discripton = " -" + str(result_talant)
+			add_discripton = " -" + str(int(result_talant))
 		"Урон от врагов ближнего боя":
-			add_discripton = " -" + str(result_talant)
+			add_discripton = " -" + str(int(result_talant))
 		"Улучшение восстановления":
-			add_discripton = " +" + str(result_talant)
+			add_discripton = " +" + str(int(result_talant))
 		"Улучшение регенерации":
-			add_discripton = " +" + str(result_talant)
+			add_discripton = " +" + str(int(result_talant))
 		"Урон от БОССА":
-			add_discripton = " -" + str(result_talant)
+			add_discripton = " -" + str(int(result_talant))
 	return add_discripton
 
 
