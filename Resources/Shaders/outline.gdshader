@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform vec4 outline_color : source_color = vec4(1.0, 0.0, 0.0, 1.0); // Цвет обводки
 uniform float outline_width : hint_range(0, 10) = 2.0; // Толщина обводки
-uniform float outline_smoothness : hint_range(0, 1) = 0.5; // Сила сглаживания
+//uniform float outline_smoothness : hint_range(0, 1) = 0.5; // Сила сглаживания
 uniform float top_bound : hint_range(0.0, 1.0) = 0.0; // Верхняя граница (UV.y < top_bound)
 uniform float bottom_bound : hint_range(0.0, 1.0) = 1.0; // Нижняя граница (UV.y > bottom_bound)
 uniform vec4 modulate_color : source_color = vec4(1.0, 1.0, 1.0, 1.0); // Цвет для окрашивания текстуры
@@ -43,7 +43,7 @@ void fragment() {
         max_alpha = (total_weight > 0.0) ? (max_alpha / total_weight) : 0.0;
         
         // Плавное наложение обводки с регулируемой мягкостью
-        float outline_strength = smoothstep(0.0, outline_smoothness, max_alpha);
+        float outline_strength = smoothstep(0.0, 0.025, max_alpha);
         
         // Отключаем обводку за пределами границ
         if (UV.y < top_bound || UV.y > bottom_bound) {
