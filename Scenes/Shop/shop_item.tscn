@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://c511u2wa4vd43"]
+
+[ext_resource type="Texture2D" uid="uid://c27j04flqk5yi" path="res://Texture/UI/Shop_UI/окно для монет.png" id="1_604da"]
+[ext_resource type="Script" uid="uid://otpholi0wacx" path="res://Scenes/Shop/shop_item.gd" id="2_n60dy"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_n60dy"]
+[ext_resource type="Texture2D" uid="uid://d01f1hwel8jg4" path="res://Texture/UI/Shop_UI/окно для кристаллов.png" id="3_qhhkh"]
+[ext_resource type="Material" uid="uid://dwslfhmpwqnea" path="res://Resources/Materials/red_outline_material.tres" id="4_c4rpq"]
+[ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="5_60v62"]
+[ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="5_n60dy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3n0kt"]
+font = ExtResource("3_n60dy")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_e5gv6"]
+font = ExtResource("3_n60dy")
+font_size = 30
+
+[node name="Coins_1" type="TextureButton"]
+texture_normal = ExtResource("1_604da")
+script = ExtResource("2_n60dy")
+type = null
+coins_bg_texture = ExtResource("1_604da")
+crystal_bg_texture = ExtResource("3_qhhkh")
+coin_texture = ExtResource("5_60v62")
+crystal_texture = ExtResource("5_n60dy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -84.0
+offset_right = 53.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -56.0
+offset_right = 84.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PriceLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_3n0kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "CURRENCY"
+label_settings = SubResource("LabelSettings_3n0kt")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 19.0
+offset_right = 20.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+material = ExtResource("4_c4rpq")
+custom_minimum_size = Vector2(34, 45)
+layout_mode = 2
+texture = ExtResource("5_60v62")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CountLabel" type="Label" parent="HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_e5gv6")
+vertical_alignment = 1
