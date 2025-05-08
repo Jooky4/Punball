@@ -972,14 +972,14 @@ func _on_button_pause_pressed() -> void:
 
 func update_character_label() -> void:
 	hp_player_bar.value = LevelManager.hp_player
-	hp_player_label.text = str(LevelManager.hp_player)
+	hp_player_label.text = str(int(LevelManager.hp_player))
 	if LevelManager.hp_player>=10000:
 		if int(LevelManager.hp_player) % 10000 == 0:
-			hp_player_label.text = str(LevelManager.hp_player / 1000) + "K"
+			hp_player_label.text = str(int(LevelManager.hp_player / 1000)) + "K"
 		elif int(LevelManager.hp_player) % 10000 != 0:
 			hp_player_label.text = ("%.1f" % (LevelManager.hp_player / 1000)) + "K"
 	else:
-		hp_player_label.text = str(round(LevelManager.hp_player))
+		hp_player_label.text = str(roundi(LevelManager.hp_player))
 
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _chose_ball_button_pressed():

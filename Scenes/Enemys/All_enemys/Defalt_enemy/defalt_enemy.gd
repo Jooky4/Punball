@@ -37,11 +37,11 @@ func _ready() -> void:
 	hp_enemy_bar.value = hp_enemy
 	if hp_enemy>=10000:
 		if int(hp_enemy) % 10000 == 0:
-			hp_enemy_label.text = str(hp_enemy / 1000) + "K"
+			hp_enemy_label.text = str(int(hp_enemy / 1000)) + "K"
 		elif int(hp_enemy) % 10000 != 0:
 			hp_enemy_label.text = ("%.1f" % (hp_enemy / 1000)) + "K"
 	else:
-		hp_enemy_label.text = str(round(hp_enemy))
+		hp_enemy_label.text = str(roundi(hp_enemy))
 	if !self.has_method("boss"):
 		self.z_index = 2
 
@@ -104,11 +104,11 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 				animation_enemy.play("Damage")
 		if hp_enemy>=10000:
 			if int(hp_enemy) % 10000 == 0:
-				hp_enemy_label.text = str(hp_enemy / 1000) + "K"
+				hp_enemy_label.text = str(int(hp_enemy / 1000)) + "K"
 			elif int(hp_enemy) % 10000 != 0:
 				hp_enemy_label.text = ("%.1f" % (hp_enemy / 1000)) + "K"
 		else:
-			hp_enemy_label.text = str(round(hp_enemy))
+			hp_enemy_label.text = str(roundi(hp_enemy))
 		hp_enemy_bar.value = hp_enemy
 
 func deal_bomb_damage(damage_ball, color_label) -> void:
@@ -199,11 +199,11 @@ func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
 	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
-		label.text = str(damage_ball)
+		label.text = str(int(damage_ball))
 	elif color_label == ElementsManager.color_elements["HEAL"]:
-		label.text = "+" + str(round(damage_ball))
+		label.text = "+" + str(roundi(damage_ball))
 	else:
-		label.text = "-" + str(round(damage_ball))
+		label.text = "-" + str(roundi(damage_ball))
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)
@@ -258,7 +258,7 @@ func heal_hp(hp_heal) -> void:
 		if int(hp_enemy) % 10000 != 0:
 			hp_enemy_label.text = ("%.1f" % (hp_enemy / 1000)) + "K"
 	else:
-		hp_enemy_label.text = str(round(hp_enemy))
+		hp_enemy_label.text = str(roundi(hp_enemy))
 	create_label_damage(hp_heal, ElementsManager.color_elements["HEAL"])
 
 func play_magic_spawn_anim():

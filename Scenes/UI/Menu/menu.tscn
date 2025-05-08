@@ -630,42 +630,36 @@ columns = 3
 
 [node name="Coins_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-type = 0
 price = 5
 count = 500
 item_texture = ExtResource("24_nehew")
 
 [node name="Coins_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-type = 0
 price = 19
 count = 2500
 item_texture = ExtResource("25_21de7")
 
 [node name="Coins_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-type = 0
 price = 45
 count = 7000
 item_texture = ExtResource("26_wvchi")
 
 [node name="Coins_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-type = 0
 price = 99
 count = 16000
 item_texture = ExtResource("27_jjtc7")
 
 [node name="Coins_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-type = 0
 price = 150
 count = 35000
 item_texture = ExtResource("28_lceg1")
 
 [node name="Coins_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-type = 0
 price = 300
 count = 80000
 item_texture = ExtResource("29_d1w7v")
@@ -717,6 +711,7 @@ columns = 3
 
 [node name="Crystal_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
+texture_normal = ExtResource("31_1qtya")
 type = 1
 price = 19
 count = 100
