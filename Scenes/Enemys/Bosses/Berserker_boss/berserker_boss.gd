@@ -16,22 +16,25 @@ func _ready() -> void:
 		hp_enemy_label.text = str(round(hp_enemy))
 	start_damage = player_damage
 
+
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
 	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
 		label.text = str(damage_ball)
 	elif color_label == ElementsManager.color_elements["HEAL"]:
-		label.text = "+" + str(round(damage_ball))
+		label.text = "+" + str(roundi(damage_ball))
 	else:
-		label.text = "-" + str(round(damage_ball))
+		label.text = "-" + str(roundi(damage_ball))
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)
 	label.show_label(125)
 
+
 func boss() -> void:
 	pass
+
 
 func play_animation_hit_player(player_position):
 	if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ
