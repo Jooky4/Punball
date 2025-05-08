@@ -299,7 +299,7 @@ func get_health(health_hp) -> void:
 		LevelManager.hp_player = LevelManager.max_hp_player
 	update_character_label()
 	if round(health_hp) > 0:
-		player_take_damage_create_label("+" + str(round(health_hp)), 0)
+		player_take_damage_create_label("+" + str(roundi(health_hp)), 0)
 	if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
 		LevelManager.update_character_3_damage_from_OZ()
 
@@ -308,7 +308,8 @@ func player_take_damage_create_label(label_damage, who_deal_damage : int = 0) ->
 	var label = LABEL_DAMAGE.instantiate()
 	label.z_index = 8
 	label.global_position = start_balls_position.global_position
-	if typeof(label_damage) != 3 and typeof(label_damage) != 2:
+
+	if typeof(label_damage) != TYPE_FLOAT and typeof(label_damage) != TYPE_INT:
 		if "+" in label_damage:
 			color_label = ElementsManager.color_elements["HEAL"]
 			label.text = str(label_damage)
@@ -390,6 +391,7 @@ func revavil_player(for_AD_or_crystal : bool = false):
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
 		game_state = CHOOSE_SKILL
 		return
+
 	if for_AD_or_crystal == true:
 		revavil_for_AD_or_crystal = true
 	balls_can_go = true

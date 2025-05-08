@@ -29,17 +29,17 @@ func plus_expiriance_level_player() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	count_exp = round(max_wave * 50 * (WaveGeneration.current_location * 0.1 + 0.9))
 	PlayerIndicatorsManager.update_level_player(round(count_exp))
-	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp))
+	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(roundi(count_exp))
 
 	count_coins = round(max_wave * 100 * (WaveGeneration.current_location * 0.15 + 0.85))
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 2:
 		count_coins = count_coins + (count_coins * 0.05)
-	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins))
+	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(roundi(count_coins))
 	PlayerIndicatorsManager.update_coins_count(round(count_coins))
 
 	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
 		$TextureRect8/MarginContainer/GridContainer/Runes.visible = true
-		count_rune = round(max_wave * 5)
+		count_rune = roundi(max_wave * 5)
 		PlayerIndicatorsManager.update_rune_count(+count_rune)
 		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.text = "x" + str(count_rune)
 	else:
@@ -66,14 +66,14 @@ func plus_expiriance_level_player() -> void:
 func bonus_for_AD() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	PlayerIndicatorsManager.update_level_player(round(count_exp * 0.5))
-	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(round(count_exp * 1.5))
+	$TextureRect8/MarginContainer/GridContainer/Experiance/Experiance_label.text = "x" + str(roundi(count_exp * 1.5))
 	PlayerIndicatorsManager.update_coins_count(round(count_coins * 0.5))
-	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(round(count_coins * 1.5))
+	$TextureRect8/MarginContainer/GridContainer/Coins/Coins.text = "x" + str(roundi(count_coins * 1.5))
 
 	if PlayerIndicatorsManager.LEVEL_PLAYER >= 5:
 		$TextureRect8/MarginContainer/GridContainer/Runes.visible = true
 		PlayerIndicatorsManager.update_rune_count(round(count_rune * 0.5))
-		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.text = "x" + str(round(count_rune * 1.5))
+		$TextureRect8/MarginContainer/GridContainer/Runes/Runes_label.text = "x" + str(roundi(count_rune * 1.5))
 	else:
 		$TextureRect8/MarginContainer/GridContainer/Runes.visible = false
 
