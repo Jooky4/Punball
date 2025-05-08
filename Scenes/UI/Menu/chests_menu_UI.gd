@@ -70,11 +70,15 @@ func start_chests() -> void:
 
 func try_open_chest() -> void:
 	if chest_1.can_open:
+
 		AudioManager.click()
+
+
 		var count_coins = 500 * ((chest_1.location_for_open * 0.15) + 0.85)
 		var count_crystal = 0
 
 		if PlayerIndicatorsManager.COUNT_OPEN_CHEST + 1 <= 5:
+			YandexMetrika.ym(101336789,'reachGoal','opened_first_chest_for_location')
 			count_crystal = 5
 		elif 5 < PlayerIndicatorsManager.COUNT_OPEN_CHEST + 1 and PlayerIndicatorsManager.COUNT_OPEN_CHEST + 1 <= 15:
 			count_crystal = 10

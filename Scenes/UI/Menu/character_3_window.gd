@@ -80,6 +80,7 @@ func _on_level_up_character_3_button_pressed() -> void:
 		tween1.tween_property($VBoxContainer/HP_character/HP_label, "scale", Vector2(1.4, 1.4), 0.5).set_trans(Tween.TRANS_BACK)
 		tween1.chain().tween_property($VBoxContainer/HP_character/HP_label, "scale", Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_BACK)
 		await get_tree().create_timer(1).timeout
+		YandexMetrika.ym(101336789,'reachGoal','busya_is_upgraded')
 		PlayerIndicatorsManager.character_3_up_lvl()
 		$"..".can_or_not_update()
 		$Level_UP_character_3_button.disabled = false

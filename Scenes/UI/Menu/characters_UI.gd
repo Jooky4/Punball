@@ -38,9 +38,13 @@ func _on_button_1_character_pressed() -> void:
 	$Character_3_window.visible = false
 	$Back_button.visible = true
 
+
 func _on_buy_2_hero_button_pressed() -> void:
 	if PlayerIndicatorsManager.CRYSTALS_COUNT >= 1000:
 		AudioManager.click()
+
+		YandexMetrika.ym(101336789,'reachGoal','merlin_is_purchased')
+
 		PlayerIndicatorsManager.update_crystal_count(-1000)
 		$"..".update_crystal_label()
 		$All_characters/HBoxContainer/Character_2.visible = true
@@ -49,9 +53,13 @@ func _on_buy_2_hero_button_pressed() -> void:
 		$Character_2_window.update_characyer_2_UI()
 		can_or_not_update()
 
+
 func _on_buy_button_pressed() -> void:
 	if PlayerIndicatorsManager.CRYSTALS_COUNT >= 1500:
 		AudioManager.click()
+
+		YandexMetrika.ym(101336789,'reachGoal','busya_is_purchased')
+
 		PlayerIndicatorsManager.update_crystal_count(-1500)
 		$"..".update_crystal_label()
 		$All_characters/HBoxContainer/Character_3.visible = true
