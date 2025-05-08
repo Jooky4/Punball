@@ -1,33 +1,33 @@
 extends Control
+@onready var coins_grid_container: GridContainer = $ScrollContainer/VBoxContainer/TextureRect2/GridContainer
+@onready var crystal_grid_container: GridContainer = $ScrollContainer/VBoxContainer/TextureRect4/GridContainer
+
+var shop_items: Dictionary[String, NodePath] = {
+	"coins_500": "Coins_1",
+	"coins_2500": "Coins_2",
+	"coins_7000": "Coins_3",
+	"coins_16000": "Coins_4",
+	"coins_35000": "Coins_5",
+	"coins_80000": "Coins_6",
+	"crystal_100": "Crystal_1",
+	"crystal_500": "Crystal_2",
+	"crystal_1200": "Crystal_3",
+	"crystal_2500": "Crystal_4",
+	"crystal_6000": "Crystal_5",
+	"crystal_14000": "Crystal_6",
+}
 
 func update_price(catalog_items) -> void:
 	for i in catalog_items:
-		match i["id"]:
-			"coins_500":
-				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1/Label.text = i.price
-			"coins_2500":
-				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2/Label.text = i.price
-			"coins_7000":
-				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3/Label.text = i.price
-			"coins_16000":
-				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4/Label.text = i.price
-			"coins_35000":
-				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5/Label.text = i.price
-			"coins_80000":
-				$ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6/Label.text = i.price
+		var shop_item
+		if "coins" in i["id"]:
+			shop_item = coins_grid_container.get_node(shop_items[i["id"]])
+		elif "crystal" in i["id"]:
+			shop_item = crystal_grid_container.get_node(shop_items[i["id"]])
 
-			"crystal_100":
-				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1/Label.text = i.price
-			"crystal_500":
-				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2/Label.text = i.price
-			"crystal_1200":
-				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3/Label.text = i.price
-			"crystal_2500":
-				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4/Label.text = i.price
-			"crystal_6000":
-				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5/Label.text = i.price
-			"crystal_14000":
-				$ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6/Label.text = i.price
+		if shop_item:
+			shop_item.price = int(i.priceValue)
+
 
 func _on_coins_1_pressed() -> void:
 	AudioManager.click()

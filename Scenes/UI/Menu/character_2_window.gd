@@ -26,10 +26,10 @@ func update_characyer_2_UI() -> void:
 		$VBoxContainer/HP_character/HP_UP.visible = true
 		$VBoxContainer/TextureProgressBar.value = PlayerIndicatorsManager.CHARACTER_2_LVL
 		$VBoxContainer/TextureProgressBar/Label.text = tr("CHR_LVL") + ": " + str(PlayerIndicatorsManager.CHARACTER_2_LVL) + "/20"
-		$VBoxContainer/Attack_character/Attack_label.text = str(120 * (1 + ((PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 0.05)))
-		$VBoxContainer/Attack_character/Attack_UP.text = str(120 * (1 + (PlayerIndicatorsManager.CHARACTER_2_LVL * 0.05)))
-		$VBoxContainer/HP_character/HP_label.text = str(600 * (1 + ((PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 0.05)))
-		$VBoxContainer/HP_character/HP_UP.text = str(600 * (1 + (PlayerIndicatorsManager.CHARACTER_2_LVL * 0.05)))
+		$VBoxContainer/Attack_character/Attack_label.text = str(int(120 * (1 + ((PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 0.05))))
+		$VBoxContainer/Attack_character/Attack_UP.text = str(int(120 * (1 + (PlayerIndicatorsManager.CHARACTER_2_LVL * 0.05))))
+		$VBoxContainer/HP_character/HP_label.text = str(int(600 * (1 + ((PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 0.05))))
+		$VBoxContainer/HP_character/HP_UP.text = str(int(600 * (1 + (PlayerIndicatorsManager.CHARACTER_2_LVL * 0.05))))
 
 		$Need_matirial/Runes/Runes_Label.text = str(100 + (PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 20)
 		need_runes = (100 + (PlayerIndicatorsManager.CHARACTER_2_LVL - 1) * 20)

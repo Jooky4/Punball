@@ -2,7 +2,7 @@
 extends TextureButton
 
 @export_enum("coins", "crystal") var type: int
-@export var price: int
+@export var price: int : set = _set_price
 @export var count: int
 
 @export var item_texture: Texture2D
@@ -33,3 +33,10 @@ func _ready() -> void:
 	price_label.text = str(price)
 	item_count_label.text = str(count)
 	count_image.texture = current_count_texture
+
+
+func _set_price(value: int) -> void:
+	price = value
+
+	if price_label:
+		price_label.text = str(value)

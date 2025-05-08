@@ -32,6 +32,19 @@ var location = {
 	-1 : [preload("res://Texture/UI/Main_menu/Location/10.png"), tr("LVL_NAME_VOIDNAR")]
 }
 
+var location_names = {
+	0 : tr("LVL_NAME_DARKWOOD"),
+	1 : tr("LVL_NAME_DESERT"),
+	2 : tr("LVL_NAME_CASTLE"),
+	3 : tr("LVL_NAME_FOGGRAVE"),
+	4 : tr("LVL_NAME_ETHERION"),
+	5 : tr("LVL_NAME_RUSTHOLD"),
+	6 : tr("LVL_NAME_LUNARIS"),
+	7 : tr("LVL_NAME_WHISPERHOLLOW"),
+	8 : tr("LVL_NAME_FLAMEGRAD"),
+	-1 : tr("LVL_NAME_VOIDNAR"),
+}
+
 var current_location = 1
 var number_cycle = 0
 
@@ -144,7 +157,29 @@ func _on_catalog_loaded(catalog):
 	shop_UI.update_price(catalog)
 
 func update_player_indicators() -> void:
+	var lang = YandexSDK.lang
+	prints("set lang to", lang)
 	PlayerIndicatorsManager.update_player_date_in_game()
+	TranslationServer.set_locale(lang)
+
+	# обновляем перевод локаций
+	# так как они описаны в самом начале файла, то уже переведены на какой-то
+	# дефолтный язык.
+	# Но после загрузки языка сайта из яндекс-сдк, надо сбросить кэш перведённых локаций
+	# - нужно только для location_names
+	location_names = {
+		0 : tr("LVL_NAME_DARKWOOD"),
+		1 : tr("LVL_NAME_DESERT"),
+		2 : tr("LVL_NAME_CASTLE"),
+		3 : tr("LVL_NAME_FOGGRAVE"),
+		4 : tr("LVL_NAME_ETHERION"),
+		5 : tr("LVL_NAME_RUSTHOLD"),
+		6 : tr("LVL_NAME_LUNARIS"),
+		7 : tr("LVL_NAME_WHISPERHOLLOW"),
+		8 : tr("LVL_NAME_FLAMEGRAD"),
+		-1 : tr("LVL_NAME_VOIDNAR"),
+	}
+	update_cuurent_location_texture()
 
 func arabic_to_roman(num: int) -> String:
 	var val = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4, 1]
@@ -204,9 +239,9 @@ func update_cuurent_location_texture() -> void:
 	if current_location <= 10008:
 		location_sprite.texture = location[(current_location % 10) - 1][0]
 		if current_location > 10:
-			location_name_label.text = str(location[(current_location % 10) - 1][1])  + " "  + str(rim_num_location[((current_location - 1) / 10) - 1])
+			location_name_label.text = location_names[(current_location % 10) - 1]  + " "  + str(rim_num_location[((current_location - 1) / 10) - 1])
 		else:
-			location_name_label.text = location[(current_location % 10) - 1][1]
+			location_name_label.text = location_names[(current_location % 10) - 1]
 		max_wave_on_locations_label.text = tr("MAX_WAVE") + " " + str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS) + "/" + str(count_wave_on_locations[(current_location % 10) - 1])
 
 func update_characte_UI() -> void:

@@ -57,8 +57,8 @@ texture = ExtResource("7_pdda6")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Open"]
 position = Vector2(60, 48)
 amount = 9
-lifetime = 7.0
 texture = ExtResource("4_vj1t0")
+lifetime = 7.0
 emission_shape = 3
 emission_rect_extents = Vector2(35, 20)
 direction = Vector2(0, -1)

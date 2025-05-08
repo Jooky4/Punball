@@ -62,7 +62,7 @@ var legendary = [
 	["Последний рывок", 1320]
 ]
 
-# tr("SKILL_DESC_"), #
+
 var skill_discription = {
 	"Шар-заморозка": tr("SKILL_DESC_FREEZE_BALL"),
 	"Лед: комбо": tr("SKILL_DESC_ICE_COMBO"),

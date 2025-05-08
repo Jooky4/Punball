@@ -100,7 +100,8 @@ SKILL_EPIC;Эпический;Epic
 SKILL_LEGENDARY;Легендарный;Legendary
 SKILL_BTN_REFRESH;Обновить;Refresh
 SKILL_DESC_FREEZE_BALL;Шар холода: имеет 10% шанс заморозить врага;Freeze Ball: has a 10% chance to freeze an enem
-SKILL_DESC_ICE_COMBO;Выпускает ледяной конус в случайного врага каждые 40 комбо;Ice Combo: shoots an ice cone at a random enemy every 40 combosSKILL_DESC_NUKE_COMBO;Выпускает ракету в самого слабого врага каждые 40 комбо;Nuke Combo: fires a missile at the weakest enemy every 40 combos
+SKILL_DESC_ICE_COMBO;Выпускает ледяной конус в случайного врага каждые 40 комбо;Ice Combo: shoots an ice cone at a random enemy every 40 combos
+SKILL_DESC_NUKE_COMBO;Выпускает ракету в самого слабого врага каждые 40 комбо;Nuke Combo: fires a missile at the weakest enemy every 40 combos
 SKILL_DESC_INC_HP_RECOVERY;ОЗ восстанавливается в большем объеме;Increased HP recovery
 SKILL_DESC_INC_MAX_HP;Максимальный ОЗ повышен;Max HP increased
 SKILL_DESC_NORMAL_BALL_BOOST;Урон, наносимый обычными шарами, повышен;Normal ball damage boosted
