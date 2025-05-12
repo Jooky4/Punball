@@ -7,14 +7,16 @@ extends Control
 func _ready() -> void:
 	self.visible = false
 
+
 func update_reward_and_show_window(count_coins, count_crystal) -> void:
 	open_sound.stop()
 	open_sound.play()
-	crystal_label.text = str(count_crystal)
-	coins_label.text = str(count_coins)
+	crystal_label.text = str(int(count_crystal))
+	coins_label.text = str(int(count_coins))
 	PlayerIndicatorsManager.update_crystal_count(+count_crystal)
 	PlayerIndicatorsManager.update_coins_count(+count_coins)
 	self.visible = true
+
 
 func _on_continue_button_pressed() -> void:
 	AudioManager.click()

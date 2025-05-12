@@ -807,8 +807,8 @@ func notification_about_new_enemy(num_enemy) -> void:
 			"description": tr("ENEMY_BERSERKER_DESCR")
 		},
 		14: {
-			"name": tr("ENEMY_ELEMENTAL_NAME"),
-			"description": tr("ENEMY_ELEMENTAL_DESCR")
+			"name": tr("ENEMY_FIRE_ELEMENTAL_NAME"),
+			"description": tr("ENEMY_FIRE_ELEMENTAL_DESCR")
 		},
 	}
 	match num_enemy:
