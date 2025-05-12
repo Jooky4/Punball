@@ -8,6 +8,11 @@ func _ready() -> void:
 
 
 func update_characyer_3_UI() -> void:
+	if PlayerIndicatorsManager.CRYSTALS_COUNT < Constants.HERO_BUY_CRYSTAL_COST["busya"]:
+		$Buy_button.disabled = true
+	else:
+		$Buy_button.disabled = false
+
 	if PlayerIndicatorsManager.CHARACTER_3_LVL > 0:
 		if PlayerIndicatorsManager.CURRENT_CHARACTER == 3:
 			$Select_character.disabled = true

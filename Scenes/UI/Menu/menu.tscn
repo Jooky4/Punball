@@ -168,7 +168,6 @@ font_size = 35
 shader = ExtResource("81_mwm4l")
 shader_parameter/outline_color = Color(0.054902, 0.113725, 0.341176, 1)
 shader_parameter/outline_width = 2.209
-shader_parameter/outline_smoothness = 0.025
 shader_parameter/top_bound = 0.0
 shader_parameter/bottom_bound = 1.0
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
@@ -2050,6 +2049,7 @@ offset_right = 195.0
 offset_bottom = 396.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme = ExtResource("17_quxdn")
 
 [node name="TextureRect2" type="TextureRect" parent="Characters/Character_2_window/BuyButton"]
@@ -2526,6 +2526,7 @@ offset_right = 195.0
 offset_bottom = 389.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme = ExtResource("17_quxdn")
 
 [node name="TextureRect2" type="TextureRect" parent="Characters/Character_3_window/Buy_button"]

@@ -7,6 +7,11 @@ const TALENT_BASE_COST = {
 }
 
 
+const HERO_BUY_CRYSTAL_COST = {
+	"merlin": 1000,
+	"busya": 1500,
+}
+
 const HERO_UPGRADE_COST = {
 	"STAGE_1": 1000,
 	"STAGE_2": 2000,
