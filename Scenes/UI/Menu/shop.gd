@@ -2,7 +2,7 @@ extends Control
 @onready var coins_grid_container: GridContainer = $ScrollContainer/VBoxContainer/TextureRect2/GridContainer
 @onready var crystal_grid_container: GridContainer = $ScrollContainer/VBoxContainer/TextureRect4/GridContainer
 
-var shop_items: Dictionary[String, NodePath] = {
+var shop_items: Dictionary = {
 	"coins_500": "Coins_1",
 	"coins_2500": "Coins_2",
 	"coins_7000": "Coins_3",
