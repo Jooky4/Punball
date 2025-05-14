@@ -173,6 +173,7 @@ shader_parameter/bottom_bound = 1.0
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ayrqo"]
+line_spacing = -3.5
 font = ExtResource("3_cjc1q")
 font_size = 20
 outline_size = 15
@@ -2869,16 +2870,17 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -41.0
-offset_right = -2.0
-offset_bottom = 10.0
+offset_left = 1.2745
+offset_top = -33.8871
+offset_right = -0.725502
+offset_bottom = 17.1129
 grow_horizontal = 2
 grow_vertical = 0
 text = "HERO_TAB_LOCKED_BY_LVL"
 label_settings = SubResource("LabelSettings_ayrqo")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 uppercase = true
 
 [node name="Can_update" type="TextureRect" parent="Select_buttons/Character_button"]
