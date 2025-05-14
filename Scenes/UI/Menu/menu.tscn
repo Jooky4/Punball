@@ -2869,16 +2869,16 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -24.951
-offset_top = -17.1813
-offset_right = 24.049
-offset_bottom = 6.8187
+offset_top = -41.0
+offset_right = -2.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "HERO_TAB_LOCKED_BY_LVL"
 label_settings = SubResource("LabelSettings_ayrqo")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 uppercase = true
 
 [node name="Can_update" type="TextureRect" parent="Select_buttons/Character_button"]
