@@ -26,7 +26,11 @@ func update_price(catalog_items) -> void:
 			shop_item = crystal_grid_container.get_node(shop_items[i["id"]])
 
 		if shop_item:
-			shop_item.price = int(i.priceValue)
+			# неразрывный пробел - код символа 160
+			var unbreakable_space = " "
+			var val = i.price.split(unbreakable_space)
+			shop_item.price = val[0]
+			shop_item.currency = val[1]
 
 
 func _on_coins_1_pressed() -> void:

@@ -91,7 +91,8 @@ func _on_level_up_character_2_button_pressed() -> void:
 		YandexMetrika.ym(101336789,'reachGoal','merlin_is_upgraded')
 		PlayerIndicatorsManager.character_2_up_lvl()
 		$"..".can_or_not_update()
-		$Level_UP_character_2_button.disabled = false
+		update_characyer_2_UI()
+
 
 func _on_select_character_pressed() -> void:
 	AudioManager.click()

@@ -4,6 +4,7 @@ extends TextureButton
 @export_enum("coins", "crystal") var type: int
 @export var price: int : set = _set_price
 @export var count: int
+@export var currency: String = "Руб" : set = _set_currency
 
 @export var item_texture: Texture2D
 
@@ -18,6 +19,7 @@ extends TextureButton
 @onready var item_count_label: Label = %CountLabel
 @onready var price_label: Label = %PriceLabel
 @onready var count_image: TextureRect = $HBoxContainer2/TextureRect
+@onready var currency_label: Label = $HBoxContainer/Label
 
 
 func _ready() -> void:
@@ -31,6 +33,7 @@ func _ready() -> void:
 	texture_normal = current_bg_texture
 	item_image.texture = item_texture
 	price_label.text = str(price)
+	currency_label.text = currency
 	item_count_label.text = str(count)
 	count_image.texture = current_count_texture
 
@@ -40,3 +43,9 @@ func _set_price(value: int) -> void:
 
 	if price_label:
 		price_label.text = str(value)
+
+
+func _set_currency(value: String) -> void:
+	currency = value
+	if currency_label:
+		currency_label.text = value

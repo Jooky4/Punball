@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c511u2wa4vd43"]
 
 [ext_resource type="Texture2D" uid="uid://c27j04flqk5yi" path="res://Texture/UI/Shop_UI/окно для монет.png" id="1_604da"]
-[ext_resource type="Script" uid="uid://otpholi0wacx" path="res://Scenes/Shop/shop_item.gd" id="2_n60dy"]
+[ext_resource type="Script" path="res://Scenes/Shop/shop_item.gd" id="2_n60dy"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_n60dy"]
 [ext_resource type="Texture2D" uid="uid://d01f1hwel8jg4" path="res://Texture/UI/Shop_UI/окно для кристаллов.png" id="3_qhhkh"]
 [ext_resource type="Material" uid="uid://dwslfhmpwqnea" path="res://Resources/Materials/red_outline_material.tres" id="4_c4rpq"]
@@ -19,6 +19,7 @@ font_size = 30
 [node name="Coins_1" type="TextureButton"]
 texture_normal = ExtResource("1_604da")
 script = ExtResource("2_n60dy")
+currency = ""
 coins_bg_texture = ExtResource("1_604da")
 crystal_bg_texture = ExtResource("3_qhhkh")
 coin_texture = ExtResource("5_60v62")
@@ -66,7 +67,6 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "CURRENCY"
 label_settings = SubResource("LabelSettings_3n0kt")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]

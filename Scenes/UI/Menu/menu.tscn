@@ -631,36 +631,42 @@ columns = 3
 layout_mode = 2
 price = 5
 count = 500
+currency = "Руб"
 item_texture = ExtResource("24_nehew")
 
 [node name="Coins_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 19
 count = 2500
+currency = "Руб"
 item_texture = ExtResource("25_21de7")
 
 [node name="Coins_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 45
 count = 7000
+currency = "Руб"
 item_texture = ExtResource("26_wvchi")
 
 [node name="Coins_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 99
 count = 16000
+currency = "Руб"
 item_texture = ExtResource("27_jjtc7")
 
 [node name="Coins_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 150
 count = 35000
+currency = "Руб"
 item_texture = ExtResource("28_lceg1")
 
 [node name="Coins_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 300
 count = 80000
+currency = "Руб"
 item_texture = ExtResource("29_d1w7v")
 
 [node name="TextureRect3" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
@@ -714,6 +720,7 @@ texture_normal = ExtResource("31_1qtya")
 type = 1
 price = 19
 count = 100
+currency = "Руб"
 item_texture = ExtResource("32_0mmh1")
 
 [node name="Crystal_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
@@ -722,6 +729,7 @@ texture_normal = ExtResource("31_1qtya")
 type = 1
 price = 69
 count = 500
+currency = "Руб"
 item_texture = ExtResource("33_lr1uh")
 
 [node name="Crystal_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
@@ -730,6 +738,7 @@ texture_normal = ExtResource("31_1qtya")
 type = 1
 price = 119
 count = 1200
+currency = "Руб"
 item_texture = ExtResource("34_3ixuv")
 
 [node name="Crystal_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
@@ -738,6 +747,7 @@ texture_normal = ExtResource("31_1qtya")
 type = 1
 price = 179
 count = 2500
+currency = "Руб"
 item_texture = ExtResource("35_aktnb")
 
 [node name="Crystal_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
@@ -746,6 +756,7 @@ texture_normal = ExtResource("31_1qtya")
 type = 1
 price = 249
 count = 6000
+currency = "Руб"
 item_texture = ExtResource("36_hq60e")
 
 [node name="Crystal_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
@@ -754,6 +765,7 @@ texture_normal = ExtResource("31_1qtya")
 type = 1
 price = 300
 count = 14000
+currency = "Руб"
 item_texture = ExtResource("37_142ex")
 
 [node name="Characters" type="Control" parent="."]

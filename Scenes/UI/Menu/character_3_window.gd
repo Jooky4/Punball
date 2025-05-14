@@ -88,7 +88,7 @@ func _on_level_up_character_3_button_pressed() -> void:
 		YandexMetrika.ym(101336789,'reachGoal','busya_is_upgraded')
 		PlayerIndicatorsManager.character_3_up_lvl()
 		$"..".can_or_not_update()
-		$Level_UP_character_3_button.disabled = false
+		update_characyer_3_UI()
 
 
 func _on_select_character_pressed() -> void:
