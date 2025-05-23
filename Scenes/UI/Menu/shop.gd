@@ -29,6 +29,12 @@ func update_price(catalog_items) -> void:
 			# неразрывный пробел - код символа 160
 			var unbreakable_space = " "
 			var val = i.price.split(unbreakable_space)
+
+			if val.size() == 1:
+				# Обычный пробел
+				var common_space = " "
+				val = i.price.split(common_space)
+
 			shop_item.price = val[0]
 			shop_item.currency = val[1]
 
