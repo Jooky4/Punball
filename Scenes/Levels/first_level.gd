@@ -1,6 +1,6 @@
 extends Node2D
 
-enum {
+enum State {
 	PLAY,
 	BALLS_GO,
 	WIN,
@@ -8,7 +8,7 @@ enum {
 	CHOOSE_SKILL
 }
 
-var game_state = PLAY
+var game_state: State
 var PIM = PlayerIndicatorsManager
 
 @onready var hp_player_bar = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_bar
@@ -94,7 +94,25 @@ var skill_tutorial_was_shown: bool = false
 var skill_tutorial_was_shown_on_level: int = -1
 
 
+func _set_state(value: State) -> void:
+	prints("change state from", game_state, "to", value)
+	game_state = value
+
+	match game_state:
+		State.PLAY:
+			balls_can_go = true
+			pause_button.disabled = false
+		State.WIN:
+			win()
+		State.LOSE:
+			lose()
+		State.CHOOSE_SKILL:
+			pause_button.disabled = true
+			count_experience_label.text = str(LevelManager.count_experiance)
+
+
 func _ready() -> void:
+	_set_state(State.PLAY)
 	YandexSDK.connect("interstitial_ad", star_location)
 	Engine.time_scale = 1
 	get_tree().paused = false
@@ -174,30 +192,16 @@ func update_character() -> void:
 			$Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Alisa.queue_free()
 			$Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Merlin.queue_free()
 
+
 func _process(delta):
 	match game_state:
-		PLAY:
-			play_game()
-		BALLS_GO:
-			chec_game_end()
-		WIN:
-			win()
-		LOSE:
-			lose()
-		CHOOSE_SKILL:
-			pause_button.disabled = true
-			count_experience_label.text = str(LevelManager.count_experiance)
-			if LevelManager.spin_skill == 0 or LevelManager.spin_skill < 0:
-				count_experience_label.text = str(LevelManager.count_experiance)
-				hp_player_bar.max_value = LevelManager.max_hp_player
-				update_character_label()
-				LevelManager.apeend_new_balls()
-				count_ball_label.text = "x" + str(LevelManager.player_balls.size())
-				balls_can_go = true
-				pause_button.disabled = false
-				game_state = PLAY
+		State.PLAY:
+			_get_input()
+		State.BALLS_GO:
+			check_game_end()
 
-func play_game() -> void:
+
+func _get_input() -> void:
 	if Input.is_action_pressed("LBM") and balls_can_go:
 		if get_global_mouse_position() != old_coord_mouse:
 			$Tutorial.visible = false
@@ -219,8 +223,10 @@ func play_game() -> void:
 		$Tutorial/Label.visible = false
 		balls_go()
 
-func chec_game_end() -> void:
+
+func check_game_end() -> void:
 	update_character_label()
+
 	if !end_wave_bool:
 		var balls_on_map = true
 		var boss_alive = false
@@ -238,8 +244,9 @@ func chec_game_end() -> void:
 				if child.alive:
 					boss_alive = true
 				break
+
 		if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
-			game_state = WIN
+			_set_state(State.WIN)
 			return
 		else:
 			boss_alive = true
@@ -249,10 +256,12 @@ func chec_game_end() -> void:
 				balls_on_map = false
 				break
 
+		# TODO: разобраться почему проверяется текст лейбла count_ball_label а не значение
 		if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
 			end_wave_bool = true
-			await get_tree().create_timer(1).timeout
+			await Utils.timeout(1)
 			end_wave()
+
 
 func check_boss_alive() -> void:
 	var boss_alive = false
@@ -261,9 +270,11 @@ func check_boss_alive() -> void:
 			if child.alive:
 				boss_alive = true
 				break
+
 	if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
-		game_state = WIN
+		_set_state(State.WIN)
 		return
+
 
 func get_expirians_animation(experience) -> void:
 	if kill_on_wave > 0:
@@ -339,6 +350,7 @@ func show_hit_effect():
 	tween.tween_property($UI/Damage, "color:a", 0.4, 0.1)
 	tween.tween_property($UI/Damage, "color:a", 0.0, 0.7)
 
+
 func win() -> void:
 	# Metrika
 	var current_location = 1 + WaveGeneration.get_current_location()
@@ -347,6 +359,7 @@ func win() -> void:
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
 	LevelManager.win_or_lose = "win"
 	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
+
 
 func lose() -> void:
 	if revavil_for_AD_or_crystal == false:
@@ -359,6 +372,7 @@ func lose() -> void:
 			PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
 		LevelManager.win_or_lose = "lose"
 		get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
+
 
 func revavil_player(for_AD_or_crystal : bool = false):
 	end_game_UI_lose.visible = false
@@ -389,13 +403,15 @@ func revavil_player(for_AD_or_crystal : bool = false):
 	if LevelManager.spin_skill > 0:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
-		game_state = CHOOSE_SKILL
+
+		_set_state(State.CHOOSE_SKILL)
 		return
 
 	if for_AD_or_crystal == true:
 		revavil_for_AD_or_crystal = true
-	balls_can_go = true
-	game_state = PLAY
+
+	_set_state(State.PLAY)
+
 
 func draw_trajectory() -> void:
 	strelka.points[0] = start_balls_position.position
@@ -419,6 +435,7 @@ func draw_trajectory() -> void:
 	else:
 		line.points[1] = ball_rotate_UI.position
 
+
 func balls_go() -> void:
 	if balls_can_go:
 		end_wave_bool = false
@@ -428,7 +445,7 @@ func balls_go() -> void:
 		ball_rotate_UI.visible = false
 		new_position_balls = 0
 		character_anim.attack()
-		game_state = BALLS_GO
+		_set_state(State.BALLS_GO)
 		var count_time = 0
 
 		for i in range(LevelManager.player_balls.size()):
@@ -496,6 +513,7 @@ func balls_go() -> void:
 		character_anim.idle()
 		rignt_extreme_point = (Vector2(667, 1055) - start_balls_position.position).normalized()
 		left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if ("CharacterBody2D" in body.name or "ball" in body.name):
@@ -710,9 +728,11 @@ func end_wave() -> void:
 			hp_player_bar.value = 0
 			hp_player_label.text = "0"
 			character_anim.death()
-			await get_tree().create_timer(2).timeout
+
+			await Utils.timeout(2)
 			end_game_UI_lose.start_timer()
-			game_state = LOSE
+
+			_set_state(State.LOSE)
 			return
 	else:
 		update_character_label()
@@ -750,11 +770,13 @@ func end_wave() -> void:
 	if LevelManager.spin_skill > 0:
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(LevelManager.spin_skill)
-		game_state = CHOOSE_SKILL
+
+		_set_state(State.CHOOSE_SKILL)
 		return
 	await get_tree().create_timer(0.5).timeout
-	balls_can_go = true
-	game_state = PLAY
+
+	_set_state(State.PLAY)
+
 
 func notification_about_new_enemy(num_enemy) -> void:
 	while LevelManager.spin_skill > 0:
@@ -983,6 +1005,19 @@ func update_character_label() -> void:
 	else:
 		hp_player_label.text = str(roundi(LevelManager.hp_player))
 
+
 # ЭТО ДЛЯ ТЕСТИРОВАНИЯ, ПОТОМ УДАЛИТЬ
 func _chose_ball_button_pressed():
 	$UI/Chose_ball.visible = true
+
+
+func _on_get_skill_ui_skill_taken(skill: Variant) -> void:
+	count_experience_label.text = str(LevelManager.count_experiance)
+	hp_player_bar.max_value = LevelManager.max_hp_player
+	update_character_label()
+	LevelManager.apeend_new_balls()
+	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
+
+	# Задержка что-бы при клике на скил не запускались шарики на игровом поле
+	await Utils.timeout(0.2)
+	_set_state(State.PLAY)

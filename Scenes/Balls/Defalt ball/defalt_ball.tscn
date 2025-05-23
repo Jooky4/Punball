@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://oclkolfhemxg"]
 
-[ext_resource type="Script" uid="uid://bpbpi2iuep7h7" path="res://Scenes/Balls/Defalt ball/defalt_ball.gd" id="1_ycsa2"]
+[ext_resource type="Script" path="res://Scenes/Balls/Defalt ball/defalt_ball.gd" id="1_ycsa2"]
 [ext_resource type="Texture2D" uid="uid://dl3oexxftwi03" path="res://Texture/Balls/usual.png" id="2_kdh35"]
 [ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Effects/usual_trail.png" id="3_72kjp"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Effects/Circle_2.png" id="4_ef181"]

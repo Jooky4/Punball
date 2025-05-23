@@ -148,6 +148,9 @@ var count_get_skill : int = 0
 var show_AD = false
 
 
+signal skill_taken(skill)
+
+
 func _ready() -> void:
 	for i in windows_skill.get_children():
 		i.queue_free()
@@ -410,10 +413,13 @@ func _on_skill_1_pressed() -> void:
 	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
 
 	if $Bye_button/Skill_1/FREE.visible:
+		skill_taken.emit(skills[0])
 		add_skill(skills[0][0])
 	else:
+		skill_taken.emit(skills[0])
 		LevelManager.buy_skill(skills[0][1])
 		add_skill(skills[0][0])
+
 
 
 func _on_skill_2_pressed() -> void:
@@ -422,10 +428,13 @@ func _on_skill_2_pressed() -> void:
 	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
 
 	if $Bye_button/Skill_2/FREE.visible:
+		skill_taken.emit(skills[1])
 		add_skill(skills[1][0])
 	else:
 		LevelManager.buy_skill(skills[1][1])
+		skill_taken.emit(skills[1])
 		add_skill(skills[1][0])
+
 
 
 func _on_skill_3_pressed() -> void:
@@ -434,10 +443,13 @@ func _on_skill_3_pressed() -> void:
 	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
 
 	if $Bye_button/Skill_3/FREE.visible:
+		skill_taken.emit(skills[2])
 		add_skill(skills[2][0])
 	else:
 		LevelManager.buy_skill(skills[2][1])
+		skill_taken.emit(skills[2])
 		add_skill(skills[2][0])
+
 
 
 func add_skill(skill) -> void:
