@@ -1,20 +1,16 @@
-[gd_scene load_steps=35 format=3 uid="uid://dth3oomadgqmv"]
+[gd_scene load_steps=31 format=3 uid="uid://8k6fiawcws2i"]
 
-[ext_resource type="Script" uid="uid://br1feaffl0r7v" path="res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.gd" id="1_oq22b"]
-[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_2vwrg"]
-[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_7tq2g"]
-[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="3_5chwh"]
-[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="4_1gi6c"]
-[ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="4_pkxlk"]
-[ext_resource type="Texture2D" uid="uid://cldip32qg0raq" path="res://Texture/Enemys/Defalt_enemy/глаз2.png" id="5_h5blp"]
-[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="5_qh7tt"]
-[ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="6_1tsab"]
-[ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="7_70tpc"]
-[ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="8_iab2r"]
-[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="9_p1wxr"]
-[ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="14_ntpxa"]
-[ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="14_otf7t"]
-[ext_resource type="AudioStream" uid="uid://1dcpvt5py1sc" path="res://Resources/Sounds/преспешник.mp3" id="16_444vf"]
+[ext_resource type="Script" path="res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.gd" id="1_jllo6"]
+[ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_b4scm"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_u7nqw"]
+[ext_resource type="Texture2D" uid="uid://b4ony8nhmunyf" path="res://Texture/Enemys/enemys2.png" id="4_flyxd"]
+[ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="5_wr0u8"]
+[ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="6_2brxl"]
+[ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="7_ltp6e"]
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="8_7htao"]
+[ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="9_5polr"]
+[ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="10_7htkn"]
+[ext_resource type="AudioStream" uid="uid://1dcpvt5py1sc" path="res://Resources/Sounds/преспешник.mp3" id="11_22gjc"]
 
 [sub_resource type="Curve" id="Curve_pp0bc"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -42,11 +38,11 @@ colors = PackedColorArray(1, 1, 1, 0, 0.804535, 1, 0.589844, 1, 0.360031, 0.6445
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n7jnx"]
 resource_local_to_scene = true
-shader = ExtResource("2_7tq2g")
+shader = ExtResource("3_u7nqw")
 shader_parameter/lightness = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_r53h3"]
-font = ExtResource("5_qh7tt")
+font = ExtResource("8_7htao")
 font_size = 50
 font_color = Color(0.996945, 6.23293e-06, 1.54018e-06, 1)
 outline_size = 20
@@ -92,7 +88,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.653, 0.653)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -128,7 +124,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.653, 0.653)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -181,82 +177,34 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite_enemy/Head/Eye1:position")
+tracks/10/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector2(56.1404, -17.5439), Vector2(56.1404, -17.5439)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite_enemy/Head/Eye1:scale")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(0.524, 0.524), Vector2(0.604, 0.604), Vector2(0.524, 0.524)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite_enemy/Head/Eye2:scale")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(0.524, 0.524), Vector2(0.689, 0.689), Vector2(0.524, 0.524)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Sprite_enemy/Head/Eye2:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(-49.1228, -14.0351), Vector2(-45.614, -17.5439), Vector2(-49.1228, -14.0351)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
 "times": PackedFloat32Array(0, 0.025, 0.1, 0.175, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.9, 0.0, 0.0]
 }
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Hp_boss_label:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Hp_boss_label:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-45, 22)]
 }
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("TextureProgressBar:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TextureProgressBar:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -301,7 +249,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.653, 0.653)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -337,7 +285,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.653, 0.653)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -390,82 +338,34 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite_enemy/Head/Eye1:position")
+tracks/10/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector2(56.1404, -17.5439), Vector2(56.1404, -17.5439)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite_enemy/Head/Eye1:scale")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.15),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(0.524, 0.524), Vector2(0.604, 0.604), Vector2(0.524, 0.524)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite_enemy/Head/Eye2:scale")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.15),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(0.524, 0.524), Vector2(0.689, 0.689), Vector2(0.524, 0.524)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Sprite_enemy/Head/Eye2:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.15),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(-49.1228, -14.0351), Vector2(-45.614, -17.5439), Vector2(-49.1228, -14.0351)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.9]
 }
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Hp_boss_label:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Hp_boss_label:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-45, 22)]
 }
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("TextureProgressBar:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TextureProgressBar:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -498,7 +398,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.45, 0.7, 1.5),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.26, 0.285), Vector2(0.3, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.595, 0.652), Vector2(0.687, 0.653), Vector2(0.653, 0.653)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -534,7 +434,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.05, 0.5, 0.75, 1.55),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.3), Vector2(0.3, 0.27), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.595, 0.652), Vector2(0.687, 0.653), Vector2(0.653, 0.653)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -647,7 +547,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.29), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.641, 0.664), Vector2(0.653, 0.653)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -671,7 +571,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.266667, 1.26667, 2.26667),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.29), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.641, 0.664), Vector2(0.653, 0.653)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -923,7 +823,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.29), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.641, 0.664), Vector2(0.653, 0.653)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -959,7 +859,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.05, 0.2, 0.35),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.29), Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653), Vector2(0.641, 0.664), Vector2(0.653, 0.653)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1070,7 +970,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1094,7 +994,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.285, 0.285)]
+"values": [Vector2(0.653, 0.653)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1171,106 +1071,70 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite_enemy/Head/Eye1:scale")
+tracks/10/path = NodePath("TextureProgressBar:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.604, 0.604)]
+"values": [Vector2(-45, 36)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite_enemy/Head/Eye2:scale")
+tracks/11/path = NodePath("Hp_boss_label:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.689, 0.689)]
+"values": [Vector2(-45, 22)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite_enemy/Head/Eye2:position")
+tracks/12/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-45.614, -17.5439)]
+"values": [0.0]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("TextureProgressBar:position")
+tracks/13/path = NodePath("Effects/Spawn_effect:emitting")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-45, 36)]
+"update": 1,
+"values": [false]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Hp_boss_label:position")
+tracks/14/path = NodePath("Effects/Move_effect:emitting")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-45, 22)]
+"update": 1,
+"values": [false]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Sprite_enemy:material:shader_parameter/lightness")
+tracks/15/path = NodePath(".:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Effects/Spawn_effect:emitting")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("Effects/Move_effect:emitting")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath(".:visible")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1302,7 +1166,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.466667, 0.933333, 1.03333),
 "transitions": PackedFloat32Array(2, 2, -2, 2),
 "update": 0,
-"values": [Vector2(0.22, 0.3), Vector2(0.22, 0.3), Vector2(0.3, 0.26), Vector2(0.285, 0.285)]
+"values": [Vector2(0.504, 0.687), Vector2(0.504, 0.687), Vector2(0.687, 0.595), Vector2(0.653, 0.653)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1326,7 +1190,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.466667, 0.933333, 1.03333),
 "transitions": PackedFloat32Array(2, 2, -2, 2),
 "update": 0,
-"values": [Vector2(0.22, 0.3), Vector2(0.22, 0.3), Vector2(0.3, 0.26), Vector2(0.285, 0.285)]
+"values": [Vector2(0.504, 0.687), Vector2(0.504, 0.687), Vector2(0.687, 0.595), Vector2(0.653, 0.653)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1474,7 +1338,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.8, 1),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.285, 0.285)]
+"values": [Vector2(1e-05, 1e-05), Vector2(0.653, 0.653)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1498,7 +1362,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.8, 1),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0.285, 0.285)]
+"values": [Vector2(0, 0), Vector2(0.653, 0.653)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1683,21 +1547,21 @@ tracks/18/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4grpw"]
 _data = {
-&"Damage": SubResource("Animation_1gsrn"),
-&"Death": SubResource("Animation_bs4u2"),
-&"Hit": SubResource("Animation_iudg3"),
-&"Idle": SubResource("Animation_fr0rw"),
-&"Move": SubResource("Animation_tuynj"),
-&"Preparation": SubResource("Animation_ierwm"),
-&"RESET": SubResource("Animation_4m4mk"),
-&"Spawn": SubResource("Animation_dfyqr"),
-&"SpawnMagic": SubResource("Animation_7mjgp")
+"Damage": SubResource("Animation_1gsrn"),
+"Death": SubResource("Animation_bs4u2"),
+"Hit": SubResource("Animation_iudg3"),
+"Idle": SubResource("Animation_fr0rw"),
+"Move": SubResource("Animation_tuynj"),
+"Preparation": SubResource("Animation_ierwm"),
+"RESET": SubResource("Animation_4m4mk"),
+"Spawn": SubResource("Animation_dfyqr"),
+"SpawnMagic": SubResource("Animation_7mjgp")
 }
 
 [node name="defalt_enemy" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_oq22b")
+script = ExtResource("1_jllo6")
 
 [node name="Effects" type="Node2D" parent="."]
 
@@ -1709,7 +1573,7 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.85
 lifetime_randomness = 0.3
-texture = ExtResource("2_2vwrg")
+texture = ExtResource("2_b4scm")
 direction = Vector2(0, 1)
 spread = 180.0
 gravity = Vector2(0, -190)
@@ -1733,7 +1597,7 @@ amount = 4
 lifetime = 1.1
 explosiveness = 0.3
 lifetime_randomness = 0.3
-texture = ExtResource("2_2vwrg")
+texture = ExtResource("2_b4scm")
 emission_shape = 3
 emission_rect_extents = Vector2(20, 1)
 direction = Vector2(0, -1)
@@ -1755,7 +1619,7 @@ emitting = false
 amount = 80
 local_coords = true
 draw_order = 1
-texture = ExtResource("2_2vwrg")
+texture = ExtResource("2_b4scm")
 emission_shape = 3
 emission_rect_extents = Vector2(35, 1)
 gravity = Vector2(0, -100)
@@ -1776,7 +1640,7 @@ lifetime = 2.5
 lifetime_randomness = 0.2
 local_coords = true
 draw_order = 1
-texture = ExtResource("2_2vwrg")
+texture = ExtResource("2_b4scm")
 emission_shape = 3
 emission_rect_extents = Vector2(35, 1)
 direction = Vector2(0, -1)
@@ -1798,39 +1662,52 @@ material = SubResource("ShaderMaterial_n7jnx")
 [node name="Body" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("6_1tsab")
+scale = Vector2(0.653, 0.653)
+texture = ExtResource("4_flyxd")
+offset = Vector2(1.42, 21.145)
+region_enabled = true
+region_rect = Rect2(153, 271, 133, 87)
 
 [node name="Head" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("7_70tpc")
+scale = Vector2(0.653, 0.653)
+texture = ExtResource("4_flyxd")
+offset = Vector2(1.165, -24.6)
+region_enabled = true
+region_rect = Rect2(444, 184, 131, 81)
 
 [node name="Eye1" type="Sprite2D" parent="Sprite_enemy/Head"]
 visible = false
 use_parent_material = true
-position = Vector2(56.1404, -17.5439)
-scale = Vector2(0.604, 0.604)
-texture = ExtResource("4_pkxlk")
+position = Vector2(22.9709, -6.12557)
+scale = Vector2(1.128, 1.128)
+texture = ExtResource("4_flyxd")
+region_enabled = true
+region_rect = Rect2(344, 30, 32, 37)
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Head"]
 visible = false
 use_parent_material = true
-position = Vector2(-45.614, -17.5439)
-scale = Vector2(0.689, 0.689)
-texture = ExtResource("5_h5blp")
+position = Vector2(-19.9081, -6.12557)
+scale = Vector2(1.128, 1.128)
+texture = ExtResource("4_flyxd")
+region_enabled = true
+region_rect = Rect2(343, 30, 34, 38)
 
 [node name="Hand" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("8_iab2r")
+scale = Vector2(0.653, 0.653)
+texture = ExtResource("4_flyxd")
+offset = Vector2(-49.61, 14.93)
+region_enabled = true
+region_rect = Rect2(110, 271, 38, 85)
 
 [node name="freezen_sprite" type="Sprite2D" parent="Sprite_enemy"]
 visible = false
 position = Vector2(-1, 1)
-texture = ExtResource("9_p1wxr")
+texture = ExtResource("5_wr0u8")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 z_index = 1
@@ -1840,8 +1717,8 @@ offset_right = 46.0
 offset_bottom = 50.0
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_5chwh")
-texture_progress = ExtResource("4_1gi6c")
+texture_under = ExtResource("6_2brxl")
+texture_progress = ExtResource("7_ltp6e")
 
 [node name="Hp_boss_label" type="Label" parent="."]
 z_index = 1
@@ -1869,16 +1746,16 @@ next/Spawn = &"Idle"
 blend_times = [&"Idle", &"Move", 0.2, &"Idle", &"Preparation", 0.2, &"Move", &"Idle", 0.35, &"Move", &"Preparation", 0.35, &"Preparation", &"Hit", 0.5, &"Spawn", &"Idle", 0.6]
 
 [node name="Hit_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_otf7t")
+stream = ExtResource("9_5polr")
 volume_db = 3.0
 
 [node name="Death_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_ntpxa")
+stream = ExtResource("10_7htkn")
 volume_db = -22.0
 pitch_scale = 1.3
 
 [node name="Magic_spawn" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_444vf")
+stream = ExtResource("11_22gjc")
 volume_db = -16.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

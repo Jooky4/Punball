@@ -1,16 +1,13 @@
-[gd_scene load_steps=37 format=3 uid="uid://dtgoww78o77t0"]
+[gd_scene load_steps=34 format=3 uid="uid://dtgoww78o77t0"]
 
-[ext_resource type="Script" uid="uid://cesoo0imjjh04" path="res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.gd" id="1_7iw8w"]
+[ext_resource type="Script" path="res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.gd" id="1_7iw8w"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_5286c"]
-[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_npy30"]
-[ext_resource type="Texture2D" uid="uid://byw8bw6py5e7c" path="res://Texture/Enemys/Magician_enemy/тело.png" id="4_yutt3"]
-[ext_resource type="Texture2D" uid="uid://wpq5gmtq47po" path="res://Texture/Enemys/Defalt_enemy/глаз1.png" id="6_0mdhh"]
-[ext_resource type="Texture2D" uid="uid://kqhk34itgkug" path="res://Texture/Enemys/Magician_enemy/голова.png" id="6_5aaaw"]
-[ext_resource type="Texture2D" uid="uid://c7atijc7raj8w" path="res://Texture/Enemys/Magician_enemy/посох с рукой.png" id="7_jlj5v"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="3_npy30"]
 [ext_resource type="Texture2D" uid="uid://cipdihpfh6vkn" path="res://Texture/Enemys/Magician_enemy/свечение.png" id="8_axywk"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="8_ni12m"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="9_mjuqv"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="10_k60cu"]
+[ext_resource type="Texture2D" uid="uid://b4ony8nhmunyf" path="res://Texture/Enemys/enemys2.png" id="10_u42qq"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="11_dpn63"]
 [ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="14_a674y"]
 [ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="14_ry06q"]
@@ -46,7 +43,6 @@ shader = ExtResource("3_npy30")
 shader_parameter/lightness = 0.0
 
 [sub_resource type="Curve" id="Curve_kmxss"]
-_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0.00189394, 0.0454545), 0.0, 8.88, 0, 0, Vector2(1, 0), -11.4286, 0.0, 0, 0]
 point_count = 2
 
@@ -88,7 +84,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.5, 1),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.57025, 2.3179), Vector2(2.45098, 2.41837), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(10.28, 9.272), Vector2(9.804, 9.672), Vector2(9.804, 9.672)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -112,7 +108,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.35, 0.55, 1),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.63863, 2.3179), Vector2(2.45098, 2.41837), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(10.556, 9.272), Vector2(9.804, 9.672), Vector2(9.804, 9.672)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -224,7 +220,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.73766, 1.87147), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(10.952, 7.484), Vector2(9.804, 9.672)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -248,7 +244,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.73766, 1.87147), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(10.952, 7.484), Vector2(9.804, 9.672)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -396,7 +392,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.133333),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.73766, 1.87147), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(10.952, 7.484), Vector2(9.804, 9.672)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -420,7 +416,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.133333),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.73766, 1.87147), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(10.952, 7.484), Vector2(9.804, 9.672)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -568,7 +564,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.325, 0.45, 0.625),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.23543, 2.84804), Vector2(2.23543, 2.84804), Vector2(2.57025, 2.15049), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(8.94, 11.392), Vector2(8.94, 11.392), Vector2(10.28, 8.6), Vector2(9.804, 9.672)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -592,7 +588,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.025, 0.275, 0.35, 0.475, 0.65),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.23543, 2.84804), Vector2(2.23543, 2.84804), Vector2(3.12828, 1.98308), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(8.94, 11.392), Vector2(8.94, 11.392), Vector2(10.28, 8.6), Vector2(9.804, 9.672)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -694,7 +690,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.57025, 2.3179), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(10.28, 9.272), Vector2(9.804, 9.672)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -718,7 +714,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.175, 1.175, 2.175),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837), Vector2(2.63863, 2.3179), Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672), Vector2(10.28, 9.272), Vector2(9.804, 9.672)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -820,7 +816,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.075, 0.15, 0.3, 0.35, 0.5, 0.575, 0.65),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(2.51444, 2.3179), Vector2(2.45098, 2.41837), Vector2(2.17962, 2.62496), Vector2(2.45098, 2.41837), Vector2(2.45098, 2.41837), Vector2(2.17962, 2.62496), Vector2(2.45098, 2.41837), Vector2(2.51444, 2.3179)]
+"values": [Vector2(10.056, 9.272), Vector2(9.804, 9.672), Vector2(8.72, 10.5), Vector2(9.804, 9.672), Vector2(9.804, 9.672), Vector2(8.72, 10.5), Vector2(9.804, 9.672), Vector2(10.056, 9.272)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -844,7 +840,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.075, 0.15, 0.3, 0.35, 0.5, 0.575, 0.65),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(2.48, 2.318), Vector2(2.45098, 2.41837), Vector2(2.17962, 2.62496), Vector2(2.45098, 2.41837), Vector2(2.45098, 2.41837), Vector2(2.17962, 2.62496), Vector2(2.45098, 2.41837), Vector2(2.48, 2.318)]
+"values": [Vector2(10.056, 9.272), Vector2(9.804, 9.672), Vector2(8.72, 10.5), Vector2(9.804, 9.672), Vector2(9.804, 9.672), Vector2(8.72, 10.5), Vector2(9.804, 9.672), Vector2(10.056, 9.272)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -919,10 +915,10 @@ tracks/1/path = NodePath("Sprite_enemy/Тело:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
+"times": PackedFloat32Array(0.00203761, 0.15, 0.302038),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(2.40284, 2.51321), Vector2(2.57025, 2.27605), Vector2(2.40284, 2.51321)]
+"values": [Vector2(9.612, 10.052), Vector2(10.28, 9.104), Vector2(9.612, 10.052)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -943,10 +939,10 @@ tracks/3/path = NodePath("Sprite_enemy/Голова:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.025, 0.175, 0.325),
+"times": PackedFloat32Array(0.025, 0.172962, 0.325),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(2.40284, 2.51321), Vector2(2.57025, 2.27605), Vector2(2.40284, 2.51321)]
+"values": [Vector2(9.612, 10.052), Vector2(10.28, 9.104), Vector2(9.612, 10.052)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1057,7 +1053,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1093,7 +1089,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1129,7 +1125,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2.45098, 2.41837)]
+"values": [Vector2(9.804, 9.672)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -1277,7 +1273,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.433333, 0.933333, 1.03333),
 "transitions": PackedFloat32Array(2, 2, -2, -2),
 "update": 0,
-"values": [Vector2(2.01221, 2.56585), Vector2(2.01221, 2.56585), Vector2(2.73766, 2.24239), Vector2(2.45098, 2.41837)]
+"values": [Vector2(8.048, 10.264), Vector2(8.048, 10.264), Vector2(10.952, 8.968), Vector2(9.804, 9.672)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1298,10 +1294,10 @@ tracks/3/path = NodePath("Sprite_enemy/Голова:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.433333, 0.966667, 1.06667),
+"times": PackedFloat32Array(0, 0.433333, 0.966667, 1.06666),
 "transitions": PackedFloat32Array(2, 2, -2, -2),
 "update": 0,
-"values": [Vector2(2.01221, 2.56585), Vector2(2.01221, 2.56585), Vector2(2.73766, 2.24239), Vector2(2.45098, 2.41837)]
+"values": [Vector2(8.048, 10.264), Vector2(8.048, 10.264), Vector2(10.952, 8.968), Vector2(9.804, 9.672)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1378,15 +1374,15 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyaot"]
 _data = {
-&"Cast": SubResource("Animation_dtmic"),
-&"Damage": SubResource("Animation_o5w71"),
-&"Death": SubResource("Animation_hlsye"),
-&"Hit": SubResource("Animation_e6v84"),
-&"Idle": SubResource("Animation_ppxyw"),
-&"Move": SubResource("Animation_3slqe"),
-&"Preparation": SubResource("Animation_ql6h3"),
-&"RESET": SubResource("Animation_g77v8"),
-&"Spawn": SubResource("Animation_xhi3q")
+"Cast": SubResource("Animation_dtmic"),
+"Damage": SubResource("Animation_o5w71"),
+"Death": SubResource("Animation_hlsye"),
+"Hit": SubResource("Animation_e6v84"),
+"Idle": SubResource("Animation_ppxyw"),
+"Move": SubResource("Animation_3slqe"),
+"Preparation": SubResource("Animation_ql6h3"),
+"RESET": SubResource("Animation_g77v8"),
+"Spawn": SubResource("Animation_xhi3q")
 }
 
 [node name="magician_enemy" type="StaticBody2D"]
@@ -1496,40 +1492,52 @@ scale = Vector2(0.07, 0.07)
 [node name="Тело" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("4_yutt3")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("10_u42qq")
+offset = Vector2(-0.055, 32.18)
+region_enabled = true
+region_rect = Rect2(273, 117, 122, 63)
 
 [node name="Голова" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("6_5aaaw")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("10_u42qq")
+offset = Vector2(0, -23.11)
+region_enabled = true
+region_rect = Rect2(345, 184, 96, 82)
 
 [node name="Eye" type="Sprite2D" parent="Sprite_enemy/Голова"]
 visible = false
 use_parent_material = true
-position = Vector2(-69.6, -57.5147)
+position = Vector2(-17.8999, -12.9038)
 scale = Vector2(1.019, 1.019)
-texture = ExtResource("6_0mdhh")
+texture = ExtResource("10_u42qq")
 flip_h = true
+region_enabled = true
+region_rect = Rect2(344, 30, 32, 37)
 
 [node name="Eye2" type="Sprite2D" parent="Sprite_enemy/Голова"]
 visible = false
 use_parent_material = true
-position = Vector2(64.4572, -57.5147)
+position = Vector2(15.6142, -12.9038)
 scale = Vector2(1.019, 1.019)
-texture = ExtResource("6_0mdhh")
+texture = ExtResource("10_u42qq")
+region_enabled = true
+region_rect = Rect2(344, 30, 32, 37)
 
 [node name="Посох" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(-128.571, -357.143)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("7_jlj5v")
-offset = Vector2(45.4571, 117.586)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("10_u42qq")
+offset = Vector2(-38.18, 48.29)
+region_enabled = true
+region_rect = Rect2(289, 269, 28, 92)
 
 [node name="Сast_Effect" type="CPUParticles2D" parent="Sprite_enemy/Посох"]
-position = Vector2(-174.857, 70.8862)
-scale = Vector2(5.82857, 5.90717)
+position = Vector2(-42.2568, 17.7243)
+scale = Vector2(1.457, 1.476)
 emitting = false
 amount = 1
 lifetime = 0.7

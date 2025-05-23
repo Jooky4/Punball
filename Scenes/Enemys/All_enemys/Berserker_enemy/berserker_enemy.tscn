@@ -1,19 +1,15 @@
-[gd_scene load_steps=34 format=3 uid="uid://dkjid7v0kkfi2"]
+[gd_scene load_steps=29 format=3 uid="uid://dkjid7v0kkfi2"]
 
-[ext_resource type="Script" uid="uid://bya25fyxh2dn1" path="res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.gd" id="1_dcde1"]
+[ext_resource type="Script" path="res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.gd" id="1_dcde1"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="1_yfr1m"]
-[ext_resource type="Shader" uid="uid://f0pgkjicma81" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_8pdn2"]
-[ext_resource type="Texture2D" uid="uid://c6imped3u00i1" path="res://Texture/Enemys/Berserker_enemy/тело_2.png" id="4_tindt"]
-[ext_resource type="Texture2D" uid="uid://d4isn7j1ec833" path="res://Texture/Enemys/Berserker_enemy/голова_2.png" id="5_onkpo"]
+[ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="2_8pdn2"]
+[ext_resource type="Texture2D" uid="uid://b4ony8nhmunyf" path="res://Texture/Enemys/enemys2.png" id="8_542rp"]
 [ext_resource type="Texture2D" uid="uid://bwuh0u0mgbyu5" path="res://Texture/Effects/эффект заморозки.png" id="8_rvmdl"]
 [ext_resource type="Texture2D" uid="uid://dvc2remm23kme" path="res://Texture/Enemys/Полоска здоровья/основа.png" id="9_4abw6"]
-[ext_resource type="Texture2D" uid="uid://bmqp36us31dlh" path="res://Texture/Enemys/Berserker_enemy/топор_2.png" id="9_npx7p"]
 [ext_resource type="Texture2D" uid="uid://bpuu3cl1v6657" path="res://Texture/Enemys/Полоска здоровья/красная.png" id="10_lwebr"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="11_3aje5"]
 [ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="12_ie76y"]
 [ext_resource type="AudioStream" uid="uid://b11ig0u4ur0tg" path="res://Resources/Sounds/выстрел_черника.mp3" id="13_3obb5"]
-[ext_resource type="Texture2D" uid="uid://b7fq8vx6d7bnw" path="res://Texture/Enemys/Berserker_enemy/глаза_3.png" id="15_34wc0"]
-[ext_resource type="Texture2D" uid="uid://b2xd88io748vw" path="res://Texture/Enemys/Berserker_enemy/глаза_2.png" id="16_6xbej"]
 
 [sub_resource type="Curve" id="Curve_4jnsk"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -88,10 +84,10 @@ tracks/2/path = NodePath("Sprite_enemy/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(-2, -2),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -124,10 +120,10 @@ tracks/5/path = NodePath("Sprite_enemy/Head:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(-2, -2),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -189,18 +185,6 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(-45, 36)]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite_enemy/Head/Глаза:texture")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("15_34wc0")]
-}
 
 [sub_resource type="Animation" id="Animation_n10a2"]
 resource_name = "Death"
@@ -237,10 +221,10 @@ tracks/2/path = NodePath("Sprite_enemy/Body:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(-2, -2),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -273,10 +257,10 @@ tracks/5/path = NodePath("Sprite_enemy/Head:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(-2, -2),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -338,18 +322,6 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(-45, 36)]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Sprite_enemy/Head/Глаза:texture")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("15_34wc0")]
-}
 
 [sub_resource type="Animation" id="Animation_dhhf5"]
 resource_name = "Hit"
@@ -377,7 +349,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.45, 0.7, 1.5),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.26, 0.285), Vector2(0.3, 0.285), Vector2(0.285, 0.285)]
+"values": [Vector2(0.66, 0.66), Vector2(0.602, 0.66), Vector2(0.695, 0.66), Vector2(0.66, 0.66)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -413,7 +385,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.05, 0.5, 0.75, 1.55),
 "transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.3), Vector2(0.3, 0.27), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658), Vector2(0.647, 0.693), Vector2(0.693, 0.624), Vector2(0.658, 0.658)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -502,7 +474,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.29), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658), Vector2(0.647, 0.67), Vector2(0.658, 0.658)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -526,7 +498,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.266667, 1.26667, 2.26667),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.29), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658), Vector2(0.647, 0.67), Vector2(0.658, 0.658)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -599,18 +571,6 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite_enemy/Head/Глаза:texture")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("16_6xbej")]
 }
 
 [sub_resource type="Animation" id="Animation_lwphj"]
@@ -714,18 +674,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite_enemy/Head/Глаза:texture")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("16_6xbej")]
-}
 
 [sub_resource type="Animation" id="Animation_hg4q5"]
 resource_name = "Preparation"
@@ -754,7 +702,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.29), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658), Vector2(0.647, 0.67), Vector2(0.658, 0.658)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -790,7 +738,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.05, 0.2, 0.35),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.285, 0.285), Vector2(0.28, 0.29), Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658), Vector2(0.647, 0.67), Vector2(0.658, 0.658)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -852,21 +800,6 @@ tracks/9/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Sprite_enemy/Head/Глаза:texture")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("16_6xbej")]
-}
-
-[sub_resource type="Resource" id="Resource_8mkvh"]
-metadata/__load_path__ = "res://Texture/Enemys/Berserker_enemy/фрейм 152 (2).png"
 
 [sub_resource type="Animation" id="Animation_0v5tk"]
 resource_name = "RESET"
@@ -893,7 +826,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.285, 0.285)]
+"values": [Vector2(0.66, 0.66)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -917,7 +850,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.285, 0.285)]
+"values": [Vector2(0.658, 0.658)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1039,18 +972,6 @@ tracks/13/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Sprite_enemy/Head/Глаза:texture")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("Resource_8mkvh")]
-}
 
 [sub_resource type="Animation" id="Animation_3a7j5"]
 resource_name = "Spawn"
@@ -1077,7 +998,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.466667, 0.933333, 1.03333),
 "transitions": PackedFloat32Array(2, 2, -2, 2),
 "update": 0,
-"values": [Vector2(0.22, 0.3), Vector2(0.22, 0.3), Vector2(0.3, 0.26), Vector2(0.285, 0.285)]
+"values": [Vector2(0.508, 0.693), Vector2(0.508, 0.693), Vector2(0.693, 0.601), Vector2(0.658, 0.658)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1101,7 +1022,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.466667, 0.933333, 1.03333),
 "transitions": PackedFloat32Array(2, 2, -2, 2),
 "update": 0,
-"values": [Vector2(0.22, 0.3), Vector2(0.22, 0.3), Vector2(0.3, 0.26), Vector2(0.285, 0.285)]
+"values": [Vector2(0.508, 0.693), Vector2(0.508, 0.693), Vector2(0.693, 0.601), Vector2(0.658, 0.658)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1199,29 +1120,17 @@ tracks/11/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Sprite_enemy/Head/Глаза:texture")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("16_6xbej")]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4grpw"]
 _data = {
-&"Damage": SubResource("Animation_g8p8b"),
-&"Death": SubResource("Animation_n10a2"),
-&"Hit": SubResource("Animation_dhhf5"),
-&"Idle": SubResource("Animation_6uk8u"),
-&"Move": SubResource("Animation_lwphj"),
-&"Preparation": SubResource("Animation_hg4q5"),
-&"RESET": SubResource("Animation_0v5tk"),
-&"Spawn": SubResource("Animation_3a7j5")
+"Damage": SubResource("Animation_g8p8b"),
+"Death": SubResource("Animation_n10a2"),
+"Hit": SubResource("Animation_dhhf5"),
+"Idle": SubResource("Animation_6uk8u"),
+"Move": SubResource("Animation_lwphj"),
+"Preparation": SubResource("Animation_hg4q5"),
+"RESET": SubResource("Animation_0v5tk"),
+"Spawn": SubResource("Animation_3a7j5")
 }
 
 [node name="berserker_enemy" type="StaticBody2D"]
@@ -1329,23 +1238,36 @@ material = SubResource("ShaderMaterial_4w4py")
 [node name="Body" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("4_tindt")
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("8_542rp")
+offset = Vector2(0.74, 16.17)
+region_enabled = true
+region_rect = Rect2(215, 370, 130, 98)
 
 [node name="Head" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("5_onkpo")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("8_542rp")
+offset = Vector2(0, -40.385)
+region_enabled = true
+region_rect = Rect2(435, 271, 132, 93)
 
 [node name="Глаза" type="Sprite2D" parent="Sprite_enemy/Head"]
 use_parent_material = true
+texture = ExtResource("8_542rp")
+offset = Vector2(0, -10.395)
+region_enabled = true
+region_rect = Rect2(74, 3, 63, 21)
 
 [node name="Hand" type="Sprite2D" parent="Sprite_enemy"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("9_npx7p")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("8_542rp")
+offset = Vector2(-69.68, 0)
+region_enabled = true
+region_rect = Rect2(131, 368, 71, 96)
 
 [node name="freezen_sprite" type="Sprite2D" parent="Sprite_enemy"]
 visible = false
