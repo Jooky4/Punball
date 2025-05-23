@@ -8,7 +8,8 @@ enum State {
 	CHOOSE_SKILL
 }
 
-var game_state: State
+var game_state: State = State.PLAY
+
 var PIM = PlayerIndicatorsManager
 
 @onready var hp_player_bar = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_bar
@@ -79,6 +80,9 @@ var revaving_from_skill : bool = false
 @onready var character_anim = $Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Alisa
 @onready var camera = $Camera2D
 
+@onready var fps_indicator: Label = $FpsIndicator
+
+
 var old_coord_mouse : Vector2 = Vector2.ZERO
 var direction = Vector2.ZERO
 var balls_can_go : bool = false
@@ -95,7 +99,9 @@ var skill_tutorial_was_shown_on_level: int = -1
 
 
 func _set_state(value: State) -> void:
-	prints("change state from", game_state, "to", value)
+	if OS.is_debug_build():
+		prints("change state from", game_state, "to", value)
+
 	game_state = value
 
 	match game_state:
@@ -112,7 +118,11 @@ func _set_state(value: State) -> void:
 
 
 func _ready() -> void:
-	_set_state(State.PLAY)
+	if OS.is_debug_build():
+		fps_indicator.show()
+	else:
+		fps_indicator.hide()
+
 	YandexSDK.connect("interstitial_ad", star_location)
 	Engine.time_scale = 1
 	get_tree().paused = false
@@ -126,17 +136,21 @@ func _ready() -> void:
 
 	update_character()
 	check_tutorial()
-	await get_tree().create_timer(0.05).timeout
+
+	await Utils.timeout(0.05)
 	ChangeScene.normal_screen()
+
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	update_character_label()
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 1:
+		#prints("first skill before play?")
 		LevelManager.spin_skill = 1
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(-1)
 	while LevelManager.spin_skill == 1:
-		await get_tree().create_timer(0.1).timeout
+		await Utils.timeout(0.1)
+
 	$UI/Button.disabled = false
 	LevelManager.apeend_new_balls()
 	spawn_objects_on_matrix()
@@ -148,10 +162,12 @@ func _ready() -> void:
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	update_character_label()
 	YandexSDK.gameplay_started()
-	await get_tree().create_timer(0.8).timeout
+
+	await Utils.timeout(0.8)
 	AudioManager.enemy_spawn()
-	await get_tree().create_timer(0.3).timeout
+	await Utils.timeout(0.3)
 	balls_can_go = true
+
 
 func star_location(result) -> void:
 	if result == "closed" or result == "error":
