@@ -601,9 +601,12 @@ func rew_ad_res(result:String) -> void:
 		YandexSDK.gameplay_started()
 	elif result == "rewarded":
 		LevelManager.buy_skill(LevelManager.count_experiance)
+		skill_taken.emit(skills[skil_for_ad])
 		add_skill(skills[skil_for_ad][0])
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)
+
+
 
 func create_free_skill() -> void:
 	for i in windows_skill.get_children():

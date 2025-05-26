@@ -17,7 +17,7 @@ var player_balls : Array = [1, 1, 1, 1]
 var player_balls_after_wave : Array = []
 var count_level : int = 0
 var count_experiance : int = 0
-var combo_count : int = 0
+var combo_count : int = 0: set = _set_combo_count
 var spin_skill : int = 0
 var count_damage_lightning_enemy : int = 3
 var chance_of_freezing : float = 0.1
@@ -62,6 +62,15 @@ var trap_on_map_links = [[null, null, null, null, null, null],
 						 [null, null, null, null, null, null]]
 var kill_on_whis_wave : int = 0
 var win_or_lose = ""
+
+
+signal combo_count_updated(value: int)
+
+
+func _set_combo_count(value: int) -> void:
+	combo_count = value
+	combo_count_updated.emit(value)
+
 
 func restert() -> void:
 	ElementsManager.restart()

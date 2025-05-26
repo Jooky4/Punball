@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=124 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://bb7y7v4mnb42k" path="res://Scenes/UI/Menu/pause_menu_ui.tscn" id="24_gx84s"]
 [ext_resource type="Texture2D" uid="uid://cqgxfc4mx6whh" path="res://Texture/UI/Fight/icon_Boss.png" id="26_b0xvx"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="26_u0ss4"]
+[ext_resource type="PackedScene" uid="uid://c8nbyj46inv3u" path="res://Scenes/UI/ComboCounter/combo_counter.tscn" id="27_1olw3"]
 [ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="27_6lrpk"]
 [ext_resource type="Texture2D" uid="uid://cavfn4g8a37dn" path="res://Texture/UI/Fight/platform_Notification.png" id="27_p64ry"]
 [ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="28_g8ck8"]
@@ -116,20 +117,6 @@ shadow_offset = Vector2(-1, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_8a56q"]
 font = ExtResource("10_fo6nb")
 font_size = 80
-font_color = Color(1, 0, 0, 1)
-shadow_color = Color(0.628906, 0.00491333, 0.00491333, 1)
-shadow_offset = Vector2(-1, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_nmicg"]
-font = ExtResource("10_fo6nb")
-font_size = 120
-font_color = Color(1, 0, 0, 1)
-shadow_color = Color(0.628906, 0.00491333, 0.00491333, 1)
-shadow_offset = Vector2(-1, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_q31h0"]
-font = ExtResource("10_fo6nb")
-font_size = 50
 font_color = Color(1, 0, 0, 1)
 shadow_color = Color(0.628906, 0.00491333, 0.00491333, 1)
 shadow_offset = Vector2(-1, 1)
@@ -827,32 +814,11 @@ visible = false
 z_index = 10
 layout_mode = 1
 
-[node name="Combo_count" type="Label" parent="UI"]
+[node name="ComboCounter" parent="UI" instance=ExtResource("27_1olw3")]
 visible = false
-z_index = 4
-layout_mode = 0
-offset_left = 538.0
-offset_top = 107.0
-offset_right = 711.0
-offset_bottom = 249.0
-pivot_offset = Vector2(170, 141)
-text = "0"
-label_settings = SubResource("LabelSettings_nmicg")
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Combo_count2" type="Label" parent="UI/Combo_count"]
-top_level = true
-layout_mode = 0
-offset_left = 496.0
-offset_top = 214.0
-offset_right = 708.0
-offset_bottom = 284.0
-text = "LEVEL_COMBO"
-label_settings = SubResource("LabelSettings_q31h0")
-horizontal_alignment = 2
-vertical_alignment = 1
-uppercase = true
+layout_mode = 1
+offset_top = 111.0
+offset_bottom = 291.0
 
 [node name="Count_experience" type="Label" parent="UI"]
 z_index = 3

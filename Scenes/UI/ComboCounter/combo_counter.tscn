@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8nbyj46inv3u"]
+
+[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_weese"]
+[ext_resource type="Script" path="res://Scenes/UI/ComboCounter/combo_counter.gd" id="2_x8c0h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7o0n"]
+font = ExtResource("1_weese")
+font_size = 120
+font_color = Color(1, 0, 0, 1)
+shadow_color = Color(0.627451, 0.00392157, 0.00392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u3wnm"]
+font = ExtResource("1_weese")
+font_size = 50
+font_color = Color(1, 0, 0, 1)
+shadow_color = Color(0.627451, 0.00392157, 0.00392157, 1)
+
+[node name="ComboCounter" type="Control"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("2_x8c0h")
+
+[node name="CountLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -86.0
+offset_right = -9.0
+offset_bottom = 138.0
+grow_horizontal = 0
+pivot_offset = Vector2(77, 116)
+text = "0"
+label_settings = SubResource("LabelSettings_q7o0n")
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.983333
+anchor_top = 1.0
+anchor_right = 0.983333
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "LEVEL_COMBO"
+label_settings = SubResource("LabelSettings_u3wnm")
+horizontal_alignment = 2
+uppercase = true
+metadata/_edit_use_anchors_ = true

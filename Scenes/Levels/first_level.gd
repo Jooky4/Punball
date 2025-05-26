@@ -55,14 +55,13 @@ var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
 @onready var pause_menu_UI = $UI/Pause_menu_UI
 @onready var pause_button = $UI/Button_Pause
 @onready var choose_skill_UI = $UI/Get_skill_UI
-@onready var combo_count_label = $UI/Combo_count
+
 @onready var count_experience_label = $UI/Count_experience
 @onready var experience_texture = $UI/Count_experience/Count_experience_texture/Experience_texture
 @onready var get_count_experience_label = $UI/Count_experience/Get_cout_experience
 @onready var balls_back_button = $UI/Balls_back_button
 @onready var notification_about_boss_animation = $UI/Reminder_boss/AnimationPlayer
 var count_get_experience_on_wave = 0
-var combo_count : int = 0
 var end_wave_bool : bool = false
 var notification_about_boss_close : bool = false
 var revaving_from_skill : bool = false
@@ -113,6 +112,7 @@ func _set_state(value: State) -> void:
 		State.LOSE:
 			lose()
 		State.CHOOSE_SKILL:
+			balls_can_go = false
 			pause_button.disabled = true
 			count_experience_label.text = str(LevelManager.count_experiance)
 
@@ -246,20 +246,13 @@ func check_game_end() -> void:
 	if !end_wave_bool:
 		var balls_on_map = true
 		var boss_alive = false
-		if LevelManager.combo_count > combo_count:
-			combo_count_label.visible = true
-			combo_count_label.text = str(LevelManager.combo_count)
-			combo_count_label.scale = Vector2(1.5, 1.5)
-			combo_count = LevelManager.combo_count
-		else:
-			if combo_count_label.scale > Vector2(1, 1):
-				combo_count_label.scale -= Vector2(0.05, 0.05)
 
-		for child in game_objects.get_children():
-			if child.has_method("boss"):
-				if child.alive:
-					boss_alive = true
-				break
+		if LevelManager.count_level >= 19:
+			for child in game_objects.get_children():
+				if child.has_method("boss"):
+					if child.alive:
+						boss_alive = true
+					break
 
 		if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
 			_set_state(State.WIN)
@@ -717,10 +710,7 @@ func end_wave() -> void:
 	LevelManager.apeend_new_balls()
 	balls_back_button.visible = false
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
-	combo_count_label.visible = false
-	combo_count = 0
 	LevelManager.combo_count = 0
-	combo_count_label.text = str(0)
 	count_get_experience_on_wave = 0
 	get_count_experience_label.text = ""
 	animation_health()
