@@ -149,6 +149,7 @@ var show_AD = false
 
 
 signal skill_taken(skill)
+signal update_skill
 
 
 func _ready() -> void:
@@ -578,6 +579,7 @@ func _on_update_skill_button_pressed() -> void:
 	if 100 <= LevelManager.count_experiance:
 		AudioManager.click()
 		LevelManager.buy_skill(100)
+		update_skill.emit()
 		for i in windows_skill.get_children():
 			i.queue_free()
 		skills.clear()

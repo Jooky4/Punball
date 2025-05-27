@@ -108,7 +108,6 @@ func _set_state(value: State) -> void:
 			balls_can_go = true
 			pause_button.disabled = false
 			count_experience_label.text = str(LevelManager.count_experiance)
-
 		State.WIN:
 			win()
 		State.LOSE:
@@ -1029,3 +1028,7 @@ func _on_get_skill_ui_skill_taken(skill: Variant) -> void:
 	# Задержка что-бы при клике на скил не запускались шарики на игровом поле
 	await Utils.timeout(0.3)
 	_set_state(State.PLAY)
+
+
+func _on_get_skill_ui_update_skill() -> void:
+	count_experience_label.text = str(LevelManager.count_experiance)
