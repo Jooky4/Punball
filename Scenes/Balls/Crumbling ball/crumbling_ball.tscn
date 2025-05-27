@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://gsrp2n3jcvbp"]
+[gd_scene load_steps=7 format=3 uid="uid://gsrp2n3jcvbp"]
 
-[ext_resource type="Script" uid="uid://cwxihq8u8jclt" path="res://Scenes/Balls/Crumbling ball/crumbling_ball.gd" id="1_xa5ww"]
+[ext_resource type="Script" path="res://Scenes/Balls/Crumbling ball/crumbling_ball.gd" id="1_xa5ww"]
 [ext_resource type="Texture2D" uid="uid://c66pfsvxlrvhx" path="res://Texture/Balls/РассыпающийсяНов_1.png" id="2_oom3b"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="3_7n0an"]
-[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="4_vo2mg"]
-[ext_resource type="AudioStream" uid="uid://ueldbbjdob14" path="res://Resources/Sounds/рассыпающийся_шар.mp3" id="5_h3bys"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 15.0
@@ -24,8 +22,8 @@ collision_mask = 11
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_xa5ww")
-damage_ball = 300.0
 max_lenght_line = 7
+damage_ball = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
@@ -46,11 +44,3 @@ width_curve = SubResource("Curve_g6ny1")
 gradient = SubResource("Gradient_2q21l")
 texture = ExtResource("3_7n0an")
 texture_mode = 2
-
-[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_vo2mg")
-volume_db = -14.0
-
-[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_h3bys")
-volume_db = -7.0

@@ -4,9 +4,9 @@ var SMALL_CRUMBLING_BALL = preload("res://Scenes/Balls/Crumbling ball/small_crum
 var EFFECT_BALL = preload("res://Scenes/Effects/CrumblingBallExplosion.tscn")
 var angle_rotation_small_ball : int = 15
 
+
 func collide_with_enemy(collider) -> void:
-	hit_enemy_sound.pitch_scale += AudioManager.get_random_pitch()
-	hit_enemy_sound.play()
+	AM.play_sound("hit_enemy_crumbling_ball")
 	var effect = EFFECT_BALL.instantiate()
 	effect.global_position = self.global_position
 	get_tree().current_scene.add_child(effect)

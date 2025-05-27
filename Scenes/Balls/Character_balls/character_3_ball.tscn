@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://yvcvkt4mlbnv"]
+[gd_scene load_steps=9 format=3 uid="uid://yvcvkt4mlbnv"]
 
-[ext_resource type="Script" uid="uid://b2srt72a57vpb" path="res://Scenes/Balls/Character_balls/character_3_ball.gd" id="1_hvhfl"]
+[ext_resource type="Script" path="res://Scenes/Balls/Character_balls/character_3_ball.gd" id="1_hvhfl"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="2_kc2ds"]
 [ext_resource type="Texture2D" uid="uid://dyhc37ijbl8xw" path="res://Texture/Balls/РассыпающийсяНов_2.png" id="3_3fyum"]
-[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="3_4ibbg"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Effects/Circle_2.png" id="4_fr86l"]
-[ext_resource type="AudioStream" uid="uid://ueldbbjdob14" path="res://Resources/Sounds/рассыпающийся_шар.mp3" id="4_r30ah"]
 
 [sub_resource type="Gradient" id="Gradient_10rq6"]
 offsets = PackedFloat32Array(0, 0.0873239, 0.256338, 1)
@@ -29,8 +27,8 @@ collision_mask = 11
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_hvhfl")
-damage_ball = 100.0
 max_lenght_line = 8
+damage_ball = 100.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = 4
@@ -66,12 +64,3 @@ width_curve = SubResource("Curve_7qhlu")
 gradient = SubResource("Gradient_vh8sm")
 texture = ExtResource("2_kc2ds")
 texture_mode = 2
-
-[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_4ibbg")
-volume_db = -14.0
-
-[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_r30ah")
-volume_db = -10.0
-pitch_scale = 0.9

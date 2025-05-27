@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://duf3g3m8crsnm"]
+[gd_scene load_steps=10 format=3 uid="uid://duf3g3m8crsnm"]
 
-[ext_resource type="Script" uid="uid://b8r7imgyn8tm6" path="res://Scenes/Balls/Rocket ball/rocket_ball.gd" id="1_lsw0r"]
+[ext_resource type="Script" path="res://Scenes/Balls/Rocket ball/rocket_ball.gd" id="1_lsw0r"]
 [ext_resource type="Texture2D" uid="uid://b74f0w5agfq17" path="res://Texture/Balls/шар ракета.png" id="2_7piid"]
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Effects/Дым2.png" id="2_a3v37"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="3_y82wu"]
-[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_nad42"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -31,8 +30,8 @@ collision_layer = 4
 collision_mask = 11
 platform_on_leave = 2
 script = ExtResource("1_lsw0r")
-damage_ball = 300.0
 max_lenght_line = 7
+damage_ball = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
@@ -71,9 +70,5 @@ width_curve = SubResource("Curve_jfu2g")
 gradient = SubResource("Gradient_nue8b")
 texture = ExtResource("3_y82wu")
 texture_mode = 2
-
-[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_nad42")
-volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]

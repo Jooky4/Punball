@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dknt4ysvy1cq3"]
+[gd_scene load_steps=7 format=3 uid="uid://dknt4ysvy1cq3"]
 
-[ext_resource type="Script" uid="uid://873wxe66gqte" path="res://Scenes/Balls/Bomb ball/bomb_ball.gd" id="1_0nept"]
+[ext_resource type="Script" path="res://Scenes/Balls/Bomb ball/bomb_ball.gd" id="1_0nept"]
 [ext_resource type="Texture2D" uid="uid://b7dyjob70k14n" path="res://Texture/Balls/бомба.png" id="2_4bo35"]
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Effects/Дым2.png" id="4_8ua8y"]
-[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_yp2qs"]
-[ext_resource type="AudioStream" uid="uid://cn6u3g3veh3hd" path="res://Resources/Sounds/взрыв_бомба.mp3" id="6_3k376"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -25,7 +23,6 @@ platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_0nept")
 damage_ball = 400.0
-max_lenght_line = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
@@ -55,16 +52,3 @@ scale_amount_min = 0.3
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_xshca")
 color_ramp = SubResource("Gradient_dg4rd")
-
-[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_yp2qs")
-volume_db = -14.0
-
-[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_3k376")
-pitch_scale = 1.5
-
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-
-[connection signal="finished" from="Hit_enemy_sound" to="." method="_on_hit_enemy_sound_finished"]

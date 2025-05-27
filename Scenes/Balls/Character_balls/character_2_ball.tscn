@@ -1,11 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://br8457wt6wlmr"]
+[gd_scene load_steps=10 format=3 uid="uid://br8457wt6wlmr"]
 
-[ext_resource type="Script" uid="uid://sfsyd1uplppn" path="res://Scenes/Balls/Character_balls/character_2_ball.gd" id="1_jeejb"]
+[ext_resource type="Script" path="res://Scenes/Balls/Character_balls/character_2_ball.gd" id="1_jeejb"]
 [ext_resource type="Texture2D" uid="uid://c4n1ob7xqgjf4" path="res://Texture/Balls/Usual_Merlin.png" id="4_2hvkh"]
 [ext_resource type="Texture2D" uid="uid://n8riaca1ap3d" path="res://Texture/Balls/Ледышка.png" id="4_7ry7r"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="5_nujxr"]
-[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="6_358ve"]
-[ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="7_rriko"]
 
 [sub_resource type="Curve" id="Curve_t36rg"]
 _data = [Vector2(0, 0), 0.0, 42.5823, 0, 0, Vector2(0.0600522, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.24921, 1.4, 0, 0]
@@ -73,11 +71,3 @@ width_curve = SubResource("Curve_wcpfq")
 gradient = SubResource("Gradient_3ahn4")
 texture = ExtResource("5_nujxr")
 texture_mode = 2
-
-[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_358ve")
-volume_db = -14.0
-
-[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_rriko")
-volume_db = -12.0

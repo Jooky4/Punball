@@ -1,62 +1,15 @@
-extends CharacterBody2D
+extends GenericBall
 
-@onready var sprite = $CollisionShape2D
-@onready var line_trail : Line2D = $Line2D
-@onready var ricochet_sound = $Ricochet_sound
-@onready var hit_enemy_sound = $Hit_enemy_sound
-
-@export var damage_ball : float = 200
 @export var max_lenght_line : int = 6
-var speed : int = 1250
-var direction_bullet : Vector2
 
-func _ready():
-	velocity = Vector2(speed, speed)
-	sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(direction_bullet * 10000))
+#@onready var sprite = $CollisionShape2D
+@onready var line_trail : Line2D = $Line2D
+
+
 
 func _physics_process(delta) -> void:
 	line_trail.add_point(self.global_position + (direction_bullet * 14))
 	if line_trail.points.size() > max_lenght_line:
 		line_trail.remove_point(0)
 
-	var collision = move_and_collide(direction_bullet * velocity * delta)
-	if collision:
-		var collider = collision.get_collider()
-
-		if collider.has_method("bonus_ball"):
-			LevelManager.add_ball(1)
-			if randf() <= PlayerIndicatorsManager.FOR_CRYSTAL_SHANSE_DOP_BALL:
-				LevelManager.add_ball(1)
-			collider.queue_free()
-			return
-		elif collider.has_method("skill_box"):
-			LevelManager.spin_skill += 1
-			collider.queue_free()
-			return
-		else:
-			direction_bullet = direction_bullet.bounce(collision.get_normal()).normalized()
-			sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(direction_bullet * 10000))
-
-			if collider.has_method("enemy"):
-				LevelManager.update_combo_count(collider)
-				collide_with_enemy(collider)
-			elif "Wall" in collider.name:
-				ricochet_sound.pitch_scale += AudioManager.get_random_pitch()
-				ricochet_sound.play()
-
-			move_and_collide(direction_bullet * velocity * delta)
-
-func collide_with_enemy(collider) -> void:
-	hit_enemy_sound.pitch_scale += AudioManager.get_random_pitch()
-	hit_enemy_sound.play()
-	collider.deal_damage(damage_ball * ElementsManager.normal_modifier, ElementsManager.color_elements["NORMAL"])
-
-func return_to_player(pos_player) -> void:
-	collision_mask = 0
-	direction_bullet = Vector2(pos_player - self.global_position).normalized()
-	speed = 0
-	sprite.rotation_degrees = 90 + rad_to_deg(sprite.position.angle_to_point(direction_bullet * 10000))
-	create_tween().tween_property(self, "global_position", pos_player, 0.3)
-
-func ball() -> void:
-	pass
+	super(delta)

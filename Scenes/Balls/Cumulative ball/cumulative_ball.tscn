@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx27ccsu6arir"]
+[gd_scene load_steps=10 format=3 uid="uid://dx27ccsu6arir"]
 
-[ext_resource type="Script" uid="uid://dmcfu7v15lh6d" path="res://Scenes/Balls/Cumulative ball/cumulative_ball.gd" id="1_c1c6f"]
+[ext_resource type="Script" path="res://Scenes/Balls/Cumulative ball/cumulative_ball.gd" id="1_c1c6f"]
 [ext_resource type="Texture2D" uid="uid://dma1t7gtkfelf" path="res://Texture/Effects/Дым2.png" id="2_gugnf"]
 [ext_resource type="Texture2D" uid="uid://dokxygjpekih6" path="res://Texture/Balls/кумулятивный.png" id="3_arfsy"]
 [ext_resource type="Texture2D" uid="uid://cthljhcjcmcpp" path="res://Texture/Effects/uni_trail.png" id="4_pl4ke"]
-[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_qinfd"]
 [ext_resource type="AudioStream" uid="uid://7xkjgpib7lh1" path="res://Resources/Sounds/кумулятивный2.ogg" id="6_u374c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
@@ -28,8 +27,8 @@ collision_layer = 4
 collision_mask = 11
 platform_on_leave = 2
 script = ExtResource("1_c1c6f")
-damage_ball = 2000.0
 max_lenght_line = 12
+damage_ball = 2000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l7c6x")
@@ -64,10 +63,6 @@ angular_velocity_max = 180.0
 scale_amount_min = 0.15
 scale_amount_max = 0.25
 color_ramp = SubResource("Gradient_wgpwx")
-
-[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_qinfd")
-volume_db = -14.0
 
 [node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_u374c")

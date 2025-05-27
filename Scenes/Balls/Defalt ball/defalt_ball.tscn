@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://oclkolfhemxg"]
+[gd_scene load_steps=9 format=3 uid="uid://oclkolfhemxg"]
 
 [ext_resource type="Script" path="res://Scenes/Balls/Defalt ball/defalt_ball.gd" id="1_ycsa2"]
 [ext_resource type="Texture2D" uid="uid://dl3oexxftwi03" path="res://Texture/Balls/usual.png" id="2_kdh35"]
 [ext_resource type="Texture2D" uid="uid://b42vu471uqbyb" path="res://Texture/Effects/usual_trail.png" id="3_72kjp"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Effects/Circle_2.png" id="4_ef181"]
-[ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="5_8787t"]
-[ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="6_cem24"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7c6x"]
 radius = 16.0312
@@ -64,11 +62,3 @@ initial_velocity_max = 20.0
 scale_amount_min = 0.1
 scale_amount_max = 0.2
 color_ramp = SubResource("Gradient_wgpwx")
-
-[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_8787t")
-volume_db = -14.0
-
-[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_cem24")
-volume_db = -12.0

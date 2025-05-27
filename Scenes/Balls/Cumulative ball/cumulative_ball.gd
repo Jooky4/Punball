@@ -1,6 +1,8 @@
 extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
 
+
 var EFFECT_BALL = preload("res://Scenes/Effects/CumulativeBallExplosion.tscn")
+
 
 func collide_with_enemy(collider) -> void:
 	AudioManager.cumulative_ball_hit_sound()

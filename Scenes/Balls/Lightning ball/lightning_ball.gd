@@ -1,4 +1,9 @@
-extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
+extends GenericBall
+
+
+func _ready() -> void:
+	super()
+	hit_enemy_sound_name = "-"
 
 
 func collide_with_enemy(collider) -> void:

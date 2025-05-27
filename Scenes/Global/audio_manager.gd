@@ -1,7 +1,21 @@
 extends Node2D
 
-@onready var fps_label = $Control/fps_label
 var MUSIC_PULL = [preload("res://Resources/Music/music.ogg")]
+
+@onready var sounds: Dictionary = {
+	"ricochet": $Ricochet_sound,
+	"hit_enemy": $Hit_enemy_sound,
+	"hit_enemy_shuriken": $Hit_enemy_shuriken,
+	"hit_enemy_bomb": $Hit_enemy_bomb,
+	"hit_enemy_fireball": $Hit_enemy_fireball,
+	"hit_enemy_char3ball": $Hit_enemy_char3ball,
+	"hit_enemy_laserball": $Hit_enemy_laserball,
+	"hit_enemy_killerball": $Hit_enemy_killerball,
+	"hit_enemy_freezingball": $Hit_enemy_freezingball,
+	"hit_enemy_drillingball": $Hit_enemy_drillingball,
+	"hit_enemy_small_crumbling_ball": $Hit_enemy_small_crumbling_ball,
+	"hit_enemy_crumbling_ball": $Hit_enemy_crumbling_ball
+}
 
 func _ready():
 	get_viewport().connect("focus_entered", _on_focus_entered)
@@ -21,8 +35,6 @@ func music_start() -> void:
 		$Music.stream = MUSIC_PULL[randi() % MUSIC_PULL.size()]
 		$Music.playing = true
 
-func _process(delta: float) -> void:
-	fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
 
 func get_random_pitch() -> float:
 	#return randf_range(-0.1, 0.1) убрал рандом питча пока что
@@ -91,5 +103,17 @@ func cumulative_ball_hit_sound() -> void:
 	$Cumulative_ball_hit_sound.pitch_scale += get_random_pitch()
 	$Cumulative_ball_hit_sound.play()
 
+
 func bye_talant_sound() -> void:
 	$Bye_talant.play()
+
+
+func play_sound(name: String) -> void:
+	if OS.is_debug_build():
+		prints("AM.play_sound(%s)" % name)
+
+	if sounds.has(name):
+		var sound = sounds[name]
+		sound.play()
+	else:
+		prints("no sound '%s' founded" % name)

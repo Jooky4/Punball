@@ -1,6 +1,12 @@
-extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
+extends GenericBall
 
 var EFFECT_BALL = preload("res://Scenes/Effects/BombBallExplosion.tscn")
+
+
+func _ready() -> void:
+	super()
+	hit_enemy_sound_name = "hit_enemy_bomb"
+
 
 func collide_with_enemy(collider) -> void:
 	AudioManager.bomb_ball_hit_sound()

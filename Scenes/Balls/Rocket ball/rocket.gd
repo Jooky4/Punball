@@ -20,7 +20,7 @@ func go(enemy, start_pos) -> void:
 		end_position = enemy.global_position
 		rotation_degrees = 90 + rad_to_deg(position.angle_to_point((end_position - start_position).normalized() * 10000))
 		var distance = start_pos.distance_to(enemy.global_position)
-		
+
 		var duration = distance / speed # Рассчитываем время полета ДОБАВИЛ ДИМА
 		duration = clamp(duration, min_duration, max_duration)  # Устанавливаем минимальное и максимальное время ДОБАВИЛ ДИМА
 

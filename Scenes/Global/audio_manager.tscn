@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://csdyirn2lmmyg"]
+[gd_scene load_steps=24 format=3 uid="uid://csdyirn2lmmyg"]
 
-[ext_resource type="Script" uid="uid://8j7gx1i21hlk" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
+[ext_resource type="Script" path="res://Scenes/Global/audio_manager.gd" id="1_xhnrq"]
 [ext_resource type="AudioStream" uid="uid://bj0f0vi28ccmj" path="res://Resources/Sounds/взрыв_бомба_3.ogg" id="3_ojgpi"]
 [ext_resource type="AudioStream" uid="uid://cn6u3g3veh3hd" path="res://Resources/Sounds/взрыв_бомба.mp3" id="3_wj7ne"]
 [ext_resource type="AudioStream" uid="uid://bgddobi2vjm4p" path="res://Resources/Sounds/заморозка_шар.mp3" id="6_6glt2"]
@@ -13,16 +13,16 @@
 [ext_resource type="AudioStream" uid="uid://7xkjgpib7lh1" path="res://Resources/Sounds/кумулятивный2.ogg" id="17_u66pd"]
 [ext_resource type="AudioStream" uid="uid://c67dcchwj3wo3" path="res://Resources/Sounds/покупка_таланта.mp3" id="18_visxg"]
 [ext_resource type="AudioStream" uid="uid://5j4eihqkxro7" path="res://Resources/Sounds/огненный_шар.mp3" id="19_bvxve"]
+[ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="19_qxuuc"]
+[ext_resource type="AudioStream" uid="uid://yfixd42wffrv" path="res://Resources/Sounds/сюрикен.mp3" id="20_08lh3"]
+[ext_resource type="AudioStream" uid="uid://ueldbbjdob14" path="res://Resources/Sounds/рассыпающийся_шар.mp3" id="21_8xcyl"]
+[ext_resource type="AudioStream" uid="uid://dh7m2qnepcxr2" path="res://Resources/Sounds/убийца.mp3" id="22_ks6fk"]
+[ext_resource type="AudioStream" uid="uid://c5icd0njj0hwd" path="res://Resources/Sounds/бурящий.mp3" id="23_st7d3"]
 [ext_resource type="AudioStream" uid="uid://b62reiyqbdbqq" path="res://Resources/Sounds/ракета.mp3" id="25_vtta4"]
 [ext_resource type="AudioStream" uid="uid://dsjcfjtcd6an7" path="res://Resources/Sounds/спавн врагов.mp3" id="30_ibed4"]
 [ext_resource type="AudioStream" uid="uid://cjij3hm7w3owp" path="res://Resources/Sounds/спавн_шариков.mp3" id="32_55cke"]
 [ext_resource type="AudioStream" uid="uid://d3swgcs8aafe" path="res://Resources/Sounds/шаги.mp3" id="36_cp8ye"]
 [ext_resource type="AudioStream" uid="uid://c884aro00q4g2" path="res://Resources/Sounds/шипы.mp3" id="37_7tkvr"]
-[ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="40_k3iuh"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_26kvy"]
-font = ExtResource("40_k3iuh")
-font_size = 30
 
 [node name="Audio_manager" type="Node2D"]
 process_mode = 3
@@ -119,29 +119,57 @@ pitch_scale = 1.2
 stream = ExtResource("18_visxg")
 volume_db = -4.0
 
-[node name="Control" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_right = 718.0
-offset_bottom = 1282.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Ricochet_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_55cke")
+volume_db = -14.0
 
-[node name="fps_label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -62.0
-offset_right = -12.0
-offset_bottom = 35.0
-grow_horizontal = 0
-text = "100"
-label_settings = SubResource("LabelSettings_26kvy")
-horizontal_alignment = 2
+[node name="Hit_enemy_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_qxuuc")
+volume_db = -12.0
+
+[node name="Hit_enemy_shuriken" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_08lh3")
+volume_db = -12.0
+
+[node name="Hit_enemy_bomb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wj7ne")
+pitch_scale = 1.5
+
+[node name="Hit_enemy_fireball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_bvxve")
+volume_db = -7.0
+pitch_scale = 1.4
+
+[node name="Hit_enemy_char3ball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_8xcyl")
+volume_db = -10.0
+pitch_scale = 0.9
+
+[node name="Hit_enemy_laserball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_fe4mr")
+volume_db = -10.0
+pitch_scale = 1.3
+
+[node name="Hit_enemy_killerball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_ks6fk")
+volume_db = -5.0
+
+[node name="Hit_enemy_freezingball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6glt2")
+volume_db = -10.0
+pitch_scale = 1.5
+
+[node name="Hit_enemy_drillingball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_st7d3")
+volume_db = -17.0
+pitch_scale = 1.2
+
+[node name="Hit_enemy_small_crumbling_ball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_8xcyl")
+volume_db = -7.0
+
+[node name="Hit_enemy_crumbling_ball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_8xcyl")
+volume_db = -7.0
 
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
