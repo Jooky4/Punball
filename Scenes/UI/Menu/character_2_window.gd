@@ -66,7 +66,7 @@ func update_characyer_2_UI() -> void:
 			$Need_matirial.visible = false
 			$Level_UP_character_2_button/Label.text = tr("CHR_MAX")
 			$Level_UP_character_2_button.disabled = true
-			$Level_UP_character_2_button
+
 
 func _on_level_up_character_2_button_pressed() -> void:
 	if PlayerIndicatorsManager.CHARACTER_2_LVL < 20 and PlayerIndicatorsManager.COINS_COUNT >= need_cois and PlayerIndicatorsManager.COUNT_RUNE >= need_runes:

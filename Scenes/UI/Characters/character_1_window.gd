@@ -70,7 +70,7 @@ func _on_level_up_character_1_button_pressed() -> void:
 		await get_tree().create_timer(1).timeout
 		PlayerIndicatorsManager.character_1_up_lvl()
 		$"..".can_or_not_update()
-		$Level_UP_character_1_button.disabled = false
+		update_characyer_1_UI()
 
 
 func _on_select_character_pressed() -> void:
