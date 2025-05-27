@@ -1,4 +1,4 @@
-extends "res://Scenes/Balls/Defalt ball/defalt_ball.gd"
+extends GenericBall
 
 var EFFECT_BALL = preload("res://Scenes/Effects/FireBallExplosion.tscn")
 

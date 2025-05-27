@@ -180,6 +180,7 @@ func _on_continue_game_pressed() -> void:
 		else:
 			LevelManager.spin_skill = 0
 			animation.play("windows_output")
+			skill_taken.emit(0)
 	else:
 		get_number_skill(LevelManager.spin_skill)
 
@@ -191,6 +192,7 @@ func close_ad(result) -> void:
 			AudioServer.set_bus_mute(0, false)
 			LevelManager.spin_skill = 0
 			animation.play("windows_output")
+			skill_taken.emit(0)
 		elif result == "opened":
 			AudioServer.set_bus_mute(0, true)
 
@@ -365,7 +367,6 @@ func create_skill():
 			for j in button_arr[i].get_children():
 				if "AD" in j.name:
 					j.visible = true
-					prints("dis", j.name, j.disabled)
 		else:
 			button_arr[i].disabled = false
 			for j in button_arr[i].get_children():
@@ -413,10 +414,8 @@ func _on_skill_1_pressed() -> void:
 	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
 
 	if $Bye_button/Skill_1/FREE.visible:
-		skill_taken.emit(skills[0])
 		add_skill(skills[0][0])
 	else:
-		skill_taken.emit(skills[0])
 		LevelManager.buy_skill(skills[0][1])
 		add_skill(skills[0][0])
 
@@ -428,11 +427,9 @@ func _on_skill_2_pressed() -> void:
 	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
 
 	if $Bye_button/Skill_2/FREE.visible:
-		skill_taken.emit(skills[1])
 		add_skill(skills[1][0])
 	else:
 		LevelManager.buy_skill(skills[1][1])
-		skill_taken.emit(skills[1])
 		add_skill(skills[1][0])
 
 
@@ -443,11 +440,9 @@ func _on_skill_3_pressed() -> void:
 	YandexMetrika.ym(101336789,'reachGoal','taken_skill_after_reroll')
 
 	if $Bye_button/Skill_3/FREE.visible:
-		skill_taken.emit(skills[2])
 		add_skill(skills[2][0])
 	else:
 		LevelManager.buy_skill(skills[2][1])
-		skill_taken.emit(skills[2])
 		add_skill(skills[2][0])
 
 
@@ -576,6 +571,7 @@ func add_skill(skill) -> void:
 		"Повелитель технологий":
 			ElementsManager.technologies_modifier += 0.4
 			LevelManager.player_skills.append("Повелитель технологий")
+
 	_on_continue_game_pressed()
 
 func _on_update_skill_button_pressed() -> void:
@@ -601,7 +597,6 @@ func rew_ad_res(result:String) -> void:
 		YandexSDK.gameplay_started()
 	elif result == "rewarded":
 		LevelManager.buy_skill(LevelManager.count_experiance)
-		skill_taken.emit(skills[skil_for_ad])
 		add_skill(skills[skil_for_ad][0])
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)

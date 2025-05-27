@@ -107,6 +107,8 @@ func _set_state(value: State) -> void:
 		State.PLAY:
 			balls_can_go = true
 			pause_button.disabled = false
+			count_experience_label.text = str(LevelManager.count_experiance)
+
 		State.WIN:
 			win()
 		State.LOSE:
@@ -144,7 +146,6 @@ func _ready() -> void:
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	update_character_label()
 	if PlayerIndicatorsManager.COUNT_BYE_TALANTS_FOR_CRYSTAL >= 1:
-		#prints("first skill before play?")
 		LevelManager.spin_skill = 1
 		choose_skill_UI.visible = true
 		choose_skill_UI.get_number_skill(-1)
@@ -1023,7 +1024,8 @@ func _on_get_skill_ui_skill_taken(skill: Variant) -> void:
 	update_character_label()
 	LevelManager.apeend_new_balls()
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
+	count_experience_label.text = str(LevelManager.count_experiance)
 
 	# Задержка что-бы при клике на скил не запускались шарики на игровом поле
-	await Utils.timeout(0.2)
+	await Utils.timeout(0.3)
 	_set_state(State.PLAY)
