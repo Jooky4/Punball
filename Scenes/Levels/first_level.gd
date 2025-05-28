@@ -16,18 +16,20 @@ var PIM = PlayerIndicatorsManager
 @onready var hp_player_label = $Dicariations/Start_bullet_position/Start_bullet_position/Player_hp_label
 
 var DEFALT_ENEMY = preload("res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.tscn")
-var BLUEBERRIES_ENEMY = preload("res://Scenes/Enemys/All_enemys/Blueberries_enemy/blueberries_enemy.tscn")
-var BOMB_ENEMY = preload("res://Scenes/Enemys/All_enemys/Bomb_enemy/bomb_enemy.tscn")
-var MEDIC_ENEMY = preload("res://Scenes/Enemys/All_enemys/Medic_enemy/medic_enemy.tscn")
-var SLIME_ENEMY = preload("res://Scenes/Enemys/All_enemys/Slime_enemy/slime_enemy.tscn")
-var SMALL_SLIME_ENEMY = preload("res://Scenes/Enemys/All_enemys/Slime_small_enemy/slime_small_enemy.tscn")
-var SHIELD_ENEMY = preload("res://Scenes/Enemys/All_enemys/Shield_enemy/shield_enemy.tscn")
-var JUMPER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Jumper_enemy/jumper_enemy.tscn")
-var MAGICIAN_ENEMY = preload("res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.tscn")
-var SERVANT_MAGICIAN_ENEMY = preload("res://Scenes/Enemys/All_enemys/Servant_magic_enemy/servant_magic_enemy.tscn")
-var POISON_ENEMY = preload("res://Scenes/Enemys/All_enemys/Poison_enemy/poison_enemy.tscn")
-var BERSERKER_ENEMY = preload("res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.tscn")
-var FIRE_ELEMENTAL_ENEMY = preload("res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.tscn")
+
+# Эти враги подгружаются по необходимости
+var BLUEBERRIES_ENEMY = null
+var BOMB_ENEMY = null
+var MEDIC_ENEMY = null
+var SLIME_ENEMY = null
+var SMALL_SLIME_ENEMY = null
+var SHIELD_ENEMY = null
+var JUMPER_ENEMY = null
+var MAGICIAN_ENEMY = null
+var SERVANT_MAGICIAN_ENEMY = null
+var POISON_ENEMY = null
+var BERSERKER_ENEMY = null
+var FIRE_ELEMENTAL_ENEMY = null
 
 var BONUS_BALL = preload("res://Scenes/Bonus/bonus_ball.tscn")
 var SKILL_BOX = preload("res://Scenes/Bonus/skill_box.tscn")
@@ -37,7 +39,7 @@ var DEFALT_BALL_2_CHARACTER = preload("res://Scenes/Balls/Character_balls/charac
 var DEFALT_BALL_3_CHARACTER = preload("res://Scenes/Balls/Character_balls/character_3_ball.tscn")
 
 var CRUNBLING_BALL = preload("res://Scenes/Balls/Crumbling ball/crumbling_ball.tscn")
-var BOMB_BALL = preload("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
+var BOMB_BALL = null
 var FIRE_BALL = preload("res://Scenes/Balls/Fire_ball/fire_ball.tscn")
 var FREEZING_BALL = preload("res://Scenes/Balls/Freezing ball/freezing_ball.tscn")
 var FREEZING_BOMB_BALL = preload("res://Scenes/Balls/Freezing bomb ball/freezing_bomb_ball.tscn")
@@ -446,6 +448,7 @@ func draw_trajectory() -> void:
 		line.points[1] = ball_rotate_UI.position
 
 
+
 func balls_go() -> void:
 	if balls_can_go:
 		end_wave_bool = false
@@ -458,8 +461,10 @@ func balls_go() -> void:
 		_set_state(State.BALLS_GO)
 		var count_time = 0
 
-		for i in range(LevelManager.player_balls.size()):
+		for i in LevelManager.player_balls.size():
 			var ball
+
+			# TODO: заменить match на словарь мячей
 			match LevelManager.player_balls[i]:
 				1:
 					if PlayerIndicatorsManager.CURRENT_CHARACTER == 1:
@@ -471,6 +476,9 @@ func balls_go() -> void:
 				2:
 					ball = CRUNBLING_BALL.instantiate()
 				3:
+					if BOMB_BALL == null:
+						BOMB_BALL = load("res://Scenes/Balls/Bomb ball/bomb_ball.tscn")
+
 					ball = BOMB_BALL.instantiate()
 				4:
 					ball = FREEZING_BALL.instantiate()
@@ -585,15 +593,21 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(1)
 			2:
+				if BLUEBERRIES_ENEMY == null:
+					BLUEBERRIES_ENEMY = load("res://Scenes/Enemys/All_enemys/Blueberries_enemy/blueberries_enemy.tscn")
+
 				buff = BLUEBERRIES_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8
 				buff.player_damage = WaveGeneration.how_many_damage_player(2)
 			3:
+				if BOMB_ENEMY == null:
+					BOMB_ENEMY = load("res://Scenes/Enemys/All_enemys/Bomb_enemy/bomb_enemy.tscn")
+
 				buff = BOMB_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(3)
 			4:
-				buff = preload("res://Scenes/Enemys/Bosses/Blieberries_boss/boss_first_location.tscn").instantiate()
+				buff = load("res://Scenes/Enemys/Bosses/Blieberries_boss/boss_first_location.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -604,48 +618,77 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				count_level_label.visible = false
 				notification_about_boss_here()
 			5:
+				if MEDIC_ENEMY == null:
+					MEDIC_ENEMY = load("res://Scenes/Enemys/All_enemys/Medic_enemy/medic_enemy.tscn")
 				buff = MEDIC_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.6
 				buff.player_damage = WaveGeneration.how_many_damage_player(5)
 			6:
+				if SLIME_ENEMY == null:
+					SLIME_ENEMY = load("res://Scenes/Enemys/All_enemys/Slime_enemy/slime_enemy.tscn")
+
 				buff = SLIME_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(6)
 			7:
+				if SMALL_SLIME_ENEMY == null:
+					SMALL_SLIME_ENEMY = load("res://Scenes/Enemys/All_enemys/Slime_small_enemy/slime_small_enemy.tscn")
+
 				buff = SMALL_SLIME_ENEMY.instantiate()
 				buff.alive = false
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) / 2
 				buff.player_damage = WaveGeneration.how_many_damage_player(7) / 2
 			8:
+				if SHIELD_ENEMY == null:
+					SHIELD_ENEMY = load("res://Scenes/Enemys/All_enemys/Shield_enemy/shield_enemy.tscn")
+
 				buff = SHIELD_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(8)
 			9:
+				if JUMPER_ENEMY == null:
+					JUMPER_ENEMY = load("res://Scenes/Enemys/All_enemys/Jumper_enemy/jumper_enemy.tscn")
+
 				buff = JUMPER_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(9)
 			10:
+				if MAGICIAN_ENEMY == null:
+					MAGICIAN_ENEMY = load("res://Scenes/Enemys/All_enemys/Magician_enemy/magician_enemy.tscn")
+
 				buff = MAGICIAN_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.6
 				buff.player_damage = WaveGeneration.how_many_damage_player(10)
 			11:
+				if SERVANT_MAGICIAN_ENEMY == null:
+					SERVANT_MAGICIAN_ENEMY = load("res://Scenes/Enemys/All_enemys/Servant_magic_enemy/servant_magic_enemy.tscn")
+
 				buff = SERVANT_MAGICIAN_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) / 4
 				buff.player_damage = WaveGeneration.how_many_damage_player(11) / 4
 			12:
+				if POISON_ENEMY == null:
+					POISON_ENEMY = load("res://Scenes/Enemys/All_enemys/Poison_enemy/poison_enemy.tscn")
+
 				buff = POISON_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(12)
 			13:
+				if BERSERKER_ENEMY == null:
+					BERSERKER_ENEMY = load("res://Scenes/Enemys/All_enemys/Berserker_enemy/berserker_enemy.tscn")
+
 				buff = BERSERKER_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave)
 				buff.player_damage = WaveGeneration.how_many_damage_player(13)
 			14:
+				if FIRE_ELEMENTAL_ENEMY == null:
+					FIRE_ELEMENTAL_ENEMY = load("res://Scenes/Enemys/All_enemys/Fire_elemental_enemy/fire_elemental_enemy.tscn")
+
 				buff = FIRE_ELEMENTAL_ENEMY.instantiate()
 				buff.hp_enemy = WaveGeneration.how_many_hp_plus_enemy(count_wave) * 0.8
 				buff.player_damage = WaveGeneration.how_many_damage_player(14)
 			15:
-				buff = preload("res://Scenes/Enemys/Bosses/Shield_boss/shield_boss.tscn").instantiate()
+				buff = load("res://Scenes/Enemys/Bosses/Shield_boss/shield_boss.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -656,7 +699,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				count_level_label.visible = false
 				notification_about_boss_here()
 			16:
-				buff = preload("res://Scenes/Enemys/Bosses/Berserker_boss/berserker_boss.tscn").instantiate()
+				buff = load("res://Scenes/Enemys/Bosses/Berserker_boss/berserker_boss.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -667,7 +710,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				count_level_label.visible = false
 				notification_about_boss_here()
 			17:
-				buff = preload("res://Scenes/Enemys/Bosses/Fire_elemental_boss/Fire_elemental_boss.tscn").instantiate()
+				buff = load("res://Scenes/Enemys/Bosses/Fire_elemental_boss/Fire_elemental_boss.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -678,7 +721,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				count_level_label.visible = false
 				notification_about_boss_here()
 			18:
-				buff = preload("res://Scenes/Enemys/Bosses/Magician_boss/magician_boss.tscn").instantiate()
+				buff = load("res://Scenes/Enemys/Bosses/Magician_boss/magician_boss.tscn").instantiate()
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
