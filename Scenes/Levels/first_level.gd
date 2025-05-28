@@ -218,6 +218,14 @@ func _process(delta):
 
 
 func _get_input() -> void:
+	if OS.is_debug_build():
+		if Input.is_action_just_pressed("DEBUG_END_LEVEL"):
+			_set_state(State.WIN)
+		if Input.is_action_just_pressed("DEBUG_DAMAGE_ALL"):
+			for i in game_objects.get_children():
+				if i.has_method("deal_damage"):
+					i.deal_damage(1000, Color.CRIMSON)
+
 	if Input.is_action_pressed("LBM") and balls_can_go:
 		if get_global_mouse_position() != old_coord_mouse:
 			$Tutorial.visible = false
@@ -713,11 +721,15 @@ func end_wave() -> void:
 	LevelManager.combo_count = 0
 	count_get_experience_on_wave = 0
 	get_count_experience_label.text = ""
+
 	animation_health()
 	animation_bank_with_experience()
+
 	if !LevelManager.boss_on_map:
 		get_health(PlayerIndicatorsManager.FOR_COIS_REGENIRATION)
+
 	LevelManager.moving_object(start_balls_position.position)
+
 	if LevelManager.hit_player:
 		await get_tree().create_timer(4).timeout
 	else:
@@ -725,7 +737,7 @@ func end_wave() -> void:
 	if LevelManager.hp_player <= 0:
 		if "Оживление" in LevelManager.player_skills and revaving_from_skill == false:
 			character_anim.death()
-			await get_tree().create_timer(2).timeout
+			await Utils.timeout(2)
 			character_anim.alive()
 			revaving_from_skill = true
 			LevelManager.revival(1, true)
@@ -779,7 +791,8 @@ func end_wave() -> void:
 
 		_set_state(State.CHOOSE_SKILL)
 		return
-	await get_tree().create_timer(0.5).timeout
+
+	await Utils.timeout(0.5)
 
 	_set_state(State.PLAY)
 
