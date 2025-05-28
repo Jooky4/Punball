@@ -93,6 +93,7 @@ func update_texture_skill() -> void:
 		)
 		skills_box[i].get_child(0).texture = skill_texture
 
+
 func _on_home_pressed() -> void:
 	AudioManager.click()
 	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
@@ -100,9 +101,10 @@ func _on_home_pressed() -> void:
 		PlayerIndicatorsManager.GAMEPLAY_TUTORIL = 1
 		await get_tree().create_timer(0.1).timeout
 		PlayerIndicatorsManager.update_player_date_on_server()
-		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
+
+		ChangeScene.to("menu")
 	else:
-		get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
+		ChangeScene.to("menu")
 
 
 func check_volume() -> void:

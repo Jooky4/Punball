@@ -109,8 +109,8 @@ func bye_talant_sound() -> void:
 
 
 func play_sound(name: String) -> void:
-	if OS.is_debug_build():
-		prints("AM.play_sound(%s)" % name)
+	#if OS.is_debug_build():
+		#prints("AM.play_sound(%s)" % name)
 
 	if sounds.has(name):
 		var sound = sounds[name]

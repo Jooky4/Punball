@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://jwvvjl8h6kfr"]
+[gd_scene load_steps=8 format=3 uid="uid://jwvvjl8h6kfr"]
 
-[ext_resource type="Script" uid="uid://drkylxllcesvk" path="res://Scenes/Global/change_scene.gd" id="1_v7ffh"]
+[ext_resource type="Script" path="res://Scenes/Global/change_scene.gd" id="1_v7ffh"]
+[ext_resource type="PackedScene" uid="uid://df2a48ft85jww" path="res://Scenes/Levels/first_level.tscn" id="2_445k4"]
+[ext_resource type="PackedScene" uid="uid://cenjuncy5arxi" path="res://Scenes/UI/fps_indicator.tscn" id="2_x758u"]
 
 [sub_resource type="Animation" id="Animation_t85mf"]
 resource_name = "Black_screen"
@@ -51,13 +53,26 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oefeh"]
 _data = {
-&"Black_screen": SubResource("Animation_t85mf"),
-&"Normal_screen": SubResource("Animation_lwdvp"),
-&"RESET": SubResource("Animation_5a2ve")
+"Black_screen": SubResource("Animation_t85mf"),
+"Normal_screen": SubResource("Animation_lwdvp"),
+"RESET": SubResource("Animation_5a2ve")
 }
 
 [node name="Change_scene" type="CanvasLayer"]
 script = ExtResource("1_v7ffh")
+game_scene = ExtResource("2_445k4")
+
+[node name="FpsIndicator" parent="." instance=ExtResource("2_x758u")]
+z_index = 20
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 55.0
+offset_bottom = 41.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -72,3 +87,18 @@ offset_right = 2694.0
 offset_bottom = 1586.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="DebugLabel" type="Label" parent="."]
+z_index = 20
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -115.0
+offset_top = 1.0
+offset_right = -5.0
+offset_bottom = 24.0
+grow_horizontal = 0
+theme_override_constants/outline_size = 1
+horizontal_alignment = 2
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

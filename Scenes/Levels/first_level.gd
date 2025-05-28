@@ -79,8 +79,6 @@ var revaving_from_skill : bool = false
 @onready var character_anim = $Dicariations/Start_bullet_position/Start_bullet_position/Chatacter/Alisa
 @onready var camera = $Camera2D
 
-@onready var fps_indicator: Label = $FpsIndicator
-
 
 var old_coord_mouse : Vector2 = Vector2.ZERO
 var direction = Vector2.ZERO
@@ -98,8 +96,8 @@ var skill_tutorial_was_shown_on_level: int = -1
 
 
 func _set_state(value: State) -> void:
-	if OS.is_debug_build():
-		prints("change state from", game_state, "to", value)
+	#if OS.is_debug_build():
+		#prints("change state from", game_state, "to", value)
 
 	game_state = value
 
@@ -119,11 +117,6 @@ func _set_state(value: State) -> void:
 
 
 func _ready() -> void:
-	if OS.is_debug_build():
-		fps_indicator.show()
-	else:
-		fps_indicator.hide()
-
 	YandexSDK.connect("interstitial_ad", star_location)
 	Engine.time_scale = 1
 	get_tree().paused = false
@@ -375,7 +368,7 @@ func win() -> void:
 
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
 	LevelManager.win_or_lose = "win"
-	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
+	ChangeScene.to("win")
 
 
 func lose() -> void:
@@ -388,7 +381,7 @@ func lose() -> void:
 		else:
 			PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
 		LevelManager.win_or_lose = "lose"
-		get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
+		ChangeScene.to("game_over")
 
 
 func revavil_player(for_AD_or_crystal : bool = false):

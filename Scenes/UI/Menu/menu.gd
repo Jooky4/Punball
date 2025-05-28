@@ -158,7 +158,6 @@ func _on_catalog_loaded(catalog):
 
 func update_player_indicators() -> void:
 	var lang = YandexSDK.lang
-	prints("set lang to", lang)
 	PlayerIndicatorsManager.update_player_date_in_game()
 	TranslationServer.set_locale(lang)
 
@@ -217,7 +216,8 @@ func check_tutorial() -> void:
 		WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
 		LevelManager.restert()
 		LevelManager.player_balls = [1, 1, 1, 1]
-		get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+		ChangeScene.to("game")
+
 
 func update_visible_texture_can_update() -> void:
 	can_by_new_talant()
@@ -271,22 +271,20 @@ func _on_play_button_pressed() -> void:
 	LevelManager.restert()
 	LevelManager.player_balls = [1, 1, 1, 1]
 	AudioServer.set_bus_mute(0, false)
-	await get_tree().create_timer(0.35).timeout
-	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 	AudioManager.click()
+	await Utils.timeout(0.3)
+	ChangeScene.to("game")
 	#YandexSDK.show_interstitial_ad()
 	#YandexSDK.connect("interstitial_ad", star_location)
 
 func star_location(result) -> void:
 	if result == "closed" or result == "error":
-		ChangeScene.black_screen()
 		PlayerIndicatorsManager.CURRENT_LOCATIONS = current_location
 		WaveGeneration.current_location = PlayerIndicatorsManager.CURRENT_LOCATIONS
 		LevelManager.restert()
 		LevelManager.player_balls = [1, 1, 1, 1]
 		AudioServer.set_bus_mute(0, false)
-		await get_tree().create_timer(0.35).timeout
-		get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+		ChangeScene.to("game")
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)
 

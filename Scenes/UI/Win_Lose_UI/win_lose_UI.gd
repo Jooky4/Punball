@@ -10,6 +10,7 @@ var count_exp = 0
 var count_rune = 0
 var max_wave = 1
 
+
 func _ready() -> void:
 	YandexSDK.gameplay_stopped()
 	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
@@ -21,9 +22,11 @@ func _ready() -> void:
 	elif LevelManager.win_or_lose == "lose":
 		lose()
 
+
 func _on_go_to_menu_pressed() -> void:
 	AudioManager.click()
-	get_tree().change_scene_to_file("res://Scenes/UI/Menu/menu.tscn")
+	ChangeScene.to("menu")
+
 
 func plus_expiriance_level_player() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
@@ -63,6 +66,7 @@ func plus_expiriance_level_player() -> void:
 	$Button_AD.disabled = false
 	$Go_to_menu.disabled = false
 
+
 func bonus_for_AD() -> void:
 	var current_level = PlayerIndicatorsManager.LEVEL_PLAYER
 	PlayerIndicatorsManager.update_level_player(round(count_exp * 0.5))
@@ -93,6 +97,7 @@ func bonus_for_AD() -> void:
 	player_level_bar.value = 0
 	create_tween().tween_property(player_level_bar, "value", PlayerIndicatorsManager.LEVEL_EXPERIANCE_PLAYER, 2).set_trans(Tween.TRANS_QUAD)
 
+
 func win() -> void:
 	$Win_Lose_Label/Win.visible = true
 	$Win_Lose_Label/TextureRect8.visible = true
@@ -100,16 +105,19 @@ func win() -> void:
 	PlayerIndicatorsManager.update_count_max_wave(0)
 	PlayerIndicatorsManager.update_count_current_location()
 
+
 func lose() -> void:
 	$Win_Lose_Label/Lose.visible = true
 	$Win_Lose_Label/Win.visible = false
 	$Win_Lose_Label/TextureRect8.visible = false
+
 
 func _on_button_ad_pressed() -> void:
 	YandexSDK.gameplay_stopped()
 	YandexSDK.show_rewarded_ad()
 	YandexSDK.connect("rewarded_ad", rew_ad_res)
 	AudioServer.set_bus_mute(0, true)
+
 
 func rew_ad_res(result:String) -> void:
 	if result == "closed" or result == "error":

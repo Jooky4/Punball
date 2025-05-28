@@ -1,11 +1,11 @@
 [gd_scene load_steps=34 format=3 uid="uid://b5qxmagbaw24c"]
 
-[ext_resource type="Script" uid="uid://ccx0rbwoljfel" path="res://Scenes/UI/Win_Lose_UI/win_lose_UI.gd" id="1_syo30"]
+[ext_resource type="Script" path="res://Scenes/UI/Win_Lose_UI/win_lose_UI.gd" id="1_syo30"]
 [ext_resource type="Texture2D" uid="uid://bw113kxl2ky06" path="res://Texture/UI/Win_Lose_UI/background.svg" id="2_8uv6t"]
 [ext_resource type="Texture2D" uid="uid://b7se720nt1bl0" path="res://Texture/UI/Win_Lose_UI/background_Stars.svg" id="3_rgarc"]
 [ext_resource type="Texture2D" uid="uid://b4sni88d62lt7" path="res://Texture/UI/Win_Lose_UI/title.png" id="5_7lhik"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="6_amvnp"]
-[ext_resource type="Shader" uid="uid://dlpuqiaq3a60x" path="res://Resources/Shaders/rotate_texture.gdshader" id="7_2n7q4"]
+[ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="7_2n7q4"]
 [ext_resource type="Texture2D" uid="uid://rb1vl8noii34" path="res://Texture/UI/Win_Lose_UI/lighting.png" id="8_mjar5"]
 [ext_resource type="Texture2D" uid="uid://vyubf43yvssi" path="res://Texture/UI/Win_Lose_UI/title_2.png" id="9_chk8q"]
 [ext_resource type="Texture2D" uid="uid://36gxn3svqfhg" path="res://Texture/UI/Win_Lose_UI/bar_Level_Count.png" id="10_himc1"]

@@ -85,7 +85,7 @@ func _on_timer_timeout() -> void:
 	else:
 		PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
 	YandexSDK.gameplay_stopped()
-	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
+	ChangeScene.to("game_over")
 
 
 func _on_timer_2_timeout() -> void:
@@ -99,4 +99,5 @@ func _on_texture_button_pressed() -> void:
 		PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.count_wave_on_locations[(WaveGeneration.current_location % 10) - 1] - 1)
 	else:
 		PlayerIndicatorsManager.update_count_max_wave(LevelManager.count_level + 1)
-	get_tree().change_scene_to_file("res://Scenes/UI/Win_Lose_UI/win_lose_UI.tscn")
+
+	ChangeScene.to("game_over")
