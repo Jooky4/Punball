@@ -4,6 +4,10 @@ extends "res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.gd"
 @onready var boss_move = $Boss_move
 var ENEMY_SPAWN = preload("res://Scenes/Enemys/Dops/magicaian_spawn_enemy.tscn")
 
+func is_boss() -> bool:
+	return true
+
+
 func spawn_new_enemy() -> void:
 	var free_spot : Array = []
 	var pos_enemy : Vector2 = Vector2(-1, -1)

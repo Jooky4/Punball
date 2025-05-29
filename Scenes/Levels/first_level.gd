@@ -92,6 +92,8 @@ var mouse_in_pause_button_area = false
 var revavil_for_AD_or_crystal : bool = false
 var kill_on_wave : int = 0
 
+var is_boss_dead: bool = false
+
 # нужно для проверки был ли показан туториал со скилом (для вызова метрики)
 var skill_tutorial_was_shown: bool = false
 var skill_tutorial_was_shown_on_level: int = -1
@@ -216,10 +218,20 @@ func _get_input() -> void:
 	if OS.is_debug_build():
 		if Input.is_action_just_pressed("DEBUG_END_LEVEL"):
 			_set_state(State.WIN)
+
+		if Input.is_action_just_pressed("DEBUG_SMALL_DAMAGE_ALL"):
+			for i in game_objects.get_children():
+				if i.has_method("deal_damage"):
+					i.deal_damage(100, Color.CRIMSON)
+
 		if Input.is_action_just_pressed("DEBUG_DAMAGE_ALL"):
 			for i in game_objects.get_children():
 				if i.has_method("deal_damage"):
 					i.deal_damage(1000, Color.CRIMSON)
+
+		if Input.is_action_just_pressed("DEBUG_INC_WAVE"):
+			LevelManager.count_level += 1
+			count_level_label.text = str(LevelManager.count_level + 1)
 
 	if Input.is_action_pressed("LBM") and balls_can_go:
 		if get_global_mouse_position() != old_coord_mouse:
@@ -250,42 +262,16 @@ func check_game_end() -> void:
 		var balls_on_map = true
 		var boss_alive = false
 
-		if LevelManager.count_level >= 19:
-			for child in game_objects.get_children():
-				if child.has_method("boss"):
-					if child.alive:
-						boss_alive = true
-					break
-
-		if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
-			_set_state(State.WIN)
-			return
-		else:
-			boss_alive = true
-
 		for child in self.get_children():
 			if child.has_method("ball"):
 				balls_on_map = false
 				break
 
 		# TODO: разобраться почему проверяется текст лейбла count_ball_label а не значение
-		if balls_on_map and boss_alive and count_ball_label.text == "x0" and !balls_can_go:
+		if balls_on_map and count_ball_label.text == "x0" and !balls_can_go:
 			end_wave_bool = true
 			await Utils.timeout(1)
 			end_wave()
-
-
-func check_boss_alive() -> void:
-	var boss_alive = false
-	for child in game_objects.get_children():
-		if child.has_method("boss"):
-			if child.alive:
-				boss_alive = true
-				break
-
-	if LevelManager.boss_on_map == true and boss_alive == false and LevelManager.count_level > WaveGeneration.get_count_wave_on_location() - 2:
-		_set_state(State.WIN)
-		return
 
 
 func get_expirians_animation(experience) -> void:
@@ -401,7 +387,11 @@ func revavil_player(for_AD_or_crystal : bool = false):
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
 	LevelManager.delete_freezing_and_fire_on_enemy()
-	check_boss_alive()
+
+	#check_boss_alive()
+	if is_boss_dead:
+		_set_state(State.WIN)
+		return
 
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible and notification_about_boss_close == false:
 		notification_about_boss_animation.play("boss_close")
@@ -446,7 +436,6 @@ func draw_trajectory() -> void:
 		line.points[1] = raycast_detection_walls.get_collision_point()
 	else:
 		line.points[1] = ball_rotate_UI.position
-
 
 
 func balls_go() -> void:
@@ -558,6 +547,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				body.queue_free()
 
 func spawn_objects_on_matrix() -> void:
+	if is_boss_dead:
+		return
+
 	var count = -1
 	for i in LevelManager.first_level_links_on_objects:
 		for j in i:
@@ -608,6 +600,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff.player_damage = WaveGeneration.how_many_damage_player(3)
 			4:
 				buff = load("res://Scenes/Enemys/Bosses/Blieberries_boss/boss_first_location.tscn").instantiate()
+				buff.died.connect(_on_boss_died)
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -689,6 +682,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				buff.player_damage = WaveGeneration.how_many_damage_player(14)
 			15:
 				buff = load("res://Scenes/Enemys/Bosses/Shield_boss/shield_boss.tscn").instantiate()
+				buff.died.connect(_on_boss_died)
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -700,6 +694,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				notification_about_boss_here()
 			16:
 				buff = load("res://Scenes/Enemys/Bosses/Berserker_boss/berserker_boss.tscn").instantiate()
+				buff.died.connect(_on_boss_died)
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -711,6 +706,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				notification_about_boss_here()
 			17:
 				buff = load("res://Scenes/Enemys/Bosses/Fire_elemental_boss/Fire_elemental_boss.tscn").instantiate()
+				buff.died.connect(_on_boss_died)
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -722,6 +718,7 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 				notification_about_boss_here()
 			18:
 				buff = load("res://Scenes/Enemys/Bosses/Magician_boss/magician_boss.tscn").instantiate()
+				buff.died.connect(_on_boss_died)
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6)] = buff
 				LevelManager.first_level_links_on_objects[(count/6)][(count%6) + 1] = buff
 				LevelManager.first_level_links_on_objects[(count/6) + 1][(count%6) + 1] = buff
@@ -751,6 +748,10 @@ func show_skill_tutorial() -> void:
 	$Tutorial.visible = true
 
 func end_wave() -> void:
+	if is_boss_dead:
+		_set_state(State.WIN)
+		return
+
 	LevelManager.apeend_new_balls()
 	balls_back_button.visible = false
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
@@ -770,6 +771,7 @@ func end_wave() -> void:
 		await get_tree().create_timer(4).timeout
 	else:
 		await get_tree().create_timer(2).timeout
+
 	if LevelManager.hp_player <= 0:
 		if "Оживление" in LevelManager.player_skills and revaving_from_skill == false:
 			character_anim.death()
@@ -790,12 +792,13 @@ func end_wave() -> void:
 			return
 	else:
 		update_character_label()
+
 	LevelManager.updete_last_line()
 	spawn_objects_on_matrix()
+
 	if LevelManager.boss_on_map:
 		$UI/Boss_label.visible = true
 		count_level_label.visible = false
-
 	else:
 		count_level_label.visible = true
 		count_level_label.text = str(LevelManager.count_level + 1)
@@ -813,13 +816,17 @@ func end_wave() -> void:
 			skill_tutorial_was_shown_on_level = -1
 
 	LevelManager.delete_freezing_and_fire_on_enemy()
-	check_boss_alive()
+	if is_boss_dead:
+		_set_state(State.WIN)
+		return
+
 	if count_level_label.text == str(WaveGeneration.get_count_wave_on_location() - 1) and count_level_label.visible and notification_about_boss_close == false:
 		notification_about_boss_animation.play("boss_close")
 		notification_about_boss_close = true
 		await notification_about_boss_animation.animation_finished
 	elif notification_about_boss_animation.current_animation == "spawn_boss":
 		await notification_about_boss_animation.animation_finished
+
 	LevelManager.kill_on_whis_wave = 0
 	if LevelManager.spin_skill > 0:
 		choose_skill_UI.visible = true
@@ -834,6 +841,9 @@ func end_wave() -> void:
 
 
 func notification_about_new_enemy(num_enemy) -> void:
+	if is_boss_dead:
+		return
+
 	while LevelManager.spin_skill > 0:
 		await get_tree().create_timer(0.1).timeout
 	var play_anim = false
@@ -990,6 +1000,8 @@ func notification_about_boss_here() -> void:
 	$"UI/Reminder_boss/Boss_here/3".visible = false
 	$"UI/Reminder_boss/Boss_here/4".visible = false
 	$"UI/Reminder_boss/Boss_here/5".visible = false
+
+	# TODO: сократить однотипный код
 	if ((WaveGeneration.current_location % 10) - 1) == 0 or ((WaveGeneration.current_location % 10) - 1) == 1:
 		$UI/Reminder_boss/Boss_here.text = boss_info.BLUEBERRY.name
 		$UI/Reminder_boss/Boss_here/Label2.text = boss_info.BLUEBERRY.description
@@ -1015,6 +1027,7 @@ func notification_about_boss_here() -> void:
 		$UI/Reminder_boss/Boss_here/Label2.text = boss_info.ODIN_WARRIOR.description
 		$"UI/Reminder_boss/Boss_here/5".visible = true
 		notification_about_boss_animation.play("spawn_boss")
+
 
 func animation_bank_with_experience() -> void:
 	kill_on_wave = LevelManager.kill_on_whis_wave
@@ -1081,3 +1094,7 @@ func _on_get_skill_ui_skill_taken(skill: Variant) -> void:
 
 func _on_get_skill_ui_update_skill() -> void:
 	count_experience_label.text = str(LevelManager.count_experiance)
+
+
+func _on_boss_died() -> void:
+	is_boss_dead = true

@@ -2,6 +2,10 @@ extends "res://Scenes/Enemys/All_enemys/Blueberries_enemy/blueberries_enemy.gd"
 
 @onready var boss_move = $Boss_move
 
+func is_boss() -> bool:
+	return true
+
+
 func moving(direction_object) -> void:
 	if alive:
 		on_last_line = false

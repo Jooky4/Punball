@@ -2,6 +2,11 @@ extends "res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.gd"
 
 var start_damage
 
+
+func is_boss() -> bool:
+	return true
+
+
 func _ready() -> void:
 	max_hp_enemy = hp_enemy
 	animation_enemy.play("Spawn")

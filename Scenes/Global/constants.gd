@@ -1,11 +1,13 @@
 extends Node
 
+const DEFAULT_HEAL_DROP_CHANCE = 0.2
+
+
 const TALENT_BASE_COST = {
 	"CRYSTAL": 200,
 	"CRYSTAL2": 300,
 	"COIN": 600,
 }
-
 
 const HERO_BUY_CRYSTAL_COST = {
 	"merlin": 1000,

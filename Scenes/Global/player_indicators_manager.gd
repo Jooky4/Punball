@@ -320,3 +320,12 @@ func update_current_character(num) -> void:
 		3:
 			CURRENT_CHARACTER = 3
 			update_player_date_on_server()
+
+
+func get_heal_drop_chance() -> float:
+	var result: float = Constants.DEFAULT_HEAL_DROP_CHANCE
+
+	if CURRENT_CHARACTER == 2:
+		result = 0.25
+
+	return result

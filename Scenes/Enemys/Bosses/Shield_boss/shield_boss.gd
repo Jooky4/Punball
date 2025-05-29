@@ -2,6 +2,9 @@ extends "res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.gd"
 
 @onready var detection_ball = $Area2D
 
+func is_boss() -> bool:
+	return true
+
 func shiield_enemy() -> void:
 	pass
 

@@ -1,21 +1,13 @@
-extends StaticBody2D
+extends GenericEnemy
 
 var BANK_WITH_EXPERIENCE = preload("res://Scenes/Bonus/bank_with_experience.tscn")
 var RESTORE_HEALTH = preload("res://Scenes/Bonus/restore_health.tscn")
+
+# TODO: перенести
 var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
+# TODO: перенести в пулл эффектов
 var DEATH_EFFECT= preload("res://Scenes/Enemys/Dops/death_effect.tscn")
 
-@export var hp_enemy : float = 400
-@export var player_damage : int = 100
-@export var start_scale_damage_label : float = 0.2
-@export var end_scale_damage_label : float = 0.8
-var alive = true
-var on_last_line = false
-var freezen : bool = false
-var on_fire : bool = false
-var poisoned : bool = false
-var move_on_this_wave : bool = false
-var max_hp_enemy : float
 
 @onready var hp_enemy_label = $Hp_boss_label
 @onready var hp_enemy_bar = $TextureProgressBar
@@ -27,9 +19,12 @@ var max_hp_enemy : float
 @onready var hit_sound = $Hit_sound
 @onready var death_sound = $Death_sound
 
+
 func _ready() -> void:
+	# TODO: разобраться для чего нужен этот шейдер?
 	var preload_shader = preload("res://Resources/Shaders/defalt_enemy.gdshader")
 	ResourceLoader.load_threaded_request("res://Resources/Shaders/defalt_enemy.gdshader")
+
 	max_hp_enemy = hp_enemy
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Spawn")
@@ -80,13 +75,11 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 				buff_bank_experience.position = self.global_position + Vector2(randi() % 5 - 25, randi() % 5 - 25)
 				get_tree().current_scene.add_child(buff_bank_experience)
 
-				var chance_drop_hill = 0.2
-				if PlayerIndicatorsManager.CURRENT_CHARACTER == 2:
-					chance_drop_hill = 0.25
-				if randf() <= chance_drop_hill:
+				if randf() <= PlayerIndicatorsManager.get_heal_drop_chance():
 					var buff_health = RESTORE_HEALTH.instantiate()
 					buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
 					get_tree().current_scene.add_child(buff_health)
+
 			if animation_enemy:
 				death_sound.pitch_scale += AudioManager.get_random_pitch()
 				death_sound.play()
@@ -195,6 +188,7 @@ func poisoning() -> void:
 	poisoned = true
 	poison_effect.emitting = true
 
+# TODO: перенести в префаб label_enemy_damage.tscn
 func create_label_damage(damage_ball, color_label) -> void:
 	var label = LABEL_DAMAGE.instantiate()
 	label.global_position = self.global_position
@@ -267,8 +261,6 @@ func play_magic_spawn_anim():
 	$Magic_spawn.play()
 	animation_enemy.play("SpawnMagic")
 
-func die() -> void:
-	LevelManager.enemy_died(self)
 
 func math_damage_player() -> void:
 	pass
