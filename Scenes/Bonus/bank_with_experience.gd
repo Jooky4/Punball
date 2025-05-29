@@ -11,6 +11,8 @@ func go_to_count() -> void:
 	tween.tween_property(self, "global_position", Vector2(0, 88), 0.5).set_trans(Tween.TRANS_CIRC)
 	await get_tree().create_timer(0.5).timeout
 	self.visible = false
+
+	# TODO:
 	if get_tree().current_scene.has_method("get_expirians_animation"):
 		bank_go = false
 		get_tree().current_scene.get_expirians_animation(experience_for_label)
@@ -18,7 +20,13 @@ func go_to_count() -> void:
 	experience_sound.pitch_scale += AudioManager.get_random_pitch()
 	experience_sound.play()
 	await get_tree().create_timer(0.6).timeout
-	queue_free()
+
+	_return_to_pool()
+
 
 func bank_with_experience() -> void:
 	pass
+
+
+func _return_to_pool() -> void:
+	ObjectPool.return_object("experience_potion", self)

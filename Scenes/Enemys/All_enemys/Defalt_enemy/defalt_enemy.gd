@@ -1,11 +1,9 @@
 extends GenericEnemy
 
-var BANK_WITH_EXPERIENCE = preload("res://Scenes/Bonus/bank_with_experience.tscn")
-var RESTORE_HEALTH = preload("res://Scenes/Bonus/restore_health.tscn")
 
-# TODO: перенести
+# TODO: перенести в пул объектов
 var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
-# TODO: перенести в пулл эффектов
+# TODO: перенести в пул эффектов
 var DEATH_EFFECT= preload("res://Scenes/Enemys/Dops/death_effect.tscn")
 
 
@@ -70,15 +68,6 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 			hp_enemy_label.visible = false
 			hp_enemy_bar.visible = false
 			collision_shape.queue_free()
-			if !self.has_method("boss"):
-				var buff_bank_experience = BANK_WITH_EXPERIENCE.instantiate()
-				buff_bank_experience.position = self.global_position + Vector2(randi() % 5 - 25, randi() % 5 - 25)
-				get_tree().current_scene.add_child(buff_bank_experience)
-
-				if randf() <= PlayerIndicatorsManager.get_heal_drop_chance():
-					var buff_health = RESTORE_HEALTH.instantiate()
-					buff_health.position = self.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
-					get_tree().current_scene.add_child(buff_health)
 
 			if animation_enemy:
 				death_sound.pitch_scale += AudioManager.get_random_pitch()
@@ -87,6 +76,7 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 				var effect = DEATH_EFFECT.instantiate()
 				effect.global_position = self.global_position
 				get_tree().current_scene.add_child(effect)
+
 			return
 
 		if animation_enemy and alive: # УБРАТЬ ЭТУ СТРОЧКУ

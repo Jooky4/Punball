@@ -19,7 +19,12 @@ func go_to_player(pos) -> void:
 	health_sound.pitch_scale += AudioManager.get_random_pitch()
 	health_sound.play()
 	await get_tree().create_timer(1.25).timeout
-	queue_free()
+	_return_to_pool()
+
 
 func health() -> void:
 	pass
+
+
+func _return_to_pool() -> void:
+	ObjectPool.return_object("heal_potion", self)

@@ -6,6 +6,7 @@ var EFFECT_EXPLOSION = preload("res://Scenes/Effects/BombBallExplosion.tscn")
 func bomb_enemy() -> void:
 	pass
 
+
 func die() -> void:
 	if animation_enemy.current_animation == "Move":
 		await animation_enemy.current_animation_changed
@@ -15,3 +16,4 @@ func die() -> void:
 	var effect = EFFECT_EXPLOSION.instantiate()
 	effect.global_position = self.global_position
 	get_tree().current_scene.add_child(effect)
+	died.emit()

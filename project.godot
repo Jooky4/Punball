@@ -24,6 +24,7 @@ buses/default_bus_layout="res://Resources/Music/default_bus_layout.tres"
 [autoload]
 
 Constants="*res://Scenes/Global/constants.gd"
+Utils="*res://utils.gd"
 YandexSDK="*res://addons/godot-yandex-games-sdk/yandex_sdk.gd"
 LevelManager="*res://Scenes/Global/level_manager.gd"
 WaveGeneration="*res://Scenes/Global/wave_generation.gd"
@@ -32,7 +33,7 @@ AudioManager="*res://Scenes/Global/audio_manager.tscn"
 PlayerIndicatorsManager="*res://Scenes/Global/player_indicators_manager.gd"
 ChangeScene="*res://Scenes/Global/change_scene.tscn"
 YandexMetrika="*res://addons/yandex-metrika/yandex_metrika.gd"
-Utils="*res://utils.gd"
+ObjectPool="*res://Scenes/Global/object_pool.tscn"
 
 [display]
 

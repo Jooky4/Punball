@@ -93,6 +93,8 @@ var revavil_for_AD_or_crystal : bool = false
 var kill_on_wave : int = 0
 
 var is_boss_dead: bool = false
+var experience_object_list: Array
+var heal_object_list: Array
 
 # нужно для проверки был ли показан туториал со скилом (для вызова метрики)
 var skill_tutorial_was_shown: bool = false
@@ -563,7 +565,8 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 		if LevelManager.boss_on_map:
 			count_wave = WaveGeneration.get_count_wave_on_location() - 2
 		notification_about_new_enemy(LevelManager.first_level_links_on_objects[count/6][count%6])
-		match LevelManager.first_level_links_on_objects[count/6][count%6]:
+		var _current_obj_id = LevelManager.first_level_links_on_objects[count/6][count%6]
+		match _current_obj_id:
 			-2:
 				buff = SKILL_BOX.instantiate()
 				if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
@@ -732,6 +735,8 @@ func spawn_objects_by_index(count, multiplier_stats : float = 1) -> void:
 		if LevelManager.boss_on_map:
 			buff.hp_enemy *= WaveGeneration.get_coef_hp_enemy_when_boss_on_map()
 
+		if _current_obj_id > 0:
+			buff.died.connect(_on_enemy_died.bind(buff))
 		buff.position = $Dicariations/Setka.global_position + Vector2((count%6) * 103, (count/6) * 103)
 		LevelManager.first_level_links_on_objects[count/6][count%6] = buff
 		game_objects.add_child(buff)
@@ -1033,20 +1038,19 @@ func animation_bank_with_experience() -> void:
 	kill_on_wave = LevelManager.kill_on_whis_wave
 	var count_exp = 25 * ((kill_on_wave * (kill_on_wave + 1)) / 2)
 	LevelManager.count_experiance += round(count_exp)
-	for i in self.get_children():
-		if i != null:
-			if i.has_method("bank_with_experience"):
-				if !i.bank_go:
-					i.go_to_count()
-					await get_tree().create_timer(0.1).timeout
+
+	while experience_object_list.size():
+		var _exp = experience_object_list.pop_back()
+		_exp.go_to_count()
+		await Utils.timeout(0.1)
+
 
 func animation_health() -> void:
-	for i in self.get_children():
-		if i != null:
-			if i.has_method("health"):
-				if !i.health_go:
-					i.go_to_player(start_balls_position.position)
-					await get_tree().create_timer(0.1).timeout
+	while heal_object_list.size():
+		var _hp = heal_object_list.pop_back()
+		_hp.go_to_player(start_balls_position.position)
+		await get_tree().create_timer(0.1).timeout
+
 
 func _on_balls_back_pressed() -> void:
 	balls_back_button.visible = false
@@ -1098,3 +1102,19 @@ func _on_get_skill_ui_update_skill() -> void:
 
 func _on_boss_died() -> void:
 	is_boss_dead = true
+
+
+func _on_enemy_died(enemy) -> void:
+	if not enemy.is_boss():
+		prints("enemy died")
+
+		# Создаём бутылочку опыта на месте павшего противника
+		var _exp_potion = ObjectPool.get_object("experience_potion")
+		_exp_potion.position = enemy.global_position + Vector2(randi() % 5 - 25, randi() % 5 - 25)
+		experience_object_list.push_back(_exp_potion)
+
+		# Проверяем шанс выпадения зелья лечения
+		if randf() <= PlayerIndicatorsManager.get_heal_drop_chance():
+			var _health = ObjectPool.get_object("heal_potion")
+			_health.position = enemy.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
+			heal_object_list.push_back(_health)
