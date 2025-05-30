@@ -51,8 +51,6 @@ var KILLER_BALL = preload("res://Scenes/Balls/Killer ball/killer_ball.tscn")
 var DRILLING_BALL = preload("res://Scenes/Balls/Drilling ball/drilling_ball.tscn")
 var BACKSTABBING_BALL = preload("res://Scenes/Balls/Backstabbing ball/backstabbing_ball.tscn")
 
-var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
-
 @onready var end_game_UI_lose = $UI/Lose
 @onready var pause_menu_UI = $UI/Pause_menu_UI
 @onready var pause_button = $UI/Button_Pause
@@ -141,7 +139,7 @@ func _ready() -> void:
 	check_tutorial()
 
 	await Utils.timeout(0.05)
-	ChangeScene.normal_screen()
+	#ChangeScene.normal_screen()
 
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	hp_player_bar.max_value = LevelManager.max_hp_player
@@ -195,6 +193,7 @@ func update_location_image() -> void:
 		%LevelBackground.set_background(location)
 
 
+# TODO: грузить только используемого персонажа вместо удаления неиспользуемых
 func update_character() -> void:
 	match PlayerIndicatorsManager.CURRENT_CHARACTER:
 		1:
@@ -319,7 +318,7 @@ func get_health(health_hp) -> void:
 
 func player_take_damage_create_label(label_damage, who_deal_damage : int = 0) -> void:
 	var color_label = ElementsManager.color_elements["FIRE"]
-	var label = LABEL_DAMAGE.instantiate()
+	var label = ObjectPool.get_object("enemy_damage_label")
 	label.z_index = 8
 	label.global_position = start_balls_position.global_position
 
@@ -345,7 +344,7 @@ func player_take_damage_create_label(label_damage, who_deal_damage : int = 0) ->
 	label.modulate = color_label
 	label.scale = Vector2(0.2, 0.2)
 	get_tree().current_scene.add_child(label)
-	label.show_label()
+	label.show_label2()
 	update_character_label()
 
 func show_hit_effect():

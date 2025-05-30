@@ -1,10 +1,6 @@
 extends GenericEnemy
 
 
-# TODO: перенести в пул объектов
-var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
-
-
 @onready var hp_enemy_label = $Hp_boss_label
 @onready var hp_enemy_bar = $TextureProgressBar
 @onready var animation_enemy = $AnimationPlayer
@@ -171,7 +167,8 @@ func poisoning() -> void:
 
 # TODO: перенести в префаб label_enemy_damage.tscn
 func create_label_damage(damage_ball, color_label) -> void:
-	var label = LABEL_DAMAGE.instantiate()
+	var label = ObjectPool.get_object("enemy_damage_label")
+
 	label.global_position = self.global_position
 	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
 		label.text = str(int(damage_ball))
@@ -182,7 +179,8 @@ func create_label_damage(damage_ball, color_label) -> void:
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)
-	label.show_label()
+	label.show_label2()
+
 
 func enemy_on_last_line():
 	on_last_line = true

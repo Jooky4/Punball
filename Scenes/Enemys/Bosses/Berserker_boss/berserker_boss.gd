@@ -23,7 +23,8 @@ func _ready() -> void:
 
 
 func create_label_damage(damage_ball, color_label) -> void:
-	var label = LABEL_DAMAGE.instantiate()
+	var label = ObjectPool.get_object("enemy_damage_label")
+
 	label.global_position = self.global_position
 	if typeof(damage_ball) != 3 and typeof(damage_ball) != 2:
 		label.text = str(damage_ball)
@@ -34,7 +35,7 @@ func create_label_damage(damage_ball, color_label) -> void:
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
 	get_tree().current_scene.add_child(label)
-	label.show_label(125)
+	label.show_label2(125)
 
 
 func boss() -> void:

@@ -1,6 +1,6 @@
 extends Label
 
-func show_label(dop_x_pos : int = 0) -> void:
+func _show_label(dop_x_pos : int = 0) -> void:
 	self.visible = true
 	var tween = get_tree().create_tween()
 	if dop_x_pos:
@@ -15,4 +15,17 @@ func show_label(dop_x_pos : int = 0) -> void:
 	var tween3 = get_tree().create_tween()
 	tween3.tween_property(self, "position", Vector2(self.position.x, self.position.y + 25) , 0.5)
 	await get_tree().create_timer(0.35).timeout
+
+
+func show_label(dop_x_pos : int = 0) -> void:
+	await _show_label(dop_x_pos)
 	self.queue_free()
+
+
+func show_label2(dop_x_pos : int = 0) -> void:
+	await _show_label(dop_x_pos)
+	_return_to_pool()
+
+
+func _return_to_pool() -> void:
+	ObjectPool.return_object("enemy_damage_label", self)
