@@ -66,6 +66,8 @@ var count_wave_on_locations = {
 var load_not_buy = false
 
 func _ready() -> void:
+	ObjectPool.cleanup()
+
 	Engine.time_scale = 1
 	get_tree().paused = false
 	YandexSDK.connect("game_initialized", update_player_indicators)

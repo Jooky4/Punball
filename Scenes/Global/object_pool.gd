@@ -4,6 +4,7 @@ extends Node
 
 Что делает:
 	* заранее создаёт нужное количество экземпляров объекта
+	* добавляет все экземпляры на свою сцену ( add_child(obj) )
 	* сам заботится о создании или переиспользовании экземпляра объекта
 
 Как пользоваться:
@@ -76,7 +77,6 @@ func get_object(name: String) -> Node:
 			if _obj_list.size():
 				var _obj = _obj_list.pop_back()
 				_obj.show()
-				add_child(_obj)
 				return _obj
 
 		var _obj = _object_aliases[name].instantiate()
@@ -99,3 +99,15 @@ func return_object(name: String, obj: Node) -> void:
 		_object_pools[name].push_back(obj)
 	else:
 		_object_pools[name] = [obj]
+
+
+func cleanup() -> void:
+	# удаление всех дочерних объектов, не находящиеся в пуле
+
+	var all_pools: Array
+	for i in _object_pools.values():
+		all_pools.append_array(i)
+
+	for i in get_children():
+		if i not in all_pools:
+			remove_child(i)
