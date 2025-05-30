@@ -1692,6 +1692,7 @@ autoplay = "anim_finger"
 [connection signal="body_entered" from="Dicariations/Detection_last_ball" to="." method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="UI/Button" to="." method="_chose_ball_button_pressed"]
 [connection signal="skill_taken" from="UI/Get_skill_UI" to="." method="_on_get_skill_ui_skill_taken"]
+[connection signal="update_exp" from="UI/Get_skill_UI" to="." method="_on_get_skill_ui_update_exp"]
 [connection signal="update_skill" from="UI/Get_skill_UI" to="." method="_on_get_skill_ui_update_skill"]
 [connection signal="pressed" from="UI/Balls_back_button/Balls_back_button" to="." method="_on_balls_back_pressed"]
 [connection signal="pressed" from="UI/Button_Pause" to="." method="_on_button_pause_pressed"]

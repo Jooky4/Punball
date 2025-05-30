@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export var game_scene: PackedScene
 
+# TODO: заменить имена на enum?
 var scene_aliases: Dictionary = {
 	"game": "res://Scenes/Levels/first_level.tscn",
 	"menu": "res://Scenes/UI/Menu/menu.tscn",
@@ -16,7 +17,7 @@ var scene_aliases: Dictionary = {
 
 
 func _ready():
-	if OS.is_debug_build():
+	if Constants.SHOW_FPS:
 		fps_indicator.show()
 	else:
 		fps_indicator.hide()

@@ -15,3 +15,4 @@ func die() -> void:
 	var effect = EFFECT_EXPLOSION.instantiate()
 	effect.global_position = self.global_position
 	get_tree().current_scene.add_child(effect)
+	died.emit()

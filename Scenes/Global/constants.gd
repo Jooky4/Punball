@@ -1,5 +1,9 @@
 extends Node
 
+# DEBUG
+const SHOW_FPS = true
+
+
 const DEFAULT_HEAL_DROP_CHANCE = 0.2
 
 

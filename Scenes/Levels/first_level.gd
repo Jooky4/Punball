@@ -131,8 +131,11 @@ func _ready() -> void:
 	# Metrika
 	var current_level = LevelManager.count_level
 	var current_location = 1 + WaveGeneration.get_current_location()
-	if current_location > 1:
+	prints("start location", current_location, WaveGeneration.get_current_location())
+	if current_location >= 1:
 		YandexMetrika.ym(101336789,'reachGoal','started_location_%d' % current_location)
+	if WaveGeneration.get_current_location() == -1:
+		YandexMetrika.ym(101336789,'reachGoal','started_location_%d' % 10)
 
 	update_character()
 	check_tutorial()
@@ -353,8 +356,11 @@ func show_hit_effect():
 
 func win() -> void:
 	# Metrika
-	var current_location = 1 + WaveGeneration.get_current_location()
-	YandexMetrika.ym(101336789,'reachGoal','completed_location_%d' % current_location)
+	if WaveGeneration.get_current_location() == -1:
+		YandexMetrika.ym(101336789,'reachGoal','completed_location_%d' % 10)
+	else:
+		var current_location = 1 + WaveGeneration.get_current_location()
+		YandexMetrika.ym(101336789,'reachGoal','completed_location_%d' % current_location)
 
 	PlayerIndicatorsManager.update_count_max_wave(WaveGeneration.get_count_wave_on_location())
 	LevelManager.win_or_lose = "win"
@@ -1121,3 +1127,7 @@ func _on_enemy_died(enemy) -> void:
 			var _health = ObjectPool.get_object("heal_potion")
 			_health.position = enemy.global_position + Vector2(randi() % 5 + 25, randi() % 5 + 25)
 			heal_object_list.push_back(_health)
+
+
+func _on_get_skill_ui_update_exp() -> void:
+	count_experience_label.text = str(LevelManager.count_experiance)

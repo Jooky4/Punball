@@ -150,6 +150,7 @@ var show_AD = false
 
 signal skill_taken(skill)
 signal update_skill
+signal update_exp
 
 
 func _ready() -> void:
@@ -167,12 +168,14 @@ func _ready() -> void:
 func _on_continue_game_pressed() -> void:
 	for i in windows_skill.get_children():
 		i.queue_free()
+
 	skills.clear()
 
 	count_get_skill += 1
 	if count_get_skill % 3 == 0:
 		show_AD = true
 	LevelManager.spin_skill -= 1
+
 	if LevelManager.spin_skill <= 0:
 		if show_AD:
 			YandexSDK.show_interstitial_ad()
@@ -184,6 +187,7 @@ func _on_continue_game_pressed() -> void:
 			skill_taken.emit(0)
 	else:
 		get_number_skill(LevelManager.spin_skill)
+		update_exp.emit()
 
 
 func close_ad(result) -> void:
@@ -421,7 +425,6 @@ func _on_skill_1_pressed() -> void:
 		add_skill(skills[0][0])
 
 
-
 func _on_skill_2_pressed() -> void:
 	AudioManager.click()
 
@@ -434,7 +437,6 @@ func _on_skill_2_pressed() -> void:
 		add_skill(skills[1][0])
 
 
-
 func _on_skill_3_pressed() -> void:
 	AudioManager.click()
 
@@ -445,7 +447,6 @@ func _on_skill_3_pressed() -> void:
 	else:
 		LevelManager.buy_skill(skills[2][1])
 		add_skill(skills[2][0])
-
 
 
 func add_skill(skill) -> void:
@@ -574,6 +575,7 @@ func add_skill(skill) -> void:
 			LevelManager.player_skills.append("Повелитель технологий")
 
 	_on_continue_game_pressed()
+
 
 func _on_update_skill_button_pressed() -> void:
 	if 100 <= LevelManager.count_experiance:

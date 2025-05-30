@@ -14,7 +14,7 @@ func spawn_new_enemy() -> void:
 		for j in range(LevelManager.first_level_links_on_objects[i].size()):
 			if LevelManager.first_level_links_on_objects[i][j] == self:
 				pos_enemy = Vector2(i, j)
-				count_pos_self_enemy = int((pos_enemy.x * 6) + (pos_enemy.y + 1)) - 1 
+				count_pos_self_enemy = int((pos_enemy.x * 6) + (pos_enemy.y + 1)) - 1
 				break
 
 	free_spot = LevelManager.find_all_free_spot()
@@ -29,7 +29,7 @@ func spawn_new_enemy() -> void:
 			spawn_enemy_sound.pitch_scale += AudioManager.get_random_pitch()
 			spawn_enemy_sound.play()
 			animation_enemy.play("Cast")
-			var count_pos = int((spot_for_new_enemy.x * 6) + (spot_for_new_enemy.y + 1)) - 1 
+			var count_pos = int((spot_for_new_enemy.x * 6) + (spot_for_new_enemy.y + 1)) - 1
 			LevelManager.first_level_links_on_objects[count_pos/6][count_pos%6] = 11
 			get_tree().get_current_scene().call("spawn_objects_by_index", count_pos, 0.25)
 			var end_pos = Vector2((spot_for_new_enemy - pos_enemy) * Vector2(103, 103))

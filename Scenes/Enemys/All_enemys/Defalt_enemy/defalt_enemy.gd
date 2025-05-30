@@ -17,10 +17,6 @@ var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
 
 
 func _ready() -> void:
-	# TODO: разобраться для чего нужен этот шейдер?
-	var preload_shader = preload("res://Resources/Shaders/defalt_enemy.gdshader")
-	ResourceLoader.load_threaded_request("res://Resources/Shaders/defalt_enemy.gdshader")
-
 	max_hp_enemy = hp_enemy
 	if animation_enemy: # УБРАТЬ ЭТУ СТРОЧКУ
 		animation_enemy.play("Spawn")
