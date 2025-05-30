@@ -21,17 +21,21 @@ extends Node
 @onready var _object_aliases: Dictionary = {
 	"experience_potion": preload("res://Scenes/Bonus/bank_with_experience.tscn"),
 	"heal_potion": preload("res://Scenes/Bonus/restore_health.tscn"),
+	"enemy_death_effect": preload("res://Scenes/Enemys/Dops/death_effect.tscn")
 }
 
 # Количество заранее создаваемых экземпляров объекта
 var _object_preinstance: Dictionary = {
 	"experience_potion": 3,
-	"heal_potion": 1
+	"heal_potion": 1,
+	"enemy_death_effect": 4,
 }
 
 # хранилище созданных экземпляров
 var _object_pools: Dictionary = {
-	"experience_potion": []
+	"experience_potion": [],
+	"heal_potion": [],
+	"enemy_death_effect": [],
 }
 
 var _DEBUG: bool = false

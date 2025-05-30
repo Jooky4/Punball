@@ -3,8 +3,6 @@ extends GenericEnemy
 
 # TODO: перенести в пул объектов
 var LABEL_DAMAGE = preload("res://Scenes/Enemys/Dops/label_enemy_damage.tscn")
-# TODO: перенести в пул эффектов
-var DEATH_EFFECT= preload("res://Scenes/Enemys/Dops/death_effect.tscn")
 
 
 @onready var hp_enemy_label = $Hp_boss_label
@@ -73,9 +71,6 @@ func deal_damage(damage_ball, color_label, killer_ball : bool = false) -> void:
 				death_sound.pitch_scale += AudioManager.get_random_pitch()
 				death_sound.play()
 				animation_enemy.play("Death")
-				var effect = DEATH_EFFECT.instantiate()
-				effect.global_position = self.global_position
-				get_tree().current_scene.add_child(effect)
 
 			return
 

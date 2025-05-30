@@ -1106,7 +1106,10 @@ func _on_boss_died() -> void:
 
 func _on_enemy_died(enemy) -> void:
 	if not enemy.is_boss():
-		prints("enemy died")
+		# эффект смерти
+		var death_effect = ObjectPool.get_object("enemy_death_effect")
+		death_effect.global_position = enemy.global_position
+		death_effect.start_animation()
 
 		# Создаём бутылочку опыта на месте павшего противника
 		var _exp_potion = ObjectPool.get_object("experience_potion")
