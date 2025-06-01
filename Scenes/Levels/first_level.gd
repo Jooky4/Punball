@@ -129,7 +129,6 @@ func _ready() -> void:
 	# Metrika
 	var current_level = LevelManager.count_level
 	var current_location = 1 + WaveGeneration.get_current_location()
-	prints("start location", current_location, WaveGeneration.get_current_location())
 	if current_location >= 1:
 		YandexMetrika.ym(101336789,'reachGoal','started_location_%d' % current_location)
 	if WaveGeneration.get_current_location() == -1:
@@ -139,7 +138,6 @@ func _ready() -> void:
 	check_tutorial()
 
 	await Utils.timeout(0.05)
-	#ChangeScene.normal_screen()
 
 	count_ball_label.text = "x" + str(LevelManager.player_balls.size())
 	hp_player_bar.max_value = LevelManager.max_hp_player
