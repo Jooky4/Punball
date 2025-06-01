@@ -26,7 +26,6 @@ func create_label_damage(damage_ball, color_label) -> void:
 		label.text = "-" + str(roundi(damage_ball))
 	label.modulate = color_label
 	label.scale = Vector2(start_scale_damage_label, start_scale_damage_label)
-	get_tree().current_scene.add_child(label)
 	label.show_label2(125)
 
 func boss() -> void:

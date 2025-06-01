@@ -219,7 +219,7 @@ func _process(delta):
 
 
 func _get_input() -> void:
-	if OS.is_debug_build():
+	if Constants.CHEATS_ENABLED:
 		if Input.is_action_just_pressed("DEBUG_END_LEVEL"):
 			_set_state(State.WIN)
 
@@ -264,7 +264,6 @@ func check_game_end() -> void:
 
 	if !end_wave_bool:
 		var balls_on_map = true
-		var boss_alive = false
 
 		for child in self.get_children():
 			if child.has_method("ball"):
@@ -343,7 +342,6 @@ func player_take_damage_create_label(label_damage, who_deal_damage : int = 0) ->
 		$Damage_Player.play()
 	label.modulate = color_label
 	label.scale = Vector2(0.2, 0.2)
-	get_tree().current_scene.add_child(label)
 	label.show_label2()
 	update_character_label()
 

@@ -1,7 +1,8 @@
 extends Node
 
 # DEBUG
-const SHOW_FPS = true
+const SHOW_FPS = false
+const CHEATS_ENABLED = true
 
 
 const DEFAULT_HEAL_DROP_CHANCE = 0.2
