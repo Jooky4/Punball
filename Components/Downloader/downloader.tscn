@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ipm6k4g0j1eb"]
+
+[ext_resource type="Script" path="res://Components/Downloader/downloader.gd" id="1_o4d4v"]
+
+[node name="Downloader" type="Node"]
+script = ExtResource("1_o4d4v")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+accept_gzip = false

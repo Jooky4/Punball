@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh3l00dtrf63u"
-path="res://.godot/imported/локация 10.png-70610e6ab761f483e7222e3a5f7d1320.ctex"
+uid="uid://couua5ueetks2"
+path="res://.godot/imported/location_1.png-64c192c020c8a5359b2970a7f74ccb3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/Backgrounds/локация 10.png"
-dest_files=["res://.godot/imported/локация 10.png-70610e6ab761f483e7222e3a5f7d1320.ctex"]
+source_file="res://Texture/Backgrounds/location_1.png"
+dest_files=["res://.godot/imported/location_1.png-64c192c020c8a5359b2970a7f74ccb3e.ctex"]
 
 [params]
 

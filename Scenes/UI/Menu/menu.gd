@@ -182,6 +182,7 @@ func update_player_indicators() -> void:
 	}
 	update_cuurent_location_texture()
 
+
 func arabic_to_roman(num: int) -> String:
 	var val = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4, 1]
 	var syms = ["M", "CM", "D", "CD","C", "XC", "L", "XL","X", "IX", "V", "IV","I"]
@@ -194,7 +195,31 @@ func arabic_to_roman(num: int) -> String:
 		i += 1
 	return roman_num
 
+
 func player_date_loaded(data) -> void:
+	#if is_player_data_loaded:
+		#return
+
+	prints("player_date_loaded()", current_location, PlayerIndicatorsManager.CURRENT_LOCATIONS)
+
+	var cur_location = (current_location % 10) - 1
+
+	if cur_location != 0:
+		prints("not first location")
+
+		#var lvl_bg_url = "level_backgrounds.pck"
+		var location_bg_url = LevelBackgroundData.get_level_bg_url(cur_location)
+		var location_bg_path = LevelBackgroundData.get_level_pck_name(cur_location)
+		prints("location_bg_url", location_bg_url, location_bg_path)
+
+		if not GlobalResourceLoader.is_loading() and not GlobalResourceLoader.is_file_loaded(location_bg_url):
+			GlobalResourceLoader.download_pack(location_bg_url, location_bg_path)
+			var _start_time = Time.get_ticks_msec()
+			prints("await download_end START")
+			await GlobalResourceLoader.download_end
+			var _end_time = Time.get_ticks_msec() - _start_time
+			prints("await download_end COMPLETE", _end_time)
+
 	update_cuurent_location_texture()
 	#check_tutorial()
 	update_coins_label()

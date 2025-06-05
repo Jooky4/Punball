@@ -1,7 +1,7 @@
 extends Node
 
 # DEBUG
-const SHOW_FPS = false
+const SHOW_FPS = true
 const CHEATS_ENABLED = true
 
 

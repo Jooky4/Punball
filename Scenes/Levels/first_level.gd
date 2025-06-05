@@ -185,10 +185,7 @@ func check_tutorial() -> void:
 func update_location_image() -> void:
 	var location = (WaveGeneration.current_location % 10) - 1
 
-	if location == -1:
-		%LevelBackground.set_background(9)
-	else:
-		%LevelBackground.set_background(location)
+	%LevelBackground.set_background(location)
 
 
 # TODO: грузить только используемого персонажа вместо удаления неиспользуемых

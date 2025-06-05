@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://chaavxhr113uj"]
+
+[ext_resource type="Script" path="res://Components/ResourceLoader/resource_loader.gd" id="1_pis4w"]
+[ext_resource type="PackedScene" uid="uid://ipm6k4g0j1eb" path="res://Components/Downloader/downloader.tscn" id="2_qp8q3"]
+
+[node name="ResourceLoader" type="Node"]
+script = ExtResource("1_pis4w")
+
+[node name="Downloader" parent="." instance=ExtResource("2_qp8q3")]

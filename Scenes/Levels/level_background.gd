@@ -12,4 +12,6 @@ func _ready() -> void:
 
 
 func set_background(value: int) -> void:
-	sprite_2d.texture = backgrounds[value]
+	var image = Image.new()
+	var _bg = load(LevelBackgroundData.get_level_bg_path(value))
+	sprite_2d.texture = _bg
