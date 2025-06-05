@@ -501,7 +501,7 @@ func balls_go() -> void:
 			ball.direction_bullet = direction
 			get_tree().current_scene.add_child(ball)
 			count_ball_label.text = "x" + str(LevelManager.player_balls.size() - (i+1))
-			AudioManager.ball_spawn()
+			AudioManager.play_sound("ball_spawn")
 			await get_tree().create_timer(0.1).timeout
 			count_time += 0.1
 			if count_time > 1:

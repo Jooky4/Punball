@@ -7,12 +7,13 @@ var arc_height = -150
 var min_duration : float = 0.4  # Минимальное время полета (в секундах) ДОБАВИЛ ДИМА
 var max_duration : float = 0.6  # Максимальное время полета (в секундах) ДОБАВИЛ ДИМА
 var rocket_damage : int = 300
-@onready var start_sound = $Start_sound
+
 @onready var end_sound = $End_sound
 
 func _ready() -> void:
-	start_sound.pitch_scale += AudioManager.get_random_pitch()
-	start_sound.play()
+	AudioManager.play_sound("rocket_start")
+	#start_sound.pitch_scale += AudioManager.get_random_pitch()
+	#start_sound.play()
 
 func go(enemy, start_pos) -> void:
 	if enemy != null:
@@ -30,6 +31,8 @@ func go(enemy, start_pos) -> void:
 		await tween.finished
 		if enemy != null:
 			enemy.deal_damage(rocket_damage, ElementsManager.color_elements["NUCLEAR"])
+
+			# TODO: перенести в AudioManager.play_sound("rocket_end")
 			end_sound.pitch_scale += AudioManager.get_random_pitch()
 			end_sound.play()
 			self.visible = false

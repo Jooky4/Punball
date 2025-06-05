@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxkkmslaoo4dl"]
+[gd_scene load_steps=10 format=3 uid="uid://cxkkmslaoo4dl"]
 
 [ext_resource type="Texture2D" uid="uid://jf0twirv5n7s" path="res://Texture/Effects/ловушка.png" id="1_sg8b0"]
-[ext_resource type="Script" uid="uid://uivt5adjhbsx" path="res://Scenes/For skills/trap.gd" id="2_3r23j"]
+[ext_resource type="Script" path="res://Scenes/For skills/trap.gd" id="2_3r23j"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="3_0dhuv"]
-[ext_resource type="AudioStream" uid="uid://i4xu4a8de8sd" path="res://Resources/Sounds/ловушка.mp3" id="4_ckgc4"]
 
 [sub_resource type="Curve" id="Curve_q2rxr"]
 _data = [Vector2(0, 0), 0.0, 5.28, 0, 0, Vector2(0.818182, 1), -0.89143, -0.89143, 0, 0, Vector2(1, 0), -5.64706, 0.0, 0, 0]
@@ -111,9 +110,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ert4v"]
 _data = {
-&"Hit": SubResource("Animation_ts745"),
-&"RESET": SubResource("Animation_qyvl1"),
-&"Spawn": SubResource("Animation_h2211")
+"Hit": SubResource("Animation_ts745"),
+"RESET": SubResource("Animation_qyvl1"),
+"Spawn": SubResource("Animation_h2211")
 }
 
 [node name="trap" type="Node2D"]
@@ -156,9 +155,3 @@ autoplay = "Spawn"
 
 [node name="trap_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_sg8b0")
-
-[node name="Delete_trap_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ckgc4")
-volume_db = -10.0
-
-[connection signal="finished" from="Delete_trap_sound" to="." method="_on_delete_trap_sound_finished"]

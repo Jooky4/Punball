@@ -5,7 +5,7 @@ var EFFECT_BALL = preload("res://Scenes/Effects/CumulativeBallExplosion.tscn")
 
 
 func collide_with_enemy(collider) -> void:
-	AudioManager.cumulative_ball_hit_sound()
+	AudioManager.play_sound("cumulative_ball_hit_sound")
 	var damage_ball_plus = 0
 	if "Усиление особого шара" in LevelManager.player_skills:
 		damage_ball_plus = round(damage_ball * 0.05)

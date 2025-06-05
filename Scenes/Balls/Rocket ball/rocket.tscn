@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgpo1sv7dw4xc"]
+[gd_scene load_steps=9 format=3 uid="uid://bgpo1sv7dw4xc"]
 
-[ext_resource type="Script" uid="uid://dvwuite133gm5" path="res://Scenes/Balls/Rocket ball/rocket.gd" id="1_4jamx"]
+[ext_resource type="Script" path="res://Scenes/Balls/Rocket ball/rocket.gd" id="1_4jamx"]
 [ext_resource type="Texture2D" uid="uid://b74f0w5agfq17" path="res://Texture/Balls/шар ракета.png" id="1_4rsko"]
-[ext_resource type="AudioStream" uid="uid://cdywux8t0f77d" path="res://Resources/Sounds/ракета_старт.ogg" id="4_w5xoj"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Effects/Circle_2.png" id="4_yqtnj"]
 [ext_resource type="AudioStream" uid="uid://dq15llvpt4v4x" path="res://Resources/Sounds/обычный.mp3" id="5_a3kcv"]
 
@@ -43,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kw05f"]
 _data = {
-&"RESET": SubResource("Animation_js1y5"),
-&"Spawn": SubResource("Animation_ujp1f")
+"RESET": SubResource("Animation_js1y5"),
+"Spawn": SubResource("Animation_ujp1f")
 }
 
 [node name="rocket" type="Node2D"]
@@ -78,10 +77,6 @@ libraries = {
 "": SubResource("AnimationLibrary_kw05f")
 }
 autoplay = "Spawn"
-
-[node name="Start_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_w5xoj")
-volume_db = -15.0
 
 [node name="End_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_a3kcv")

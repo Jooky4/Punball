@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var health_sound = $Health_sound
 @export var health_hp = 0.1
 var health_go = false
 
@@ -16,8 +15,7 @@ func go_to_player(pos) -> void:
 	if get_tree().current_scene.has_method("get_health"):
 		get_tree().current_scene.get_health(round((health_hp * LevelManager.max_hp_player) + PlayerIndicatorsManager.FOR_COIS_UP_RESTORE_HILL))
 	self.visible = false
-	health_sound.pitch_scale += AudioManager.get_random_pitch()
-	health_sound.play()
+	AudioManager.play_sound("heal_sound")
 	await get_tree().create_timer(1.25).timeout
 	_return_to_pool()
 
