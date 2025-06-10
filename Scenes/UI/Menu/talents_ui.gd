@@ -16,13 +16,14 @@ extends Control
 @onready var close_texture = preload("res://Texture/UI/Talents_UI/lock.png")
 
 var for_coins_talent_texture = {
-	"Увеличение атаки": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение Атаки.png"),
-	"Увеличение здоровья": preload("res://Texture/UI/Talents_UI/Talent_texture/Увеличение ОЗ.png"),
-	"Урон от врагов дальнего боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов дальнего боя.png"),
-	"Улучшение восстановления": preload("res://Texture/UI/Talents_UI/Talent_texture/Улучшение эффекта восстановления.png"),
-	"Урон от врагов ближнего боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от врагов ближнего боя.png"),
-	"Улучшение регенерации": preload("res://Texture/UI/Talents_UI/Talent_texture/Регенерация.png"),
-	"Урон от БОССА": preload("res://Texture/UI/Talents_UI/Talent_texture/Уменьшение урона от босса.png")}
+	"Увеличение атаки": preload("res://Texture/UI/Texture_skills/attack_increase_atlas.tres"),
+	"Увеличение здоровья": preload("res://Texture/UI/Texture_skills/hp_increase_atlas.tres"),
+	"Урон от врагов дальнего боя": preload("res://Texture/UI/Texture_skills/damage_range_decrease.tres"),
+	"Улучшение восстановления": preload("res://Texture/UI/Texture_skills/hp_recovery.tres"),
+	"Урон от врагов ближнего боя": preload("res://Texture/UI/Texture_skills/damage_melee_decrease.tres"),
+	"Улучшение регенерации": preload("res://Texture/UI/Texture_skills/hp_regeneration.tres"),
+	"Урон от БОССА": preload("res://Texture/UI/Texture_skills/damage_boss_decrease.tres"),
+}
 
 var discription_talants = {
 	"Увеличение атаки": "Атака:",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://df2a48ft85jww"]
+[gd_scene load_steps=75 format=3 uid="uid://df2a48ft85jww"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/first_level.gd" id="1_wuo18"]
 [ext_resource type="PackedScene" uid="uid://cko3v1cmgn5ji" path="res://Scenes/Levels/wall.tscn" id="3_0wlbe"]
@@ -20,55 +20,15 @@
 [ext_resource type="Texture2D" uid="uid://cq5bj185114sr" path="res://Texture/UI/Fight/icon_Exp.png" id="15_yu5pj"]
 [ext_resource type="Texture2D" uid="uid://doiu3jp8f4ygl" path="res://Texture/UI/Fight/button_Back_Balls.png" id="17_dobv8"]
 [ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/Effects/ligting.png" id="18_gvlsg"]
-[ext_resource type="Texture2D" uid="uid://wg1jxid22jl3" path="res://Texture/Enemys/Blueberries_enemy/тело.png" id="18_lqjow"]
-[ext_resource type="Texture2D" uid="uid://dwegmtsr1yonq" path="res://Texture/Enemys/Blueberries_enemy/рот.png" id="19_xefh1"]
-[ext_resource type="Texture2D" uid="uid://u2pxqe3jffmh" path="res://Texture/Enemys/Blueberries_enemy/листик.png" id="20_g1vbe"]
 [ext_resource type="Texture2D" uid="uid://bcq84kf2bqg1q" path="res://Texture/Level_environment/shadow.png" id="22_ed5nt"]
 [ext_resource type="Texture2D" uid="uid://cjxyryrovmn58" path="res://Texture/UI/Fight/button_Pause.png" id="23_t4wce"]
 [ext_resource type="PackedScene" uid="uid://bb7y7v4mnb42k" path="res://Scenes/UI/Menu/pause_menu_ui.tscn" id="24_gx84s"]
 [ext_resource type="Texture2D" uid="uid://cqgxfc4mx6whh" path="res://Texture/UI/Fight/icon_Boss.png" id="26_b0xvx"]
 [ext_resource type="Shader" path="res://Resources/Shaders/defalt_enemy.gdshader" id="26_u0ss4"]
 [ext_resource type="PackedScene" uid="uid://c8nbyj46inv3u" path="res://Scenes/UI/ComboCounter/combo_counter.tscn" id="27_1olw3"]
-[ext_resource type="Texture2D" uid="uid://c6fo1sgikhlyy" path="res://Texture/Enemys/Defalt_enemy/тело.png" id="27_6lrpk"]
 [ext_resource type="Texture2D" uid="uid://cavfn4g8a37dn" path="res://Texture/UI/Fight/platform_Notification.png" id="27_p64ry"]
-[ext_resource type="Texture2D" uid="uid://ck0l065fg2u27" path="res://Texture/Enemys/Defalt_enemy/голова.png" id="28_g8ck8"]
-[ext_resource type="Texture2D" uid="uid://d00f8ph8rapmf" path="res://Texture/Enemys/Defalt_enemy/рука.png" id="29_22o7v"]
-[ext_resource type="Texture2D" uid="uid://d0ud3823gq70m" path="res://Texture/Enemys/Bomb_enemy/тело.png" id="30_aisah"]
-[ext_resource type="Texture2D" uid="uid://lf0yln3iddcv" path="res://Texture/Enemys/Bomb_enemy/нога_2.png" id="31_opreb"]
-[ext_resource type="Texture2D" uid="uid://bv5uicw6a4bso" path="res://Texture/Enemys/Bomb_enemy/нога_1.png" id="32_q75ck"]
-[ext_resource type="Texture2D" uid="uid://bi8v3fdkihrfr" path="res://Texture/Enemys/Bomb_enemy/фитиль.png" id="33_4ppm5"]
-[ext_resource type="Texture2D" uid="uid://dgmfms5a12jre" path="res://Texture/Enemys/Medic_enemy/тело.png" id="34_urso4"]
 [ext_resource type="Texture2D" uid="uid://c4877n5qkjhs" path="res://Texture/Effects/Circle_2.png" id="35_0lum3"]
-[ext_resource type="Texture2D" uid="uid://b7yuy4jbwy6hc" path="res://Texture/Enemys/Medic_enemy/голова.png" id="35_hyg7y"]
-[ext_resource type="Texture2D" uid="uid://cvu3axxlug6nb" path="res://Texture/Enemys/Medic_enemy/рука.png" id="36_dramc"]
-[ext_resource type="Texture2D" uid="uid://cwlbf2ntvjccb" path="res://Texture/Enemys/Slime_enemy/тело.png" id="37_hjf3f"]
-[ext_resource type="Texture2D" uid="uid://cbelqcdepvsxj" path="res://Texture/Enemys/Slime_enemy/глаза.png" id="38_6oyu1"]
-[ext_resource type="Texture2D" uid="uid://d38i3rl1k53rm" path="res://Texture/Enemys/Shield_enemy/тело.png" id="39_h0taw"]
-[ext_resource type="Texture2D" uid="uid://gkksgdntfek2" path="res://Texture/Enemys/Shield_enemy/голова.png" id="40_fwk5a"]
-[ext_resource type="Texture2D" uid="uid://1o68231vqcix" path="res://Texture/Enemys/Shield_enemy/глаза.png" id="41_yq4ex"]
-[ext_resource type="Texture2D" uid="uid://bhgqxwp435s0r" path="res://Texture/Enemys/Shield_enemy/щит.png" id="42_dk05h"]
-[ext_resource type="Texture2D" uid="uid://nkt7yrr0j76n" path="res://Texture/Enemys/Jumper_enemy/тело.png" id="43_duq3j"]
-[ext_resource type="Texture2D" uid="uid://bdas7bdi5vycm" path="res://Texture/Enemys/Jumper_enemy/лапа правая.png" id="44_qh7rt"]
-[ext_resource type="Texture2D" uid="uid://cr1rop7re2bw2" path="res://Texture/Enemys/Jumper_enemy/лапа левая.png" id="45_2ihu7"]
-[ext_resource type="Texture2D" uid="uid://dsc8ofbgd6gve" path="res://Texture/Enemys/Jumper_enemy/плащ.png" id="46_4k7kx"]
-[ext_resource type="Texture2D" uid="uid://rqn0ryrlmoek" path="res://Texture/Enemys/Jumper_enemy/меч.png" id="47_re1q8"]
-[ext_resource type="Texture2D" uid="uid://cfbgak4dtpgux" path="res://Texture/Enemys/Jumper_enemy/голова.png" id="48_pxpb7"]
-[ext_resource type="Texture2D" uid="uid://0h1phjaury1m" path="res://Texture/Enemys/Jumper_enemy/глаз.png" id="49_k2gq4"]
-[ext_resource type="Texture2D" uid="uid://byw8bw6py5e7c" path="res://Texture/Enemys/Magician_enemy/тело.png" id="50_up3cw"]
-[ext_resource type="Texture2D" uid="uid://kqhk34itgkug" path="res://Texture/Enemys/Magician_enemy/голова.png" id="51_d4xgs"]
-[ext_resource type="Texture2D" uid="uid://c7atijc7raj8w" path="res://Texture/Enemys/Magician_enemy/посох с рукой.png" id="52_v1vmy"]
-[ext_resource type="Texture2D" uid="uid://b7sior6rmhe2o" path="res://Texture/Enemys/Poison_enemy/тело.png" id="53_1fkxo"]
-[ext_resource type="Texture2D" uid="uid://2pocpskr3vqo" path="res://Texture/Enemys/Poison_enemy/рукава.png" id="54_i6j2w"]
-[ext_resource type="Texture2D" uid="uid://ctgtcah6btaem" path="res://Texture/Enemys/Poison_enemy/котёл.png" id="55_hqhc6"]
-[ext_resource type="Texture2D" uid="uid://cvb0xxjo3esxp" path="res://Texture/Enemys/Poison_enemy/пальцы.png" id="56_uk4y8"]
-[ext_resource type="Texture2D" uid="uid://bl2efdvlkek2" path="res://Texture/Enemys/Poison_enemy/голова.png" id="57_xxjxy"]
-[ext_resource type="Texture2D" uid="uid://dykarrd22urqa" path="res://Texture/Enemys/Poison_enemy/глаза.png" id="58_3b5a4"]
-[ext_resource type="Texture2D" uid="uid://c6imped3u00i1" path="res://Texture/Enemys/Berserker_enemy/тело_2.png" id="59_6v0bl"]
-[ext_resource type="Texture2D" uid="uid://d4isn7j1ec833" path="res://Texture/Enemys/Berserker_enemy/голова_2.png" id="60_6nvga"]
-[ext_resource type="Texture2D" uid="uid://b2xd88io748vw" path="res://Texture/Enemys/Berserker_enemy/глаза_2.png" id="61_wmgit"]
-[ext_resource type="Texture2D" uid="uid://bmqp36us31dlh" path="res://Texture/Enemys/Berserker_enemy/топор_2.png" id="62_l76s3"]
-[ext_resource type="Texture2D" uid="uid://d4bkr4esi8if8" path="res://Texture/Enemys/Fire_elemental_enemy/тело.png" id="63_8xtax"]
-[ext_resource type="Texture2D" uid="uid://bia00tvf3k2lj" path="res://Texture/Enemys/Fire_elemental_enemy/глаза.png" id="64_ehpe0"]
+[ext_resource type="Texture2D" uid="uid://b4ony8nhmunyf" path="res://Texture/Enemys/enemys2.png" id="46_pb0oo"]
 [ext_resource type="AudioStream" uid="uid://bc70ivevc0bqe" path="res://Resources/Sounds/смерть_2.mp3" id="66_b214y"]
 [ext_resource type="Texture2D" uid="uid://bwokf53i4wc7m" path="res://Texture/For_tutorial/стрелка маленькая.png" id="71_hfic3"]
 [ext_resource type="Texture2D" uid="uid://dak61t65tbisy" path="res://Texture/For_tutorial/стрелка большая.png" id="71_wlae1"]
@@ -138,11 +98,11 @@ resource_local_to_scene = true
 shader = ExtResource("26_u0ss4")
 shader_parameter/lightness = 0.0
 
-[sub_resource type="Curve" id="Curve_nro4b"]
+[sub_resource type="Curve" id="Curve_1lnln"]
 _data = [Vector2(0, 0), 0.0, 2.61818, 0, 0, Vector2(0.342803, 0.636364), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.914285, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_j1pef"]
+[sub_resource type="Gradient" id="Gradient_w2g6v"]
 offsets = PackedFloat32Array(0, 0.17, 0.414, 0.768, 0.902)
 colors = PackedColorArray(1, 0.941176, 0.0627451, 0, 1, 0.941406, 0.0625, 1, 0.964706, 0.384314, 0.0431373, 1, 0.917647, 0.0352941, 0.0823529, 1, 0.917647, 0.0352941, 0.0823529, 0)
 
@@ -554,6 +514,14 @@ resource_local_to_scene = true
 shader = ExtResource("26_u0ss4")
 shader_parameter/lightness = 0.0
 
+[sub_resource type="Curve" id="Curve_6bv6y"]
+_data = [Vector2(0, 0), 0.0, 2.61818, 0, 0, Vector2(0.342803, 0.636364), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.914285, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_xnvu8"]
+offsets = PackedFloat32Array(0, 0.17, 0.414, 0.768, 0.902)
+colors = PackedColorArray(1, 0.941176, 0.0627451, 0, 1, 0.941406, 0.0625, 1, 0.964706, 0.384314, 0.0431373, 1, 0.917647, 0.0352941, 0.0823529, 1, 0.917647, 0.0352941, 0.0823529, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_eoqvi"]
 font = ExtResource("10_fo6nb")
 font_size = 60
@@ -917,21 +885,32 @@ visible = false
 position = Vector2(-87, 70.0001)
 scale = Vector2(0.12, 0.12)
 
-[node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/1"]
+[node name="Тело2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/1"]
+use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("18_lqjow")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-0.48, 6.335)
+region_enabled = true
+region_rect = Rect2(256, 482, 129, 125)
 
-[node name="Рот" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/1"]
+[node name="Рот2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/1"]
+use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("19_xefh1")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, 37.285)
+region_enabled = true
+region_rect = Rect2(1, 70, 50, 39)
 
-[node name="Листик" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/1"]
+[node name="Листик2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/1"]
+use_parent_material = true
 position = Vector2(-128.571, -357.143)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("20_g1vbe")
-offset = Vector2(45.4571, 117.586)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(14.94, -16.925)
+region_enabled = true
+region_rect = Rect2(536, 30, 73, 37)
 
 [node name="2" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
@@ -939,30 +918,40 @@ material = SubResource("ShaderMaterial_8mudr")
 position = Vector2(-85, 63)
 scale = Vector2(0.14, 0.14)
 
-[node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2"]
+[node name="Тело2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("39_h0taw")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-0.035, 36.73)
+region_enabled = true
+region_rect = Rect2(142, 70, 128, 41)
 
-[node name="Голова" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2"]
+[node name="Голова2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("40_fwk5a")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-0.855, -16.405)
+region_enabled = true
+region_rect = Rect2(320, 269, 110, 96)
 
-[node name="Глаза" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2/Голова"]
+[node name="Глаза" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2/Голова2"]
 use_parent_material = true
-position = Vector2(0.342871, 1.557)
+position = Vector2(0.342871, 12.2055)
 scale = Vector2(1, 1.015)
-texture = ExtResource("41_yq4ex")
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(263, 2, 66, 22)
 
-[node name="Щит" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2"]
+[node name="Щит2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/2"]
 use_parent_material = true
 position = Vector2(-128.571, -357.143)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("42_dk05h")
-offset = Vector2(45.4571, 117.586)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(10.46, 70.881)
+region_enabled = true
+region_rect = Rect2(481, 70, 105, 45)
 
 [node name="3" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
@@ -970,24 +959,32 @@ material = SubResource("ShaderMaterial_0087b")
 position = Vector2(-85, 64)
 scale = Vector2(0.14, 0.14)
 
-[node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/3"]
+[node name="Тело2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/3"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("50_up3cw")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-0.1, 30.85)
+region_enabled = true
+region_rect = Rect2(273, 115, 122, 65)
 
-[node name="Голова" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/3"]
+[node name="Голова2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/3"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("51_d4xgs")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-0.585, -22.34)
+region_enabled = true
+region_rect = Rect2(345, 184, 96, 82)
 
-[node name="Посох" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/3"]
+[node name="Посох2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/3"]
 use_parent_material = true
 position = Vector2(-128.571, -357.143)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("52_v1vmy")
-offset = Vector2(45.4571, 117.586)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-38.35, 48.195)
+region_enabled = true
+region_rect = Rect2(289, 269, 28, 92)
 
 [node name="4" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
@@ -995,15 +992,17 @@ material = SubResource("ShaderMaterial_f6qx8")
 position = Vector2(-87, 65)
 scale = Vector2(0.14, 0.14)
 
-[node name="Тело" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/4"]
+[node name="Тело2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/4"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("63_8xtax")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(385, 482, 128, 125)
 
-[node name="Effect" type="CPUParticles2D" parent="UI/Reminder_boss/Boss_here/4/Тело"]
-position = Vector2(-11.0287, -108.083)
-scale = Vector2(5.68147, 6.16321)
+[node name="Effect" type="CPUParticles2D" parent="UI/Reminder_boss/Boss_here/4/Тело2"]
+position = Vector2(-2.09998, -32.8436)
+scale = Vector2(1.42, 1.54)
 amount = 30
 local_coords = true
 draw_order = 1
@@ -1016,14 +1015,17 @@ angle_min = -180.0
 angle_max = 180.0
 scale_amount_min = 0.5
 scale_amount_max = 0.8
-scale_amount_curve = SubResource("Curve_nro4b")
-color_ramp = SubResource("Gradient_j1pef")
+scale_amount_curve = SubResource("Curve_1lnln")
+color_ramp = SubResource("Gradient_w2g6v")
 
-[node name="Глаза" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/4"]
+[node name="Глаза2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/4"]
 use_parent_material = true
-position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("64_ehpe0")
+position = Vector2(-24.5098, -89.4797)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-2.47, 25.545)
+region_enabled = true
+region_rect = Rect2(331, 1, 74, 25)
 
 [node name="5" type="Node2D" parent="UI/Reminder_boss/Boss_here"]
 visible = false
@@ -1031,27 +1033,39 @@ material = SubResource("ShaderMaterial_ysv2o")
 position = Vector2(-92, 50)
 scale = Vector2(1.8, 1.8)
 
-[node name="Body" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5"]
+[node name="Body2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("59_6v0bl")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(1.46, 16.09)
+region_enabled = true
+region_rect = Rect2(215, 370, 130, 98)
 
-[node name="Head" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5"]
+[node name="Head2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("60_6nvga")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, -41.43)
+region_enabled = true
+region_rect = Rect2(435, 271, 132, 93)
 
-[node name="Глаза" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5/Head"]
+[node name="Глаза" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5/Head2"]
 use_parent_material = true
-texture = ExtResource("61_wmgit")
+position = Vector2(0, -10.976)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(73, 4, 64, 21)
 
-[node name="Hand" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5"]
+[node name="Hand2" type="Sprite2D" parent="UI/Reminder_boss/Boss_here/5"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("62_l76s3")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-69.75, 1.445)
+region_enabled = true
+region_rect = Rect2(131, 368, 71, 96)
 
 [node name="Boss_close" type="Label" parent="UI/Reminder_boss"]
 visible = false
@@ -1170,21 +1184,27 @@ position = Vector2(1162, 31)
 
 [node name="Body" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/1"]
 use_parent_material = true
-position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("27_6lrpk")
+position = Vector2(0, 19)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(153, 271, 133, 87)
 
 [node name="Head" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/1"]
 use_parent_material = true
-position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("28_g8ck8")
+position = Vector2(0, -12)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(444, 184, 131, 81)
 
 [node name="Hand" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/1"]
 use_parent_material = true
-position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("29_22o7v")
+position = Vector2(-32, 15)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(110, 271, 38, 85)
 
 [node name="2" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1193,24 +1213,29 @@ material = SubResource("ShaderMaterial_gqt1y")
 position = Vector2(1165, 42)
 scale = Vector2(0.07, 0.07)
 
-[node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/2"]
+[node name="Тело2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/2"]
 use_parent_material = true
-position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("18_lqjow")
+position = Vector2(-29.4118, -42.8571)
+scale = Vector2(9.451, 9.324)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(256, 482, 129, 125)
 
-[node name="Рот" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/2"]
+[node name="Рот2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/2"]
 use_parent_material = true
-position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("19_xefh1")
+position = Vector2(-24.5098, 271.429)
+scale = Vector2(9.8, 9.668)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(1, 70, 50, 39)
 
-[node name="Листик" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/2"]
+[node name="Листик2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/2"]
 use_parent_material = true
-position = Vector2(-128.571, -357.143)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("20_g1vbe")
-offset = Vector2(45.4571, 117.586)
+position = Vector2(28.5714, -514.286)
+scale = Vector2(9.8, 9.668)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(536, 30, 73, 37)
 
 [node name="3" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1219,31 +1244,60 @@ material = SubResource("ShaderMaterial_iifrd")
 position = Vector2(1165, 41)
 scale = Vector2(0.076, 0.076)
 
-[node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
+[node name="Тело2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
 use_parent_material = true
-position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("30_aisah")
+position = Vector2(-29.4116, -89.4797)
+scale = Vector2(9.808, 9.676)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.44, 7.31)
+region_enabled = true
+region_rect = Rect2(141, 482, 115, 125)
 
-[node name="Нога1" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
+[node name="Eye" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3/Тело2"]
+visible = false
+use_parent_material = true
+position = Vector2(-15.7829, 16.0468)
+scale = Vector2(1.019, 1.019)
+texture = ExtResource("46_pb0oo")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(344, 30, 32, 37)
+
+[node name="Eye2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3/Тело2"]
+visible = false
+use_parent_material = true
+position = Vector2(15.0727, 16.0468)
+scale = Vector2(1.019, 1.019)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(343, 29, 34, 39)
+
+[node name="Нога3" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
 use_parent_material = true
 position = Vector2(-242.858, 428.571)
-scale = Vector2(2.41071, 2.41071)
-texture = ExtResource("31_opreb")
-offset = Vector2(98.4444, -215.63)
+scale = Vector2(9.644, 9.644)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-6.41, 0.23)
+region_enabled = true
+region_rect = Rect2(550, 5, 29, 22)
 
-[node name="Нога2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
+[node name="Нога4" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
 use_parent_material = true
 position = Vector2(200, 428.571)
-scale = Vector2(2.41071, 2.41071)
-texture = ExtResource("32_q75ck")
-offset = Vector2(-85.2593, -215.63)
+scale = Vector2(9.644, 9.644)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(7.195, 0.61)
+region_enabled = true
+region_rect = Rect2(550, 5, 29, 22)
 
-[node name="Фитиль" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
+[node name="Фитиль2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/3"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("33_4ppm5")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.51, -44.975)
+region_enabled = true
+region_rect = Rect2(57, 69, 32, 39)
 
 [node name="5" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1251,23 +1305,32 @@ z_index = 2
 material = SubResource("ShaderMaterial_tuob1")
 position = Vector2(1162, 32)
 
-[node name="Body" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/5"]
+[node name="Body2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/5"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("34_urso4")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(1.965, 30.045)
+region_enabled = true
+region_rect = Rect2(2, 185, 129, 67)
 
-[node name="Head" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/5"]
+[node name="Head2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/5"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("35_hyg7y")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(2.035, -14.07)
+region_enabled = true
+region_rect = Rect2(2, 483, 137, 113)
 
-[node name="Hand" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/5"]
+[node name="Hand2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/5"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("36_dramc")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-51.78, 32.245)
+region_enabled = true
+region_rect = Rect2(388, 73, 44, 37)
 
 [node name="6" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1279,14 +1342,19 @@ scale = Vector2(0.073, 0.073)
 [node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/6"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("37_hjf3f")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(353, 367, 127, 113)
 
 [node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/6"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("38_6oyu1")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, 15.305)
+region_enabled = true
+region_rect = Rect2(260, 31, 82, 34)
 
 [node name="8" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1295,30 +1363,40 @@ material = SubResource("ShaderMaterial_s520g")
 position = Vector2(1165, 43)
 scale = Vector2(0.07, 0.07)
 
-[node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8"]
+[node name="Тело2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("39_h0taw")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.165, 36.84)
+region_enabled = true
+region_rect = Rect2(142, 70, 128, 41)
 
-[node name="Голова" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8"]
+[node name="Голова2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("40_fwk5a")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-0.875, -16.335)
+region_enabled = true
+region_rect = Rect2(320, 269, 110, 96)
 
-[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8/Голова"]
+[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8/Голова2"]
 use_parent_material = true
-position = Vector2(0.342871, 1.557)
+position = Vector2(0.0857172, 12.2055)
 scale = Vector2(1, 1.015)
-texture = ExtResource("41_yq4ex")
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(263, 2, 66, 22)
 
-[node name="Щит" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8"]
+[node name="Щит2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/8"]
 use_parent_material = true
 position = Vector2(-128.571, -357.143)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("42_dk05h")
-offset = Vector2(45.4571, 117.586)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(10.977, 71.026)
+region_enabled = true
+region_rect = Rect2(481, 70, 105, 45)
 
 [node name="9" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1327,54 +1405,69 @@ material = SubResource("ShaderMaterial_uvuyf")
 position = Vector2(1160, 49)
 scale = Vector2(0.075, 0.075)
 
-[node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9"]
+[node name="Тело2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9"]
 use_parent_material = true
 position = Vector2(35.3333, 210)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("43_duq3j")
-offset = Vector2(-26.416, -123.835)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.91, -5.1)
+region_enabled = true
+region_rect = Rect2(102, 116, 105, 54)
 
-[node name="ЛапаПравая" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9/Тело"]
+[node name="ЛапаПравая" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9/Тело2"]
 use_parent_material = true
-position = Vector2(78.8411, -21.8565)
+position = Vector2(19.0399, -5.5142)
 scale = Vector2(1.02, 1.14)
-texture = ExtResource("44_qh7rt")
-offset = Vector2(-108.571, -108.572)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-3.525, 15.165)
+region_enabled = true
+region_rect = Rect2(1, 119, 33, 44)
 
-[node name="ЛапаЛевая" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9/Тело"]
+[node name="ЛапаЛевая" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9/Тело2"]
 use_parent_material = true
-position = Vector2(-72.7017, -21.8565)
+position = Vector2(-17.6799, -5.5142)
 scale = Vector2(1.02, 1.149)
-texture = ExtResource("45_2ihu7")
-offset = Vector2(45.7143, -108.572)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(2.74, 14.725)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1, 119, 33, 44)
 
-[node name="Плащ" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9/Тело"]
+[node name="Плащ" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9/Тело2"]
 use_parent_material = true
-position = Vector2(-3.8147e-06, -82.7003)
+position = Vector2(-3.8147e-06, -20.6782)
 scale = Vector2(1.02, 1.03375)
-texture = ExtResource("46_4k7kx")
-offset = Vector2(-25.5619, -26.8572)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.435, 16.64)
+region_enabled = true
+region_rect = Rect2(271, 70, 111, 41)
 
-[node name="Меч" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9"]
+[node name="Меч2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9"]
 use_parent_material = true
 position = Vector2(-442.857, -471.429)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("47_re1q8")
-offset = Vector2(170.686, 157.936)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(1.135, 8.18)
+region_enabled = true
+region_rect = Rect2(397, 115, 44, 66)
 
-[node name="Голова" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9"]
+[node name="Голова2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9"]
 use_parent_material = true
 position = Vector2(35.3333, -96.6667)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("48_pxpb7")
-offset = Vector2(-21.4159, 9.8786)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.835, -16.02)
+region_enabled = true
+region_rect = Rect2(134, 185, 105, 68)
 
-[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9/Голова"]
+[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/9/Голова2"]
 use_parent_material = true
 position = Vector2(-5.72205e-06, 16.5401)
 scale = Vector2(1, 1.013)
-texture = ExtResource("49_k2gq4")
-offset = Vector2(-21.76, -5.4426)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.64, -23.788)
+region_enabled = true
+region_rect = Rect2(408, 2, 63, 24)
 
 [node name="10" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1383,24 +1476,51 @@ material = SubResource("ShaderMaterial_iax0b")
 position = Vector2(1165, 43)
 scale = Vector2(0.07, 0.07)
 
-[node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10"]
+[node name="Тело2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("50_up3cw")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-0.055, 32.18)
+region_enabled = true
+region_rect = Rect2(273, 117, 122, 63)
 
-[node name="Голова" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10"]
+[node name="Голова2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("51_d4xgs")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, -23.11)
+region_enabled = true
+region_rect = Rect2(345, 184, 96, 82)
 
-[node name="Посох" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10"]
+[node name="Eye" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10/Голова2"]
+visible = false
+use_parent_material = true
+position = Vector2(-17.8999, -12.9038)
+scale = Vector2(1.019, 1.019)
+texture = ExtResource("46_pb0oo")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(344, 30, 32, 37)
+
+[node name="Eye2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10/Голова2"]
+visible = false
+use_parent_material = true
+position = Vector2(15.6142, -12.9038)
+scale = Vector2(1.019, 1.019)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(344, 30, 32, 37)
+
+[node name="Посох2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/10"]
 use_parent_material = true
 position = Vector2(-128.571, -357.143)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("52_v1vmy")
-offset = Vector2(45.4571, 117.586)
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-38.18, 48.29)
+region_enabled = true
+region_rect = Rect2(289, 269, 28, 92)
 
 [node name="12" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1409,35 +1529,53 @@ material = SubResource("ShaderMaterial_4x0c7")
 position = Vector2(1164, 41)
 scale = Vector2(0.075, 0.075)
 
-[node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12"]
+[node name="Тело2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("53_1fkxo")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(1.015, 21.24)
+region_enabled = true
+region_rect = Rect2(2, 274, 104, 80)
 
-[node name="Рукава" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12"]
+[node name="Рукава2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("54_i6j2w")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, 26.615)
+region_enabled = true
+region_rect = Rect2(453, 32, 79, 33)
 
-[node name="Бак" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12/Рукава"]
+[node name="Бак" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12/Рукава2"]
 use_parent_material = true
-texture = ExtResource("55_hqhc6")
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-0.15, 39.325)
+region_enabled = true
+region_rect = Rect2(36, 117, 64, 50)
 
-[node name="Пальцы" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12/Рукава"]
+[node name="Пальцы" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12/Рукава2"]
 use_parent_material = true
-texture = ExtResource("56_uk4y8")
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.42, 40.9)
+region_enabled = true
+region_rect = Rect2(141, 3, 70, 20)
 
-[node name="Голова" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12"]
+[node name="Голова2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("57_xxjxy")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, -25.26)
+region_enabled = true
+region_rect = Rect2(241, 183, 101, 78)
 
-[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12/Голова"]
+[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/12/Голова2"]
 use_parent_material = true
-texture = ExtResource("58_3b5a4")
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, -2.23)
+region_enabled = true
+region_rect = Rect2(0, 2, 50, 14)
 
 [node name="13" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1445,27 +1583,39 @@ z_index = 2
 material = SubResource("ShaderMaterial_4ty78")
 position = Vector2(1162, 32)
 
-[node name="Body" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13"]
+[node name="Body2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("59_6v0bl")
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0.74, 16.17)
+region_enabled = true
+region_rect = Rect2(215, 370, 130, 98)
 
-[node name="Head" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13"]
+[node name="Head2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("60_6nvga")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, -40.385)
+region_enabled = true
+region_rect = Rect2(435, 271, 132, 93)
 
-[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13/Head"]
+[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13/Head2"]
 use_parent_material = true
-texture = ExtResource("61_wmgit")
+texture = ExtResource("46_pb0oo")
+offset = Vector2(0, -10.395)
+region_enabled = true
+region_rect = Rect2(74, 3, 63, 21)
 
-[node name="Hand" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13"]
+[node name="Hand2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/13"]
 use_parent_material = true
 position = Vector2(0, 5)
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("62_l76s3")
+scale = Vector2(0.658, 0.658)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-69.68, 0)
+region_enabled = true
+region_rect = Rect2(131, 368, 71, 96)
 
 [node name="14" type="Node2D" parent="UI/Notification_about_enemy/For_PC"]
 visible = false
@@ -1474,17 +1624,40 @@ material = SubResource("ShaderMaterial_6ea1d")
 position = Vector2(1164, 44)
 scale = Vector2(0.07, 0.07)
 
-[node name="Тело" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/14"]
+[node name="Тело2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/14"]
 use_parent_material = true
 position = Vector2(-29.4118, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("63_8xtax")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+region_enabled = true
+region_rect = Rect2(385, 482, 128, 125)
 
-[node name="Глаза" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/14"]
+[node name="Effect" type="CPUParticles2D" parent="UI/Notification_about_enemy/For_PC/14/Тело2"]
+position = Vector2(-2.09998, -32.8436)
+scale = Vector2(1.42, 1.54)
+amount = 30
+local_coords = true
+draw_order = 1
+texture = ExtResource("35_0lum3")
+emission_shape = 3
+emission_rect_extents = Vector2(7, 4)
+gravity = Vector2(0, -100)
+angular_velocity_max = 180.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.5
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_6bv6y")
+color_ramp = SubResource("Gradient_xnvu8")
+
+[node name="Глаза2" type="Sprite2D" parent="UI/Notification_about_enemy/For_PC/14"]
 use_parent_material = true
 position = Vector2(-24.5098, -89.4797)
-scale = Vector2(2.45098, 2.41837)
-texture = ExtResource("64_ehpe0")
+scale = Vector2(9.804, 9.672)
+texture = ExtResource("46_pb0oo")
+offset = Vector2(-2.47, 25.545)
+region_enabled = true
+region_rect = Rect2(331, 1, 74, 25)
 
 [node name="Damage" type="ColorRect" parent="UI"]
 z_index = 9

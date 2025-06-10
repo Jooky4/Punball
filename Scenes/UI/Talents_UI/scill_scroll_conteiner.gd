@@ -28,14 +28,15 @@ var skill_for_crystal_cost : int = 0
 var skill_for_coins_cost : int = 0
 
 var for_crystal_talent_texture = {
-	"Дополнительный навык при старте боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Дополнительный навык при старте боя.png"),
-	"Дополнительные монеты в начале боя": preload("res://Texture/UI/Talents_UI/Talent_texture/Дополнительные монеты в начале боя.png"),
-	"Атака +5%": preload("res://Texture/UI/Talents_UI/Talent_texture/Атака +Х_.png"),
-	"1% нанести в 10 раз больше урона": preload("res://Texture/UI/Talents_UI/Talent_texture/1_ нанести в 10 раз больше урона.png"),
-	"Урон по боссу на 10% больше": preload("res://Texture/UI/Talents_UI/Talent_texture/Урон по боссу на Х_ больше.png"),
-	"10% шанс при взятии “+1 шар” получить 2 шара": preload("res://Texture/UI/Talents_UI/Talent_texture/10_ шанс при взятии “+1 шар” получить 2 шара.png"),
-	"0,1% нанести в 100 раз больше урона": preload("res://Texture/UI/Talents_UI/Talent_texture/1_ нанести в 10 раз больше урона.png"),
-	"ОЗ +5%": preload("res://Texture/UI/Talents_UI/Talent_texture/ОЗ +Х_.png")}
+	"Дополнительный навык при старте боя": preload("res://Texture/UI/Texture_skills/start_with_skill.tres"),
+	"Дополнительные монеты в начале боя": preload("res://Texture/UI/Texture_skills/start_with_coins.tres"),
+	"Атака +5%": preload("res://Texture/UI/Texture_skills/attack_percent.tres"),
+	"1% нанести в 10 раз больше урона": preload("res://Texture/UI/Texture_skills/attack.tres"),
+	"Урон по боссу на 10% больше": preload("res://Texture/UI/Texture_skills/boss_damage.tres"),
+	"10% шанс при взятии “+1 шар” получить 2 шара": preload("res://Texture/UI/Texture_skills/extra_balls.tres"),
+	"0,1% нанести в 100 раз больше урона": preload("res://Texture/UI/Texture_skills/attack.tres"),
+	"ОЗ +5%": preload("res://Texture/UI/Texture_skills/hp_percent.tres"),
+}
 
 var discription_talants = {
 	"Дополнительный навык при старте боя": tr("TALENTS_CRYSTAL_0_DESC"),
