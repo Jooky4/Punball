@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://360y0xs402w7"]
 
-[ext_resource type="Shader" uid="uid://dlpuqiaq3a60x" path="res://Resources/Shaders/rotate_texture.gdshader" id="1_8vny0"]
-[ext_resource type="Script" uid="uid://c0nxkywdu2dn4" path="res://Scenes/UI/Level_up_UI/level_up_ui.gd" id="1_fculq"]
+[ext_resource type="Shader" path="res://Resources/Shaders/rotate_texture.gdshader" id="1_8vny0"]
+[ext_resource type="Script" path="res://Scenes/UI/Level_up_UI/level_up_ui.gd" id="1_fculq"]
 [ext_resource type="Texture2D" uid="uid://rb1vl8noii34" path="res://Texture/UI/Win_Lose_UI/lighting.png" id="2_5arqq"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="2_kxf6h"]
 [ext_resource type="Texture2D" uid="uid://bw113kxl2ky06" path="res://Texture/UI/Win_Lose_UI/background.svg" id="2_uuhte"]
@@ -119,7 +119,6 @@ vertical_alignment = 1
 z_index = -1
 material = SubResource("ShaderMaterial_i80ih")
 position = Vector2(44.4445, 44.0741)
-scale = Vector2(0.333333, 0.333333)
 texture = ExtResource("2_5arqq")
 
 [node name="Player_level_label" type="Label" parent="."]

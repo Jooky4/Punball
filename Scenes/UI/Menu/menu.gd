@@ -20,16 +20,16 @@ extends Control
 @onready var play_button = $Main_menu/PlayButton
 
 var location = {
-	0 : [preload("res://Texture/UI/Main_menu/Location/1.png"), tr("LVL_NAME_DARKWOOD")],
-	1 : [preload("res://Texture/UI/Main_menu/Location/2.png"), tr("LVL_NAME_DESERT")],
-	2 : [preload("res://Texture/UI/Main_menu/Location/3.png"), tr("LVL_NAME_CASTLE")],
-	3 : [preload("res://Texture/UI/Main_menu/Location/4.png"), tr("LVL_NAME_FOGGRAVE")],
-	4 : [preload("res://Texture/UI/Main_menu/Location/5.png"), tr("LVL_NAME_ETHERION")],
-	5 : [preload("res://Texture/UI/Main_menu/Location/6.png"), tr("LVL_NAME_RUSTHOLD")],
-	6 : [preload("res://Texture/UI/Main_menu/Location/7.png"), tr("LVL_NAME_LUNARIS")],
-	7 : [preload("res://Texture/UI/Main_menu/Location/8.png"), tr("LVL_NAME_WHISPERHOLLOW")],
-	8 : [preload("res://Texture/UI/Main_menu/Location/9.png"), tr("LVL_NAME_FLAMEGRAD")],
-	-1 : [preload("res://Texture/UI/Main_menu/Location/10.png"), tr("LVL_NAME_VOIDNAR")]
+	0 : [load("res://Texture/UI/Main_menu/Location/location_01.tres"), tr("LVL_NAME_DARKWOOD")],
+	1 : [load("res://Texture/UI/Main_menu/Location/location_02.tres"), tr("LVL_NAME_DESERT")],
+	2 : [load("res://Texture/UI/Main_menu/Location/location_03.tres"), tr("LVL_NAME_CASTLE")],
+	3 : [load("res://Texture/UI/Main_menu/Location/location_04.tres"), tr("LVL_NAME_FOGGRAVE")],
+	4 : [load("res://Texture/UI/Main_menu/Location/location_05.tres"), tr("LVL_NAME_ETHERION")],
+	5 : [load("res://Texture/UI/Main_menu/Location/location_06.tres"), tr("LVL_NAME_RUSTHOLD")],
+	6 : [load("res://Texture/UI/Main_menu/Location/location_07.tres"), tr("LVL_NAME_LUNARIS")],
+	7 : [load("res://Texture/UI/Main_menu/Location/location_08.tres"), tr("LVL_NAME_WHISPERHOLLOW")],
+	8 : [load("res://Texture/UI/Main_menu/Location/location_09.tres"), tr("LVL_NAME_FLAMEGRAD")],
+	-1 : [load("res://Texture/UI/Main_menu/Location/location_10.tres"), tr("LVL_NAME_VOIDNAR")]
 }
 
 var location_names = {

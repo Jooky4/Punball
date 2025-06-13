@@ -134,10 +134,10 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="TextureRect8" type="Sprite2D" parent="Win_Lose_Label"]
-visible = false
 z_index = -1
 material = SubResource("ShaderMaterial_jk7fe")
-position = Vector2(307, 78)
+position = Vector2(333, 78)
+scale = Vector2(3, 3)
 texture = ExtResource("8_mjar5")
 
 [node name="Wave_container" type="TextureRect" parent="."]
