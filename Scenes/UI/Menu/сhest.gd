@@ -11,6 +11,7 @@ var can_open : bool = false
 
 signal chest_opened()
 
+
 func update_label(new_text) -> void:
 	label_chest.text = new_text
 
@@ -24,10 +25,6 @@ func open_chest() -> void:
 
 func _on_open_chest_pressed() -> void:
 	texture_open.visible = false #добавил Дима
-
-	# Metrika
-	YandexMetrika.ym(101336789,'reachGoal','opened_chest_for_location')
-
 	emit_signal("chest_opened")
 
 func can_open_or_not(arr) -> void:

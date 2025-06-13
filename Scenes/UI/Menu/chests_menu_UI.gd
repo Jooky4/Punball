@@ -68,11 +68,10 @@ func start_chests() -> void:
 	chest_3.update_label("2-10")
 	chest_3.can_open_or_not("2-10".split("-"))
 
+
 func try_open_chest() -> void:
 	if chest_1.can_open:
-
 		AudioManager.click()
-
 
 		var count_coins = 500 * ((chest_1.location_for_open * 0.15) + 0.85)
 		var count_crystal = 0
@@ -81,10 +80,13 @@ func try_open_chest() -> void:
 			YandexMetrika.ym(101336789,'reachGoal','opened_first_chest_for_location')
 			count_crystal = 5
 		elif 5 < PlayerIndicatorsManager.COUNT_OPEN_CHEST + 1 and PlayerIndicatorsManager.COUNT_OPEN_CHEST + 1 <= 15:
+			YandexMetrika.ym(101336789,'reachGoal','opened_chest_for_location')
 			count_crystal = 10
 		elif 15 < PlayerIndicatorsManager.COUNT_OPEN_CHEST + 1 and PlayerIndicatorsManager.COUNT_OPEN_CHEST + 1 <= 35:
+			YandexMetrika.ym(101336789,'reachGoal','opened_chest_for_location')
 			count_crystal = 15
 		else:
+			YandexMetrika.ym(101336789,'reachGoal','opened_chest_for_location')
 			count_crystal = 20
 
 		chest_reward_UI.update_reward_and_show_window(count_coins, count_crystal)
