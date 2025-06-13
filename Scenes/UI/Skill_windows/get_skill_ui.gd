@@ -395,22 +395,22 @@ func delete_skill_for_this_location(arr_skill):
 
 func legendary_sound() -> void:
 	await get_tree().create_timer(2.4).timeout
-	$Legendari_skill.play()
+	AudioManager.play_sound("legendary_skill")
 
 
 func epic_sound() -> void:
 	await get_tree().create_timer(1.5).timeout
-	$Epic_skill.play()
+	AudioManager.play_sound("epic_skill")
 
 
 func rare_sound() -> void:
 	await get_tree().create_timer(0.9).timeout
-	$Rare_skill.play()
+	AudioManager.play_sound("rare_skill")
 
 
 func regular_sound() -> void:
 	await get_tree().create_timer(0).timeout
-	$Regular_skill.play()
+	AudioManager.play_sound("regular_skill")
 
 
 func _on_skill_1_pressed() -> void:

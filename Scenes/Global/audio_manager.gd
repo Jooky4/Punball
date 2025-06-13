@@ -86,7 +86,7 @@ var sfx_config = {
 		"sound": null
 	},
 	"cumulative_ball_hit_sound": {
-		"path": "res://Resources/Sounds/кумулятивный2.ogg",
+		"path": "res://Resources/Sounds/кумулятивный2.mp3",
 		"volume": -7,
 		"pitch": 1.2,
 		"sound": null
@@ -189,6 +189,36 @@ var sfx_config = {
 	},
 	"freezing_combo": {
 		"path": "res://Resources/Sounds/заморозка_шар.mp3",
+		"volume": 0,
+		"pitch": 1,
+		"sound": null
+	},
+	"regular_skill": {
+		"path": "res://Resources/Sounds/скилл_обычный.mp3",
+		"volume": -10,
+		"pitch": 1,
+		"sound": null
+	},
+	"rare_skill": {
+		"path": "res://Resources/Sounds/скилл_редкий.mp3",
+		"volume": -10,
+		"pitch": 1,
+		"sound": null
+	},
+	"epic_skill": {
+		"path": "res://Resources/Sounds/скилл_эпик.mp3",
+		"volume": -10,
+		"pitch": 1,
+		"sound": null
+	},
+	"legendary_skill": {
+		"path": "res://Resources/Sounds/скилл_легенд.ogg",
+		"volume": -10,
+		"pitch": 1,
+		"sound": null
+	},
+	"skill_roll": {
+		"path": "res://Resources/Sounds/прокрутка.mp3",
 		"volume": 0,
 		"pitch": 1,
 		"sound": null
