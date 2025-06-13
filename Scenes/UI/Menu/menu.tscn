@@ -19,45 +19,45 @@
 [ext_resource type="Texture2D" uid="uid://xbg4ejaqdg8m" path="res://Texture/UI/Main_menu/nav_Shop.png" id="18_m36hl"]
 [ext_resource type="Texture2D" uid="uid://behfuneulh46o" path="res://Texture/UI/Main_menu/Location/1.png" id="19_pv3nj"]
 [ext_resource type="Texture2D" uid="uid://w5vwu56an8bs" path="res://Texture/UI/Main_menu/nav_World.png" id="19_q5oq5"]
+[ext_resource type="Texture2D" uid="uid://bqyekr6lw0kn" path="res://Texture/UI/Shop_UI/coins_title_bg.tres" id="19_qacl3"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/characters_UI.gd" id="20_1y5uy"]
 [ext_resource type="Texture2D" uid="uid://d2essylyga5jb" path="res://Texture/UI/Main_menu/nav_Book.png" id="20_bdbvx"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/shop.gd" id="20_gcgux"]
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
 [ext_resource type="PackedScene" uid="uid://c511u2wa4vd43" path="res://Scenes/Shop/shop_item.tscn" id="21_foqwv"]
-[ext_resource type="Texture2D" uid="uid://cr8nvoy2b67ys" path="res://Texture/UI/Shop_UI/монеты подрожка.png" id="21_skdl8"]
+[ext_resource type="Texture2D" uid="uid://bixx554rykf65" path="res://Texture/UI/Shop_UI/coins_1.tres" id="21_y5l60"]
+[ext_resource type="Texture2D" uid="uid://bp1x3nbyh18vh" path="res://Texture/UI/Shop_UI/coins_2.tres" id="22_hv1os"]
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/Сhest/points_Chest.png" id="22_rdsba"]
+[ext_resource type="Texture2D" uid="uid://bg3b4f8msft11" path="res://Texture/UI/Shop_UI/coins_3.tres" id="23_5rgkw"]
 [ext_resource type="Script" path="res://Scenes/UI/Characters/character_1_window.gd" id="23_6x0rm"]
 [ext_resource type="Texture2D" uid="uid://cfy3yh6mgo2qu" path="res://Texture/UI/Character_UI/Character_window/bar_Level_Character_2.png" id="23_g0yqi"]
-[ext_resource type="Texture2D" uid="uid://crnbctqhjowll" path="res://Texture/UI/Shop_UI/кристаллы подрожка.png" id="23_wpccf"]
-[ext_resource type="Texture2D" uid="uid://cj2voext6rg6i" path="res://Texture/UI/Shop_UI/монета 1.png" id="24_nehew"]
+[ext_resource type="Texture2D" uid="uid://br2fd30o4n3ch" path="res://Texture/UI/Shop_UI/coins_4.tres" id="24_flemm"]
 [ext_resource type="Texture2D" uid="uid://bdsgv1droqrif" path="res://Texture/UI/Character_UI/Character_window/bar_Level_Character.png" id="24_ykvw2"]
-[ext_resource type="Texture2D" uid="uid://gq0f75y2oogd" path="res://Texture/UI/Shop_UI/монета 2.png" id="25_21de7"]
+[ext_resource type="Texture2D" uid="uid://bglnh1dl14y1u" path="res://Texture/UI/Shop_UI/coins_5.tres" id="25_iscrp"]
 [ext_resource type="Texture2D" uid="uid://2iny41pxjg20" path="res://Texture/UI/Character_UI/Character_window/platform_Icons.png" id="25_rjbq8"]
 [ext_resource type="Texture2D" uid="uid://b6r20b2owmufa" path="res://Texture/UI/Character_UI/Character_window/icon_Attack.png" id="26_ei0qc"]
-[ext_resource type="Texture2D" uid="uid://cn1jsdr3evt7x" path="res://Texture/UI/Shop_UI/монета 3.png" id="26_wvchi"]
+[ext_resource type="Texture2D" uid="uid://diaabw2r0eq0h" path="res://Texture/UI/Shop_UI/coins_6.tres" id="26_qjvhm"]
 [ext_resource type="Texture2D" uid="uid://057u6gumlcpf" path="res://Texture/UI/Talents_UI/upgrade_Arrow.png" id="27_c31n5"]
-[ext_resource type="Texture2D" uid="uid://b3c8d7ow373q6" path="res://Texture/UI/Shop_UI/монета 4.png" id="27_jjtc7"]
 [ext_resource type="Texture2D" uid="uid://j11yp4115jic" path="res://Texture/UI/Character_UI/Character_window/upgrade_Arrow.png" id="27_p4vig"]
+[ext_resource type="Texture2D" uid="uid://cu0efaiohn2kn" path="res://Texture/UI/Shop_UI/crystal_title_bg.tres" id="27_qq8md"]
 [ext_resource type="PackedScene" uid="uid://bfq4lhxqp2x0" path="res://Scenes/UI/Menu/chest_reward.tscn" id="27_temh2"]
 [ext_resource type="Texture2D" uid="uid://6m4xmt8olxn4" path="res://Texture/UI/Character_UI/Character_window/icon_HP.png" id="28_5xtva"]
 [ext_resource type="Texture2D" uid="uid://cbjdufopv0pmk" path="res://Texture/UI/Character_UI/platform_Character.png" id="28_30gul"]
-[ext_resource type="Texture2D" uid="uid://lin3afhbskvv" path="res://Texture/UI/Shop_UI/монета 5.png" id="28_lceg1"]
-[ext_resource type="Texture2D" uid="uid://1lmkgscpmf2q" path="res://Texture/UI/Shop_UI/монета 6.png" id="29_d1w7v"]
+[ext_resource type="Texture2D" uid="uid://b7ob60pcinwwv" path="res://Texture/UI/Shop_UI/crystal_window.tres" id="28_xnni5"]
+[ext_resource type="Texture2D" uid="uid://ba07loqf2llio" path="res://Texture/UI/Shop_UI/crystal_1.tres" id="29_4pgfy"]
 [ext_resource type="Texture2D" uid="uid://qqfohh4ohbyu" path="res://Texture/UI/Character_UI/Character_window/background.png" id="29_ke4g2"]
 [ext_resource type="Texture2D" uid="uid://jcy8balgn8ur" path="res://Texture/UI/Character_UI/level_Character.png" id="29_lxmlr"]
+[ext_resource type="Texture2D" uid="uid://d4e7u5icu12j8" path="res://Texture/UI/Shop_UI/crystal_2.tres" id="30_8hx8w"]
 [ext_resource type="Texture2D" uid="uid://u12uaqx73c77" path="res://Texture/UI/Character_UI/line_Border.png" id="30_g1evk"]
 [ext_resource type="Texture2D" uid="uid://ckgv7detkwio1" path="res://Texture/UI/Character_UI/Character_window/platform_Materials.png" id="30_qcdih"]
-[ext_resource type="Texture2D" uid="uid://d01f1hwel8jg4" path="res://Texture/UI/Shop_UI/окно для кристаллов.png" id="31_1qtya"]
 [ext_resource type="Texture2D" uid="uid://8ecjqcdbb4a" path="res://Texture/UI/Character_UI/platform_Character_Gray.png" id="31_5u4xa"]
-[ext_resource type="Texture2D" uid="uid://b5uosa6inw6tq" path="res://Texture/UI/Shop_UI/кристалл 1.png" id="32_0mmh1"]
+[ext_resource type="Texture2D" uid="uid://bj16sdfi1rupn" path="res://Texture/UI/Shop_UI/crystal_3.tres" id="31_hrjkp"]
+[ext_resource type="Texture2D" uid="uid://ciit6qv20ddts" path="res://Texture/UI/Shop_UI/crystal_4.tres" id="32_7i1v8"]
 [ext_resource type="Texture2D" uid="uid://dsh2mk3uxj0ap" path="res://Texture/UI/Character_UI/button_Select_Shop.png" id="32_sva66"]
-[ext_resource type="Texture2D" uid="uid://by1ysutk6o7tf" path="res://Texture/UI/Shop_UI/кристалл 2.png" id="33_lr1uh"]
-[ext_resource type="Texture2D" uid="uid://do65vkjck28pi" path="res://Texture/UI/Shop_UI/кристалл 3.png" id="34_3ixuv"]
-[ext_resource type="Texture2D" uid="uid://bs4qmb742an6q" path="res://Texture/UI/Shop_UI/кристалл 4.png" id="35_aktnb"]
+[ext_resource type="Texture2D" uid="uid://brubovbymkh2i" path="res://Texture/UI/Shop_UI/crystal_5.tres" id="33_yp00j"]
+[ext_resource type="Texture2D" uid="uid://d38xwumgi8dr4" path="res://Texture/UI/Shop_UI/crystal_6.tres" id="34_aglgy"]
 [ext_resource type="Texture2D" uid="uid://dp6g21b77mmvu" path="res://Texture/UI/Character_UI/Character_window/button_Select.png" id="35_yveks"]
 [ext_resource type="Texture2D" uid="uid://b6e103x27c8je" path="res://Texture/UI/Character_UI/Character_window/skill_4.png" id="36_cqs0r"]
-[ext_resource type="Texture2D" uid="uid://dbas0a7qifn8x" path="res://Texture/UI/Shop_UI/кристалл 5..png" id="36_hq60e"]
-[ext_resource type="Texture2D" uid="uid://dyomqh0hueksa" path="res://Texture/UI/Shop_UI/кристалл 6.png" id="37_142ex"]
 [ext_resource type="Texture2D" uid="uid://ckjtkyvasjni8" path="res://Texture/UI/Character_UI/Character_window/skill_2.png" id="37_ovsro"]
 [ext_resource type="Texture2D" uid="uid://c8f717ql3qobr" path="res://Texture/UI/Character_UI/Character_window/skill_3.png" id="38_lotfc"]
 [ext_resource type="Texture2D" uid="uid://cdnp7wqrqoaui" path="res://Texture/UI/Main_menu/nav_Character.png" id="39_ys04g"]
@@ -609,7 +609,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("21_skdl8")
+texture = ExtResource("19_qacl3")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect"]
@@ -653,46 +653,46 @@ layout_mode = 2
 price = 5
 count = 500
 currency = "Руб"
-item_texture = ExtResource("24_nehew")
+item_texture = ExtResource("21_y5l60")
 
 [node name="Coins_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 19
 count = 2500
 currency = "Руб"
-item_texture = ExtResource("25_21de7")
+item_texture = ExtResource("22_hv1os")
 
 [node name="Coins_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 45
 count = 7000
 currency = "Руб"
-item_texture = ExtResource("26_wvchi")
+item_texture = ExtResource("23_5rgkw")
 
 [node name="Coins_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 99
 count = 16000
 currency = "Руб"
-item_texture = ExtResource("27_jjtc7")
+item_texture = ExtResource("24_flemm")
 
 [node name="Coins_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 150
 count = 35000
 currency = "Руб"
-item_texture = ExtResource("28_lceg1")
+item_texture = ExtResource("25_iscrp")
 
 [node name="Coins_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 300
 count = 80000
 currency = "Руб"
-item_texture = ExtResource("29_d1w7v")
+item_texture = ExtResource("26_qjvhm")
 
 [node name="TextureRect3" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("23_wpccf")
+texture = ExtResource("27_qq8md")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Shop/ScrollContainer/VBoxContainer/TextureRect3"]
@@ -734,57 +734,57 @@ columns = 3
 
 [node name="Crystal_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-texture_normal = ExtResource("31_1qtya")
+texture_normal = ExtResource("28_xnni5")
 type = 1
 price = 19
 count = 100
 currency = "Руб"
-item_texture = ExtResource("32_0mmh1")
+item_texture = ExtResource("29_4pgfy")
 
 [node name="Crystal_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-texture_normal = ExtResource("31_1qtya")
+texture_normal = ExtResource("28_xnni5")
 type = 1
 price = 69
 count = 500
 currency = "Руб"
-item_texture = ExtResource("33_lr1uh")
+item_texture = ExtResource("30_8hx8w")
 
 [node name="Crystal_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-texture_normal = ExtResource("31_1qtya")
+texture_normal = ExtResource("28_xnni5")
 type = 1
 price = 119
 count = 1200
 currency = "Руб"
-item_texture = ExtResource("34_3ixuv")
+item_texture = ExtResource("31_hrjkp")
 
 [node name="Crystal_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-texture_normal = ExtResource("31_1qtya")
+texture_normal = ExtResource("28_xnni5")
 type = 1
 price = 179
 count = 2500
 currency = "Руб"
-item_texture = ExtResource("35_aktnb")
+item_texture = ExtResource("32_7i1v8")
 
 [node name="Crystal_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-texture_normal = ExtResource("31_1qtya")
+texture_normal = ExtResource("28_xnni5")
 type = 1
 price = 249
 count = 6000
 currency = "Руб"
-item_texture = ExtResource("36_hq60e")
+item_texture = ExtResource("33_yp00j")
 
 [node name="Crystal_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
-texture_normal = ExtResource("31_1qtya")
+texture_normal = ExtResource("28_xnni5")
 type = 1
 price = 300
 count = 14000
 currency = "Руб"
-item_texture = ExtResource("37_142ex")
+item_texture = ExtResource("34_aglgy")
 
 [node name="Characters" type="Control" parent="."]
 visible = false

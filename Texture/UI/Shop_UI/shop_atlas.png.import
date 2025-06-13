@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d01f1hwel8jg4"
-path="res://.godot/imported/окно для кристаллов.png-f9a3347443cf9791f4af8a49bdc4ba71.ctex"
+uid="uid://caxcken7yp8gr"
+path="res://.godot/imported/shop_atlas.png-efe4c70eeecd0025e967e9386a3aae3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Texture/UI/Shop_UI/окно для кристаллов.png"
-dest_files=["res://.godot/imported/окно для кристаллов.png-f9a3347443cf9791f4af8a49bdc4ba71.ctex"]
+source_file="res://Texture/UI/Shop_UI/shop_atlas.png"
+dest_files=["res://.godot/imported/shop_atlas.png-efe4c70eeecd0025e967e9386a3aae3a.ctex"]
 
 [params]
 

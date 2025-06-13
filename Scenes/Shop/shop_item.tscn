@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c511u2wa4vd43"]
 
-[ext_resource type="Texture2D" uid="uid://c27j04flqk5yi" path="res://Texture/UI/Shop_UI/окно для монет.png" id="1_604da"]
+[ext_resource type="Texture2D" uid="uid://pbiuyc64cjo4" path="res://Texture/UI/Shop_UI/coins_window.tres" id="1_m851j"]
 [ext_resource type="Script" path="res://Scenes/Shop/shop_item.gd" id="2_n60dy"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="3_n60dy"]
-[ext_resource type="Texture2D" uid="uid://d01f1hwel8jg4" path="res://Texture/UI/Shop_UI/окно для кристаллов.png" id="3_qhhkh"]
+[ext_resource type="Texture2D" uid="uid://b7ob60pcinwwv" path="res://Texture/UI/Shop_UI/crystal_window.tres" id="3_ymmte"]
 [ext_resource type="Material" uid="uid://dwslfhmpwqnea" path="res://Resources/Materials/red_outline_material.tres" id="4_c4rpq"]
 [ext_resource type="Texture2D" uid="uid://w30a0545wa65" path="res://Texture/UI/Main_menu/v_Coin.png" id="5_60v62"]
 [ext_resource type="Texture2D" uid="uid://b7wwi0toqatad" path="res://Texture/UI/Main_menu/v_Crystall.png" id="5_n60dy"]
@@ -11,17 +11,21 @@
 [sub_resource type="LabelSettings" id="LabelSettings_3n0kt"]
 font = ExtResource("3_n60dy")
 font_size = 30
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e5gv6"]
 font = ExtResource("3_n60dy")
 font_size = 30
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Coins_1" type="TextureButton"]
-texture_normal = ExtResource("1_604da")
+texture_normal = ExtResource("1_m851j")
 script = ExtResource("2_n60dy")
 currency = ""
-coins_bg_texture = ExtResource("1_604da")
-crystal_bg_texture = ExtResource("3_qhhkh")
+coins_bg_texture = ExtResource("1_m851j")
+crystal_bg_texture = ExtResource("3_ymmte")
 coin_texture = ExtResource("5_60v62")
 crystal_texture = ExtResource("5_n60dy")
 
