@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://cvj7tl2h5804k"]
+[gd_scene load_steps=104 format=3 uid="uid://cvj7tl2h5804k"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu/menu.gd" id="1_duxj8"]
 [ext_resource type="Texture2D" uid="uid://82bdpa1kdble" path="res://Texture/UI/Main_menu/background.svg" id="2_24mdw"]
@@ -25,7 +25,6 @@
 [ext_resource type="Script" path="res://Scenes/UI/Menu/talents_ui.gd" id="21_fmiso"]
 [ext_resource type="PackedScene" uid="uid://c511u2wa4vd43" path="res://Scenes/Shop/shop_item.tscn" id="21_foqwv"]
 [ext_resource type="Texture2D" uid="uid://cr8nvoy2b67ys" path="res://Texture/UI/Shop_UI/монеты подрожка.png" id="21_skdl8"]
-[ext_resource type="Texture2D" uid="uid://kk8ljg172upi" path="res://Texture/UI/Shop_UI/синяя подложка для окон монет-кристаллов.png" id="22_hq88r"]
 [ext_resource type="Texture2D" uid="uid://c7dpikmudfv02" path="res://Texture/UI/Main_menu/Сhest/points_Chest.png" id="22_rdsba"]
 [ext_resource type="Script" path="res://Scenes/UI/Characters/character_1_window.gd" id="23_6x0rm"]
 [ext_resource type="Texture2D" uid="uid://cfy3yh6mgo2qu" path="res://Texture/UI/Character_UI/Character_window/bar_Level_Character_2.png" id="23_g0yqi"]
@@ -107,6 +106,30 @@ font_size = 70
 [sub_resource type="LabelSettings" id="LabelSettings_a3p3v"]
 font = ExtResource("3_cjc1q")
 font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itukp"]
+bg_color = Color(0.215686, 0, 0.666667, 0.588235)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.215686, 0, 0.443137, 0.588235)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iavs0"]
+bg_color = Color(0.188235, 0, 0.596078, 0.588235)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.215686, 0, 0.443137, 0.588235)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_hfpbj"]
 font = ExtResource("3_cjc1q")
@@ -372,6 +395,7 @@ offset_bottom = 48.0
 texture = ExtResource("5_h3ti1")
 
 [node name="Main_menu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -549,7 +573,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Shop" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -560,15 +583,16 @@ mouse_filter = 1
 script = ExtResource("20_gcgux")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
+custom_minimum_size = Vector2(720, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -469.0
+offset_left = -360.0
 offset_top = -542.0
-offset_right = 468.0
+offset_right = 360.0
 offset_bottom = 488.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -576,7 +600,7 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Shop/ScrollContainer"]
-custom_minimum_size = Vector2(937, 0)
+custom_minimum_size = Vector2(720, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -608,62 +632,58 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+[node name="TextureRect5" type="MarginContainer" parent="Shop/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 520)
 layout_mode = 2
-texture = ExtResource("22_hq88r")
-stretch_mode = 5
+theme_override_constants/margin_left = 44
+theme_override_constants/margin_right = 44
 
-[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -269.5
-offset_top = -232.0
-offset_right = 269.5
-offset_bottom = 232.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_itukp")
+
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 3
 
-[node name="Coins_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 5
 count = 500
 currency = "Руб"
 item_texture = ExtResource("24_nehew")
 
-[node name="Coins_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 19
 count = 2500
 currency = "Руб"
 item_texture = ExtResource("25_21de7")
 
-[node name="Coins_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 45
 count = 7000
 currency = "Руб"
 item_texture = ExtResource("26_wvchi")
 
-[node name="Coins_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 99
 count = 16000
 currency = "Руб"
 item_texture = ExtResource("27_jjtc7")
 
-[node name="Coins_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 150
 count = 35000
 currency = "Руб"
 item_texture = ExtResource("28_lceg1")
 
-[node name="Coins_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 300
 count = 80000
@@ -695,27 +715,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect4" type="TextureRect" parent="Shop/ScrollContainer/VBoxContainer"]
+[node name="TextureRect4" type="MarginContainer" parent="Shop/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("22_hq88r")
-stretch_mode = 5
+theme_override_constants/margin_left = 44
+theme_override_constants/margin_right = 44
+theme_override_constants/margin_bottom = 60
 
-[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -269.5
-offset_top = -232.0
-offset_right = 269.5
-offset_bottom = 232.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4"]
+custom_minimum_size = Vector2(0, 520)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iavs0")
+
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 3
 
-[node name="Crystal_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Crystal_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 texture_normal = ExtResource("31_1qtya")
 type = 1
@@ -724,7 +741,7 @@ count = 100
 currency = "Руб"
 item_texture = ExtResource("32_0mmh1")
 
-[node name="Crystal_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Crystal_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 texture_normal = ExtResource("31_1qtya")
 type = 1
@@ -733,7 +750,7 @@ count = 500
 currency = "Руб"
 item_texture = ExtResource("33_lr1uh")
 
-[node name="Crystal_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Crystal_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 texture_normal = ExtResource("31_1qtya")
 type = 1
@@ -742,7 +759,7 @@ count = 1200
 currency = "Руб"
 item_texture = ExtResource("34_3ixuv")
 
-[node name="Crystal_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Crystal_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 texture_normal = ExtResource("31_1qtya")
 type = 1
@@ -751,7 +768,7 @@ count = 2500
 currency = "Руб"
 item_texture = ExtResource("35_aktnb")
 
-[node name="Crystal_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Crystal_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 texture_normal = ExtResource("31_1qtya")
 type = 1
@@ -760,7 +777,7 @@ count = 6000
 currency = "Руб"
 item_texture = ExtResource("36_hq60e")
 
-[node name="Crystal_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Crystal_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 texture_normal = ExtResource("31_1qtya")
 type = 1
@@ -2925,18 +2942,18 @@ layout_mode = 1
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
 [connection signal="pressed" from="Main_menu/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_1" to="Shop" method="_on_coins_1_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_2" to="Shop" method="_on_coins_2_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_3" to="Shop" method="_on_coins_3_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_4" to="Shop" method="_on_coins_4_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_5" to="Shop" method="_on_coins_5_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/GridContainer/Coins_6" to="Shop" method="_on_coins_6_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_1" to="Shop" method="_on_crystal_1_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_2" to="Shop" method="_on_crystal_2_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_3" to="Shop" method="_on_crystal_3_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_4" to="Shop" method="_on_crystal_4_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_5" to="Shop" method="_on_crystal_5_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/GridContainer/Crystal_6" to="Shop" method="_on_crystal_6_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_1" to="Shop" method="_on_coins_1_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_2" to="Shop" method="_on_coins_2_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_3" to="Shop" method="_on_coins_3_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_4" to="Shop" method="_on_coins_4_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_5" to="Shop" method="_on_coins_5_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_6" to="Shop" method="_on_coins_6_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_1" to="Shop" method="_on_crystal_1_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_2" to="Shop" method="_on_crystal_2_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_3" to="Shop" method="_on_crystal_3_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_4" to="Shop" method="_on_crystal_4_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_5" to="Shop" method="_on_crystal_5_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_6" to="Shop" method="_on_crystal_6_pressed"]
 [connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_1/Button_1_character" to="Characters" method="_on_button_1_character_pressed"]
 [connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_2/Button_2_character" to="Characters" method="_on_button_buy_2_pressed"]
 [connection signal="pressed" from="Characters/All_characters/HBoxContainer/Character_3/Button_3_character" to="Characters" method="_on_button_buy_3_pressed"]
