@@ -636,58 +636,58 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect5" type="MarginContainer" parent="Shop/ScrollContainer/VBoxContainer"]
+[node name="TextureRect2" type="MarginContainer" parent="Shop/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 520)
 layout_mode = 2
 theme_override_constants/margin_left = 44
 theme_override_constants/margin_right = 44
 
-[node name="PanelContainer" type="PanelContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5"]
+[node name="PanelContainer" type="PanelContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_itukp")
 
-[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer"]
+[node name="GridContainer" type="GridContainer" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="Coins_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_1" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 5
 count = 500
 currency = "Руб"
 item_texture = ExtResource("21_y5l60")
 
-[node name="Coins_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_2" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 19
 count = 2500
 currency = "Руб"
 item_texture = ExtResource("22_hv1os")
 
-[node name="Coins_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_3" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 45
 count = 7000
 currency = "Руб"
 item_texture = ExtResource("23_5rgkw")
 
-[node name="Coins_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_4" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 99
 count = 16000
 currency = "Руб"
 item_texture = ExtResource("24_flemm")
 
-[node name="Coins_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_5" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 150
 count = 35000
 currency = "Руб"
 item_texture = ExtResource("25_iscrp")
 
-[node name="Coins_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
+[node name="Coins_6" parent="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer" instance=ExtResource("21_foqwv")]
 layout_mode = 2
 price = 300
 count = 80000
@@ -2946,12 +2946,12 @@ layout_mode = 1
 [connection signal="pressed" from="Main_menu/Locations/Back_location" to="." method="_on_back_location_pressed"]
 [connection signal="pressed" from="Main_menu/Locations/Next_location" to="." method="_on_next_location_pressed"]
 [connection signal="pressed" from="Main_menu/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_1" to="Shop" method="_on_coins_1_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_2" to="Shop" method="_on_coins_2_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_3" to="Shop" method="_on_coins_3_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_4" to="Shop" method="_on_coins_4_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_5" to="Shop" method="_on_coins_5_pressed"]
-[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect5/PanelContainer/GridContainer/Coins_6" to="Shop" method="_on_coins_6_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer/Coins_1" to="Shop" method="_on_coins_1_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer/Coins_2" to="Shop" method="_on_coins_2_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer/Coins_3" to="Shop" method="_on_coins_3_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer/Coins_4" to="Shop" method="_on_coins_4_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer/Coins_5" to="Shop" method="_on_coins_5_pressed"]
+[connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer/Coins_6" to="Shop" method="_on_coins_6_pressed"]
 [connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_1" to="Shop" method="_on_crystal_1_pressed"]
 [connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_2" to="Shop" method="_on_crystal_2_pressed"]
 [connection signal="pressed" from="Shop/ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer/Crystal_3" to="Shop" method="_on_crystal_3_pressed"]

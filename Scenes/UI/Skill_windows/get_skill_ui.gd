@@ -1,11 +1,11 @@
 extends Control
 
 var SKILL_WINDOW = preload("res://Scenes/UI/Skill_windows/skill_window.tscn")
-var BUTTON_NOT_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка покупки неактивная.png")
-var BUTTON_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка покупки активная (кнопка рекламы).png")
+var BUTTON_NOT_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/disabled_buy_button.tres")
+var BUTTON_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/buy_button.tres")
 
-var BUTTON_UPDATE_SKILL_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка обновить.png")
-var BUTTON_UPDATE_SKILL_NOT_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/кнопка обновить неактивна.png")
+var BUTTON_UPDATE_SKILL_CAN_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/enabled_reroll_button.tres")
+var BUTTON_UPDATE_SKILL_NOT_PRESS_TEXTURE = preload("res://Texture/UI/Skills_UI/disabled_reroll_button.tres")
 
 @onready var windows_skill = $Windows_skill
 @onready var animation = $AnimationPlayer

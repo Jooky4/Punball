@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Scenes/UI/Skill_windows/get_skill_ui.gd" id="1_8r74x"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="1_42rjm"]
 [ext_resource type="Texture2D" uid="uid://co3u74kd0cfid" path="res://Texture/UI/Fight/background.png" id="2_guy50"]
-[ext_resource type="Texture2D" uid="uid://7cjj53ffct7k" path="res://Texture/UI/Skills_UI/кнопка покупки активная (кнопка рекламы).png" id="5_b6die"]
+[ext_resource type="Texture2D" uid="uid://djuhw7ym8klaq" path="res://Texture/UI/Skills_UI/buy_button.tres" id="3_3nd1q"]
 [ext_resource type="Texture2D" uid="uid://cq5bj185114sr" path="res://Texture/UI/Fight/icon_Exp.png" id="5_o4fkv"]
 [ext_resource type="Texture2D" uid="uid://8tdva52b5xn3" path="res://Texture/UI/Revival_UI/icon_ADS.png" id="6_57dh5"]
-[ext_resource type="Texture2D" uid="uid://pyh11gs077ay" path="res://Texture/UI/Skills_UI/кнопка обновить.png" id="7_mbj7w"]
-[ext_resource type="Texture2D" uid="uid://cxk3lp3iqgprs" path="res://Texture/UI/Skills_UI/restart_Arrow.png" id="9_wywd0"]
+[ext_resource type="Texture2D" uid="uid://dpvkkmovxm0k5" path="res://Texture/UI/Skills_UI/enabled_reroll_button.tres" id="7_22yco"]
+[ext_resource type="Texture2D" uid="uid://yg4wnprfvwdn" path="res://Texture/UI/Skills_UI/reroll_icon.tres" id="8_tmsu2"]
 [ext_resource type="AudioStream" uid="uid://biy8w38m71sov" path="res://Resources/Sounds/прокрутка.mp3" id="10_hiegy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_abvhf"]
@@ -129,7 +129,7 @@ alignment = 1
 [node name="Skill_1" type="TextureButton" parent="Bye_button"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("5_b6die")
+texture_normal = ExtResource("3_3nd1q")
 
 [node name="FREE" type="Label" parent="Bye_button/Skill_1"]
 layout_mode = 0
@@ -171,7 +171,7 @@ offset_bottom = -60.0
 [node name="Skill_2" type="TextureButton" parent="Bye_button"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("5_b6die")
+texture_normal = ExtResource("3_3nd1q")
 
 [node name="FREE" type="Label" parent="Bye_button/Skill_2"]
 layout_mode = 0
@@ -213,7 +213,7 @@ offset_bottom = -41.0
 [node name="Skill_3" type="TextureButton" parent="Bye_button"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("5_b6die")
+texture_normal = ExtResource("3_3nd1q")
 
 [node name="FREE" type="Label" parent="Bye_button/Skill_3"]
 layout_mode = 0
@@ -258,7 +258,7 @@ layout_mode = 2
 offset_top = 90.0
 offset_right = 184.0
 offset_bottom = 166.0
-texture_normal = ExtResource("5_b6die")
+texture_normal = ExtResource("3_3nd1q")
 
 [node name="ADS" type="Label" parent="Bye_button/Skill_3/Skill_3_for_AD"]
 layout_mode = 0
@@ -292,7 +292,7 @@ offset_bottom = -258.0
 grow_horizontal = 2
 grow_vertical = 0
 disabled = true
-texture_normal = ExtResource("7_mbj7w")
+texture_normal = ExtResource("7_22yco")
 
 [node name="icon_Exp" type="Sprite2D" parent="Update_skill_button"]
 position = Vector2(240, 49)
@@ -325,8 +325,8 @@ vertical_alignment = 1
 clip_text = true
 
 [node name="ТексткКнопкиОбновить" type="Sprite2D" parent="Update_skill_button"]
-position = Vector2(173.5, 49)
-texture = ExtResource("9_wywd0")
+position = Vector2(37, 43)
+texture = ExtResource("8_tmsu2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

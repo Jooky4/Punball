@@ -1,6 +1,7 @@
 extends Control
-@onready var coins_grid_container: GridContainer = $ScrollContainer/VBoxContainer/TextureRect2/GridContainer
-@onready var crystal_grid_container: GridContainer = $ScrollContainer/VBoxContainer/TextureRect4/GridContainer
+@onready var coins_grid_container: GridContainer = $ScrollContainer/VBoxContainer/TextureRect2/PanelContainer/GridContainer
+@onready var crystal_grid_container: GridContainer = $ScrollContainer/VBoxContainer/TextureRect4/PanelContainer/GridContainer
+
 
 var shop_items: Dictionary = {
 	"coins_500": "Coins_1",

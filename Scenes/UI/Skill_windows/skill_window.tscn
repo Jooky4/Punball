@@ -1,33 +1,33 @@
 [gd_scene load_steps=47 format=3 uid="uid://btt53uxq2a182"]
 
-[ext_resource type="Script" uid="uid://c48lr5mh28jvl" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
+[ext_resource type="Script" path="res://Scenes/UI/Skill_windows/skill_window.gd" id="1_qu6ra"]
 [ext_resource type="Texture2D" uid="uid://dnbttkce75vbr" path="res://Texture/Effects/ligting.png" id="2_ii2ha"]
-[ext_resource type="Texture2D" uid="uid://dc4bosyi510a1" path="res://Texture/UI/Skills_UI/Regular/WindowUp.png" id="2_tl1jo"]
 [ext_resource type="TileSet" uid="uid://bnw3ivcrwv3dc" path="res://Texture/UI/Texture_skills/icons_skills.tres" id="2_yeu60"]
-[ext_resource type="Texture2D" uid="uid://dxolk8dk8pqg7" path="res://Texture/UI/Skills_UI/Regular/platform_Icon.png" id="3_8n6dk"]
-[ext_resource type="Texture2D" uid="uid://dxluksimoc10k" path="res://Texture/UI/Skills_UI/Regular/WindowDown.png" id="3_f8gh8"]
 [ext_resource type="Texture2D" uid="uid://131mekxb47s1" path="res://Texture/Effects/particleStar_2.png" id="3_trmed"]
 [ext_resource type="Texture2D" uid="uid://bfloruavj3vov" path="res://Texture/Effects/звездочка.png" id="4_t0bp5"]
-[ext_resource type="Texture2D" uid="uid://defyku3t56jyi" path="res://Texture/UI/Skills_UI/Regular/platform_Header.png" id="4_uo73p"]
 [ext_resource type="Texture2D" uid="uid://bvpr55gif2yfk" path="res://Texture/Effects/свечение.png" id="5_tjaaj"]
-[ext_resource type="Texture2D" uid="uid://bpqapqkxxbs35" path="res://Texture/UI/Skills_UI/Regular/platform_Description.png" id="6_8xcjj"]
 [ext_resource type="Texture2D" uid="uid://c8tohebhamk30" path="res://Texture/Effects/кольцо.png" id="6_uhrnc"]
 [ext_resource type="FontFile" uid="uid://d0mbp31a4exgl" path="res://Resources/Fonts/Lilita One Regular.ttf" id="7_gbsxi"]
-[ext_resource type="Texture2D" uid="uid://bi4tqxqkq2sb4" path="res://Texture/UI/Skills_UI/Rare/WindowUp.png" id="8_iux2o"]
-[ext_resource type="Texture2D" uid="uid://c7rgmnk02u5so" path="res://Texture/UI/Skills_UI/Rare/platform_Icon.png" id="8_q1tj2"]
-[ext_resource type="Texture2D" uid="uid://bo56obau42g" path="res://Texture/UI/Skills_UI/Rare/WindowDown.png" id="9_agc3n"]
-[ext_resource type="Texture2D" uid="uid://b2ph31ui45e8k" path="res://Texture/UI/Skills_UI/Rare/platform_Header.png" id="9_fb3gg"]
-[ext_resource type="Texture2D" uid="uid://cyu041yjo1m4u" path="res://Texture/UI/Skills_UI/Rare/platform_Description.png" id="11_qe26v"]
-[ext_resource type="Texture2D" uid="uid://dc305exjgbnpd" path="res://Texture/UI/Skills_UI/Epic/platform_Icon.png" id="12_owfot"]
-[ext_resource type="Texture2D" uid="uid://cah1rsombgb3r" path="res://Texture/UI/Skills_UI/Epic/platform_Header.png" id="13_0ux25"]
-[ext_resource type="Texture2D" uid="uid://dkd7onksnqokq" path="res://Texture/UI/Skills_UI/Epic/WindowUp.png" id="14_epayt"]
-[ext_resource type="Texture2D" uid="uid://de3ej5o1cgsjf" path="res://Texture/UI/Skills_UI/Epic/WindowDown.png" id="15_ba1aw"]
-[ext_resource type="Texture2D" uid="uid://da8rnv1e444v7" path="res://Texture/UI/Skills_UI/Epic/platform_Description.png" id="15_c4ml1"]
-[ext_resource type="Texture2D" uid="uid://7ro0ll0n0n3g" path="res://Texture/UI/Skills_UI/Legendary/platform_Icon.png" id="17_6abxv"]
-[ext_resource type="Texture2D" uid="uid://1kgp7cfrut0s" path="res://Texture/UI/Skills_UI/Legendary/platform_Header.png" id="18_tsnwy"]
-[ext_resource type="Texture2D" uid="uid://dpy0iskpmsq8e" path="res://Texture/UI/Skills_UI/Legendary/platform_Description.png" id="20_u3v3r"]
-[ext_resource type="Texture2D" uid="uid://bddsbdwsqnnqh" path="res://Texture/UI/Skills_UI/Legendary/WindowUp.png" id="21_kd1mb"]
-[ext_resource type="Texture2D" uid="uid://c7nj0p05fcbp2" path="res://Texture/UI/Skills_UI/Legendary/WindowDown.png" id="22_ryi60"]
+[ext_resource type="Texture2D" uid="uid://begx4gn2l6os3" path="res://Texture/UI/Skills_UI/Regular/window_up.tres" id="8_rukc7"]
+[ext_resource type="Texture2D" uid="uid://78q4q50k14fr" path="res://Texture/UI/Skills_UI/Regular/window_down.tres" id="9_yhe6m"]
+[ext_resource type="Texture2D" uid="uid://cvfaoptpq71y8" path="res://Texture/UI/Skills_UI/Regular/skill_description_bg.tres" id="10_4leju"]
+[ext_resource type="Texture2D" uid="uid://f4dhlijp0p7m" path="res://Texture/UI/Skills_UI/Regular/skill_bg.tres" id="11_x50ld"]
+[ext_resource type="Texture2D" uid="uid://dccj24e8ng0b7" path="res://Texture/UI/Skills_UI/Regular/title_bg.tres" id="12_sdj0a"]
+[ext_resource type="Texture2D" uid="uid://22jagfcurahp" path="res://Texture/UI/Skills_UI/Rare/window_up.tres" id="14_7j2gs"]
+[ext_resource type="Texture2D" uid="uid://cpxqw08m6qp8y" path="res://Texture/UI/Skills_UI/Rare/window_down.tres" id="15_tv7lg"]
+[ext_resource type="Texture2D" uid="uid://ctv7jlb1tjcyq" path="res://Texture/UI/Skills_UI/Rare/skill_description_bg.tres" id="16_btuip"]
+[ext_resource type="Texture2D" uid="uid://vp324wf153ng" path="res://Texture/UI/Skills_UI/Rare/skill_bg.tres" id="17_f33yh"]
+[ext_resource type="Texture2D" uid="uid://qd7bitesqjkd" path="res://Texture/UI/Skills_UI/Rare/title_bg.tres" id="18_q4fjs"]
+[ext_resource type="Texture2D" uid="uid://b1ky5gryqot6l" path="res://Texture/UI/Skills_UI/Epic/window_up.tres" id="19_0b8h7"]
+[ext_resource type="Texture2D" uid="uid://d1ctdlm6ei6rk" path="res://Texture/UI/Skills_UI/Epic/window_down.tres" id="20_k4le8"]
+[ext_resource type="Texture2D" uid="uid://btb53bfsaaly8" path="res://Texture/UI/Skills_UI/Epic/skill_description_bg.tres" id="21_brrea"]
+[ext_resource type="Texture2D" uid="uid://dn82se37ryo27" path="res://Texture/UI/Skills_UI/Epic/skill_bg.tres" id="22_vx7ll"]
+[ext_resource type="Texture2D" uid="uid://cwj40ya85igqr" path="res://Texture/UI/Skills_UI/Epic/title_bg.tres" id="23_wjdkv"]
+[ext_resource type="Texture2D" uid="uid://dgc0ce6wsw0jj" path="res://Texture/UI/Skills_UI/Legendary/window_up.tres" id="24_5jut2"]
+[ext_resource type="Texture2D" uid="uid://bdm01tbpp2miy" path="res://Texture/UI/Skills_UI/Legendary/window_down.tres" id="25_8il8v"]
+[ext_resource type="Texture2D" uid="uid://etlxh14rtkfj" path="res://Texture/UI/Skills_UI/Legendary/skill_description_bg.tres" id="26_5q0v2"]
+[ext_resource type="Texture2D" uid="uid://bbwkpii115wth" path="res://Texture/UI/Skills_UI/Legendary/skill_bg.tres" id="27_rfpdt"]
+[ext_resource type="Texture2D" uid="uid://ijym7n12phoh" path="res://Texture/UI/Skills_UI/Legendary/title_bg.tres" id="28_11a5u"]
 
 [sub_resource type="Gradient" id="Gradient_wcxfe"]
 offsets = PackedFloat32Array(0.064, 0.176, 0.862, 0.974)
@@ -42,7 +42,6 @@ offsets = PackedFloat32Array(0.004, 0.052, 0.796, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_enhuo"]
-_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 3.6, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -1217,11 +1216,11 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tm8fr"]
 _data = {
-&"RESET": SubResource("Animation_xn3sy"),
-&"epic_window": SubResource("Animation_qmjxo"),
-&"legend_window": SubResource("Animation_mrjpc"),
-&"rare_window": SubResource("Animation_pat2w"),
-&"regular_window": SubResource("Animation_vjmec")
+"RESET": SubResource("Animation_xn3sy"),
+"epic_window": SubResource("Animation_qmjxo"),
+"legend_window": SubResource("Animation_mrjpc"),
+"rare_window": SubResource("Animation_pat2w"),
+"regular_window": SubResource("Animation_vjmec")
 }
 
 [node name="Skill_window" type="Control"]
@@ -1249,9 +1248,9 @@ position = Vector2(102, 200)
 [node name="Legeng_stars" type="CPUParticles2D" parent="Effects"]
 emitting = false
 amount = 70
-texture = ExtResource("3_trmed")
 lifetime = 5.0
 local_coords = true
+texture = ExtResource("3_trmed")
 emission_shape = 3
 emission_rect_extents = Vector2(140, 270)
 direction = Vector2(0, -1)
@@ -1270,12 +1269,12 @@ color_ramp = SubResource("Gradient_wcxfe")
 position = Vector2(1, -169)
 emitting = false
 amount = 30
-texture = ExtResource("4_t0bp5")
 lifetime = 1.4
 one_shot = true
 speed_scale = 1.4
 explosiveness = 0.9
 lifetime_randomness = 1.0
+texture = ExtResource("4_t0bp5")
 direction = Vector2(0, -1)
 spread = 60.0
 gravity = Vector2(0, 100)
@@ -1294,10 +1293,10 @@ color_ramp = SubResource("Gradient_ds174")
 position = Vector2(4, -212)
 emitting = false
 amount = 1
-texture = ExtResource("5_tjaaj")
 lifetime = 0.7
 one_shot = true
 speed_scale = 1.2
+texture = ExtResource("5_tjaaj")
 gravity = Vector2(0, 0)
 scale_amount_min = 0.6
 scale_amount_max = 0.6
@@ -1308,10 +1307,10 @@ color_ramp = SubResource("Gradient_f5re4")
 position = Vector2(4, -212)
 emitting = false
 amount = 1
-texture = ExtResource("6_uhrnc")
 lifetime = 0.7
 one_shot = true
 speed_scale = 1.2
+texture = ExtResource("6_uhrnc")
 gravity = Vector2(0, 0)
 scale_amount_min = 0.6
 scale_amount_max = 0.6
@@ -1321,9 +1320,9 @@ color_ramp = SubResource("Gradient_r112x")
 [node name="Epic_stars" type="CPUParticles2D" parent="Effects"]
 emitting = false
 amount = 20
-texture = ExtResource("3_trmed")
 lifetime = 5.0
 local_coords = true
+texture = ExtResource("3_trmed")
 emission_shape = 3
 emission_rect_extents = Vector2(140, 270)
 direction = Vector2(0, -1)
@@ -1342,12 +1341,12 @@ color_ramp = SubResource("Gradient_wcxfe")
 position = Vector2(1, -169)
 emitting = false
 amount = 14
-texture = ExtResource("4_t0bp5")
 lifetime = 1.4
 one_shot = true
 speed_scale = 1.4
 explosiveness = 0.9
 lifetime_randomness = 1.0
+texture = ExtResource("4_t0bp5")
 direction = Vector2(0, -1)
 spread = 60.0
 gravity = Vector2(0, 200)
@@ -1366,10 +1365,10 @@ color_ramp = SubResource("Gradient_ds174")
 position = Vector2(4, -212)
 emitting = false
 amount = 1
-texture = ExtResource("5_tjaaj")
 lifetime = 0.7
 one_shot = true
 speed_scale = 1.2
+texture = ExtResource("5_tjaaj")
 gravity = Vector2(0, 0)
 scale_amount_min = 0.55
 scale_amount_max = 0.55
@@ -1380,10 +1379,10 @@ color_ramp = SubResource("Gradient_f5re4")
 position = Vector2(4, -212)
 emitting = false
 amount = 1
-texture = ExtResource("6_uhrnc")
 lifetime = 0.7
 one_shot = true
 speed_scale = 1.2
+texture = ExtResource("6_uhrnc")
 gravity = Vector2(0, 0)
 scale_amount_min = 0.55
 scale_amount_max = 0.55
@@ -1407,29 +1406,30 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 150)
 
 [node name="WindowUp" type="Sprite2D" parent="regular_window"]
-position = Vector2(103.5, 209)
+position = Vector2(103.5, 134)
 scale = Vector2(1.1, 1)
-texture = ExtResource("2_tl1jo")
+texture = ExtResource("8_rukc7")
 
 [node name="WindowDown" type="Sprite2D" parent="regular_window"]
 position = Vector2(103.5, 61)
 scale = Vector2(1.1, 1)
-texture = ExtResource("3_f8gh8")
+texture = ExtResource("9_yhe6m")
+offset = Vector2(0, 80)
 
 [node name="Discription" type="Sprite2D" parent="regular_window"]
 position = Vector2(102.5, 182)
 scale = Vector2(1.1, 1)
-texture = ExtResource("6_8xcjj")
+texture = ExtResource("10_4leju")
 
 [node name="Texture_skill" type="Sprite2D" parent="regular_window"]
 position = Vector2(103.5, 151)
 scale = Vector2(1.1, 1)
-texture = ExtResource("3_8n6dk")
+texture = ExtResource("11_x50ld")
 
 [node name="Rarity_texture" type="Sprite2D" parent="regular_window"]
 position = Vector2(102.5, 17)
 scale = Vector2(1.1, 1)
-texture = ExtResource("4_uo73p")
+texture = ExtResource("12_sdj0a")
 
 [node name="Label" type="Label" parent="regular_window"]
 layout_mode = 1
@@ -1461,27 +1461,29 @@ pivot_offset = Vector2(100, 150)
 [node name="WindowUp2" type="Sprite2D" parent="rare_window"]
 position = Vector2(103.5, 204)
 scale = Vector2(1.1, 1)
-texture = ExtResource("8_iux2o")
+texture = ExtResource("14_7j2gs")
+offset = Vector2(0, -70)
 
 [node name="WindowDown2" type="Sprite2D" parent="rare_window"]
 position = Vector2(103.5, 61)
 scale = Vector2(1.1, 1)
-texture = ExtResource("9_agc3n")
+texture = ExtResource("15_tv7lg")
+offset = Vector2(0, 75)
 
 [node name="Discription" type="Sprite2D" parent="rare_window"]
 position = Vector2(102.5, 180)
 scale = Vector2(1.1, 1)
-texture = ExtResource("11_qe26v")
+texture = ExtResource("16_btuip")
 
 [node name="Texture_skill" type="Sprite2D" parent="rare_window"]
-position = Vector2(103, 145)
+position = Vector2(103, 154)
 scale = Vector2(1.1, 1)
-texture = ExtResource("8_q1tj2")
+texture = ExtResource("17_f33yh")
 
 [node name="Rarity_texture" type="Sprite2D" parent="rare_window"]
 position = Vector2(102.5, 12)
 scale = Vector2(1.1, 1)
-texture = ExtResource("9_fb3gg")
+texture = ExtResource("18_q4fjs")
 
 [node name="Label" type="Label" parent="rare_window"]
 layout_mode = 0
@@ -1509,27 +1511,30 @@ pivot_offset = Vector2(100, 150)
 [node name="WindowUp" type="Sprite2D" parent="epic_window"]
 position = Vector2(103.5, 209)
 scale = Vector2(1.1, 1)
-texture = ExtResource("14_epayt")
+texture = ExtResource("19_0b8h7")
+offset = Vector2(0, -70)
 
 [node name="WindowDown" type="Sprite2D" parent="epic_window"]
 position = Vector2(103.5, 62)
 scale = Vector2(1.1, 1)
-texture = ExtResource("15_ba1aw")
+texture = ExtResource("20_k4le8")
+offset = Vector2(0, 80)
 
 [node name="Discription" type="Sprite2D" parent="epic_window"]
 position = Vector2(103, 147)
 scale = Vector2(1.1, 1)
-texture = ExtResource("15_c4ml1")
+texture = ExtResource("21_brrea")
+offset = Vector2(0, 32)
 
 [node name="Texture_skill" type="Sprite2D" parent="epic_window"]
-position = Vector2(103, 117)
+position = Vector2(103, 151)
 scale = Vector2(1.1, 1)
-texture = ExtResource("12_owfot")
+texture = ExtResource("22_vx7ll")
 
 [node name="Rarity_texture" type="Sprite2D" parent="epic_window"]
 position = Vector2(102.55, -17)
 scale = Vector2(1.1, 1)
-texture = ExtResource("13_0ux25")
+texture = ExtResource("23_wjdkv")
 
 [node name="Label" type="Label" parent="epic_window"]
 layout_mode = 0
@@ -1557,27 +1562,30 @@ pivot_offset = Vector2(100, 150)
 [node name="WindowUp" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103.5, 209)
 scale = Vector2(1.1, 1)
-texture = ExtResource("21_kd1mb")
+texture = ExtResource("24_5jut2")
+offset = Vector2(0, -74)
 
 [node name="WindowDown" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103.5, 61)
 scale = Vector2(1.1, 1)
-texture = ExtResource("22_ryi60")
+texture = ExtResource("25_8il8v")
+offset = Vector2(0, 78)
 
 [node name="Discription" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103, 180)
 scale = Vector2(1.1, 1)
-texture = ExtResource("20_u3v3r")
+texture = ExtResource("26_5q0v2")
 
 [node name="Texture_skill" type="Sprite2D" parent="legendary_window"]
 position = Vector2(103, 149)
 scale = Vector2(1.1, 1)
-texture = ExtResource("17_6abxv")
+texture = ExtResource("27_rfpdt")
 
 [node name="Rarity_texture" type="Sprite2D" parent="legendary_window"]
 position = Vector2(102.5, -19)
 scale = Vector2(1.1, 1)
-texture = ExtResource("18_tsnwy")
+texture = ExtResource("28_11a5u")
+offset = Vector2(0, -8)
 
 [node name="Label" type="Label" parent="legendary_window"]
 layout_mode = 1
@@ -1611,7 +1619,7 @@ autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_tm8fr")
+"": SubResource("AnimationLibrary_tm8fr")
 }
 
 [node name="VScrollBar" type="ScrollContainer" parent="."]
