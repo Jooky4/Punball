@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6awrcrerc11i"]
+[gd_scene load_steps=3 format=3 uid="uid://b6awrcrerc11i"]
 
 [ext_resource type="Script" path="res://Scenes/Global/object_pool.gd" id="1_etla1"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ksywn"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [node name="ObjectPool" type="Node2D"]
 script = ExtResource("1_etla1")
+
+[node name="DebugLabel" type="Label" parent="."]
+z_index = 100
+offset_left = 13.0
+offset_top = 1143.0
+offset_right = 199.0
+offset_bottom = 1266.0
+label_settings = SubResource("LabelSettings_ksywn")
+vertical_alignment = 2
+
+[node name="Objects" type="Node2D" parent="."]

@@ -43,15 +43,28 @@ var _object_pools: Dictionary = {
 }
 
 var _DEBUG: bool = false
+@onready var debug_label: Label = $DebugLabel
+@onready var objects: Node2D = $Objects
 
 
 func _ready() -> void:
+	debug_label.visible = _DEBUG
+
+	if _DEBUG:
+		prints("start")
+		var timer = Timer.new()
+		add_child(timer)
+		timer.one_shot = false
+		timer.wait_time = 0.5
+		timer.timeout.connect(_on_debug_update_timer_timeout)
+		timer.start()
+
 	for i in _object_preinstance.keys():
 		var _name = i
 		var _count = _object_preinstance[i]
 		for _j in _count:
 			var _obj = _object_aliases[_name].instantiate()
-			add_child(_obj)
+			objects.add_child(_obj)
 			_obj.hide()
 
 			if _DEBUG:
@@ -83,7 +96,7 @@ func get_object(name: String) -> Node:
 				return _obj
 
 		var _obj = _object_aliases[name].instantiate()
-		add_child(_obj)
+		objects.add_child(_obj)
 		return _obj
 
 	return null
@@ -111,6 +124,15 @@ func cleanup() -> void:
 	for i in _object_pools.values():
 		all_pools.append_array(i)
 
-	for i in get_children():
+	for i in objects.get_children():
 		if i not in all_pools:
-			remove_child(i)
+			objects.remove_child(i)
+
+
+func _on_debug_update_timer_timeout() -> void:
+	var _str: String
+
+	for i in _object_pools.keys():
+		_str += "%s: %d\n" %[i, _object_pools[i].size()]
+
+	debug_label.text = _str
