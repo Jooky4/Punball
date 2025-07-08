@@ -121,7 +121,8 @@ func _set_state(value: State) -> void:
 
 
 func _ready() -> void:
-	YandexSDK.connect("interstitial_ad", star_location)
+	#YandexSDK.connect("interstitial_ad", star_location)
+	GP.Ads.fullscreen_close.connect(_start_location_closed)
 	Engine.time_scale = 1
 	get_tree().paused = false
 	update_location_image()
@@ -159,7 +160,8 @@ func _ready() -> void:
 	left_extreme_point = (Vector2(50, 1055) - start_balls_position.position).normalized()
 	hp_player_bar.max_value = LevelManager.max_hp_player
 	update_character_label()
-	YandexSDK.gameplay_started()
+	#YandexSDK.gameplay_started()
+	GP.Game.resume()
 
 	await Utils.timeout(0.8)
 	AudioManager.enemy_spawn()
@@ -171,7 +173,12 @@ func star_location(result) -> void:
 	if result == "closed" or result == "error":
 		AudioServer.set_bus_mute(0, false)
 		AudioManager.music_start()
-		YandexSDK.gameplay_started()
+		#YandexSDK.gameplay_started()
+		GP.Game.resume()
+
+
+func _start_location_closed(success: bool) -> void:
+	star_location("closed")
 
 func check_tutorial() -> void:
 	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and WaveGeneration.current_location == 1:
@@ -1059,7 +1066,8 @@ func _on_balls_back_pressed() -> void:
 func _on_button_pause_pressed() -> void:
 	AudioManager.click()
 	pause_menu_UI.update_texture_skill()
-	YandexSDK.gameplay_stopped()
+	#YandexSDK.gameplay_stopped()
+	GP.Game.pause()
 	pause_menu_UI.visible = true
 	get_tree().paused = true
 	Engine.time_scale = 0

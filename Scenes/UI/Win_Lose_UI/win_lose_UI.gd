@@ -12,7 +12,8 @@ var max_wave = 1
 
 
 func _ready() -> void:
-	YandexSDK.gameplay_stopped()
+	#YandexSDK.gameplay_stopped()
+	GP.Game.pause()
 	count_wave.text = str(PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS)
 	max_wave = PlayerIndicatorsManager.MAX_WAVE_ON_CURRENT_LOCATIONS
 	level_up_UI.visible = false
@@ -113,10 +114,19 @@ func lose() -> void:
 
 
 func _on_button_ad_pressed() -> void:
-	YandexSDK.gameplay_stopped()
-	YandexSDK.show_rewarded_ad()
-	YandexSDK.connect("rewarded_ad", rew_ad_res)
+	#YandexSDK.gameplay_stopped()
+	GP.Game.pause()
+	#YandexSDK.show_rewarded_ad()
+	#YandexSDK.connect("rewarded_ad", rew_ad_res)
+	GP.Ads.rewarded_reward.connect(rew_ad_res.bind("rewarded"))
+	GP.Ads.rewarded_close.connect(_rew_ad_closed)
+	GP.Ads.rewarded_start.connect(rew_ad_res.bind("opened"))
+	GP.Ads.show_rewarded_video()
 	AudioServer.set_bus_mute(0, true)
+
+
+func _rew_ad_closed(success: bool) -> void:
+	rew_ad_res("closed")
 
 
 func rew_ad_res(result:String) -> void:

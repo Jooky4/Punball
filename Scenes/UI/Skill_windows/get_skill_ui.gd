@@ -161,7 +161,12 @@ func _ready() -> void:
 	all_skills.append_array(rare)
 	all_skills.append_array(epic)
 	all_skills.append_array(legendary)
-	YandexSDK.connect("interstitial_ad", close_ad)
+	#YandexSDK.connect("interstitial_ad", close_ad)
+	GP.Ads.fullscreen_close.connect(_close_ad)
+	#YandexSDK.connect("rewarded_ad", rew_ad_res)
+	GP.Ads.rewarded_start.connect(_rew_ad_opened)
+	GP.Ads.rewarded_close.connect(_rew_ad_closed)
+	GP.Ads.rewarded_reward.connect(rew_ad_res.bind("rewarded"))
 	self.visible = false
 
 
@@ -178,7 +183,8 @@ func _on_continue_game_pressed() -> void:
 
 	if LevelManager.spin_skill <= 0:
 		if show_AD:
-			YandexSDK.show_interstitial_ad()
+			#YandexSDK.show_interstitial_ad()
+			GP.Ads.show_fullscreen()
 			AudioServer.set_bus_mute(0, true)
 			return
 		else:
@@ -188,6 +194,10 @@ func _on_continue_game_pressed() -> void:
 	else:
 		get_number_skill(LevelManager.spin_skill)
 		update_exp.emit()
+
+
+func _close_ad(success: bool) -> void:
+	close_ad("closed")
 
 
 func close_ad(result) -> void:
@@ -591,20 +601,30 @@ func _on_skill_for_ad_pressed(extra_arg_0: int) -> void:
 	AudioManager.click()
 	AudioServer.set_bus_mute(0, true)
 	skil_for_ad = extra_arg_0
-	YandexSDK.gameplay_stopped()
-	YandexSDK.show_rewarded_ad()
-	YandexSDK.connect("rewarded_ad", rew_ad_res)
+	#YandexSDK.gameplay_stopped()
+	GP.Game.pause()
+	#YandexSDK.show_rewarded_ad()
+	GP.Ads.show_rewarded_video()
+
+
+func _rew_ad_opened() -> void:
+	rew_ad_res("opened")
+
+
+func _rew_ad_closed(success: bool) -> void:
+	rew_ad_res("closed")
+
 
 func rew_ad_res(result:String) -> void:
 	if result == "closed" or result == "error":
 		AudioServer.set_bus_mute(0, false)
-		YandexSDK.gameplay_started()
+		#YandexSDK.gameplay_started()
+		GP.Game.resume()
 	elif result == "rewarded":
 		LevelManager.buy_skill(LevelManager.count_experiance)
 		add_skill(skills[skil_for_ad][0])
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)
-
 
 
 func create_free_skill() -> void:

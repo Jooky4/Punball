@@ -7,6 +7,7 @@ const CHEATS_ENABLED = false
 
 const DEFAULT_HEAL_DROP_CHANCE = 0.2
 
+const PLAYER_PROGRESS = "progress"
 
 const TALENT_BASE_COST = {
 	"CRYSTAL": 200,

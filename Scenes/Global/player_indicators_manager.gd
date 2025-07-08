@@ -54,37 +54,47 @@ var GAMEPLAY_TUTORIL : int = 0
 var TALANTS_TUTORIL : int = 0
 
 func _ready() -> void:
-	YandexSDK.connect("data_loaded", player_date_loaded)
+	#YandexSDK.connect("data_loaded", player_date_loaded)
+	GP.Storage.get_success.connect(player_date_loaded)
+
 
 func update_player_date_in_game() -> void:
-	YandexSDK.load_data(["coins",
-						 "crystals",
-						 "rune",
-						 "level_player",
-						 "level_experiance_player",
-						 "level_experiance_for_next_level",
-						 "current_locations",
-						 "max_wave_on_current_locations",
-						 "count_bye_talants_for_coins",
-						 "count_bye_talants_for_crystal",
-						 "count_open_chest",
-						 "enemy_1_first_time",
-						 "enemy_2_first_time",
-						 "enemy_3_first_time",
-						 "enemy_5_first_time",
-						 "enemy_6_first_time",
-						 "enemy_8_first_time",
-						 "enemy_9_first_time",
-						 "enemy_10_first_time",
-						 "enemy_12_first_time",
-						 "enemy_13_first_time",
-						 "enemy_14_first_time",
-						 "current_character",
-						 "character_1_lvl",
-						 "character_2_lvl",
-						 "character_3_lvl",
-						 "gameplay_tutoril",
-						 "talants_tutoril"])
+	#YandexSDK.load_data(["coins",
+						 #"crystals",
+						 #"rune",
+						 #"level_player",
+						 #"level_experiance_player",
+						 #"level_experiance_for_next_level",
+						 #"current_locations",
+						 #"max_wave_on_current_locations",
+						 #"count_bye_talants_for_coins",
+						 #"count_bye_talants_for_crystal",
+						 #"count_open_chest",
+						 #"enemy_1_first_time",
+						 #"enemy_2_first_time",
+						 #"enemy_3_first_time",
+						 #"enemy_5_first_time",
+						 #"enemy_6_first_time",
+						 #"enemy_8_first_time",
+						 #"enemy_9_first_time",
+						 #"enemy_10_first_time",
+						 #"enemy_12_first_time",
+						 #"enemy_13_first_time",
+						 #"enemy_14_first_time",
+						 #"current_character",
+						 #"character_1_lvl",
+						 #"character_2_lvl",
+						 #"character_3_lvl",
+						 #"gameplay_tutoril",
+						 #"talants_tutoril"])
+
+	var _progress = GP.Player.get_value(Constants.PLAYER_PROGRESS)
+	var _progress_dict = {}
+	if _progress and _progress.length():
+		_progress_dict = JSON.parse_string(_progress)
+
+	player_date_loaded(_progress_dict)
+
 
 func get_player_indicators() -> Dictionary:
 	return {"coins" : COINS_COUNT,
@@ -116,20 +126,30 @@ func get_player_indicators() -> Dictionary:
 			"gameplay_tutoril" : GAMEPLAY_TUTORIL,
 			"talants_tutoril": TALANTS_TUTORIL}
 
+
 func update_crystal_count(num) -> void:
 	CRYSTALS_COUNT += num
 	update_player_date_on_server()
+
 
 func update_coins_count(num) -> void:
 	COINS_COUNT += num
 	update_player_date_on_server()
 
+
 func update_rune_count(num) -> void:
 	COUNT_RUNE += num
 	update_player_date_on_server()
 
+
 func update_player_date_on_server() -> void:
-	YandexSDK.save_data(get_player_indicators(), true)
+	#YandexSDK.save_data(get_player_indicators(), true)
+	var _player_data = get_player_indicators()
+	prints("save player data", _player_data)
+	var _player_data_string = JSON.stringify(_player_data)
+	GP.Player.set_value(Constants.PLAYER_PROGRESS, _player_data_string)
+	GP.Player.sync()
+
 
 func player_date_loaded(data) -> void:
 	if data != {}:

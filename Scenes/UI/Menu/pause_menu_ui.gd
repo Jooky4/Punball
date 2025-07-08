@@ -68,7 +68,8 @@ func _on_continue_pressed() -> void:
 	await get_tree().create_timer(0.1).timeout
 	get_tree().paused = false
 	self.visible = false
-	YandexSDK.gameplay_started()
+	#YandexSDK.gameplay_started()
+	GP.Game.resume()
 
 
 func update_texture_skill() -> void:

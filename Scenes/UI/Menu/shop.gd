@@ -21,12 +21,14 @@ var shop_items: Dictionary = {
 func update_price(catalog_items) -> void:
 	for i in catalog_items:
 		var shop_item
-		if "coins" in i["id"]:
-			shop_item = coins_grid_container.get_node(shop_items[i["id"]])
-		elif "crystal" in i["id"]:
-			shop_item = crystal_grid_container.get_node(shop_items[i["id"]])
+		var _id = i["tag"]
+		if "coins" in _id:
+			shop_item = coins_grid_container.get_node(shop_items[_id])
+		elif "crystal" in _id:
+			shop_item = crystal_grid_container.get_node(shop_items[_id])
 
-		if shop_item:
+		# для яндекса
+		if false and shop_item:
 			# неразрывный пробел - код символа 160
 			var unbreakable_space = " "
 			var val = i.price.split(unbreakable_space)
@@ -39,52 +41,60 @@ func update_price(catalog_items) -> void:
 			shop_item.price = val[0]
 			shop_item.currency = val[1]
 
+		shop_item.price = i["price"]
+		shop_item.currency = i["currency"]
+
 
 func _on_coins_1_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("coins_500")
+	_purchase_item("coins_500")
 
 func _on_coins_2_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("coins_2500")
+	_purchase_item("coins_2500")
 
 func _on_coins_3_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("coins_7000")
+	_purchase_item("coins_7000")
 
 func _on_coins_4_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("coins_16000")
+	_purchase_item("coins_16000")
 
 func _on_coins_5_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("coins_35000")
+	_purchase_item("coins_35000")
 
 func _on_coins_6_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("coins_80000")
-
+	_purchase_item("coins_80000")
 
 func _on_crystal_1_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("crystal_100")
+	_purchase_item("crystal_100")
 
 func _on_crystal_2_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("crystal_500")
+	_purchase_item("crystal_500")
 
 func _on_crystal_3_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("crystal_1200")
+	_purchase_item("crystal_1200")
 
 func _on_crystal_4_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("crystal_2500")
+	_purchase_item("crystal_2500")
 
 func _on_crystal_5_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("crystal_6000")
+	_purchase_item("crystal_6000")
 
 func _on_crystal_6_pressed() -> void:
 	AudioManager.click()
-	YandexSDK.purchase_item("crystal_14000")
+	_purchase_item("crystal_14000")
+
+
+func _purchase_item(tag: String) -> void:
+	#YandexSDK.purchase_item(tag)
+	prints("purchase item", { "tag": tag })
+	GP.Payments.purchase(null, tag)

@@ -66,15 +66,35 @@ var count_wave_on_locations = {
 var load_not_buy = false
 
 func _ready() -> void:
+	prints("menu ready")
 	ObjectPool.cleanup()
 
 	Engine.time_scale = 1
 	get_tree().paused = false
-	YandexSDK.connect("game_initialized", update_player_indicators)
-	YandexSDK.connect("data_loaded", player_date_loaded)
-	YandexSDK.connect('purchased', _process_purchase_with_token)
-	YandexSDK.connect("unprocessed_purchases_loaded", _process_uncompleted_purchases)
-	YandexSDK.connect("catalog_loaded", _on_catalog_loaded)
+	#YandexSDK.connect("game_initialized", update_player_indicators)
+
+	# по идее, игра уже инициализирована
+	update_player_indicators()
+	#YandexSDK.connect("data_loaded", player_date_loaded)
+	#GP.Storage.get_success.connect(gp_player_data_loaded)
+	var _progress: String = GP.Player.get_value(Constants.PLAYER_PROGRESS)
+	var _progress_dict = {}
+	prints("player.get_value", _progress, typeof(_progress))
+	if _progress and _progress.length():
+		_progress_dict = JSON.parse_string(_progress)
+	player_date_loaded(_progress)
+	prints("player progress", _progress)
+
+	# TODO: в документации GamePush нет токенов
+	#YandexSDK.connect('purchased', _process_purchase_with_token)
+	#_process_purchase_with_token(GP.Payments.purchases)
+	GP.Payments.purchased.connect(_apply_purchase)
+
+	#YandexSDK.connect("unprocessed_purchases_loaded", _process_uncompleted_purchases)
+
+	#YandexSDK.connect("catalog_loaded", _on_catalog_loaded)
+	GP.Payments.fetch_products()
+	GP.Payments.fetched_products.connect(_on_catalog_loaded)
 
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
@@ -83,20 +103,21 @@ func _ready() -> void:
 	max_wave_on_locations_label.text = tr("MAX_WAVE") + ": 0/20"
 
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
-		YandexSDK.init_game()
-		YandexSDK.init_player()
-		YandexSDK.game_ready()
+		#YandexSDK.init_game()
+		#YandexSDK.init_player()
+		#YandexSDK.game_ready()
 		AudioManager.music_start()
 
-		if !YandexSDK.game_initialized:
-			await YandexSDK.game_initialized
+		#if !YandexSDK.game_initialized:
+			#await YandexSDK.game_initialized
+
 		update_player_indicators()
 
 		main_menu_UI.visible = true
 		shop_UI.visible = false
 		characters_UI.visible = false
 
-		YandexSDK.show_interstitial_ad()
+		#YandexSDK.show_interstitial_ad()
 		PlayerIndicatorsManager.SHOW_AD_FIRST_TIME = true
 	else:
 		update_player_indicators()
@@ -104,8 +125,10 @@ func _ready() -> void:
 		shop_UI.visible = false
 		characters_UI.visible = false
 
+
 func _process_purchase_with_token(product_id: String, token: String):
 	_process_purchase(product_id, token)
+
 
 func _process_uncompleted_purchases(data):
 	print("Processing purchases count:", len(data))
@@ -117,6 +140,16 @@ func _process_uncompleted_purchases(data):
 			continue
 		print("Processing:", product_id, "|", token)
 		_process_purchase(product_id, token)
+
+
+func _apply_purchase(data) -> void:
+	var product = data[0]
+	var purchase = data[1]
+
+	#prints("apply", product["tag"], product["price"], product["id"])
+	_process_purchase(product["tag"], "")
+	GP.Payments.consume(null, product["tag"])
+
 
 func _process_purchase(id_buy, token) -> void:
 	if "coins_500" in id_buy:
@@ -149,17 +182,22 @@ func _process_purchase(id_buy, token) -> void:
 	update_crystal_label()
 	update_visible_texture_can_update()
 
-	YandexSDK.consume_purchase(token)
-	print("Purchase consumed:", id_buy)
+	#YandexSDK.consume_purchase(token)
+
 
 func _on_catalog_loaded(catalog):
-	print("Получен каталог товаров:", catalog)
-	for item in catalog:
-		print("Товар: ", item["title"], " Цена: ", item["price"])
-	shop_UI.update_price(catalog)
+	print("Получен каталог товаров:", catalog, catalog[0])
+	for item in catalog[0]:
+		prints("Товар:", item["tag"], "Цена:", item["price"], "Валюта:", item["currency"])
+
+	shop_UI.update_price(catalog[0])
+
 
 func update_player_indicators() -> void:
-	var lang = YandexSDK.lang
+	#var lang = YandexSDK.lang
+	var lang = GP.Language.current()
+
+	prints("lang = %s" % lang)
 	PlayerIndicatorsManager.update_player_date_in_game()
 	TranslationServer.set_locale(lang)
 
@@ -194,6 +232,11 @@ func arabic_to_roman(num: int) -> String:
 			num -= val[i]
 		i += 1
 	return roman_num
+
+
+func gp_player_data_loaded(key: String, value) -> void:
+	prints("gp_player_data_loaded", key, value)
+	player_date_loaded(value)
 
 
 func player_date_loaded(data) -> void:
@@ -233,8 +276,8 @@ func player_date_loaded(data) -> void:
 	$Select_buttons/Talesnts_button.disabled = false
 	if load_not_buy == false:
 		load_not_buy = true
-		YandexSDK.get_catalog()
-		YandexSDK.check_unprocessed_purchases()
+		#YandexSDK.get_catalog()
+		#YandexSDK.check_unprocessed_purchases()
 	AudioManager.music_start()
 
 func check_tutorial() -> void:

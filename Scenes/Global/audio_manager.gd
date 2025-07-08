@@ -232,12 +232,14 @@ func _ready():
 
 func _on_focus_entered():
 	if get_tree().current_scene.has_method("revavil_player"):
-		YandexSDK.gameplay_started()
+		#YandexSDK.gameplay_started()
+		GP.Game.resume()
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 
 
 func _on_focus_exited():
-	YandexSDK.gameplay_stopped()
+	#YandexSDK.gameplay_stopped()
+	GP.Game.pause()
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 
 

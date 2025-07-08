@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Punball"
-run/main_scene="res://Scenes/UI/Menu/menu.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://Texture/icon.png"
 boot_splash/fullsize=false
@@ -25,7 +25,6 @@ buses/default_bus_layout="res://Resources/Music/default_bus_layout.tres"
 
 Constants="*res://Scenes/Global/constants.gd"
 Utils="*res://utils.gd"
-YandexSDK="*res://addons/godot-yandex-games-sdk/yandex_sdk.gd"
 GlobalResourceLoader="*res://Components/ResourceLoader/resource_loader.tscn"
 LevelManager="*res://Scenes/Global/level_manager.gd"
 WaveGeneration="*res://Scenes/Global/wave_generation.gd"
@@ -35,6 +34,7 @@ PlayerIndicatorsManager="*res://Scenes/Global/player_indicators_manager.gd"
 ChangeScene="*res://Scenes/Global/change_scene.tscn"
 YandexMetrika="*res://addons/yandex-metrika/yandex_metrika.gd"
 ObjectPool="*res://Scenes/Global/object_pool.tscn"
+GP="*res://addons/gamepush/game_push.gd"
 
 [display]
 
@@ -48,7 +48,7 @@ window/main_scene="res://Scenes/first_level.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-yandex-games-sdk/plugin.cfg", "res://addons/yandex-metrika/plugin.cfg")
+enabled=PackedStringArray("res://addons/gamepush/plugin.cfg", "res://addons/yandex-metrika/plugin.cfg")
 
 [file_customization]
 
@@ -60,6 +60,11 @@ folder_colors={
 "res://Scenes/": "red",
 "res://Texture/": "green"
 }
+
+[game_push]
+
+config/project_id="22585"
+config/token="GcHOmwLRz2evLp3gfy1YwU50x0LcNQIH"
 
 [input]
 
@@ -109,4 +114,4 @@ textures/vram_compression/import_etc2_astc=true
 textures/default_filters/anisotropic_filtering_level=0
 textures/decals/filter=0
 textures/light_projectors/filter=0
-environment/defaults/default_clear_color=Color(0.18692, 0.278413, 0.683594, 1)
+environment/defaults/default_clear_color=Color(0.141176, 0.141176, 0.141176, 1)
