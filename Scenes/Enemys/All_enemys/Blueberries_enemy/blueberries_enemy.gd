@@ -1,7 +1,7 @@
 extends "res://Scenes/Enemys/All_enemys/Defalt_enemy/defalt_enemy.gd"
 
 @export var ENEMY_BULLET : PackedScene = preload("res://Scenes/Enemys/Dops/blueberries_bullet.tscn")
-@export var bullet_damage = 20
+@export var bullet_damage = 30
 
 func shoot_at_player(player_position) -> void:
 	if alive and !freezen:
