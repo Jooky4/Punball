@@ -23,7 +23,7 @@ func _ready():
 		events.on("join", _callback_joined)
 		events.on("error:join", _callback_error_join)
 	after_ready.emit()
-	
+
 
 func join(id_or_tag:Variant) -> void:
 	if OS.get_name() == "Web":
@@ -39,7 +39,7 @@ func join(id_or_tag:Variant) -> void:
 		push_error("No id or tag")
 		return
 	push_warning("Not running on Web")
-	
+
 func list() -> Array:
 	var result := []
 	if OS.get_name() == "Web":
@@ -49,7 +49,7 @@ func list() -> Array:
 	else:
 		push_warning("Not running on Web")
 	return result
-	
+
 func active_list() -> Array:
 	var result := []
 	if OS.get_name() == "Web":
@@ -59,7 +59,7 @@ func active_list() -> Array:
 	else:
 		push_warning("Not running on Web")
 	return result
-	
+
 func get_event(id_or_tag:Variant) -> Event:
 	var result := Event.new()
 	if OS.get_name() == "Web":
@@ -70,7 +70,7 @@ func get_event(id_or_tag:Variant) -> Event:
 		return result
 	push_warning("Not running on Web")
 	return result
-	
+
 func has(id_or_tag:Variant) -> bool:
 	if OS.get_name() == "Web":
 		if id_or_tag is String and id_or_tag.is_valid_int():
@@ -112,7 +112,7 @@ func _is_valid_id(id:Variant):
 
 class Event:
 	extends GP.GPObject
-	
+
 	var id: int
 	var tag: String
 	var name: String
@@ -162,10 +162,10 @@ class Event:
 			js_triggers.push(t._to_js())
 		js_object["triggers"] = triggers
 		return js_object
-		
+
 class PlayerEvent:
 	extends GP.GPObject
-	
+
 	var event_id: int
 	var stats: PlayerStats
 
@@ -180,10 +180,10 @@ class PlayerEvent:
 		js_object["stats"] = stats._to_js()
 		return js_object
 
-		
+
 class PlayerStats:
 	extends GP.GPObject
-	
+
 	var active_days: int
 	var active_days_consecutive: int
 

@@ -25,7 +25,7 @@ func _ready():
 		gp.segments.on("enter", _callback_entered)
 		gp.segments.on("leave", _callback_left)
 	after_ready.emit()
-	
+
 
 func list() -> Array:
 	if OS.get_name() == "Web":

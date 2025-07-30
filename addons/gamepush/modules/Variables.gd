@@ -33,7 +33,7 @@ func fetch() -> void:
 		gp.variables.fetch()
 	else:
 		push_warning("Not running on Web")
-		
+
 
 func get_variable(variable_name: String) -> Variant:
 	if OS.get_name() == "Web":
@@ -65,13 +65,13 @@ func is_platform_variables_available() -> bool:
 		return gp.variables.isPlatformVariablesAvailable
 	push_warning("Not running on Web")
 	return false
-	
-	
+
+
 signal _fetched_platform_variables(result:Dictionary)
 
 var __callback_fetch_platform_variables := JavaScriptBridge.create_callback(func(args):
 	_fetched_platform_variables.emit(GP._js_to_dict(args[0])))
-	
+
 func fetch_platform_variables(client_params:Dictionary={}) -> Dictionary:
 	if OS.get_name() == "Web":
 		var params := JavaScriptBridge.create_object("Object")
@@ -93,10 +93,10 @@ func _fetched(args) -> void:
 
 func _fetched_error(args) -> void:
 	fetched.emit(args[0])
-	
+
 
 func _fetch_platform_variables(args) -> void:
-	var variables = GP._js_to_dict(args[0]) 
+	var variables = GP._js_to_dict(args[0])
 	platform_variables_fetched.emit(variables)
 
 

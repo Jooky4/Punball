@@ -19,6 +19,10 @@ extends Control
 
 @onready var play_button = $Main_menu/PlayButton
 
+# кнопка перехода в магазин
+@onready var shop_button = $Select_buttons/Shop_button
+
+
 var location = {
 	0 : [load("res://Texture/UI/Main_menu/Location/location_01.tres"), tr("LVL_NAME_DARKWOOD")],
 	1 : [load("res://Texture/UI/Main_menu/Location/location_02.tres"), tr("LVL_NAME_DESERT")],
@@ -65,36 +69,31 @@ var count_wave_on_locations = {
 
 var load_not_buy = false
 
+func _on_ads_preloader_close(success: bool) -> void:
+	prints("_on_ads_preloader_close()")
+	AudioManager._on_focus_entered()
+	ChangeScene.canvas.focus()
+
+
 func _ready() -> void:
-	prints("menu ready")
+	prints("menu -> _ready()")
 	ObjectPool.cleanup()
 
 	Engine.time_scale = 1
 	get_tree().paused = false
-	#YandexSDK.connect("game_initialized", update_player_indicators)
 
-	# по идее, игра уже инициализирована
+	GP.Ads.preloader_close.connect(_on_ads_preloader_close)
+	PlayerIndicatorsManager.is_ready.connect(_on_player_data_loaded)
+
+	# обновляем индикаторы и счётчики из загруженных данных
 	update_player_indicators()
-	#YandexSDK.connect("data_loaded", player_date_loaded)
-	#GP.Storage.get_success.connect(gp_player_data_loaded)
-	var _progress: String = GP.Player.get_value(Constants.PLAYER_PROGRESS)
-	var _progress_dict = {}
-	prints("player.get_value", _progress, typeof(_progress))
-	if _progress and _progress.length():
-		_progress_dict = JSON.parse_string(_progress)
-	player_date_loaded(_progress)
-	prints("player progress", _progress)
 
-	# TODO: в документации GamePush нет токенов
-	#YandexSDK.connect('purchased', _process_purchase_with_token)
-	#_process_purchase_with_token(GP.Payments.purchases)
-	GP.Payments.purchased.connect(_apply_purchase)
 
-	#YandexSDK.connect("unprocessed_purchases_loaded", _process_uncompleted_purchases)
-
-	#YandexSDK.connect("catalog_loaded", _on_catalog_loaded)
-	GP.Payments.fetch_products()
-	GP.Payments.fetched_products.connect(_on_catalog_loaded)
+	if not GP.Payments.is_available():
+		shop_button.hide()
+	else:
+		GP.Payments.purchased.connect(_apply_purchase)
+		GP.Payments.fetched_products.connect(_on_catalog_loaded)
 
 	for i in range(1, 1001):
 		rim_num_location.append(arabic_to_roman(i))
@@ -103,13 +102,13 @@ func _ready() -> void:
 	max_wave_on_locations_label.text = tr("MAX_WAVE") + ": 0/20"
 
 	if PlayerIndicatorsManager.SHOW_AD_FIRST_TIME == false:
-		#YandexSDK.init_game()
-		#YandexSDK.init_player()
-		#YandexSDK.game_ready()
-		AudioManager.music_start()
+		GP.Ads.show_sticky()
 
-		#if !YandexSDK.game_initialized:
-			#await YandexSDK.game_initialized
+		if GP.Ads.is_preloader_available():
+			AudioManager._on_focus_exited()
+			GP.Ads.show_preloader()
+
+		AudioManager.music_start()
 
 		update_player_indicators()
 
@@ -119,6 +118,7 @@ func _ready() -> void:
 
 		#YandexSDK.show_interstitial_ad()
 		PlayerIndicatorsManager.SHOW_AD_FIRST_TIME = true
+		GP.Game.game_start()
 	else:
 		update_player_indicators()
 		main_menu_UI.visible = true
@@ -146,7 +146,6 @@ func _apply_purchase(data) -> void:
 	var product = data[0]
 	var purchase = data[1]
 
-	#prints("apply", product["tag"], product["price"], product["id"])
 	_process_purchase(product["tag"], "")
 	GP.Payments.consume(null, product["tag"])
 
@@ -186,18 +185,29 @@ func _process_purchase(id_buy, token) -> void:
 
 
 func _on_catalog_loaded(catalog):
-	print("Получен каталог товаров:", catalog, catalog[0])
-	for item in catalog[0]:
-		prints("Товар:", item["tag"], "Цена:", item["price"], "Валюта:", item["currency"])
+	var _purch = GP.Payments.get_purchases()
+	print("Получен каталог товаров:", catalog, _purch)
+
+	for i in _purch:
+		var _p = i.to_dict()
+		# выдача покупок в игре по тегу
+		_process_purchase(_p["tag"], "")
+		GP.Payments.consume(null, _p["tag"])
+
+	#for item in catalog[0]:
+		#prints("Товар:", item["tag"], "Цена:", item["price"], "Валюта:", item["currency"])
+
+	if catalog[0].size() == 0:
+		shop_button.hide()
 
 	shop_UI.update_price(catalog[0])
 
 
 func update_player_indicators() -> void:
+	prints("menu -> update_player_indicators()")
 	#var lang = YandexSDK.lang
 	var lang = GP.Language.current()
 
-	prints("lang = %s" % lang)
 	PlayerIndicatorsManager.update_player_date_in_game()
 	TranslationServer.set_locale(lang)
 
@@ -239,18 +249,32 @@ func gp_player_data_loaded(key: String, value) -> void:
 	player_date_loaded(value)
 
 
+func _on_player_data_loaded():
+	prints("player signal after_ready")
+	# получаем данные игрока
+	var _progress: String = GP.Player.get_value(Constants.PLAYER_PROGRESS)
+	var _progress_dict = {}
+
+	if _progress and _progress.length():
+		_progress_dict = JSON.parse_string(_progress)
+	prints("player progress", _progress_dict)
+
+	player_date_loaded(_progress_dict)
+	if GP.Payments.is_available():
+		GP.Payments.fetch_products()
+
+
 func player_date_loaded(data) -> void:
 	#if is_player_data_loaded:
 		#return
 
-	prints("player_date_loaded()", current_location, PlayerIndicatorsManager.CURRENT_LOCATIONS)
+	prints("menu -> player_date_loaded()", data)
 
 	var cur_location = (current_location % 10) - 1
 
 	if cur_location != 0:
 		prints("not first location")
 
-		#var lvl_bg_url = "level_backgrounds.pck"
 		var location_bg_url = LevelBackgroundData.get_level_bg_url(cur_location)
 		var location_bg_path = LevelBackgroundData.get_level_pck_name(cur_location)
 		prints("location_bg_url", location_bg_url, location_bg_path)
@@ -278,7 +302,8 @@ func player_date_loaded(data) -> void:
 		load_not_buy = true
 		#YandexSDK.get_catalog()
 		#YandexSDK.check_unprocessed_purchases()
-	AudioManager.music_start()
+	#AudioManager.music_start()
+
 
 func check_tutorial() -> void:
 	if PlayerIndicatorsManager.GAMEPLAY_TUTORIL == 0 and current_location == 1:

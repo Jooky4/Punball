@@ -45,14 +45,14 @@ func register(tag: String, value: String) -> void:
 		gp.uniques.register(conf)
 	else:
 		push_warning("Not running on Web")
-	
+
 
 func get_value(tag: String) -> String:
 	if OS.get_name() == "Web":
 		return gp.uniques.get(tag)
 	push_warning("Not running on Web")
 	return ""
-	
+
 
 func list() -> Array:
 	if OS.get_name() == "Web":
@@ -60,7 +60,7 @@ func list() -> Array:
 		return unique_values
 	push_warning("Not running on Web")
 	return []
-	
+
 signal _check(a:bool)
 
 func check(tag: String, value: String) -> bool:
@@ -78,7 +78,7 @@ func check(tag: String, value: String) -> bool:
 	else:
 		push_warning("Not running on Web")
 		return false
-	
+
 
 func delete_unique(tag: String) -> void:
 	if OS.get_name() == "Web":
@@ -96,7 +96,7 @@ func _registered(args) -> void:
 
 func _registration_error(args) -> void:
 	register_error.emit(args[0])
-	
+
 
 func _checked(args) -> void:
 	var unique_value = UniqueValue.new()
@@ -116,12 +116,12 @@ func _deleted(args) -> void:
 
 func _delete_error(args) -> void:
 	delete_error.emit(args[0])
-	
-	
+
+
 
 class UniqueValue:
 	extends GP.GPObject
-	
+
 	var tag: String
 	var value: Variant
 
@@ -129,7 +129,7 @@ class UniqueValue:
 		tag = js_obj.tag
 		value = js_obj.value
 		return self
-		
+
 	func _to_js() -> JavaScriptObject:
 		var js_object = JavaScriptBridge.create_object("Object")
 		js_object["tag"] = tag

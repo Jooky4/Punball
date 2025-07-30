@@ -49,7 +49,7 @@ func request_review() -> void:
 		app.requestReview().then(_callback_request_review)
 		return
 	push_warning("Not running on Web")
-	
+
 func _request_review(args):
 	review_requested.emit(args[0]["success"], args[0]["rating"], args[0]["error"])
 
@@ -66,7 +66,7 @@ func add_shortcut() -> void:
 		app.addShortcut().then(_callback_add_shortcut)
 		return
 	push_warning("Not running on Web")
-	
+
 func _add_shortcut(args):
 	shortcut_added.emit(args[0])
 

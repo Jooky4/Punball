@@ -23,6 +23,12 @@ func _ready() -> void:
 	elif LevelManager.win_or_lose == "lose":
 		lose()
 
+	if GP.Ads.is_rewarded_available():
+		$Button_AD.show()
+	else:
+		$Button_AD.hide()
+
+
 
 func _on_go_to_menu_pressed() -> void:
 	AudioManager.click()
@@ -100,6 +106,7 @@ func bonus_for_AD() -> void:
 
 
 func win() -> void:
+	prints("win()")
 	$Win_Lose_Label/Win.visible = true
 	$Win_Lose_Label/TextureRect8.visible = true
 	$Win_Lose_Label/Lose.visible = false
@@ -108,6 +115,7 @@ func win() -> void:
 
 
 func lose() -> void:
+	prints("lose()")
 	$Win_Lose_Label/Lose.visible = true
 	$Win_Lose_Label/Win.visible = false
 	$Win_Lose_Label/TextureRect8.visible = false

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://r6tqk3m2305e"]
 
-[ext_resource type="Script" uid="uid://b0kw8objpwkjr" path="res://Scenes/Effects/ball_effect.gd" id="1_fg47w"]
+[ext_resource type="Script" path="res://Scenes/Effects/ball_effect.gd" id="1_fg47w"]
 [ext_resource type="Texture2D" uid="uid://d000qqmoke8dh" path="res://Texture/Effects/дым.png" id="2_f3thl"]
 
 [sub_resource type="Curve" id="Curve_87t57"]

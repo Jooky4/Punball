@@ -10,12 +10,22 @@ extends Control
 @onready var timer_2 = $Timer2
 @onready var label_time = $TextureRect4/Label_time
 
+@onready var revival_for_ad_head: Control = $TextureRect4/RevivalForAdHead
+@onready var revival_for_ad_button: Button = $TextureRect4/AD
 
 func _ready() -> void:
 	#YandexSDK.connect("rewarded_ad", rew_ad_res)
 	GP.Ads.rewarded_close.connect(rew_ad_close)
 	GP.Ads.rewarded_reward.connect(rew_ad_res.bind("rewarded"))
 	GP.Ads.rewarded_start.connect(rew_ad_res.bind("opened"))
+
+	if GP.Ads.is_rewarded_available():
+		revival_for_ad_head.show()
+		revival_for_ad_button.show()
+	else:
+		revival_for_ad_head.hide()
+		revival_for_ad_button.hide()
+
 
 
 func update_player_state() -> void:

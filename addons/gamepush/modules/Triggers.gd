@@ -61,7 +61,7 @@ func list() -> Array:
 	else:
 		push_warning("Not running on Web")
 	return trigger_list
-	
+
 func activated_list() -> Array:
 	var activated_triggers: Array = []
 	if OS.get_name() == "Web":
@@ -73,8 +73,8 @@ func activated_list() -> Array:
 	else:
 		push_warning("Not running on Web")
 	return activated_triggers
-	
-	
+
+
 func get_trigger(trigger_id: String) -> Dictionary:
 	var trigger_info: Dictionary = {}
 	if OS.get_name() == "Web":
@@ -122,10 +122,10 @@ func _is_valid_id(id:Variant):
 		if id_int in list_id:
 			return true
 	return false
-	
+
 class Trigger:
 	extends GP.GPObject
-	
+
 	var id: String
 	var tag: String
 	var description: String
@@ -140,7 +140,7 @@ class Trigger:
 		js_object["tag"] = tag
 		js_object["description"] = description
 		js_object["isAutoClaim"] = is_auto_claim
-		
+
 		# Convert conditions to JavaScript
 		var js_conditions := JavaScriptBridge.create_object("Array")
 		for condition_list in conditions:
@@ -149,13 +149,13 @@ class Trigger:
 				js_condition_list.push(condition._to_js())
 			js_conditions.push(js_condition_list)
 		js_object["conditions"] = js_conditions
-		
+
 		# Convert bonuses to JavaScript
 		var js_bonuses := JavaScriptBridge.create_object("Array")
 		for bonus in bonuses:
 			js_bonuses.push(bonus._to_js())
 		js_object["bonuses"] = js_bonuses
-		
+
 		return js_object
 
 	# Method to initialize the trigger from a JSON object
@@ -164,7 +164,7 @@ class Trigger:
 		tag = js_object["tag"]
 		description = js_object["description"]
 		is_auto_claim = js_object["isAutoClaim"]
-		
+
 		# Initialize conditions from JavaScript
 		conditions = Array()
 		var callback_conditions := JavaScriptBridge.create_callback(func(args):
@@ -174,7 +174,7 @@ class Trigger:
 			args[0].forEach(callback_condition_list)
 			conditions.append(condition_list))
 		js_object["conditions"].forEach(callback_conditions)
-		
+
 		# Initialize bonuses from JavaScript
 		bonuses = Array()
 		var callback_bonuses := JavaScriptBridge.create_callback(func(args):
@@ -184,7 +184,7 @@ class Trigger:
 
 class Bonus:
 	extends GP.GPObject
-	
+
 	var type: String
 	var id: int
 	# Method to convert the bonus to a JSON object
@@ -202,7 +202,7 @@ class Bonus:
 
 class Condition:
 	extends GP.GPObject
-	
+
 	var type: String
 	var key: String
 	var operator: String
@@ -224,4 +224,3 @@ class Condition:
 		operator = js_object["operator"]
 		value = js_object["value"]
 		return self
-		

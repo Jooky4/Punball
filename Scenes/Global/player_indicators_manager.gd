@@ -53,12 +53,17 @@ var CHARACTER_3_UP_ATTACK_FROM_OZ : float = 1.0
 var GAMEPLAY_TUTORIL : int = 0
 var TALANTS_TUTORIL : int = 0
 
-func _ready() -> void:
-	#YandexSDK.connect("data_loaded", player_date_loaded)
-	GP.Storage.get_success.connect(player_date_loaded)
+var is_data_ready: bool
+signal is_ready
+
+
+func _on_player_ready() -> void:
+	#prints("PIM _on_player_ready()")
+	update_player_date_in_game()
 
 
 func update_player_date_in_game() -> void:
+	#prints("PIM -> [after_ready] update_player_date_in_game()")
 	#YandexSDK.load_data(["coins",
 						 #"crystals",
 						 #"rune",
@@ -148,10 +153,13 @@ func update_player_date_on_server() -> void:
 	prints("save player data", _player_data)
 	var _player_data_string = JSON.stringify(_player_data)
 	GP.Player.set_value(Constants.PLAYER_PROGRESS, _player_data_string)
+	prints("PIM player.sync()")
 	GP.Player.sync()
 
 
 func player_date_loaded(data) -> void:
+	#prints("PIM -> player_data_loaded()", data)
+
 	if data != {}:
 		COINS_COUNT = data["coins"]
 		CRYSTALS_COUNT = data["crystals"]
@@ -210,6 +218,9 @@ func player_date_loaded(data) -> void:
 		CHARACTER_3_LVL = 0
 		GAMEPLAY_TUTORIL = 0
 		TALANTS_TUTORIL = 0
+
+	is_data_ready = true
+	is_ready.emit()
 
 func update_count_max_wave(max_wave) -> void:
 	if max_wave > MAX_WAVE_ON_CURRENT_LOCATIONS:

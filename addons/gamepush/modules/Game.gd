@@ -23,7 +23,7 @@ func _ready():
 	else:
 		push_warning("Not Web")
 	after_ready.emit()
-		
+
 func is_paused() -> bool:
 	if OS.get_name() == "Web":
 		return gp.isPaused
@@ -36,7 +36,7 @@ func pause() -> void:
 		gp.pause()
 	else:
 		push_warning("Not Web")
-		
+
 func resume() -> void:
 	if OS.get_name() == "Web":
 		gp.resume()
@@ -50,7 +50,7 @@ func game_start() -> void:
 		gp.gameStart()
 	else:
 		push_warning("Not Web")
-		
+
 func gameplay_start() -> void:
 	if OS.get_name() == "Web":
 		gp.gameplayStart()
@@ -65,5 +65,5 @@ func gameplay_stop() -> void:
 
 #TODO happytime
 
-func _pause(args): paused.emit() 
+func _pause(args): paused.emit()
 func _resume(args): resumed.emit()

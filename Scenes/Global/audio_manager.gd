@@ -1,5 +1,6 @@
 extends Node2D
 
+# TODO: переименовать в MUSIC_LIST
 var MUSIC_PULL = [
 	#preload("res://Resources/Music/music.ogg"), # volume -27 db
 	preload("res://Resources/Music/music_cut_58sec.mp3")
@@ -228,17 +229,44 @@ var sfx_config = {
 func _ready():
 	get_viewport().connect("focus_entered", _on_focus_entered)
 	get_viewport().connect("focus_exited", _on_focus_exited)
+	GP.Game.paused.connect(_on_paused)
+	GP.Game.resumed.connect(_on_focus_entered)
+
+
+func _on_paused() -> void:
+	prints("AM -> _on_pause()")
+	_on_focus_exited()
+
+
+func _on_resumed() -> void:
+	prints("AM -> _on_resumed()")
+	_on_focus_entered()
+
+
+#func _notification(what: int) -> void:
+	#match what:
+		## Проверяем, что произошло событие потери фокуса окна (вкладка стала неактивной).
+		#NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		## Ставим игру на паузу.
+			#get_tree().set_pause(true)
+			## Отключаем звук на главном аудиобусе (индекс 0 — это обычно мастер-канал).
+			#_on_focus_exited()
+		## Проверяем, что произошло событие возврата фокуса окна (вкладка снова активна).
+		#NOTIFICATION_WM_WINDOW_FOCUS_IN:
+			## Снимаем игру с паузы.
+			#get_tree().set_pause(false)
+			#_on_focus_exited()
 
 
 func _on_focus_entered():
 	if get_tree().current_scene.has_method("revavil_player"):
-		#YandexSDK.gameplay_started()
 		GP.Game.resume()
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+
+	if not GP.Ads.is_preloader_playing():
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 
 
 func _on_focus_exited():
-	#YandexSDK.gameplay_stopped()
 	GP.Game.pause()
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 

@@ -170,7 +170,7 @@ func _ready() -> void:
 	self.visible = false
 
 
-func _on_continue_game_pressed() -> void:
+func _on_continue_game_pressed(rewarded_already_show: bool) -> void:
 	for i in windows_skill.get_children():
 		i.queue_free()
 
@@ -179,10 +179,11 @@ func _on_continue_game_pressed() -> void:
 	count_get_skill += 1
 	if count_get_skill % 3 == 0:
 		show_AD = true
+
 	LevelManager.spin_skill -= 1
 
 	if LevelManager.spin_skill <= 0:
-		if show_AD:
+		if show_AD and not rewarded_already_show:
 			#YandexSDK.show_interstitial_ad()
 			GP.Ads.show_fullscreen()
 			AudioServer.set_bus_mute(0, true)
@@ -459,7 +460,7 @@ func _on_skill_3_pressed() -> void:
 		add_skill(skills[2][0])
 
 
-func add_skill(skill) -> void:
+func add_skill(skill, rewarded_already_show: bool = false) -> void:
 	match skill:
 		"Рассыпающийся шар":
 			LevelManager.add_ball(2)
@@ -584,7 +585,7 @@ func add_skill(skill) -> void:
 			ElementsManager.technologies_modifier += 0.4
 			LevelManager.player_skills.append("Повелитель технологий")
 
-	_on_continue_game_pressed()
+	_on_continue_game_pressed(rewarded_already_show)
 
 
 func _on_update_skill_button_pressed() -> void:
@@ -596,6 +597,7 @@ func _on_update_skill_button_pressed() -> void:
 			i.queue_free()
 		skills.clear()
 		create_skill()
+
 
 func _on_skill_for_ad_pressed(extra_arg_0: int) -> void:
 	AudioManager.click()
@@ -622,7 +624,7 @@ func rew_ad_res(result:String) -> void:
 		GP.Game.resume()
 	elif result == "rewarded":
 		LevelManager.buy_skill(LevelManager.count_experiance)
-		add_skill(skills[skil_for_ad][0])
+		add_skill(skills[skil_for_ad][0], true)
 	elif result == "opened":
 		AudioServer.set_bus_mute(0, true)
 
@@ -639,9 +641,12 @@ func create_free_skill() -> void:
 	for i in bye_button.get_children():
 		i.disabled = true
 		i.texture_normal = BUTTON_CAN_PRESS_TEXTURE
-		for j in i.get_children():
-			if "AD" in j.name:
-				j.visible = false
+		if GP.Ads.is_rewarded_available():
+			for j in i.get_children():
+				# Bye_button/Skill_3/Skill_3_for_AD
+				if "AD" in j.name:
+					j.visible = false
+
 	var skill_can_drop = []
 	skill_can_drop.append_array(regular)
 	skill_can_drop.append_array(rare)
@@ -696,6 +701,7 @@ func create_free_skill() -> void:
 		for j in button_arr[i].get_children():
 			if "Button" in j.name:
 				j.disabled = false
+
 
 func bubble_sort(arr: Array) -> Array:
 	var n = arr.size()

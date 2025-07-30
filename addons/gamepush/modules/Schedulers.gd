@@ -54,7 +54,7 @@ func _ready():
 		schedulers.on("join", callback_on_join)
 		schedulers.on("error:join", callback_on_error_join)
 	after_ready.emit()
-	
+
 
 signal _register(a:JavaScriptObject)
 
@@ -151,7 +151,7 @@ func get_scheduler(id_or_tag: Variant) -> SchedulerInfo:
 		var result = gp.schedulers.getScheduler(id_or_tag)
 		scheduler_info._from_js(result)
 		return scheduler_info
-		
+
 	push_warning("Not running on Web")
 	return SchedulerInfo.new()
 
@@ -164,7 +164,7 @@ func get_scheduler_day(id_or_tag: Variant, day: int) -> SchedulerDayInfo:
 		var result = gp.schedulers.getSchedulerDay(id_or_tag, day)
 		scheduler_day_info._from_js(result)
 		return scheduler_day_info
-		
+
 	push_warning("Not running on Web")
 	return SchedulerDayInfo.new()
 
@@ -174,13 +174,13 @@ func get_scheduler_current_day(id_or_tag: Variant) -> SchedulerDayInfo:
 	if OS.get_name() == "Web":
 		var scheduler_day_info: SchedulerDayInfo = SchedulerDayInfo.new()
 		var result = gp.schedulers.getSchedulerCurrentDay(id_or_tag)
-		
+
 		scheduler_day_info._from_js(result)
 		return scheduler_day_info
 
 	push_warning("Not running on Web")
 	return SchedulerDayInfo.new()
-	
+
 
 func is_registered(id_or_tag: Variant) -> bool:
 	if OS.get_name() == "Web":
@@ -237,7 +237,7 @@ func can_claim_all_day(id_or_tag: Variant, day: int) -> bool:
 
 func _on_error_register(args) -> void:
 	error_register.emit(args[0])
-	
+
 func _on_claim_day(args) -> void:
 	var scheduler_day_info: SchedulerDayInfo = SchedulerDayInfo.new()
 	scheduler_day_info._from_js(args[0])
@@ -282,7 +282,7 @@ func _on_error_join(args) -> void:
 
 class Scheduler:
 	extends GP.GPObject
-	
+
 	var id: int
 	var tag: String
 	var type: String
@@ -300,7 +300,7 @@ class Scheduler:
 		js_object["days"] = days
 		js_object["isRepeat"] = is_repeat
 		js_object["isAutoRegister"] = is_auto_register
-		
+
 		var js_triggers := JavaScriptBridge.create_object("Array")
 		for trigger in triggers:
 			js_triggers.push(trigger._to_js())
@@ -316,17 +316,17 @@ class Scheduler:
 		days = js_object["days"]
 		is_repeat = js_object["isRepeat"]
 		is_auto_register = js_object["isAutoRegister"]
-		
+
 		triggers = []
-		var callback := JavaScriptBridge.create_callback(func(args): 
+		var callback := JavaScriptBridge.create_callback(func(args):
 			triggers.append(GP.Triggers.Trigger.new()._from_js(args[0])))
 		js_object["triggers"].forEach(callback)
-		
+
 		return self
 
 class PlayerScheduler:
 	extends GP.GPObject
-	
+
 	var scheduler_id: int
 	var days_claimed: Array[int]
 	var stats: PlayerStats
@@ -356,7 +356,7 @@ class PlayerScheduler:
 
 class PlayerStats:
 	extends GP.GPObject
-	
+
 	var active_days: int
 	var active_days_consecutive: int
 
@@ -375,7 +375,7 @@ class PlayerStats:
 
 class SchedulerInfo:
 	extends GP.GPObject
-	
+
 	#var scheduler: Scheduler
 	var stats: PlayerStats
 	var days_claimed: Array[int]
@@ -410,7 +410,7 @@ class SchedulerInfo:
 
 class SchedulerDayInfo:
 	extends GP.GPObject
-	
+
 	var scheduler: Scheduler
 	var day: int
 	var is_day_reached: bool

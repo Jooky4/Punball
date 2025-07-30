@@ -13,7 +13,7 @@ func _ready():
 			gp = GP.gp
 			await get_tree().create_timer(0.01).timeout
 	after_ready.emit()
-	
+
 func time() -> String:
 	if OS.get_name() == "Web":
 		return gp.serverTime

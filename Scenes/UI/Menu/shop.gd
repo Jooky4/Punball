@@ -19,13 +19,18 @@ var shop_items: Dictionary = {
 }
 
 func update_price(catalog_items) -> void:
+	var avail_price: Array
+
 	for i in catalog_items:
 		var shop_item
 		var _id = i["tag"]
+		var _item = shop_items[_id]
+		avail_price.push_back(_id)
+
 		if "coins" in _id:
-			shop_item = coins_grid_container.get_node(shop_items[_id])
+			shop_item = coins_grid_container.get_node(_item)
 		elif "crystal" in _id:
-			shop_item = crystal_grid_container.get_node(shop_items[_id])
+			shop_item = crystal_grid_container.get_node(_item)
 
 		# для яндекса
 		if false and shop_item:
@@ -41,8 +46,19 @@ func update_price(catalog_items) -> void:
 			shop_item.price = val[0]
 			shop_item.currency = val[1]
 
+		#prints("Товар: ", i["tag"], "price", i["price"], "currency", i["currency"], "currencySymbol", i["currency_symbol"])
 		shop_item.price = i["price"]
-		shop_item.currency = i["currency"]
+		#shop_item.currency = i["currency"]
+		shop_item.currency = i["currency_symbol"]
+
+	# Прячем недоступные товары
+	for i in shop_items.keys():
+		var _item = shop_items[i]
+		if i not in avail_price:
+			if "coins" in i:
+				coins_grid_container.get_node(_item).hide()
+			elif "crystal" in i:
+				crystal_grid_container.get_node(_item).hide()
 
 
 func _on_coins_1_pressed() -> void:

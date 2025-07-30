@@ -14,7 +14,7 @@ func _ready():
 	else:
 		push_warning("Not running on Web")
 	after_ready.emit()
-	
+
 
 func _yield_until_gp_ready():
 	gp = GP.gp

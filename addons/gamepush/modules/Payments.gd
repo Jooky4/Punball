@@ -241,6 +241,9 @@ class PlayerPurchase:
 	var subscribed: bool
 	var expired_at: String
 
+	# добавил 27.07
+	var tag: String
+
 	func _to_js():
 		var js_object := JavaScriptBridge.create_object("Object")
 		js_object["productId"] = product_id
@@ -250,6 +253,9 @@ class PlayerPurchase:
 		js_object["gift"] = gift
 		js_object["subscribed"] = subscribed
 		js_object["expiredAt"] = expired_at
+
+		# добавил 27.07
+		js_object["tag"] = tag
 		return js_object
 
 	func _from_js(js_object) -> PlayerPurchase:
@@ -259,4 +265,7 @@ class PlayerPurchase:
 		gift = js_object["gift"]
 		subscribed = js_object["subscribed"]
 		expired_at = js_object["expiredAt"]
+
+		# добавил 27.07
+		tag = js_object["tag"]
 		return self

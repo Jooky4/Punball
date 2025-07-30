@@ -488,7 +488,6 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Level_up_UI" parent="." instance=ExtResource("26_sicc2")]
-visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="Button_AD" to="." method="_on_button_ad_pressed"]

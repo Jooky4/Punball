@@ -15,6 +15,7 @@ var scene_aliases: Dictionary = {
 @onready var debug_label: Label = $DebugLabel
 @onready var fps_indicator: Label = $FpsIndicator
 
+@onready var canvas = JavaScriptBridge.get_interface("document").getElementById("canvas")
 
 func _ready():
 	if Constants.SHOW_FPS:
